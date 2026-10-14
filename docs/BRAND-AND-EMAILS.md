@@ -24,11 +24,11 @@ node scripts/brand-emails.mjs
 
 PNG and ICO exports are checked in. If vector geometry changes, re-export the vectors at the dimensions above using an SVG renderer; the generator does not require or install a raster tool.
 
-Templates use inline colors and table layout, a hidden preheader, system-font fallbacks, an Outlook fixed-width wrapper, mobile spacing, full-width action buttons and visible copyable URLs. A text wordmark remains readable when images are blocked. Dark-mode styling is explicit, but individual clients can still transform colors.
+Templates use inline colors and table layout, a hidden preheader, system-font fallbacks, an Outlook fixed-width wrapper, mobile spacing and full-width action buttons. A text wordmark remains readable when images are blocked. The HTML fallback uses a descriptive secure link; plain-text companions retain the full URL. The latest layout, research, publication and Gmail mobile color fixes are documented in [EMAIL-DESIGN.md](EMAIL-DESIGN.md).
 
 No OTP code appears in the five link-based emails because v2's current screens do not offer code entry. The reauthentication template is a prepared design for an optional future flow; it does not enable that flow. The account invitation template describes account access, not coach access. These are English templates matching the v2 UI; they do not replace the legacy app's localized email renderer.
 
-## Publication checklist — not performed
+## Publication procedure
 
 1. Deploy the v2 application and `public/brand` assets through the normal release process. Verify `https://kinra.fit/brand/kinra-mark.png` returns the new PNG. Email images use `{{ .SiteURL }}/brand/kinra-mark.png`, so the configured Site URL must identify this deployed app. Do not activate templates before the image is available.
 2. Export the existing hosted Supabase Auth template settings as a rollback copy. This project shares Auth infrastructure with the legacy app, so a hosted template update affects every app using those settings. Coordinate that switch with the v2 release and preserve existing localization if legacy users still require it.
@@ -41,4 +41,4 @@ Source for hosted template fields and variables: [Supabase Auth email templates]
 
 ## Validation performed
 
-TypeScript and the production build pass. Changed-file lint is clean; full-project lint has zero errors and 44 existing Fast Refresh warnings. All 68 tests across 17 files pass. Static validation checks all six HTML documents, action/fallback links, token placement and the twelve-field publication bundle. Logo PNGs were visually inspected. The mobile template has 248px of text space at a 320px viewport, with wrapping headlines and breakable fallback URLs. Browser automation rejected local-file previews, so the HTML gallery has not been visually verified in a browser or email client. No emails sent, hosted templates changed, SMTP settings modified or deployment performed.
+TypeScript and the production build pass. Changed-file lint is clean; full-project lint has zero errors and 44 existing Fast Refresh warnings. All 68 tests across 17 files pass. Static validation checks all six HTML documents, action/fallback links, token placement and the twelve-field publication bundle. Logo PNGs were visually inspected. The templates were subsequently reviewed through a localhost preview at desktop and 320px embedded widths, then published to hosted Supabase Auth for confirmation and recovery. Fresh messages using the redesigned layout arrived in the owner's Gmail inbox with SPF and DKIM passing. Signup verification and password reset through Auth were checked on synthetic QA accounts. See [EMAIL-DESIGN.md](EMAIL-DESIGN.md) for the client-specific limitations and current evidence.
