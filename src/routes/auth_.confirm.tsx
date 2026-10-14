@@ -4,6 +4,7 @@ import { readAuthCallback } from "@/lib/auth-callback";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Logo } from "@/components/brand/logo";
 
 export const Route = createFileRoute("/auth_/confirm")({ ssr: false, component: ConfirmEmail });
 function ConfirmEmail() {
@@ -40,6 +41,9 @@ function ConfirmEmail() {
   }, [navigate]);
   return (
     <main className="mx-auto max-w-md px-6 py-12">
+      <a href="/" aria-label="Kinra home" className="mb-10 block w-fit">
+        <Logo />
+      </a>
       <h1 className="text-title-l font-bold">Kinra account</h1>
       <p role="status" className="my-6">
         {status}

@@ -27,6 +27,12 @@ Run `supabase/verify.sql` to test actual database owner access and cross-account
 
 Supabase Auth uses the existing Resend SMTP integration (`smtp.resend.com:465`, sender `Kinra <hello@mail.kinra.fit>`). The sending domain is verified. Keep SMTP credentials in Supabase and the existing server-only Vercel Resend configuration. Account confirmation and password recovery use `/auth/confirm`; both callback URLs are allowed in Supabase. The callback handles implicit sessions, token hashes and PKCE codes. Google sign-in is shown only if `VITE_GOOGLE_AUTH_ENABLED=true` and the provider has been configured in Supabase.
 
+## Brand and email design
+
+See [docs/BRAND-AND-EMAILS.md](docs/BRAND-AND-EMAILS.md) for editable logo assets, the local email gallery, the Supabase template bundle and release instructions. Hosted email templates require a separate coordinated activation after the new brand assets are deployed.
+
+Confirmation and password recovery match current app flows. Magic-link sign-in, account invitation, email-change and reauthentication designs are prepared templates only; this redesign does not add or enable those flows. No hosted templates or app deployment were published as part of this change.
+
 ## Repair verification
 
 See [docs/REPAIRS.md](docs/REPAIRS.md) for the repair scope, evidence and remaining verification limits. Historical import/audit artifacts are retained locally under `audit/` and excluded from Git and deployment uploads.

@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Logo } from "@/components/brand/logo";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -74,8 +75,8 @@ function AuthPage() {
 
   return (
     <div className="grid-lines mx-auto flex min-h-dvh max-w-md flex-col px-6 py-8">
-      <Link to="/" className="font-display text-xl font-black [font-stretch:125%]">
-        KINRA<span className="text-volt">.</span>
+      <Link to="/" className="w-fit" aria-label="Kinra home">
+        <Logo />
       </Link>
       <div className="mt-auto">
         {sent ? (

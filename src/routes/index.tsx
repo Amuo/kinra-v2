@@ -19,6 +19,7 @@ import {
 import hero from "@/assets/hero.jpg";
 import { Ring } from "@/components/strata/ui";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/brand/logo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,14 +51,6 @@ function useDemo() {
     sessionStorage.setItem("strata-demo", as);
     navigate({ to: "/app" });
   };
-}
-
-function Logo() {
-  return (
-    <div className="font-display text-title font-black tracking-tight [font-stretch:125%]">
-      KINRA<span className="text-volt">.</span>
-    </div>
-  );
 }
 
 function HeroImage({ className }: { className?: string }) {
