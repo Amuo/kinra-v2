@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { motion } from "motion/react";
+import { motion, useMotionValue, useTransform } from "motion/react";
 import { toast } from "sonner";
 import { useAct } from "@/lib/api";
 import type { LogTable, LogTables } from "@/lib/types";
@@ -30,7 +30,7 @@ export function useRemoveWithUndo<T extends LogTable>(table: T) {
   };
 }
 
-/** The explicit delete button is also available to keyboard and assistive users. */
+/** Swipe left to delete; keyboard and assistive users retain a focus-only action. */
 export function SwipeRow({
   onDelete,
   children,
@@ -40,14 +40,17 @@ export function SwipeRow({
   children: ReactNode;
   label: string;
 }) {
+  const x = useMotionValue(0);
+  const reveal = useTransform(x, [-90, -12, 0], [1, 0.35, 0]);
   return (
     <div className="relative overflow-hidden rounded-tile">
-      <div
+      <motion.div
         className="absolute inset-0 flex items-center justify-end rounded-tile bg-destructive/20 pr-4 text-label font-semibold text-destructive"
+        style={{ opacity: reveal }}
         aria-hidden
       >
-        Delete
-      </div>
+        <Trash2 className="mr-2 size-4" /> Delete
+      </motion.div>
       <motion.div
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
@@ -55,6 +58,7 @@ export function SwipeRow({
         dragDirectionLock
         onDragEnd={(_, i) => i.offset.x < -90 && onDelete()}
         className="relative"
+        style={{ x, touchAction: "pan-y" }}
         aria-label={label}
       >
         {children}
@@ -63,7 +67,7 @@ export function SwipeRow({
         type="button"
         variant="ghost"
         size="sm"
-        className="my-1 ml-auto flex text-muted-foreground"
+        className="pointer-events-none absolute inset-y-1 right-1 z-10 h-auto bg-surface-2 text-destructive opacity-0 focus:pointer-events-auto focus:opacity-100"
         aria-label={`Delete ${label.replace(/: swipe left to delete$/, "")}`}
         onClick={onDelete}
       >
