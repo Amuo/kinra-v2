@@ -1,0 +1,8 @@
+audit/
+.env*
+!.env.example
+.git/
+.lovable/
+.wrangler/
+.output/
+node_modules/
