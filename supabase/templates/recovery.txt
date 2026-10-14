@@ -1,10 +1,10 @@
 Reset your Kinra password
 
-You requested a password reset. Follow the link below to choose a new password and get back into your account.
+Let’s get you back in. Choose a new password to return to your training, nutrition and recovery.
 
-Reset password: {{ .ConfirmationURL }}
+Reset my password: {{ .ConfirmationURL }}
 
-This link works once. If it has expired, request another reset from the Kinra sign-in screen.
+Made for you. Valid once. If this link has expired, request a new one from the Kinra sign-in screen.
 
 If you didn’t request this, ignore this email. Your password will stay the same.
 
