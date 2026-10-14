@@ -19,4 +19,16 @@ The live templates are configured in Supabase project `ztbwycesqodjvseqhygh`, un
 
 Original hosted subjects and bodies were backed up locally before replacement. Public assets were deployed and checked before activating the templates. Local previews use inactive sample links. The generator's native table layout was visually reviewed at desktop and 320px embedded widths in light and dark styles. This is not a claim of testing every email client.
 
-Actual inbox verification for this revision is recorded below after delivery testing.
+## Inbox verification — 14 October 2026
+
+Signup and reset messages with the redesigned layout arrived in the owner's Gmail inbox at 15:29:36 and 15:29:49 PDT. Both passed SPF and DKIM. The signup link confirmed the synthetic QA account. The reset link retained the recovery callback, allowed a password update through the Auth API, rejected the old password and accepted the new one. No existing user's password was changed. The signup and reset designs were inspected in Gmail, independently of Resend delivery status.
+
+The production Git build passed TypeScript, lint (zero errors, 44 existing warnings), all 68 tests and the production bundle. Original hosted templates are retained in an ignored local rollback file; credentials and one-time links are not included in this document.
+
+## Gmail mobile color preservation
+
+Gmail mobile can invert solid colors and ignore `prefers-color-scheme`. A single-color gradient now protects the volt button and footer accents. The action remains live HTML text: Gmail-only multiply and difference blend layers preserve dark text on the lime surface. Other clients retain the ordinary inline styles. This extends the technique described in [Rémi Parmentier's original Gmail blend-mode research](https://www.hteumeuleu.com/2021/fixing-gmail-dark-mode-css-blend-modes/) and the [Litmus background-color guide](https://www.litmus.com/blog/background-colors-html-email).
+
+Normal and inverted black/white blend states were visually compared at a 320px embedded width. That simulation checks the blend operation, not the actual Gmail iOS/Android app. Desktop Gmail alone cannot establish behavior on every mobile app version.
+
+The hosted Auth service caches template bodies. The [upstream default is ten minutes](https://github.com/supabase/auth/blob/master/internal/conf/configuration.go); verify the received HTML after edits rather than assuming the editor's saved state proves the next email uses it. Previously delivered emails retain their original HTML. Gmail may group old and new QA messages in the same conversation.
