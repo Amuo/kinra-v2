@@ -1,0 +1,11 @@
+Reset your Kinra password
+
+You requested a password reset. Follow the link below to choose a new password and get back into your account.
+
+Reset password: {{ .ConfirmationURL }}
+
+This link works once. If it has expired, request another reset from the Kinra sign-in screen.
+
+If you didn’t request this, ignore this email. Your password will stay the same.
+
+KINRA — Train. Fuel. Recover.

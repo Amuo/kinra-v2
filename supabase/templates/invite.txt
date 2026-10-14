@@ -1,0 +1,11 @@
+You’re invited to Kinra
+
+You’ve been invited to create a Kinra account. Open your invitation to get started with training, nutrition and recovery in one place.
+
+Accept invitation: {{ .ConfirmationURL }}
+
+This invitation creates account access. It does not grant a coach permission to view your records.
+
+If you weren’t expecting this invitation, you can ignore this email.
+
+KINRA — Train. Fuel. Recover.

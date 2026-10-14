@@ -1,0 +1,11 @@
+Confirm your email change for Kinra
+
+You requested an email address change for your Kinra account. Confirm this address to continue. You may need to confirm the change from both inboxes.
+
+Confirm email change: {{ .ConfirmationURL }}
+
+Only confirm if you requested this change. This link works once.
+
+If you didn’t request this change, don’t use this link. Review your account security in Kinra.
+
+KINRA — Train. Fuel. Recover.

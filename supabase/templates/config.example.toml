@@ -1,0 +1,24 @@
+# Versioned local email templates. Hosted templates are configured separately.
+[auth.email.template.confirmation]
+subject = "Confirm your email for Kinra"
+content_path = "./supabase/templates/confirmation.html"
+
+[auth.email.template.recovery]
+subject = "Reset your Kinra password"
+content_path = "./supabase/templates/recovery.html"
+
+[auth.email.template.magic_link]
+subject = "Your Kinra sign-in link"
+content_path = "./supabase/templates/magic_link.html"
+
+[auth.email.template.invite]
+subject = "You’re invited to Kinra"
+content_path = "./supabase/templates/invite.html"
+
+[auth.email.template.email_change]
+subject = "Confirm your email change for Kinra"
+content_path = "./supabase/templates/email_change.html"
+
+[auth.email.template.reauthentication]
+subject = "Your Kinra verification code"
+content_path = "./supabase/templates/reauthentication.html"

@@ -1,0 +1,11 @@
+Confirm your email for Kinra
+
+Confirm your email to finish setting up Kinra. Your space for training, nutrition and recovery starts here.
+
+Confirm email: {{ .ConfirmationURL }}
+
+This link works once. If it has expired, return to Kinra and request a new confirmation email.
+
+If you didn’t create a Kinra account, you can ignore this email.
+
+KINRA — Train. Fuel. Recover.

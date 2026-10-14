@@ -1,0 +1,11 @@
+Your Kinra sign-in link
+
+Use this secure link to sign in to your Kinra account and pick up where you left off.
+
+Sign in to Kinra: {{ .ConfirmationURL }}
+
+This link works once. Open it on the device where you want to use Kinra.
+
+If you didn’t request a sign-in link, you can ignore this email.
+
+KINRA — Train. Fuel. Recover.

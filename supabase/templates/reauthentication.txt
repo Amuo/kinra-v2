@@ -1,0 +1,11 @@
+Your Kinra verification code
+
+Enter this code in the Kinra verification screen to confirm it’s you before continuing with your requested account change.
+
+Verification code: {{ .Token }}
+
+Use this code only in the verification screen you opened. Never share it with anyone.
+
+If you didn’t request this code, you can ignore this email.
+
+KINRA — Train. Fuel. Recover.
