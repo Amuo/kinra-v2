@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import type { EmailOtpType } from "@supabase/supabase-js";
+import { readAuthCallback } from "@/lib/auth-callback";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,25 +17,18 @@ function ConfirmEmail() {
     if (started.current) return;
     started.current = true;
     const confirm = async () => {
-      const params = new URLSearchParams(window.location.search);
-      const hash = new URLSearchParams(window.location.hash.slice(1));
-      const recoveryFlow =
-        params.get("flow") === "recover" ||
-        params.get("type") === "recovery" ||
-        hash.get("type") === "recovery";
-      const token = params.get("token_hash");
-      const type = params.get("type") ?? (recoveryFlow ? "recovery" : "email");
-      if (!["signup", "email", "magiclink", "invite", "recovery", "email_change"].includes(type))
-        throw new Error("This confirmation link is invalid.");
+      const { recoveryFlow, token, type, code, cleanPath } = readAuthCallback(
+        new URL(window.location.href),
+      );
       const result = token
-        ? await supabase.auth.verifyOtp({ token_hash: token, type: type as EmailOtpType })
-        : params.get("code")
-          ? await supabase.auth.exchangeCodeForSession(params.get("code")!)
+        ? await supabase.auth.verifyOtp({ token_hash: token, type })
+        : code
+          ? await supabase.auth.exchangeCodeForSession(code)
           : await supabase.auth.getSession();
       if (result.error) throw result.error;
       if (!result.data.session)
         throw new Error("This link is expired or has already been used. Request a new email.");
-      window.history.replaceState(null, "", "/auth/confirm");
+      window.history.replaceState(null, "", cleanPath);
       if (recoveryFlow) {
         setRecovery(true);
         setStatus("Choose your new password.");

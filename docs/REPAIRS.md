@@ -11,7 +11,7 @@
 
 Validation before release: 64 tests across 16 files passed; TypeScript passed; ESLint had zero errors (44 development Fast Refresh export warnings); Cloudflare and Vercel production builds passed; Bun audit reported zero advisories. PostgreSQL tests execute the full migration and an additional namespaced production installation against legacy-table fixtures.
 
-Live database verification uses `supabase/verify.sql` and rolls back synthetic data. Email provider/domain/SMTP/callback configuration can be verified without sending a message; a fresh inbox-delivery and account-recovery run is not included in those checks. Demo browser checks do not substitute for authenticated browser tests with real account credentials.
+Live database verification uses `supabase/verify.sql` and rolls back synthetic data. Fresh signup and recovery email delivery has also been verified in the connected Gmail inbox; see [the account email verification](EMAIL-VERIFICATION.md) for the exact test boundary. Demo browser checks do not substitute for authenticated browser tests with real account credentials.
 
 The original app uses its own legacy schema. Replacing the website does not automatically convert historical v1 records into the different v2 data model.
 
