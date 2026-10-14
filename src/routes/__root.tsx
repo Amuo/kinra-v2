@@ -10,6 +10,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { AuthIdentityContext } from "@/lib/account-state";
+import { installDeploymentRecovery } from "@/lib/deployment-recovery";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -126,6 +127,13 @@ function RootComponent() {
 
   const [identity, setIdentity] = useState<string | null>();
   const previousIdentity = useRef<string | null | undefined>(undefined);
+  useEffect(() => {
+    try {
+      return installDeploymentRecovery(window, sessionStorage, () => window.location.reload());
+    } catch {
+      return undefined;
+    }
+  }, []);
   useEffect(() => {
     const { data } = supabase.auth.onAuthStateChange((event, session) => {
       const next = session?.user.id ?? null;
