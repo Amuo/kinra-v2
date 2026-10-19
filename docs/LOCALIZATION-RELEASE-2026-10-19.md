@@ -37,4 +37,8 @@ This adds language support to the delivered V2 app; it does not create missing e
 
 ## Publication
 
-Production publication and source identifiers are recorded below after the release is ready and the live domain is checked.
+Application source: `872f50b2e90dbce4f33240da3138c691238b7bd9` (following the main language implementation `a6fc104` and hydration correction `d013ab1`). Production deployment `dpl_EZfJ44Lm1iSenjUBbVZ8iUDprm81` was verified READY on 2026-10-19, with its Git metadata matching that source and aliases including `kinra.fit`, `www.kinra.fit` and the main-branch Vercel URL. Vercel ran the complete translation/type/lint/test/build check before publishing.
+
+The canonical live domain was checked in the browser. English, Bosanski and Deutsch were available, German and Bosnian persisted through a full reload, and final Bosnian comma decimals and the uncluttered preview-card layout were read back. Screenshot: `D:/Projects/output/kinra-three-languages-live-2026-10-19.png`. Narrow-layout proof: `D:/Projects/output/kinra-localization-narrow-2026-10-19.png`. These screenshots contain public UI and fictional demo data only.
+
+Delayed automatic builds of superseded revisions and a duplicate current-source build were canceled; the accepted production build targets current `main`. The release record is a subsequent documentation-only commit, with no application changes.
