@@ -23,7 +23,7 @@ import type {
   TrainerNote,
   Workout,
 } from "./types";
-import { from, bucket, trainerByCode } from "./backend";
+import { from, bucket, trainerByCode, featureRpc } from "./backend";
 import { accountKey } from "./account-state";
 import { allPages, prepareLog } from "./log-validation";
 import { today } from "./stats";
@@ -34,6 +34,12 @@ import { buildSummary } from "./report";
 import { lookupFoodBarcode } from "./barcode.functions";
 import type { BarcodeFood } from "./barcode";
 import { createLiveFeatures, createDemoFeatures, type FeatureApi } from "./feature-api";
+import {
+  onboardingAnswers,
+  validateOnboarding,
+  type OnboardingAnswers,
+  type OnboardingState,
+} from "./onboarding";
 
 export type Mode = "live" | "demo-client" | "demo-trainer";
 
@@ -43,6 +49,8 @@ export interface Api {
   ownerId: string;
   me(): Promise<Me>;
   setRole(role: Role): Promise<void>;
+  onboarding(): Promise<OnboardingState | null>;
+  saveOnboarding(answers: OnboardingAnswers, step: number, finish: boolean): Promise<void>;
   updateProfile(p: { display_name?: string; goal?: string; bio?: string }): Promise<void>;
   setAvatar(file: File | null): Promise<void>;
   lookupBarcode(barcode: string): Promise<BarcodeFood | null>;
@@ -124,6 +132,35 @@ export function createLiveApi(ownerId: string): Api {
       const id = await uid();
       must(await from("profiles").upsert({ id }, { onConflict: "id", ignoreDuplicates: true }));
       must(await from("user_roles").insert({ user_id: id, role }));
+    },
+    async onboarding() {
+      const id = await uid();
+      const row = must(
+        await from("onboarding_state").select("*").eq("owner_id", id).maybeSingle(),
+      ) as {
+        answers: unknown;
+        step: number;
+        version: number;
+        completed_at: string | null;
+        updated_at: string;
+      } | null;
+      return row ? { ...row, answers: onboardingAnswers.parse(row.answers) } : null;
+    },
+    async saveOnboarding(answers, step, finish) {
+      const id = await uid();
+      const data = onboardingAnswers.parse(answers);
+      if (finish) {
+        const error = validateOnboarding(data, 3);
+        if (error) throw new Error(error);
+      }
+      must(
+        await featureRpc("kinra_save_onboarding", {
+          data,
+          stage: step,
+          finish,
+          expected_owner: id,
+        }),
+      );
     },
     async updateProfile(p) {
       const id = await uid();
@@ -462,6 +499,7 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
         );
         data.programs = data.programs.filter((p) => p.trainer_id !== meId);
         demoProfiles.delete(meId);
+        demoOnboarding.delete(meId);
         disconnectedDemo = true;
       },
     ),
@@ -478,6 +516,43 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
       };
     },
     async setRole() {},
+    async onboarding() {
+      return demoOnboarding.get(meId) ?? null;
+    },
+    async saveOnboarding(answers, step, finish) {
+      const data = onboardingAnswers.parse(answers);
+      const role = isTrainer ? "trainer" : "client";
+      if (data.role !== role)
+        throw new Error("Your account type is already set. Reopen setup to continue.");
+      if (finish) {
+        const error = validateOnboarding(data, 3);
+        if (error) throw new Error(error);
+        demoProfiles.set(meId, {
+          ...demoProfiles.get(meId),
+          display_name: data.display_name.trim(),
+          goal: data.goal.trim() || null,
+        });
+        const preferences = (await this.features.list("preferences"))[0];
+        await this.features.save(
+          "preferences",
+          {
+            ...(preferences?.payload ?? { modules: {}, timezone: data.timezone }),
+            language: data.language,
+            theme: data.theme,
+          },
+          preferences ? { id: preferences.id } : {},
+        );
+      }
+      demoOnboarding.set(meId, {
+        answers: data,
+        version: 1,
+        step: finish ? 3 : step,
+        updated_at: new Date().toISOString(),
+        completed_at: finish
+          ? (demoOnboarding.get(meId)?.completed_at ?? new Date().toISOString())
+          : null,
+      });
+    },
     async updateProfile(p) {
       demoProfiles.set(meId, { ...demoProfiles.get(meId), ...p });
     },
@@ -657,6 +732,7 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
 }
 
 let disconnectedDemo = false;
+const demoOnboarding = new Map<string, OnboardingState>();
 const ApiCtx = createContext<Api | null>(null);
 
 export function ApiProvider({

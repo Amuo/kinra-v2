@@ -14,6 +14,12 @@ export type Database = {
   }
   public: {
     Tables: {
+      onboarding_state: {
+        Row: { owner_id: string; version: number; step: number; answers: Json; completed_at: string | null; updated_at: string }
+        Insert: { owner_id?: string; version?: number; step?: number; answers: Json; completed_at?: string | null; updated_at?: string }
+        Update: { owner_id?: string; version?: number; step?: number; answers?: Json; completed_at?: string | null; updated_at?: string }
+        Relationships: []
+      }
       feature_records: {
         Row: { id: string; owner_id: string; kind: string; payload: Json; visibility: string; client_id: string | null; created_at: string; updated_at: string }
         Insert: { id?: string; owner_id?: string; kind: string; payload: Json; visibility?: string; client_id?: string | null; created_at?: string; updated_at?: string }
@@ -417,6 +423,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      kinra_save_onboarding: { Args: { data: Json; stage: number; finish: boolean; expected_owner: string }; Returns: undefined }
       kinra_erase_data: { Args: { confirmation: string; expected_owner: string }; Returns: undefined }
       kinra_send_message: { Args: { recipient_id: string; body: string; expected_owner: string }; Returns: string }
       kinra_consume_meal: { Args: { plan_id: string; meal_index: number; log_date: string }; Returns: undefined }

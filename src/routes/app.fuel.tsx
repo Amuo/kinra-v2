@@ -12,7 +12,10 @@ import {
   ArrowUpRight,
   Check,
   Loader2,
-  Utensils,
+  Sunrise,
+  Sun,
+  Moon,
+  Apple,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { toast } from "sonner";
@@ -26,6 +29,22 @@ import { FUEL_TARGET as TARGET, MEALS, copyFood, recentFoods, type FoodDraft } f
 import { iso, macrosFor, today } from "@/lib/stats";
 import type { FoodLog } from "@/lib/types";
 
+const mealAppearance = {
+  Breakfast: {
+    icon: Sunrise,
+    edge: "border-l-ember",
+    badge: "bg-ember/12 text-ember",
+    wash: "bg-ember/5",
+  },
+  Lunch: { icon: Sun, edge: "border-l-pulse", badge: "bg-pulse/12 text-pulse", wash: "bg-pulse/5" },
+  Dinner: {
+    icon: Moon,
+    edge: "border-l-dream",
+    badge: "bg-dream/12 text-dream",
+    wash: "bg-dream/5",
+  },
+  Snack: { icon: Apple, edge: "border-l-volt", badge: "bg-volt/12 text-volt", wash: "bg-volt/5" },
+} as const;
 const FeatureWorkspace = lazy(() =>
   import("@/components/strata/feature-hub").then((m) => ({ default: m.FeatureWorkspace })),
 );
@@ -285,13 +304,14 @@ function Fuel() {
               />
             </div>
           </section>
-          <div className="mt-4 flex items-center justify-between gap-3">
+          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
             <span className="eyebrow">
               <Message source="Your meals" />
             </span>
             <Button
               variant="glass"
-              className="h-11 px-4 text-label"
+              wrap
+              className="h-auto min-h-11 max-w-full px-4 py-2 text-label"
               disabled={!previous.length}
               onClick={openRepeat}
             >
@@ -302,33 +322,51 @@ function Fuel() {
           {MEALS.map((meal) => {
             const list = items.filter((i) => i.meal === meal);
             const kcal = list.reduce((sum, row) => sum + row.calories, 0);
+            const appearance = mealAppearance[meal];
+            const MealIcon = appearance.icon;
             return (
-              <section key={meal} aria-label={tr("{p0} entries", { p0: tr(meal) })}>
-                <SectionTitle
-                  action={
-                    <Button
-                      variant="ghost"
-                      className="h-11 rounded-full px-3 text-label text-ember"
-                      aria-label={tr("Add to {p0}", { p0: meal })}
-                      onClick={() => setEntry({ meal })}
-                    >
-                      <Plus /> <Message source="Add" />
-                    </Button>
-                  }
+              <section
+                key={meal}
+                aria-labelledby={`meal-${meal}`}
+                className={`mt-5 overflow-hidden rounded-panel border border-border border-l-4 ${appearance.edge}`}
+              >
+                <div
+                  className={`flex flex-wrap items-center gap-3 border-b border-border p-4 ${appearance.wash}`}
                 >
-                  {meal}
-                </SectionTitle>
-                <div className="num -mt-2 mb-3 text-caption text-muted-foreground">
-                  <Message
-                    source="{p0}kcal · {p1}{p2}"
-                    values={{
-                      p0: kcal,
-                      p1: list.length,
-                      p2: list.length === 1 ? "entry" : "entries",
-                    }}
-                  />
+                  <div
+                    className={`flex size-11 shrink-0 items-center justify-center rounded-tile ${appearance.badge}`}
+                  >
+                    <MealIcon className="size-5" aria-hidden="true" />
+                  </div>
+                  <div className="min-w-0 flex-1 basis-32">
+                    <h2
+                      id={`meal-${meal}`}
+                      className="break-words font-display text-title font-bold hyphens-auto"
+                    >
+                      {tr(meal)}
+                    </h2>
+                    <div className="num mt-1 text-caption text-muted-foreground">
+                      <Message
+                        source="{p0}kcal · {p1}{p2}"
+                        values={{
+                          p0: kcal,
+                          p1: list.length,
+                          p2: list.length === 1 ? tr("entry") : tr("entries"),
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <Button
+                    variant="glass"
+                    wrap
+                    className="h-auto min-h-11 max-w-full rounded-full px-3 py-2 text-label"
+                    aria-label={tr("Add to {p0}", { p0: tr(meal) })}
+                    onClick={() => setEntry({ meal })}
+                  >
+                    <Plus aria-hidden="true" /> <Message source="Add" />
+                  </Button>
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-2 p-3">
                   <AnimatePresence initial={false}>
                     {list.map((f) => (
                       <motion.div
@@ -343,8 +381,7 @@ function Fuel() {
                     ))}
                   </AnimatePresence>
                   {!list.length && (
-                    <div className="flex items-center gap-3 border-b border-dashed border-border py-4 text-label text-muted-foreground">
-                      <Utensils className="size-4 shrink-0 text-ember/70" />
+                    <div className="rounded-tile border border-dashed border-border px-3 py-5 text-label text-muted-foreground">
                       <Message source="Nothing logged yet." />
                     </div>
                   )}
@@ -468,7 +505,7 @@ function Fuel() {
               ? tr("Retry remaining meals")
               : tr("Add {p0} {p1}", {
                   p0: selected.length,
-                  p1: selected.length === 1 ? "entry" : "entries",
+                  p1: tr(selected.length === 1 ? "entry" : "entries"),
                 })}
         </Button>
       </Sheet>

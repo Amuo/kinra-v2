@@ -3097,7 +3097,7 @@
   },
   "Review": {
     "bs": "Pregled",
-    "de": "Übersicht"
+    "de": "Prüfen"
   },
   "min": {
     "bs": "min",
@@ -5677,5 +5677,313 @@
   "{count} in 48 h": {
     "bs": "{count} u posljednjih 48 h",
     "de": "{count} in 48 Std."
+  },
+  "entry": {
+    "bs": "unos",
+    "de": "Eintrag"
+  },
+  "entries": {
+    "bs": "unosa",
+    "de": "Einträge"
+  },
+  "Personalize your setup": {
+    "bs": "Prilagodi svoje postavke",
+    "de": "Einrichtung anpassen"
+  },
+  "Your Kinra setup": {
+    "bs": "Tvoje Kinra postavke",
+    "de": "Deine Kinra-Einrichtung"
+  },
+  "Could not load your setup. Your account is unchanged.": {
+    "bs": "Nije moguće učitati tvoje postavke. Tvoj račun nije promijenjen.",
+    "de": "Deine Einrichtung konnte nicht geladen werden. Dein Konto wurde nicht verändert."
+  },
+  "My own training": {
+    "bs": "Treniram samostalno",
+    "de": "Mein eigenes Training"
+  },
+  "Build your routine with workouts, food and recovery tracking.": {
+    "bs": "Izgradi rutinu uz praćenje treninga, prehrane i oporavka.",
+    "de": "Baue deine Routine mit Training, Ernährung und Erholung auf."
+  },
+  "Training with a coach": {
+    "bs": "Treniram s trenerom",
+    "de": "Training mit Coach"
+  },
+  "Follow assigned programs, track your days and exchange feedback.": {
+    "bs": "Prati dodijeljene programe, bilježi svoje dane i razmjenjuj povratne informacije.",
+    "de": "Folge zugewiesenen Programmen, erfasse deinen Alltag und tausche Feedback aus."
+  },
+  "Coaching others": {
+    "bs": "Radim kao trener",
+    "de": "Andere coachen"
+  },
+  "Create programs, connect clients and follow their progress.": {
+    "bs": "Kreiraj programe, poveži se s klijentima i prati njihov napredak.",
+    "de": "Erstelle Programme, verbinde dich mit Klienten und verfolge ihren Fortschritt."
+  },
+  "Your path": {
+    "bs": "Tvoj način korištenja",
+    "de": "Dein Weg"
+  },
+  "First step": {
+    "bs": "Prvi korak",
+    "de": "Erster Schritt"
+  },
+  "Build strength": {
+    "bs": "Povećati snagu",
+    "de": "Kraft aufbauen"
+  },
+  "Improve fitness": {
+    "bs": "Poboljšati kondiciju",
+    "de": "Fitness verbessern"
+  },
+  "Build consistency": {
+    "bs": "Steći redovnu rutinu",
+    "de": "Regelmäßigkeit aufbauen"
+  },
+  "Follow my plan": {
+    "bs": "Pratiti svoj plan",
+    "de": "Meinem Plan folgen"
+  },
+  "Build reusable programs": {
+    "bs": "Kreirati programe za ponovnu upotrebu",
+    "de": "Wiederverwendbare Programme erstellen"
+  },
+  "Support client consistency": {
+    "bs": "Pomoći klijentima da budu redovni",
+    "de": "Klienten beim Dranbleiben unterstützen"
+  },
+  "Organize my coaching": {
+    "bs": "Organizovati svoj trenerski rad",
+    "de": "Mein Coaching organisieren"
+  },
+  "What brings you to Kinra?": {
+    "bs": "Šta te dovodi u Kinru?",
+    "de": "Was führt dich zu Kinra?"
+  },
+  "Introduce your coaching.": {
+    "bs": "Predstavi svoj trenerski rad.",
+    "de": "Stell dein Coaching vor."
+  },
+  "Make coaching personal.": {
+    "bs": "Prilagodi rad s trenerom sebi.",
+    "de": "Mach dein Coaching persönlich."
+  },
+  "Start with what matters to you.": {
+    "bs": "Počni s onim što ti je važno.",
+    "de": "Beginne mit dem, was dir wichtig ist."
+  },
+  "Choose a useful first step.": {
+    "bs": "Odaberi koristan prvi korak.",
+    "de": "Wähle einen hilfreichen ersten Schritt."
+  },
+  "Your setup, at a glance.": {
+    "bs": "Tvoje postavke na jednom mjestu.",
+    "de": "Deine Einrichtung auf einen Blick."
+  },
+  "Setup progress": {
+    "bs": "Napredak postavljanja",
+    "de": "Einrichtungsfortschritt"
+  },
+  "Step {current} of {total}": {
+    "bs": "Korak {current} od {total}",
+    "de": "Schritt {current} von {total}"
+  },
+  "Choose the path that fits your main reason for being here.": {
+    "bs": "Odaberi način korištenja koji odgovara tvom glavnom cilju.",
+    "de": "Wähle den Weg, der zu deinem Hauptanliegen passt."
+  },
+  "Account type": {
+    "bs": "Vrsta računa",
+    "de": "Kontotyp"
+  },
+  "Your account type is already set. You can update the rest of your setup.": {
+    "bs": "Vrsta tvog računa je već postavljena. Ostale postavke možeš promijeniti.",
+    "de": "Dein Kontotyp ist bereits festgelegt. Die übrige Einrichtung kannst du anpassen."
+  },
+  "Your account type is set when you finish. Coaches also have personal tracking.": {
+    "bs": "Vrsta računa se postavlja kada završiš. Treneri također mogu koristiti lično praćenje.",
+    "de": "Dein Kontotyp wird beim Abschluss festgelegt. Coaches können auch ihre eigenen Daten erfassen."
+  },
+  "Use the name clients will recognize. Your coaching priority is optional.": {
+    "bs": "Koristi ime po kojem će te klijenti prepoznati. Prioritet u trenerskom radu nije obavezan.",
+    "de": "Verwende den Namen, den deine Klienten kennen. Dein Coaching-Schwerpunkt ist freiwillig."
+  },
+  "Choose the name you want to use. Add a goal if it helps; you can change it later.": {
+    "bs": "Odaberi ime koje želiš koristiti. Po želji dodaj cilj; možeš ga kasnije promijeniti.",
+    "de": "Wähle deinen gewünschten Namen. Ergänze bei Bedarf ein Ziel; du kannst es später ändern."
+  },
+  "Coaching priority (optional)": {
+    "bs": "Prioritet u trenerskom radu (neobavezno)",
+    "de": "Coaching-Schwerpunkt (optional)"
+  },
+  "Your goal (optional)": {
+    "bs": "Tvoj cilj (neobavezno)",
+    "de": "Dein Ziel (optional)"
+  },
+  "Goal ideas": {
+    "bs": "Prijedlozi ciljeva",
+    "de": "Zielideen"
+  },
+  "No body measurements or health history are needed to get started.": {
+    "bs": "Za početak nisu potrebne tjelesne mjere ni zdravstvena historija.",
+    "de": "Zum Start sind keine Körpermaße oder Gesundheitsangaben nötig."
+  },
+  "We will take you there after setup. You can explore the other tools whenever you like.": {
+    "bs": "Nakon postavljanja otvorit ćemo odabrani dio. Ostale alate možeš istražiti kad god želiš.",
+    "de": "Nach der Einrichtung öffnen wir diesen Bereich. Die anderen Werkzeuge kannst du jederzeit erkunden."
+  },
+  "Appearance": {
+    "bs": "Izgled",
+    "de": "Darstellung"
+  },
+  "Your appearance choice applies when you finish setup.": {
+    "bs": "Odabrani izgled će se primijeniti kada završiš postavljanje.",
+    "de": "Deine gewählte Darstellung wird nach Abschluss der Einrichtung angewendet."
+  },
+  "Add later": {
+    "bs": "Dodaj kasnije",
+    "de": "Später ergänzen"
+  },
+  "Coaching priority": {
+    "bs": "Prioritet u trenerskom radu",
+    "de": "Coaching-Schwerpunkt"
+  },
+  "Goal": {
+    "bs": "Cilj",
+    "de": "Ziel"
+  },
+  "Up next": {
+    "bs": "Sljedeće",
+    "de": "Als Nächstes"
+  },
+  "Finishing setup does not connect a coach. If you choose to connect from Profile, your coach can read training, food, sleep, journal entries and progress photos, and assign programs. You can disconnect there.": {
+    "bs": "Završetak postavljanja ne povezuje te s trenerom. Ako se odlučiš povezati kroz Profil, trener može čitati treninge, prehranu, san, dnevničke unose i fotografije napretka te dodjeljivati programe. Tu možeš i prekinuti vezu.",
+    "de": "Der Abschluss verbindet dich noch nicht mit einem Coach. Wenn du dich im Profil verbindest, kann dein Coach Training, Ernährung, Schlaf, Tagebucheinträge und Fortschrittsfotos lesen sowie Programme zuweisen. Dort kannst du die Verbindung wieder trennen."
+  },
+  "Clients choose whether to connect using your code. Creating an account does not give you access to anyone's records.": {
+    "bs": "Klijenti sami biraju hoće li se povezati pomoću tvog koda. Kreiranje računa ti ne daje pristup tuđim podacima.",
+    "de": "Klienten entscheiden selbst, ob sie sich über deinen Code verbinden. Ein neues Konto gibt dir keinen Zugriff auf fremde Aufzeichnungen."
+  },
+  "Your tracking is private to your account. If you later connect a coach from Profile, review the access details there first.": {
+    "bs": "Tvoji unosi su privatni za tvoj račun. Ako kasnije povežeš trenera kroz Profil, prvo tamo pregledaj detalje pristupa.",
+    "de": "Deine Aufzeichnungen sind für dein Konto privat. Wenn du später im Profil einen Coach verbindest, prüfe dort zuerst die Zugriffsdetails."
+  },
+  "Progress saved privately to your account.": {
+    "bs": "Napredak je privatno sačuvan na tvom računu.",
+    "de": "Dein Fortschritt wurde privat in deinem Konto gespeichert."
+  },
+  "Your progress saves privately when you continue. Changes on this step have not been saved yet.": {
+    "bs": "Napredak se privatno čuva kada nastaviš. Promjene na ovom koraku još nisu sačuvane.",
+    "de": "Dein Fortschritt wird beim Fortfahren privat gespeichert. Änderungen in diesem Schritt sind noch nicht gespeichert."
+  },
+  "Finish setup": {
+    "bs": "Završi postavljanje",
+    "de": "Einrichtung abschließen"
+  },
+  "Save & continue": {
+    "bs": "Sačuvaj i nastavi",
+    "de": "Speichern und weiter"
+  },
+  "Close setup": {
+    "bs": "Zatvori postavljanje",
+    "de": "Einrichtung schließen"
+  },
+  "Choose how you will use Kinra.": {
+    "bs": "Odaberi kako ćeš koristiti Kinru.",
+    "de": "Wähle, wie du Kinra nutzen möchtest."
+  },
+  "Enter a name for your profile.": {
+    "bs": "Unesi ime za svoj profil.",
+    "de": "Gib einen Namen für dein Profil ein."
+  },
+  "Choose your first step.": {
+    "bs": "Odaberi svoj prvi korak.",
+    "de": "Wähle deinen ersten Schritt."
+  },
+  "Enter valid setup details.": {
+    "bs": "Unesi ispravne podatke za postavljanje.",
+    "de": "Gib gültige Einrichtungsdaten ein."
+  },
+  "Complete the required setup steps.": {
+    "bs": "Završi obavezne korake postavljanja.",
+    "de": "Schließe die erforderlichen Einrichtungsschritte ab."
+  },
+  "Your account type is already set. Reopen setup to continue.": {
+    "bs": "Vrsta tvog računa je već postavljena. Ponovo otvori postavljanje da nastaviš.",
+    "de": "Dein Kontotyp ist bereits festgelegt. Öffne die Einrichtung erneut, um fortzufahren."
+  },
+  "Log my first workout": {
+    "bs": "Zabilježi moj prvi trening",
+    "de": "Mein erstes Training erfassen"
+  },
+  "Start a session and record your sets at your own pace.": {
+    "bs": "Započni trening i bilježi serije svojim tempom.",
+    "de": "Starte ein Training und erfasse deine Sätze in deinem eigenen Tempo."
+  },
+  "Start my food diary": {
+    "bs": "Započni moj dnevnik prehrane",
+    "de": "Mein Ernährungstagebuch beginnen"
+  },
+  "Add a meal with portions you can review and change.": {
+    "bs": "Dodaj obrok s porcijama koje možeš pregledati i promijeniti.",
+    "de": "Füge eine Mahlzeit mit Portionen hinzu, die du prüfen und ändern kannst."
+  },
+  "Build a recovery routine": {
+    "bs": "Izgradi rutinu oporavka",
+    "de": "Eine Erholungsroutine aufbauen"
+  },
+  "Start with a sleep entry or a short breathing session.": {
+    "bs": "Počni unosom sna ili kratkom vježbom disanja.",
+    "de": "Beginne mit einem Schlafeintrag oder einer kurzen Atemübung."
+  },
+  "Connect with my coach": {
+    "bs": "Poveži me s mojim trenerom",
+    "de": "Mit meinem Coach verbinden"
+  },
+  "Open your profile and enter the code your coach shared with you.": {
+    "bs": "Otvori profil i unesi kod koji ti je trener podijelio.",
+    "de": "Öffne dein Profil und gib den Code ein, den dein Coach dir gegeben hat."
+  },
+  "See my assigned training": {
+    "bs": "Pogledaj moj dodijeljeni trening",
+    "de": "Mein zugewiesenes Training ansehen"
+  },
+  "Find programs your connected coach has assigned to you.": {
+    "bs": "Pronađi programe koje ti je dodijelio povezani trener.",
+    "de": "Finde Programme, die dein verbundener Coach dir zugewiesen hat."
+  },
+  "Explore my daily overview": {
+    "bs": "Istraži moj dnevni pregled",
+    "de": "Meine Tagesübersicht erkunden"
+  },
+  "See your own tracking and any feedback from your coach.": {
+    "bs": "Pregledaj svoje unose i povratne informacije trenera.",
+    "de": "Sieh deine eigenen Aufzeichnungen und das Feedback deines Coaches."
+  },
+  "Build my first program": {
+    "bs": "Kreiraj moj prvi program",
+    "de": "Mein erstes Programm erstellen"
+  },
+  "Create a reusable training program, then assign it when a client connects.": {
+    "bs": "Kreiraj program za ponovnu upotrebu i dodijeli ga kada se klijent poveže.",
+    "de": "Erstelle ein wiederverwendbares Trainingsprogramm und weise es zu, sobald sich ein Klient verbindet."
+  },
+  "Connect my first client": {
+    "bs": "Poveži mog prvog klijenta",
+    "de": "Meinen ersten Klienten verbinden"
+  },
+  "Open your client list, then get your coach code from your profile to share yourself.": {
+    "bs": "Otvori listu klijenata, zatim u profilu pronađi svoj trenerski kod i podijeli ga lično.",
+    "de": "Öffne deine Klientenliste. Deinen Coach-Code findest du anschließend im Profil und kannst ihn selbst weitergeben."
+  },
+  "Explore my coaching dashboard": {
+    "bs": "Istraži moj trenerski pregled",
+    "de": "Meine Coaching-Übersicht erkunden"
+  },
+  "See your client overview and the information that helps you follow up.": {
+    "bs": "Pregledaj klijente i informacije koje ti pomažu da pratiš njihov napredak.",
+    "de": "Sieh deine Klientenübersicht und die Informationen, die dir beim Nachfassen helfen."
   }
 }

@@ -700,3 +700,199 @@ describe("migrated data integrity", () => {
     ).toEqual([{ title: "Edited" }]);
   });
 });
+
+describe("private role-specific onboarding", () => {
+  const answer = (role: "solo" | "client" | "trainer") => ({
+    role,
+    display_name: "Synthetic setup",
+    goal: "A personal goal",
+    first_action: { solo: "workout", client: "connect", trainer: "program" }[role],
+    theme: "light",
+    language: "de",
+    timezone: "UTC",
+  });
+  const setupId = (n: number) => `30000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
+  async function newMember(n: number) {
+    const id = setupId(n);
+    await db.query("insert into auth.users(id,email) values($1,$2)", [
+      id,
+      `setup-${n}@example.invalid`,
+    ]);
+    return id;
+  }
+  async function save(id: string, data: object, finish = false, stage = finish ? 3 : 1) {
+    return asUser(id, () =>
+      db.query("select kinra_save_onboarding($1,$2,$3,$4)", [
+        JSON.stringify(data),
+        stage,
+        finish,
+        id,
+      ]),
+    );
+  }
+
+  it.each(["solo", "client", "trainer"] as const)(
+    "resumes private %s setup and completes exactly once without creating connections",
+    async (role) => {
+      const id = await newMember({ solo: 11, client: 12, trainer: 13 }[role]);
+      const original = (await db.query("select display_name from profiles where id=$1", [id]))
+        .rows[0];
+      await save(id, answer(role));
+      expect(
+        (await db.query("select role from user_roles where user_id=$1", [id])).rows,
+      ).toHaveLength(0);
+      expect(
+        (await db.query("select display_name from profiles where id=$1", [id])).rows[0],
+      ).toEqual(original);
+      const draft = await asUser(id, () =>
+        db.query<{ answers: unknown; step: number; completed_at: string | null }>(
+          "select answers,step,completed_at from onboarding_state",
+        ),
+      );
+      expect(draft.rows).toMatchObject([{ answers: answer(role), step: 1, completed_at: null }]);
+      await save(id, answer(role), true);
+      const completed = (
+        await db.query("select completed_at from onboarding_state where owner_id=$1", [id])
+      ).rows[0];
+      await save(id, answer(role), true);
+      expect(
+        (await db.query("select completed_at from onboarding_state where owner_id=$1", [id]))
+          .rows[0],
+      ).toEqual(completed);
+      expect((await db.query("select role from user_roles where user_id=$1", [id])).rows).toEqual([
+        { role },
+      ]);
+      expect(
+        (await db.query("select display_name,goal from profiles where id=$1", [id])).rows,
+      ).toEqual([{ display_name: "Synthetic setup", goal: "A personal goal" }]);
+      expect(
+        (
+          await db.query(
+            "select id from feature_records where kind='preferences' and owner_id=$1",
+            [id],
+          )
+        ).rows,
+      ).toHaveLength(1);
+      expect(
+        (await db.query("select id from trainer_clients where client_id=$1 or trainer_id=$1", [id]))
+          .rows,
+      ).toHaveLength(0);
+    },
+  );
+
+  it("keeps drafts hidden from a connected coach and refuses actor spoofing and owner changes", async () => {
+    await save(client, answer("client"));
+    expect(
+      (
+        await asUser(coachA, () =>
+          db.query("select * from onboarding_state where owner_id=$1", [client]),
+        )
+      ).rows,
+    ).toHaveLength(0);
+    await expect(
+      asUser(client, () =>
+        db.query("update onboarding_state set owner_id=$1 where owner_id=$2", [outsider, client]),
+      ),
+    ).rejects.toMatchObject({ code: "42501" });
+    await expect(
+      asUser(outsider, () =>
+        db.query("select kinra_save_onboarding($1,1,false,$2)", [
+          JSON.stringify(answer("solo")),
+          client,
+        ]),
+      ),
+    ).rejects.toMatchObject({ code: "42501" });
+    await expect(
+      asUser(
+        null,
+        () =>
+          db.query("select kinra_save_onboarding($1,1,false,$2)", [
+            JSON.stringify(answer("solo")),
+            client,
+          ]),
+        "anon",
+      ),
+    ).rejects.toMatchObject({ code: "42501" });
+  });
+
+  it("merges appearance and locale while preserving preference IDs, units, modules and timezone", async () => {
+    const id = await newMember(14);
+    await db.query("insert into user_roles(user_id,role) values($1,'solo')", [id]);
+    const existing = await feature(id, "preferences", {
+      language: "en",
+      theme: "dark",
+      modules: { fuel: false, train: true },
+      units: "imperial",
+      timezone: "Europe/Sarajevo",
+    });
+    await save(id, answer("solo"), true);
+    const pref = (
+      await db.query<{ id: string; payload: object }>(
+        "select id,payload from feature_records where owner_id=$1 and kind='preferences'",
+        [id],
+      )
+    ).rows[0]!;
+    expect(pref).toEqual({
+      id: existing,
+      payload: {
+        language: "de",
+        theme: "light",
+        modules: { fuel: false, train: true },
+        units: "imperial",
+        timezone: "Europe/Sarajevo",
+      },
+    });
+    await expect(save(id, answer("trainer"), true)).rejects.toMatchObject({ code: "22023" });
+    expect((await db.query("select role from user_roles where user_id=$1", [id])).rows).toEqual([
+      { role: "solo" },
+    ]);
+    await save(id, { ...answer("solo"), goal: "An unfinished edit" }, false, 2);
+    expect(
+      (await db.query("select completed_at,step from onboarding_state where owner_id=$1", [id]))
+        .rows,
+    ).toEqual([{ completed_at: null, step: 2 }]);
+  });
+
+  it("rolls back profile and role writes when the final preference write fails", async () => {
+    const id = await newMember(15);
+    await save(id, answer("solo"));
+    const before = (await db.query("select display_name,goal from profiles where id=$1", [id]))
+      .rows;
+    await db.exec(
+      `create function setup_test_failure() returns trigger language plpgsql as $$ begin if NEW.owner_id='${id}'::uuid then raise exception 'Synthetic late failure' using errcode='23514'; end if; return NEW; end $$; create trigger setup_test_failure before insert on feature_records for each row execute function setup_test_failure();`,
+    );
+    try {
+      await expect(save(id, answer("solo"), true)).rejects.toMatchObject({ code: "23514" });
+    } finally {
+      await db.exec(
+        "drop trigger setup_test_failure on feature_records; drop function setup_test_failure();",
+      );
+    }
+    expect(
+      (await db.query("select display_name,goal from profiles where id=$1", [id])).rows,
+    ).toEqual(before);
+    expect(
+      (await db.query("select role from user_roles where user_id=$1", [id])).rows,
+    ).toHaveLength(0);
+    expect(
+      (await db.query("select completed_at,step from onboarding_state where owner_id=$1", [id]))
+        .rows,
+    ).toEqual([{ completed_at: null, step: 1 }]);
+  });
+
+  it("validates server-side shape and removes setup through existing V2 erasure", async () => {
+    const id = await newMember(16);
+    for (const malformed of [
+      { ...answer("solo"), language: "fr" },
+      { ...answer("solo"), first_action: "clients" },
+      { ...answer("solo"), extra: true },
+    ])
+      await expect(save(id, malformed, true)).rejects.toMatchObject({ code: "22023" });
+    await save(id, answer("solo"), true);
+    await asUser(id, () => db.query("select kinra_erase_data('DELETE KINRA DATA',$1)", [id]));
+    expect(
+      (await db.query("select * from onboarding_state where owner_id=$1", [id])).rows,
+    ).toHaveLength(0);
+    expect((await db.query("select id from auth.users where id=$1", [id])).rows).toHaveLength(1);
+  });
+});

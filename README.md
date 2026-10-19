@@ -6,6 +6,10 @@ Training, nutrition, recovery and coach/client tracking built with React 19, Tan
 
 English, Bosanski and Deutsch are available from the landing page, authentication screens and profile. The selected language follows the signed-in account; exercise display names, dates, numbers and active account emails follow it too. Custom names, notes and source evidence retain their original text. See [docs/LOCALIZATION-RELEASE-2026-10-19.md](docs/LOCALIZATION-RELEASE-2026-10-19.md) for scope and verification.
 
+## Guided setup
+
+New accounts receive role-specific setup for solo training, working with a coach or coaching clients. Existing members can reopen it from **Profile → Personalize your setup**. Private drafts resume before completion; coach connections remain a separate action. Meal sections use distinct icons, accents and headings. See [onboarding and meals](docs/ONBOARDING-AND-MEALS-2026-10-19.md) for scope and verification.
+
 ## Run locally
 
 Use Node 24 and Bun 1.4.3 or newer. Copy `.env.example` to `.env` and provide the project's public Supabase URL and anon/publishable key. Never put a service-role key or Resend key in a `VITE_` variable.

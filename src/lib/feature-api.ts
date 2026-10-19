@@ -240,6 +240,9 @@ export function createLiveFeatures(ownerId: string): FeatureApi {
           ),
         );
       logs["profile"] = must(await from("profiles").select("*").eq("id", ownerId).maybeSingle());
+      logs["onboarding"] = must(
+        await from("onboarding_state").select("*").eq("owner_id", ownerId).maybeSingle(),
+      );
       logs["programs"] = must(await from("programs").select("*").eq("trainer_id", ownerId));
       for (const table of [
         "trainer_clients",

@@ -9,6 +9,25 @@ const requireMessage = (source, file) => {
   if (/[A-Za-z]/.test(source) && (!dictionary[source]?.bs || !dictionary[source]?.de))
     missing.add(`${file}: ${source}`);
 };
+function requireExpression(node, file) {
+  if (ts.isStringLiteral(node)) requireMessage(node.text, file);
+  else if (ts.isConditionalExpression(node)) {
+    requireExpression(node.whenTrue, file);
+    requireExpression(node.whenFalse, file);
+  } else if (ts.isParenthesizedExpression(node) || ts.isAsExpression(node))
+    requireExpression(node.expression, file);
+}
+function requireConfig(node, file, allStrings = false) {
+  if (ts.isStringLiteral(node) && allStrings) requireMessage(node.text, file);
+  else if (ts.isPropertyAssignment(node)) {
+    const key = node.name.getText().replaceAll('"', "");
+    requireConfig(node.initializer, file, allStrings || key === "title" || key === "body");
+  } else if (ts.isArrayLiteralExpression(node))
+    node.elements.forEach((child) => requireConfig(child, file, allStrings));
+  else if (ts.isObjectLiteralExpression(node))
+    node.properties.forEach((child) => requireConfig(child, file, allStrings));
+  else if (ts.isAsExpression(node)) requireConfig(node.expression, file, allStrings);
+}
 for (const dir of ["src/routes", "src/components/strata", "src/components/ui", "src/lib"]) {
   for (const file of readdirSync(new URL(`../${dir}`, import.meta.url)).filter((f) =>
     /\.tsx?$/.test(f),
@@ -25,10 +44,25 @@ for (const dir of ["src/routes", "src/components/strata", "src/components/ui", "
       if (
         ts.isCallExpression(node) &&
         ["tr", "t"].includes(node.expression.getText(source)) &&
-        node.arguments[0] &&
-        ts.isStringLiteral(node.arguments[0])
+        node.arguments[0]
       )
-        requireMessage(node.arguments[0].text, pathname);
+        requireExpression(node.arguments[0], pathname);
+      if (
+        ts.isVariableDeclaration(node) &&
+        node.initializer &&
+        ((pathname === "src/lib/onboarding.ts" &&
+          node.name.getText(source) === "startingActions") ||
+          (pathname === "src/components/strata/onboarding.tsx" &&
+            ["roles", "steps", "goalOptions", "title"].includes(node.name.getText(source))))
+      ) {
+        if (node.name.getText(source) === "title") requireExpression(node.initializer, pathname);
+        else
+          requireConfig(
+            node.initializer,
+            pathname,
+            ["steps", "goalOptions"].includes(node.name.getText(source)),
+          );
+      }
       if (
         ts.isJsxAttribute(node) &&
         node.name.getText(source) === "source" &&

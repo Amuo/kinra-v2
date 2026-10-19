@@ -157,12 +157,12 @@ export function FoodSheet({
         {MEALS.map((m) => (
           <Button
             variant="glass"
-            key={tr(m)}
+            key={m}
             aria-pressed={meal === m}
             onClick={() => setMeal(m)}
             className={`h-11 text-label ${meal === m ? "border-ember bg-ember/10 text-ember" : ""}`}
           >
-            {m}
+            {tr(m)}
           </Button>
         ))}
       </div>
@@ -215,7 +215,7 @@ export function FoodSheet({
           onOpenChange(false)
         )}
       >
-        <Message source="Add to {p0}" values={{ p0: meal.toLowerCase() }} />
+        <Message source="Add to {p0}" values={{ p0: tr(meal) }} />
       </SaveButton>
     </Sheet>
   );

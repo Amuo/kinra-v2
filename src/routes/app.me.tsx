@@ -1,6 +1,7 @@
 import { errorText } from "@/lib/i18n-errors";
 import { LanguageSelector } from "@/components/strata/language-selector";
 import { roleLabel, t as tr, useLanguage, Message } from "@/lib/i18n";
+import { Onboarding } from "@/components/strata/onboarding";
 import { PrivateMessages } from "@/components/strata/private-messages";
 import { DeleteKinraData } from "@/components/strata/delete-kinra-data";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
@@ -55,6 +56,7 @@ function MePage() {
   const qc = useQueryClient();
   const navigate = useNavigate();
   const [toolsOpen, setToolsOpen] = useState(false);
+  const [setupOpen, setSetupOpen] = useState(false);
   const [code, setCode] = useState("");
   const trainers = useQ(["trainers"], (a) => a.trainers(), me?.role !== "trainer");
   const [disconnect, setDisconnect] = useState<Person | null>(null);
@@ -73,6 +75,19 @@ function MePage() {
   return (
     <div>
       <PageHeader eyebrow={roleLabel(me.role)} title={tr("Profile")} />
+      <Button
+        wrap
+        variant="outline"
+        className="mb-3 min-h-12 w-full"
+        onClick={() => setSetupOpen(true)}
+      >
+        {tr("Personalize your setup")}
+      </Button>
+      {setupOpen && (
+        <Sheet open onOpenChange={setSetupOpen} title={tr("Your Kinra setup")}>
+          <Onboarding embedded onClose={() => setSetupOpen(false)} />
+        </Sheet>
+      )}
       <Button variant="volt" className="mb-4 h-12 w-full" onClick={() => setToolsOpen(true)}>
         <Message source="Explore your Kinra toolkit" />
       </Button>

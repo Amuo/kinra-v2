@@ -1,5 +1,5 @@
 import { errorText } from "@/lib/i18n-errors";
-import { LanguageSelector } from "@/components/strata/language-selector";
+import { Onboarding } from "@/components/strata/onboarding";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { FeaturePreferences } from "@/components/strata/feature-preferences";
 import {
@@ -82,6 +82,7 @@ function AppLayout() {
 
 function Shell({ mode }: { mode: Mode }) {
   useLanguage();
+  const navigate = useNavigate();
   const { ownerId } = Route.useRouteContext();
   const me = useMe();
   const { personal } = useAppView();
@@ -123,7 +124,19 @@ function Shell({ mode }: { mode: Mode }) {
         <ErrorState message={(me.error as Error).message} onRetry={() => me.refetch()} />
       </div>
     );
-  if (!me.data?.role) return <Onboarding />;
+  if (!me.data?.role)
+    return (
+      <Onboarding
+        onExit={async () => {
+          if (mode === "live") {
+            const result = await supabase.auth.signOut();
+            if (result.error) throw result.error;
+          }
+          sessionStorage.removeItem(DEMO_KEY);
+          await navigate({ to: "/auth" });
+        }}
+      />
+    );
 
   const role = me.data.role;
   const api = {
@@ -480,65 +493,5 @@ function LogHub({ onClose, onPick }: { onClose: () => void; onPick: (k: LogKind)
         <X />
       </motion.button>
     </motion.div>
-  );
-}
-
-function Onboarding() {
-  useLanguage();
-  const [role, setRole] = useState<Role | null>(null);
-  const save = useAct((api, r: Role) => api.setRole(r));
-  const opts: { role: Role; title: string; body: string }[] = [
-    { role: "solo", title: "Solo", body: "Track training, food, sleep and mood on your own." },
-    { role: "client", title: "Client", body: "Work with a coach. Get programs and feedback." },
-    { role: "trainer", title: "Coach", body: "Coach clients, build programs, see everything." },
-  ];
-  return (
-    <div className="mx-auto flex min-h-dvh max-w-md flex-col bg-background px-5 py-10">
-      <div className="mb-5 flex justify-end">
-        <LanguageSelector compact />
-      </div>
-      <div className="eyebrow">
-        <Message source="Welcome to Kinra" />
-      </div>
-      <h1 className="mt-2 font-display text-title-l font-black [font-stretch:115%]">
-        <Message source="How will you use it?" />
-      </h1>
-      <div className="mt-8 space-y-3" role="radiogroup">
-        {opts.map((o) => (
-          <motion.button
-            key={o.role}
-            whileTap={springPress}
-            role="radio"
-            aria-checked={role === o.role}
-            onClick={() => setRole(o.role)}
-            className={cn(
-              "panel w-full p-5 text-left transition-shadow",
-              role === o.role && "ring-2 ring-primary",
-            )}
-          >
-            <div className="font-display text-title font-bold">{tr(o.title)}</div>
-            <div className="mt-1 text-label text-muted-foreground">{tr(o.body)}</div>
-          </motion.button>
-        ))}
-        <div className="panel p-5 opacity-60">
-          <div className="font-display text-title font-bold">
-            <Message source="Gym · Doctor · Nutritionist" />
-          </div>
-          <div className="mt-1 text-label text-muted-foreground">
-            <Message source="Coming soon." />
-          </div>
-        </div>
-      </div>
-      <motion.button
-        whileTap={springPress}
-        className="mt-auto min-h-14 w-full whitespace-normal break-words rounded-full bg-volt-gradient px-4 py-3 text-center font-semibold hyphens-auto text-primary-foreground disabled:opacity-50"
-        disabled={!role || save.isPending}
-        onClick={() =>
-          role && save.mutate(role, { onError: (e) => toast.error(errorText(e.message)) })
-        }
-      >
-        <Message source="Continue" />
-      </motion.button>
-    </div>
   );
 }
