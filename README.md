@@ -21,7 +21,7 @@ bun run preview
 
 ## Production
 
-Repository: https://github.com/Amuo/kinra-v2 (private). Existing Vercel project: `amuos-projects/kinra`. Canonical URL: https://kinra.fit. Vercel builds the Nitro Vercel preset automatically; local builds retain the Cloudflare target.
+Repository: https://github.com/Amuo/kinra-v2 (public as observed on 2026-10-19). Existing Vercel project: `amuos-projects/kinra`. Canonical URL: https://kinra.fit. Vercel builds the Nitro Vercel preset automatically; local builds retain the Cloudflare target.
 
 Set `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, and `VITE_KINRA_TABLE_PREFIX=kinra_v2_` in Vercel. The existing Kinra Supabase project is `ztbwycesqodjvseqhygh`. The additive installation is generated with `node scripts/database-bundle.mjs`; run `supabase/migrations/202610140001_kinra_v2.sql` once as postgres. It installs v2 tables, helpers and private buckets in a separate namespace. Do not run the original unprefixed Drizzle migrations against a database containing another app.
 
@@ -33,9 +33,9 @@ Supabase Auth uses the existing Resend SMTP integration (`smtp.resend.com:465`, 
 
 ## Brand and email design
 
-See [docs/BRAND-AND-EMAILS.md](docs/BRAND-AND-EMAILS.md) for editable logo assets, the local email gallery, the Supabase template bundle and release instructions. Hosted email templates require a separate coordinated activation after the new brand assets are deployed.
+See [docs/BRAND-AND-EMAILS.md](docs/BRAND-AND-EMAILS.md) for editable logo assets, the local email gallery, the Supabase template bundle and release instructions. Hosted email templates require a separate coordinated activation after the new brand assets are deployed; confirmation/recovery were activated and tested in the subsequent language release.
 
-Confirmation and password recovery match current app flows. Magic-link sign-in, account invitation, email-change and reauthentication designs are prepared templates only; this redesign does not add or enable those flows. No hosted templates or app deployment were published as part of this change.
+Confirmation and password recovery match current app flows. Magic-link sign-in, account invitation, email-change and reauthentication designs are prepared templates only; this redesign does not add or enable those flows. The original design-only pass did not publish templates. The subsequent feature and language releases published the app and active confirmation/recovery templates; see the dated release reports.
 
 ## Repair verification
 

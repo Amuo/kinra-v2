@@ -26,7 +26,7 @@ The security advisor still reports existing shared-project notices: 24 policy-le
 
 - Translation checker: complete Bosnian/German coverage of explicit render messages and feature-schema field labels (1,403 catalogue messages).
 - TypeScript: passed. ESLint: zero errors; existing Fast Refresh/dependency warnings remain.
-- Vitest: 97 tests passed, including full PostgreSQL authorization tests, all three preference values, unsupported-language rejection, preserved preference fields, guest-choice precedence, reactive draft retention, formatting/plurals/errors and exercise coverage/search.
+- Vitest: 98 tests passed, including full PostgreSQL authorization tests, all three preference values, unsupported-language rejection, preserved preference fields, guest-choice precedence, reactive draft retention, server/client hydration with saved locale, formatting/plurals/errors and exercise coverage/search.
 - Production build: passed. CI `check` now includes translation coverage before type/lint/tests/build.
 - Browser: English/Bosnian/German selection, localized document titles/navigation, retained open profile draft, numeric/relative dates and German narrow readiness/profile layouts inspected.
 

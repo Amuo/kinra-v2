@@ -1,5 +1,5 @@
 import { LanguageSelector } from "@/components/strata/language-selector";
-import { t as tr, useLanguage, Message } from "@/lib/i18n";
+import { displayNumber, number, t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "motion/react";
@@ -116,7 +116,9 @@ function TodayMock() {
             <div key={l}>
               <div className="eyebrow">{tr(l ?? "")}</div>
               <div className={`num text-title font-bold ${t}`}>
-                {v}
+                {v === "1.2k"
+                  ? `${number(1.2, { minimumFractionDigits: 1 })}k`
+                  : displayNumber(v ?? "")}
                 <span className="ml-0.5 font-sans text-caption text-muted-foreground">{u}</span>
               </div>
             </div>

@@ -45,12 +45,13 @@ function readLanguage(): Language {
   const requested = navigator.languages?.[0]?.split("-")[0];
   return isLanguage(requested) ? requested : "en";
 }
+/** Keep the first client render identical to SSR; restore the device choice after hydration. */
 export function currentLanguage() {
-  if (!initialized && typeof window !== "undefined") {
-    initialized = true;
-    language = readLanguage();
-  }
   return language;
+}
+export function initializeLanguage() {
+  if (initialized || typeof window === "undefined") return;
+  setLanguage(readLanguage(), false);
 }
 export function setLanguage(next: Language, save = true) {
   if (!isLanguage(next)) return;
