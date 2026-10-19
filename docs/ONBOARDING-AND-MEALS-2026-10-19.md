@@ -30,4 +30,12 @@ These notes informed implementation choices; archived designs and research propo
 - Hosted inspection confirmed RLS, four owner policies and a SECURITY INVOKER completion function. Security advisors returned no new onboarding findings; inherited project findings remain outside this change.
 - Local browser verification used fictional client data: existing-profile entry, German steps, draft save status, review/sharing copy and completion. A 320px CSS iframe exposed a German toolbar clipping issue, which Astra fixed and the browser confirmed. Meal cards were visually checked with German headings and functional accessible controls. Component/database tests cover new-account paths for all three roles; this is not physical-device or assistive-technology certification.
 
-Production publication is recorded after the deployment is ready and the canonical domain is checked.
+## Production release
+
+Source `15e3d5c6f71c470b9e366d4e40d1db60a3758a39` is published in deployment `dpl_3w7TqueJrehKRGwKxvT5kHPsm3zB`. Vercel reported READY with matching Git metadata and aliases including `kinra.fit` and `www.kinra.fit`. Its full check/build completed before publication. A duplicate queued deployment of identical source was canceled.
+
+The canonical domain was verified in a separate fictional client demo. Profile opened the setup sheet; Bosnian, English and German switching preserved the current step and fields; saved progress, review, sharing explanation and completion were read back. The light appearance applied and meal headings/icons/accents were checked on the live Fuel page. Hosted transactional/RLS acceptance above covers actual authenticated database behavior; production browser smoke used demo data, not newly registered real accounts.
+
+Screenshots: `D:/Projects/output/kinra-onboarding-live-2026-10-19.png`, `D:/Projects/output/kinra-meals-live-2026-10-19.png`, and local 320/390px CSS review `D:/Projects/output/kinra-meals-narrow-2026-10-19.png`. The temporary narrow review HTML was removed before publication. The user-requested localhost walkthrough remains open with fictional client setup at step 1; existing account type is locked as designed.
+
+The release record is a subsequent documentation-only commit. Existing authentication and Resend configuration were retained; this release adds no new provider or email-template changes.
