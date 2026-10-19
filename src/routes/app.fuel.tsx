@@ -1,6 +1,8 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useRef, useState } from "react";
-import { addDays, format } from "date-fns";
+import { addDays } from "date-fns";
+import { format } from "@/lib/i18n";
 import {
   ChevronLeft,
   ChevronRight,
@@ -31,7 +33,7 @@ const FeatureWorkspace = lazy(() =>
 export const Route = createFileRoute("/app/fuel")({
   head: () => ({
     meta: [
-      { title: "Fuel — Kinra" },
+      { title: tr("Fuel — Kinra") },
       { name: "description", content: "Track meals, daily nutrition and hydration in Kinra." },
       { property: "og:title", content: "Fuel — Kinra" },
       {
@@ -46,6 +48,7 @@ export const Route = createFileRoute("/app/fuel")({
 });
 
 function FoodRow({ f }: { f: FoodLog }) {
+  useLanguage();
   const del = useAct((api, id: string) => api.remove("nutrition_logs", id));
   const undo = useAct((api, row: FoodLog) =>
     api.insert("nutrition_logs", copyFood(row, row.log_date)),
@@ -54,16 +57,16 @@ function FoodRow({ f }: { f: FoodLog }) {
     if (del.isPending) return;
     del.mutate(f.id, {
       onSuccess: () =>
-        toast(`Removed ${f.name}`, {
+        toast(tr("Removed {p0}", { p0: f.name }), {
           action: {
-            label: "Undo",
+            label: tr("Undo"),
             onClick: () =>
               undo.mutate(f, {
-                onError: () => toast.error("Couldn't restore this food. Try again."),
+                onError: () => toast.error(tr("Couldn't restore this food. Try again.")),
               }),
           },
         }),
-      onError: () => toast.error("Couldn't remove this food. Your entry is still saved."),
+      onError: () => toast.error(tr("Couldn't remove this food. Your entry is still saved.")),
     });
   };
   return (
@@ -83,18 +86,23 @@ function FoodRow({ f }: { f: FoodLog }) {
         <div className="min-w-0 flex-1">
           <div className="break-words text-body font-semibold">{f.name}</div>
           <div className="num mt-1 text-caption text-muted-foreground">
-            {f.protein} g P · {f.carbs} g C · {f.fat} g F
+            <Message
+              source="{p0}g P · {p1}g C · {p2}g F"
+              values={{ p0: f.protein, p1: f.carbs, p2: f.fat }}
+            />
           </div>
         </div>
         <div className="shrink-0 text-right">
           <div className="num text-label font-bold">{f.calories}</div>
-          <div className="text-caption text-muted-foreground">kcal</div>
+          <div className="text-caption text-muted-foreground">
+            <Message source="kcal" />
+          </div>
         </div>
         <Button
           variant="ghost"
           size="icon"
           className="size-11 shrink-0 rounded-full text-muted-foreground"
-          aria-label={`Delete ${f.name}`}
+          aria-label={tr("Delete {p0}", { p0: f.name })}
           disabled={del.isPending}
           onClick={remove}
         >
@@ -106,6 +114,7 @@ function FoodRow({ f }: { f: FoodLog }) {
 }
 
 function Fuel() {
+  useLanguage();
   const [workspace, setWorkspace] = useState<"nutrition_plan" | "supplement" | null>(null);
   const me = useMe().data;
   const api = useApi();
@@ -149,37 +158,43 @@ function Fuel() {
     <div className="min-w-0">
       <div className="mb-4 grid grid-cols-2 gap-2">
         <Button variant="glass" className="h-11" onClick={() => setWorkspace("nutrition_plan")}>
-          Meal plans
+          <Message source="Meal plans" />
         </Button>
         <Button variant="glass" className="h-11" onClick={() => setWorkspace("supplement")}>
-          Supplements
+          <Message source="Supplements" />
         </Button>
       </div>
       {workspace && (
         <Sheet
           open
           onOpenChange={(o) => !o && setWorkspace(null)}
-          title={workspace === "nutrition_plan" ? "Meal plans" : "Supplements"}
+          title={workspace === "nutrition_plan" ? tr("Meal plans") : tr("Supplements")}
         >
-          <Suspense fallback={<p>Loading workspace…</p>}>
+          <Suspense
+            fallback={
+              <p>
+                <Message source="Loading workspace…" />
+              </p>
+            }
+          >
             <FeatureWorkspace compact kind={workspace} />
           </Suspense>
         </Sheet>
       )}
-      <PageHeader eyebrow="Nourish your day" title="Fuel" />
+      <PageHeader eyebrow={tr("Nourish your day")} title={tr("Fuel")} />
       <div className="mb-5 flex items-center justify-between border-b border-border pb-3">
         <Button
           variant="ghost"
           size="icon"
           className="size-11 rounded-full"
-          aria-label="Previous day"
+          aria-label={tr("Previous day")}
           onClick={() => shift(-1)}
         >
           <ChevronLeft />
         </Button>
         <div className="text-center">
           <div className="font-display text-title font-bold">
-            {date === today() ? "Today" : format(new Date(date + "T12:00"), "EEE, d MMM")}
+            {date === today() ? tr("Today") : format(new Date(date + "T12:00"), "EEE, d MMM")}
           </div>
           <div className="num mt-1 text-caption text-muted-foreground">
             {format(new Date(date + "T12:00"), "d MMM yyyy")}
@@ -189,7 +204,7 @@ function Fuel() {
           variant="ghost"
           size="icon"
           className="size-11 rounded-full"
-          aria-label="Next day"
+          aria-label={tr("Next day")}
           disabled={date === today()}
           onClick={() => shift(1)}
         >
@@ -197,7 +212,7 @@ function Fuel() {
         </Button>
       </div>
       {q.isLoading ? (
-        <div aria-busy="true" aria-label="Loading nutrition">
+        <div aria-busy="true" aria-label={tr("Loading nutrition")}>
           <Skeleton className="h-44" />
           {MEALS.map((meal) => (
             <div key={meal}>
@@ -208,18 +223,18 @@ function Fuel() {
         </div>
       ) : q.error ? (
         <ErrorState
-          message="Your nutrition entries couldn't load. They're still saved."
+          message={tr("Your nutrition entries couldn't load. They're still saved.")}
           onRetry={() => q.refetch()}
         />
       ) : (
         <>
-          <section aria-label="Daily nutrition" className="border-b border-border pb-6">
+          <section aria-label={tr("Daily nutrition")} className="border-b border-border pb-6">
             <div className="flex flex-wrap items-center justify-center gap-5">
               <Ring value={m.calories / TARGET.calories} size={140} stroke={9} color="var(--ember)">
                 <div>
                   <div className="num text-title-l font-bold">{Math.abs(left)}</div>
                   <div className="mt-1 text-caption text-muted-foreground">
-                    {left >= 0 ? "kcal remaining" : "kcal above target"}
+                    {left >= 0 ? tr("kcal remaining") : tr("kcal above target")}
                   </div>
                 </div>
               </Ring>
@@ -235,13 +250,19 @@ function Fuel() {
                     <div className="flex flex-wrap justify-between gap-x-2 text-label">
                       <span className="font-semibold">{label}</span>
                       <span className="num text-caption text-muted-foreground">
-                        {target >= value ? `${target - value} g left` : `${value - target} g above`}
+                        {target >= value
+                          ? tr("{p0} g left", { p0: target - value })
+                          : tr("{p0} g above", { p0: value - target })}
                       </span>
                     </div>
                     <div
                       className="relative mt-2 h-1.5 overflow-hidden rounded-full bg-surface-2"
                       role="progressbar"
-                      aria-label={`${label}: ${value} of ${target} grams`}
+                      aria-label={tr("{p0}: {p1} of {p2} grams", {
+                        p0: label,
+                        p1: value,
+                        p2: target,
+                      })}
                       aria-valuenow={Math.min(value, target)}
                       aria-valuemin={0}
                       aria-valuemax={target}
@@ -258,11 +279,16 @@ function Fuel() {
               </div>
             </div>
             <div className="num mt-5 text-center text-caption text-muted-foreground">
-              {m.calories} / {TARGET.calories} kcal · daily target
+              <Message
+                source="{p0}/ {p1}kcal · daily target"
+                values={{ p0: m.calories, p1: TARGET.calories }}
+              />
             </div>
           </section>
           <div className="mt-4 flex items-center justify-between gap-3">
-            <span className="eyebrow">Your meals</span>
+            <span className="eyebrow">
+              <Message source="Your meals" />
+            </span>
             <Button
               variant="glass"
               className="h-11 px-4 text-label"
@@ -270,30 +296,37 @@ function Fuel() {
               onClick={openRepeat}
             >
               <Copy />
-              {date === today() ? "Repeat yesterday" : "Repeat previous day"}
+              {date === today() ? tr("Repeat yesterday") : tr("Repeat previous day")}
             </Button>
           </div>
           {MEALS.map((meal) => {
             const list = items.filter((i) => i.meal === meal);
             const kcal = list.reduce((sum, row) => sum + row.calories, 0);
             return (
-              <section key={meal} aria-label={`${meal} entries`}>
+              <section key={meal} aria-label={tr("{p0} entries", { p0: tr(meal) })}>
                 <SectionTitle
                   action={
                     <Button
                       variant="ghost"
                       className="h-11 rounded-full px-3 text-label text-ember"
-                      aria-label={`Add to ${meal}`}
+                      aria-label={tr("Add to {p0}", { p0: meal })}
                       onClick={() => setEntry({ meal })}
                     >
-                      <Plus /> Add
+                      <Plus /> <Message source="Add" />
                     </Button>
                   }
                 >
                   {meal}
                 </SectionTitle>
                 <div className="num -mt-2 mb-3 text-caption text-muted-foreground">
-                  {kcal} kcal · {list.length} {list.length === 1 ? "entry" : "entries"}
+                  <Message
+                    source="{p0}kcal · {p1}{p2}"
+                    values={{
+                      p0: kcal,
+                      p1: list.length,
+                      p2: list.length === 1 ? "entry" : "entries",
+                    }}
+                  />
                 </div>
                 <div className="space-y-2">
                   <AnimatePresence initial={false}>
@@ -312,7 +345,7 @@ function Fuel() {
                   {!list.length && (
                     <div className="flex items-center gap-3 border-b border-dashed border-border py-4 text-label text-muted-foreground">
                       <Utensils className="size-4 shrink-0 text-ember/70" />
-                      Nothing logged yet.
+                      <Message source="Nothing logged yet." />
                     </div>
                   )}
                 </div>
@@ -320,21 +353,26 @@ function Fuel() {
             );
           })}
           {suggestions.length > 0 && (
-            <section aria-label="Recent food suggestions">
-              <SectionTitle>From your recent meals</SectionTitle>
+            <section aria-label={tr("Recent food suggestions")}>
+              <SectionTitle>
+                <Message source="From your recent meals" />
+              </SectionTitle>
               <div className="space-y-2">
                 {suggestions.map((f) => (
                   <Button
                     variant="ghost"
                     key={f.id}
                     onClick={() => setEntry({ meal: f.meal, food: copyFood(f, date) })}
-                    aria-label={`Log ${f.name} again`}
+                    aria-label={tr("Log {p0} again", { p0: f.name })}
                     className="h-auto min-h-20 w-full justify-between gap-3 whitespace-normal rounded-tile border border-border bg-surface p-4 text-left"
                   >
                     <div className="min-w-0">
                       <div className="text-label font-semibold">{f.name}</div>
                       <div className="num mt-1 text-caption text-muted-foreground">
-                        {f.calories} kcal · {f.protein} g protein
+                        <Message
+                          source="{p0}kcal · {p1}g protein"
+                          values={{ p0: f.calories, p1: f.protein }}
+                        />
                       </div>
                     </div>
                     <ArrowUpRight className="text-ember" />
@@ -366,11 +404,14 @@ function Fuel() {
         onOpenChange={(open) => {
           if (!repeat.isPending) setRepeatOpen(open);
         }}
-        title="Repeat meals"
-        sub={`From ${format(new Date(previousDate + "T12:00"), "d MMM")} to ${format(new Date(date + "T12:00"), "d MMM")}`}
+        title={tr("Repeat meals")}
+        sub={tr("From {p0} to {p1}", {
+          p0: format(new Date(previousDate + "T12:00"), "d MMM"),
+          p1: format(new Date(date + "T12:00"), "d MMM"),
+        })}
       >
         <p className="mb-4 text-label text-muted-foreground">
-          Selected entries are added as new meals. Your existing entries stay unchanged.
+          <Message source="Selected entries are added as new meals. Your existing entries stay unchanged." />
         </p>
         <div className="space-y-2">
           {previous.map((f) => (
@@ -390,7 +431,7 @@ function Fuel() {
               <span className="min-w-0 flex-1">
                 <span className="block text-label font-semibold">{f.name}</span>
                 <span className="num text-caption text-muted-foreground">
-                  {f.meal} · {f.calories} kcal
+                  <Message source="{p0}· {p1}kcal" values={{ p0: f.meal, p1: f.calories }} />
                 </span>
               </span>
               {completed.current.has(f.id) && <Check className="size-4 text-ember" />}
@@ -411,7 +452,7 @@ function Fuel() {
             repeat.mutate(undefined, {
               onSuccess: () => {
                 setRepeatOpen(false);
-                toast.success("Meals added. Original entries unchanged.");
+                toast.success(tr("Meals added. Original entries unchanged."));
               },
               onError: () =>
                 setRepeatError(
@@ -422,10 +463,13 @@ function Fuel() {
         >
           {repeat.isPending ? <Loader2 className="animate-spin" /> : <Copy />}
           {repeat.isPending
-            ? "Adding meals…"
+            ? tr("Adding meals…")
             : repeatError
-              ? "Retry remaining meals"
-              : `Add ${selected.length} ${selected.length === 1 ? "entry" : "entries"}`}
+              ? tr("Retry remaining meals")
+              : tr("Add {p0} {p1}", {
+                  p0: selected.length,
+                  p1: selected.length === 1 ? "entry" : "entries",
+                })}
         </Button>
       </Sheet>
     </div>

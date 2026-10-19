@@ -1,6 +1,7 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { TodayRoutines } from "@/components/strata/today-routines";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { format } from "date-fns";
+import { format } from "@/lib/i18n";
 import { motion } from "motion/react";
 import { useMe } from "@/lib/api";
 import {
@@ -23,7 +24,7 @@ import { useAppView } from "@/components/strata/app-view";
 export const Route = createFileRoute("/app/")({
   head: () => ({
     meta: [
-      { title: "Today — Kinra" },
+      { title: tr("Today — Kinra") },
       {
         name: "description",
         content: "Your daily training, recovery and coaching overview in Kinra.",
@@ -42,10 +43,11 @@ export const Route = createFileRoute("/app/")({
 
 function greeting() {
   const h = new Date().getHours();
-  return h < 12 ? "Good morning" : h < 18 ? "Good afternoon" : "Good evening";
+  return h < 12 ? tr("Good morning") : h < 18 ? tr("Good afternoon") : tr("Good evening");
 }
 
 function Home() {
+  useLanguage();
   const me = useMe().data;
   const { personal } = useAppView();
   if (!me) return null;
@@ -65,6 +67,7 @@ function ClientHome({
   name: string | null;
   avatar?: string | undefined;
 }) {
+  useLanguage();
   const { log, startSession } = useShell();
   return (
     <div>
@@ -77,7 +80,7 @@ function ClientHome({
         </div>
         <div className="flex items-center gap-2">
           <StreakFlame userId={id} />
-          <Link to="/app/me" aria-label="Profile" className="rounded-full">
+          <Link to="/app/me" aria-label={tr("Profile")} className="rounded-full">
             <Avatar name={name} src={avatar} size={44} />
           </Link>
         </div>
@@ -89,7 +92,9 @@ function ClientHome({
       <PinnedCoachNote userId={id} />
       <Insights userId={id} />
 
-      <SectionTitle>Quick log</SectionTitle>
+      <SectionTitle>
+        <Message source="Quick log" />
+      </SectionTitle>
       <div className="grid grid-cols-5 gap-2">
         {logKinds.map((l) => (
           <motion.button
@@ -99,7 +104,7 @@ function ClientHome({
             className="tile flex min-h-[76px] flex-col items-center justify-center gap-1 px-1"
           >
             <l.icon className={cn("size-5", l.tone)} />
-            <span className="text-caption font-semibold tracking-tight">{l.label}</span>
+            <span className="text-caption font-semibold tracking-tight">{tr(l.label)}</span>
           </motion.button>
         ))}
       </div>

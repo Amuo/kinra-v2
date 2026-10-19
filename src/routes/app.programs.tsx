@@ -1,3 +1,4 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useState } from "react";
 import { ClipboardList, Plus, Pencil, Search } from "lucide-react";
@@ -17,7 +18,7 @@ const ProgramReferences = lazy(() =>
 export const Route = createFileRoute("/app/programs")({
   head: () => ({
     meta: [
-      { title: "Programs — Kinra" },
+      { title: tr("Programs — Kinra") },
       {
         name: "description",
         content: "Manage training programs and session plans for your Kinra athletes.",
@@ -35,6 +36,7 @@ export const Route = createFileRoute("/app/programs")({
 });
 
 function Programs() {
+  useLanguage();
   const me = useMe().data;
   const [editing, setEditing] = useState<Program | "new" | null>(null);
   const [references, setReferences] = useState(false);
@@ -44,23 +46,29 @@ function Programs() {
   return (
     <div className="min-w-0">
       <PageHeader
-        eyebrow="Training library"
-        title="Programs"
+        eyebrow={tr("Training library")}
+        title={tr("Programs")}
         action={
           me?.role === "trainer" ? (
             <Button variant="volt" className="h-11" onClick={() => setEditing("new")}>
               <Plus />
-              New
+              <Message source="New" />
             </Button>
           ) : undefined
         }
       />
       <Button variant="glass" className="mb-4 h-12 w-full" onClick={() => setReferences((v) => !v)}>
-        {references ? "Hide reference library" : "Explore 18 program references"}
+        {references ? tr("Hide reference library") : tr("Explore 18 program references")}
       </Button>
       {references && (
         <div className="mb-6">
-          <Suspense fallback={<p>Loading references…</p>}>
+          <Suspense
+            fallback={
+              <p>
+                <Message source="Loading references…" />
+              </p>
+            }
+          >
             <ProgramReferences />
           </Suspense>
         </div>
@@ -68,8 +76,8 @@ function Programs() {
       <div className="relative mb-4">
         <Search className="absolute left-3 top-3.5 size-5 text-muted-foreground" />
         <Input
-          aria-label="Search program library"
-          placeholder="Search programs or exercises"
+          aria-label={tr("Search program library")}
+          placeholder={tr("Search programs or exercises")}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="h-12 bg-surface pl-10 text-body"
@@ -87,11 +95,11 @@ function Programs() {
           {!programs.data?.length && (
             <Empty
               icon={<ClipboardList className="size-8" />}
-              title="Your next block starts here"
+              title={tr("Your next block starts here")}
               action={
                 me?.role === "trainer" ? (
                   <Button variant="glass" className="h-12" onClick={() => setEditing("new")}>
-                    Build program
+                    <Message source="Build program" />
                   </Button>
                 ) : undefined
               }
@@ -99,7 +107,10 @@ function Programs() {
           )}
           {!!programs.data?.length && (
             <p className="mb-3 text-caption text-muted-foreground">
-              {filtered.length} of {programs.data.length} programs
+              <Message
+                source="{p0}of {p1}programs"
+                values={{ p0: filtered.length, p1: programs.data.length }}
+              />
             </p>
           )}
           <div className="space-y-3">
@@ -112,11 +123,11 @@ function Programs() {
                     <Button
                       variant="glass"
                       className="h-11 text-label"
-                      aria-label={`Edit ${program.name}`}
+                      aria-label={tr("Edit {p0}", { p0: program.name })}
                       onClick={() => setEditing(program)}
                     >
                       <Pencil />
-                      Edit plan
+                      <Message source="Edit plan" />
                     </Button>
                   ) : undefined
                 }
@@ -126,10 +137,10 @@ function Programs() {
           {!!programs.data?.length && !filtered.length && (
             <Empty
               icon={<Search className="size-7" />}
-              title="No matching programs"
+              title={tr("No matching programs")}
               action={
                 <Button variant="glass" onClick={() => setQuery("")}>
-                  Clear search
+                  <Message source="Clear search" />
                 </Button>
               }
             />

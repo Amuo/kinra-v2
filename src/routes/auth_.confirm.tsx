@@ -1,3 +1,5 @@
+import { LanguageSelector } from "@/components/strata/language-selector";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { readAuthCallback } from "@/lib/auth-callback";
@@ -8,6 +10,7 @@ import { Logo } from "@/components/brand/logo";
 
 export const Route = createFileRoute("/auth_/confirm")({ ssr: false, component: ConfirmEmail });
 function ConfirmEmail() {
+  useLanguage();
   const navigate = useNavigate();
   const started = useRef(false);
   const [status, setStatus] = useState("Confirming your email…");
@@ -36,17 +39,22 @@ function ConfirmEmail() {
       } else await navigate({ to: "/app", replace: true });
     };
     void confirm().catch((error) =>
-      setStatus(error instanceof Error ? error.message : "Couldn't confirm this link."),
+      setStatus(error instanceof Error ? error.message : tr("Couldn't confirm this link.")),
     );
   }, [navigate]);
   return (
     <main className="mx-auto max-w-md px-6 py-12">
-      <a href="/" aria-label="Kinra home" className="mb-10 block w-fit">
+      <a href="/" aria-label={tr("Kinra home")} className="mb-10 block w-fit">
         <Logo />
       </a>
-      <h1 className="text-title-l font-bold">Kinra account</h1>
+      <div className="my-4 flex justify-end">
+        <LanguageSelector compact />
+      </div>
+      <h1 className="text-title-l font-bold">
+        <Message source="Kinra account" />
+      </h1>
       <p role="status" className="my-6">
-        {status}
+        {tr(status)}
       </p>
       {recovery && (
         <form
@@ -60,7 +68,7 @@ function ConfirmEmail() {
           }}
         >
           <label>
-            New password
+            <Message source="New password" />
             <Input
               required
               type="password"
@@ -73,12 +81,14 @@ function ConfirmEmail() {
             />
           </label>
           <Button disabled={busy} type="submit">
-            Save password
+            <Message source="Save password" />
           </Button>
         </form>
       )}
       <Button asChild variant="ghost" className="mt-6">
-        <a href="/auth">Back to sign in</a>
+        <a href="/auth">
+          <Message source="Back to sign in" />
+        </a>
       </Button>
     </main>
   );

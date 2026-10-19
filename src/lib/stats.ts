@@ -1,4 +1,5 @@
 import type { FoodLog, SleepLog, Workout } from "./types";
+import { number } from "./i18n";
 
 export const iso = (d: Date) => {
   const z = new Date(d.getTime() - d.getTimezoneOffset() * 60000);
@@ -68,7 +69,10 @@ export function readiness(sleep: SleepLog[], workouts: Workout[]) {
   return Math.max(20, Math.min(99, Math.round(s * 100 - Math.max(0, load - 14) * 2)));
 }
 
-export const fmtK = (n: number) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : `${Math.round(n)}`);
+export const fmtK = (n: number) =>
+  n >= 1000
+    ? `${number(n / 1000, { minimumFractionDigits: 1, maximumFractionDigits: 1 })}k`
+    : number(Math.round(n));
 export const firstName = (n?: string | null) => (n ?? "there").split(" ")[0];
 export const initials = (n?: string | null) =>
   (n ?? "?")
@@ -80,8 +84,12 @@ export const initials = (n?: string | null) =>
 
 /** "39.2 t" above a tonne, "850 kg" below. Returns value + unit separately for <Stat>. */
 export function fmtVolume(kg: number): { value: string; unit: string } {
-  if (kg >= 1000) return { value: (kg / 1000).toFixed(1), unit: "t" };
-  return { value: `${Math.round(kg)}`, unit: "kg" };
+  if (kg >= 1000)
+    return {
+      value: number(kg / 1000, { minimumFractionDigits: 1, maximumFractionDigits: 1 }),
+      unit: "t",
+    };
+  return { value: number(Math.round(kg)), unit: "kg" };
 }
 export const volumeText = (kg: number) => {
   const v = fmtVolume(kg);

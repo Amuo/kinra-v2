@@ -1,3 +1,4 @@
+import { number, t as tr, useLanguage, Message } from "@/lib/i18n";
 import { motion, AnimatePresence } from "motion/react";
 import { useRef, useState, type ReactNode } from "react";
 import { Check, Loader2, RotateCw, type LucideIcon } from "lucide-react";
@@ -27,6 +28,7 @@ export function Ring({
   color?: string;
   children?: ReactNode;
 }) {
+  useLanguage();
   const intro = useIntro();
   const r = (size - stroke) / 2;
   const c = 2 * Math.PI * r;
@@ -78,6 +80,7 @@ export function Panel({
   onClick?: (() => void) | undefined;
   label?: string | undefined;
 }) {
+  useLanguage();
   const intro = useIntro();
   const stagger = intro && index < 4;
   const common = {
@@ -114,6 +117,7 @@ export function Stat({
   tone?: "foreground" | "volt" | "pulse" | "ember" | "dream";
   size?: "sm" | "md" | "lg";
 }) {
+  useLanguage();
   const toneCls = {
     foreground: "text-foreground",
     volt: "text-volt",
@@ -124,7 +128,7 @@ export function Stat({
   const sz = { sm: "text-title", md: "text-[1.5rem]", lg: "text-title-l" }[size];
   return (
     <div className="min-w-0">
-      <div className="text-label font-semibold text-muted-foreground">{label}</div>
+      <div className="text-label font-semibold text-muted-foreground">{tr(label)}</div>
       <div
         className={cn(
           "num mt-1 flex flex-wrap items-baseline gap-x-1 gap-y-1 font-bold leading-tight",
@@ -132,10 +136,10 @@ export function Stat({
           toneCls,
         )}
       >
-        {value}
+        {typeof value === "number" ? number(value) : value}
         {unit && (
           <span className="ml-1 font-sans text-caption font-semibold text-muted-foreground">
-            {unit}
+            {tr(unit)}
           </span>
         )}
       </div>
@@ -152,6 +156,7 @@ export function PageHeader({
   title: ReactNode;
   action?: ReactNode;
 }) {
+  useLanguage();
   return (
     <header className="grid grid-cols-[minmax(0,1fr)_auto] items-end gap-3 pb-5 pt-2">
       <div className="min-w-0">
@@ -164,6 +169,7 @@ export function PageHeader({
 }
 
 export function SectionTitle({ children, action }: { children: ReactNode; action?: ReactNode }) {
+  useLanguage();
   return (
     <div className="mb-3 mt-8 grid min-h-[28px] grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
       <h2 className="min-w-0 text-body font-bold text-foreground">{children}</h2>
@@ -173,6 +179,7 @@ export function SectionTitle({ children, action }: { children: ReactNode; action
 }
 
 export function TextAction({ children, onClick }: { children: ReactNode; onClick?: () => void }) {
+  useLanguage();
   return (
     <motion.button
       type="button"
@@ -203,6 +210,7 @@ export function Bars({
   tip?: (i: number) => string;
   goal?: { value: number; label: string };
 }) {
+  useLanguage();
   const intro = useIntro();
   const [sel, setSel] = useState<number | null>(null);
   const m = max ?? Math.max(1, ...values, goal?.value ?? 0);
@@ -228,7 +236,7 @@ export function Bars({
             style={{ bottom: (goal.value / m) * height }}
           >
             <span className="num absolute -top-4 right-0 text-caption text-muted-foreground">
-              {goal.label}
+              {tr(goal.label)}
             </span>
           </div>
         )}
@@ -281,6 +289,7 @@ export function Avatar({
   size?: number;
   className?: string | undefined;
 }) {
+  useLanguage();
   const [failed, setFailed] = useState<string | null>(null);
   return (
     <div
@@ -316,6 +325,7 @@ export function Empty({
   body?: string;
   action?: ReactNode;
 }) {
+  useLanguage();
   return (
     <div className="panel grid-lines flex flex-col items-center px-6 py-10 text-center">
       {icon && (
@@ -331,11 +341,14 @@ export function Empty({
 }
 
 export function ErrorState({ message, onRetry }: { message?: string; onRetry?: () => void }) {
+  useLanguage();
   return (
     <div className="panel flex flex-col items-center px-6 py-8 text-center">
-      <div className="font-display text-title font-bold">Couldn't load this</div>
+      <div className="font-display text-title font-bold">
+        <Message source="Couldn't load this" />
+      </div>
       <p className="mt-1 text-label text-muted-foreground">
-        {message ?? "Check your connection and try again."}
+        {tr(message ?? "Check your connection and try again.")}
       </p>
       {onRetry && (
         <motion.button
@@ -343,7 +356,7 @@ export function ErrorState({ message, onRetry }: { message?: string; onRetry?: (
           onClick={onRetry}
           className="mt-4 inline-flex min-h-[44px] items-center gap-2 rounded-full bg-surface-2 px-5 text-label font-semibold"
         >
-          <RotateCw className="size-4" /> Retry
+          <RotateCw className="size-4" /> <Message source="Retry" />
         </motion.button>
       )}
     </div>
@@ -351,11 +364,13 @@ export function ErrorState({ message, onRetry }: { message?: string; onRetry?: (
 }
 
 export function Skeleton({ className }: { className?: string }) {
+  useLanguage();
   return <div className={cn("shimmer rounded-[14px]", className)} aria-hidden />;
 }
 export function SkeletonPage() {
+  useLanguage();
   return (
-    <div aria-busy="true" aria-label="Loading">
+    <div aria-busy="true" aria-label={tr("Loading")}>
       <Skeleton className="mb-2 h-3 w-24" />
       <Skeleton className="mb-6 h-8 w-48" />
       <Skeleton className="mb-3 h-40 w-full !rounded-[20px]" />
@@ -380,6 +395,7 @@ export function Chip({
   onClick?: () => void;
   className?: string;
 }) {
+  useLanguage();
   return (
     <motion.button
       type="button"
@@ -411,10 +427,14 @@ export function Segmented<T extends string>({
   options: { value: T; label: string }[];
   className?: string;
 }) {
+  useLanguage();
   return (
     <div
       role="tablist"
-      className={cn("flex rounded-full border border-border bg-surface p-1", className)}
+      className={cn(
+        "flex min-w-0 items-stretch rounded-full border border-border bg-surface p-1",
+        className,
+      )}
     >
       {options.map((o) => (
         <button
@@ -422,7 +442,7 @@ export function Segmented<T extends string>({
           role="tab"
           aria-selected={value === o.value}
           onClick={() => onChange(o.value)}
-          className="relative min-h-[40px] flex-1 rounded-full px-1 text-label font-semibold"
+          className="relative min-h-11 min-w-0 flex-1 basis-0 whitespace-normal break-words rounded-full px-1 py-2 text-center text-label font-semibold hyphens-auto [overflow-wrap:anywhere]"
         >
           {value === o.value && (
             <motion.span
@@ -437,7 +457,7 @@ export function Segmented<T extends string>({
               value === o.value ? "text-primary-foreground" : "text-muted-foreground",
             )}
           >
-            {o.label}
+            {tr(o.label)}
           </span>
         </button>
       ))}
@@ -460,11 +480,14 @@ export function IconScale({
   tone?: string;
   label: string;
 }) {
+  useLanguage();
   return (
     <div>
       <div className="mb-2 flex items-baseline justify-between">
         <span className="eyebrow">{label}</span>
-        <span className={cn("text-label font-semibold", tone)}>{options[value - 1]?.label}</span>
+        <span className={cn("text-label font-semibold", tone)}>
+          {tr(options[value - 1]?.label ?? "")}
+        </span>
       </div>
       <div role="radiogroup" aria-label={label} className="grid grid-cols-5 gap-2">
         {options.map((o, i) => (
@@ -472,8 +495,8 @@ export function IconScale({
             type="button"
             role="radio"
             aria-checked={value === i + 1}
-            aria-label={o.label}
-            key={o.label}
+            aria-label={tr(o.label)}
+            key={tr(o.label)}
             whileTap={springPress}
             onClick={() => onChange(i + 1)}
             className={cn(
@@ -505,6 +528,7 @@ export function SaveButton({
   disabled?: boolean;
   className?: string;
 }) {
+  useLanguage();
   const [st, setSt] = useState<"idle" | "busy" | "done">("idle");
   return (
     <motion.button
@@ -562,6 +586,7 @@ export function IconButton({
   onClick?: () => void;
   className?: string;
 }) {
+  useLanguage();
   return (
     <motion.button
       type="button"
@@ -585,6 +610,7 @@ export function Tag({
   children: ReactNode;
   tone?: "muted" | "volt" | "ember" | "pulse" | "dream" | "danger";
 }) {
+  useLanguage();
   const cls = {
     muted: "bg-surface-2 text-muted-foreground",
     volt: "bg-primary/15 text-volt",

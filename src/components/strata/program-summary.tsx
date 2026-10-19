@@ -1,3 +1,6 @@
+import { programExerciseName } from "@/lib/exercise-catalogue";
+import { t as tr } from "@/lib/i18n";
+import { useLanguage, Message } from "@/lib/i18n";
 import { ChevronDown } from "lucide-react";
 import { useId, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
@@ -5,6 +8,7 @@ import type { Program } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 export function ProgramDetails({ program }: { program: Program }) {
+  useLanguage();
   return (
     <>
       {program.description && (
@@ -16,17 +20,33 @@ export function ProgramDetails({ program }: { program: Program }) {
           <div className="mt-3 space-y-3">
             {day.exercises.map((exercise, j) => (
               <div key={j}>
-                <div className="break-words text-label font-semibold">{exercise.name}</div>
+                <div className="break-words text-label font-semibold">
+                  {programExerciseName(exercise)}
+                </div>
                 <div className="num mt-1 flex flex-wrap gap-x-3 gap-y-1 text-caption text-muted-foreground">
                   <span>
                     {exercise.sets} × {exercise.reps}
                   </span>
                   {exercise.weight != null && (
-                    <span className="text-pulse">{exercise.weight} kg</span>
+                    <span className="text-pulse">
+                      <Message source="{p0}kg" values={{ p0: exercise.weight }} />
+                    </span>
                   )}
-                  {exercise.rest_seconds != null && <span>{exercise.rest_seconds}s rest</span>}
-                  {exercise.rpe != null && <span>RPE {exercise.rpe}/10</span>}
-                  {exercise.tempo && <span>Tempo {exercise.tempo}</span>}
+                  {exercise.rest_seconds != null && (
+                    <span>
+                      <Message source="{p0}s rest" values={{ p0: exercise.rest_seconds }} />
+                    </span>
+                  )}
+                  {exercise.rpe != null && (
+                    <span>
+                      <Message source="RPE {p0}/10" values={{ p0: exercise.rpe }} />
+                    </span>
+                  )}
+                  {exercise.tempo && (
+                    <span>
+                      <Message source="Tempo {p0}" values={{ p0: exercise.tempo }} />
+                    </span>
+                  )}
                 </div>
                 {exercise.notes && (
                   <p className="mt-1 break-words text-caption text-muted-foreground">
@@ -51,6 +71,7 @@ export function ProgramSummary({
   actions?: ReactNode;
   eyebrow?: string;
 }) {
+  useLanguage();
   const [open, setOpen] = useState(false);
   const id = useId();
   return (
@@ -58,7 +79,7 @@ export function ProgramSummary({
       {eyebrow && <div className="eyebrow mb-2">{eyebrow}</div>}
       <Button
         variant="ghost"
-        aria-label={`${open ? "Collapse" : "Open"} ${program.name}`}
+        aria-label={tr(open ? "Collapse {name}" : "Open {name}", { name: program.name })}
         aria-expanded={open}
         aria-controls={id}
         onClick={() => setOpen(!open)}
@@ -69,7 +90,10 @@ export function ProgramSummary({
             {program.name}
           </span>
           <span className="num mt-2 block text-caption text-muted-foreground">
-            {program.weeks} weeks · {program.days.length} training days
+            <Message
+              source="{p0}weeks · {p1}training days"
+              values={{ p0: program.weeks, p1: program.days.length }}
+            />
           </span>
         </span>
         <ChevronDown

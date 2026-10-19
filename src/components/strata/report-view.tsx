@@ -1,4 +1,5 @@
-import { format } from "date-fns";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
+import { format } from "@/lib/i18n";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -23,6 +24,7 @@ export function ReportView({
   coach?: string | null | undefined;
   photos?: ProgressPhoto[];
 }) {
+  useLanguage();
   const wDelta =
     s.weightStart != null && s.weightEnd != null ? +(s.weightEnd - s.weightStart).toFixed(1) : null;
   const sessDelta = s.sessions - s.prevSessions;
@@ -36,31 +38,39 @@ export function ReportView({
     <div className="space-y-3">
       <Panel className="relative overflow-hidden">
         <div className="eyebrow">
-          {s.periodDays}-day report · {format(new Date(s.from + "T12:00"), "d MMM")} –{" "}
-          {format(new Date(s.to + "T12:00"), "d MMM")}
+          <Message
+            source="{p0}-day report · {p1}– {p2}"
+            values={{
+              p0: s.periodDays,
+              p1: format(new Date(s.from + "T12:00"), "d MMM"),
+              p2: format(new Date(s.to + "T12:00"), "d MMM"),
+            }}
+          />
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-5">
           <Ring value={s.adherence} size={96} stroke={9}>
             <div>
               <div className="num text-2xl font-bold">{Math.round(s.adherence * 100)}%</div>
-              <div className="eyebrow">Adherence</div>
+              <div className="eyebrow">
+                <Message source="Adherence" />
+              </div>
             </div>
           </Ring>
           <div className="grid min-w-40 flex-1 grid-cols-2 gap-3">
             <div>
-              <Stat label="Sessions" value={s.sessions} tone="volt" />
+              <Stat label={tr("Sessions")} value={s.sessions} tone="volt" />
               <Delta v={sessDelta} suffix=" vs prev" />
             </div>
             <div>
               <Stat
-                label="Volume"
+                label={tr("Volume")}
                 value={fmtVolume(s.volume).value}
                 unit={fmtVolume(s.volume).unit}
               />
               {s.volumeDeltaPct != null && <Delta v={s.volumeDeltaPct} suffix="%" />}
             </div>
-            <Stat label="Hours" value={(s.minutes / 60).toFixed(1)} />
-            <Stat label="Avg RPE" value={s.avgRpe || "—"} />
+            <Stat label={tr("Hours")} value={(s.minutes / 60).toFixed(1)} />
+            <Stat label={tr("Avg RPE")} value={s.avgRpe || "—"} />
           </div>
         </div>
       </Panel>
@@ -87,25 +97,28 @@ export function ReportView({
 
       <div className="grid grid-cols-2 gap-3">
         <Panel>
-          <Stat label="Avg sleep" value={s.avgSleep || "—"} unit="h" tone="dream" />
+          <Stat label={tr("Avg sleep")} value={s.avgSleep || "—"} unit="h" tone="dream" />
           <div className="num mt-1 text-caption text-muted-foreground">
-            quality {s.avgSleepQuality || "—"}/5
+            <Message source="quality {p0}/5" values={{ p0: s.avgSleepQuality || "—" }} />
           </div>
         </Panel>
         <Panel>
-          <Stat label="Bodyweight" value={s.weightEnd ?? "—"} unit="kg" />
+          <Stat label={tr("Bodyweight")} value={s.weightEnd ?? "—"} unit="kg" />
           {wDelta != null && <Delta v={wDelta} suffix=" kg" neutral />}
         </Panel>
         <Panel>
-          <Stat label="Avg kcal" value={s.avgKcal ? fmtK(s.avgKcal) : "—"} tone="ember" />
+          <Stat label={tr("Avg kcal")} value={s.avgKcal ? fmtK(s.avgKcal) : "—"} tone="ember" />
           <div className="num mt-1 text-caption text-muted-foreground">
-            {s.avgProtein} g protein · {s.loggedFoodDays} days logged
+            <Message
+              source="{p0}g protein · {p1}days logged"
+              values={{ p0: s.avgProtein, p1: s.loggedFoodDays }}
+            />
           </div>
         </Panel>
         <Panel>
-          <Stat label="Mood" value={s.avgMood || "—"} unit="/5" tone="pulse" />
+          <Stat label={tr("Mood")} value={s.avgMood || "—"} unit="/5" tone="pulse" />
           <div className="num mt-1 text-caption text-muted-foreground">
-            energy {s.avgEnergy || "—"}/5
+            <Message source="energy {p0}/5" values={{ p0: s.avgEnergy || "—" }} />
           </div>
         </Panel>
       </div>
@@ -113,7 +126,7 @@ export function ReportView({
       {s.prs.length > 0 && (
         <Panel>
           <div className="eyebrow mb-2 flex items-center gap-1.5">
-            <Trophy className="size-3.5 text-volt" /> New records
+            <Trophy className="size-3.5 text-volt" /> <Message source="New records" />
           </div>
           {s.prs.map((p) => (
             <div
@@ -123,7 +136,9 @@ export function ReportView({
               <span className="text-label">{p.exercise}</span>
               <span className="num text-label">
                 <span className="text-muted-foreground">{p.prev || "—"} →</span>{" "}
-                <b className="text-volt">{p.weight} kg</b>
+                <b className="text-volt">
+                  <Message source="{p0}kg" values={{ p0: p.weight }} />
+                </b>
               </span>
             </div>
           ))}
@@ -151,6 +166,7 @@ export function ReportView({
 }
 
 function Delta({ v, suffix, neutral }: { v: number; suffix: string; neutral?: boolean }) {
+  useLanguage();
   const up = v > 0;
   const cls = neutral
     ? "text-muted-foreground"

@@ -1,5 +1,7 @@
+import { errorText } from "@/lib/i18n-errors";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useRef, useState } from "react";
-import { format } from "date-fns";
+import { format } from "@/lib/i18n";
 import { Camera, Columns2, Lock, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { useAct, useQ } from "@/lib/api";
@@ -8,6 +10,7 @@ import { Chip, Empty, Panel } from "./ui";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
+const poseLabel = (value: string) => tr(value === "Back" ? "Back view" : value);
 const POSES = ["Front", "Side", "Back"];
 
 export function usePhotos(userId: string) {
@@ -15,12 +18,13 @@ export function usePhotos(userId: string) {
 }
 
 export function CompareSlider({ before, after }: { before: ProgressPhoto; after: ProgressPhoto }) {
+  useLanguage();
   const [pos, setPos] = useState(50);
   return (
     <div className="relative aspect-[3/4] w-full select-none overflow-hidden rounded-2xl bg-surface-2">
       <img
         src={after.url}
-        alt={`${after.pose} photo ${after.taken_on}`}
+        alt={tr("{p0} photo {p1}", { p0: poseLabel(after.pose), p1: after.taken_on })}
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div
@@ -29,7 +33,7 @@ export function CompareSlider({ before, after }: { before: ProgressPhoto; after:
       >
         <img
           src={before.url}
-          alt={`${before.pose} photo ${before.taken_on}`}
+          alt={tr("{p0} photo {p1}", { p0: poseLabel(before.pose), p1: before.taken_on })}
           className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
@@ -53,7 +57,7 @@ export function CompareSlider({ before, after }: { before: ProgressPhoto; after:
         max={100}
         value={pos}
         onChange={(e) => setPos(+e.target.value)}
-        aria-label="Compare before and after"
+        aria-label={tr("Compare before and after")}
         className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0"
       />
     </div>
@@ -61,6 +65,7 @@ export function CompareSlider({ before, after }: { before: ProgressPhoto; after:
 }
 
 export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boolean }) {
+  useLanguage();
   const photos = usePhotos(userId);
   const [sideBySide, setSideBySide] = useState(false);
   const [pose, setPose] = useState("Front");
@@ -78,11 +83,11 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
       <div className="no-scrollbar -mx-5 mb-3 flex items-center gap-2 overflow-x-auto px-5">
         {POSES.map((p) => (
           <Chip key={p} active={pose === p} onClick={() => setPose(p)}>
-            {p}
+            {poseLabel(p)}
           </Chip>
         ))}
         <span className="ml-auto flex shrink-0 items-center gap-1 text-caption text-muted-foreground">
-          <Lock className="size-3" /> Private
+          <Lock className="size-3" /> <Message source="Private" />
         </span>
       </div>
 
@@ -95,7 +100,7 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
               onClick={() => setSideBySide(false)}
               aria-pressed={!sideBySide}
             >
-              Slider
+              <Message source="Slider" />
             </Button>
             <Button
               variant={sideBySide ? "volt" : "glass"}
@@ -103,7 +108,7 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
               onClick={() => setSideBySide(true)}
               aria-pressed={sideBySide}
             >
-              Side by side
+              <Message source="Side by side" />
             </Button>
           </div>
           {sideBySide ? (
@@ -112,7 +117,10 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
                 <figure key={photo.id}>
                   <img
                     src={photo.url}
-                    alt={`${photo.pose} progress on ${photo.taken_on}`}
+                    alt={tr("{p0} progress on {p1}", {
+                      p0: poseLabel(photo.pose),
+                      p1: photo.taken_on,
+                    })}
                     className="aspect-[3/4] w-full rounded-xl object-contain bg-surface-2"
                   />
                   <figcaption className="py-2 text-center text-caption">
@@ -125,18 +133,24 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
             <CompareSlider before={first} after={last} />
           )}
           <div className="num px-2 py-2 text-center text-caption text-muted-foreground">
-            {sideBySide ? "Side-by-side comparison" : "Drag to compare"} · {posed.length}{" "}
-            {pose.toLowerCase()} photos
+            <Message
+              source="{p0}· {p1} {p2}photos"
+              values={{
+                p0: sideBySide ? "Side-by-side comparison" : "Drag to compare",
+                p1: posed.length,
+                p2: poseLabel(pose),
+              }}
+            />
           </div>
         </Panel>
       ) : !photos.isLoading && !posed.length ? (
         <Empty
           icon={<Camera className="size-8" />}
-          title={`No ${pose.toLowerCase()} photos yet`}
+          title={tr("No {p0} photos yet", { p0: pose.toLowerCase() })}
           body={
             canEdit
-              ? "Same light, same spot, every 2–4 weeks. Only you and your coach can see them."
-              : "Your client hasn't added any yet."
+              ? tr("Same light, same spot, every 2–4 weeks. Only you and your coach can see them.")
+              : tr("Your client hasn't added any yet.")
           }
         />
       ) : null}
@@ -151,12 +165,12 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
             >
               <img
                 src={p.url}
-                alt={`${p.pose} progress photo ${p.taken_on}`}
+                alt={tr("{p0} progress photo {p1}", { p0: poseLabel(p.pose), p1: p.taken_on })}
                 loading="lazy"
                 className="h-full w-full object-cover"
               />
               <div className="num absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 to-transparent px-2 pb-1.5 pt-4 text-left text-caption">
-                {format(new Date(p.taken_on + "T12:00"), "d MMM")} · {p.pose}
+                {format(new Date(p.taken_on + "T12:00"), "d MMM")} · {poseLabel(p.pose)}
               </div>
             </button>
           ))}
@@ -175,10 +189,11 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
               const f = e.target.files?.[0];
               e.target.value = "";
               if (!f) return;
-              if (f.size > 10 * 1024 * 1024) return void toast.error("Photo must be under 10 MB");
+              if (f.size > 10 * 1024 * 1024)
+                return void toast.error(tr("Photo must be under 10 MB"));
               upload.mutate(f, {
-                onSuccess: () => toast.success("Photo saved privately"),
-                onError: (er) => toast.error(er.message),
+                onSuccess: () => toast.success(tr("Photo saved privately")),
+                onError: (er) => toast.error(errorText(er.message)),
               });
             }}
           />
@@ -189,7 +204,8 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
             disabled={upload.isPending}
             onClick={() => input.current?.click()}
           >
-            <Camera /> {upload.isPending ? "Uploading…" : `Add ${pose.toLowerCase()} photo`}
+            <Camera />{" "}
+            {upload.isPending ? tr("Uploading…") : tr("Add {p0} photo", { p0: pose.toLowerCase() })}
           </Button>
         </>
       )}
@@ -197,10 +213,15 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
       <Dialog open={!!view} onOpenChange={(o) => !o && setView(null)}>
         <DialogContent className="max-w-sm border-border bg-popover p-3">
           <DialogTitle className="px-1 text-base">
-            {view && `${view.pose} · ${format(new Date(view.taken_on + "T12:00"), "d MMM yyyy")}`}
+            {view &&
+              `${poseLabel(view.pose)} · ${format(new Date(view.taken_on + "T12:00"), "d MMM yyyy")}`}
           </DialogTitle>
           {view && (
-            <img src={view.url} alt={`${view.pose} progress photo`} className="w-full rounded-xl" />
+            <img
+              src={view.url}
+              alt={tr("{p0} progress photo", { p0: poseLabel(view.pose) })}
+              className="w-full rounded-xl"
+            />
           )}
           {view?.note && <p className="px-1 text-label text-muted-foreground">{view.note}</p>}
           {canEdit && view && (
@@ -208,10 +229,12 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
               variant="ghost"
               className="text-destructive"
               onClick={() =>
-                remove.mutate(view, { onSuccess: () => (setView(null), toast.success("Deleted")) })
+                remove.mutate(view, {
+                  onSuccess: () => (setView(null), toast.success(tr("Deleted"))),
+                })
               }
             >
-              <Trash2 /> Delete photo
+              <Trash2 /> <Message source="Delete photo" />
             </Button>
           )}
         </DialogContent>

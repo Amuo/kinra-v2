@@ -1,7 +1,9 @@
+import { errorText } from "@/lib/i18n-errors";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { PrivateMessages } from "@/components/strata/private-messages";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { format } from "date-fns";
+import { format } from "@/lib/i18n";
 import { ArrowLeft, Send, Pencil, ThumbsUp, Plus, Search } from "lucide-react";
 import { toast } from "sonner";
 import { useAct, useQ } from "@/lib/api";
@@ -32,7 +34,7 @@ import { searchPrograms } from "@/lib/programs";
 export const Route = createFileRoute("/app/clients/$clientId")({
   head: () => ({
     meta: [
-      { title: "Client progress — Kinra" },
+      { title: tr("Client progress — Kinra") },
       {
         name: "description",
         content: "Review an athlete’s training, recovery, program and private progress in Kinra.",
@@ -50,6 +52,7 @@ export const Route = createFileRoute("/app/clients/$clientId")({
 });
 
 function ClientDetail() {
+  useLanguage();
   const { clientId } = Route.useParams();
   const [tab, setTab] = useState<"overview" | "report" | "photos" | "program" | "notes">(
     "overview",
@@ -69,9 +72,13 @@ function ClientDetail() {
   if (!person.data)
     return (
       <div>
-        <h1 className="text-title">Client unavailable</h1>
+        <h1 className="text-title">
+          <Message source="Client unavailable" />
+        </h1>
         <Button asChild variant="glass" className="mt-4 h-12">
-          <Link to="/app/clients">Back to clients</Link>
+          <Link to="/app/clients">
+            <Message source="Back to clients" />
+          </Link>
         </Button>
       </div>
     );
@@ -82,23 +89,25 @@ function ClientDetail() {
         to="/app/clients"
         className="-ml-2 mb-2 inline-flex min-h-[44px] items-center gap-1 rounded-full px-2 text-label text-muted-foreground"
       >
-        <ArrowLeft className="size-4" /> Clients
+        <ArrowLeft className="size-4" /> <Message source="Clients" />
       </Link>
       <div className="mb-4 flex items-center gap-4">
         <Avatar name={person.data?.display_name} src={person.data.avatar_url} size={60} />
         <div className="min-w-0">
-          <div className="eyebrow mb-1">Client progress</div>
+          <div className="eyebrow mb-1">
+            <Message source="Client progress" />
+          </div>
           <h1 className="break-words font-display text-title-l font-extrabold">
-            {person.data.display_name ?? "Client"}
+            {person.data.display_name ?? tr("Client")}
           </h1>
           <div className="mt-1 break-words text-label text-muted-foreground">
-            {person.data.goal ?? "No goal set"}
+            {person.data.goal ?? tr("No goal set")}
           </div>
         </div>
       </div>
       <Button variant="glass" className="mb-4 h-11 text-label" onClick={() => setKudos(true)}>
         <ThumbsUp />
-        Give kudos
+        <Message source="Give kudos" />
       </Button>
       {kudos && (
         <CoachKudos
@@ -118,11 +127,11 @@ function ClientDetail() {
           value={tab}
           onChange={setTab}
           options={[
-            { value: "overview", label: "Overview" },
-            { value: "report", label: "Report" },
-            { value: "photos", label: "Photos" },
-            { value: "program", label: "Plan" },
-            { value: "notes", label: "Notes" },
+            { value: "overview", label: tr("Overview") },
+            { value: "report", label: tr("Report") },
+            { value: "photos", label: tr("Photos") },
+            { value: "program", label: tr("Plan") },
+            { value: "notes", label: tr("Notes") },
           ]}
         />
       </div>
@@ -132,7 +141,9 @@ function ClientDetail() {
           <ReadinessHero userId={clientId} interactive={false} />
           {d.metrics.filter((m) => m.weight != null).length > 1 && (
             <>
-              <SectionTitle>Bodyweight</SectionTitle>
+              <SectionTitle>
+                <Message source="Bodyweight" />
+              </SectionTitle>
               <div className="panel p-4">
                 <WeightChart metrics={d.metrics} />
               </div>
@@ -150,6 +161,7 @@ function ClientDetail() {
 }
 
 function ProgramTab({ clientId }: { clientId: string }) {
+  useLanguage();
   const [editing, setEditing] = useState<Program | "new" | null>(null);
   const [query, setQuery] = useState("");
   const programs = useQ(["programs"], (api) => api.programs());
@@ -175,14 +187,14 @@ function ProgramTab({ clientId }: { clientId: string }) {
         onClick={() => setEditing("new")}
       >
         <Plus />
-        Create custom program
+        <Message source="Create custom program" />
       </Button>
       {current ? (
         <>
           <ProgramSummary
             key={current.id}
             program={current}
-            eyebrow="Current program"
+            eyebrow={tr("Current program")}
             actions={
               <Button
                 variant="glass"
@@ -190,25 +202,32 @@ function ProgramTab({ clientId }: { clientId: string }) {
                 onClick={() => setEditing(current)}
               >
                 <Pencil />
-                Edit plan
+                <Message source="Edit plan" />
               </Button>
             }
           />
           {start && (
             <p className="num mt-2 text-caption text-muted-foreground">
-              Started {format(new Date(start + "T12:00"), "d MMM")}
+              <Message
+                source="Started {p0}"
+                values={{ p0: format(new Date(start + "T12:00"), "d MMM") }}
+              />
             </p>
           )}
         </>
       ) : (
-        <div className="text-label text-muted-foreground">No program assigned yet.</div>
+        <div className="text-label text-muted-foreground">
+          <Message source="No program assigned yet." />
+        </div>
       )}
-      <SectionTitle>Program library</SectionTitle>
+      <SectionTitle>
+        <Message source="Program library" />
+      </SectionTitle>
       <div className="relative mb-4">
         <Search className="absolute left-3 top-3.5 size-5 text-muted-foreground" />
         <Input
-          aria-label="Search programs to assign"
-          placeholder="Search programs or exercises"
+          aria-label={tr("Search programs to assign")}
+          placeholder={tr("Search programs or exercises")}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           className="h-12 bg-surface pl-10 text-body"
@@ -226,22 +245,24 @@ function ProgramTab({ clientId }: { clientId: string }) {
                 disabled={current?.id === p.id || assign.isPending}
                 onClick={() =>
                   assign.mutate(p.id, {
-                    onSuccess: () => toast.success(`Assigned ${p.name}`),
-                    onError: (e) => toast.error(e.message),
+                    onSuccess: () => toast.success(tr("Assigned {p0}", { p0: p.name })),
+                    onError: (e) => toast.error(errorText(e.message)),
                   })
                 }
               >
-                {current?.id === p.id ? "Active" : "Assign"}
+                {current?.id === p.id ? tr("Active") : tr("Assign")}
               </Button>
             }
           />
         ))}
         {!!programs.data?.length && !searchPrograms(programs.data, query).length && (
-          <p className="text-label text-muted-foreground">No matching programs.</p>
+          <p className="text-label text-muted-foreground">
+            <Message source="No matching programs." />
+          </p>
         )}
         {!programs.data?.length && (
           <Link to="/app/programs" className="text-label font-semibold text-primary">
-            Create your first program →
+            <Message source="Create your first program →" />
           </Link>
         )}
       </div>
@@ -256,6 +277,7 @@ function ProgramTab({ clientId }: { clientId: string }) {
 }
 
 function NotesTab({ clientId }: { clientId: string }) {
+  useLanguage();
   const [body, setBody] = useState("");
   const notes = useQ(["notes", clientId], (api) => api.notes(clientId));
   const add = useAct((api, b: string) => api.addNote(clientId, b));
@@ -263,13 +285,13 @@ function NotesTab({ clientId }: { clientId: string }) {
   const send = () =>
     body.trim() &&
     add.mutate(body.trim(), {
-      onSuccess: () => (setBody(""), toast.success("Sent to client")),
-      onError: (e) => toast.error(e.message),
+      onSuccess: () => (setBody(""), toast.success(tr("Sent to client"))),
+      onError: (e) => toast.error(errorText(e.message)),
     });
   return (
     <div>
       <p className="mb-4 text-center text-caption text-muted-foreground">
-        Notes appear on your client's Today screen.
+        <Message source="Notes appear on your client's Today screen." />
       </p>
       <div className="space-y-3">
         {list.map((n) => (
@@ -284,7 +306,7 @@ function NotesTab({ clientId }: { clientId: string }) {
         ))}
         {!list.length && !notes.isLoading && (
           <div className="tile p-4 text-center text-label text-muted-foreground">
-            No notes yet. Say hi.
+            <Message source="No notes yet. Say hi." />
           </div>
         )}
       </div>
@@ -293,14 +315,14 @@ function NotesTab({ clientId }: { clientId: string }) {
           rows={1}
           value={body}
           onChange={(e) => setBody(e.target.value)}
-          placeholder="Message your client…"
-          aria-label="Note to client"
+          placeholder={tr("Message your client…")}
+          aria-label={tr("Note to client")}
           className="min-h-[44px] flex-1 resize-none border-0 bg-transparent text-body focus-visible:ring-0"
         />
         <Button
           disabled={!body.trim() || add.isPending}
           onClick={send}
-          aria-label="Send note"
+          aria-label={tr("Send note")}
           size="icon"
           className="size-11 shrink-0 rounded-full"
         >
@@ -312,6 +334,7 @@ function NotesTab({ clientId }: { clientId: string }) {
 }
 
 function ReportTab({ clientId }: { clientId: string }) {
+  useLanguage();
   const [period, setPeriod] = useState(30);
   const [comment, setComment] = useState("");
   const d = useClientData(clientId);
@@ -327,24 +350,28 @@ function ReportTab({ clientId }: { clientId: string }) {
       <div className="mb-3 flex flex-wrap gap-2">
         {[7, 30, 90].map((p) => (
           <Chip key={p} active={period === p} onClick={() => setPeriod(p)}>
-            {p} days
+            <Message source="{p0}days" values={{ p0: p }} />
           </Chip>
         ))}
       </div>
       {d.error ? (
         <ErrorState onRetry={d.retry} />
       ) : d.loading ? (
-        <div className="text-label text-muted-foreground">Crunching numbers…</div>
+        <div className="text-label text-muted-foreground">
+          <Message source="Crunching numbers…" />
+        </div>
       ) : (
         <ReportView s={summary} photos={photos.data ?? []} />
       )}
-      <SectionTitle>Your message</SectionTitle>
+      <SectionTitle>
+        <Message source="Your message" />
+      </SectionTitle>
       <Panel className="p-3">
         <Textarea
           rows={4}
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          placeholder="Summarise the block, celebrate wins, set the next focus…"
+          placeholder={tr("Summarise the block, celebrate wins, set the next focus…")}
           className="border-0 bg-transparent"
         />
       </Panel>
@@ -357,18 +384,20 @@ function ReportTab({ clientId }: { clientId: string }) {
           send.mutate(
             { summary },
             {
-              onSuccess: () => (setComment(""), toast.success("Report sent to client")),
-              onError: (e) => toast.error(e.message),
+              onSuccess: () => (setComment(""), toast.success(tr("Report sent to client"))),
+              onError: (e) => toast.error(errorText(e.message)),
             },
           )
         }
       >
-        <Send /> Send report
+        <Send /> <Message source="Send report" />
       </Button>
 
       {!!reports.data?.length && (
         <>
-          <SectionTitle>Sent reports</SectionTitle>
+          <SectionTitle>
+            <Message source="Sent reports" />
+          </SectionTitle>
           <div className="space-y-2">
             {reports.data.map((r) => (
               <div key={r.id}>
@@ -378,7 +407,9 @@ function ReportTab({ clientId }: { clientId: string }) {
                 >
                   <FileText className="size-5 text-volt" />
                   <div className="flex-1">
-                    <div className="font-semibold">{r.period_days}-day report</div>
+                    <div className="font-semibold">
+                      <Message source="{p0}-day report" values={{ p0: r.period_days }} />
+                    </div>
                     <div className="num text-caption text-muted-foreground">
                       {format(new Date(r.created_at), "d MMM yyyy · HH:mm")}
                     </div>

@@ -1,5 +1,7 @@
+import { displayNumber } from "@/lib/i18n";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useState } from "react";
-import { format } from "date-fns";
+import { format } from "@/lib/i18n";
 import { motion, useReducedMotion } from "motion/react";
 import { Moon, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +10,7 @@ import { today } from "@/lib/stats";
 import type { SleepLog } from "@/lib/types";
 
 export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () => void }) {
+  useLanguage();
   const [days, setDays] = useState(14);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const reduce = useReducedMotion();
@@ -31,12 +34,14 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
     setSelectedDate(timeline[index]?.date ?? null);
   };
   return (
-    <section aria-label="Sleep trend" className="border-b border-border pb-6">
+    <section aria-label={tr("Sleep trend")} className="border-b border-border pb-6">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="font-display text-title font-bold">Your nights</h2>
+        <h2 className="font-display text-title font-bold">
+          <Message source="Your nights" />
+        </h2>
         <div
           className="flex rounded-full border border-border bg-surface p-1"
-          aria-label="Sleep period"
+          aria-label={tr("Sleep period")}
         >
           {[7, 14].map((value) => (
             <Button
@@ -49,7 +54,7 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
               }}
               className={`h-11 rounded-full px-4 text-label ${days === value ? "bg-dream/15 text-dream" : "text-muted-foreground"}`}
             >
-              {value} nights
+              <Message source="{p0}nights" values={{ p0: value }} />
             </Button>
           ))}
         </div>
@@ -57,25 +62,38 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div aria-live="polite">
           <div className="eyebrow">
-            {selected ? format(new Date(`${selected.date}T12:00`), "EEE, d MMM") : "Sleep"}
+            {selected ? format(new Date(`${selected.date}T12:00`), "EEE, d MMM") : tr("Sleep")}
           </div>
           <div className="num mt-2 text-display font-bold text-dream">
-            {selected?.hours?.toFixed(1) ?? "—"}
-            <span className="ml-2 text-title text-muted-foreground">h</span>
+            {displayNumber(selected?.hours?.toFixed(1) ?? "—")}
+            <span className="ml-2 text-title text-muted-foreground">
+              <Message source="h" />
+            </span>
           </div>
           <div className="mt-2 text-label text-muted-foreground">
             {selected?.quality != null
-              ? `Quality ${selected.quality.toFixed(1).replace(/\.0$/, "")} / 5${selected.entries.length > 1 ? ` · average of ${selected.entries.length} logs` : ""}`
-              : "No sleep logged"}
+              ? tr("Quality {p0} / 5{p1}", {
+                  p0: selected.quality.toFixed(1).replace(/\.0$/, ""),
+                  p1:
+                    selected.entries.length > 1
+                      ? tr(" · average of {p0} logs", { p0: selected.entries.length })
+                      : "",
+                })
+              : tr("No sleep logged")}
           </div>
         </div>
         <div className="text-right">
           <div className="num text-title font-bold">
-            {average?.toFixed(1) ?? "—"}
-            <span className="ml-1 text-caption text-muted-foreground">h avg</span>
+            {displayNumber(average?.toFixed(1) ?? "—")}
+            <span className="ml-1 text-caption text-muted-foreground">
+              <Message source="h avg" />
+            </span>
           </div>
           <div className="mt-2 text-caption text-muted-foreground">
-            {recorded.length} nights logged · last {days}
+            <Message
+              source="{p0}nights logged · last {p1}"
+              values={{ p0: recorded.length, p1: days }}
+            />
           </div>
         </div>
       </div>
@@ -84,7 +102,7 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
           viewBox="0 -10 336 134"
           className="h-32 w-full overflow-visible"
           role="img"
-          aria-label={`Sleep over the last ${days} nights, with an 8 hour goal`}
+          aria-label={tr("Sleep over the last {p0} nights, with an 8 hour goal", { p0: days })}
         >
           <line x1="0" x2="336" y1="112" y2="112" stroke="var(--border)" />
           <rect
@@ -111,7 +129,7 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
             fill="var(--muted-foreground)"
             className="font-mono text-caption"
           >
-            8 h goal
+            <Message source="8 h goal" />
           </text>
           {timeline.map((day, i) => (
             <motion.rect
@@ -134,7 +152,7 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
               variant="ghost"
               key={day.date}
               className="h-full min-w-0 flex-1 rounded-none p-0 hover:bg-dream/10"
-              aria-label={`${format(new Date(`${day.date}T12:00`), "EEE d MMM")}: ${day.hours === null ? "no sleep logged" : `${day.hours.toFixed(1)} hours`}`}
+              aria-label={`${format(new Date(`${day.date}T12:00`), "EEE d MMM")}: ${day.hours === null ? tr("no sleep logged") : tr("{p0} hours", { p0: day.hours })}`}
               aria-pressed={selected?.date === day.date}
               onClick={() => setSelectedDate(day.date)}
             />
@@ -143,15 +161,17 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
       </div>
       <div className="num mt-2 flex justify-between text-caption text-muted-foreground">
         <span>{format(new Date(`${timeline[0]?.date}T12:00`), "d MMM")}</span>
-        <span>Today</span>
+        <span>
+          <Message source="Today" />
+        </span>
       </div>
       {!recorded.length && (
         <div className="mt-5 flex items-center gap-3 text-label text-muted-foreground">
           <Moon className="size-5 shrink-0 text-dream" />
           <span>
             {sleep.length
-              ? "No nights logged in this period."
-              : "Your next good night starts here."}
+              ? tr("No nights logged in this period.")
+              : tr("Your next good night starts here.")}
           </span>
           <Button
             variant="ghost"
@@ -159,7 +179,7 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
             onClick={onLog}
           >
             <Plus />
-            Log sleep
+            <Message source="Log sleep" />
           </Button>
         </div>
       )}

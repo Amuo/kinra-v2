@@ -1,3 +1,6 @@
+import { displayNumber } from "@/lib/i18n";
+import { errorText } from "@/lib/i18n-errors";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useState, type ReactNode } from "react";
 import { Drawer, DrawerContent, DrawerTitle, DrawerDescription } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
@@ -64,6 +67,7 @@ export function Sheet({
   sub?: string;
   children: ReactNode;
 }) {
+  useLanguage();
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent className="mx-auto max-h-[92dvh] max-w-md border-border bg-popover">
@@ -89,7 +93,7 @@ const Field = ({ label, children }: { label: string; children: ReactNode }) => (
 
 type SheetProps = { open: boolean; onOpenChange: (o: boolean) => void };
 const fail = (e: unknown) => {
-  toast.error((e as Error).message);
+  toast.error(errorText((e as Error).message));
   throw e;
 };
 
@@ -107,6 +111,7 @@ export function FoodSheet({
   date,
   initialFood,
 }: SheetProps & { meal?: string | undefined; date?: string; initialFood?: FoodDraft }) {
+  useLanguage();
   const [scanning, setScanning] = useState(false);
   const [meal, setMeal] = useState(initialFood?.meal ?? initialMeal ?? "Lunch");
   const [f, setF] = useState(
@@ -127,8 +132,8 @@ export function FoodSheet({
     <Sheet
       open={open}
       onOpenChange={onOpenChange}
-      title="Log food"
-      sub={date ? `Meal for ${date}` : "Your daily nutrition."}
+      title={tr("Log food")}
+      sub={date ? tr("Meal for {p0}", { p0: date }) : tr("Your daily nutrition.")}
     >
       {scanning ? (
         <FoodBarcode
@@ -145,14 +150,14 @@ export function FoodSheet({
           onClick={() => setScanning(true)}
         >
           <ScanBarcode />
-          Scan food barcode
+          <Message source="Scan food barcode" />
         </Button>
       )}
       <div className="mb-5 grid grid-cols-2 gap-2">
         {MEALS.map((m) => (
           <Button
             variant="glass"
-            key={m}
+            key={tr(m)}
             aria-pressed={meal === m}
             onClick={() => setMeal(m)}
             className={`h-11 text-label ${meal === m ? "border-ember bg-ember/10 text-ember" : ""}`}
@@ -164,7 +169,7 @@ export function FoodSheet({
       <div className="mb-5 grid grid-cols-2 gap-2">
         {quickFoods.map((q) => (
           <motion.button
-            key={q.name}
+            key={tr(q.name)}
             type="button"
             whileTap={{ scale: 0.97 }}
             onClick={() => setF(q)}
@@ -173,22 +178,25 @@ export function FoodSheet({
           >
             <div className="text-label font-semibold">{q.name}</div>
             <div className="num text-caption text-muted-foreground">
-              {q.calories} kcal · {q.protein} g protein
+              <Message
+                source="{p0}kcal · {p1}g protein"
+                values={{ p0: q.calories, p1: q.protein }}
+              />
             </div>
           </motion.button>
         ))}
       </div>
-      <Field label="Food">
+      <Field label={tr("Food")}>
         <Input
           value={f.name}
           onChange={(e) => setF({ ...f, name: e.target.value })}
-          placeholder="What did you eat?"
+          placeholder={tr("What did you eat?")}
           className="h-12 rounded-[14px] bg-surface text-body"
         />
       </Field>
       <div className="grid grid-cols-2 gap-3">
         {(["calories", "protein", "carbs", "fat"] as const).map((k) => (
-          <Field key={k} label={k === "calories" ? "kcal" : `${k} g`}>
+          <Field key={k} label={k === "calories" ? tr("kcal") : tr("{p0} g", { p0: k })}>
             <Input
               type="number"
               inputMode="numeric"
@@ -202,26 +210,38 @@ export function FoodSheet({
       <SaveButton
         disabled={!f.name}
         onSave={() => save.mutateAsync(undefined).catch(fail)}
-        onDone={() => (toast.success(`Added to ${meal.toLowerCase()}`), onOpenChange(false))}
+        onDone={() => (
+          toast.success(tr("Added to {p0}", { p0: tr(meal).toLowerCase() })),
+          onOpenChange(false)
+        )}
       >
-        Add to {meal.toLowerCase()}
+        <Message source="Add to {p0}" values={{ p0: meal.toLowerCase() }} />
       </SaveButton>
     </Sheet>
   );
 }
 
 export function SleepSheet({ open, onOpenChange }: SheetProps) {
+  useLanguage();
   const [hours, setHours] = useState(7.5);
   const [quality, setQuality] = useState(4);
   const save = useAct((api) => api.insert("sleep_logs", { hours, quality }));
   return (
-    <Sheet open={open} onOpenChange={onOpenChange} title="Log sleep" sub="Last night's recovery.">
+    <Sheet
+      open={open}
+      onOpenChange={onOpenChange}
+      title={tr("Log sleep")}
+      sub={tr("Last night's recovery.")}
+    >
       <div className="num mb-4 text-center text-display font-bold text-dream">
         {hours.toFixed(2).replace(/0$/, "").replace(/\.0$/, "")}
-        <span className="text-title text-muted-foreground"> h</span>
+        <span className="text-title text-muted-foreground">
+          {" "}
+          <Message source="h" />
+        </span>
       </div>
       <Slider
-        aria-label="Hours slept"
+        aria-label={tr("Hours slept")}
         value={[hours]}
         min={3}
         max={12}
@@ -231,7 +251,7 @@ export function SleepSheet({ open, onOpenChange }: SheetProps) {
       />
       <div className="mb-6">
         <IconScale
-          label="Quality"
+          label={tr("Quality")}
           value={quality}
           onChange={setQuality}
           options={sleepQualityOptions}
@@ -240,24 +260,30 @@ export function SleepSheet({ open, onOpenChange }: SheetProps) {
       </div>
       <SaveButton
         onSave={() => save.mutateAsync(undefined).catch(fail)}
-        onDone={() => (toast.success("Sleep logged"), onOpenChange(false))}
+        onDone={() => (toast.success(tr("Sleep logged")), onOpenChange(false))}
       >
-        Save sleep
+        <Message source="Save sleep" />
       </SaveButton>
     </Sheet>
   );
 }
 
 export function JournalSheet({ open, onOpenChange }: SheetProps) {
+  useLanguage();
   const [mood, setMood] = useState(4);
   const [energy, setEnergy] = useState(3);
   const [body, setBody] = useState("");
   const save = useAct((api) => api.insert("journal_entries", { mood, energy, body: body || null }));
   return (
-    <Sheet open={open} onOpenChange={onOpenChange} title="Check in" sub="How are you, really?">
+    <Sheet
+      open={open}
+      onOpenChange={onOpenChange}
+      title={tr("Check in")}
+      sub={tr("How are you, really?")}
+    >
       <div className="mb-5">
         <IconScale
-          label="Mood"
+          label={tr("Mood")}
           value={mood}
           onChange={setMood}
           options={moodOptions}
@@ -266,33 +292,34 @@ export function JournalSheet({ open, onOpenChange }: SheetProps) {
       </div>
       <div className="mb-5">
         <IconScale
-          label="Energy"
+          label={tr("Energy")}
           value={energy}
           onChange={setEnergy}
           options={energyOptions}
           tone="text-pulse"
         />
       </div>
-      <Field label="Journal">
+      <Field label={tr("Journal")}>
         <Textarea
           rows={4}
           value={body}
           onChange={(e) => setBody(e.target.value)}
-          placeholder="Wins, stress, soreness, anything…"
+          placeholder={tr("Wins, stress, soreness, anything…")}
           className="rounded-[14px] bg-surface text-body"
         />
       </Field>
       <SaveButton
         onSave={() => save.mutateAsync(undefined).catch(fail)}
-        onDone={() => (toast.success("Check-in saved"), onOpenChange(false))}
+        onDone={() => (toast.success(tr("Check-in saved")), onOpenChange(false))}
       >
-        Save check-in
+        <Message source="Save check-in" />
       </SaveButton>
     </Sheet>
   );
 }
 
 export function MetricSheet({ open, onOpenChange }: SheetProps) {
+  useLanguage();
   const [weight, setWeight] = useState<number | "">("");
   const [bf, setBf] = useState<number | "">("");
   const save = useAct((api) =>
@@ -305,11 +332,11 @@ export function MetricSheet({ open, onOpenChange }: SheetProps) {
     <Sheet
       open={open}
       onOpenChange={onOpenChange}
-      title="Weigh-in"
-      sub="Same time, same conditions, every time."
+      title={tr("Weigh-in")}
+      sub={tr("Same time, same conditions, every time.")}
     >
       <div className="grid grid-cols-2 gap-3">
-        <Field label="Weight · kg">
+        <Field label={tr("Weight · kg")}>
           <Input
             type="number"
             inputMode="decimal"
@@ -318,7 +345,7 @@ export function MetricSheet({ open, onOpenChange }: SheetProps) {
             className="num h-16 rounded-[14px] bg-surface text-center text-title"
           />
         </Field>
-        <Field label="Body fat · %">
+        <Field label={tr("Body fat · %")}>
           <Input
             type="number"
             inputMode="decimal"
@@ -331,9 +358,9 @@ export function MetricSheet({ open, onOpenChange }: SheetProps) {
       <SaveButton
         disabled={weight === ""}
         onSave={() => save.mutateAsync(undefined).catch(fail)}
-        onDone={() => (toast.success("Weigh-in saved"), onOpenChange(false))}
+        onDone={() => (toast.success(tr("Weigh-in saved")), onOpenChange(false))}
       >
-        Save weigh-in
+        <Message source="Save weigh-in" />
       </SaveButton>
     </Sheet>
   );
@@ -357,6 +384,7 @@ export function LogSheets({
   onClose: () => void;
   meal?: string | undefined;
 }) {
+  useLanguage();
   const oc = (o: boolean) => !o && onClose();
   return (
     <>

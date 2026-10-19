@@ -1,3 +1,4 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { Droplets } from "lucide-react";
 import { motion } from "motion/react";
@@ -7,6 +8,7 @@ import { clampWater } from "@/lib/fuel";
 import { cn } from "@/lib/utils";
 
 export function FuelWater({ date, owner }: { date: string; owner: string }) {
+  useLanguage();
   const key = `strata:water:${owner}:${date}`;
   const [water, setWater] = useState(0);
   useEffect(() => {
@@ -29,31 +31,39 @@ export function FuelWater({ date, owner }: { date: string; owner: string }) {
     }
   };
   return (
-    <section aria-label="Water tracking">
+    <section aria-label={tr("Water tracking")}>
       <SectionTitle
         action={
           <span className="num text-label text-pulse">
             {(water * 0.25).toFixed(2).replace(/0$/, "")}{" "}
-            <span className="text-caption text-muted-foreground">/ 2.0 L</span>
+            <span className="text-caption text-muted-foreground">
+              <Message source="/ 2.0 L" />
+            </span>
           </span>
         }
       >
-        Water
+        <Message source="Water" />
       </SectionTitle>
       <div className="flex items-center gap-2 text-caption text-muted-foreground">
         <Droplets className="size-4 text-pulse" />
-        <span>250 ml per glass</span>
+        <span>
+          <Message source="250 ml per glass" />
+        </span>
       </div>
       <div
         className="mt-3 grid grid-cols-4 gap-2"
         role="group"
-        aria-label="Water, eight glasses of 250 millilitres"
+        aria-label={tr("Water, eight glasses of 250 millilitres")}
       >
         {Array.from({ length: 8 }, (_, i) => (
           <Button
             key={i}
             variant="ghost"
-            aria-label={`${i + 1} glass${i ? "es" : ""}, ${(i + 1) * 250} ml`}
+            aria-label={tr("{p0} glass{p1}, {p2} ml", {
+              p0: i + 1,
+              p1: i ? "es" : "",
+              p2: (i + 1) * 250,
+            })}
             aria-pressed={i < water}
             onClick={() => update(i + 1 === water ? i : i + 1)}
             className={cn(

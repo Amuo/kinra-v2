@@ -1,3 +1,4 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Search, Users } from "lucide-react";
@@ -12,7 +13,7 @@ import { Segmented } from "@/components/strata/ui";
 export const Route = createFileRoute("/app/clients/")({
   head: () => ({
     meta: [
-      { title: "Clients — Kinra" },
+      { title: tr("Clients — Kinra") },
       {
         name: "description",
         content: "Review your connected athletes and their recent activity in Kinra.",
@@ -30,6 +31,7 @@ export const Route = createFileRoute("/app/clients/")({
 });
 
 function Clients() {
+  useLanguage();
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState<"all" | "attention">("all");
   const data = useQ(["coach-agg"], async (api) => {
@@ -59,14 +61,17 @@ function Clients() {
   );
   return (
     <div>
-      <PageHeader eyebrow={`${data.data?.length ?? 0} athletes`} title="Clients" />
+      <PageHeader
+        eyebrow={tr("{p0} athletes", { p0: data.data?.length ?? 0 })}
+        title={tr("Clients")}
+      />
       <div className="relative mb-4">
         <Search className="absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
         <Input
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Search clients"
-          aria-label="Search clients"
+          placeholder={tr("Search clients")}
+          aria-label={tr("Search clients")}
           className="h-12 rounded-full bg-surface pl-11 text-body"
         />
       </div>
@@ -74,10 +79,10 @@ function Clients() {
         value={filter}
         onChange={setFilter}
         options={[
-          { value: "all", label: `All · ${rows.length}` },
+          { value: "all", label: tr("All · {p0}", { p0: rows.length }) },
           {
             value: "attention",
-            label: `Attention · ${rows.filter((r) => r.reasons.length).length}`,
+            label: tr("Attention · {p0}", { p0: rows.filter((r) => r.reasons.length).length }),
           },
         ]}
         className="mb-4"
@@ -93,18 +98,20 @@ function Clients() {
       ) : !data.data?.length ? (
         <Empty
           icon={<Users className="size-7" />}
-          title="No clients yet"
+          title={tr("No clients yet")}
           body="Share your coach code to connect your first client."
           action={
             <Button variant="volt" asChild className="h-12">
-              <Link to="/app/me">Get my code</Link>
+              <Link to="/app/me">
+                <Message source="Get my code" />
+              </Link>
             </Button>
           }
         />
       ) : !list.length ? (
         <div className="py-8 text-center">
           <p className="text-label text-muted-foreground">
-            {q ? `No clients match “${q}”.` : "No clients need attention."}
+            {q ? tr("No clients match “{p0}”.", { p0: q }) : tr("No clients need attention.")}
           </p>
           <Button
             variant="ghost"
@@ -114,7 +121,7 @@ function Clients() {
               setFilter("all");
             }}
           >
-            Show all clients
+            <Message source="Show all clients" />
           </Button>
         </div>
       ) : (

@@ -1,3 +1,6 @@
+import { errorText } from "@/lib/i18n-errors";
+import { LanguageSelector } from "@/components/strata/language-selector";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { FeaturePreferences } from "@/components/strata/feature-preferences";
 import {
   createFileRoute,
@@ -30,7 +33,7 @@ import { LogSheets, Sheet, logKinds, type LogKind } from "@/components/strata/sh
 import { ShellCtx, type LiveSessionState } from "@/components/strata/shell";
 import { LiveSession, sessionFromTemplate, toWorkoutRow } from "@/components/strata/session";
 import { doneCount, isStale, lastActivity, sessionFromWorkout } from "@/lib/session-state";
-import { format } from "date-fns";
+import { format } from "@/lib/i18n";
 import { ErrorState, SkeletonPage, springPress } from "@/components/strata/ui";
 import type { ProgramDay, Role, Workout } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -60,6 +63,7 @@ export const Route = createFileRoute("/app")({
 });
 
 function AppLayout() {
+  useLanguage();
   const { mode, ownerId } = Route.useRouteContext();
   const identity = useAuthIdentity();
   if (mode === "live" && identity !== ownerId) return <SkeletonPage />;
@@ -77,6 +81,7 @@ function AppLayout() {
 }
 
 function Shell({ mode }: { mode: Mode }) {
+  useLanguage();
   const { ownerId } = Route.useRouteContext();
   const me = useMe();
   const { personal } = useAppView();
@@ -100,7 +105,9 @@ function Shell({ mode }: { mode: Mode }) {
     try {
       writeSession(localStorage, mode, ownerId, s);
     } catch {
-      toast.error("Your browser couldn't keep a recovery copy. Keep this tab open until you save.");
+      toast.error(
+        tr("Your browser couldn't keep a recovery copy. Keep this tab open until you save."),
+      );
     }
   };
 
@@ -148,12 +155,12 @@ function Shell({ mode }: { mode: Mode }) {
   const replaceWith = async (next: LiveSessionState, keep: boolean) => {
     try {
       if (keep) await saveCurrent(false);
-      if (keep && session && doneCount(session) > 0) toast.success("Previous session saved");
+      if (keep && session && doneCount(session) > 0) toast.success(tr("Previous session saved"));
       setConflict(null);
       setSession(next);
       setMinimized(false);
     } catch (e) {
-      toast.error((e as Error).message);
+      toast.error(errorText((e as Error).message));
     }
   };
   const staleSets = session ? doneCount(session) : 0;
@@ -186,55 +193,69 @@ function Shell({ mode }: { mode: Mode }) {
         <Sheet
           open={!!conflict}
           onOpenChange={(o) => !o && setConflict(null)}
-          title="A session is already open"
-          sub={session ? `${session.title} · ${doneCount(session)} sets logged` : ""}
+          title={tr("A session is already open")}
+          sub={
+            session
+              ? tr("{p0} · {p1} sets logged", { p0: session.title, p1: doneCount(session) })
+              : ""
+          }
         >
           <div className="space-y-2">
             <Button
+              wrap
               className="h-14 w-full rounded-full"
               variant="volt"
               onClick={() => (setConflict(null), setMinimized(false))}
             >
-              Resume current
+              <Message source="Resume current" />
             </Button>
             {session && doneCount(session) > 0 && !session.editingId && (
               <Button
+                wrap
                 className="h-14 w-full rounded-full"
                 variant="secondary"
                 disabled={saveRow.isPending}
                 onClick={() => conflict && replaceWith(conflict, true)}
               >
-                Save current & start new
+                <Message source="Save current & start new" />
               </Button>
             )}
             <Button
+              wrap
               className="h-14 w-full rounded-full text-destructive"
               variant="secondary"
               onClick={() => conflict && replaceWith(conflict, false)}
             >
-              Discard current & start new
+              <Message source="Discard current & start new" />
             </Button>
           </div>
         </Sheet>
         <Sheet
           open={stale && !!session}
           onOpenChange={(o) => !o && setStale(false)}
-          title="Unfinished session"
+          title={tr("Unfinished session")}
           sub={
             session
-              ? `${session.title} from ${format(lastActivity(session), "EEEE HH:mm")} · ${staleSets} set${staleSets === 1 ? "" : "s"}`
+              ? tr("{p0} from {p1} · {p2} set{p3}", {
+                  p0: session.title,
+                  p1: format(lastActivity(session), "EEEE HH:mm"),
+                  p2: staleSets,
+                  p3: staleSets === 1 ? "" : "s",
+                })
               : ""
           }
         >
           <div className="space-y-2">
             <Button
+              wrap
               className="h-14 w-full rounded-full"
               variant="volt"
               onClick={() => (setStale(false), setMinimized(false))}
             >
-              Resume
+              <Message source="Resume" />
             </Button>
             <Button
+              wrap
               className="h-14 w-full rounded-full"
               variant="secondary"
               disabled={staleSets === 0 || saveRow.isPending}
@@ -243,22 +264,23 @@ function Shell({ mode }: { mode: Mode }) {
                   await saveCurrent(true);
                   setStale(false);
                   setSession(null);
-                  toast.success("Session saved", {
+                  toast.success(tr("Session saved"), {
                     description: "Duration ends at your last completed set.",
                   });
                 } catch (e) {
-                  toast.error((e as Error).message);
+                  toast.error(errorText((e as Error).message));
                 }
               }}
             >
-              Save as is
+              <Message source="Save as is" />
             </Button>
             <Button
+              wrap
               className="h-14 w-full rounded-full text-destructive"
               variant="secondary"
               onClick={() => (setStale(false), setSession(null), setMinimized(false))}
             >
-              Discard
+              <Message source="Discard" />
             </Button>
           </div>
         </Sheet>
@@ -277,6 +299,7 @@ function Shell({ mode }: { mode: Mode }) {
 }
 
 function DemoPill({ role }: { role: Role }) {
+  useLanguage();
   const navigate = useNavigate();
   const router = useRouter();
   const switchRole = async () => {
@@ -288,14 +311,17 @@ function DemoPill({ role }: { role: Role }) {
     <div className="sticky top-0 z-40 flex justify-center pt-2">
       <div className="flex items-center gap-1 rounded-full border border-border bg-popover/90 py-1 pl-3 pr-1 text-caption font-semibold backdrop-blur">
         <span className="flex items-center gap-1.5 text-volt">
-          <span className="size-1.5 rounded-full bg-primary" /> Demo ·{" "}
-          {role === "trainer" ? "Coach" : "Client"}
+          <span className="size-1.5 rounded-full bg-primary" />{" "}
+          <Message
+            source="Demo · {p0}"
+            values={{ p0: tr(role === "trainer" ? "Coach" : "Client") }}
+          />
         </span>
         <button
           onClick={switchRole}
           className="flex min-h-[32px] items-center gap-1 rounded-full px-2.5 text-muted-foreground hover:text-foreground"
         >
-          <ArrowLeftRight className="size-3.5" /> Switch role
+          <ArrowLeftRight className="size-3.5" /> <Message source="Switch role" />
         </button>
         <button
           onClick={() => {
@@ -304,7 +330,7 @@ function DemoPill({ role }: { role: Role }) {
           }}
           className="min-h-[32px] rounded-full bg-surface-2 px-3 text-foreground"
         >
-          Exit
+          <Message source="Exit" />
         </button>
       </div>
     </div>
@@ -327,6 +353,7 @@ const coachTabs: Tab[] = [
 ];
 
 function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
+  useLanguage();
   const path = useRouterState({ select: (s) => s.location.pathname });
   const tabs = role === "trainer" ? coachTabs : clientTabs;
   const isActive = (t: Tab) =>
@@ -335,8 +362,8 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
     <Link
       key={t.to}
       to={t.to}
-      aria-label={t.label}
-      className="relative flex min-h-[56px] min-w-0 flex-1 basis-0 flex-col items-center justify-center gap-1"
+      aria-label={tr(t.label)}
+      className="relative flex min-h-[56px] min-w-0 flex-1 basis-0 flex-col items-center justify-center gap-1 px-0.5 py-2"
     >
       {isActive(t) && (
         <motion.div
@@ -352,17 +379,17 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
       />
       <span
         className={cn(
-          "text-caption font-semibold",
+          "max-w-full whitespace-normal break-words hyphens-auto text-center text-caption font-semibold [overflow-wrap:anywhere]",
           isActive(t) ? "text-foreground" : "text-muted-foreground",
         )}
       >
-        {t.label}
+        {tr(t.label)}
       </span>
     </Link>
   );
   return (
     <nav
-      aria-label="Main"
+      aria-label={tr("Main")}
       className="pb-safe fixed inset-x-0 bottom-0 z-30 mx-auto max-w-md border-t border-border bg-background/90 px-1 backdrop-blur-xl md:border-x"
     >
       <div className="flex items-center">
@@ -374,7 +401,7 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
             <motion.button
               whileTap={springPress}
               onClick={onPlus}
-              aria-label="Log something"
+              aria-label={tr("Log something")}
               className="mx-1 -mt-6 grid size-14 shrink-0 place-items-center rounded-full bg-volt-gradient text-primary-foreground shadow-glow"
             >
               <Plus className="size-7" strokeWidth={2.5} />
@@ -388,6 +415,7 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
 }
 
 function LogHub({ onClose, onPick }: { onClose: () => void; onPick: (k: LogKind) => void }) {
+  useLanguage();
   useEffect(() => {
     const k = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", k);
@@ -402,9 +430,11 @@ function LogHub({ onClose, onPick }: { onClose: () => void; onPick: (k: LogKind)
       className="fixed inset-0 z-50 mx-auto flex max-w-md flex-col justify-end bg-background/85 p-5 pb-28 backdrop-blur-md"
       onClick={onClose}
       role="dialog"
-      aria-label="Log"
+      aria-label={tr("Log")}
     >
-      <div className="eyebrow mb-3">What are you logging?</div>
+      <div className="eyebrow mb-3">
+        <Message source="What are you logging?" />
+      </div>
       <div className="grid grid-cols-2 gap-3">
         {logKinds.map((l, i) => (
           <motion.button
@@ -430,11 +460,11 @@ function LogHub({ onClose, onPick }: { onClose: () => void; onPick: (k: LogKind)
             <l.icon className={cn("size-6", l.tone)} />
             <div>
               <div className="font-display text-title font-bold">
-                {i === 0 ? "Start workout" : l.label}
+                {i === 0 ? tr("Start workout") : l.label}
               </div>
               {i === 0 && (
                 <div className="text-caption text-muted-foreground">
-                  Live session with rest timer
+                  <Message source="Live session with rest timer" />
                 </div>
               )}
             </div>
@@ -444,7 +474,7 @@ function LogHub({ onClose, onPick }: { onClose: () => void; onPick: (k: LogKind)
       <motion.button
         whileTap={springPress}
         onClick={onClose}
-        aria-label="Close"
+        aria-label={tr("Close")}
         className="mx-auto mt-6 grid size-14 place-items-center rounded-full bg-surface-2"
       >
         <X />
@@ -454,6 +484,7 @@ function LogHub({ onClose, onPick }: { onClose: () => void; onPick: (k: LogKind)
 }
 
 function Onboarding() {
+  useLanguage();
   const [role, setRole] = useState<Role | null>(null);
   const save = useAct((api, r: Role) => api.setRole(r));
   const opts: { role: Role; title: string; body: string }[] = [
@@ -463,9 +494,14 @@ function Onboarding() {
   ];
   return (
     <div className="mx-auto flex min-h-dvh max-w-md flex-col bg-background px-5 py-10">
-      <div className="eyebrow">Welcome to Kinra</div>
+      <div className="mb-5 flex justify-end">
+        <LanguageSelector compact />
+      </div>
+      <div className="eyebrow">
+        <Message source="Welcome to Kinra" />
+      </div>
       <h1 className="mt-2 font-display text-title-l font-black [font-stretch:115%]">
-        How will you use it?
+        <Message source="How will you use it?" />
       </h1>
       <div className="mt-8 space-y-3" role="radiogroup">
         {opts.map((o) => (
@@ -480,22 +516,28 @@ function Onboarding() {
               role === o.role && "ring-2 ring-primary",
             )}
           >
-            <div className="font-display text-title font-bold">{o.title}</div>
-            <div className="mt-1 text-label text-muted-foreground">{o.body}</div>
+            <div className="font-display text-title font-bold">{tr(o.title)}</div>
+            <div className="mt-1 text-label text-muted-foreground">{tr(o.body)}</div>
           </motion.button>
         ))}
         <div className="panel p-5 opacity-60">
-          <div className="font-display text-title font-bold">Gym · Doctor · Nutritionist</div>
-          <div className="mt-1 text-label text-muted-foreground">Coming soon.</div>
+          <div className="font-display text-title font-bold">
+            <Message source="Gym · Doctor · Nutritionist" />
+          </div>
+          <div className="mt-1 text-label text-muted-foreground">
+            <Message source="Coming soon." />
+          </div>
         </div>
       </div>
       <motion.button
         whileTap={springPress}
-        className="mt-auto h-14 w-full rounded-full bg-volt-gradient font-semibold text-primary-foreground disabled:opacity-50"
+        className="mt-auto min-h-14 w-full whitespace-normal break-words rounded-full bg-volt-gradient px-4 py-3 text-center font-semibold hyphens-auto text-primary-foreground disabled:opacity-50"
         disabled={!role || save.isPending}
-        onClick={() => role && save.mutate(role, { onError: (e) => toast.error(e.message) })}
+        onClick={() =>
+          role && save.mutate(role, { onError: (e) => toast.error(errorText(e.message)) })
+        }
       >
-        Continue
+        <Message source="Continue" />
       </motion.button>
     </div>
   );

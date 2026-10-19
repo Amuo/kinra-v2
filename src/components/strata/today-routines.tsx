@@ -1,3 +1,4 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { lazy, Suspense, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { useQ } from "@/lib/api";
@@ -9,6 +10,7 @@ const FeatureWorkspace = lazy(() =>
   import("./feature-hub").then((m) => ({ default: m.FeatureWorkspace })),
 );
 export function TodayRoutines() {
+  useLanguage();
   const preferences = useFeaturePreferences();
   const query = useQ(["features", "today-routines"], async (api) => {
     const [meals, supplements, habits] = await Promise.all([
@@ -24,26 +26,30 @@ export function TodayRoutines() {
     {
       kind: "nutrition_plan" as const,
       title: "Your meal plans",
-      description: `${query.data.meals.length} plans ready to review`,
+      description: tr("{p0} plans ready to review", { p0: query.data.meals.length }),
       count: query.data.meals.length,
     },
     {
       kind: "supplement" as const,
       title: "Supplement schedule",
-      description: `${query.data.supplements.length} schedules · record today's doses`,
+      description: tr("{p0} schedules · record today's doses", {
+        p0: query.data.supplements.length,
+      }),
       count: query.data.supplements.length,
     },
     {
       kind: "habit" as const,
       title: "Your habits",
-      description: `${query.data.habits.length} habits · one step at a time`,
+      description: tr("{p0} habits · one step at a time", { p0: query.data.habits.length }),
       count: query.data.habits.length,
     },
   ].filter((r) => r.count > 0 && moduleVisible(r.kind, preferences?.modules));
   if (!routines.length) return null;
   return (
     <section>
-      <SectionTitle>Your daily routine</SectionTitle>
+      <SectionTitle>
+        <Message source="Your daily routine" />
+      </SectionTitle>
       <div className="space-y-2">
         {routines.map((routine) => (
           <Panel
@@ -52,7 +58,7 @@ export function TodayRoutines() {
             className="flex items-center justify-between gap-3"
           >
             <div>
-              <h3 className="text-label font-semibold">{routine.title}</h3>
+              <h3 className="text-label font-semibold">{tr(routine.title)}</h3>
               <p className="mt-1 text-caption text-muted-foreground">{routine.description}</p>
             </div>
             <ChevronRight className="size-4 shrink-0" />
@@ -60,8 +66,14 @@ export function TodayRoutines() {
         ))}
       </div>
       {selected && (
-        <Sheet open onOpenChange={(open) => !open && setSelected(null)} title="Your routine">
-          <Suspense fallback={<p role="status">Loading…</p>}>
+        <Sheet open onOpenChange={(open) => !open && setSelected(null)} title={tr("Your routine")}>
+          <Suspense
+            fallback={
+              <p role="status">
+                <Message source="Loading…" />
+              </p>
+            }
+          >
             <FeatureWorkspace compact kind={selected} />
           </Suspense>
         </Sheet>

@@ -1,3 +1,6 @@
+import { programExerciseName } from "@/lib/exercise-catalogue";
+import { errorText } from "@/lib/i18n-errors";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
   AnimatePresence,
@@ -182,6 +185,7 @@ const rpeAnchors: Record<number, string> = {
 
 /** Number that rolls to its new value. */
 function Rolling({ value, format }: { value: number; format: (n: number) => string }) {
+  useLanguage();
   const ref = useRef<HTMLSpanElement>(null);
   const prev = useRef(value);
   const reduce = useReducedMotion();
@@ -262,6 +266,7 @@ function Stepper({
   unit: string;
   onValueTap?: () => void;
 }) {
+  useLanguage();
   const v = useRef(value);
   v.current = value;
   const press = (d: number) => {
@@ -280,7 +285,7 @@ function Stepper({
         <motion.button
           type="button"
           whileTap={springPress}
-          aria-label={`Decrease ${label}`}
+          aria-label={tr("Decrease {p0}", { p0: label })}
           {...dec}
           className="grid size-11 touch-none select-none place-items-center rounded-full bg-surface-2"
         >
@@ -290,7 +295,9 @@ function Stepper({
           type="button"
           disabled={!onValueTap}
           onClick={onValueTap}
-          aria-label={onValueTap ? `${value} ${unit || label}, type a value` : undefined}
+          aria-label={
+            onValueTap ? tr("{p0} {p1}, type a value", { p0: value, p1: unit || label }) : undefined
+          }
           className={cn(
             "num min-h-[44px] min-w-0 flex-1 text-center text-title font-bold",
             onValueTap &&
@@ -305,7 +312,7 @@ function Stepper({
         <motion.button
           type="button"
           whileTap={springPress}
-          aria-label={`Increase ${label}`}
+          aria-label={tr("Increase {p0}", { p0: label })}
           {...inc}
           className="grid size-11 touch-none select-none place-items-center rounded-full bg-surface-2"
         >
@@ -330,6 +337,7 @@ function BottomCard({
   children: ReactNode;
   tall?: boolean;
 }) {
+  useLanguage();
   return (
     <AnimatePresence>
       {open && (
@@ -388,7 +396,7 @@ const SheetBtn = ({
     disabled={disabled}
     onClick={onClick}
     className={cn(
-      "flex h-14 w-full items-center justify-center gap-2 rounded-full font-semibold disabled:opacity-50",
+      "flex min-h-14 w-full min-w-0 items-center justify-center gap-2 whitespace-normal break-words rounded-full px-4 py-3 text-center font-semibold hyphens-auto disabled:opacity-50 [&_svg]:shrink-0",
       tone === "primary"
         ? "bg-volt-gradient text-primary-foreground"
         : tone === "danger"
@@ -420,6 +428,7 @@ type RowCtx = {
 };
 
 function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
+  useLanguage();
   const controls = useDragControls();
   const reduce = useReducedMotion();
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -457,29 +466,29 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
         <div className="min-w-0">
           <div
             className={cn(
-              "truncate font-display text-title font-bold",
+              "whitespace-normal break-words font-display text-title font-bold hyphens-auto [overflow-wrap:anywhere]",
               ex.skipped && "text-muted-foreground line-through",
             )}
           >
-            {ex.name}
+            {programExerciseName(ex)}
           </div>
           <div className="num text-caption text-muted-foreground">
             {ex.skipped
-              ? "Skipped — not saved"
+              ? tr("Skipped — not saved")
               : lt
-                ? `Last time: ${lt}`
-                : "First time — set your baseline"}
+                ? tr("Last time: {p0}", { p0: lt })
+                : tr("First time — set your baseline")}
           </div>
         </div>
         <div className="flex shrink-0 items-center">
           {ex.sets.some((s) => s.pr) && (
             <Tag tone="volt">
-              <Trophy className="size-3" /> PR
+              <Trophy className="size-3" /> <Message source="PR" />
             </Tag>
           )}
           <button
             type="button"
-            aria-label={`${ex.name} options`}
+            aria-label={tr("{p0} options", { p0: programExerciseName(ex) })}
             onPointerDown={(ev) => ev.stopPropagation()}
             onClick={() => c.openExMenu(e)}
             className="grid size-11 place-items-center text-muted-foreground"
@@ -488,7 +497,7 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
           </button>
           <button
             type="button"
-            aria-label={`Hold to reorder ${ex.name}`}
+            aria-label={tr("Hold to reorder {p0}", { p0: programExerciseName(ex) })}
             onPointerDown={(ev) => (ev.stopPropagation(), controls.start(ev))}
             className="grid size-11 touch-none place-items-center text-muted-foreground"
           >
@@ -502,7 +511,7 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
           onClick={() => c.restore(e)}
           className="mt-1 min-h-[44px] px-1 text-label font-semibold text-primary"
         >
-          Restore exercise
+          <Message source="Restore exercise" />
         </button>
       ) : (
         <div className="mt-2">
@@ -510,13 +519,15 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
             <p className="mb-3 text-caption text-volt">
               {[
                 ex.section === "warmup"
-                  ? "Warm-up"
+                  ? tr("Warm-up")
                   : ex.section === "cooldown"
-                    ? "Cool-down"
+                    ? tr("Cool-down")
                     : ex.section
-                      ? "Main work"
+                      ? tr("Main work")
                       : null,
-                ex.group ? `Group ${ex.group} · alternate exercises, rest between rounds` : null,
+                ex.group
+                  ? tr("Group {p0} · alternate exercises, rest between rounds", { p0: ex.group })
+                  : null,
                 ex.equipment,
               ]
                 .filter(Boolean)
@@ -525,9 +536,11 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
           )}
           {!!ex.substitutions?.length && (
             <details className="mb-3 rounded-tile bg-surface-2 p-3">
-              <summary className="cursor-pointer text-label">Planned alternatives</summary>
+              <summary className="cursor-pointer text-label">
+                <Message source="Planned alternatives" />
+              </summary>
               <p className="mt-2 text-caption text-muted-foreground">
-                Choose before logging any sets. Review the load for the new movement.
+                <Message source="Choose before logging any sets. Review the load for the new movement." />
               </p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {ex.substitutions.filter(Boolean).map((name) => (
@@ -554,12 +567,30 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
               <div className="num flex flex-wrap gap-x-3 gap-y-1 text-caption text-pulse">
                 {ex.targetWeight != null && (
                   <span>
-                    Coach target {ex.targetWeight} kg{c.lighter ? " · lighter day applied" : ""}
+                    <Message
+                      source="Coach target {p0}kg{p1}"
+                      values={{
+                        p0: ex.targetWeight,
+                        p1: c.lighter ? tr(" · lighter day applied") : "",
+                      }}
+                    />
                   </span>
                 )}
-                {ex.rest_seconds != null && <span>Rest {ex.rest_seconds}s</span>}
-                {ex.rpe != null && <span>RPE {ex.rpe}/10</span>}
-                {ex.tempo && <span>Tempo {ex.tempo}</span>}
+                {ex.rest_seconds != null && (
+                  <span>
+                    <Message source="Rest {p0}s" values={{ p0: ex.rest_seconds }} />
+                  </span>
+                )}
+                {ex.rpe != null && (
+                  <span>
+                    <Message source="RPE {p0}/10" values={{ p0: ex.rpe }} />
+                  </span>
+                )}
+                {ex.tempo && (
+                  <span>
+                    <Message source="Tempo {p0}" values={{ p0: ex.tempo }} />
+                  </span>
+                )}
               </div>
               {ex.notes && <p className="mt-1 break-words text-muted-foreground">{ex.notes}</p>}
               {ex.note && (
@@ -585,23 +616,33 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
             >
               {prog.kind === "lighter" && <Feather className="size-3.5" />}
               {applied
-                ? "Applied: "
+                ? tr("Applied: ")
                 : prog.kind === "up"
-                  ? "Try "
+                  ? tr("Try ")
                   : prog.kind === "hold"
-                    ? "Hold "
-                    : "Lighter day: "}
+                    ? tr("Hold ")
+                    : tr("Lighter day: ")}
               <span className="num">
-                {prog.kg} kg × {prog.reps}
+                <Message source="{p0}kg × {p1}" values={{ p0: prog.kg, p1: prog.reps }} />
               </span>
             </motion.button>
           )}
           <div className="grid grid-cols-[32px_1fr_1fr_1fr_44px] items-center gap-1 px-1 pb-1 text-caption font-semibold uppercase tracking-wide text-muted-foreground">
-            <span>Set</span>
-            <span>Previous</span>
-            <span className="text-center">kg</span>
-            <span className="text-center">Reps</span>
-            <span className="sr-only">Done</span>
+            <span>
+              <Message source="Set" />
+            </span>
+            <span>
+              <Message source="Previous" />
+            </span>
+            <span className="text-center">
+              <Message source="kg" />
+            </span>
+            <span className="text-center">
+              <Message source="Reps" />
+            </span>
+            <span className="sr-only">
+              <Message source="Done" />
+            </span>
           </div>
           {ex.sets.map((s, i) => (
             <SetRow
@@ -620,7 +661,7 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
             onClick={() => c.addSet(e)}
             className="mt-1 flex min-h-[44px] w-full items-center justify-center gap-1.5 rounded-full text-label font-semibold text-primary"
           >
-            <Plus className="size-4" /> Add set
+            <Plus className="size-4" /> <Message source="Add set" />
           </motion.button>
         </div>
       )}
@@ -643,6 +684,7 @@ function SetRow({
   isCur: boolean;
   c: RowCtx;
 }) {
+  useLanguage();
   const reduce = useReducedMotion();
   const lp = useLongPress(() => c.openSetMenu({ e, s: i }));
   const tag = SET_TYPES.find((t) => t.type === s.type)?.short;
@@ -652,7 +694,7 @@ function SetRow({
         className="absolute inset-0 flex items-center justify-end bg-destructive/20 pr-4 text-label font-semibold text-destructive"
         aria-hidden
       >
-        Delete
+        <Message source="Delete" />
       </div>
       <motion.div
         drag="x"
@@ -689,7 +731,12 @@ function SetRow({
             {...lp.handlers}
             onClick={() => !lp.fired.current && c.setActive({ e, s: i })}
             className="num relative col-span-4 grid min-h-[48px] select-none grid-cols-[32px_1fr_1fr_1fr] items-center gap-1 text-left [-webkit-touch-callout:none]"
-            aria-label={`Set ${i + 1}${s.type && s.type !== "working" ? ` (${s.type})` : ""}: ${s.kg} kg × ${s.reps}. Hold for options`}
+            aria-label={tr("Set {p0}{p1}: {p2} kg × {p3}. Hold for options", {
+              p0: i + 1,
+              p1: s.type && s.type !== "working" ? ` (${s.type})` : "",
+              p2: s.kg,
+              p3: s.reps,
+            })}
           >
             <span className="flex items-center">
               <AnimatePresence mode="popLayout" initial={false}>
@@ -735,7 +782,9 @@ function SetRow({
           <motion.button
             type="button"
             whileTap={{ scale: 0.88 }}
-            aria-label={s.done ? `Undo set ${i + 1}` : `Complete set ${i + 1}`}
+            aria-label={
+              s.done ? tr("Undo set {p0}", { p0: i + 1 }) : tr("Complete set {p0}", { p0: i + 1 })
+            }
             aria-pressed={s.done}
             onClick={() => c.toggle(e, i)}
             className={cn(
@@ -779,7 +828,7 @@ function SetRow({
             >
               <div className="flex gap-3 px-1 pt-3">
                 <Stepper
-                  label="Weight"
+                  label={tr("Weight")}
                   unit="kg"
                   value={s.kg}
                   step={2.5}
@@ -787,7 +836,7 @@ function SetRow({
                   onValueTap={() => c.openKeypad({ e, s: i, field: "kg" })}
                 />
                 <Stepper
-                  label="Reps"
+                  label={tr("Reps")}
                   unit=""
                   value={s.reps}
                   step={1}
@@ -796,8 +845,10 @@ function SetRow({
                 />
               </div>
               <div className="num pb-3 pt-2 text-center text-caption text-muted-foreground">
-                Est. 1RM{" "}
-                <span className="font-bold text-foreground">{est1RM(s.kg, s.reps)} kg</span>
+                <Message source="Est. 1RM" />
+                <span className="font-bold text-foreground">
+                  <Message source="{p0}kg" values={{ p0: est1RM(s.kg, s.reps) }} />
+                </span>
               </div>
             </motion.div>
           )}
@@ -818,6 +869,7 @@ function Keypad({
   onDone: (n: number) => void;
   onPlates?: () => void;
 }) {
+  useLanguage();
   const [txt, setTxt] = useState(String(initial));
   const [fresh, setFresh] = useState(true);
   const key = (k: string) => {
@@ -847,7 +899,7 @@ function Keypad({
                 type="button"
                 whileTap={springPress}
                 onClick={() => key(k)}
-                aria-label={k === "back" ? "Delete digit" : k}
+                aria-label={k === "back" ? tr("Delete digit") : k}
                 className="num grid h-14 place-items-center rounded-[14px] bg-surface-2 text-title font-bold"
               >
                 {k === "back" ? <Delete className="size-5" /> : k}
@@ -858,12 +910,18 @@ function Keypad({
         )}
       </div>
       <div className="mt-3 grid grid-cols-2 gap-2">
-        {onPlates ? <SheetBtn onClick={onPlates}>Plates</SheetBtn> : <span />}
+        {onPlates ? (
+          <SheetBtn onClick={onPlates}>
+            <Message source="Plates" />
+          </SheetBtn>
+        ) : (
+          <span />
+        )}
         <SheetBtn
           tone="primary"
           onClick={() => onDone(unit === "kg" ? Math.round(val * 4) / 4 : Math.round(val))}
         >
-          Done
+          <Message source="Done" />
         </SheetBtn>
       </div>
     </div>
@@ -877,6 +935,7 @@ function ExercisePicker({
   history: string[];
   onPick: (name: string) => void;
 }) {
+  useLanguage();
   const [q, setQ] = useState("");
   const [recent] = usePrefList("strata:recent-lifts");
   const { mine, groups } = searchLifts(q, history, recent);
@@ -904,20 +963,22 @@ function ExercisePicker({
             autoFocus
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            placeholder="Search lifts"
-            aria-label="Search exercises"
+            placeholder={tr("Search lifts")}
+            aria-label={tr("Search exercises")}
             className="h-full min-w-0 flex-1 bg-transparent text-body outline-none"
           />
         </div>
       </div>
       {custom && (
         <SheetBtn onClick={() => onPick(q.trim())} icon={<Plus className="size-5" />}>
-          Add “{q.trim()}”
+          <Message source="Add “{p0}”" values={{ p0: q.trim() }} />
         </SheetBtn>
       )}
       {mine.length > 0 && (
         <section className="mt-3">
-          <div className="eyebrow mb-1">Yours</div>
+          <div className="eyebrow mb-1">
+            <Message source="Yours" />
+          </div>
           {mine.slice(0, 12).map(Item)}
         </section>
       )}
@@ -998,6 +1059,7 @@ export function LiveSession({
   setMinimized: (m: boolean) => void;
   onClose: () => void;
 }) {
+  useLanguage();
   const me = useMe().data!;
   const workouts = useLog("workouts", me.id).data;
   const { last, best } = useMemo(
@@ -1161,7 +1223,7 @@ export function LiveSession({
   };
 
   const withUndo = (msg: string, snapshot: LiveSessionState) =>
-    toast(msg, { action: { label: "Undo", onClick: () => commit(snapshot) } });
+    toast(msg, { action: { label: tr("Undo"), onClick: () => commit(snapshot) } });
   const removeSet = (e: number, s: number) => {
     const snap = session;
     commit(patchEx(session, e, (x) => ({ ...x, sets: x.sets.filter((_, j) => j !== s) })));
@@ -1184,7 +1246,10 @@ export function LiveSession({
         Notification.permission === "granted"
       ) {
         try {
-          new Notification("Rest's up", { body: `Next set: ${rest.ex}`, tag: "strata-rest" });
+          new Notification(tr("Rest's up"), {
+            body: tr("Next set: {p0}", { p0: rest.ex }),
+            tag: "strata-rest",
+          });
         } catch {
           /* some browsers only allow service-worker notifications */
         }
@@ -1312,7 +1377,11 @@ export function LiveSession({
           onClick={() => setIslandOpen((o) => !o)}
           role="timer"
           aria-live="polite"
-          aria-label={`Rest ${clock(left)} left${paused ? ", paused" : ""}. Tap to ${islandOpen ? "collapse" : "expand"}`}
+          aria-label={tr("Rest {p0} left{p1}. Tap to {p2}", {
+            p0: clock(left),
+            p1: paused ? ", paused" : "",
+            p2: islandOpen ? "collapse" : "expand",
+          })}
           className={cn("flex items-center gap-2", !islandOpen && "h-10 px-4")}
         >
           {paused ? (
@@ -1338,22 +1407,22 @@ export function LiveSession({
               onClick={() => nudgeRest(-15)}
               className="grid min-h-[40px] place-items-center rounded-full bg-surface-2 px-3 text-label font-semibold"
             >
-              −15s
+              <Message source="−15s" />
             </button>
             <button
               type="button"
               onClick={() => nudgeRest(15)}
               className="grid min-h-[40px] place-items-center rounded-full bg-surface-2 px-3 text-label font-semibold"
             >
-              +15s
+              <Message source="+15s" />
             </button>
             <button
               type="button"
-              aria-label="Skip rest"
+              aria-label={tr("Skip rest")}
               onClick={() => endRest(true)}
               className="flex min-h-[40px] items-center gap-1 rounded-full bg-primary px-3 text-label font-bold text-primary-foreground"
             >
-              <SkipForward className="size-4" /> Skip
+              <SkipForward className="size-4" /> <Message source="Skip" />
             </button>
           </>
         )}
@@ -1384,7 +1453,7 @@ export function LiveSession({
                   transition={{ type: "spring", stiffness: 520, damping: 34 }}
                   className="absolute bottom-full left-1/2 mb-2 flex -translate-x-1/2 gap-2 rounded-full border border-border bg-popover p-1.5"
                   role="menu"
-                  aria-label="Session quick actions"
+                  aria-label={tr("Session quick actions")}
                 >
                   <button
                     role="menuitem"
@@ -1393,7 +1462,7 @@ export function LiveSession({
                     className="flex min-h-[44px] items-center gap-1.5 rounded-full bg-surface-2 px-4 text-label font-semibold"
                   >
                     {paused ? <Play className="size-4" /> : <Pause className="size-4" />}
-                    {paused ? "Resume" : "Pause"}
+                    {paused ? tr("Resume") : tr("Pause")}
                   </button>
                   <button
                     role="menuitem"
@@ -1401,11 +1470,11 @@ export function LiveSession({
                     onClick={() => (setMinimized(false), setSheet("end"))}
                     className="flex min-h-[44px] items-center gap-1.5 rounded-full bg-destructive/15 px-4 text-label font-semibold text-destructive"
                   >
-                    <Square className="size-4" /> End
+                    <Square className="size-4" /> <Message source="End" />
                   </button>
                   <button
                     type="button"
-                    aria-label="Close quick actions"
+                    aria-label={tr("Close quick actions")}
                     onClick={close}
                     className="grid size-11 place-items-center rounded-full"
                   >
@@ -1425,7 +1494,10 @@ export function LiveSession({
                 whileTap={springPress}
                 {...pillPress.handlers}
                 onClick={() => !pillPress.fired.current && setMinimized(false)}
-                aria-label={`Open live session, ${paused ? "paused" : "running"} ${elapsed}. Hold for quick actions`}
+                aria-label={tr("Open live session, {p0} {p1}. Hold for quick actions", {
+                  p0: paused ? "paused" : "running",
+                  p1: elapsed,
+                })}
                 className="flex h-11 select-none items-center gap-2.5 pl-4 pr-2 text-label font-bold"
               >
                 {paused ? (
@@ -1436,7 +1508,7 @@ export function LiveSession({
                     <span className="relative inline-flex size-2.5 rounded-full bg-primary-foreground" />
                   </span>
                 )}
-                {paused ? "Paused" : "Session"} <span className="num">{elapsed}</span>
+                {paused ? tr("Paused") : tr("Session")} <span className="num">{elapsed}</span>
                 {rest && (
                   <span
                     className={cn(
@@ -1444,7 +1516,7 @@ export function LiveSession({
                       paused ? "bg-background/40" : "bg-primary-foreground/15",
                     )}
                   >
-                    rest {clock(left)}
+                    <Message source="rest {p0}" values={{ p0: clock(left) }} />
                   </span>
                 )}
               </motion.button>
@@ -1452,7 +1524,7 @@ export function LiveSession({
                 <button
                   type="button"
                   onClick={paused ? doResume : doPause}
-                  aria-label={paused ? "Resume session" : "Pause session"}
+                  aria-label={paused ? tr("Resume session") : tr("Pause session")}
                   className={cn(
                     "grid size-11 place-items-center rounded-full",
                     paused ? "bg-primary text-primary-foreground" : "bg-primary-foreground/15",
@@ -1476,7 +1548,7 @@ export function LiveSession({
             transition={{ type: "spring", stiffness: 380, damping: 38 }}
             className="fixed inset-0 z-50 mx-auto flex max-w-md flex-col overflow-hidden bg-background"
             role="dialog"
-            aria-label={editing ? "Edit workout" : "Live workout session"}
+            aria-label={editing ? tr("Edit workout") : tr("Live workout session")}
             onPointerDownCapture={touch}
           >
             <motion.div
@@ -1501,12 +1573,12 @@ export function LiveSession({
               >
                 <div className="mx-auto mb-2 h-1.5 w-10 rounded-full bg-surface-2" />
                 <div className="flex items-center gap-2">
-                  <IconButton label="Minimise session" onClick={() => setMinimized(true)}>
+                  <IconButton label={tr("Minimise session")} onClick={() => setMinimized(true)}>
                     <ChevronDown className="size-5" />
                   </IconButton>
                   <div className="min-w-0 flex-1 text-center">
                     <div className="truncate text-label font-semibold text-muted-foreground">
-                      {editing ? `Editing · ${session.title}` : session.title}
+                      {editing ? tr("Editing · {p0}", { p0: session.title }) : session.title}
                     </div>
                     <div className="relative mx-auto w-max">
                       <motion.div
@@ -1523,9 +1595,9 @@ export function LiveSession({
                             ? { duration: 1.6, repeat: Infinity, ease: "easeInOut" }
                             : { duration: 0.2 }
                         }
-                        aria-label={`${paused ? "Paused at" : "Elapsed"} ${elapsed}`}
+                        aria-label={`${paused ? tr("Paused at") : tr("Elapsed")} ${elapsed}`}
                       >
-                        {editing ? `${mins} min` : elapsed}
+                        {editing ? tr("{p0} min", { p0: mins }) : elapsed}
                       </motion.div>
                       <AnimatePresence>
                         {flash > 0 && (
@@ -1546,7 +1618,7 @@ export function LiveSession({
                     onClick={() => setSheet("end")}
                     className="min-h-[44px] rounded-full bg-primary px-4 text-label font-bold text-primary-foreground shadow-glow"
                   >
-                    {editing ? "Save" : "End"}
+                    {editing ? tr("Save") : tr("End")}
                   </motion.button>
                 </div>
                 {!editing && (
@@ -1557,7 +1629,7 @@ export function LiveSession({
                       className="flex min-h-[44px] items-center gap-1.5 rounded-full bg-surface-2 px-4 text-label font-semibold"
                     >
                       {paused ? <Play className="size-4" /> : <Pause className="size-4" />}{" "}
-                      {paused ? "Resume" : "Pause"}
+                      {paused ? tr("Resume") : tr("Pause")}
                     </button>
                     <button
                       type="button"
@@ -1574,10 +1646,10 @@ export function LiveSession({
                       }
                       className="flex min-h-[44px] items-center gap-1.5 rounded-full bg-surface-2 px-4 text-label font-semibold"
                     >
-                      <Timer className="size-4" /> {rest ? "Resting" : "Rest"}
+                      <Timer className="size-4" /> {rest ? tr("Resting") : tr("Rest")}
                     </button>
                     <IconButton
-                      label={soundPref ? "Turn sounds off" : "Turn sounds on"}
+                      label={soundPref ? tr("Turn sounds off") : tr("Turn sounds on")}
                       onClick={() => setSoundPref(!soundPref)}
                     >
                       {soundPref ? (
@@ -1591,7 +1663,7 @@ export function LiveSession({
                 {session.lighter && !editing && (
                   <div className="mt-2 flex justify-center">
                     <Tag tone="muted">
-                      <Feather className="size-3" /> Lighter day · weights −10%
+                      <Feather className="size-3" /> <Message source="Lighter day · weights −10%" />
                     </Tag>
                   </div>
                 )}
@@ -1600,13 +1672,13 @@ export function LiveSession({
                     <span className="block text-label font-bold text-foreground">
                       <Rolling value={doneSets.length} format={(n) => String(Math.round(n))} />
                     </span>
-                    sets
+                    <Message source="sets" />
                   </div>
                   <div>
                     <span className="block text-label font-bold text-foreground">
                       <Rolling value={vol} format={(n) => volumeText(Math.round(n))} />
                     </span>
-                    volume
+                    <Message source="volume" />
                   </div>
                   <div>
                     <span
@@ -1617,7 +1689,7 @@ export function LiveSession({
                     >
                       {prs.length}
                     </span>
-                    PRs
+                    <Message source="PRs" />
                   </div>
                 </div>
               </motion.div>
@@ -1634,10 +1706,13 @@ export function LiveSession({
                     <div className="flex items-center gap-3 px-4 py-3">
                       <div className="min-w-0 flex-1">
                         <div className="num text-title font-bold">
-                          Paused · {elapsedClock(now - (session.pausedAt ?? now))}
+                          <Message
+                            source="Paused · {p0}"
+                            values={{ p0: elapsedClock(now - (session.pausedAt ?? now)) }}
+                          />
                         </div>
                         <div className="text-caption text-muted-foreground">
-                          Timer and rest are frozen. Sets stay editable.
+                          <Message source="Timer and rest are frozen. Sets stay editable." />
                         </div>
                       </div>
                       <motion.button
@@ -1645,7 +1720,7 @@ export function LiveSession({
                         onClick={doResume}
                         className="flex h-14 items-center gap-2 rounded-full bg-volt-gradient px-6 font-semibold text-primary-foreground"
                       >
-                        <Play className="size-5" /> Resume
+                        <Play className="size-5" /> <Message source="Resume" />
                       </motion.button>
                     </div>
                   </motion.div>
@@ -1667,18 +1742,18 @@ export function LiveSession({
                 </Reorder.Group>
                 {session.exercises.length > 0 && (
                   <p className="mb-3 text-center text-caption text-muted-foreground">
-                    Tap a number to type it · hold a set for options · swipe left to delete
+                    <Message source="Tap a number to type it · hold a set for options · swipe left to delete" />
                   </p>
                 )}
                 <SheetBtn
                   onClick={() => (setReplacing(null), setSheet("picker"))}
                   icon={<Plus className="size-5 text-volt" />}
                 >
-                  Add exercise
+                  <Message source="Add exercise" />
                 </SheetBtn>
                 {session.exercises.length === 0 && (
                   <p className="mt-3 px-2 text-center text-label text-muted-foreground">
-                    Pick your first exercise to start logging sets.
+                    <Message source="Pick your first exercise to start logging sets." />
                   </p>
                 )}
               </div>
@@ -1688,13 +1763,13 @@ export function LiveSession({
             <BottomCard
               open={sheet === "keypad" && !!setAt}
               onClose={close}
-              title={target?.field === "reps" ? "Reps" : "Weight"}
+              title={target?.field === "reps" ? tr("Reps") : tr("Weight")}
             >
               {setAt && target && (
                 <Keypad
                   key={`${target.e}-${target.s}-${target.field}`}
                   initial={target.field === "reps" ? setAt.reps : setAt.kg}
-                  unit={target.field === "reps" ? "reps" : "kg"}
+                  unit={target.field === "reps" ? "reps" : tr("kg")}
                   onDone={(n) => (
                     setVal(target.e, target.s, target.field === "reps" ? { reps: n } : { kg: n }),
                     close()
@@ -1708,7 +1783,7 @@ export function LiveSession({
             <BottomCard
               open={sheet === "plates" && !!setAt}
               onClose={close}
-              title="Plate calculator"
+              title={tr("Plate calculator")}
             >
               {setAt &&
                 target &&
@@ -1720,20 +1795,22 @@ export function LiveSession({
                       <div className="mt-3 text-center">
                         <div className="num text-title-l font-bold">
                           {setAt.kg}
-                          <span className="ml-1 text-label text-muted-foreground">kg</span>
+                          <span className="ml-1 text-label text-muted-foreground">
+                            <Message source="kg" />
+                          </span>
                         </div>
                         <p className="mt-1 text-label text-muted-foreground">
                           {setAt.kg < 20
-                            ? "Lighter than an empty 20 kg bar."
+                            ? tr("Lighter than an empty 20 kg bar.")
                             : out.length
-                              ? `20 kg bar + ${out.join(" · ")} kg each side`
-                              : "Empty 20 kg bar"}
-                          {rem > 0 && ` · ${rem} kg can't be loaded`}
+                              ? tr("20 kg bar + {p0} kg each side", { p0: out.join(" · ") })
+                              : tr("Empty 20 kg bar")}
+                          {rem > 0 && tr(" · {p0} kg can't be loaded", { p0: rem })}
                         </p>
                       </div>
                       <div className="mt-4">
                         <Stepper
-                          label="Weight"
+                          label={tr("Weight")}
                           unit="kg"
                           value={setAt.kg}
                           step={2.5}
@@ -1741,7 +1818,9 @@ export function LiveSession({
                         />
                       </div>
                       <div className="mt-5">
-                        <SheetBtn onClick={close}>Done</SheetBtn>
+                        <SheetBtn onClick={close}>
+                          <Message source="Done" />
+                        </SheetBtn>
                       </div>
                     </>
                   );
@@ -1752,11 +1831,15 @@ export function LiveSession({
             <BottomCard
               open={sheet === "setMenu" && !!setAt}
               onClose={close}
-              title={target ? `Set ${target.s + 1}` : "Set"}
+              title={target ? tr("Set {p0}", { p0: target.s + 1 }) : tr("Set")}
             >
               {setAt && target && (
                 <div className="space-y-3">
-                  <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="Set type">
+                  <div
+                    className="grid grid-cols-2 gap-2"
+                    role="radiogroup"
+                    aria-label={tr("Set type")}
+                  >
                     {SET_TYPES.map((t) => {
                       const on = (setAt.type ?? "working") === t.type;
                       return (
@@ -1776,13 +1859,13 @@ export function LiveSession({
                             on ? "bg-foreground text-background" : "bg-surface-2",
                           )}
                         >
-                          {t.label}
+                          {tr(t.label)}
                         </motion.button>
                       );
                     })}
                   </div>
                   <p className="text-caption text-muted-foreground">
-                    Warm-ups don't count toward volume or records and aren't saved.
+                    <Message source="Warm-ups don't count toward volume or records and aren't saved." />
                   </p>
                   {noteFor === "set" ? (
                     <NoteEditor
@@ -1798,7 +1881,7 @@ export function LiveSession({
                       onClick={() => (setNoteDraft(setAt.note ?? ""), setNoteFor("set"))}
                       icon={<StickyNote className="size-5" />}
                     >
-                      {setAt.note ? "Edit note" : "Add note"}
+                      {setAt.note ? tr("Edit note") : tr("Add note")}
                     </SheetBtn>
                   )}
                   <SheetBtn
@@ -1806,7 +1889,7 @@ export function LiveSession({
                     onClick={() => (removeSet(target.e, target.s), close())}
                     icon={<Trash2 className="size-5" />}
                   >
-                    Delete set
+                    <Message source="Delete set" />
                   </SheetBtn>
                 </div>
               )}
@@ -1816,7 +1899,7 @@ export function LiveSession({
             <BottomCard
               open={sheet === "exMenu" && !!exAt}
               onClose={close}
-              title={exAt?.name ?? "Exercise"}
+              title={exAt ? programExerciseName(exAt) : tr("Exercise")}
             >
               {exAt && exMenu != null && (
                 <div className="space-y-2">
@@ -1836,26 +1919,32 @@ export function LiveSession({
                           const snap = session;
                           commit(patchEx(session, exMenu, (x) => ({ ...x, skipped: !x.skipped })));
                           close();
-                          if (!exAt.skipped) withUndo(`${exAt.name} skipped`, snap);
+                          if (!exAt.skipped)
+                            withUndo(
+                              tr("{name} skipped", { name: programExerciseName(exAt) }),
+                              snap,
+                            );
                         }}
                         icon={<SkipForward className="size-5" />}
                       >
-                        {exAt.skipped ? "Restore" : "Skip"}
+                        {exAt.skipped ? tr("Restore") : tr("Skip")}
                       </SheetBtn>
                       <SheetBtn
                         onClick={() => (setReplacing(exMenu), setSheet("picker"))}
                         icon={<Replace className="size-5" />}
                       >
-                        Replace
+                        <Message source="Replace" />
                       </SheetBtn>
                       <SheetBtn
                         onClick={() => (setNoteDraft(exAt.note ?? ""), setNoteFor("ex"))}
                         icon={<StickyNote className="size-5" />}
                       >
-                        {exAt.note ? "Edit note" : "Add note"}
+                        {exAt.note ? tr("Edit note") : tr("Add note")}
                       </SheetBtn>
                       <div className="pt-2">
-                        <div className="eyebrow mb-2">Rest time for this exercise</div>
+                        <div className="eyebrow mb-2">
+                          <Message source="Rest time for this exercise" />
+                        </div>
                         <div className="grid grid-cols-5 gap-1.5">
                           {[60, 90, 120, 180, 240].map((r) => {
                             const on = (exAt.rest_seconds ?? restFor(exAt.name)) === r;
@@ -1875,7 +1964,7 @@ export function LiveSession({
                                   on ? "bg-foreground text-background" : "bg-surface-2",
                                 )}
                               >
-                                {r < 120 ? `${r}s` : `${r / 60}m`}
+                                {r < 120 ? tr("{p0}s", { p0: r }) : tr("{p0}m", { p0: r / 60 })}
                               </button>
                             );
                           })}
@@ -1893,11 +1982,14 @@ export function LiveSession({
                             close();
                             setActive(null);
                             haptic.medium();
-                            withUndo(`${exAt.name} removed`, snap);
+                            withUndo(
+                              tr("{name} removed", { name: programExerciseName(exAt) }),
+                              snap,
+                            );
                           }}
                           icon={<Trash2 className="size-5" />}
                         >
-                          Remove
+                          <Message source="Remove" />
                         </SheetBtn>
                       </div>
                     </>
@@ -1913,8 +2005,8 @@ export function LiveSession({
               onClose={close}
               title={
                 replacing != null
-                  ? `Replace ${session.exercises[replacing]?.name ?? ""}`
-                  : "Add exercise"
+                  ? tr("Replace {p0}", { p0: session.exercises[replacing]?.name ?? "" })
+                  : tr("Add exercise")
               }
             >
               <ExercisePicker
@@ -1940,7 +2032,7 @@ export function LiveSession({
             <BottomCard
               open={sheet === "end"}
               onClose={close}
-              title={editing ? "Save your changes?" : "End this session?"}
+              title={editing ? tr("Save your changes?") : tr("End this session?")}
             >
               <div className="space-y-2">
                 <SheetBtn
@@ -1949,16 +2041,18 @@ export function LiveSession({
                   onClick={finish}
                   icon={<Check className="size-5" />}
                 >
-                  {editing ? "Save changes" : "Finish & save"}
+                  {editing ? tr("Save changes") : tr("Finish & save")}
                 </SheetBtn>
                 {nDone === 0 && (
                   <p className="pb-1 text-center text-label text-muted-foreground">
-                    Complete at least one set to save this session.
+                    <Message source="Complete at least one set to save this session." />
                   </p>
                 )}
-                <SheetBtn onClick={close}>{editing ? "Keep editing" : "Keep training"}</SheetBtn>
+                <SheetBtn onClick={close}>
+                  {editing ? tr("Keep editing") : tr("Keep training")}
+                </SheetBtn>
                 <SheetBtn tone="danger" onClick={() => (editing ? onClose() : setSheet("discard"))}>
-                  {editing ? "Discard changes" : "Discard"}
+                  {editing ? tr("Discard changes") : tr("Discard")}
                 </SheetBtn>
               </div>
             </BottomCard>
@@ -1966,34 +2060,47 @@ export function LiveSession({
             <BottomCard
               open={sheet === "unfinished"}
               onClose={close}
-              title={`${nOpen} set${nOpen === 1 ? "" : "s"} not done`}
+              title={tr("{p0} set{p1} not done", { p0: nOpen, p1: nOpen === 1 ? "" : "s" })}
             >
               <p className="mb-4 text-body text-muted-foreground">
-                Only completed sets are saved. What should happen to the rest?
+                <Message source="Only completed sets are saved. What should happen to the rest?" />
               </p>
               <div className="space-y-2">
                 <SheetBtn onClick={() => toReview(markAllDone(session, Date.now()))}>
-                  Mark all done
+                  <Message source="Mark all done" />
                 </SheetBtn>
-                <SheetBtn onClick={() => toReview(removeUnfinished(session))}>Remove them</SheetBtn>
-                <SheetBtn onClick={close}>Go back</SheetBtn>
+                <SheetBtn onClick={() => toReview(removeUnfinished(session))}>
+                  <Message source="Remove them" />
+                </SheetBtn>
+                <SheetBtn onClick={close}>
+                  <Message source="Go back" />
+                </SheetBtn>
               </div>
             </BottomCard>
 
-            <BottomCard open={sheet === "discard"} onClose={close} title="Discard this session?">
+            <BottomCard
+              open={sheet === "discard"}
+              onClose={close}
+              title={tr("Discard this session?")}
+            >
               <p className="text-body text-muted-foreground">
                 {nDone
-                  ? `${nDone} logged set${nDone === 1 ? "" : "s"} will be lost.`
-                  : "Nothing has been logged yet."}
+                  ? tr("{p0} logged set{p1} will be lost.", {
+                      p0: nDone,
+                      p1: nDone === 1 ? "" : "s",
+                    })
+                  : tr("Nothing has been logged yet.")}
               </p>
               <div className="mt-5 grid grid-cols-2 gap-2">
-                <SheetBtn onClick={close}>Keep training</SheetBtn>
+                <SheetBtn onClick={close}>
+                  <Message source="Keep training" />
+                </SheetBtn>
                 <motion.button
                   whileTap={springPress}
                   onClick={() => (haptic.error(), onClose())}
                   className="h-14 rounded-full bg-destructive font-semibold text-destructive-foreground"
                 >
-                  Discard
+                  <Message source="Discard" />
                 </motion.button>
               </div>
             </BottomCard>
@@ -2001,16 +2108,18 @@ export function LiveSession({
             <BottomCard
               open={sheet === "away" && paused}
               onClose={close}
-              title={`You were away ${Math.max(10, Math.round(away / 60000))} min`}
+              title={tr("You were away {p0} min", { p0: Math.max(10, Math.round(away / 60000)) })}
             >
               <p className="mb-4 text-body text-muted-foreground">
-                We paused your session so the break doesn't count. Resume or end the session?
+                <Message source="We paused your session so the break doesn't count. Resume or end the session?" />
               </p>
               <div className="space-y-2">
                 <SheetBtn tone="primary" onClick={doResume} icon={<Play className="size-5" />}>
-                  Resume
+                  <Message source="Resume" />
                 </SheetBtn>
-                <SheetBtn onClick={() => setSheet("end")}>End session</SheetBtn>
+                <SheetBtn onClick={() => setSheet("end")}>
+                  <Message source="End session" />
+                </SheetBtn>
               </div>
             </BottomCard>
 
@@ -2032,7 +2141,7 @@ export function LiveSession({
                   {phase === "saved" && <StrataBands />}
                   <div className="flex items-center justify-between">
                     {phase === "review" ? (
-                      <IconButton label="Back to session" onClick={() => setPhase("live")}>
+                      <IconButton label={tr("Back to session")} onClick={() => setPhase("live")}>
                         <X className="size-5" />
                       </IconButton>
                     ) : (
@@ -2040,7 +2149,11 @@ export function LiveSession({
                     )}
                   </div>
                   <div className="eyebrow mt-4">
-                    {phase === "saved" ? (editing ? "Changes saved" : "Session saved") : "Review"}
+                    {phase === "saved"
+                      ? editing
+                        ? tr("Changes saved")
+                        : tr("Session saved")
+                      : tr("Review")}
                   </div>
                   <h2 className="font-display text-title-l font-extrabold">{session.title}</h2>
                   <div className="mt-5 grid grid-cols-2 gap-2">
@@ -2053,7 +2166,9 @@ export function LiveSession({
                           ) : (
                             <span className="num">
                               {mins}
-                              <span className="ml-1 text-label text-muted-foreground">min</span>
+                              <span className="ml-1 text-label text-muted-foreground">
+                                <Message source="min" />
+                              </span>
                             </span>
                           ),
                       },
@@ -2064,7 +2179,7 @@ export function LiveSession({
                             <CountUp
                               to={vol >= 1000 ? vol / 1000 : vol}
                               decimals={vol >= 1000 ? 1 : 0}
-                              suffix={vol >= 1000 ? "t" : "kg"}
+                              suffix={vol >= 1000 ? "t" : tr("kg")}
                               delay={0.8}
                             />
                           ) : (
@@ -2101,8 +2216,13 @@ export function LiveSession({
                   </div>
                   {allDone.length > doneSets.length && (
                     <p className="mt-2 text-caption text-muted-foreground">
-                      {allDone.length - doneSets.length} warm-up set
-                      {allDone.length - doneSets.length === 1 ? "" : "s"} not counted or saved.
+                      <Message
+                        source="{p0}warm-up set {p1}not counted or saved."
+                        values={{
+                          p0: allDone.length - doneSets.length,
+                          p1: allDone.length - doneSets.length === 1 ? "" : "s",
+                        }}
+                      />
                     </p>
                   )}
                   {prs.length > 0 && (
@@ -2111,7 +2231,7 @@ export function LiveSession({
                         <div key={i} className="flex items-center gap-2 text-label">
                           <Trophy className="size-4 text-volt" /> {p.ex} ·{" "}
                           <span className="num font-bold text-volt">
-                            {p.kg} kg × {p.reps}
+                            <Message source="{p0}kg × {p1}" values={{ p0: p.kg, p1: p.reps }} />
                           </span>
                         </div>
                       ))}
@@ -2119,20 +2239,26 @@ export function LiveSession({
                   )}
                   {phase === "saved" && (
                     <div className="tile mt-4 p-4">
-                      <div className="eyebrow mb-3">Muscles worked</div>
+                      <div className="eyebrow mb-3">
+                        <Message source="Muscles worked" />
+                      </div>
                       <BodyMap exercises={[...new Set(doneSets.map((s) => s.ex))]} />
                     </div>
                   )}
                   {phase === "review" && (
                     <>
                       <div className="mt-7 flex items-baseline justify-between">
-                        <span className="eyebrow">How hard was it?</span>
-                        <span className="num text-label font-bold">RPE {rpe}</span>
+                        <span className="eyebrow">
+                          <Message source="How hard was it?" />
+                        </span>
+                        <span className="num text-label font-bold">
+                          <Message source="RPE {p0}" values={{ p0: rpe }} />
+                        </span>
                       </div>
                       <div
                         className="mt-2 grid grid-cols-5 gap-2"
                         role="radiogroup"
-                        aria-label="Session effort"
+                        aria-label={tr("Session effort")}
                       >
                         {Array.from({ length: 10 }, (_, i) => i + 1).map((n) => (
                           <motion.button
@@ -2153,7 +2279,7 @@ export function LiveSession({
                         ))}
                       </div>
                       <p className="mt-2 text-center text-label text-muted-foreground">
-                        {rpeAnchors[rpe]}
+                        {tr(rpeAnchors[rpe] ?? "")}
                       </p>
                     </>
                   )}
@@ -2165,7 +2291,7 @@ export function LiveSession({
                             .mutateAsync({ ...session, rpe })
                             .catch(
                               (e) => (
-                                toast.error((e as Error).message),
+                                toast.error(errorText((e as Error).message)),
                                 haptic.error(),
                                 Promise.reject(e)
                               ),
@@ -2184,7 +2310,7 @@ export function LiveSession({
                           sound.chime();
                         }}
                       >
-                        {editing ? "Save changes" : "Save session"}
+                        {editing ? tr("Save changes") : tr("Save session")}
                       </SaveButton>
                     ) : (
                       <>
@@ -2199,16 +2325,16 @@ export function LiveSession({
                               prs: prs.map((p) => ({ ex: p.ex, kg: p.kg, reps: p.reps })),
                             });
                             if (r === "downloaded")
-                              toast.success("Share card saved", {
+                              toast.success(tr("Share card saved"), {
                                 description: "Find it in your downloads",
                               });
                           }}
                           className="flex h-14 w-full items-center justify-center gap-2 rounded-full border border-border bg-surface font-semibold"
                         >
-                          <Share2 className="size-5" /> Share card
+                          <Share2 className="size-5" /> <Message source="Share card" />
                         </motion.button>
                         <SheetBtn tone="primary" onClick={onClose}>
-                          Done
+                          <Message source="Done" />
                         </SheetBtn>
                       </>
                     )}
@@ -2232,6 +2358,7 @@ function NoteEditor({
   onChange: (v: string) => void;
   onSave: () => void;
 }) {
+  useLanguage();
   return (
     <div className="space-y-2">
       <textarea
@@ -2240,12 +2367,12 @@ function NoteEditor({
         onChange={(e) => onChange(e.target.value)}
         maxLength={200}
         rows={3}
-        placeholder="e.g. Felt the left knee, use belt next time"
-        aria-label="Note"
+        placeholder={tr("e.g. Felt the left knee, use belt next time")}
+        aria-label={tr("Note")}
         className="w-full rounded-[14px] border border-input bg-surface p-3 text-body"
       />
       <SheetBtn tone="primary" onClick={onSave}>
-        Save note
+        <Message source="Save note" />
       </SheetBtn>
     </div>
   );

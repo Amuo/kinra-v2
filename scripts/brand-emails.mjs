@@ -1,5 +1,6 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { emailLanguages } from "./email-languages.mjs";
 
 const root = new URL("../", import.meta.url);
 async function save(path, content) {
@@ -112,7 +113,28 @@ const emails = [
   },
 ];
 
-function document(email, preview = false) {
+function localized(email, key, preview, language) {
+  const original =
+    key in email
+      ? email[key]
+      : {
+          progress: "YOUR PROGRESS, IN ONE PLACE",
+          fallback: "Button not working?",
+          link: "Open the secure link",
+          train: "TRAIN",
+          fuel: "FUEL",
+          recover: "RECOVER",
+          momentum: "Small steps. Lasting momentum.",
+          privateCode: "Keep your code private.",
+          privateLink: "Keep your account link private.",
+        }[key];
+  const copy = (lang) =>
+    emailLanguages[lang][email.id]?.[key] ?? emailLanguages[lang].common[key] ?? original;
+  if (preview) return language === "en" ? original : copy(language);
+  return `{{ if eq .Data.kinra_language "bs" }}${copy("bs")}{{ else if eq .Data.kinra_language "de" }}${copy("de")}{{ else }}${original}{{ end }}`;
+}
+function document(email, preview = false, language = "en") {
+  const copy = (key) => localized(email, key, preview, language);
   const url = preview ? "https://example.invalid/kinra-preview-only" : "{{ .ConfirmationURL }}";
   const asset = preview
     ? "../../public/brand/kinra-mark.png"
@@ -126,22 +148,22 @@ function document(email, preview = false) {
   const gmailFix =
     "u + .body .gmail-multiply{background:#fff;background-image:linear-gradient(#fff,#fff);mix-blend-mode:multiply}u + .body .gmail-invert,u + .body .gmail-difference{background:#000;mix-blend-mode:difference}u + .body .gmail-difference{color:#fff}";
   return `<!doctype html>
-<html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark"><title>${email.subject}</title>
+<html lang="${preview ? language : '{{ if eq .Data.kinra_language "bs" }}bs{{ else if eq .Data.kinra_language "de" }}de{{ else }}en{{ end }}'}" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark"><title>${copy("subject")}</title>
 <style>body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}table,td{mso-table-lspace:0;mso-table-rspace:0}table{border-spacing:0}img{border:0;outline:none}a:focus-visible{outline:3px solid #558218;outline-offset:4px}@media(max-width:480px){.outer{padding:28px 12px!important}.pad{padding-left:28px!important;padding-right:28px!important}.headline{font-size:44px!important;letter-spacing:-2px!important}.brand-row{padding-left:4px!important;padding-right:4px!important}.account-label{font-size:9px!important;letter-spacing:1px!important}.pillars{font-size:9px!important;letter-spacing:1px!important}.main-top{padding-top:32px!important}.bottom{padding-bottom:30px!important}}@media(max-width:350px){.pad{padding-left:22px!important;padding-right:22px!important}.headline{font-size:39px!important}.account-label{display:none!important}}@media(prefers-color-scheme:dark){.canvas{background:#111315!important}.paper{background:#1e2225!important}.ink{color:#f6f7f3!important}.body-copy{color:#c5cac7!important}.rule{border-color:#414744!important}.security{background:#292f2c!important}.security-copy{color:#c5cac7!important}.cta{background-color:#c4f65b!important;background-image:linear-gradient(#c4f65b,#c4f65b)!important;color:#15210b!important}.tag{color:#d9e7cf!important}.pillars{color:#bbc1bb!important}}[data-ogsc] .canvas{background:#111315!important}[data-ogsc] .paper{background:#1e2225!important}[data-ogsc] .ink{color:#f6f7f3!important}[data-ogsc] .body-copy{color:#c5cac7!important}[data-ogsc] .security{background:#292f2c!important}[data-ogsc] .security-copy{color:#c5cac7!important}${gmailFix}</style></head>
 <body class="body" bgcolor="#111315" style="margin:0;padding:0;background:#111315;font-family:Arial,Helvetica,sans-serif">
-<div lang="en" dir="ltr" style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;overflow:hidden;opacity:0;mso-hide:all">${email.intro}</div>
+<div lang="en" dir="ltr" style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;overflow:hidden;opacity:0;mso-hide:all">${copy("intro")}</div>
 <table lang="en" dir="ltr" role="presentation" width="100%" class="canvas" bgcolor="#111315" style="background:#111315"><tr><td class="outer" align="center" style="padding:44px 20px">
 <!--[if mso]><table role="presentation" width="560"><tr><td><![endif]-->
 <table role="presentation" width="100%" style="max-width:560px">
-<tr><td class="brand-row" style="padding:0 6px 26px"><table role="presentation" width="100%"><tr><td><table role="presentation"><tr><td width="37"><img src="${asset}" width="32" height="32" alt="" style="display:block;width:32px;height:32px"></td><td style="font-size:25px;line-height:32px;font-weight:900;letter-spacing:1.5px;color:#f6f7f3">KINRA<span aria-hidden="true" style="display:inline-block;width:5px;height:5px;margin-left:2px;background-color:#c4f65b;background-image:linear-gradient(#c4f65b,#c4f65b);font-size:0;line-height:0">&nbsp;</span></td></tr></table></td><td align="right" class="account-label" style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:#b8bfb6">YOUR PROGRESS, IN ONE PLACE</td></tr></table></td></tr>
+<tr><td class="brand-row" style="padding:0 6px 26px"><table role="presentation" width="100%"><tr><td><table role="presentation"><tr><td width="37"><img src="${asset}" width="32" height="32" alt="" style="display:block;width:32px;height:32px"></td><td style="font-size:25px;line-height:32px;font-weight:900;letter-spacing:1.5px;color:#f6f7f3">KINRA<span aria-hidden="true" style="display:inline-block;width:5px;height:5px;margin-left:2px;background-color:#c4f65b;background-image:linear-gradient(#c4f65b,#c4f65b);font-size:0;line-height:0">&nbsp;</span></td></tr></table></td><td align="right" class="account-label" style="font-family:'Courier New',monospace;font-size:10px;letter-spacing:1.5px;color:#b8bfb6">${copy("progress")}</td></tr></table></td></tr>
 <tr><td class="paper pad main-top" bgcolor="#f8f9f5" style="padding:42px 44px 0;background:#f8f9f5;border-radius:18px 18px 0 0">
-<table role="presentation" width="100%"><tr><td><p class="tag" style="margin:0;font-family:'Courier New',monospace;font-size:11px;font-weight:bold;line-height:18px;letter-spacing:1.8px;color:#415732">${email.label}</p></td><td align="right" width="34" style="font-family:'Courier New',monospace;font-size:11px;line-height:18px;color:#697363">${ordinal}</td></tr></table>
-<h1 class="headline ink" style="margin:25px 0 0;font-size:56px;font-weight:900;line-height:1.02;letter-spacing:-2.8px;color:#171c18">${email.title}</h1>
-<p class="body-copy" style="margin:24px 0 28px;font-size:16px;line-height:26px;color:#515b52">${email.intro}</p>
-${email.code ? `<p class="security ink" style="margin:0 0 24px;padding:19px 12px;background:#e9eee3;border-radius:10px;color:#171c18;font-family:'Courier New',monospace;font-size:30px;font-weight:bold;letter-spacing:6px;text-align:center">${code}</p>` : `<table role="presentation" width="100%"><tr><td class="cta" align="center" bgcolor="#c4f65b" style="background-color:#c4f65b;background-image:linear-gradient(#c4f65b,#c4f65b);border-radius:8px;mso-padding-alt:18px 24px"><a class="cta" href="${url}" style="display:block;overflow:hidden;border:0;border-radius:8px;font-size:16px;line-height:20px;font-weight:bold;color:#15210b;background-color:#c4f65b;background-image:linear-gradient(#c4f65b,#c4f65b);text-decoration:none"><span class="gmail-multiply" style="display:block"><span class="gmail-invert" style="display:block"><span class="gmail-difference" style="display:block;padding:18px 20px">${email.action} &nbsp; &#8599;</span></span></span></a></td></tr></table><p class="body-copy" style="margin:16px 0 26px;text-align:center;font-size:12px;line-height:20px;color:#515b52">Button not working? <a class="ink" href="${url}" style="color:#283a21;text-decoration:underline;text-underline-offset:3px">Open the secure link</a></p>`}
+<table role="presentation" width="100%"><tr><td><p class="tag" style="margin:0;font-family:'Courier New',monospace;font-size:11px;font-weight:bold;line-height:18px;letter-spacing:1.8px;color:#415732">${copy("label")}</p></td><td align="right" width="34" style="font-family:'Courier New',monospace;font-size:11px;line-height:18px;color:#697363">${ordinal}</td></tr></table>
+<h1 class="headline ink" style="margin:25px 0 0;font-size:56px;font-weight:900;line-height:1.02;letter-spacing:-2.8px;overflow-wrap:anywhere;hyphens:auto;color:#171c18">${copy("title")}</h1>
+<p class="body-copy" style="margin:24px 0 28px;font-size:16px;line-height:26px;color:#515b52">${copy("intro")}</p>
+${email.code ? `<p class="security ink" style="margin:0 0 24px;padding:19px 12px;background:#e9eee3;border-radius:10px;color:#171c18;font-family:'Courier New',monospace;font-size:30px;font-weight:bold;letter-spacing:6px;text-align:center">${code}</p>` : `<table role="presentation" width="100%"><tr><td class="cta" align="center" bgcolor="#c4f65b" style="background-color:#c4f65b;background-image:linear-gradient(#c4f65b,#c4f65b);border-radius:8px;mso-padding-alt:18px 24px"><a class="cta" href="${url}" style="display:block;overflow:hidden;border:0;border-radius:8px;font-size:16px;line-height:20px;font-weight:bold;color:#15210b;background-color:#c4f65b;background-image:linear-gradient(#c4f65b,#c4f65b);text-decoration:none"><span class="gmail-multiply" style="display:block"><span class="gmail-invert" style="display:block"><span class="gmail-difference" style="display:block;padding:18px 20px">${copy("action")} &nbsp; &#8599;</span></span></span></a></td></tr></table><p class="body-copy" style="margin:16px 0 26px;text-align:center;font-size:12px;line-height:20px;color:#515b52">${copy("fallback")} <a class="ink" href="${url}" style="color:#283a21;text-decoration:underline;text-underline-offset:3px">${copy("link")}</a></p>`}
 </td></tr>
-<tr><td class="paper pad bottom" bgcolor="#f8f9f5" style="padding:0 44px 38px;background:#f8f9f5;border-radius:0 0 18px 18px"><table role="presentation" width="100%"><tr><td class="security" bgcolor="#e9eee3" style="padding:16px 18px;background:#e9eee3;border-radius:8px"><p class="security-copy" style="margin:0;font-size:12px;line-height:20px;color:#4c5944">${email.note}</p></td></tr></table><p class="body-copy" style="margin:20px 0 0;font-size:12px;line-height:20px;color:#515b52">${email.footer}</p></td></tr>
-<tr><td style="padding:25px 6px 0"><table role="presentation" width="100%"><tr><td width="33%" style="padding:0 7px 0 0"><table role="presentation" width="100%"><tr><td height="3" bgcolor="#c4f65b" style="font-size:0;line-height:3px;background-color:#c4f65b;background-image:linear-gradient(#c4f65b,#c4f65b)">&nbsp;</td></tr></table></td><td width="34%" style="padding:0 7px"><table role="presentation" width="100%"><tr><td height="3" bgcolor="#718252" style="font-size:0;line-height:3px;background-color:#718252;background-image:linear-gradient(#718252,#718252)">&nbsp;</td></tr></table></td><td width="33%" style="padding:0 0 0 7px"><table role="presentation" width="100%"><tr><td height="3" bgcolor="#394331" style="font-size:0;line-height:3px;background-color:#394331;background-image:linear-gradient(#394331,#394331)">&nbsp;</td></tr></table></td></tr><tr><td class="pillars" style="padding-top:12px;font-family:'Courier New',monospace;font-size:10px;line-height:18px;letter-spacing:2px;color:#bbc1bb">01 / TRAIN</td><td class="pillars" style="padding:12px 7px 0;font-family:'Courier New',monospace;font-size:10px;line-height:18px;letter-spacing:2px;color:#bbc1bb">02 / FUEL</td><td class="pillars" style="padding:12px 0 0 7px;font-family:'Courier New',monospace;font-size:10px;line-height:18px;letter-spacing:2px;color:#bbc1bb">03 / RECOVER</td></tr></table><p style="margin:26px 0 0;font-size:11px;line-height:18px;color:#a7afa3">Small steps. Lasting momentum.<br><a href="${preview ? "https://kinra.fit" : "{{ .SiteURL }}"}" style="color:#cbd4c3;text-decoration:underline">kinra.fit</a> &nbsp; / &nbsp; ${email.code ? "Keep your code private." : "Keep your account link private."}</p></td></tr>
+<tr><td class="paper pad bottom" bgcolor="#f8f9f5" style="padding:0 44px 38px;background:#f8f9f5;border-radius:0 0 18px 18px"><table role="presentation" width="100%"><tr><td class="security" bgcolor="#e9eee3" style="padding:16px 18px;background:#e9eee3;border-radius:8px"><p class="security-copy" style="margin:0;font-size:12px;line-height:20px;color:#4c5944">${copy("note")}</p></td></tr></table><p class="body-copy" style="margin:20px 0 0;font-size:12px;line-height:20px;color:#515b52">${copy("footer")}</p></td></tr>
+<tr><td style="padding:25px 6px 0"><table role="presentation" width="100%"><tr><td width="33%" style="padding:0 7px 0 0"><table role="presentation" width="100%"><tr><td height="3" bgcolor="#c4f65b" style="font-size:0;line-height:3px;background-color:#c4f65b;background-image:linear-gradient(#c4f65b,#c4f65b)">&nbsp;</td></tr></table></td><td width="34%" style="padding:0 7px"><table role="presentation" width="100%"><tr><td height="3" bgcolor="#718252" style="font-size:0;line-height:3px;background-color:#718252;background-image:linear-gradient(#718252,#718252)">&nbsp;</td></tr></table></td><td width="33%" style="padding:0 0 0 7px"><table role="presentation" width="100%"><tr><td height="3" bgcolor="#394331" style="font-size:0;line-height:3px;background-color:#394331;background-image:linear-gradient(#394331,#394331)">&nbsp;</td></tr></table></td></tr><tr><td class="pillars" style="padding-top:12px;font-family:'Courier New',monospace;font-size:10px;line-height:18px;letter-spacing:2px;color:#bbc1bb">01 / ${copy("train")}</td><td class="pillars" style="padding:12px 7px 0;font-family:'Courier New',monospace;font-size:10px;line-height:18px;letter-spacing:2px;color:#bbc1bb">02 / ${copy("fuel")}</td><td class="pillars" style="padding:12px 0 0 7px;font-family:'Courier New',monospace;font-size:10px;line-height:18px;letter-spacing:2px;color:#bbc1bb">03 / ${copy("recover")}</td></tr></table><p style="margin:26px 0 0;font-size:11px;line-height:18px;color:#a7afa3">${copy("momentum")}<br><a href="${preview ? "https://kinra.fit" : "{{ .SiteURL }}"}" style="color:#cbd4c3;text-decoration:underline">kinra.fit</a> &nbsp; / &nbsp; ${copy(email.code ? "privateCode" : "privateLink")}</p></td></tr>
 </table><!--[if mso]></td></tr></table><![endif]-->
 </td></tr></table></body></html>\n`;
 }
@@ -149,7 +171,7 @@ ${email.code ? `<p class="security ink" style="margin:0 0 24px;padding:19px 12px
 const config = ["# Versioned local email templates. Hosted templates are configured separately."];
 const hosted = {};
 for (const email of emails) {
-  hosted[`mailer_subjects_${email.id}`] = email.subject;
+  hosted[`mailer_subjects_${email.id}`] = localized(email, "subject", false, "en");
   hosted[`mailer_templates_${email.id}_content`] = document(email);
   await save(`supabase/templates/${email.id}.html`, document(email));
   await save(
@@ -157,9 +179,11 @@ for (const email of emails) {
     `${email.subject}\n\n${email.intro}\n\n${email.code ? "Verification code: {{ .Token }}" : `${email.action}: {{ .ConfirmationURL }}`}\n\n${email.note}\n\n${email.footer}\n\nKINRA — Train. Fuel. Recover.\n`,
   );
   await save(`docs/brand-preview/${email.id}.html`, document(email, true));
+  for (const language of ["bs", "de"])
+    await save(`docs/brand-preview/${email.id}-${language}.html`, document(email, true, language));
   config.push(
     `[auth.email.template.${email.id}]`,
-    `subject = ${JSON.stringify(email.subject)}`,
+    `subject = ${JSON.stringify(localized(email, "subject", false, "en"))}`,
     `content_path = "./supabase/templates/${email.id}.html"`,
     "",
   );

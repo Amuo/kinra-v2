@@ -1,5 +1,7 @@
+import { displayNumber } from "@/lib/i18n";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useState, type PointerEvent } from "react";
-import { format } from "date-fns";
+import { format } from "@/lib/i18n";
 import { Scale } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { weightPoints, type WeightRange } from "@/lib/progress";
@@ -12,6 +14,7 @@ export function WeightChart({
   metrics: BodyMetric[];
   range?: WeightRange;
 }) {
+  useLanguage();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const points = weightPoints(metrics, range);
   const selected = points.find((point) => point.id === selectedId) ?? points.at(-1);
@@ -19,7 +22,7 @@ export function WeightChart({
     return (
       <div className="flex items-center gap-3 py-8 text-label text-muted-foreground">
         <Scale className="size-5 shrink-0" />
-        No weigh-ins in this period.
+        <Message source="No weigh-ins in this period." />
       </div>
     );
   const lo =
@@ -45,21 +48,27 @@ export function WeightChart({
     setSelectedId(nearest.id);
   };
   return (
-    <div aria-label="Weight history">
+    <div aria-label={tr("Weight history")}>
       <div className="mb-5 flex flex-wrap items-end justify-between gap-4" aria-live="polite">
         <div>
           <div className="eyebrow">{format(selected.t, "EEE, d MMM")}</div>
           <div className="num mt-2 text-display font-bold">
-            {selected.v.toFixed(1)}
-            <span className="ml-2 text-title text-muted-foreground">kg</span>
+            {displayNumber(selected.v.toFixed(1))}
+            <span className="ml-2 text-title text-muted-foreground">
+              <Message source="kg" />
+            </span>
           </div>
         </div>
         <div className="text-right">
           <div className="num text-title font-bold text-pulse">
-            {selected.avg.toFixed(1)}
-            <span className="ml-1 text-caption text-muted-foreground">kg</span>
+            {displayNumber(selected.avg.toFixed(1))}
+            <span className="ml-1 text-caption text-muted-foreground">
+              <Message source="kg" />
+            </span>
           </div>
-          <div className="mt-1 text-caption text-muted-foreground">7-day average</div>
+          <div className="mt-1 text-caption text-muted-foreground">
+            <Message source="7-day average" />
+          </div>
         </div>
       </div>
       <div
@@ -74,7 +83,7 @@ export function WeightChart({
           viewBox="0 0 336 138"
           className="h-[168px] w-full"
           role="img"
-          aria-label="Recorded weight and seven-day average in kilograms"
+          aria-label={tr("Recorded weight and seven-day average in kilograms")}
         >
           <line x1="12" x2="324" y1="110" y2="110" stroke="var(--border)" />
           <polyline
@@ -124,7 +133,9 @@ export function WeightChart({
         </svg>
       </div>
       <label className="mt-2 block">
-        <span className="sr-only">Select weigh-in</span>
+        <span className="sr-only">
+          <Message source="Select weigh-in" />
+        </span>
         <input
           type="range"
           min={0}
@@ -132,18 +143,20 @@ export function WeightChart({
           step={1}
           value={points.findIndex((point) => point.id === selected.id)}
           onChange={(event) => setSelectedId(points[Number(event.target.value)]?.id ?? null)}
-          aria-valuetext={`${format(selected.t, "d MMM")}, ${selected.v} kg`}
+          aria-valuetext={tr("{p0}, {p1} kg", { p0: format(selected.t, "d MMM"), p1: selected.v })}
           className="h-11 w-full accent-pulse"
         />
       </label>
       <div className="flex items-center justify-between text-caption text-muted-foreground">
-        <span>{points.length} weigh-ins in view</span>
+        <span>
+          <Message source="{p0}weigh-ins in view" values={{ p0: points.length }} />
+        </span>
         <Button
           variant="ghost"
           className="h-11 rounded-full px-3 text-caption text-pulse"
           onClick={() => setSelectedId(null)}
         >
-          Latest
+          <Message source="Latest" />
         </Button>
       </div>
     </div>

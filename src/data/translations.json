@@ -1,0 +1,5681 @@
+{
+  "Client unavailable": {
+    "bs": "Klijent nije dostupan",
+    "de": "Klient nicht verfügbar"
+  },
+  "Back to clients": {
+    "bs": "Nazad na klijente",
+    "de": "Zurück zu den Klienten"
+  },
+  "Clients": {
+    "bs": "Klijenti",
+    "de": "Klienten"
+  },
+  "Client progress": {
+    "bs": "Napredak klijenta",
+    "de": "Fortschritt des Klienten"
+  },
+  "Client": {
+    "bs": "Klijent",
+    "de": "Klient"
+  },
+  "No goal set": {
+    "bs": "Cilj nije postavljen",
+    "de": "Kein Ziel festgelegt"
+  },
+  "Give kudos": {
+    "bs": "Pohvali",
+    "de": "Lob senden"
+  },
+  "Bodyweight": {
+    "bs": "Tjelesna težina",
+    "de": "Körpergewicht"
+  },
+  "Create custom program": {
+    "bs": "Kreiraj prilagođeni program",
+    "de": "Individuelles Programm erstellen"
+  },
+  "Current program": {
+    "bs": "Trenutni program",
+    "de": "Aktuelles Programm"
+  },
+  "Edit plan": {
+    "bs": "Uredi plan",
+    "de": "Plan bearbeiten"
+  },
+  "Started {p0}": {
+    "bs": "Početak: {p0}",
+    "de": "Begonnen am {p0}"
+  },
+  "No program assigned yet.": {
+    "bs": "Još nema dodijeljenog programa.",
+    "de": "Noch kein Programm zugewiesen."
+  },
+  "Program library": {
+    "bs": "Biblioteka programa",
+    "de": "Programmbibliothek"
+  },
+  "Search programs to assign": {
+    "bs": "Pretraži programe za dodjelu",
+    "de": "Programme zum Zuweisen suchen"
+  },
+  "Search programs or exercises": {
+    "bs": "Pretraži programe ili vježbe",
+    "de": "Programme oder Übungen suchen"
+  },
+  "Assigned {p0}": {
+    "bs": "Dodijeljeno: {p0}",
+    "de": "Zugewiesen: {p0}"
+  },
+  "Active": {
+    "bs": "Aktivno",
+    "de": "Aktiv"
+  },
+  "Assign": {
+    "bs": "Dodijeli",
+    "de": "Zuweisen"
+  },
+  "No matching programs.": {
+    "bs": "Nema odgovarajućih programa.",
+    "de": "Keine passenden Programme."
+  },
+  "Create your first program →": {
+    "bs": "Kreiraj svoj prvi program →",
+    "de": "Erstelle dein erstes Programm →"
+  },
+  "Sent to client": {
+    "bs": "Poslano klijentu",
+    "de": "An den Klienten gesendet"
+  },
+  "Notes appear on your client's Today screen.": {
+    "bs": "Bilješke se prikazuju klijentu na ekranu Danas.",
+    "de": "Notizen erscheinen im Heute-Bereich deines Klienten."
+  },
+  "No notes yet. Say hi.": {
+    "bs": "Još nema bilješki. Javi se.",
+    "de": "Noch keine Notizen. Sag Hallo."
+  },
+  "Message your client…": {
+    "bs": "Poruka klijentu…",
+    "de": "Nachricht an deinen Klienten…"
+  },
+  "Note to client": {
+    "bs": "Bilješka klijentu",
+    "de": "Notiz an den Klienten"
+  },
+  "Send note": {
+    "bs": "Pošalji bilješku",
+    "de": "Notiz senden"
+  },
+  "{p0}days": {
+    "bs": "{p0} dana",
+    "de": "{p0} Tage"
+  },
+  "Crunching numbers…": {
+    "bs": "Obrada podataka…",
+    "de": "Daten werden ausgewertet…"
+  },
+  "Your message": {
+    "bs": "Tvoja poruka",
+    "de": "Deine Nachricht"
+  },
+  "Summarise the block, celebrate wins, set the next focus…": {
+    "bs": "Sažmi period, proslavi uspjehe i postavi sljedeći fokus…",
+    "de": "Fasse die Phase zusammen, feiere Erfolge und setze den nächsten Schwerpunkt…"
+  },
+  "Send report": {
+    "bs": "Pošalji izvještaj",
+    "de": "Bericht senden"
+  },
+  "Report sent to client": {
+    "bs": "Izvještaj poslan klijentu",
+    "de": "Bericht an den Klienten gesendet"
+  },
+  "Sent reports": {
+    "bs": "Poslani izvještaji",
+    "de": "Gesendete Berichte"
+  },
+  "{p0}-day report": {
+    "bs": "Izvještaj za {p0} dana",
+    "de": "Bericht über {p0} Tage"
+  },
+  "{p0} athletes": {
+    "bs": "Sportisti: {p0}",
+    "de": "Sportler: {p0}"
+  },
+  "Search clients": {
+    "bs": "Pretraži klijente",
+    "de": "Klienten suchen"
+  },
+  "No clients yet": {
+    "bs": "Još nema klijenata",
+    "de": "Noch keine Klienten"
+  },
+  "Get my code": {
+    "bs": "Prikaži moj kod",
+    "de": "Meinen Code anzeigen"
+  },
+  "No clients match “{p0}”.": {
+    "bs": "Nema klijenata za „{p0}“.",
+    "de": "Keine Klienten für „{p0}“."
+  },
+  "No clients need attention.": {
+    "bs": "Nijedan klijent ne zahtijeva pažnju.",
+    "de": "Kein Klient benötigt Aufmerksamkeit."
+  },
+  "Show all clients": {
+    "bs": "Prikaži sve klijente",
+    "de": "Alle Klienten anzeigen"
+  },
+  "Couldn't restore this food. Try again.": {
+    "bs": "Hranu nije moguće vratiti. Pokušaj ponovo.",
+    "de": "Dieses Lebensmittel konnte nicht wiederhergestellt werden. Versuche es erneut."
+  },
+  "Couldn't remove this food. Your entry is still saved.": {
+    "bs": "Hranu nije moguće ukloniti. Unos je i dalje sačuvan.",
+    "de": "Dieses Lebensmittel konnte nicht entfernt werden. Dein Eintrag ist weiterhin gespeichert."
+  },
+  "{p0}g P · {p1}g C · {p2}g F": {
+    "bs": "{p0} g B · {p1} g UH · {p2} g M",
+    "de": "{p0} g E · {p1} g KH · {p2} g F"
+  },
+  "kcal": {
+    "bs": "kcal",
+    "de": "kcal"
+  },
+  "Delete {p0}": {
+    "bs": "Obriši {p0}",
+    "de": "{p0} löschen"
+  },
+  "Meal plans": {
+    "bs": "Planovi prehrane",
+    "de": "Ernährungspläne"
+  },
+  "Supplements": {
+    "bs": "Suplementi",
+    "de": "Nahrungsergänzung"
+  },
+  "Loading workspace…": {
+    "bs": "Učitavanje radnog prostora…",
+    "de": "Arbeitsbereich wird geladen…"
+  },
+  "Nourish your day": {
+    "bs": "Nahrani svoj dan",
+    "de": "Gut versorgt durch den Tag"
+  },
+  "Fuel": {
+    "bs": "Prehrana",
+    "de": "Ernährung"
+  },
+  "Previous day": {
+    "bs": "Prethodni dan",
+    "de": "Vorheriger Tag"
+  },
+  "Today": {
+    "bs": "Danas",
+    "de": "Heute"
+  },
+  "Next day": {
+    "bs": "Sljedeći dan",
+    "de": "Nächster Tag"
+  },
+  "Loading nutrition": {
+    "bs": "Učitavanje prehrane",
+    "de": "Ernährung wird geladen"
+  },
+  "Your nutrition entries couldn't load. They're still saved.": {
+    "bs": "Unose prehrane nije moguće učitati. I dalje su sačuvani.",
+    "de": "Deine Ernährungseinträge konnten nicht geladen werden. Sie sind weiterhin gespeichert."
+  },
+  "Daily nutrition": {
+    "bs": "Dnevna prehrana",
+    "de": "Tägliche Ernährung"
+  },
+  "kcal remaining": {
+    "bs": "preostalo kcal",
+    "de": "kcal übrig"
+  },
+  "kcal above target": {
+    "bs": "kcal iznad cilja",
+    "de": "kcal über dem Ziel"
+  },
+  "{p0} g left": {
+    "bs": "Preostalo: {p0} g",
+    "de": "{p0} g übrig"
+  },
+  "{p0} g above": {
+    "bs": "Iznad cilja: {p0} g",
+    "de": "{p0} g darüber"
+  },
+  "{p0}: {p1} of {p2} grams": {
+    "bs": "{p0}: {p1} od {p2} grama",
+    "de": "{p0}: {p1} von {p2} Gramm"
+  },
+  "{p0}/ {p1}kcal · daily target": {
+    "bs": "{p0} / {p1} kcal · dnevni cilj",
+    "de": "{p0} / {p1} kcal · Tagesziel"
+  },
+  "Your meals": {
+    "bs": "Tvoji obroci",
+    "de": "Deine Mahlzeiten"
+  },
+  "Repeat yesterday": {
+    "bs": "Ponovi jučerašnje",
+    "de": "Gestern übernehmen"
+  },
+  "Repeat previous day": {
+    "bs": "Ponovi prethodni dan",
+    "de": "Vorherigen Tag übernehmen"
+  },
+  "{p0} entries": {
+    "bs": "Unosi: {p0}",
+    "de": "Einträge: {p0}"
+  },
+  "Add": {
+    "bs": "Dodaj",
+    "de": "Hinzufügen"
+  },
+  "Add to {p0}": {
+    "bs": "Dodaj u {p0}",
+    "de": "Zu {p0} hinzufügen"
+  },
+  "{p0}kcal · {p1}{p2}": {
+    "bs": "{p0} kcal · {p1}{p2}",
+    "de": "{p0} kcal · {p1}{p2}"
+  },
+  "Nothing logged yet.": {
+    "bs": "Još nema unosa.",
+    "de": "Noch keine Einträge."
+  },
+  "Recent food suggestions": {
+    "bs": "Nedavne namirnice",
+    "de": "Zuletzt verwendete Lebensmittel"
+  },
+  "From your recent meals": {
+    "bs": "Iz tvojih nedavnih obroka",
+    "de": "Aus deinen letzten Mahlzeiten"
+  },
+  "Log {p0} again": {
+    "bs": "Ponovo unesi {p0}",
+    "de": "{p0} erneut erfassen"
+  },
+  "{p0}kcal · {p1}g protein": {
+    "bs": "{p0} kcal · {p1} g proteina",
+    "de": "{p0} kcal · {p1} g Eiweiß"
+  },
+  "Repeat meals": {
+    "bs": "Ponovi obroke",
+    "de": "Mahlzeiten übernehmen"
+  },
+  "From {p0} to {p1}": {
+    "bs": "Od {p0} do {p1}",
+    "de": "Von {p0} bis {p1}"
+  },
+  "Selected entries are added as new meals. Your existing entries stay unchanged.": {
+    "bs": "Odabrani unosi se dodaju kao novi obroci. Postojeći unosi ostaju nepromijenjeni.",
+    "de": "Ausgewählte Einträge werden als neue Mahlzeiten hinzugefügt. Bestehende Einträge bleiben unverändert."
+  },
+  "{p0}· {p1}kcal": {
+    "bs": "{p0} · {p1} kcal",
+    "de": "{p0} · {p1} kcal"
+  },
+  "Meals added. Original entries unchanged.": {
+    "bs": "Obroci su dodani. Originalni unosi nisu promijenjeni.",
+    "de": "Mahlzeiten hinzugefügt. Die ursprünglichen Einträge bleiben unverändert."
+  },
+  "Adding meals…": {
+    "bs": "Dodavanje obroka…",
+    "de": "Mahlzeiten werden hinzugefügt…"
+  },
+  "Retry remaining meals": {
+    "bs": "Ponovo pokušaj preostale obroke",
+    "de": "Verbleibende Mahlzeiten erneut versuchen"
+  },
+  "Add {p0} {p1}": {
+    "bs": "Dodaj {p0} {p1}",
+    "de": "{p0} {p1} hinzufügen"
+  },
+  "Profile": {
+    "bs": "Profil",
+    "de": "Profil"
+  },
+  "Quick log": {
+    "bs": "Brzi unos",
+    "de": "Schnelleintrag"
+  },
+  "Coach": {
+    "bs": "Trener",
+    "de": "Coach"
+  },
+  "Explore your Kinra toolkit": {
+    "bs": "Istraži svoje Kinra alate",
+    "de": "Entdecke deine Kinra-Werkzeuge"
+  },
+  "Explore Kinra": {
+    "bs": "Istraži Kinru",
+    "de": "Kinra entdecken"
+  },
+  "Your library, routines and community.": {
+    "bs": "Tvoja biblioteka, rutine i zajednica.",
+    "de": "Deine Bibliothek, Routinen und Community."
+  },
+  "Loading your tools…": {
+    "bs": "Učitavanje alata…",
+    "de": "Deine Werkzeuge werden geladen…"
+  },
+  "{p0}account": {
+    "bs": "{p0} račun",
+    "de": "{p0}-Konto"
+  },
+  "App view": {
+    "bs": "Prikaz aplikacije",
+    "de": "App-Ansicht"
+  },
+  "Your coach code": {
+    "bs": "Tvoj trenerski kod",
+    "de": "Dein Coach-Code"
+  },
+  "Copy code": {
+    "bs": "Kopiraj kod",
+    "de": "Code kopieren"
+  },
+  "Copied": {
+    "bs": "Kopirano",
+    "de": "Kopiert"
+  },
+  "Clients enter this code in their profile to connect with you.": {
+    "bs": "Klijenti unose ovaj kod na svom profilu da se povežu s tobom.",
+    "de": "Klienten geben diesen Code in ihrem Profil ein, um sich mit dir zu verbinden."
+  },
+  "Loading your connections…": {
+    "bs": "Učitavanje veza…",
+    "de": "Deine Verbindungen werden geladen…"
+  },
+  "Can read your training, food, sleep, journal and progress photos, and assign programs.": {
+    "bs": "Može čitati tvoje treninge, prehranu, san, dnevnik i fotografije napretka te dodjeljivati programe.",
+    "de": "Kann deine Trainings-, Ernährungs-, Schlaf- und Tagebucheinträge sowie Fortschrittsfotos lesen und Programme zuweisen."
+  },
+  "Disconnect coach": {
+    "bs": "Prekini vezu s trenerom",
+    "de": "Coach-Verbindung trennen"
+  },
+  "Have a code from your coach?": {
+    "bs": "Imaš kod svog trenera?",
+    "de": "Hast du einen Code von deinem Coach?"
+  },
+  "ABC123": {
+    "bs": "ABC123",
+    "de": "ABC123"
+  },
+  "Join": {
+    "bs": "Poveži se",
+    "de": "Verbinden"
+  },
+  "Connected with {p0}": {
+    "bs": "Povezano s {p0}",
+    "de": "Mit {p0} verbunden"
+  },
+  "Disconnect coach?": {
+    "bs": "Prekinuti vezu s trenerom?",
+    "de": "Verbindung zum Coach trennen?"
+  },
+  "This revokes access to your logs and private photos. Previously delivered notes and reports remain in your history.": {
+    "bs": "Ovo ukida pristup tvojim unosima i privatnim fotografijama. Već dostavljene bilješke i izvještaji ostaju u tvojoj historiji.",
+    "de": "Dadurch wird der Zugriff auf deine Einträge und privaten Fotos entzogen. Bereits zugestellte Notizen und Berichte bleiben in deinem Verlauf."
+  },
+  "Disconnect {p0}": {
+    "bs": "Prekini vezu s {p0}",
+    "de": "Verbindung zu {p0} trennen"
+  },
+  "Coach disconnected": {
+    "bs": "Veza s trenerom prekinuta",
+    "de": "Coach-Verbindung getrennt"
+  },
+  "Details": {
+    "bs": "Detalji",
+    "de": "Details"
+  },
+  "Sign out": {
+    "bs": "Odjavi se",
+    "de": "Abmelden"
+  },
+  "Exit demo": {
+    "bs": "Izađi iz demo prikaza",
+    "de": "Demo verlassen"
+  },
+  "Profile photo updated": {
+    "bs": "Profilna fotografija ažurirana",
+    "de": "Profilfoto aktualisiert"
+  },
+  "Profile updated": {
+    "bs": "Profil ažuriran",
+    "de": "Profil aktualisiert"
+  },
+  "Profile photo file": {
+    "bs": "Datoteka profilne fotografije",
+    "de": "Datei für das Profilfoto"
+  },
+  "Change photo": {
+    "bs": "Promijeni fotografiju",
+    "de": "Foto ändern"
+  },
+  "Remove photo": {
+    "bs": "Ukloni fotografiju",
+    "de": "Foto entfernen"
+  },
+  "Photo removed": {
+    "bs": "Fotografija uklonjena",
+    "de": "Foto entfernt"
+  },
+  "Display name": {
+    "bs": "Ime za prikaz",
+    "de": "Anzeigename"
+  },
+  "Your main goal": {
+    "bs": "Tvoj glavni cilj",
+    "de": "Dein Hauptziel"
+  },
+  "What are you working toward?": {
+    "bs": "Na čemu želiš raditi?",
+    "de": "Worauf arbeitest du hin?"
+  },
+  "About you": {
+    "bs": "O tebi",
+    "de": "Über dich"
+  },
+  "A little about your training and interests": {
+    "bs": "Nešto o tvom treningu i interesima",
+    "de": "Etwas über dein Training und deine Interessen"
+  },
+  "Save profile": {
+    "bs": "Sačuvaj profil",
+    "de": "Profil speichern"
+  },
+  "Training library": {
+    "bs": "Biblioteka treninga",
+    "de": "Trainingsbibliothek"
+  },
+  "Programs": {
+    "bs": "Programi",
+    "de": "Programme"
+  },
+  "New": {
+    "bs": "Novo",
+    "de": "Neu"
+  },
+  "Hide reference library": {
+    "bs": "Sakrij biblioteku referenci",
+    "de": "Referenzbibliothek ausblenden"
+  },
+  "Explore 18 program references": {
+    "bs": "Istraži 18 programskih referenci",
+    "de": "18 Programmreferenzen entdecken"
+  },
+  "Loading references…": {
+    "bs": "Učitavanje referenci…",
+    "de": "Referenzen werden geladen…"
+  },
+  "Search program library": {
+    "bs": "Pretraži biblioteku programa",
+    "de": "Programmbibliothek durchsuchen"
+  },
+  "Your next block starts here": {
+    "bs": "Tvoj sljedeći blok počinje ovdje",
+    "de": "Deine nächste Trainingsphase beginnt hier"
+  },
+  "Build program": {
+    "bs": "Kreiraj program",
+    "de": "Programm erstellen"
+  },
+  "{p0}of {p1}programs": {
+    "bs": "{p0} od {p1} programa",
+    "de": "{p0} von {p1} Programmen"
+  },
+  "Edit {p0}": {
+    "bs": "Uredi {p0}",
+    "de": "{p0} bearbeiten"
+  },
+  "No matching programs": {
+    "bs": "Nema odgovarajućih programa",
+    "de": "Keine passenden Programme"
+  },
+  "Clear search": {
+    "bs": "Očisti pretragu",
+    "de": "Suche zurücksetzen"
+  },
+  "{p0}: {p1} session{p2}": {
+    "bs": "{p0}: treninzi: {p1}",
+    "de": "{p0}: Einheiten: {p1}"
+  },
+  "Less": {
+    "bs": "Manje",
+    "de": "Weniger"
+  },
+  "More": {
+    "bs": "Više",
+    "de": "Mehr"
+  },
+  "Measurements": {
+    "bs": "Mjerenja",
+    "de": "Messwerte"
+  },
+  "Goals": {
+    "bs": "Ciljevi",
+    "de": "Ziele"
+  },
+  "The bigger picture": {
+    "bs": "Šira slika",
+    "de": "Das Gesamtbild"
+  },
+  "Progress": {
+    "bs": "Napredak",
+    "de": "Fortschritt"
+  },
+  "Weigh-in": {
+    "bs": "Vaganje",
+    "de": "Wiegen"
+  },
+  "Bodyweight trend": {
+    "bs": "Trend tjelesne težine",
+    "de": "Gewichtsverlauf"
+  },
+  "kg": {
+    "bs": "kg",
+    "de": "kg"
+  },
+  "Your weight history couldn't load. Your records are still saved.": {
+    "bs": "Historiju težine nije moguće učitati. Unosi su i dalje sačuvani.",
+    "de": "Dein Gewichtsverlauf konnte nicht geladen werden. Deine Einträge sind weiterhin gespeichert."
+  },
+  "Recent weigh-ins · swipe left to delete": {
+    "bs": "Nedavna vaganja · prevuci ulijevo za brisanje",
+    "de": "Letzte Gewichtseinträge · zum Löschen nach links wischen"
+  },
+  "Weigh-in {p0}": {
+    "bs": "Vaganje {p0}",
+    "de": "Gewichtseintrag {p0}"
+  },
+  "{p0}kg": {
+    "bs": "{p0} kg",
+    "de": "{p0} kg"
+  },
+  "Latest body fat": {
+    "bs": "Posljednja tjelesna masnoća",
+    "de": "Letzter Körperfettwert"
+  },
+  "Weekly recap": {
+    "bs": "Sedmični pregled",
+    "de": "Wochenrückblick"
+  },
+  "Last 7 days · {p0}– {p1}": {
+    "bs": "Posljednjih 7 dana · {p0} – {p1}",
+    "de": "Letzte 7 Tage · {p0} – {p1}"
+  },
+  "Your weekly recap": {
+    "bs": "Tvoj sedmični pregled",
+    "de": "Dein Wochenrückblick"
+  },
+  "Recap slide {p0}": {
+    "bs": "Stranica pregleda {p0}",
+    "de": "Rückblick-Seite {p0}"
+  },
+  "Back": {
+    "bs": "Nazad",
+    "de": "Zurück"
+  },
+  "Done": {
+    "bs": "Gotovo",
+    "de": "Fertig"
+  },
+  "Next": {
+    "bs": "Dalje",
+    "de": "Weiter"
+  },
+  "Consistency · 12 weeks": {
+    "bs": "Dosljednost · 12 sedmica",
+    "de": "Regelmäßigkeit · 12 Wochen"
+  },
+  "Training consistency": {
+    "bs": "Dosljednost treninga",
+    "de": "Trainingsregelmäßigkeit"
+  },
+  "Sessions": {
+    "bs": "Treninzi",
+    "de": "Einheiten"
+  },
+  "Weight moved": {
+    "bs": "Podignuta težina",
+    "de": "Bewegtes Gewicht"
+  },
+  "Training": {
+    "bs": "Trening",
+    "de": "Training"
+  },
+  "Milestones": {
+    "bs": "Prekretnice",
+    "de": "Meilensteine"
+  },
+  "Earned": {
+    "bs": "Ostvareno",
+    "de": "Erreicht"
+  },
+  "Ahead of you": {
+    "bs": "Pred tobom",
+    "de": "Noch vor dir"
+  },
+  "Progress photos": {
+    "bs": "Fotografije napretka",
+    "de": "Fortschrittsfotos"
+  },
+  "Trainer reports": {
+    "bs": "Izvještaji trenera",
+    "de": "Coach-Berichte"
+  },
+  "From your coach": {
+    "bs": "Od tvog trenera",
+    "de": "Von deinem Coach"
+  },
+  "Your reports couldn't load. They're still saved.": {
+    "bs": "Izvještaje nije moguće učitati. I dalje su sačuvani.",
+    "de": "Deine Berichte konnten nicht geladen werden. Sie sind weiterhin gespeichert."
+  },
+  "{p0}· {p1}% adherence": {
+    "bs": "{p0} · pridržavanje {p1}%",
+    "de": "{p0} · {p1}% Planerfüllung"
+  },
+  "Your coach's next report will be here.": {
+    "bs": "Sljedeći izvještaj tvog trenera pojavit će se ovdje.",
+    "de": "Der nächste Bericht deines Coaches erscheint hier."
+  },
+  "Sleep & mind": {
+    "bs": "San i um",
+    "de": "Schlaf und Wohlbefinden"
+  },
+  "Recover": {
+    "bs": "Oporavak",
+    "de": "Erholung"
+  },
+  "Log sleep": {
+    "bs": "Unesi san",
+    "de": "Schlaf erfassen"
+  },
+  "Check in": {
+    "bs": "Dnevna prijava",
+    "de": "Befinden erfassen"
+  },
+  "Loading sleep": {
+    "bs": "Učitavanje sna",
+    "de": "Schlaf wird geladen"
+  },
+  "Your sleep entries couldn't load. They're still saved.": {
+    "bs": "Unose sna nije moguće učitati. I dalje su sačuvani.",
+    "de": "Deine Schlafeinträge konnten nicht geladen werden. Sie sind weiterhin gespeichert."
+  },
+  "Recent nights · swipe left to delete": {
+    "bs": "Nedavne noći · prevuci ulijevo za brisanje",
+    "de": "Letzte Nächte · zum Löschen nach links wischen"
+  },
+  "Sleep {p0}": {
+    "bs": "San {p0}",
+    "de": "Schlaf {p0}"
+  },
+  "{p0}h": {
+    "bs": "{p0} h",
+    "de": "{p0} h"
+  },
+  "quality {p0}/5": {
+    "bs": "kvalitet {p0}/5",
+    "de": "Qualität {p0}/5"
+  },
+  "Breathing break": {
+    "bs": "Pauza za disanje",
+    "de": "Atempause"
+  },
+  "Box breathing · 2 min": {
+    "bs": "Kvadratno disanje · 2 min",
+    "de": "Box-Atmung · 2 Min."
+  },
+  "A moment to reset.": {
+    "bs": "Trenutak za predah.",
+    "de": "Ein Moment zum Durchatmen."
+  },
+  "Journal entries": {
+    "bs": "Unosi dnevnika",
+    "de": "Tagebucheinträge"
+  },
+  "Your headspace": {
+    "bs": "Tvoje misli",
+    "de": "Dein Befinden"
+  },
+  "Loading journal": {
+    "bs": "Učitavanje dnevnika",
+    "de": "Tagebuch wird geladen"
+  },
+  "Your journal couldn't load. Your words are still saved.": {
+    "bs": "Dnevnik nije moguće učitati. Tvoje riječi su i dalje sačuvane.",
+    "de": "Dein Tagebuch konnte nicht geladen werden. Deine Worte sind weiterhin gespeichert."
+  },
+  "Mood · last 7 days": {
+    "bs": "Raspoloženje · posljednjih 7 dana",
+    "de": "Stimmung · letzte 7 Tage"
+  },
+  "Energy · last 7 days": {
+    "bs": "Energija · posljednjih 7 dana",
+    "de": "Energie · letzte 7 Tage"
+  },
+  "Check-in: swipe left to delete": {
+    "bs": "Dnevna prijava: prevuci ulijevo za brisanje",
+    "de": "Befinden: zum Löschen nach links wischen"
+  },
+  "Energy {p0}/ 5": {
+    "bs": "Energija {p0} / 5",
+    "de": "Energie {p0} / 5"
+  },
+  "A check-in, without words.": {
+    "bs": "Prijava bez riječi.",
+    "de": "Ein Eintrag ohne Worte."
+  },
+  "Read less": {
+    "bs": "Pročitaj manje",
+    "de": "Weniger lesen"
+  },
+  "Read more": {
+    "bs": "Pročitaj više",
+    "de": "Mehr lesen"
+  },
+  "A few words. A clearer head.": {
+    "bs": "Nekoliko riječi. Jasnije misli.",
+    "de": "Ein paar Worte. Ein klarerer Kopf."
+  },
+  "First check-in": {
+    "bs": "Prva dnevna prijava",
+    "de": "Erster Befindenseintrag"
+  },
+  "Show less": {
+    "bs": "Prikaži manje",
+    "de": "Weniger anzeigen"
+  },
+  "Show all {p0} check-ins": {
+    "bs": "Prikaži sve prijave ({p0})",
+    "de": "Alle {p0} Einträge anzeigen"
+  },
+  "Browse exercise library": {
+    "bs": "Pregledaj biblioteku vježbi",
+    "de": "Übungsbibliothek durchsuchen"
+  },
+  "Exercise library": {
+    "bs": "Biblioteka vježbi",
+    "de": "Übungsbibliothek"
+  },
+  "Loading movements…": {
+    "bs": "Učitavanje pokreta…",
+    "de": "Übungen werden geladen…"
+  },
+  "Build your strength": {
+    "bs": "Izgradi svoju snagu",
+    "de": "Baue deine Kraft auf"
+  },
+  "Train": {
+    "bs": "Treniraj",
+    "de": "Trainieren"
+  },
+  "Freestyle": {
+    "bs": "Slobodni trening",
+    "de": "Freies Training"
+  },
+  "Loading training": {
+    "bs": "Učitavanje treninga",
+    "de": "Training wird geladen"
+  },
+  "Your program": {
+    "bs": "Tvoj program",
+    "de": "Dein Programm"
+  },
+  "{p0}/{p1}this week": {
+    "bs": "{p0}/{p1} ove sedmice",
+    "de": "{p0}/{p1} diese Woche"
+  },
+  "Day {p0}": {
+    "bs": "Dan {p0}",
+    "de": "Tag {p0}"
+  },
+  "Next up": {
+    "bs": "Sljedeće",
+    "de": "Als Nächstes"
+  },
+  "Upcoming": {
+    "bs": "Predstoji",
+    "de": "Bevorstehend"
+  },
+  "{p0}exercises · {p1}sets": {
+    "bs": "Vježbe: {p0} · serije: {p1}",
+    "de": "Übungen: {p0} · Sätze: {p1}"
+  },
+  "Train again": {
+    "bs": "Treniraj ponovo",
+    "de": "Erneut trainieren"
+  },
+  "Start session": {
+    "bs": "Započni trening",
+    "de": "Training starten"
+  },
+  "Day {p0}of {p1}": {
+    "bs": "Dan {p0} od {p1}",
+    "de": "Tag {p0} von {p1}"
+  },
+  "Previous program day": {
+    "bs": "Prethodni dan programa",
+    "de": "Vorheriger Programmtag"
+  },
+  "Next program day": {
+    "bs": "Sljedeći dan programa",
+    "de": "Nächster Programmtag"
+  },
+  "Your next session starts here": {
+    "bs": "Tvoj sljedeći trening počinje ovdje",
+    "de": "Dein nächstes Training beginnt hier"
+  },
+  "Personal records": {
+    "bs": "Lični rekordi",
+    "de": "Persönliche Rekorde"
+  },
+  "Best logged sets": {
+    "bs": "Najbolje zabilježene serije",
+    "de": "Beste erfasste Sätze"
+  },
+  "{p0}, best logged weight {p1} kilograms. View strength trend": {
+    "bs": "{p0}, najveća zabilježena težina {p1} kilograma. Pogledaj trend snage",
+    "de": "{p0}, höchstes erfasstes Gewicht {p1} Kilogramm. Kraftverlauf ansehen"
+  },
+  "Workout history": {
+    "bs": "Historija treninga",
+    "de": "Trainingsverlauf"
+  },
+  "History": {
+    "bs": "Historija",
+    "de": "Verlauf"
+  },
+  "{p0}total sessions": {
+    "bs": "Ukupno treninga: {p0}",
+    "de": "Einheiten insgesamt: {p0}"
+  },
+  "A fresh start": {
+    "bs": "Novi početak",
+    "de": "Ein neuer Anfang"
+  },
+  "{p0}session{p1}· {p2}": {
+    "bs": "Treninzi: {p0} · {p2}",
+    "de": "Einheiten: {p0} · {p2}"
+  },
+  "{p0}: swipe left to delete": {
+    "bs": "{p0}: prevuci ulijevo za brisanje",
+    "de": "{p0}: zum Löschen nach links wischen"
+  },
+  "Show earlier weeks": {
+    "bs": "Prikaži ranije sedmice",
+    "de": "Frühere Wochen anzeigen"
+  },
+  "Strength over time": {
+    "bs": "Snaga kroz vrijeme",
+    "de": "Kraft im Zeitverlauf"
+  },
+  "Your browser couldn't keep a recovery copy. Keep this tab open until you save.": {
+    "bs": "Preglednik nije mogao sačuvati kopiju za oporavak. Ostavi ovu karticu otvorenom dok ne sačuvaš.",
+    "de": "Dein Browser konnte keine Wiederherstellungskopie speichern. Lass diesen Tab bis zum Speichern geöffnet."
+  },
+  "Previous session saved": {
+    "bs": "Prethodni trening sačuvan",
+    "de": "Vorheriges Training gespeichert"
+  },
+  "A session is already open": {
+    "bs": "Trening je već otvoren",
+    "de": "Es ist bereits ein Training geöffnet"
+  },
+  "{p0} · {p1} sets logged": {
+    "bs": "{p0} · zabilježene serije: {p1}",
+    "de": "{p0} · erfasste Sätze: {p1}"
+  },
+  "Resume current": {
+    "bs": "Nastavi trenutni",
+    "de": "Aktuelles Training fortsetzen"
+  },
+  "Save current & start new": {
+    "bs": "Sačuvaj trenutni i započni novi",
+    "de": "Aktuelles speichern und neues starten"
+  },
+  "Discard current & start new": {
+    "bs": "Odbaci trenutni i započni novi",
+    "de": "Aktuelles verwerfen und neues starten"
+  },
+  "Unfinished session": {
+    "bs": "Nedovršen trening",
+    "de": "Unvollständiges Training"
+  },
+  "{p0} from {p1} · {p2} set{p3}": {
+    "bs": "{p0} od {p1} · serije: {p2}",
+    "de": "{p0} vom {p1} · Sätze: {p2}"
+  },
+  "Resume": {
+    "bs": "Nastavi",
+    "de": "Fortsetzen"
+  },
+  "Save as is": {
+    "bs": "Sačuvaj kako jeste",
+    "de": "Aktuellen Stand speichern"
+  },
+  "Session saved": {
+    "bs": "Trening sačuvan",
+    "de": "Training gespeichert"
+  },
+  "Discard": {
+    "bs": "Odbaci",
+    "de": "Verwerfen"
+  },
+  "Demo · {p0}": {
+    "bs": "Demo · {p0}",
+    "de": "Demo · {p0}"
+  },
+  "Switch role": {
+    "bs": "Promijeni ulogu",
+    "de": "Rolle wechseln"
+  },
+  "Exit": {
+    "bs": "Izađi",
+    "de": "Verlassen"
+  },
+  "Main": {
+    "bs": "Glavno",
+    "de": "Hauptnavigation"
+  },
+  "Log something": {
+    "bs": "Zabilježi nešto",
+    "de": "Etwas erfassen"
+  },
+  "Log": {
+    "bs": "Unos",
+    "de": "Erfassen"
+  },
+  "What are you logging?": {
+    "bs": "Šta želiš zabilježiti?",
+    "de": "Was möchtest du erfassen?"
+  },
+  "Start workout": {
+    "bs": "Započni vježbanje",
+    "de": "Training beginnen"
+  },
+  "Live session with rest timer": {
+    "bs": "Trening uživo s tajmerom odmora",
+    "de": "Live-Training mit Pausentimer"
+  },
+  "Close": {
+    "bs": "Zatvori",
+    "de": "Schließen"
+  },
+  "Welcome to Kinra": {
+    "bs": "Dobro došli u Kinru",
+    "de": "Willkommen bei Kinra"
+  },
+  "How will you use it?": {
+    "bs": "Kako želiš koristiti aplikaciju?",
+    "de": "Wie möchtest du die App nutzen?"
+  },
+  "Gym · Doctor · Nutritionist": {
+    "bs": "Teretana · Ljekar · Nutricionista",
+    "de": "Fitnessstudio · Arzt · Ernährungsberatung"
+  },
+  "Coming soon.": {
+    "bs": "Uskoro.",
+    "de": "Demnächst."
+  },
+  "Continue": {
+    "bs": "Nastavi",
+    "de": "Weiter"
+  },
+  "Kinra home": {
+    "bs": "Kinra početna",
+    "de": "Kinra-Startseite"
+  },
+  "Check your inbox": {
+    "bs": "Provjeri ulaznu poštu",
+    "de": "Prüfe deinen Posteingang"
+  },
+  "We sent a confirmation link to {p0}. Tap it to finish creating your account.": {
+    "bs": "Poslali smo potvrdni link na {p0}. Otvori ga da dovršiš kreiranje računa.",
+    "de": "Wir haben einen Bestätigungslink an {p0} gesendet. Öffne ihn, um dein Konto fertig einzurichten."
+  },
+  "Create account": {
+    "bs": "Kreiraj račun",
+    "de": "Konto erstellen"
+  },
+  "Welcome back": {
+    "bs": "Dobro došli nazad",
+    "de": "Willkommen zurück"
+  },
+  "Pick your role right after.": {
+    "bs": "Odmah zatim odaberi svoju ulogu.",
+    "de": "Wähle anschließend deine Rolle."
+  },
+  "Sign in to continue.": {
+    "bs": "Prijavi se za nastavak.",
+    "de": "Melde dich an, um fortzufahren."
+  },
+  "Continue with Google": {
+    "bs": "Nastavi putem Googlea",
+    "de": "Mit Google fortfahren"
+  },
+  "or": {
+    "bs": "ili",
+    "de": "oder"
+  },
+  "Full name": {
+    "bs": "Ime i prezime",
+    "de": "Vollständiger Name"
+  },
+  "Email": {
+    "bs": "Email",
+    "de": "E-Mail"
+  },
+  "Password": {
+    "bs": "Lozinka",
+    "de": "Passwort"
+  },
+  "Sign in": {
+    "bs": "Prijavi se",
+    "de": "Anmelden"
+  },
+  "Forgot password?": {
+    "bs": "Zaboravljena lozinka?",
+    "de": "Passwort vergessen?"
+  },
+  "Enter your email first.": {
+    "bs": "Prvo unesi svoju email adresu.",
+    "de": "Gib zuerst deine E-Mail-Adresse ein."
+  },
+  "Check your inbox for a password reset link.": {
+    "bs": "Provjeri ulaznu poštu za link za promjenu lozinke.",
+    "de": "Prüfe deinen Posteingang auf den Link zum Zurücksetzen des Passworts."
+  },
+  "Already have an account? ": {
+    "bs": "Već imaš račun? ",
+    "de": "Du hast bereits ein Konto? "
+  },
+  "New here? ": {
+    "bs": "Prvi put si ovdje? ",
+    "de": "Neu hier? "
+  },
+  "Create one": {
+    "bs": "Kreiraj ga",
+    "de": "Konto anlegen"
+  },
+  "Kinra account": {
+    "bs": "Kinra račun",
+    "de": "Kinra-Konto"
+  },
+  "New password": {
+    "bs": "Nova lozinka",
+    "de": "Neues Passwort"
+  },
+  "Save password": {
+    "bs": "Sačuvaj lozinku",
+    "de": "Passwort speichern"
+  },
+  "Back to sign in": {
+    "bs": "Nazad na prijavu",
+    "de": "Zurück zur Anmeldung"
+  },
+  "Athlete preparing to deadlift under green light": {
+    "bs": "Sportista se priprema za mrtvo dizanje pod zelenim svjetlom",
+    "de": "Sportler bereitet sich unter grünem Licht aufs Kreuzheben vor"
+  },
+  "Wednesday · 14 October": {
+    "bs": "Srijeda · 14. oktobar",
+    "de": "Mittwoch · 14. Oktober"
+  },
+  "Good morning,": {
+    "bs": "Dobro jutro,",
+    "de": "Guten Morgen,"
+  },
+  "Maya": {
+    "bs": "Maya",
+    "de": "Maya"
+  },
+  "Ready": {
+    "bs": "Spremno",
+    "de": "Bereit"
+  },
+  "Foundations · Week 3/6": {
+    "bs": "Osnove · Sedmica 3/6",
+    "de": "Grundlagen · Woche 3/6"
+  },
+  "Day B · Hinge focus": {
+    "bs": "Dan B · Fokus na pregib kuka",
+    "de": "Tag B · Hüftbeuge im Fokus"
+  },
+  "Deadlift 4×4 · Overhead Press 4×6": {
+    "bs": "Mrtvo dizanje 4×4 · Potisak iznad glave 4×6",
+    "de": "Kreuzheben 4×4 · Schulterdrücken 4×6"
+  },
+  "Last 28 days": {
+    "bs": "Posljednjih 28 dana",
+    "de": "Letzte 28 Tage"
+  },
+  "Health · Fitness · Recovery": {
+    "bs": "Zdravlje · Fitness · Oporavak",
+    "de": "Gesundheit · Fitness · Erholung"
+  },
+  "Every layer": {
+    "bs": "Svaki dio",
+    "de": "Jede Seite"
+  },
+  "of you.": {
+    "bs": "tebe.",
+    "de": "von dir."
+  },
+  "Training, food, sleep and mind in one place — with your coach right there.": {
+    "bs": "Trening, prehrana, san i um na jednom mjestu — uz tvog trenera.",
+    "de": "Training, Ernährung, Schlaf und Wohlbefinden an einem Ort — mit deinem Coach an deiner Seite."
+  },
+  "Start free": {
+    "bs": "Započni besplatno",
+    "de": "Kostenlos starten"
+  },
+  "Demo · Client": {
+    "bs": "Demo · Klijent",
+    "de": "Demo · Klient"
+  },
+  "Demo · Coach": {
+    "bs": "Demo · Trener",
+    "de": "Demo · Coach"
+  },
+  "Health · Fitness · Recovery · Coaching": {
+    "bs": "Zdravlje · Fitness · Oporavak · Trenerstvo",
+    "de": "Gesundheit · Fitness · Erholung · Coaching"
+  },
+  "Live workout sessions, sleep, food and mood in one app — with your coach seeing what matters.": {
+    "bs": "Treninzi uživo, san, prehrana i raspoloženje u jednoj aplikaciji — tvoj trener vidi ono što je važno.",
+    "de": "Live-Training, Schlaf, Ernährung und Stimmung in einer App — dein Coach sieht, was zählt."
+  },
+  "Try the live demo": {
+    "bs": "Isprobaj demo",
+    "de": "Live-Demo testen"
+  },
+  "Are you a coach? See the coach demo →": {
+    "bs": "Trener si? Pogledaj trenerski demo →",
+    "de": "Du bist Coach? Coach-Demo ansehen →"
+  },
+  "Session": {
+    "bs": "Trening",
+    "de": "Training"
+  },
+  "Live sessions that feel like a coach.": {
+    "bs": "Treninzi uživo, kao s trenerom.",
+    "de": "Live-Training, das sich nach Coaching anfühlt."
+  },
+  "Last-time weights pre-filled": {
+    "bs": "Prethodne težine unaprijed popunjene",
+    "de": "Letzte Gewichte automatisch vorausgefüllt"
+  },
+  "Auto rest timer on every set": {
+    "bs": "Automatski tajmer odmora za svaku seriju",
+    "de": "Automatischer Pausentimer nach jedem Satz"
+  },
+  "Instant PR detection": {
+    "bs": "Trenutno prepoznavanje ličnih rekorda",
+    "de": "Persönliche Rekorde sofort erkennen"
+  },
+  "Readiness": {
+    "bs": "Spremnost",
+    "de": "Trainingsbereitschaft"
+  },
+  "Know how hard to push.": {
+    "bs": "Znaj koliko jako možeš trenirati.",
+    "de": "Wisse, wie intensiv du trainieren kannst."
+  },
+  "Sleep, training load and mood fused into one daily score.": {
+    "bs": "San, opterećenje treninga i raspoloženje u jednoj dnevnoj ocjeni.",
+    "de": "Schlaf, Trainingsbelastung und Stimmung in einem täglichen Wert."
+  },
+  "Every client at a glance.": {
+    "bs": "Svaki klijent na jednom mjestu.",
+    "de": "Alle Klienten auf einen Blick."
+  },
+  "Coming soon": {
+    "bs": "Uskoro",
+    "de": "Demnächst"
+  },
+  "Gyms & facilities": {
+    "bs": "Teretane i objekti",
+    "de": "Fitnessstudios und Einrichtungen"
+  },
+  "Member check-ins & tracking": {
+    "bs": "Prijave i praćenje članova",
+    "de": "Mitglieder-Check-ins und Erfassung"
+  },
+  "Doctors & dietitians": {
+    "bs": "Ljekari i nutricionisti",
+    "de": "Ärzte und Ernährungsberatung"
+  },
+  "Labs and care plans": {
+    "bs": "Nalazi i planovi njege",
+    "de": "Laborwerte und Betreuungspläne"
+  },
+  "Page not found": {
+    "bs": "Stranica nije pronađena",
+    "de": "Seite nicht gefunden"
+  },
+  "This page doesn't exist or has moved.": {
+    "bs": "Ova stranica ne postoji ili je premještena.",
+    "de": "Diese Seite existiert nicht oder wurde verschoben."
+  },
+  "Go home": {
+    "bs": "Na početnu",
+    "de": "Zur Startseite"
+  },
+  "This page didn't load": {
+    "bs": "Stranica se nije učitala",
+    "de": "Diese Seite konnte nicht geladen werden"
+  },
+  "Something went wrong. Try refreshing or head back home.": {
+    "bs": "Došlo je do greške. Osvježi stranicu ili se vrati na početnu.",
+    "de": "Etwas ist schiefgelaufen. Lade die Seite neu oder kehre zur Startseite zurück."
+  },
+  "Try again": {
+    "bs": "Pokušaj ponovo",
+    "de": "Erneut versuchen"
+  },
+  "Readiness details": {
+    "bs": "Detalji spremnosti",
+    "de": "Details zur Trainingsbereitschaft"
+  },
+  "Recent sleep needed": {
+    "bs": "Potreban je nedavni unos sna",
+    "de": "Aktuelle Schlafeinträge erforderlich"
+  },
+  "Sleep": {
+    "bs": "San",
+    "de": "Schlaf"
+  },
+  "Streak": {
+    "bs": "Niz",
+    "de": "Serie"
+  },
+  "Eaten": {
+    "bs": "Uneseno",
+    "de": "Gegessen"
+  },
+  "Protein": {
+    "bs": "Proteini",
+    "de": "Eiweiß"
+  },
+  "Tap to see what drives your score": {
+    "bs": "Dodirni da vidiš šta utiče na ocjenu",
+    "de": "Tippe, um die Grundlagen deines Wertes zu sehen"
+  },
+  "Readiness {p0}": {
+    "bs": "Spremnost {p0}",
+    "de": "Trainingsbereitschaft {p0}"
+  },
+  "A simple estimate from recent sleep and training frequency. Mood is context, not part of the score.": {
+    "bs": "Jednostavna procjena na osnovu nedavnog sna i učestalosti treninga. Raspoloženje daje kontekst i nije dio ocjene.",
+    "de": "Eine einfache Schätzung aus aktuellem Schlaf und Trainingshäufigkeit. Stimmung dient als Kontext und fließt nicht in den Wert ein."
+  },
+  "Readiness is unknown without recent sleep records. You can still choose a session based on how you feel.": {
+    "bs": "Bez nedavnih unosa sna spremnost nije poznata. I dalje možeš odabrati trening prema svom osjećaju.",
+    "de": "Ohne aktuelle Schlafeinträge ist die Trainingsbereitschaft unbekannt. Du kannst dein Training weiterhin nach deinem Befinden wählen."
+  },
+  "Use this estimate as one piece of context. Consider how you feel, your plan and any guidance from your coach before choosing today's effort.": {
+    "bs": "Koristi ovu procjenu kao jedan dio konteksta. Prije današnjeg napora uzmi u obzir svoj osjećaj, plan i upute trenera.",
+    "de": "Nutze diese Schätzung als einen Anhaltspunkt. Berücksichtige dein Befinden, deinen Plan und die Hinweise deines Coaches, bevor du die heutige Intensität wählst."
+  },
+  "Go 10% lighter today": {
+    "bs": "Danas treniraj 10% lakše",
+    "de": "Heute 10% leichter trainieren"
+  },
+  "Suggested weights drop 10% for today only": {
+    "bs": "Predložene težine se smanjuju za 10% samo za danas",
+    "de": "Vorgeschlagene Gewichte werden nur heute um 10% reduziert"
+  },
+  "From your coach · {p0}ago": {
+    "bs": "Od tvog trenera · prije {p0}",
+    "de": "Von deinem Coach · vor {p0}"
+  },
+  "Session paused": {
+    "bs": "Trening pauziran",
+    "de": "Training pausiert"
+  },
+  "Session in progress": {
+    "bs": "Trening u toku",
+    "de": "Training läuft"
+  },
+  "{p0}sets done · {p1}to go": {
+    "bs": "Završene serije: {p0} · preostalo: {p1}",
+    "de": "Sätze erledigt: {p0} · übrig: {p1}"
+  },
+  "Trained today": {
+    "bs": "Danas je trening odrađen",
+    "de": "Heute trainiert"
+  },
+  "Next:": {
+    "bs": "Sljedeće:",
+    "de": "Als Nächstes:"
+  },
+  "Another session": {
+    "bs": "Još jedan trening",
+    "de": "Ein weiteres Training"
+  },
+  "Today's session": {
+    "bs": "Današnji trening",
+    "de": "Heutiges Training"
+  },
+  "Free training day": {
+    "bs": "Dan slobodnog treninga",
+    "de": "Freier Trainingstag"
+  },
+  "Start a live session and log sets as you go.": {
+    "bs": "Započni trening uživo i bilježi serije u toku.",
+    "de": "Starte ein Live-Training und erfasse deine Sätze direkt dabei."
+  },
+  "{p0}· Week {p1}/{p2}": {
+    "bs": "{p0} · Sedmica {p1}/{p2}",
+    "de": "{p0} · Woche {p1}/{p2}"
+  },
+  "{p0} of {p1} done this week": {
+    "bs": "Ove sedmice završeno {p0} od {p1}",
+    "de": "Diese Woche {p0} von {p1} abgeschlossen"
+  },
+  "Week complete — bonus session?": {
+    "bs": "Sedmica završena — dodatni trening?",
+    "de": "Woche abgeschlossen — eine Zusatzeinheit?"
+  },
+  "Get set up": {
+    "bs": "Postavi osnove",
+    "de": "Einrichten"
+  },
+  "{p0}· {p1}min {p2}": {
+    "bs": "{p0} · {p1} min {p2}",
+    "de": "{p0} · {p1} Min. {p2}"
+  },
+  "Cardio": {
+    "bs": "Kardio",
+    "de": "Cardio"
+  },
+  "Weight lifted": {
+    "bs": "Podignuta težina",
+    "de": "Bewegtes Gewicht"
+  },
+  "Avg effort": {
+    "bs": "Prosječni napor",
+    "de": "Durchschnittliche Anstrengung"
+  },
+  "Last 7 logs": {
+    "bs": "Posljednjih 7 unosa",
+    "de": "Letzte 7 Einträge"
+  },
+  "Food": {
+    "bs": "Hrana",
+    "de": "Essen"
+  },
+  "Last 7 days": {
+    "bs": "Posljednjih 7 dana",
+    "de": "Letzte 7 Tage"
+  },
+  "Mood": {
+    "bs": "Raspoloženje",
+    "de": "Stimmung"
+  },
+  "Last 7 check-ins": {
+    "bs": "Posljednjih 7 prijava",
+    "de": "Letzte 7 Befindenseinträge"
+  },
+  "Weight": {
+    "bs": "Težina",
+    "de": "Gewicht"
+  },
+  "Latest weigh-in": {
+    "bs": "Posljednje vaganje",
+    "de": "Letzter Gewichtseintrag"
+  },
+  "{p0}{p1}kg": {
+    "bs": "{p0}{p1} kg",
+    "de": "{p0}{p1} kg"
+  },
+  "since first weigh-in": {
+    "bs": "od prvog vaganja",
+    "de": "seit dem ersten Gewichtseintrag"
+  },
+  "Recent sessions": {
+    "bs": "Nedavni treninzi",
+    "de": "Letzte Trainingseinheiten"
+  },
+  "See all": {
+    "bs": "Prikaži sve",
+    "de": "Alle anzeigen"
+  },
+  "No sessions yet.": {
+    "bs": "Još nema treninga.",
+    "de": "Noch keine Trainingseinheiten."
+  },
+  "Latest journal": {
+    "bs": "Posljednji unos dnevnika",
+    "de": "Letzter Tagebucheintrag"
+  },
+  "{p0}· mood {p1}/5 · energy {p2}/5": {
+    "bs": "{p0} · raspoloženje {p1}/5 · energija {p2}/5",
+    "de": "{p0} · Stimmung {p1}/5 · Energie {p2}/5"
+  },
+  "No check-ins yet.": {
+    "bs": "Još nema dnevnih prijava.",
+    "de": "Noch keine Befindenseinträge."
+  },
+  "{p0} day streak": {
+    "bs": "Niz od {p0} dana",
+    "de": "Serie von {p0} Tagen"
+  },
+  "d": {
+    "bs": "d",
+    "de": "d"
+  },
+  "From your data": {
+    "bs": "Iz tvojih podataka",
+    "de": "Aus deinen Daten"
+  },
+  "View {p0}": {
+    "bs": "Pogledaj {p0}",
+    "de": "{p0} ansehen"
+  },
+  "{p0}% compliance over 30 days": {
+    "bs": "Pridržavanje {p0}% tokom 30 dana",
+    "de": "{p0}% Planerfüllung in 30 Tagen"
+  },
+  "· {p0}/{p1}sessions · 30d": {
+    "bs": "· treninzi: {p0}/{p1} · 30 dana",
+    "de": "· Einheiten: {p0}/{p1} · 30 Tage"
+  },
+  "Trained {p0} ago": {
+    "bs": "Trening prije {p0}",
+    "de": "Vor {p0} trainiert"
+  },
+  "No training yet": {
+    "bs": "Još nema treninga",
+    "de": "Noch kein Training"
+  },
+  "Mood {p0}": {
+    "bs": "Raspoloženje {p0}",
+    "de": "Stimmung {p0}"
+  },
+  "Mood trend {p0}": {
+    "bs": "Trend raspoloženja {p0}",
+    "de": "Stimmungsverlauf {p0}"
+  },
+  "Kudos": {
+    "bs": "Pohvala",
+    "de": "Lob"
+  },
+  "Give kudos to {p0}": {
+    "bs": "Pohvali {p0}",
+    "de": "Lob an {p0} senden"
+  },
+  "Kudos sent": {
+    "bs": "Pohvala poslana",
+    "de": "Lob gesendet"
+  },
+  "A little lift for {p0}": {
+    "bs": "Malo ohrabrenja za {p0}",
+    "de": "Eine kleine Ermutigung für {p0}"
+  },
+  "Your note is on their Today screen.": {
+    "bs": "Tvoja bilješka je na njihovom ekranu Danas.",
+    "de": "Deine Notiz erscheint in ihrem Heute-Bereich."
+  },
+  "Kudos note": {
+    "bs": "Poruka pohvale",
+    "de": "Lobnachricht"
+  },
+  "Couldn’t send. Your note is still here. Try again.": {
+    "bs": "Slanje nije uspjelo. Tvoja bilješka je i dalje ovdje. Pokušaj ponovo.",
+    "de": "Senden fehlgeschlagen. Deine Notiz ist noch hier. Versuche es erneut."
+  },
+  "Sending…": {
+    "bs": "Slanje…",
+    "de": "Wird gesendet…"
+  },
+  "Send kudos": {
+    "bs": "Pošalji pohvalu",
+    "de": "Lob senden"
+  },
+  "{p0} / Coach": {
+    "bs": "{p0} / Trener",
+    "de": "{p0} / Coach"
+  },
+  "Hey, {p0}": {
+    "bs": "Zdravo, {p0}",
+    "de": "Hallo, {p0}"
+  },
+  "Coach profile": {
+    "bs": "Profil trenera",
+    "de": "Coach-Profil"
+  },
+  "Your team starts here": {
+    "bs": "Tvoj tim počinje ovdje",
+    "de": "Dein Team beginnt hier"
+  },
+  "Your focus today": {
+    "bs": "Tvoj današnji fokus",
+    "de": "Dein heutiger Fokus"
+  },
+  "Needs your attention": {
+    "bs": "Zahtijeva tvoju pažnju",
+    "de": "Benötigt deine Aufmerksamkeit"
+  },
+  "Your team is in rhythm": {
+    "bs": "Tvoj tim je u ritmu",
+    "de": "Dein Team ist im Rhythmus"
+  },
+  "No inactivity, low mood or low sleep flags.": {
+    "bs": "Nema oznaka neaktivnosti, slabog raspoloženja ili manjka sna.",
+    "de": "Keine Hinweise auf Inaktivität, niedrige Stimmung oder wenig Schlaf."
+  },
+  "Keep the momentum": {
+    "bs": "Zadrži zamah",
+    "de": "Bleib im Rhythmus"
+  },
+  "All clients": {
+    "bs": "Svi klijenti",
+    "de": "Alle Klienten"
+  },
+  "No other sessions in the last 7 days.": {
+    "bs": "Nema drugih treninga u posljednjih 7 dana.",
+    "de": "Keine weiteren Einheiten in den letzten 7 Tagen."
+  },
+  "Team training over the last 30 days": {
+    "bs": "Treninzi tima u posljednjih 30 dana",
+    "de": "Teamtraining der letzten 30 Tage"
+  },
+  "Team pulse · last 30 days": {
+    "bs": "Puls tima · posljednjih 30 dana",
+    "de": "Teampuls · letzte 30 Tage"
+  },
+  "Volume": {
+    "bs": "Volumen",
+    "de": "Volumen"
+  },
+  "Active 7d": {
+    "bs": "Aktivni 7 dana",
+    "de": "Aktiv in 7 Tagen"
+  },
+  "{p0}: {p1} sessions in 30 days": {
+    "bs": "{p0}: treninzi u 30 dana: {p1}",
+    "de": "{p0}: {p1} Einheiten in 30 Tagen"
+  },
+  "Manage editable plans": {
+    "bs": "Upravljaj planovima koje možeš uređivati",
+    "de": "Bearbeitbare Pläne verwalten"
+  },
+  "Delete Kinra profile and data": {
+    "bs": "Obriši Kinra profil i podatke",
+    "de": "Kinra-Profil und Daten löschen"
+  },
+  "Delete Kinra profile and data?": {
+    "bs": "Obrisati Kinra profil i podatke?",
+    "de": "Kinra-Profil und Daten löschen?"
+  },
+  "Review what will be removed before continuing.": {
+    "bs": "Prije nastavka pregledaj šta će biti uklonjeno.",
+    "de": "Prüfe vor dem Fortfahren, was entfernt wird."
+  },
+  "This removes your Kinra profile, app records and private uploads. This cannot be undone. Your shared sign-in identity stays; other apps using that identity are not deleted.": {
+    "bs": "Ovo uklanja tvoj Kinra profil, unose aplikacije i privatne datoteke. Radnju nije moguće poništiti. Zajednički identitet za prijavu ostaje; druge aplikacije koje ga koriste neće biti obrisane.",
+    "de": "Dadurch werden dein Kinra-Profil, deine App-Einträge und privaten Uploads entfernt. Dies kann nicht rückgängig gemacht werden. Deine gemeinsame Anmeldeidentität bleibt bestehen; andere Apps mit dieser Identität werden nicht gelöscht."
+  },
+  "Demo mode: this clears only this demo account’s records. No live account is affected.": {
+    "bs": "Demo način: brišu se samo podaci ovog demo računa. Nijedan stvarni račun nije zahvaćen.",
+    "de": "Demo-Modus: Nur die Einträge dieses Demo-Kontos werden gelöscht. Reale Konten sind nicht betroffen."
+  },
+  "Preparing export…": {
+    "bs": "Priprema izvoza…",
+    "de": "Export wird vorbereitet…"
+  },
+  "Export again": {
+    "bs": "Izvezi ponovo",
+    "de": "Erneut exportieren"
+  },
+  "Export my data first": {
+    "bs": "Prvo izvezi moje podatke",
+    "de": "Zuerst meine Daten exportieren"
+  },
+  "Export prepared. Check your download before continuing.": {
+    "bs": "Izvoz je pripremljen. Provjeri preuzimanje prije nastavka.",
+    "de": "Export vorbereitet. Prüfe die heruntergeladene Datei, bevor du fortfährst."
+  },
+  "Type {p0}to confirm": {
+    "bs": "Upiši {p0} za potvrdu",
+    "de": "Gib zur Bestätigung {p0} ein"
+  },
+  "Type {p0} to confirm": {
+    "bs": "Upiši {p0} za potvrdu",
+    "de": "Gib zur Bestätigung {p0} ein"
+  },
+  "Deleting Kinra data…": {
+    "bs": "Brisanje Kinra podataka…",
+    "de": "Kinra-Daten werden gelöscht…"
+  },
+  "Permanently delete Kinra data": {
+    "bs": "Trajno obriši Kinra podatke",
+    "de": "Kinra-Daten dauerhaft löschen"
+  },
+  "Keep my data": {
+    "bs": "Zadrži moje podatke",
+    "de": "Meine Daten behalten"
+  },
+  "Movement library": {
+    "bs": "Biblioteka pokreta",
+    "de": "Übungsbibliothek"
+  },
+  "Find your next move.": {
+    "bs": "Pronađi svoj sljedeći pokret.",
+    "de": "Finde deine nächste Übung."
+  },
+  "{p0}exercise references. Explore by movement, muscle or name.": {
+    "bs": "Reference vježbi: {p0}. Pretraži po pokretu, mišiću ili nazivu.",
+    "de": "Übungsreferenzen: {p0}. Suche nach Bewegung, Muskel oder Name."
+  },
+  "Search exercises": {
+    "bs": "Pretraži vježbe",
+    "de": "Übungen suchen"
+  },
+  "Search exercises or aliases": {
+    "bs": "Pretraži vježbe ili alternativne nazive",
+    "de": "Übungen oder alternative Namen suchen"
+  },
+  "Category": {
+    "bs": "Kategorija",
+    "de": "Kategorie"
+  },
+  "All categories": {
+    "bs": "Sve kategorije",
+    "de": "Alle Kategorien"
+  },
+  "Muscle": {
+    "bs": "Mišić",
+    "de": "Muskel"
+  },
+  "All muscles": {
+    "bs": "Svi mišići",
+    "de": "Alle Muskeln"
+  },
+  "{p0}exercises found": {
+    "bs": "Pronađene vježbe: {p0}",
+    "de": "Gefundene Übungen: {p0}"
+  },
+  "Muscle not documented": {
+    "bs": "Mišić nije dokumentovan",
+    "de": "Muskel nicht dokumentiert"
+  },
+  "No matching movements": {
+    "bs": "Nema odgovarajućih pokreta",
+    "de": "Keine passenden Übungen"
+  },
+  "Reset filters": {
+    "bs": "Poništi filtere",
+    "de": "Filter zurücksetzen"
+  },
+  "Show 30 more": {
+    "bs": "Prikaži još 30",
+    "de": "30 weitere anzeigen"
+  },
+  "Muscle metadata unavailable": {
+    "bs": "Podaci o mišićima nisu dostupni",
+    "de": "Muskelangaben nicht verfügbar"
+  },
+  "Also listed as {p0}": {
+    "bs": "Također navedeno kao {p0}",
+    "de": "Auch aufgeführt als {p0}"
+  },
+  "This archive contains exercise metadata. Instructions, demonstrations and technique guidance were not included.": {
+    "bs": "Ova arhiva sadrži metapodatke vježbi. Upute, demonstracije i smjernice za tehniku nisu uključene.",
+    "de": "Dieses Archiv enthält Übungsmetadaten. Anleitungen, Demonstrationen und Hinweise zur Technik sind nicht enthalten."
+  },
+  "View original reference": {
+    "bs": "Pogledaj originalnu referencu",
+    "de": "Originalreferenz ansehen"
+  },
+  "Source observed {p0}": {
+    "bs": "Izvor zabilježen {p0}",
+    "de": "Quelle beobachtet am {p0}"
+  },
+  "Removed from saved": {
+    "bs": "Uklonjeno iz sačuvanog",
+    "de": "Aus gespeicherten Elementen entfernt"
+  },
+  "Exercise saved": {
+    "bs": "Vježba sačuvana",
+    "de": "Übung gespeichert"
+  },
+  "Remove saved exercise": {
+    "bs": "Ukloni sačuvanu vježbu",
+    "de": "Gespeicherte Übung entfernen"
+  },
+  "Save exercise": {
+    "bs": "Sačuvaj vježbu",
+    "de": "Übung speichern"
+  },
+  "Use this exercise": {
+    "bs": "Koristi ovu vježbu",
+    "de": "Diese Übung verwenden"
+  },
+  "Back to library": {
+    "bs": "Nazad u biblioteku",
+    "de": "Zurück zur Bibliothek"
+  },
+  "Program inspiration": {
+    "bs": "Inspiracija za programe",
+    "de": "Inspiration für Programme"
+  },
+  "{p0}archived listings. These are references; authored routines are unavailable and cannot be imported.": {
+    "bs": "Arhivirani zapisi: {p0}. Ovo su reference; autorske rutine nisu dostupne i ne mogu se uvesti.",
+    "de": "Archivierte Einträge: {p0}. Dies sind Referenzen; ausgearbeitete Trainingspläne sind nicht verfügbar und können nicht importiert werden."
+  },
+  "Search reference programs": {
+    "bs": "Pretraži referentne programe",
+    "de": "Referenzprogramme durchsuchen"
+  },
+  "Search program references": {
+    "bs": "Pretraži reference programa",
+    "de": "Programmreferenzen suchen"
+  },
+  "Reference only": {
+    "bs": "Samo referenca",
+    "de": "Nur Referenz"
+  },
+  "Equipment not documented": {
+    "bs": "Oprema nije dokumentovana",
+    "de": "Ausrüstung nicht dokumentiert"
+  },
+  "Original listing": {
+    "bs": "Originalni zapis",
+    "de": "Originaleintrag"
+  },
+  "No references match your search.": {
+    "bs": "Nema referenci koje odgovaraju pretrazi.",
+    "de": "Keine Referenzen passen zu deiner Suche."
+  },
+  "Days of week": {
+    "bs": "Dani u sedmici",
+    "de": "Wochentage"
+  },
+  "Remove {p0} {p1}": {
+    "bs": "Ukloni {p0} {p1}",
+    "de": "{p0} {p1} entfernen"
+  },
+  "Add {p0}": {
+    "bs": "Dodaj {p0}",
+    "de": "{p0} hinzufügen"
+  },
+  "· optional": {
+    "bs": "· opcionalno",
+    "de": "· optional"
+  },
+  "All tools": {
+    "bs": "Svi alati",
+    "de": "Alle Werkzeuge"
+  },
+  "Vaši Kinra alati": {
+    "bs": "Vaši Kinra alati",
+    "de": "Deine Kinra-Werkzeuge"
+  },
+  "Your Kinra toolkit": {
+    "bs": "Tvoji Kinra alati",
+    "de": "Deine Kinra-Werkzeuge"
+  },
+  "Više načina da se osjećate dobro.": {
+    "bs": "Više načina da se osjećaš dobro.",
+    "de": "Mehr Möglichkeiten, dich wohlzufühlen."
+  },
+  "More ways to feel good.": {
+    "bs": "Više načina da se osjećaš dobro.",
+    "de": "Mehr Möglichkeiten, dich wohlzufühlen."
+  },
+  "Build a routine that fits your life. Start with what matters to you.": {
+    "bs": "Izgradi rutinu koja odgovara tvom životu. Kreni od onoga što ti je važno.",
+    "de": "Gestalte eine Routine, die zu deinem Leben passt. Beginne mit dem, was dir wichtig ist."
+  },
+  "Explore": {
+    "bs": "Istraži",
+    "de": "Entdecken"
+  },
+  "Movement references": {
+    "bs": "Reference pokreta",
+    "de": "Übungsreferenzen"
+  },
+  "Get inspired": {
+    "bs": "Pronađi inspiraciju",
+    "de": "Inspiration finden"
+  },
+  "Program references": {
+    "bs": "Reference programa",
+    "de": "Programmreferenzen"
+  },
+  "Explore archived listings": {
+    "bs": "Istraži arhivirane zapise",
+    "de": "Archivierte Einträge entdecken"
+  },
+  "Export prepared": {
+    "bs": "Izvoz pripremljen",
+    "de": "Export vorbereitet"
+  },
+  "Export my data": {
+    "bs": "Izvezi moje podatke",
+    "de": "Meine Daten exportieren"
+  },
+  "Discover & contribute": {
+    "bs": "Otkrij i doprinesi",
+    "de": "Entdecken und beitragen"
+  },
+  "Your private workspace": {
+    "bs": "Tvoj privatni prostor",
+    "de": "Dein privater Bereich"
+  },
+  "Search {p0}": {
+    "bs": "Pretraži {p0}",
+    "de": "{p0} durchsuchen"
+  },
+  "Search records": {
+    "bs": "Pretraži zapise",
+    "de": "Einträge suchen"
+  },
+  "No matching records": {
+    "bs": "Nema odgovarajućih zapisa",
+    "de": "Keine passenden Einträge"
+  },
+  "Your saved discoveries live here": {
+    "bs": "Tvoja sačuvana otkrića su ovdje",
+    "de": "Hier findest du deine gespeicherten Entdeckungen"
+  },
+  "Make room for your routine": {
+    "bs": "Napravi prostor za svoju rutinu",
+    "de": "Schaffe Raum für deine Routine"
+  },
+  "Save items from the library or directory": {
+    "bs": "Sačuvaj stavke iz biblioteke ili imenika",
+    "de": "Elemente aus der Bibliothek oder dem Verzeichnis speichern"
+  },
+  "Add your first record": {
+    "bs": "Dodaj svoj prvi zapis",
+    "de": "Ersten Eintrag hinzufügen"
+  },
+  "Public": {
+    "bs": "Javno",
+    "de": "Öffentlich"
+  },
+  "Shared plan": {
+    "bs": "Dijeljeni plan",
+    "de": "Geteilter Plan"
+  },
+  "Private": {
+    "bs": "Privatno",
+    "de": "Privat"
+  },
+  "Community contribution": {
+    "bs": "Doprinos zajednici",
+    "de": "Community-Beitrag"
+  },
+  "Edit": {
+    "bs": "Uredi",
+    "de": "Bearbeiten"
+  },
+  "Delete": {
+    "bs": "Obriši",
+    "de": "Löschen"
+  },
+  "Delete this record?": {
+    "bs": "Obrisati ovaj zapis?",
+    "de": "Diesen Eintrag löschen?"
+  },
+  "This removes the saved record. This action cannot be undone.": {
+    "bs": "Ovo uklanja sačuvani zapis. Radnju nije moguće poništiti.",
+    "de": "Dadurch wird der gespeicherte Eintrag entfernt. Dies kann nicht rückgängig gemacht werden."
+  },
+  "Keep record": {
+    "bs": "Zadrži zapis",
+    "de": "Eintrag behalten"
+  },
+  "Delete record": {
+    "bs": "Obriši zapis",
+    "de": "Eintrag löschen"
+  },
+  "Record deleted": {
+    "bs": "Zapis obrisan",
+    "de": "Eintrag gelöscht"
+  },
+  "Starting point → your target {p0}": {
+    "bs": "Početna vrijednost → tvoj cilj {p0}",
+    "de": "Ausgangswert → dein Ziel {p0}"
+  },
+  "{p0}kcal": {
+    "bs": "{p0} kcal",
+    "de": "{p0} kcal"
+  },
+  "P {p0}g": {
+    "bs": "B {p0} g",
+    "de": "E {p0} g"
+  },
+  "C {p0}g": {
+    "bs": "UH {p0} g",
+    "de": "KH {p0} g"
+  },
+  "F {p0}g": {
+    "bs": "M {p0} g",
+    "de": "F {p0} g"
+  },
+  "From {p0}{p1}": {
+    "bs": "Od {p0}{p1}",
+    "de": "Von {p0}{p1}"
+  },
+  "On": {
+    "bs": "Uključeno",
+    "de": "An"
+  },
+  "Off": {
+    "bs": "Isključeno",
+    "de": "Aus"
+  },
+  "None selected": {
+    "bs": "Ništa nije odabrano",
+    "de": "Nichts ausgewählt"
+  },
+  "Choose who can see this record before saving.": {
+    "bs": "Prije čuvanja odaberi ko može vidjeti ovaj zapis.",
+    "de": "Wähle vor dem Speichern, wer diesen Eintrag sehen darf."
+  },
+  "Saved privately to your account.": {
+    "bs": "Čuva se privatno na tvom računu.",
+    "de": "Wird privat in deinem Konto gespeichert."
+  },
+  "Record saved": {
+    "bs": "Zapis sačuvan",
+    "de": "Eintrag gespeichert"
+  },
+  "Assign to connected client": {
+    "bs": "Dodijeli povezanom klijentu",
+    "de": "Verbundenem Klienten zuweisen"
+  },
+  "Just me": {
+    "bs": "Samo ja",
+    "de": "Nur ich"
+  },
+  "Audience": {
+    "bs": "Publika",
+    "de": "Sichtbarkeit"
+  },
+  "Private · only me": {
+    "bs": "Privatno · samo ja",
+    "de": "Privat · nur ich"
+  },
+  "Public · community": {
+    "bs": "Javno · zajednica",
+    "de": "Öffentlich · Community"
+  },
+  "Saving…": {
+    "bs": "Čuvanje…",
+    "de": "Wird gespeichert…"
+  },
+  "Save publicly": {
+    "bs": "Sačuvaj javno",
+    "de": "Öffentlich speichern"
+  },
+  "Save shared plan": {
+    "bs": "Sačuvaj dijeljeni plan",
+    "de": "Geteilten Plan speichern"
+  },
+  "Save privately": {
+    "bs": "Sačuvaj privatno",
+    "de": "Privat speichern"
+  },
+  "Cancel": {
+    "bs": "Odustani",
+    "de": "Abbrechen"
+  },
+  " · optional": {
+    "bs": " · opcionalno",
+    "de": " · optional"
+  },
+  "Loading…": {
+    "bs": "Učitavanje…",
+    "de": "Wird geladen…"
+  },
+  "Choose {p0}": {
+    "bs": "Odaberi {p0}",
+    "de": "{p0} auswählen"
+  },
+  "Could not load choices.": {
+    "bs": "Opcije nije moguće učitati.",
+    "de": "Auswahl konnte nicht geladen werden."
+  },
+  "Add a {p0}record first.": {
+    "bs": "Prvo dodaj zapis: {p0}.",
+    "de": "Füge zuerst einen Eintrag für {p0} hinzu."
+  },
+  "Saved": {
+    "bs": "Sačuvano",
+    "de": "Gespeichert"
+  },
+  "Log date": {
+    "bs": "Datum unosa",
+    "de": "Eintragsdatum"
+  },
+  "Logged · {p0}": {
+    "bs": "Zabilježeno · {p0}",
+    "de": "Erfasst · {p0}"
+  },
+  "Log consumed · {p0}": {
+    "bs": "Zabilježi konzumirano · {p0}",
+    "de": "Einnahme erfassen · {p0}"
+  },
+  "Recorded history ({p0})": {
+    "bs": "Historija unosa ({p0})",
+    "de": "Erfasster Verlauf ({p0})"
+  },
+  "Loading history…": {
+    "bs": "Učitavanje historije…",
+    "de": "Verlauf wird geladen…"
+  },
+  "Could not load history.": {
+    "bs": "Historiju nije moguće učitati.",
+    "de": "Verlauf konnte nicht geladen werden."
+  },
+  "Manage consumed food entries in the Fuel diary.": {
+    "bs": "Upravljaj konzumiranim namirnicama u dnevniku prehrane.",
+    "de": "Verwalte verzehrte Lebensmittel im Ernährungstagebuch."
+  },
+  "Remove entry": {
+    "bs": "Ukloni unos",
+    "de": "Eintrag entfernen"
+  },
+  "Entry removed": {
+    "bs": "Unos uklonjen",
+    "de": "Eintrag entfernt"
+  },
+  "Open source reference": {
+    "bs": "Otvori izvornu referencu",
+    "de": "Quellenreferenz öffnen"
+  },
+  "View details": {
+    "bs": "Pogledaj detalje",
+    "de": "Details ansehen"
+  },
+  "Food barcode scanner": {
+    "bs": "Skener barkoda hrane",
+    "de": "Lebensmittel-Barcodescanner"
+  },
+  "Food barcode": {
+    "bs": "Barkod hrane",
+    "de": "Lebensmittel-Barcode"
+  },
+  "Close barcode scanner": {
+    "bs": "Zatvori skener barkoda",
+    "de": "Barcodescanner schließen"
+  },
+  "Barcode camera preview": {
+    "bs": "Pregled kamere za barkod",
+    "de": "Barcode-Kameravorschau"
+  },
+  "Stop camera": {
+    "bs": "Zaustavi kameru",
+    "de": "Kamera stoppen"
+  },
+  "Scan with camera": {
+    "bs": "Skeniraj kamerom",
+    "de": "Mit Kamera scannen"
+  },
+  "Food barcode number": {
+    "bs": "Broj barkoda hrane",
+    "de": "Lebensmittel-Barcodenummer"
+  },
+  "Enter barcode number": {
+    "bs": "Unesi broj barkoda",
+    "de": "Barcodenummer eingeben"
+  },
+  "Look up barcode": {
+    "bs": "Pretraži barkod",
+    "de": "Barcode suchen"
+  },
+  "Looking up food…": {
+    "bs": "Traženje hrane…",
+    "de": "Lebensmittel wird gesucht…"
+  },
+  "Per 100 g: {p0}kcal · {p1}g protein · {p2}g carbs · {p3}g fat": {
+    "bs": "Na 100 g: {p0} kcal · {p1} g proteina · {p2} g ugljikohidrata · {p3} g masti",
+    "de": "Pro 100 g: {p0} kcal · {p1} g Eiweiß · {p2} g Kohlenhydrate · {p3} g Fett"
+  },
+  "Portion · grams": {
+    "bs": "Porcija · grami",
+    "de": "Portion · Gramm"
+  },
+  "Use this food": {
+    "bs": "Koristi ovu namirnicu",
+    "de": "Dieses Lebensmittel verwenden"
+  },
+  "Open Food Facts · Verify against the package label.": {
+    "bs": "Open Food Facts · Provjeri prema deklaraciji na pakovanju.",
+    "de": "Open Food Facts · Mit den Angaben auf der Verpackung abgleichen."
+  },
+  "Water tracking": {
+    "bs": "Praćenje vode",
+    "de": "Wasser erfassen"
+  },
+  "Water": {
+    "bs": "Voda",
+    "de": "Wasser"
+  },
+  "/ 2.0 L": {
+    "bs": "/ 2,0 L",
+    "de": "/ 2,0 l"
+  },
+  "250 ml per glass": {
+    "bs": "250 ml po čaši",
+    "de": "250 ml pro Glas"
+  },
+  "Water, eight glasses of 250 millilitres": {
+    "bs": "Voda, osam čaša od 250 mililitara",
+    "de": "Wasser, acht Gläser à 250 Milliliter"
+  },
+  "{p0} glass{p1}, {p2} ml": {
+    "bs": "Broj čaša: {p0}, {p2} ml",
+    "de": "Gläser: {p0}, {p2} ml"
+  },
+  "{p0} photo {p1}": {
+    "bs": "{p0} fotografija {p1}",
+    "de": "{p0}-Foto {p1}"
+  },
+  "Compare before and after": {
+    "bs": "Uporedi prije i poslije",
+    "de": "Vorher und nachher vergleichen"
+  },
+  "Slider": {
+    "bs": "Klizač",
+    "de": "Schieberegler"
+  },
+  "Side by side": {
+    "bs": "Jedno pored drugog",
+    "de": "Nebeneinander"
+  },
+  "{p0} progress on {p1}": {
+    "bs": "Napredak {p0} na {p1}",
+    "de": "Fortschritt {p0} am {p1}"
+  },
+  "{p0}· {p1} {p2}photos": {
+    "bs": "{p0} · {p1} {p2} fotografije",
+    "de": "{p0} · {p1} {p2} Fotos"
+  },
+  "No {p0} photos yet": {
+    "bs": "Još nema fotografija: {p0}",
+    "de": "Noch keine Fotos: {p0}"
+  },
+  "{p0} progress photo {p1}": {
+    "bs": "Fotografija napretka {p0} {p1}",
+    "de": "Fortschrittsfoto {p0} {p1}"
+  },
+  "Photo must be under 10 MB": {
+    "bs": "Fotografija mora biti manja od 10 MB",
+    "de": "Das Foto muss kleiner als 10 MB sein"
+  },
+  "Photo saved privately": {
+    "bs": "Fotografija sačuvana privatno",
+    "de": "Foto privat gespeichert"
+  },
+  "Uploading…": {
+    "bs": "Učitavanje datoteke…",
+    "de": "Wird hochgeladen…"
+  },
+  "Add {p0} photo": {
+    "bs": "Dodaj fotografiju: {p0}",
+    "de": "{p0}-Foto hinzufügen"
+  },
+  "{p0} progress photo": {
+    "bs": "Fotografija napretka: {p0}",
+    "de": "{p0}-Fortschrittsfoto"
+  },
+  "Delete photo": {
+    "bs": "Obriši fotografiju",
+    "de": "Foto löschen"
+  },
+  "Deleted": {
+    "bs": "Obrisano",
+    "de": "Gelöscht"
+  },
+  "Private messages": {
+    "bs": "Privatne poruke",
+    "de": "Private Nachrichten"
+  },
+  "Only you and your connected coach or client can read this conversation.": {
+    "bs": "Samo ti i povezani trener ili klijent možete čitati ovaj razgovor.",
+    "de": "Nur du und dein verbundener Coach oder Klient können dieses Gespräch lesen."
+  },
+  "Connect before starting a conversation": {
+    "bs": "Poveži se prije početka razgovora",
+    "de": "Verbinde dich, bevor du ein Gespräch beginnst"
+  },
+  "Conversation": {
+    "bs": "Razgovor",
+    "de": "Gespräch"
+  },
+  "Choose a connection": {
+    "bs": "Odaberi vezu",
+    "de": "Verbindung auswählen"
+  },
+  "Connected person": {
+    "bs": "Povezana osoba",
+    "de": "Verbundene Person"
+  },
+  "Refreshing…": {
+    "bs": "Osvježavanje…",
+    "de": "Wird aktualisiert…"
+  },
+  "Refresh conversation": {
+    "bs": "Osvježi razgovor",
+    "de": "Gespräch aktualisieren"
+  },
+  "Conversation with {p0}": {
+    "bs": "Razgovor s {p0}",
+    "de": "Gespräch mit {p0}"
+  },
+  "You": {
+    "bs": "Ti",
+    "de": "Du"
+  },
+  "Your connection": {
+    "bs": "Tvoja veza",
+    "de": "Deine Verbindung"
+  },
+  "Start a conversation with {p0}.": {
+    "bs": "Započni razgovor s {p0}.",
+    "de": "Beginne ein Gespräch mit {p0}."
+  },
+  "Share a question or an update": {
+    "bs": "Podijeli pitanje ili novost",
+    "de": "Teile eine Frage oder Neuigkeit"
+  },
+  "Sent messages cannot be edited. No delivery notification is promised.": {
+    "bs": "Poslane poruke nije moguće uređivati. Obavijest o dostavi nije zagarantovana.",
+    "de": "Gesendete Nachrichten können nicht bearbeitet werden. Eine Zustellbenachrichtigung wird nicht zugesichert."
+  },
+  "{p0}Your draft is still here; you can retry.": {
+    "bs": "{p0} Tvoj nacrt je i dalje ovdje; možeš pokušati ponovo.",
+    "de": "{p0} Dein Entwurf ist noch hier; du kannst es erneut versuchen."
+  },
+  "Retry sending": {
+    "bs": "Pokušaj poslati ponovo",
+    "de": "Erneut senden"
+  },
+  "Send privately": {
+    "bs": "Pošalji privatno",
+    "de": "Privat senden"
+  },
+  "Edit program": {
+    "bs": "Uredi program",
+    "de": "Programm bearbeiten"
+  },
+  "Custom client program": {
+    "bs": "Prilagođeni program klijenta",
+    "de": "Individuelles Klientenprogramm"
+  },
+  "New program": {
+    "bs": "Novi program",
+    "de": "Neues Programm"
+  },
+  "Changes apply to assigned clients' future sessions. Completed workouts stay unchanged.": {
+    "bs": "Promjene se primjenjuju na buduće treninge dodijeljenih klijenata. Završeni treninzi ostaju nepromijenjeni.",
+    "de": "Änderungen gelten für zukünftige Einheiten zugewiesener Klienten. Abgeschlossene Trainings bleiben unverändert."
+  },
+  "Build your next training block.": {
+    "bs": "Kreiraj svoj sljedeći blok treninga.",
+    "de": "Erstelle deine nächste Trainingsphase."
+  },
+  "Close program editor": {
+    "bs": "Zatvori uređivač programa",
+    "de": "Programmeditor schließen"
+  },
+  "Program name": {
+    "bs": "Naziv programa",
+    "de": "Programmname"
+  },
+  "Description": {
+    "bs": "Opis",
+    "de": "Beschreibung"
+  },
+  "Focus for this block": {
+    "bs": "Fokus ovog bloka",
+    "de": "Schwerpunkt dieser Phase"
+  },
+  "Weeks": {
+    "bs": "Sedmice",
+    "de": "Wochen"
+  },
+  "Training day {p0}": {
+    "bs": "Dan treninga {p0}",
+    "de": "Trainingstag {p0}"
+  },
+  "Remove day {p0}": {
+    "bs": "Ukloni dan {p0}",
+    "de": "Tag {p0} entfernen"
+  },
+  "Day {p0} title": {
+    "bs": "Naziv dana {p0}",
+    "de": "Titel für Tag {p0}"
+  },
+  "Day {p0} exercise {p1}": {
+    "bs": "Dan {p0}, vježba {p1}",
+    "de": "Tag {p0}, Übung {p1}"
+  },
+  "Exercise {p0}": {
+    "bs": "Vježba {p0}",
+    "de": "Übung {p0}"
+  },
+  "Remove exercise {p0} from day {p1}": {
+    "bs": "Ukloni vježbu {p0} iz dana {p1}",
+    "de": "Übung {p0} aus Tag {p1} entfernen"
+  },
+  "Exercise": {
+    "bs": "Vježba",
+    "de": "Übung"
+  },
+  "Exercise name": {
+    "bs": "Naziv vježbe",
+    "de": "Übungsname"
+  },
+  "Choose from exercise library": {
+    "bs": "Odaberi iz biblioteke vježbi",
+    "de": "Aus der Übungsbibliothek auswählen"
+  },
+  "Section": {
+    "bs": "Dio treninga",
+    "de": "Trainingsabschnitt"
+  },
+  "Warm-up": {
+    "bs": "Zagrijavanje",
+    "de": "Aufwärmen"
+  },
+  "Main work": {
+    "bs": "Glavni dio",
+    "de": "Hauptteil"
+  },
+  "Cool-down": {
+    "bs": "Hlađenje",
+    "de": "Abwärmen"
+  },
+  "Group / superset": {
+    "bs": "Grupa / superserija",
+    "de": "Gruppe / Supersatz"
+  },
+  "A, B, circuit…": {
+    "bs": "A, B, kružni trening…",
+    "de": "A, B, Zirkel…"
+  },
+  "Equipment": {
+    "bs": "Oprema",
+    "de": "Ausrüstung"
+  },
+  "Dumbbells, bench…": {
+    "bs": "Bučice, klupa…",
+    "de": "Kurzhanteln, Bank…"
+  },
+  "Substitutions · one per line": {
+    "bs": "Zamjene · jedna po redu",
+    "de": "Alternativen · eine pro Zeile"
+  },
+  "Sets": {
+    "bs": "Serije",
+    "de": "Sätze"
+  },
+  "Reps": {
+    "bs": "Ponavljanja",
+    "de": "Wiederholungen"
+  },
+  "Weight · kg": {
+    "bs": "Težina · kg",
+    "de": "Gewicht · kg"
+  },
+  "Previous": {
+    "bs": "Prethodno",
+    "de": "Vorherig"
+  },
+  "Rest · seconds": {
+    "bs": "Odmor · sekunde",
+    "de": "Pause · Sekunden"
+  },
+  "Auto": {
+    "bs": "Automatski",
+    "de": "Automatisch"
+  },
+  "Effort · RPE / 10": {
+    "bs": "Napor · RPE / 10",
+    "de": "Anstrengung · RPE / 10"
+  },
+  "Optional": {
+    "bs": "Opcionalno",
+    "de": "Optional"
+  },
+  "Tempo": {
+    "bs": "Tempo",
+    "de": "Tempo"
+  },
+  "Coach notes": {
+    "bs": "Bilješke trenera",
+    "de": "Coach-Notizen"
+  },
+  "Cues, warm-up, or substitutions": {
+    "bs": "Upute, zagrijavanje ili zamjene",
+    "de": "Hinweise, Aufwärmen oder Alternativen"
+  },
+  "Add exercise": {
+    "bs": "Dodaj vježbu",
+    "de": "Übung hinzufügen"
+  },
+  "Add day": {
+    "bs": "Dodaj dan",
+    "de": "Tag hinzufügen"
+  },
+  "Choose an exercise": {
+    "bs": "Odaberi vježbu",
+    "de": "Übung auswählen"
+  },
+  "Loading library…": {
+    "bs": "Učitavanje biblioteke…",
+    "de": "Bibliothek wird geladen…"
+  },
+  "Program updated": {
+    "bs": "Program ažuriran",
+    "de": "Programm aktualisiert"
+  },
+  "Program saved and assigned": {
+    "bs": "Program sačuvan i dodijeljen",
+    "de": "Programm gespeichert und zugewiesen"
+  },
+  "Program saved": {
+    "bs": "Program sačuvan",
+    "de": "Programm gespeichert"
+  },
+  "Save changes": {
+    "bs": "Sačuvaj promjene",
+    "de": "Änderungen speichern"
+  },
+  "Retry assignment": {
+    "bs": "Ponovo pokušaj dodjelu",
+    "de": "Zuweisung erneut versuchen"
+  },
+  "Save & assign": {
+    "bs": "Sačuvaj i dodijeli",
+    "de": "Speichern und zuweisen"
+  },
+  "Save program": {
+    "bs": "Sačuvaj program",
+    "de": "Programm speichern"
+  },
+  "{p0}s rest": {
+    "bs": "Odmor {p0} s",
+    "de": "{p0} s Pause"
+  },
+  "RPE {p0}/10": {
+    "bs": "RPE {p0}/10",
+    "de": "RPE {p0}/10"
+  },
+  "Tempo {p0}": {
+    "bs": "Tempo {p0}",
+    "de": "Tempo {p0}"
+  },
+  "{p0}weeks · {p1}training days": {
+    "bs": "Sedmice: {p0} · dani treninga: {p1}",
+    "de": "Wochen: {p0} · Trainingstage: {p1}"
+  },
+  "No weigh-ins in this period.": {
+    "bs": "Nema vaganja u ovom periodu.",
+    "de": "Keine Gewichtseinträge in diesem Zeitraum."
+  },
+  "Weight history": {
+    "bs": "Historija težine",
+    "de": "Gewichtsverlauf"
+  },
+  "7-day average": {
+    "bs": "Sedmodnevni prosjek",
+    "de": "7-Tage-Durchschnitt"
+  },
+  "Recorded weight and seven-day average in kilograms": {
+    "bs": "Zabilježena težina i sedmodnevni prosjek u kilogramima",
+    "de": "Erfasstes Gewicht und Siebentagedurchschnitt in Kilogramm"
+  },
+  "Select weigh-in": {
+    "bs": "Odaberi vaganje",
+    "de": "Gewichtseintrag auswählen"
+  },
+  "{p0}, {p1} kg": {
+    "bs": "{p0}, {p1} kg",
+    "de": "{p0}, {p1} kg"
+  },
+  "{p0}weigh-ins in view": {
+    "bs": "Vaganja u prikazu: {p0}",
+    "de": "Gewichtseinträge in der Ansicht: {p0}"
+  },
+  "Latest": {
+    "bs": "Posljednje",
+    "de": "Zuletzt"
+  },
+  "Make room to recover": {
+    "bs": "Napravi prostor za oporavak",
+    "de": "Schaffe Raum für Erholung"
+  },
+  "Close breathing": {
+    "bs": "Zatvori vježbu disanja",
+    "de": "Atemübung schließen"
+  },
+  "A little more space.": {
+    "bs": "Malo više prostora.",
+    "de": "Ein wenig mehr Raum."
+  },
+  "Find your rhythm.": {
+    "bs": "Pronađi svoj ritam.",
+    "de": "Finde deinen Rhythmus."
+  },
+  "Eight rounds complete. Take the calm with you.": {
+    "bs": "Osam krugova završeno. Ponesi mir sa sobom.",
+    "de": "Acht Runden geschafft. Nimm die Ruhe mit."
+  },
+  "Box breathing · 4 seconds each phase · 8 rounds": {
+    "bs": "Kvadratno disanje · svaka faza 4 sekunde · 8 krugova",
+    "de": "Box-Atmung · 4 Sekunden pro Phase · 8 Runden"
+  },
+  "Paused": {
+    "bs": "Pauzirano",
+    "de": "Pausiert"
+  },
+  "s": {
+    "bs": "s",
+    "de": "s"
+  },
+  "{p0}/ 8 rounds": {
+    "bs": "{p0} / 8 krugova",
+    "de": "{p0} / 8 Runden"
+  },
+  "{p0}:{p1} remaining": {
+    "bs": "Preostalo {p0}:{p1}",
+    "de": "{p0}:{p1} verbleibend"
+  },
+  "Restart breathing": {
+    "bs": "Ponovo pokreni disanje",
+    "de": "Atemübung neu starten"
+  },
+  "Pause": {
+    "bs": "Pauziraj",
+    "de": "Pausieren"
+  },
+  "Keep it comfortable. Stop if you feel dizzy.": {
+    "bs": "Neka bude ugodno. Stani ako osjetiš vrtoglavicu.",
+    "de": "Atme angenehm. Höre auf, wenn dir schwindelig wird."
+  },
+  "Sleep trend": {
+    "bs": "Trend sna",
+    "de": "Schlafverlauf"
+  },
+  "Your nights": {
+    "bs": "Tvoje noći",
+    "de": "Deine Nächte"
+  },
+  "Sleep period": {
+    "bs": "Period sna",
+    "de": "Schlafzeitraum"
+  },
+  "{p0}nights": {
+    "bs": "Noći: {p0}",
+    "de": "Nächte: {p0}"
+  },
+  "h": {
+    "bs": "h",
+    "de": "h"
+  },
+  "Quality {p0} / 5{p1}": {
+    "bs": "Kvalitet {p0} / 5{p1}",
+    "de": "Qualität {p0} / 5{p1}"
+  },
+  "No sleep logged": {
+    "bs": "San nije zabilježen",
+    "de": "Kein Schlaf erfasst"
+  },
+  "h avg": {
+    "bs": "h prosječno",
+    "de": "h im Durchschnitt"
+  },
+  "{p0}nights logged · last {p1}": {
+    "bs": "Zabilježene noći: {p0} · posljednjih {p1}",
+    "de": "Erfasste Nächte: {p0} · letzte {p1}"
+  },
+  "Sleep over the last {p0} nights, with an 8 hour goal": {
+    "bs": "San tokom posljednjih {p0} noći, uz cilj od 8 sati",
+    "de": "Schlaf der letzten {p0} Nächte mit einem Ziel von 8 Stunden"
+  },
+  "8 h goal": {
+    "bs": "Cilj: 8 h",
+    "de": "Ziel: 8 h"
+  },
+  "No nights logged in this period.": {
+    "bs": "Nema zabilježenih noći u ovom periodu.",
+    "de": "Keine Nächte in diesem Zeitraum erfasst."
+  },
+  "Your next good night starts here.": {
+    "bs": "Tvoja sljedeća dobra noć počinje ovdje.",
+    "de": "Deine nächste erholsame Nacht beginnt hier."
+  },
+  "{p0}-day report · {p1}– {p2}": {
+    "bs": "Izvještaj za {p0} dana · {p1} – {p2}",
+    "de": "Bericht über {p0} Tage · {p1} – {p2}"
+  },
+  "Adherence": {
+    "bs": "Pridržavanje",
+    "de": "Planerfüllung"
+  },
+  "Hours": {
+    "bs": "Sati",
+    "de": "Stunden"
+  },
+  "Avg RPE": {
+    "bs": "Prosječni RPE",
+    "de": "Durchschnittlicher RPE"
+  },
+  "Avg sleep": {
+    "bs": "Prosječni san",
+    "de": "Durchschnittlicher Schlaf"
+  },
+  "Avg kcal": {
+    "bs": "Prosječne kcal",
+    "de": "Durchschnittliche kcal"
+  },
+  "{p0}g protein · {p1}days logged": {
+    "bs": "{p0} g proteina · zabilježeni dani: {p1}",
+    "de": "{p0} g Eiweiß · erfasste Tage: {p1}"
+  },
+  "energy {p0}/5": {
+    "bs": "energija {p0}/5",
+    "de": "Energie {p0}/5"
+  },
+  "New records": {
+    "bs": "Novi rekordi",
+    "de": "Neue Rekorde"
+  },
+  "NEW PR": {
+    "bs": "NOVI REKORD",
+    "de": "NEUER REKORD"
+  },
+  "{p0} kg: {p1} kg bar plus {p2}": {
+    "bs": "{p0} kg: šipka od {p1} kg i {p2}",
+    "de": "{p0} kg: {p1}-kg-Stange plus {p2}"
+  },
+  "Muscles worked: {p0}": {
+    "bs": "Aktivirani mišići: {p0}",
+    "de": "Beanspruchte Muskeln: {p0}"
+  },
+  "Decrease {p0}": {
+    "bs": "Smanji {p0}",
+    "de": "{p0} verringern"
+  },
+  "{p0} {p1}, type a value": {
+    "bs": "{p0} {p1}, upiši vrijednost",
+    "de": "{p0} {p1}, Wert eingeben"
+  },
+  "Increase {p0}": {
+    "bs": "Povećaj {p0}",
+    "de": "{p0} erhöhen"
+  },
+  "Skipped — not saved": {
+    "bs": "Preskočeno — nije sačuvano",
+    "de": "Übersprungen — nicht gespeichert"
+  },
+  "Last time: {p0}": {
+    "bs": "Prošli put: {p0}",
+    "de": "Letztes Mal: {p0}"
+  },
+  "First time — set your baseline": {
+    "bs": "Prvi put — postavi početnu vrijednost",
+    "de": "Erstes Mal — lege deinen Ausgangswert fest"
+  },
+  "PR": {
+    "bs": "LR",
+    "de": "PR"
+  },
+  "{p0} options": {
+    "bs": "Opcije za {p0}",
+    "de": "Optionen für {p0}"
+  },
+  "Hold to reorder {p0}": {
+    "bs": "Drži za promjenu redoslijeda: {p0}",
+    "de": "Gedrückt halten, um {p0} zu verschieben"
+  },
+  "Restore exercise": {
+    "bs": "Vrati vježbu",
+    "de": "Übung wiederherstellen"
+  },
+  "Planned alternatives": {
+    "bs": "Planirane zamjene",
+    "de": "Geplante Alternativen"
+  },
+  "Choose before logging any sets. Review the load for the new movement.": {
+    "bs": "Odaberi prije bilježenja serija. Provjeri opterećenje za novi pokret.",
+    "de": "Wähle vor dem Erfassen von Sätzen. Prüfe die Belastung für die neue Übung."
+  },
+  "Coach target {p0}kg{p1}": {
+    "bs": "Cilj trenera {p0} kg{p1}",
+    "de": "Coach-Vorgabe {p0} kg{p1}"
+  },
+  "Rest {p0}s": {
+    "bs": "Odmor {p0} s",
+    "de": "Pause {p0} s"
+  },
+  "Applied: ": {
+    "bs": "Primijenjeno: ",
+    "de": "Angewendet: "
+  },
+  "Try ": {
+    "bs": "Pokušaj ",
+    "de": "Versuche "
+  },
+  "Hold ": {
+    "bs": "Zadrži ",
+    "de": "Behalte "
+  },
+  "Lighter day: ": {
+    "bs": "Lakši dan: ",
+    "de": "Leichter Tag: "
+  },
+  "{p0}kg × {p1}": {
+    "bs": "{p0} kg × {p1}",
+    "de": "{p0} kg × {p1}"
+  },
+  "Set": {
+    "bs": "Serija",
+    "de": "Satz"
+  },
+  "Add set": {
+    "bs": "Dodaj seriju",
+    "de": "Satz hinzufügen"
+  },
+  "Set {p0}{p1}: {p2} kg × {p3}. Hold for options": {
+    "bs": "Serija {p0}{p1}: {p2} kg × {p3}. Drži za opcije",
+    "de": "Satz {p0}{p1}: {p2} kg × {p3}. Für Optionen gedrückt halten"
+  },
+  "Undo set {p0}": {
+    "bs": "Poništi seriju {p0}",
+    "de": "Satz {p0} rückgängig machen"
+  },
+  "Complete set {p0}": {
+    "bs": "Završi seriju {p0}",
+    "de": "Satz {p0} abschließen"
+  },
+  "Est. 1RM": {
+    "bs": "Procj. 1RM",
+    "de": "Gesch. 1RM"
+  },
+  "Delete digit": {
+    "bs": "Obriši cifru",
+    "de": "Ziffer löschen"
+  },
+  "Plates": {
+    "bs": "Ploče",
+    "de": "Hantelscheiben"
+  },
+  "Search lifts": {
+    "bs": "Pretraži dizanja",
+    "de": "Übungen suchen"
+  },
+  "Add “{p0}”": {
+    "bs": "Dodaj „{p0}“",
+    "de": "„{p0}“ hinzufügen"
+  },
+  "Yours": {
+    "bs": "Tvoje",
+    "de": "Deine"
+  },
+  "Rest {p0} left{p1}. Tap to {p2}": {
+    "bs": "Preostali odmor {p0}{p1}. Dodirni za {p2}",
+    "de": "Pause: {p0} übrig{p1}. Tippe für {p2}"
+  },
+  "−15s": {
+    "bs": "−15 s",
+    "de": "−15 s"
+  },
+  "+15s": {
+    "bs": "+15 s",
+    "de": "+15 s"
+  },
+  "Skip": {
+    "bs": "Preskoči",
+    "de": "Überspringen"
+  },
+  "Skip rest": {
+    "bs": "Preskoči odmor",
+    "de": "Pause überspringen"
+  },
+  "Session quick actions": {
+    "bs": "Brze radnje treninga",
+    "de": "Trainings-Schnellaktionen"
+  },
+  "End": {
+    "bs": "Završi",
+    "de": "Beenden"
+  },
+  "Close quick actions": {
+    "bs": "Zatvori brze radnje",
+    "de": "Schnellaktionen schließen"
+  },
+  "Open live session, {p0} {p1}. Hold for quick actions": {
+    "bs": "Otvori trening uživo, {p0} {p1}. Drži za brze radnje",
+    "de": "Live-Training öffnen, {p0} {p1}. Für Schnellaktionen gedrückt halten"
+  },
+  "rest {p0}": {
+    "bs": "odmor {p0}",
+    "de": "Pause {p0}"
+  },
+  "Resume session": {
+    "bs": "Nastavi trening",
+    "de": "Training fortsetzen"
+  },
+  "Pause session": {
+    "bs": "Pauziraj trening",
+    "de": "Training pausieren"
+  },
+  "Edit workout": {
+    "bs": "Uredi trening",
+    "de": "Training bearbeiten"
+  },
+  "Live workout session": {
+    "bs": "Trening uživo",
+    "de": "Live-Training"
+  },
+  "Minimise session": {
+    "bs": "Smanji prikaz treninga",
+    "de": "Training minimieren"
+  },
+  "Editing · {p0}": {
+    "bs": "Uređivanje · {p0}",
+    "de": "Bearbeiten · {p0}"
+  },
+  "{p0} min": {
+    "bs": "{p0} min",
+    "de": "{p0} Min."
+  },
+  "Save": {
+    "bs": "Sačuvaj",
+    "de": "Speichern"
+  },
+  "Resting": {
+    "bs": "Odmaraš",
+    "de": "Pause läuft"
+  },
+  "Rest": {
+    "bs": "Odmor",
+    "de": "Pause"
+  },
+  "Turn sounds off": {
+    "bs": "Isključi zvuk",
+    "de": "Ton ausschalten"
+  },
+  "Turn sounds on": {
+    "bs": "Uključi zvuk",
+    "de": "Ton einschalten"
+  },
+  "Lighter day · weights −10%": {
+    "bs": "Lakši dan · težine −10%",
+    "de": "Leichter Tag · Gewichte −10%"
+  },
+  "sets": {
+    "bs": "serije",
+    "de": "Sätze"
+  },
+  "volume": {
+    "bs": "volumen",
+    "de": "Volumen"
+  },
+  "PRs": {
+    "bs": "LR",
+    "de": "PRs"
+  },
+  "Paused · {p0}": {
+    "bs": "Pauzirano · {p0}",
+    "de": "Pausiert · {p0}"
+  },
+  "Timer and rest are frozen. Sets stay editable.": {
+    "bs": "Tajmer i odmor su zaustavljeni. Serije se i dalje mogu uređivati.",
+    "de": "Timer und Pause sind angehalten. Sätze bleiben bearbeitbar."
+  },
+  "Tap a number to type it · hold a set for options · swipe left to delete": {
+    "bs": "Dodirni broj za unos · drži seriju za opcije · prevuci ulijevo za brisanje",
+    "de": "Zahl zum Eingeben antippen · Satz für Optionen gedrückt halten · zum Löschen nach links wischen"
+  },
+  "Pick your first exercise to start logging sets.": {
+    "bs": "Odaberi prvu vježbu za bilježenje serija.",
+    "de": "Wähle deine erste Übung, um Sätze zu erfassen."
+  },
+  "Plate calculator": {
+    "bs": "Kalkulator ploča",
+    "de": "Scheibenrechner"
+  },
+  "Lighter than an empty 20 kg bar.": {
+    "bs": "Lakše od prazne šipke od 20 kg.",
+    "de": "Leichter als eine leere 20-kg-Stange."
+  },
+  "20 kg bar + {p0} kg each side": {
+    "bs": "Šipka 20 kg + {p0} kg sa svake strane",
+    "de": "20-kg-Stange + {p0} kg je Seite"
+  },
+  "Empty 20 kg bar": {
+    "bs": "Prazna šipka od 20 kg",
+    "de": "Leere 20-kg-Stange"
+  },
+  "Set {p0}": {
+    "bs": "Serija {p0}",
+    "de": "Satz {p0}"
+  },
+  "Set type": {
+    "bs": "Vrsta serije",
+    "de": "Satzart"
+  },
+  "Warm-ups don't count toward volume or records and aren't saved.": {
+    "bs": "Zagrijavanje se ne računa u volumen ili rekorde i ne čuva se.",
+    "de": "Aufwärmsätze zählen nicht zu Volumen oder Rekorden und werden nicht gespeichert."
+  },
+  "Edit note": {
+    "bs": "Uredi bilješku",
+    "de": "Notiz bearbeiten"
+  },
+  "Add note": {
+    "bs": "Dodaj bilješku",
+    "de": "Notiz hinzufügen"
+  },
+  "Delete set": {
+    "bs": "Obriši seriju",
+    "de": "Satz löschen"
+  },
+  "Restore": {
+    "bs": "Vrati",
+    "de": "Wiederherstellen"
+  },
+  "Replace": {
+    "bs": "Zamijeni",
+    "de": "Ersetzen"
+  },
+  "Rest time for this exercise": {
+    "bs": "Vrijeme odmora za ovu vježbu",
+    "de": "Pausenzeit für diese Übung"
+  },
+  "{p0}s": {
+    "bs": "{p0} s",
+    "de": "{p0} s"
+  },
+  "{p0}m": {
+    "bs": "{p0} min",
+    "de": "{p0} Min."
+  },
+  "Remove": {
+    "bs": "Ukloni",
+    "de": "Entfernen"
+  },
+  "Replace {p0}": {
+    "bs": "Zamijeni {p0}",
+    "de": "{p0} ersetzen"
+  },
+  "Save your changes?": {
+    "bs": "Sačuvati promjene?",
+    "de": "Änderungen speichern?"
+  },
+  "End this session?": {
+    "bs": "Završiti ovaj trening?",
+    "de": "Dieses Training beenden?"
+  },
+  "Finish & save": {
+    "bs": "Završi i sačuvaj",
+    "de": "Beenden und speichern"
+  },
+  "Complete at least one set to save this session.": {
+    "bs": "Završi barem jednu seriju da sačuvaš ovaj trening.",
+    "de": "Schließe mindestens einen Satz ab, um dieses Training zu speichern."
+  },
+  "Keep editing": {
+    "bs": "Nastavi uređivanje",
+    "de": "Weiter bearbeiten"
+  },
+  "Keep training": {
+    "bs": "Nastavi trenirati",
+    "de": "Weiter trainieren"
+  },
+  "Discard changes": {
+    "bs": "Odbaci promjene",
+    "de": "Änderungen verwerfen"
+  },
+  "{p0} set{p1} not done": {
+    "bs": "Nedovršene serije: {p0}",
+    "de": "Unvollständige Sätze: {p0}"
+  },
+  "Only completed sets are saved. What should happen to the rest?": {
+    "bs": "Čuvaju se samo završene serije. Šta uraditi s preostalim?",
+    "de": "Nur abgeschlossene Sätze werden gespeichert. Was soll mit den übrigen geschehen?"
+  },
+  "Mark all done": {
+    "bs": "Označi sve završeno",
+    "de": "Alle als abgeschlossen markieren"
+  },
+  "Remove them": {
+    "bs": "Ukloni ih",
+    "de": "Entfernen"
+  },
+  "Go back": {
+    "bs": "Vrati se",
+    "de": "Zurück"
+  },
+  "Discard this session?": {
+    "bs": "Odbaciti ovaj trening?",
+    "de": "Dieses Training verwerfen?"
+  },
+  "{p0} logged set{p1} will be lost.": {
+    "bs": "Zabilježene serije će biti izgubljene: {p0}.",
+    "de": "Erfasste Sätze gehen verloren: {p0}."
+  },
+  "Nothing has been logged yet.": {
+    "bs": "Još ništa nije zabilježeno.",
+    "de": "Es wurde noch nichts erfasst."
+  },
+  "You were away {p0} min": {
+    "bs": "Pauza je trajala {p0} min",
+    "de": "Du warst {p0} Min. weg"
+  },
+  "We paused your session so the break doesn't count. Resume or end the session?": {
+    "bs": "Pauzirali smo trening da se prekid ne računa. Nastaviti ili završiti trening?",
+    "de": "Wir haben dein Training pausiert, damit die Unterbrechung nicht mitzählt. Training fortsetzen oder beenden?"
+  },
+  "End session": {
+    "bs": "Završi trening",
+    "de": "Training beenden"
+  },
+  "Back to session": {
+    "bs": "Nazad na trening",
+    "de": "Zurück zum Training"
+  },
+  "Review": {
+    "bs": "Pregled",
+    "de": "Übersicht"
+  },
+  "min": {
+    "bs": "min",
+    "de": "Min."
+  },
+  "{p0}warm-up set {p1}not counted or saved.": {
+    "bs": "Serije zagrijavanja: {p0} — ne računaju se niti čuvaju.",
+    "de": "Aufwärmsätze: {p0} — werden nicht gezählt oder gespeichert."
+  },
+  "Muscles worked": {
+    "bs": "Aktivirani mišići",
+    "de": "Beanspruchte Muskeln"
+  },
+  "How hard was it?": {
+    "bs": "Koliko je bilo teško?",
+    "de": "Wie anstrengend war es?"
+  },
+  "RPE {p0}": {
+    "bs": "RPE {p0}",
+    "de": "RPE {p0}"
+  },
+  "Session effort": {
+    "bs": "Napor treninga",
+    "de": "Trainingsanstrengung"
+  },
+  "Save session": {
+    "bs": "Sačuvaj trening",
+    "de": "Training speichern"
+  },
+  "Share card": {
+    "bs": "Kartica za dijeljenje",
+    "de": "Karte zum Teilen"
+  },
+  "Share card saved": {
+    "bs": "Kartica za dijeljenje sačuvana",
+    "de": "Karte zum Teilen gespeichert"
+  },
+  "e.g. Felt the left knee, use belt next time": {
+    "bs": "Npr. osjetilo se lijevo koljeno, sljedeći put koristiti pojas",
+    "de": "Z. B. linkes Knie gespürt, nächstes Mal Gürtel verwenden"
+  },
+  "Note": {
+    "bs": "Bilješka",
+    "de": "Notiz"
+  },
+  "Save note": {
+    "bs": "Sačuvaj bilješku",
+    "de": "Notiz speichern"
+  },
+  "Log food": {
+    "bs": "Unesi hranu",
+    "de": "Essen erfassen"
+  },
+  "Meal for {p0}": {
+    "bs": "Obrok za {p0}",
+    "de": "Mahlzeit für {p0}"
+  },
+  "Your daily nutrition.": {
+    "bs": "Tvoja dnevna prehrana.",
+    "de": "Deine tägliche Ernährung."
+  },
+  "Scan food barcode": {
+    "bs": "Skeniraj barkod hrane",
+    "de": "Lebensmittel-Barcode scannen"
+  },
+  "What did you eat?": {
+    "bs": "Šta si jeo/la?",
+    "de": "Was hast du gegessen?"
+  },
+  "{p0} g": {
+    "bs": "{p0} g",
+    "de": "{p0} g"
+  },
+  "Added to {p0}": {
+    "bs": "Dodano u {p0}",
+    "de": "Zu {p0} hinzugefügt"
+  },
+  "Last night's recovery.": {
+    "bs": "Sinoćnji oporavak.",
+    "de": "Deine Erholung der letzten Nacht."
+  },
+  "Hours slept": {
+    "bs": "Sati sna",
+    "de": "Schlafstunden"
+  },
+  "Quality": {
+    "bs": "Kvalitet",
+    "de": "Qualität"
+  },
+  "Save sleep": {
+    "bs": "Sačuvaj san",
+    "de": "Schlaf speichern"
+  },
+  "Sleep logged": {
+    "bs": "San zabilježen",
+    "de": "Schlaf erfasst"
+  },
+  "How are you, really?": {
+    "bs": "Kako se zaista osjećaš?",
+    "de": "Wie geht es dir wirklich?"
+  },
+  "Energy": {
+    "bs": "Energija",
+    "de": "Energie"
+  },
+  "Journal": {
+    "bs": "Dnevnik",
+    "de": "Tagebuch"
+  },
+  "Wins, stress, soreness, anything…": {
+    "bs": "Uspjesi, stres, bolovi, bilo šta…",
+    "de": "Erfolge, Stress, Muskelkater, was dich beschäftigt…"
+  },
+  "Save check-in": {
+    "bs": "Sačuvaj prijavu",
+    "de": "Befinden speichern"
+  },
+  "Check-in saved": {
+    "bs": "Prijava sačuvana",
+    "de": "Befinden gespeichert"
+  },
+  "Same time, same conditions, every time.": {
+    "bs": "Isto vrijeme, isti uslovi, svaki put.",
+    "de": "Gleiche Zeit, gleiche Bedingungen, jedes Mal."
+  },
+  "Body fat · %": {
+    "bs": "Tjelesna masnoća · %",
+    "de": "Körperfett · %"
+  },
+  "Save weigh-in": {
+    "bs": "Sačuvaj vaganje",
+    "de": "Gewicht speichern"
+  },
+  "Weigh-in saved": {
+    "bs": "Vaganje sačuvano",
+    "de": "Gewicht gespeichert"
+  },
+  "Your daily routine": {
+    "bs": "Tvoja dnevna rutina",
+    "de": "Deine tägliche Routine"
+  },
+  "Your routine": {
+    "bs": "Tvoja rutina",
+    "de": "Deine Routine"
+  },
+  "No weighted sets recorded yet.": {
+    "bs": "Još nema zabilježenih serija s težinom.",
+    "de": "Noch keine Sätze mit Gewicht erfasst."
+  },
+  "Estimated one-rep max": {
+    "bs": "Procjena maksimuma jednog ponavljanja",
+    "de": "Geschätztes Einwiederholungsmaximum"
+  },
+  "+{p0}kg": {
+    "bs": "+{p0} kg",
+    "de": "+{p0} kg"
+  },
+  "An estimate from your strongest logged set, not a tested max.": {
+    "bs": "Procjena na osnovu najjače zabilježene serije, ne testirani maksimum.",
+    "de": "Eine Schätzung aus deinem stärksten erfassten Satz, kein getestetes Maximum."
+  },
+  "Best max": {
+    "bs": "Najbolji maksimum",
+    "de": "Bester Maximalwert"
+  },
+  "Latest set": {
+    "bs": "Posljednja serija",
+    "de": "Letzter Satz"
+  },
+  "{p0}: estimated one-rep max {p1} kilograms, {p2} {p3} kilograms across {p4} sessions. Trophy markers show new records.": {
+    "bs": "{p0}: procjena maksimuma jednog ponavljanja {p1} kilograma, {p2} {p3} kilograma kroz {p4} treninga. Oznake trofeja prikazuju nove rekorde.",
+    "de": "{p0}: geschätztes Einwiederholungsmaximum {p1} Kilogramm, {p2} {p3} Kilogramm über {p4} Einheiten. Pokalsymbole zeigen neue Rekorde."
+  },
+  "{p0}kg × {p1}reps": {
+    "bs": "{p0} kg × {p1} ponavljanja",
+    "de": "{p0} kg × {p1} Wiederholungen"
+  },
+  "New estimated-max record": {
+    "bs": "Novi rekord procijenjenog maksimuma",
+    "de": "Neuer Rekord des geschätzten Maximums"
+  },
+  "Couldn't load this": {
+    "bs": "Ovo nije moguće učitati",
+    "de": "Konnte nicht geladen werden"
+  },
+  "Check your connection and try again.": {
+    "bs": "Provjeri vezu i pokušaj ponovo.",
+    "de": "Prüfe deine Verbindung und versuche es erneut."
+  },
+  "Retry": {
+    "bs": "Pokušaj ponovo",
+    "de": "Erneut versuchen"
+  },
+  "Loading": {
+    "bs": "Učitavanje",
+    "de": "Wird geladen"
+  },
+  "breadcrumb": {
+    "bs": "putanja navigacije",
+    "de": "Brotkrümelnavigation"
+  },
+  "Previous slide": {
+    "bs": "Prethodni slajd",
+    "de": "Vorherige Folie"
+  },
+  "Next slide": {
+    "bs": "Sljedeći slajd",
+    "de": "Nächste Folie"
+  },
+  "pagination": {
+    "bs": "straničenje",
+    "de": "Seitennavigation"
+  },
+  "Go to previous page": {
+    "bs": "Idi na prethodnu stranicu",
+    "de": "Zur vorherigen Seite"
+  },
+  "Go to next page": {
+    "bs": "Idi na sljedeću stranicu",
+    "de": "Zur nächsten Seite"
+  },
+  "More pages": {
+    "bs": "Više stranica",
+    "de": "Weitere Seiten"
+  },
+  "Sidebar": {
+    "bs": "Bočna traka",
+    "de": "Seitenleiste"
+  },
+  "Displays the mobile sidebar.": {
+    "bs": "Prikazuje bočnu traku na mobilnom uređaju.",
+    "de": "Zeigt die mobile Seitenleiste an."
+  },
+  "Toggle Sidebar": {
+    "bs": "Prikaži/sakrij bočnu traku",
+    "de": "Seitenleiste umschalten"
+  },
+  "Language": {
+    "bs": "Jezik",
+    "de": "Sprache"
+  },
+  "Overview": {
+    "bs": "Pregled",
+    "de": "Übersicht"
+  },
+  "Report": {
+    "bs": "Izvještaj",
+    "de": "Bericht"
+  },
+  "Photos": {
+    "bs": "Fotografije",
+    "de": "Fotos"
+  },
+  "Plan": {
+    "bs": "Plan",
+    "de": "Plan"
+  },
+  "Notes": {
+    "bs": "Bilješke",
+    "de": "Notizen"
+  },
+  "Undo": {
+    "bs": "Poništi",
+    "de": "Rückgängig"
+  },
+  "Carbs": {
+    "bs": "Ugljikohidrati",
+    "de": "Kohlenhydrate"
+  },
+  "Fat": {
+    "bs": "Masti",
+    "de": "Fett"
+  },
+  "Some entries couldn't be added. Retry to add only the remaining meals.": {
+    "bs": "Neki unosi nisu dodani. Pokušaj ponovo da dodaš samo preostale obroke.",
+    "de": "Einige Einträge konnten nicht hinzugefügt werden. Versuche es erneut, um nur die verbleibenden Mahlzeiten hinzuzufügen."
+  },
+  "Good morning": {
+    "bs": "Dobro jutro",
+    "de": "Guten Morgen"
+  },
+  "Good afternoon": {
+    "bs": "Dobar dan",
+    "de": "Guten Tag"
+  },
+  "Good evening": {
+    "bs": "Dobro veče",
+    "de": "Guten Abend"
+  },
+  "Coaching": {
+    "bs": "Trenerstvo",
+    "de": "Coaching"
+  },
+  "My health": {
+    "bs": "Moje zdravlje",
+    "de": "Meine Gesundheit"
+  },
+  "Personal": {
+    "bs": "Lično",
+    "de": "Persönlich"
+  },
+  "Choose a JPG, PNG or WebP photo under 5 MB.": {
+    "bs": "Odaberi JPG, PNG ili WebP fotografiju manju od 5 MB.",
+    "de": "Wähle ein JPG-, PNG- oder WebP-Foto unter 5 MB."
+  },
+  "Mon": {
+    "bs": "Pon",
+    "de": "Mo"
+  },
+  "Tue": {
+    "bs": "Uto",
+    "de": "Di"
+  },
+  "Wed": {
+    "bs": "Sri",
+    "de": "Mi"
+  },
+  "Thu": {
+    "bs": "Čet",
+    "de": "Do"
+  },
+  "Fri": {
+    "bs": "Pet",
+    "de": "Fr"
+  },
+  "Sat": {
+    "bs": "Sub",
+    "de": "Sa"
+  },
+  "Sun": {
+    "bs": "Ned",
+    "de": "So"
+  },
+  "3M": {
+    "bs": "3 mj.",
+    "de": "3 Mon."
+  },
+  "1M": {
+    "bs": "1 mj.",
+    "de": "1 Mon."
+  },
+  "All": {
+    "bs": "Sve",
+    "de": "Alle"
+  },
+  "You showed up": {
+    "bs": "Pojavio/la si se",
+    "de": "Du warst dabei"
+  },
+  "Work that adds up": {
+    "bs": "Trud se sabira",
+    "de": "Arbeit, die sich summiert"
+  },
+  "Total weight moved this week": {
+    "bs": "Ukupno podignuta težina ove sedmice",
+    "de": "Bewegtes Gesamtgewicht dieser Woche"
+  },
+  "Room to recover": {
+    "bs": "Prostor za oporavak",
+    "de": "Raum für Erholung"
+  },
+  "No sleep logged this week": {
+    "bs": "Ove sedmice san nije zabilježen",
+    "de": "Diese Woche kein Schlaf erfasst"
+  },
+  "Average logged sleep this week": {
+    "bs": "Prosječno zabilježeni san ove sedmice",
+    "de": "Durchschnittlicher erfasster Schlaf dieser Woche"
+  },
+  "Weigh-in deleted": {
+    "bs": "Vaganje obrisano",
+    "de": "Gewichtseintrag gelöscht"
+  },
+  "Sleep entry deleted": {
+    "bs": "Unos sna obrisan",
+    "de": "Schlafeintrag gelöscht"
+  },
+  "Check-in deleted": {
+    "bs": "Dnevna prijava obrisana",
+    "de": "Befindenseintrag gelöscht"
+  },
+  "Follow your program and track your strength, one session at a time.": {
+    "bs": "Prati svoj program i snagu, trening po trening.",
+    "de": "Folge deinem Programm und verfolge deine Kraft, Einheit für Einheit."
+  },
+  "This week": {
+    "bs": "Ove sedmice",
+    "de": "Diese Woche"
+  },
+  "Workout deleted": {
+    "bs": "Trening obrisan",
+    "de": "Training gelöscht"
+  },
+  "Duration ends at your last completed set.": {
+    "bs": "Trajanje završava posljednjom dovršenom serijom.",
+    "de": "Die Dauer endet mit deinem letzten abgeschlossenen Satz."
+  },
+  "Solo": {
+    "bs": "Samostalno",
+    "de": "Solo"
+  },
+  "Track training, food, sleep and mood on your own.": {
+    "bs": "Samostalno prati trening, prehranu, san i raspoloženje.",
+    "de": "Erfasse Training, Ernährung, Schlaf und Stimmung selbstständig."
+  },
+  "Work with a coach. Get programs and feedback.": {
+    "bs": "Radi s trenerom. Dobij programe i povratne informacije.",
+    "de": "Arbeite mit einem Coach. Erhalte Programme und Rückmeldungen."
+  },
+  "Coach clients, build programs, see everything.": {
+    "bs": "Vodi klijente, kreiraj programe i prati njihov napredak.",
+    "de": "Betreue Klienten, erstelle Programme und behalte den Überblick."
+  },
+  "Confirming your email…": {
+    "bs": "Potvrđivanje email adrese…",
+    "de": "E-Mail-Adresse wird bestätigt…"
+  },
+  "This link is expired or has already been used. Request a new email.": {
+    "bs": "Link je istekao ili je već korišten. Zatraži novi email.",
+    "de": "Dieser Link ist abgelaufen oder wurde bereits verwendet. Fordere eine neue E-Mail an."
+  },
+  "Choose your new password.": {
+    "bs": "Odaberi novu lozinku.",
+    "de": "Wähle dein neues Passwort."
+  },
+  "Couldn't confirm this link.": {
+    "bs": "Link nije moguće potvrditi.",
+    "de": "Dieser Link konnte nicht bestätigt werden."
+  },
+  "Workouts": {
+    "bs": "Treninzi",
+    "de": "Trainings"
+  },
+  "Nutrition": {
+    "bs": "Prehrana",
+    "de": "Ernährung"
+  },
+  "30-day compliance for every client": {
+    "bs": "Pridržavanje plana tokom 30 dana za svakog klijenta",
+    "de": "30-Tage-Planerfüllung für jeden Klienten"
+  },
+  "Build programs once, assign in a tap": {
+    "bs": "Kreiraj program jednom, dodijeli jednim dodirom",
+    "de": "Programme einmal erstellen und mit einem Tippen zuweisen"
+  },
+  "Reports and notes land on their home screen": {
+    "bs": "Izvještaji i bilješke stižu na početni ekran klijenta",
+    "de": "Berichte und Notizen erscheinen auf der Startseite deiner Klienten"
+  },
+  "Higher readiness estimate": {
+    "bs": "Viša procjena spremnosti",
+    "de": "Höhere geschätzte Trainingsbereitschaft"
+  },
+  "Steady readiness estimate": {
+    "bs": "Stabilna procjena spremnosti",
+    "de": "Stabile geschätzte Trainingsbereitschaft"
+  },
+  "Lower readiness estimate": {
+    "bs": "Niža procjena spremnosti",
+    "de": "Niedrigere geschätzte Trainingsbereitschaft"
+  },
+  "No data": {
+    "bs": "Nema podataka",
+    "de": "Keine Daten"
+  },
+  "Last 3 nights. Hours count most (70%), quality the rest. 8 h is full marks.": {
+    "bs": "Posljednje 3 noći. Sati imaju najveći udio (70%), a kvalitet preostali. 8 h donosi puni broj bodova.",
+    "de": "Letzte 3 Nächte. Stunden zählen am stärksten (70%), Qualität macht den Rest aus. 8 h ergeben die volle Punktzahl."
+  },
+  "Load": {
+    "bs": "Opterećenje",
+    "de": "Belastung"
+  },
+  "Recent sessions reduce this heuristic score. It does not measure your physiological recovery.": {
+    "bs": "Nedavni treninzi smanjuju ovu okvirnu ocjenu. Ona ne mjeri tvoj fiziološki oporavak.",
+    "de": "Aktuelle Trainingseinheiten verringern diesen groben Schätzwert. Er misst nicht deine physiologische Erholung."
+  },
+  "No check-ins": {
+    "bs": "Nema dnevnih prijava",
+    "de": "Keine Befindenseinträge"
+  },
+  "Your recent check-ins give your coach context on stress and energy.": {
+    "bs": "Nedavne prijave daju treneru kontekst o stresu i energiji.",
+    "de": "Deine letzten Befindenseinträge geben deinem Coach Kontext zu Stress und Energie."
+  },
+  "Week complete — recover well.": {
+    "bs": "Sedmica završena — dobro se oporavi.",
+    "de": "Woche abgeschlossen — erhole dich gut."
+  },
+  "Recover well. See you next session.": {
+    "bs": "Dobro se oporavi. Vidimo se na sljedećem treningu.",
+    "de": "Erhole dich gut. Bis zur nächsten Einheit."
+  },
+  "Log your first workout": {
+    "bs": "Zabilježi prvi trening",
+    "de": "Erstes Training erfassen"
+  },
+  "Log last night's sleep": {
+    "bs": "Zabilježi sinoćnji san",
+    "de": "Schlaf der letzten Nacht erfassen"
+  },
+  "Log a meal": {
+    "bs": "Zabilježi obrok",
+    "de": "Mahlzeit erfassen"
+  },
+  "Do a weigh-in": {
+    "bs": "Zabilježi vaganje",
+    "de": "Gewicht erfassen"
+  },
+  "Connect with your coach": {
+    "bs": "Poveži se sa svojim trenerom",
+    "de": "Mit deinem Coach verbinden"
+  },
+  "Weigh in twice to see a trend": {
+    "bs": "Zabilježi dva vaganja da vidiš trend",
+    "de": "Erfasse zwei Gewichtswerte, um einen Verlauf zu sehen"
+  },
+  "On track": {
+    "bs": "Prema planu",
+    "de": "Im Plan"
+  },
+  "Behind": {
+    "bs": "Iza plana",
+    "de": "Im Rückstand"
+  },
+  "At risk": {
+    "bs": "Zahtijeva pažnju",
+    "de": "Handlungsbedarf"
+  },
+  "your client": {
+    "bs": "tvoj klijent",
+    "de": "dein Klient"
+  },
+  "A note from their coach": {
+    "bs": "Bilješka njihovog trenera",
+    "de": "Eine Notiz von ihrem Coach"
+  },
+  "Daily health": {
+    "bs": "Svakodnevno zdravlje",
+    "de": "Tägliche Gesundheit"
+  },
+  "Plans, routines and the small things you track.": {
+    "bs": "Planovi, rutine i male stvari koje pratiš.",
+    "de": "Pläne, Routinen und die kleinen Dinge, die du erfasst."
+  },
+  "Your progress": {
+    "bs": "Tvoj napredak",
+    "de": "Dein Fortschritt"
+  },
+  "Personal targets and measurements, on your terms.": {
+    "bs": "Lični ciljevi i mjerenja, prema tvojim potrebama.",
+    "de": "Persönliche Ziele und Messwerte, nach deinen Bedürfnissen."
+  },
+  "Private tracking": {
+    "bs": "Privatno praćenje",
+    "de": "Private Erfassung"
+  },
+  "Optional records. Visible only to you.": {
+    "bs": "Opcionalni zapisi. Vidljivi samo tebi.",
+    "de": "Optionale Einträge. Nur für dich sichtbar."
+  },
+  "Discover people & places": {
+    "bs": "Otkrij ljude i mjesta",
+    "de": "Menschen und Orte entdecken"
+  },
+  "Find profiles, facilities and save useful references.": {
+    "bs": "Pronađi profile i objekte te sačuvaj korisne reference.",
+    "de": "Finde Profile und Einrichtungen und speichere hilfreiche Referenzen."
+  },
+  "Community & learning": {
+    "bs": "Zajednica i učenje",
+    "de": "Community und Lernen"
+  },
+  "Groups, conversations and source-linked education.": {
+    "bs": "Grupe, razgovori i edukacija s izvorima.",
+    "de": "Gruppen, Gespräche und Lerninhalte mit Quellenangaben."
+  },
+  "Appointments & organizations": {
+    "bs": "Termini i organizacije",
+    "de": "Termine und Organisationen"
+  },
+  "Coordinate requests and organization listings.": {
+    "bs": "Uskladi zahtjeve i zapise organizacija.",
+    "de": "Anfragen und Organisationseinträge koordinieren."
+  },
+  "Make it yours": {
+    "bs": "Prilagodi sebi",
+    "de": "Nach deinen Wünschen"
+  },
+  "Modules, display preferences and quiet hours.": {
+    "bs": "Moduli, postavke prikaza i tiho vrijeme.",
+    "de": "Module, Anzeigeeinstellungen und Ruhezeiten."
+  },
+  "Nutrition plans": {
+    "bs": "Planovi prehrane",
+    "de": "Ernährungspläne"
+  },
+  "Medication": {
+    "bs": "Lijekovi",
+    "de": "Medikamente"
+  },
+  "Cycle journal": {
+    "bs": "Dnevnik ciklusa",
+    "de": "Zyklustagebuch"
+  },
+  "Habits": {
+    "bs": "Navike",
+    "de": "Gewohnheiten"
+  },
+  "Steps": {
+    "bs": "Koraci",
+    "de": "Schritte"
+  },
+  "Check-ins": {
+    "bs": "Dnevne prijave",
+    "de": "Befindenseinträge"
+  },
+  "Experts": {
+    "bs": "Stručnjaci",
+    "de": "Fachleute"
+  },
+  "Facilities": {
+    "bs": "Objekti",
+    "de": "Einrichtungen"
+  },
+  "Reviews": {
+    "bs": "Recenzije",
+    "de": "Bewertungen"
+  },
+  "Saved items": {
+    "bs": "Sačuvane stavke",
+    "de": "Gespeicherte Elemente"
+  },
+  "Groups": {
+    "bs": "Grupe",
+    "de": "Gruppen"
+  },
+  "Community posts": {
+    "bs": "Objave zajednice",
+    "de": "Community-Beiträge"
+  },
+  "Education": {
+    "bs": "Edukacija",
+    "de": "Wissen"
+  },
+  "Reports": {
+    "bs": "Izvještaji",
+    "de": "Berichte"
+  },
+  "Blocked accounts": {
+    "bs": "Blokirani računi",
+    "de": "Blockierte Konten"
+  },
+  "Appointments": {
+    "bs": "Termini",
+    "de": "Termine"
+  },
+  "Organizations": {
+    "bs": "Organizacije",
+    "de": "Organisationen"
+  },
+  "Membership listings": {
+    "bs": "Ponude članarina",
+    "de": "Mitgliedschaftsangebote"
+  },
+  "App preferences": {
+    "bs": "Postavke aplikacije",
+    "de": "App-Einstellungen"
+  },
+  "Quiet hours": {
+    "bs": "Tiho vrijeme",
+    "de": "Ruhezeiten"
+  },
+  "Reminders": {
+    "bs": "Podsjetnici",
+    "de": "Erinnerungen"
+  },
+  "Record your own schedule and dose events. Scheduling does not send device notifications.": {
+    "bs": "Zabilježi svoj raspored i uzimanje doza. Raspored ne šalje obavijesti na uređaj.",
+    "de": "Erfasse deinen eigenen Zeitplan und deine Einnahmen. Die Planung versendet keine Gerätebenachrichtigungen."
+  },
+  "Optional, private records of your existing regimen. Keep prescribed directions from your clinician.": {
+    "bs": "Opcionalni privatni zapisi tvoje postojeće terapije. Pridržavaj se uputa svog ljekara.",
+    "de": "Optionale private Einträge zu deiner bestehenden Medikation. Befolge die verordneten Anweisungen deines Arztes."
+  },
+  "Optional private observations. No fertility or diagnostic predictions are made.": {
+    "bs": "Opcionalna privatna zapažanja. Ne daju se predviđanja plodnosti niti dijagnoze.",
+    "de": "Optionale private Beobachtungen. Es werden keine Fruchtbarkeits- oder diagnostischen Vorhersagen erstellt."
+  },
+  "Profiles and credential claims are self-reported, not independently verified.": {
+    "bs": "Profile i navode o kvalifikacijama unose korisnici; nisu nezavisno provjereni.",
+    "de": "Profile und Qualifikationsangaben sind Selbstauskünfte und nicht unabhängig geprüft."
+  },
+  "Requests remain pending until the other participant confirms. No payment is collected.": {
+    "bs": "Zahtjevi ostaju na čekanju dok ih druga osoba ne potvrdi. Plaćanje se ne vrši.",
+    "de": "Anfragen bleiben ausstehend, bis die andere Person bestätigt. Es wird keine Zahlung eingezogen."
+  },
+  "Informational pricing listings. Kinra does not process subscriptions or payments.": {
+    "bs": "Informativne ponude cijena. Kinra ne obrađuje pretplate niti plaćanja.",
+    "de": "Preise dienen der Information. Kinra verarbeitet keine Abonnements oder Zahlungen."
+  },
+  "Save reminder preferences here. Device notification delivery is not connected.": {
+    "bs": "Ovdje sačuvaj postavke podsjetnika. Dostava obavijesti na uređaj nije povezana.",
+    "de": "Speichere hier deine Erinnerungseinstellungen. Gerätebenachrichtigungen sind nicht angebunden."
+  },
+  "Store quiet hours and categories. Device notification delivery is not connected.": {
+    "bs": "Sačuvaj tiho vrijeme i kategorije. Dostava obavijesti na uređaj nije povezana.",
+    "de": "Speichere Ruhezeiten und Kategorien. Gerätebenachrichtigungen sind nicht angebunden."
+  },
+  "Choose your language, modules and display settings.": {
+    "bs": "Odaberi jezik, module i postavke prikaza.",
+    "de": "Wähle deine Sprache, Module und Anzeigeeinstellungen."
+  },
+  "Private reports are recorded for follow-up. No staffed moderation response is promised.": {
+    "bs": "Privatne prijave se čuvaju za naknadni pregled. Odgovor osoblja za moderaciju nije zagarantovan.",
+    "de": "Private Meldungen werden zur Nachverfolgung erfasst. Eine Antwort durch ein Moderationsteam wird nicht zugesichert."
+  },
+  "Value": {
+    "bs": "Vrijednost",
+    "de": "Wert"
+  },
+  "Saved record": {
+    "bs": "Sačuvani zapis",
+    "de": "Gespeicherter Eintrag"
+  },
+  "Record": {
+    "bs": "Zapis",
+    "de": "Eintrag"
+  },
+  "Record taken now": {
+    "bs": "Zabilježi uzimanje sada",
+    "de": "Einnahme jetzt erfassen"
+  },
+  "Completed for this date": {
+    "bs": "Završeno za ovaj datum",
+    "de": "Für dieses Datum abgeschlossen"
+  },
+  "Mark complete": {
+    "bs": "Označi završeno",
+    "de": "Als abgeschlossen markieren"
+  },
+  "Join publicly": {
+    "bs": "Pridruži se javno",
+    "de": "Öffentlich beitreten"
+  },
+  "Like publicly": {
+    "bs": "Označi da ti se sviđa javno",
+    "de": "Öffentlich mit Gefällt mir markieren"
+  },
+  "Save for later": {
+    "bs": "Sačuvaj za kasnije",
+    "de": "Für später speichern"
+  },
+  "Confirm request": {
+    "bs": "Potvrdi zahtjev",
+    "de": "Anfrage bestätigen"
+  },
+  "Cancel appointment": {
+    "bs": "Otkaži termin",
+    "de": "Termin absagen"
+  },
+  "Loading saved item…": {
+    "bs": "Učitavanje sačuvane stavke…",
+    "de": "Gespeichertes Element wird geladen…"
+  },
+  "Saved item no longer available": {
+    "bs": "Sačuvana stavka više nije dostupna",
+    "de": "Gespeichertes Element nicht mehr verfügbar"
+  },
+  "Language changed on this device. Could not sync it to your account. Try again.": {
+    "bs": "Jezik je promijenjen na ovom uređaju, ali nije sinhronizovan s računom. Pokušaj ponovo.",
+    "de": "Sprache auf diesem Gerät geändert. Die Synchronisierung mit deinem Konto ist fehlgeschlagen. Versuche es erneut."
+  },
+  "No complete nutrition label found for this barcode. Try another code or enter the food manually.": {
+    "bs": "Za ovaj barkod nije pronađena potpuna nutritivna deklaracija. Pokušaj drugi kod ili unesi hranu ručno.",
+    "de": "Für diesen Barcode wurden keine vollständigen Nährwertangaben gefunden. Versuche einen anderen Code oder erfasse das Lebensmittel manuell."
+  },
+  "Camera unavailable. Allow camera access or enter the barcode below.": {
+    "bs": "Kamera nije dostupna. Dozvoli pristup kameri ili unesi barkod ispod.",
+    "de": "Kamera nicht verfügbar. Erlaube den Kamerazugriff oder gib den Barcode unten ein."
+  },
+  "Front": {
+    "bs": "Sprijeda",
+    "de": "Vorne"
+  },
+  "Side": {
+    "bs": "Sa strane",
+    "de": "Seite"
+  },
+  "Side-by-side comparison": {
+    "bs": "Poređenje jedno pored drugog",
+    "de": "Vergleich nebeneinander"
+  },
+  "Drag to compare": {
+    "bs": "Povuci za poređenje",
+    "de": "Zum Vergleichen ziehen"
+  },
+  "Same light, same spot, every 2–4 weeks. Only you and your coach can see them.": {
+    "bs": "Isto svjetlo, isto mjesto, svake 2–4 sedmice. Samo ti i tvoj trener ih možete vidjeti.",
+    "de": "Gleiches Licht, gleicher Ort, alle 2–4 Wochen. Nur du und dein Coach können sie sehen."
+  },
+  "Your client hasn't added any yet.": {
+    "bs": "Tvoj klijent još nije dodao fotografije.",
+    "de": "Dein Klient hat noch keine hinzugefügt."
+  },
+  "your connection": {
+    "bs": "povezana osoba",
+    "de": "deine Verbindung"
+  },
+  "Program saved in your library, but assignment failed. Retry to assign it without creating another copy.": {
+    "bs": "Program je sačuvan u biblioteci, ali dodjela nije uspjela. Pokušaj ponovo dodijeliti bez kreiranja nove kopije.",
+    "de": "Programm in deiner Bibliothek gespeichert, aber die Zuweisung ist fehlgeschlagen. Versuche die Zuweisung erneut, ohne eine weitere Kopie zu erstellen."
+  },
+  "Couldn't save this plan. Your draft is still here; try again.": {
+    "bs": "Plan nije sačuvan. Nacrt je i dalje ovdje; pokušaj ponovo.",
+    "de": "Dieser Plan konnte nicht gespeichert werden. Dein Entwurf ist noch hier; versuche es erneut."
+  },
+  "Collapse": {
+    "bs": "Sažmi",
+    "de": "Einklappen"
+  },
+  "Open": {
+    "bs": "Otvori",
+    "de": "Öffnen"
+  },
+  "Inhale": {
+    "bs": "Udahni",
+    "de": "Einatmen"
+  },
+  "Hold": {
+    "bs": "Zadrži",
+    "de": "Halten"
+  },
+  "Exhale": {
+    "bs": "Izdahni",
+    "de": "Ausatmen"
+  },
+  "no sleep logged": {
+    "bs": "san nije zabilježen",
+    "de": "kein Schlaf erfasst"
+  },
+  "no plates": {
+    "bs": "bez ploča",
+    "de": "keine Scheiben"
+  },
+  "none recorded": {
+    "bs": "ništa nije zabilježeno",
+    "de": "nichts erfasst"
+  },
+  "KINRA · SESSION COMPLETE": {
+    "bs": "KINRA · TRENING ZAVRŠEN",
+    "de": "KINRA · TRAINING ABGESCHLOSSEN"
+  },
+  "Duration": {
+    "bs": "Trajanje",
+    "de": "Dauer"
+  },
+  "Tracked with KINRA": {
+    "bs": "Zabilježeno uz KINRU",
+    "de": "Mit KINRA erfasst"
+  },
+  "Quick session": {
+    "bs": "Brzi trening",
+    "de": "Schnelles Training"
+  },
+  "Barely moving": {
+    "bs": "Vrlo malo kretanja",
+    "de": "Kaum Bewegung"
+  },
+  "Very easy": {
+    "bs": "Vrlo lagano",
+    "de": "Sehr leicht"
+  },
+  "Easy": {
+    "bs": "Lagano",
+    "de": "Leicht"
+  },
+  "Comfortable": {
+    "bs": "Ugodno",
+    "de": "Angenehm"
+  },
+  "Moderate": {
+    "bs": "Umjereno",
+    "de": "Mäßig"
+  },
+  "Could do 4 more reps": {
+    "bs": "Moguća još 4 ponavljanja",
+    "de": "Noch 4 Wiederholungen möglich"
+  },
+  "Could do 3 more reps": {
+    "bs": "Moguća još 3 ponavljanja",
+    "de": "Noch 3 Wiederholungen möglich"
+  },
+  "Could do 2 more reps": {
+    "bs": "Moguća još 2 ponavljanja",
+    "de": "Noch 2 Wiederholungen möglich"
+  },
+  "Could do 1 more rep": {
+    "bs": "Moguće još 1 ponavljanje",
+    "de": "Noch 1 Wiederholung möglich"
+  },
+  "Max effort": {
+    "bs": "Maksimalni napor",
+    "de": "Maximale Anstrengung"
+  },
+  "Set deleted": {
+    "bs": "Serija obrisana",
+    "de": "Satz gelöscht"
+  },
+  "Rest's up": {
+    "bs": "Odmor je završen",
+    "de": "Pause vorbei"
+  },
+  "Already in this session": {
+    "bs": "Već je u ovom treningu",
+    "de": "Bereits in diesem Training"
+  },
+  "Alternative selected. Set a suitable load before starting.": {
+    "bs": "Zamjena odabrana. Postavi odgovarajuće opterećenje prije početka.",
+    "de": "Alternative ausgewählt. Lege vor dem Start eine geeignete Belastung fest."
+  },
+  "Paused at": {
+    "bs": "Pauzirano na",
+    "de": "Pausiert bei"
+  },
+  "Elapsed": {
+    "bs": "Proteklo",
+    "de": "Vergangen"
+  },
+  "Changes saved": {
+    "bs": "Promjene sačuvane",
+    "de": "Änderungen gespeichert"
+  },
+  "Find it in your downloads": {
+    "bs": "Pronađi u svojim preuzimanjima",
+    "de": "In deinen Downloads zu finden"
+  },
+  "Awful": {
+    "bs": "Vrlo loše",
+    "de": "Sehr schlecht"
+  },
+  "Low": {
+    "bs": "Nisko",
+    "de": "Niedrig"
+  },
+  "Okay": {
+    "bs": "U redu",
+    "de": "Okay"
+  },
+  "Good": {
+    "bs": "Dobro",
+    "de": "Gut"
+  },
+  "Great": {
+    "bs": "Odlično",
+    "de": "Sehr gut"
+  },
+  "Drained": {
+    "bs": "Iscrpljeno",
+    "de": "Erschöpft"
+  },
+  "Steady": {
+    "bs": "Stabilno",
+    "de": "Stabil"
+  },
+  "High": {
+    "bs": "Visoko",
+    "de": "Hoch"
+  },
+  "Wired": {
+    "bs": "Prenapeto",
+    "de": "Aufgedreht"
+  },
+  "Terrible": {
+    "bs": "Vrlo loše",
+    "de": "Sehr schlecht"
+  },
+  "Restless": {
+    "bs": "Nemirno",
+    "de": "Unruhig"
+  },
+  "Fair": {
+    "bs": "Osrednje",
+    "de": "Mittelmäßig"
+  },
+  "Restful": {
+    "bs": "Odmorno",
+    "de": "Erholsam"
+  },
+  "Deep": {
+    "bs": "Duboko",
+    "de": "Tief"
+  },
+  "Protein shake": {
+    "bs": "Proteinski napitak",
+    "de": "Proteinshake"
+  },
+  "Chicken & rice": {
+    "bs": "Piletina i riža",
+    "de": "Hähnchen mit Reis"
+  },
+  "Banana": {
+    "bs": "Banana",
+    "de": "Banane"
+  },
+  "3 eggs": {
+    "bs": "3 jaja",
+    "de": "3 Eier"
+  },
+  "Breakfast": {
+    "bs": "Doručak",
+    "de": "Frühstück"
+  },
+  "Lunch": {
+    "bs": "Ručak",
+    "de": "Mittagessen"
+  },
+  "Dinner": {
+    "bs": "Večera",
+    "de": "Abendessen"
+  },
+  "Snack": {
+    "bs": "Užina",
+    "de": "Zwischenmahlzeit"
+  },
+  "Workout": {
+    "bs": "Trening",
+    "de": "Training"
+  },
+  "Check-in": {
+    "bs": "Dnevna prijava",
+    "de": "Befinden"
+  },
+  "Your meal plans": {
+    "bs": "Tvoji planovi prehrane",
+    "de": "Deine Ernährungspläne"
+  },
+  "Supplement schedule": {
+    "bs": "Raspored suplemenata",
+    "de": "Einnahmeplan"
+  },
+  "Your habits": {
+    "bs": "Tvoje navike",
+    "de": "Deine Gewohnheiten"
+  },
+  "Estimated max": {
+    "bs": "Procijenjeni maksimum",
+    "de": "Geschätztes Maximum"
+  },
+  "First session": {
+    "bs": "Prvi trening",
+    "de": "Erstes Training"
+  },
+  "One workout recorded": {
+    "bs": "Jedan trening zabilježen",
+    "de": "Ein Training erfasst"
+  },
+  "Building momentum": {
+    "bs": "Stvaranje zamaha",
+    "de": "Im Rhythmus"
+  },
+  "10 workouts recorded": {
+    "bs": "10 treninga zabilježeno",
+    "de": "10 Trainings erfasst"
+  },
+  "Showing up": {
+    "bs": "Redovnost",
+    "de": "Dranbleiben"
+  },
+  "25 workouts recorded": {
+    "bs": "25 treninga zabilježeno",
+    "de": "25 Trainings erfasst"
+  },
+  "Tracking the trend": {
+    "bs": "Praćenje trenda",
+    "de": "Den Verlauf im Blick"
+  },
+  "5 weigh-ins recorded": {
+    "bs": "5 vaganja zabilježeno",
+    "de": "5 Gewichtseinträge erfasst"
+  },
+  "Working": {
+    "bs": "Radna serija",
+    "de": "Arbeitssatz"
+  },
+  "Drop set": {
+    "bs": "Padajuća serija",
+    "de": "Dropsatz"
+  },
+  "Failure": {
+    "bs": "Do otkaza",
+    "de": "Bis zum Muskelversagen"
+  },
+  "Full body": {
+    "bs": "Cijelo tijelo",
+    "de": "Ganzkörper"
+  },
+  "Recipient Id": {
+    "bs": "ID primaoca",
+    "de": "Empfänger-ID"
+  },
+  "Body": {
+    "bs": "Sadržaj",
+    "de": "Inhalt"
+  },
+  "Theme": {
+    "bs": "Tema",
+    "de": "Darstellung"
+  },
+  "Light": {
+    "bs": "Svijetlo",
+    "de": "Hell"
+  },
+  "Dark": {
+    "bs": "Tamno",
+    "de": "Dunkel"
+  },
+  "System": {
+    "bs": "Sistemski",
+    "de": "System"
+  },
+  "Modules": {
+    "bs": "Moduli",
+    "de": "Module"
+  },
+  "Timezone": {
+    "bs": "Vremenska zona",
+    "de": "Zeitzone"
+  },
+  "Units": {
+    "bs": "Mjerne jedinice",
+    "de": "Maßeinheiten"
+  },
+  "Metric": {
+    "bs": "Metričke",
+    "de": "Metrisch"
+  },
+  "Imperial": {
+    "bs": "Imperijalne",
+    "de": "Imperial"
+  },
+  "Title": {
+    "bs": "Naslov",
+    "de": "Titel"
+  },
+  "Meals": {
+    "bs": "Obroci",
+    "de": "Mahlzeiten"
+  },
+  "Name": {
+    "bs": "Naziv",
+    "de": "Name"
+  },
+  "Time": {
+    "bs": "Vrijeme",
+    "de": "Uhrzeit"
+  },
+  "Foods": {
+    "bs": "Namirnice",
+    "de": "Lebensmittel"
+  },
+  "Quantity": {
+    "bs": "Količina",
+    "de": "Menge"
+  },
+  "Calories": {
+    "bs": "Kalorije",
+    "de": "Kalorien"
+  },
+  "Calories Target": {
+    "bs": "Cilj kalorija",
+    "de": "Kalorienziel"
+  },
+  "Protein Target": {
+    "bs": "Cilj proteina",
+    "de": "Eiweißziel"
+  },
+  "Plan Id": {
+    "bs": "ID plana",
+    "de": "Plan-ID"
+  },
+  "Meal Index": {
+    "bs": "Redni broj obroka",
+    "de": "Mahlzeitenindex"
+  },
+  "Date": {
+    "bs": "Datum",
+    "de": "Datum"
+  },
+  "Status": {
+    "bs": "Status",
+    "de": "Status"
+  },
+  "Consumed": {
+    "bs": "Konzumirano",
+    "de": "Verzehrt"
+  },
+  "Skipped": {
+    "bs": "Preskočeno",
+    "de": "Übersprungen"
+  },
+  "Plan Snapshot": {
+    "bs": "Sačuvani plan",
+    "de": "Gespeicherter Plan"
+  },
+  "Dose": {
+    "bs": "Doza",
+    "de": "Dosis"
+  },
+  "Unit": {
+    "bs": "Jedinica",
+    "de": "Einheit"
+  },
+  "Mg": {
+    "bs": "mg",
+    "de": "mg"
+  },
+  "G": {
+    "bs": "g",
+    "de": "g"
+  },
+  "Ml": {
+    "bs": "ml",
+    "de": "ml"
+  },
+  "IU": {
+    "bs": "IJ",
+    "de": "IE"
+  },
+  "Caps": {
+    "bs": "kapsule",
+    "de": "Kapseln"
+  },
+  "Tabs": {
+    "bs": "tablete",
+    "de": "Tabletten"
+  },
+  "Scoops": {
+    "bs": "mjerice",
+    "de": "Messlöffel"
+  },
+  "Times": {
+    "bs": "Vremena",
+    "de": "Uhrzeiten"
+  },
+  "Frequency": {
+    "bs": "Učestalost",
+    "de": "Häufigkeit"
+  },
+  "Daily": {
+    "bs": "Dnevno",
+    "de": "Täglich"
+  },
+  "As Needed": {
+    "bs": "Po potrebi",
+    "de": "Bei Bedarf"
+  },
+  "Start Date": {
+    "bs": "Datum početka",
+    "de": "Startdatum"
+  },
+  "End Date": {
+    "bs": "Datum završetka",
+    "de": "Enddatum"
+  },
+  "Protocol": {
+    "bs": "Protokol",
+    "de": "Protokoll"
+  },
+  "Supplement Id": {
+    "bs": "ID suplementa",
+    "de": "Präparat-ID"
+  },
+  "Taken": {
+    "bs": "Uzeto",
+    "de": "Eingenommen"
+  },
+  "Snoozed": {
+    "bs": "Odgođeno",
+    "de": "Verschoben"
+  },
+  "Taken At": {
+    "bs": "Vrijeme uzimanja",
+    "de": "Eingenommen um"
+  },
+  "Snoozed Until": {
+    "bs": "Odgođeno do",
+    "de": "Verschoben bis"
+  },
+  "Name Snapshot": {
+    "bs": "Sačuvani naziv",
+    "de": "Gespeicherter Name"
+  },
+  "Dose Snapshot": {
+    "bs": "Sačuvana doza",
+    "de": "Gespeicherte Dosis"
+  },
+  "Unit Snapshot": {
+    "bs": "Sačuvana jedinica",
+    "de": "Gespeicherte Einheit"
+  },
+  "Type": {
+    "bs": "Vrsta",
+    "de": "Typ"
+  },
+  "Body Fat": {
+    "bs": "Tjelesna masnoća",
+    "de": "Körperfett"
+  },
+  "Waist": {
+    "bs": "Struk",
+    "de": "Taille"
+  },
+  "Hips": {
+    "bs": "Kukovi",
+    "de": "Hüfte"
+  },
+  "Chest": {
+    "bs": "Prsa",
+    "de": "Brust"
+  },
+  "Arm Flexed": {
+    "bs": "Nadlaktica u pregibu",
+    "de": "Oberarm angespannt"
+  },
+  "Arm Relaxed": {
+    "bs": "Opuštena nadlaktica",
+    "de": "Oberarm entspannt"
+  },
+  "Glute": {
+    "bs": "Gluteus",
+    "de": "Gesäß"
+  },
+  "Thigh": {
+    "bs": "Natkoljenica",
+    "de": "Oberschenkel"
+  },
+  "Forearm": {
+    "bs": "Podlaktica",
+    "de": "Unterarm"
+  },
+  "Calf": {
+    "bs": "List",
+    "de": "Wade"
+  },
+  "Shoulder": {
+    "bs": "Rame",
+    "de": "Schulter"
+  },
+  "Neck": {
+    "bs": "Vrat",
+    "de": "Hals"
+  },
+  "Kg": {
+    "bs": "kg",
+    "de": "kg"
+  },
+  "Lb": {
+    "bs": "lb",
+    "de": "lb"
+  },
+  "Cm": {
+    "bs": "cm",
+    "de": "cm"
+  },
+  "In": {
+    "bs": "in",
+    "de": "Zoll"
+  },
+  "Custom": {
+    "bs": "Prilagođeno",
+    "de": "Individuell"
+  },
+  "Baseline": {
+    "bs": "Početna vrijednost",
+    "de": "Ausgangswert"
+  },
+  "Target": {
+    "bs": "Cilj",
+    "de": "Ziel"
+  },
+  "Target Date": {
+    "bs": "Ciljni datum",
+    "de": "Zieldatum"
+  },
+  "Route": {
+    "bs": "Način primjene",
+    "de": "Anwendungsweg"
+  },
+  "Medication Id": {
+    "bs": "ID lijeka",
+    "de": "Medikament-ID"
+  },
+  "Location": {
+    "bs": "Mjesto",
+    "de": "Ort"
+  },
+  "Flow": {
+    "bs": "Krvarenje",
+    "de": "Blutung"
+  },
+  "None": {
+    "bs": "Nema",
+    "de": "Keine"
+  },
+  "Spotting": {
+    "bs": "Tačkasto krvarenje",
+    "de": "Schmierblutung"
+  },
+  "Medium": {
+    "bs": "Umjereno",
+    "de": "Mittel"
+  },
+  "Heavy": {
+    "bs": "Obilno",
+    "de": "Stark"
+  },
+  "Symptoms": {
+    "bs": "Simptomi",
+    "de": "Symptome"
+  },
+  "Weekdays": {
+    "bs": "Dani u sedmici",
+    "de": "Wochentage"
+  },
+  "Habit Id": {
+    "bs": "ID navike",
+    "de": "Gewohnheits-ID"
+  },
+  "Completed": {
+    "bs": "Završeno",
+    "de": "Abgeschlossen"
+  },
+  "Count": {
+    "bs": "Broj",
+    "de": "Anzahl"
+  },
+  "Context": {
+    "bs": "Kontekst",
+    "de": "Kontext"
+  },
+  "Morning": {
+    "bs": "Jutro",
+    "de": "Morgens"
+  },
+  "Pre Workout": {
+    "bs": "Prije treninga",
+    "de": "Vor dem Training"
+  },
+  "Post Workout": {
+    "bs": "Poslije treninga",
+    "de": "Nach dem Training"
+  },
+  "Evening": {
+    "bs": "Večer",
+    "de": "Abends"
+  },
+  "Other": {
+    "bs": "Ostalo",
+    "de": "Sonstiges"
+  },
+  "Headline": {
+    "bs": "Kratki opis",
+    "de": "Kurzbeschreibung"
+  },
+  "City": {
+    "bs": "Grad",
+    "de": "Stadt"
+  },
+  "Biography": {
+    "bs": "Biografija",
+    "de": "Biografie"
+  },
+  "Languages": {
+    "bs": "Jezici",
+    "de": "Sprachen"
+  },
+  "Specialties": {
+    "bs": "Specijalnosti",
+    "de": "Fachgebiete"
+  },
+  "Website": {
+    "bs": "Web-stranica",
+    "de": "Website"
+  },
+  "Credential Claims": {
+    "bs": "Navedene kvalifikacije",
+    "de": "Angegebene Qualifikationen"
+  },
+  "Address": {
+    "bs": "Adresa",
+    "de": "Adresse"
+  },
+  "Amenities": {
+    "bs": "Sadržaji",
+    "de": "Ausstattung"
+  },
+  "Opening Hours": {
+    "bs": "Radno vrijeme",
+    "de": "Öffnungszeiten"
+  },
+  "Price Tier": {
+    "bs": "Cjenovni razred",
+    "de": "Preisklasse"
+  },
+  "Subject Id": {
+    "bs": "ID predmeta",
+    "de": "Ziel-ID"
+  },
+  "Subject Type": {
+    "bs": "Vrsta predmeta",
+    "de": "Zieltyp"
+  },
+  "Facility": {
+    "bs": "Objekat",
+    "de": "Einrichtung"
+  },
+  "Expert": {
+    "bs": "Stručnjak",
+    "de": "Fachperson"
+  },
+  "Rating": {
+    "bs": "Ocjena",
+    "de": "Bewertung"
+  },
+  "Target Type": {
+    "bs": "Vrsta cilja",
+    "de": "Zieltyp"
+  },
+  "Program": {
+    "bs": "Program",
+    "de": "Programm"
+  },
+  "Article": {
+    "bs": "Članak",
+    "de": "Artikel"
+  },
+  "Target Id": {
+    "bs": "ID cilja",
+    "de": "Ziel-ID"
+  },
+  "Interest": {
+    "bs": "Interes",
+    "de": "Interesse"
+  },
+  "Gym": {
+    "bs": "Teretana",
+    "de": "Fitnessstudio"
+  },
+  "Club": {
+    "bs": "Klub",
+    "de": "Verein"
+  },
+  "Challenge": {
+    "bs": "Izazov",
+    "de": "Challenge"
+  },
+  "Group Id": {
+    "bs": "ID grupe",
+    "de": "Gruppen-ID"
+  },
+  "Like": {
+    "bs": "Sviđa mi se",
+    "de": "Gefällt mir"
+  },
+  "Sources": {
+    "bs": "Izvori",
+    "de": "Quellen"
+  },
+  "Updated On": {
+    "bs": "Ažurirano",
+    "de": "Aktualisiert am"
+  },
+  "Reason": {
+    "bs": "Razlog",
+    "de": "Grund"
+  },
+  "Detail": {
+    "bs": "Detalj",
+    "de": "Detail"
+  },
+  "User Id": {
+    "bs": "ID korisnika",
+    "de": "Nutzer-ID"
+  },
+  "Coach Id": {
+    "bs": "ID trenera",
+    "de": "Coach-ID"
+  },
+  "Starts At": {
+    "bs": "Početak",
+    "de": "Beginn"
+  },
+  "Ends At": {
+    "bs": "Završetak",
+    "de": "Ende"
+  },
+  "Requested": {
+    "bs": "Zatraženo",
+    "de": "Angefragt"
+  },
+  "Confirmed": {
+    "bs": "Potvrđeno",
+    "de": "Bestätigt"
+  },
+  "Cancelled": {
+    "bs": "Otkazano",
+    "de": "Abgesagt"
+  },
+  "Organization Id": {
+    "bs": "ID organizacije",
+    "de": "Organisations-ID"
+  },
+  "Amount": {
+    "bs": "Iznos",
+    "de": "Betrag"
+  },
+  "Currency": {
+    "bs": "Valuta",
+    "de": "Währung"
+  },
+  "EUR": {
+    "bs": "EUR",
+    "de": "EUR"
+  },
+  "USD": {
+    "bs": "USD",
+    "de": "USD"
+  },
+  "BAM": {
+    "bs": "BAM",
+    "de": "BAM"
+  },
+  "GBP": {
+    "bs": "GBP",
+    "de": "GBP"
+  },
+  "Period": {
+    "bs": "Period",
+    "de": "Zeitraum"
+  },
+  "Month": {
+    "bs": "Mjesec",
+    "de": "Monat"
+  },
+  "Year": {
+    "bs": "Godina",
+    "de": "Jahr"
+  },
+  "One Time": {
+    "bs": "Jednokratno",
+    "de": "Einmalig"
+  },
+  "Categories": {
+    "bs": "Kategorije",
+    "de": "Kategorien"
+  },
+  "Quiet Start": {
+    "bs": "Početak tihog vremena",
+    "de": "Beginn der Ruhezeit"
+  },
+  "Quiet End": {
+    "bs": "Kraj tihog vremena",
+    "de": "Ende der Ruhezeit"
+  },
+  "Enabled": {
+    "bs": "Omogućeno",
+    "de": "Aktiviert"
+  },
+  "Cycle": {
+    "bs": "Ciklus",
+    "de": "Zyklus"
+  },
+  "Community": {
+    "bs": "Zajednica",
+    "de": "Community"
+  },
+  "Pliometrijske": {
+    "bs": "Pliometrijske",
+    "de": "Plyometrie",
+    "en": "Plyometric"
+  },
+  "Tjelesna težina": {
+    "bs": "Tjelesna težina",
+    "de": "Körpergewicht",
+    "en": "Bodyweight"
+  },
+  "Istezanje": {
+    "bs": "Istezanje",
+    "de": "Dehnen",
+    "en": "Stretching"
+  },
+  "Mobilnost": {
+    "bs": "Mobilnost",
+    "de": "Mobilität",
+    "en": "Mobility"
+  },
+  "Funkcionalne": {
+    "bs": "Funkcionalne",
+    "de": "Funktionell",
+    "en": "Functional"
+  },
+  "Kardio": {
+    "bs": "Kardio",
+    "de": "Cardio",
+    "en": "Cardio"
+  },
+  "Rehabilitacijske": {
+    "bs": "Rehabilitacijske",
+    "de": "Rehabilitation",
+    "en": "Rehabilitation"
+  },
+  "Izolacijske": {
+    "bs": "Izolacijske",
+    "de": "Isolation",
+    "en": "Isolation"
+  },
+  "Stabilizacijske": {
+    "bs": "Stabilizacijske",
+    "de": "Stabilisation",
+    "en": "Stabilization"
+  },
+  "Zagrijavanje": {
+    "bs": "Zagrijavanje",
+    "de": "Aufwärmen",
+    "en": "Warm-up"
+  },
+  "Složene": {
+    "bs": "Složene",
+    "de": "Mehrgelenkübungen",
+    "en": "Compound"
+  },
+  "Oporavak": {
+    "bs": "Oporavak",
+    "de": "Erholung",
+    "en": "Recovery"
+  },
+  "Listovi": {
+    "bs": "Listovi",
+    "de": "Waden",
+    "en": "Calves"
+  },
+  "Trbuh": {
+    "bs": "Trbuh",
+    "de": "Bauch",
+    "en": "Abs"
+  },
+  "Ramena": {
+    "bs": "Ramena",
+    "de": "Schultern",
+    "en": "Shoulders"
+  },
+  "Širi leđni": {
+    "bs": "Širi leđni",
+    "de": "Breiter Rückenmuskel",
+    "en": "Latissimus dorsi"
+  },
+  "Aduktori kuka": {
+    "bs": "Aduktori kuka",
+    "de": "Hüftadduktoren",
+    "en": "Hip adductors"
+  },
+  "Rotatori kuka": {
+    "bs": "Rotatori kuka",
+    "de": "Hüftrotatoren",
+    "en": "Hip rotators"
+  },
+  "Bicepsi": {
+    "bs": "Bicepsi",
+    "de": "Bizeps",
+    "en": "Biceps"
+  },
+  "Brahialis": {
+    "bs": "Brahialis",
+    "de": "Brachialis",
+    "en": "Brachialis"
+  },
+  "Prednji deltoid": {
+    "bs": "Prednji deltoid",
+    "de": "Vorderer Deltamuskel",
+    "en": "Anterior deltoid"
+  },
+  "Biceps brahii": {
+    "bs": "Biceps brahii",
+    "de": "Bizeps brachii",
+    "en": "Biceps brachii"
+  },
+  "Gastroknemijus": {
+    "bs": "Gastroknemijus",
+    "de": "Gastrocnemius",
+    "en": "Gastrocnemius"
+  },
+  "Soleus": {
+    "bs": "Soleus",
+    "de": "Soleus",
+    "en": "Soleus"
+  },
+  "Abduktori kuka": {
+    "bs": "Abduktori kuka",
+    "de": "Hüftabduktoren",
+    "en": "Hip abductors"
+  },
+  "Gluteusi": {
+    "bs": "Gluteusi",
+    "de": "Gesäßmuskeln",
+    "en": "Glutes"
+  },
+  "Veliki gluteus": {
+    "bs": "Veliki gluteus",
+    "de": "Großer Gesäßmuskel",
+    "en": "Gluteus maximus"
+  },
+  "Donja leđa (erektori)": {
+    "bs": "Donja leđa (erektori)",
+    "de": "Unterer Rücken (Rückenstrecker)",
+    "en": "Lower back (erectors)"
+  },
+  "Leđa": {
+    "bs": "Leđa",
+    "de": "Rücken",
+    "en": "Back"
+  },
+  "Zadnja loža": {
+    "bs": "Zadnja loža",
+    "de": "Hintere Oberschenkel",
+    "en": "Hamstrings"
+  },
+  "Bočni deltoid": {
+    "bs": "Bočni deltoid",
+    "de": "Seitlicher Deltamuskel",
+    "en": "Lateral deltoid"
+  },
+  "Aduktori": {
+    "bs": "Aduktori",
+    "de": "Adduktoren",
+    "en": "Adductors"
+  },
+  "Podlaktice": {
+    "bs": "Podlaktice",
+    "de": "Unterarme",
+    "en": "Forearms"
+  },
+  "Srednji gluteus": {
+    "bs": "Srednji gluteus",
+    "de": "Mittlerer Gesäßmuskel",
+    "en": "Gluteus medius"
+  },
+  "Fleksori podlaktice": {
+    "bs": "Fleksori podlaktice",
+    "de": "Unterarmbeuger",
+    "en": "Forearm flexors"
+  },
+  "Kvadricepsi": {
+    "bs": "Kvadricepsi",
+    "de": "Quadrizeps",
+    "en": "Quadriceps"
+  },
+  "Trapezi": {
+    "bs": "Trapezi",
+    "de": "Trapezmuskel",
+    "en": "Trapezius"
+  },
+  "Pravi trbušni mišić": {
+    "bs": "Pravi trbušni mišić",
+    "de": "Gerader Bauchmuskel",
+    "en": "Rectus abdominis"
+  },
+  "Poprečni trbušni mišić": {
+    "bs": "Poprečni trbušni mišić",
+    "de": "Querer Bauchmuskel",
+    "en": "Transverse abdominis"
+  },
+  "Veliki prsni mišić": {
+    "bs": "Veliki prsni mišić",
+    "de": "Großer Brustmuskel",
+    "en": "Pectoralis major"
+  },
+  "Kosi trbušni mišići": {
+    "bs": "Kosi trbušni mišići",
+    "de": "Schräge Bauchmuskeln",
+    "en": "Obliques"
+  },
+  "Rotatorna manžetna": {
+    "bs": "Rotatorna manžetna",
+    "de": "Rotatorenmanschette",
+    "en": "Rotator cuff"
+  },
+  "Dijafragma": {
+    "bs": "Dijafragma",
+    "de": "Zwerchfell",
+    "en": "Diaphragm"
+  },
+  "Međurebarni mišići": {
+    "bs": "Međurebarni mišići",
+    "de": "Zwischenrippenmuskeln",
+    "en": "Intercostals"
+  },
+  "Triceps brahii": {
+    "bs": "Triceps brahii",
+    "de": "Trizeps brachii",
+    "en": "Triceps brachii"
+  },
+  "Stražnji deltoid": {
+    "bs": "Stražnji deltoid",
+    "de": "Hinterer Deltamuskel",
+    "en": "Posterior deltoid"
+  },
+  "Tricepsi": {
+    "bs": "Tricepsi",
+    "de": "Trizeps",
+    "en": "Triceps"
+  },
+  "Multifidus": {
+    "bs": "Multifidus",
+    "de": "Multifidus",
+    "en": "Multifidus"
+  },
+  "Vrat": {
+    "bs": "Vrat",
+    "de": "Nacken",
+    "en": "Neck"
+  },
+  "Ekstenzori vrata": {
+    "bs": "Ekstenzori vrata",
+    "de": "Nackenstrecker",
+    "en": "Neck extensors"
+  },
+  "Prednji nazubljeni mišić": {
+    "bs": "Prednji nazubljeni mišić",
+    "de": "Vorderer Sägemuskel",
+    "en": "Serratus anterior"
+  },
+  "Ekstenzori podlaktice": {
+    "bs": "Ekstenzori podlaktice",
+    "de": "Unterarmstrecker",
+    "en": "Forearm extensors"
+  },
+  "Prsa": {
+    "bs": "Prsa",
+    "de": "Brust",
+    "en": "Chest"
+  },
+  "Mali gluteus": {
+    "bs": "Mali gluteus",
+    "de": "Kleiner Gesäßmuskel",
+    "en": "Gluteus minimus"
+  },
+  "Karlično dno": {
+    "bs": "Karlično dno",
+    "de": "Beckenboden",
+    "en": "Pelvic floor"
+  },
+  "Biceps femoris": {
+    "bs": "Biceps femoris",
+    "de": "Bizeps femoris",
+    "en": "Biceps femoris"
+  },
+  "Zatezač široke fascije (TFL)": {
+    "bs": "Zatezač široke fascije (TFL)",
+    "de": "Schenkelbindenspanner (TFL)",
+    "en": "Tensor fasciae latae (TFL)"
+  },
+  "Abduktori": {
+    "bs": "Abduktori",
+    "de": "Abduktoren",
+    "en": "Abductors"
+  },
+  "Iliopsoas": {
+    "bs": "Iliopsoas",
+    "de": "Iliopsoas",
+    "en": "Iliopsoas"
+  },
+  "Kukovi": {
+    "bs": "Kukovi",
+    "de": "Hüften",
+    "en": "Hips"
+  },
+  "Podizač lopatice": {
+    "bs": "Podizač lopatice",
+    "de": "Schulterblattheber",
+    "en": "Levator scapulae"
+  },
+  "Peronealni mišići": {
+    "bs": "Peronealni mišići",
+    "de": "Wadenbeinmuskeln",
+    "en": "Peroneal muscles"
+  },
+  "Mišići stopala": {
+    "bs": "Mišići stopala",
+    "de": "Fußmuskeln",
+    "en": "Foot muscles"
+  },
+  "Gracilis": {
+    "bs": "Gracilis",
+    "de": "Gracilis",
+    "en": "Gracilis"
+  },
+  "Fleksori kuka": {
+    "bs": "Fleksori kuka",
+    "de": "Hüftbeuger",
+    "en": "Hip flexors"
+  },
+  "Mali prsni mišić": {
+    "bs": "Mali prsni mišić",
+    "de": "Kleiner Brustmuskel",
+    "en": "Pectoralis minor"
+  },
+  "Zadnji tibijalis": {
+    "bs": "Zadnji tibijalis",
+    "de": "Hinterer Schienbeinmuskel",
+    "en": "Tibialis posterior"
+  },
+  "Not signed in": {
+    "bs": "Nisi prijavljen/a",
+    "de": "Nicht angemeldet"
+  },
+  "Your account changed. Reopen this screen before saving.": {
+    "bs": "Račun je promijenjen. Ponovo otvori ovaj ekran prije čuvanja.",
+    "de": "Dein Konto hat sich geändert. Öffne diese Ansicht vor dem Speichern erneut."
+  },
+  "Couldn't update your photo. Try again.": {
+    "bs": "Fotografiju nije moguće ažurirati. Pokušaj ponovo.",
+    "de": "Dein Foto konnte nicht aktualisiert werden. Versuche es erneut."
+  },
+  "This entry no longer exists or cannot be removed.": {
+    "bs": "Ovaj unos više ne postoji ili ga nije moguće ukloniti.",
+    "de": "Dieser Eintrag existiert nicht mehr oder kann nicht entfernt werden."
+  },
+  "This workout couldn't be saved. Your draft is still here.": {
+    "bs": "Trening nije sačuvan. Tvoj nacrt je i dalje ovdje.",
+    "de": "Dieses Training konnte nicht gespeichert werden. Dein Entwurf ist noch hier."
+  },
+  "No coach found with that code": {
+    "bs": "Nije pronađen trener s tim kodom",
+    "de": "Kein Coach mit diesem Code gefunden"
+  },
+  "This program couldn't be updated. Your saved plan is unchanged.": {
+    "bs": "Program nije ažuriran. Sačuvani plan nije promijenjen.",
+    "de": "Dieses Programm konnte nicht aktualisiert werden. Dein gespeicherter Plan ist unverändert."
+  },
+  "Choose a JPG, PNG or WebP photo under 10 MB.": {
+    "bs": "Odaberi JPG, PNG ili WebP fotografiju manju od 10 MB.",
+    "de": "Wähle ein JPG-, PNG- oder WebP-Foto unter 10 MB."
+  },
+  "You can only remove your own photos.": {
+    "bs": "Možeš uklanjati samo svoje fotografije.",
+    "de": "Du kannst nur deine eigenen Fotos entfernen."
+  },
+  "Demo profile unavailable": {
+    "bs": "Demo profil nije dostupan",
+    "de": "Demo-Profil nicht verfügbar"
+  },
+  "This workout no longer exists.": {
+    "bs": "Ovaj trening više ne postoji.",
+    "de": "Dieses Training existiert nicht mehr."
+  },
+  "This program couldn't be updated.": {
+    "bs": "Program nije moguće ažurirati.",
+    "de": "Dieses Programm konnte nicht aktualisiert werden."
+  },
+  "This confirmation link is invalid.": {
+    "bs": "Ovaj potvrdni link nije važeći.",
+    "de": "Dieser Bestätigungslink ist ungültig."
+  },
+  "Enter an 8–14 digit food barcode.": {
+    "bs": "Unesi barkod hrane od 8–14 cifara.",
+    "de": "Gib einen Lebensmittel-Barcode mit 8–14 Ziffern ein."
+  },
+  "Food lookup is unavailable right now. Try again or enter the food manually.": {
+    "bs": "Pretraga hrane trenutno nije dostupna. Pokušaj ponovo ili unesi hranu ručno.",
+    "de": "Die Lebensmittelsuche ist derzeit nicht verfügbar. Versuche es erneut oder erfasse das Lebensmittel manuell."
+  },
+  "No sessions logged": {
+    "bs": "Nema zabilježenih treninga",
+    "de": "Keine Einheiten erfasst"
+  },
+  "Enter a weight or body fat value.": {
+    "bs": "Unesi težinu ili postotak tjelesne masnoće.",
+    "de": "Gib Gewicht oder Körperfettanteil ein."
+  },
+  "Give your program a name of up to 200 characters.": {
+    "bs": "Unesi naziv programa do 200 znakova.",
+    "de": "Gib deinem Programm einen Namen mit höchstens 200 Zeichen."
+  },
+  "Enter a whole number of weeks, from 1 to 104.": {
+    "bs": "Unesi cijeli broj sedmica, od 1 do 104.",
+    "de": "Gib eine ganze Wochenzahl zwischen 1 und 104 ein."
+  },
+  "Add 1–31 training days.": {
+    "bs": "Dodaj 1–31 dan treninga.",
+    "de": "Füge 1–31 Trainingstage hinzu."
+  },
+  "Each day needs a name and at least one exercise.": {
+    "bs": "Svaki dan treba naziv i barem jednu vježbu.",
+    "de": "Jeder Tag benötigt einen Namen und mindestens eine Übung."
+  },
+  "Give every exercise a name and rep target.": {
+    "bs": "Svakoj vježbi dodaj naziv i cilj ponavljanja.",
+    "de": "Gib jeder Übung einen Namen und ein Wiederholungsziel."
+  },
+  "Shorten the exercise name or rep target.": {
+    "bs": "Skrati naziv vježbe ili cilj ponavljanja.",
+    "de": "Kürze den Übungsnamen oder das Wiederholungsziel."
+  },
+  "Choose a catalogue exercise or clear its reference.": {
+    "bs": "Odaberi vježbu iz kataloga ili ukloni referencu.",
+    "de": "Wähle eine Katalogübung oder entferne ihre Referenz."
+  },
+  "Choose a valid training section.": {
+    "bs": "Odaberi važeći dio treninga.",
+    "de": "Wähle einen gültigen Trainingsabschnitt."
+  },
+  "Use a shorter circuit or superset name.": {
+    "bs": "Skrati naziv kružnog treninga ili superserije.",
+    "de": "Kürze den Namen des Zirkels oder Supersatzes."
+  },
+  "Use a shorter equipment note.": {
+    "bs": "Skrati bilješku o opremi.",
+    "de": "Kürze den Ausrüstungshinweis."
+  },
+  "Use up to 20 named exercise alternatives.": {
+    "bs": "Koristi do 20 imenovanih zamjena za vježbu.",
+    "de": "Verwende höchstens 20 benannte Übungsalternativen."
+  },
+  "Shorten the exercise tempo or notes.": {
+    "bs": "Skrati tempo ili bilješke vježbe.",
+    "de": "Kürze Tempo oder Notizen der Übung."
+  },
+  "Use 1–8 sets per exercise.": {
+    "bs": "Koristi 1–8 serija po vježbi.",
+    "de": "Verwende 1–8 Sätze pro Übung."
+  },
+  "Weight must be 0 kg or more. Leave blank to use previous weights.": {
+    "bs": "Težina mora biti najmanje 0 kg. Ostavi prazno za prethodne težine.",
+    "de": "Das Gewicht muss mindestens 0 kg betragen. Lass das Feld leer, um frühere Gewichte zu verwenden."
+  },
+  "Rest must be a whole number of seconds, 0 or more.": {
+    "bs": "Odmor mora biti cijeli broj sekundi, najmanje 0.",
+    "de": "Die Pause muss eine ganze Sekundenzahl ab 0 sein."
+  },
+  "Effort must be an RPE from 1 to 10.": {
+    "bs": "Napor mora biti RPE od 1 do 10.",
+    "de": "Die Anstrengung muss ein RPE-Wert von 1 bis 10 sein."
+  },
+  "End date must follow the start date.": {
+    "bs": "Datum završetka mora biti nakon datuma početka.",
+    "de": "Das Enddatum muss nach dem Startdatum liegen."
+  },
+  "Choose distinct dose times.": {
+    "bs": "Odaberi različita vremena uzimanja doza.",
+    "de": "Wähle unterschiedliche Einnahmezeiten."
+  },
+  "The measurement unit does not match its type.": {
+    "bs": "Mjerna jedinica ne odgovara vrsti mjerenja.",
+    "de": "Die Maßeinheit passt nicht zum Messtyp."
+  },
+  "Body fat must be at most 100%.": {
+    "bs": "Tjelesna masnoća može biti najviše 100%.",
+    "de": "Der Körperfettanteil darf höchstens 100% betragen."
+  },
+  "Appointment end must follow its start.": {
+    "bs": "Završetak termina mora biti nakon početka.",
+    "de": "Das Terminende muss nach dem Beginn liegen."
+  },
+  "Use an HTTP or HTTPS website.": {
+    "bs": "Koristi HTTP ili HTTPS web-stranicu.",
+    "de": "Verwende eine HTTP- oder HTTPS-Website."
+  },
+  "Use HTTP or HTTPS source links.": {
+    "bs": "Koristi HTTP ili HTTPS linkove izvora.",
+    "de": "Verwende HTTP- oder HTTPS-Quellenlinks."
+  },
+  "Choose a valid timezone.": {
+    "bs": "Odaberi važeću vremensku zonu.",
+    "de": "Wähle eine gültige Zeitzone."
+  },
+  "Please check the highlighted fields.": {
+    "bs": "Provjeri označena polja.",
+    "de": "Prüfe die markierten Felder."
+  },
+  "This field is required.": {
+    "bs": "Ovo polje je obavezno.",
+    "de": "Dieses Feld ist erforderlich."
+  },
+  "Enter a valid email address.": {
+    "bs": "Unesi važeću email adresu.",
+    "de": "Gib eine gültige E-Mail-Adresse ein."
+  },
+  "Use at least {min} characters.": {
+    "bs": "Koristi najmanje {min} znakova.",
+    "de": "Verwende mindestens {min} Zeichen."
+  },
+  "Use at most {max} characters.": {
+    "bs": "Koristi najviše {max} znakova.",
+    "de": "Verwende höchstens {max} Zeichen."
+  },
+  "Enter a number between {min} and {max}.": {
+    "bs": "Unesi broj između {min} i {max}.",
+    "de": "Gib eine Zahl zwischen {min} und {max} ein."
+  },
+  "Enter a valid value.": {
+    "bs": "Unesi važeću vrijednost.",
+    "de": "Gib einen gültigen Wert ein."
+  },
+  "Something went wrong. Please try again.": {
+    "bs": "Došlo je do greške. Pokušaj ponovo.",
+    "de": "Etwas ist schiefgelaufen. Versuche es erneut."
+  },
+  "Invalid login credentials": {
+    "bs": "Email ili lozinka nisu ispravni.",
+    "de": "E-Mail-Adresse oder Passwort ist falsch."
+  },
+  "Email not confirmed": {
+    "bs": "Email adresa nije potvrđena.",
+    "de": "Die E-Mail-Adresse ist noch nicht bestätigt."
+  },
+  "User already registered": {
+    "bs": "Ovaj račun je već registrovan.",
+    "de": "Dieses Konto ist bereits registriert."
+  },
+  "New password should be different from the old password.": {
+    "bs": "Nova lozinka mora biti različita od stare.",
+    "de": "Das neue Passwort muss sich vom alten unterscheiden."
+  },
+  "For security purposes, you can only request this after {seconds} seconds.": {
+    "bs": "Radi sigurnosti, pokušaj ponovo za {seconds} sekundi.",
+    "de": "Versuche es aus Sicherheitsgründen in {seconds} Sekunden erneut."
+  },
+  "Too many requests. Please try again later.": {
+    "bs": "Previše zahtjeva. Pokušaj kasnije.",
+    "de": "Zu viele Anfragen. Versuche es später erneut."
+  },
+  "Password should be at least 10 characters.": {
+    "bs": "Lozinka mora imati najmanje 10 znakova.",
+    "de": "Das Passwort muss mindestens 10 Zeichen enthalten."
+  },
+  "Network error. Check your connection and try again.": {
+    "bs": "Greška mreže. Provjeri vezu i pokušaj ponovo.",
+    "de": "Netzwerkfehler. Prüfe deine Verbindung und versuche es erneut."
+  },
+  "All · {p0}": {
+    "bs": "Sve · {p0}",
+    "de": "Alle · {p0}"
+  },
+  "Attention · {p0}": {
+    "bs": "Pažnja · {p0}",
+    "de": "Aufmerksamkeit · {p0}"
+  },
+  "Removed {p0}": {
+    "bs": "Uklonjeno: {p0}",
+    "de": "{p0} entfernt"
+  },
+  "{p0} minutes of training": {
+    "bs": "Minute treninga: {p0}",
+    "de": "Trainingsminuten: {p0}"
+  },
+  "Week of {p0}": {
+    "bs": "Sedmica od {p0}",
+    "de": "Woche ab {p0}"
+  },
+  "Edit {p0}, {p1}": {
+    "bs": "Uredi {p0}, {p1}",
+    "de": "{p0}, {p1} bearbeiten"
+  },
+  "You slept {p0} h {p1} a night this week than last.": {
+    "bs": "Ove sedmice spavaš {p0} h {p1} po noći nego prošle.",
+    "de": "Diese Woche hast du pro Nacht {p0} h {p1} geschlafen als letzte Woche."
+  },
+  "{p0} sessions in 7 days — on pace with last week ({p1}).": {
+    "bs": "Treninzi u 7 dana: {p0} — u ritmu prošle sedmice ({p1}).",
+    "de": "Einheiten in 7 Tagen: {p0} — im Rhythmus der Vorwoche ({p1})."
+  },
+  "{p0} sessions in 7 days, {p1} fewer than last week.": {
+    "bs": "Treninzi u 7 dana: {p0}, za {p1} manje nego prošle sedmice.",
+    "de": "Einheiten in 7 Tagen: {p0}, also {p1} weniger als letzte Woche."
+  },
+  "You're averaging {p0} g protein a day over 7 days.": {
+    "bs": "Prosječni dnevni unos proteina u 7 dana iznosi {p0} g.",
+    "de": "Deine durchschnittliche tägliche Eiweißzufuhr in 7 Tagen beträgt {p0} g."
+  },
+  "Record {p0} dose taken": {
+    "bs": "Zabilježi uzetu dozu u {p0}",
+    "de": "Einnahme der Dosis um {p0} erfassen"
+  },
+  "Group {p0} · alternate exercises, rest between rounds": {
+    "bs": "Grupa {p0} · mijenjaj vježbe, odmaraj između krugova",
+    "de": "Gruppe {p0} · Übungen abwechseln, zwischen den Runden pausieren"
+  },
+  "Next set: {p0}": {
+    "bs": "Sljedeća serija: {p0}",
+    "de": "Nächster Satz: {p0}"
+  },
+  " · {p0} kg can't be loaded": {
+    "bs": " · {p0} kg nije moguće postaviti",
+    "de": " · {p0} kg können nicht aufgelegt werden"
+  },
+  "{p0} plans ready to review": {
+    "bs": "Planovi spremni za pregled: {p0}",
+    "de": "Pläne zur Durchsicht: {p0}"
+  },
+  "{p0} schedules · record today's doses": {
+    "bs": "Rasporedi: {p0} · zabilježi današnje doze",
+    "de": "Zeitpläne: {p0} · heutige Einnahmen erfassen"
+  },
+  "{p0} habits · one step at a time": {
+    "bs": "Navike: {p0} · korak po korak",
+    "de": "Gewohnheiten: {p0} · Schritt für Schritt"
+  },
+  "kg × {p0}": {
+    "bs": "kg × {p0}",
+    "de": "kg × {p0}"
+  },
+  "No session in {p0} days": {
+    "bs": "Bez treninga {p0} dana",
+    "de": "Seit {p0} Tagen kein Training"
+  },
+  "Mood {p0}/5 · last 3 check-ins": {
+    "bs": "Raspoloženje {p0}/5 · posljednje 3 prijave",
+    "de": "Stimmung {p0}/5 · letzte 3 Einträge"
+  },
+  "Sleep {p0} h · last 3 nights": {
+    "bs": "San {p0} h · posljednje 3 noći",
+    "de": "Schlaf {p0} h · letzte 3 Nächte"
+  },
+  "Strong work{p0}. {p1} is in the books — keep building.": {
+    "bs": "Odličan rad{p0}. {p1} je završen — nastavi napredovati.",
+    "de": "Starke Arbeit{p0}. {p1} ist geschafft — bleib dran."
+  },
+  "Keep going{p0}. Every step counts.": {
+    "bs": "Samo nastavi{p0}. Svaki korak se računa.",
+    "de": "Bleib dran{p0}. Jeder Schritt zählt."
+  },
+  "Hit {p0}% of planned sessions": {
+    "bs": "Odrađeno {p0}% planiranih treninga",
+    "de": "{p0}% der geplanten Einheiten geschafft"
+  },
+  "Training volume up {p0}%": {
+    "bs": "Volumen treninga povećan za {p0}%",
+    "de": "Trainingsvolumen um {p0}% gestiegen"
+  },
+  "{p0} new personal record{p1}": {
+    "bs": "Novi lični rekordi: {p0}",
+    "de": "Neue persönliche Rekorde: {p0}"
+  },
+  "Strong sleep — {p0} h average": {
+    "bs": "Dobar san — prosječno {p0} h",
+    "de": "Guter Schlaf — durchschnittlich {p0} h"
+  },
+  "Protein on point at {p0} g/day": {
+    "bs": "Dobar unos proteina: {p0} g/dan",
+    "de": "Gute Eiweißzufuhr mit {p0} g/Tag"
+  },
+  "Only {p0} of {p1} planned sessions": {
+    "bs": "Samo {p0} od {p1} planiranih treninga",
+    "de": "Nur {p0} von {p1} geplanten Einheiten"
+  },
+  "Sleep is low at {p0} h average": {
+    "bs": "Malo sna: prosječno {p0} h",
+    "de": "Wenig Schlaf mit durchschnittlich {p0} h"
+  },
+  "Mood trending low ({p0}/5)": {
+    "bs": "Trend nižeg raspoloženja ({p0}/5)",
+    "de": "Niedriger Stimmungsverlauf ({p0}/5)"
+  },
+  "High average effort (RPE {p0}) — watch fatigue": {
+    "bs": "Visok prosječni napor (RPE {p0}) — obrati pažnju na umor",
+    "de": "Hohe durchschnittliche Anstrengung (RPE {p0}) — achte auf Ermüdung"
+  },
+  "Food logged on {p0} of {p1} days": {
+    "bs": "Prehrana zabilježena {p0} od {p1} dana",
+    "de": "Ernährung an {p0} von {p1} Tagen erfasst"
+  },
+  "Edit {name}": {
+    "bs": "Uredi: {name}",
+    "de": "{name} bearbeiten"
+  },
+  "Add {name}": {
+    "bs": "Dodaj: {name}",
+    "de": "{name} hinzufügen"
+  },
+  "Back view": {
+    "bs": "Straga",
+    "de": "Rückenansicht"
+  },
+  "h / night": {
+    "bs": "h / noć",
+    "de": "h / Nacht"
+  },
+  "sessions": {
+    "bs": "treninzi",
+    "de": "Einheiten"
+  },
+  "more": {
+    "bs": "više",
+    "de": "mehr"
+  },
+  "less": {
+    "bs": "manje",
+    "de": "weniger"
+  },
+  "{p0} hours": {
+    "bs": "{p0} sati",
+    "de": "{p0} Stunden"
+  },
+  " · average of {p0} logs": {
+    "bs": " · prosjek unosa: {p0}",
+    "de": " · Durchschnitt aus {p0} Einträgen"
+  },
+  "{p0} in 48 h": {
+    "bs": "{p0} u 48 h",
+    "de": "{p0} in 48 h"
+  },
+  "{p0}/5 recently": {
+    "bs": "{p0}/5 nedavno",
+    "de": "{p0}/5 zuletzt"
+  },
+  "{p0} h avg · {p1}/100": {
+    "bs": "{p0} h prosječno · {p1}/100",
+    "de": "{p0} h im Durchschnitt · {p1}/100"
+  },
+  "days": {
+    "bs": "dani",
+    "de": "Tage"
+  },
+  "kcal / day": {
+    "bs": "kcal / dan",
+    "de": "kcal / Tag"
+  },
+  "reps": {
+    "bs": "ponavljanja",
+    "de": "Wiederholungen"
+  },
+  " · lighter day applied": {
+    "bs": " · primijenjen lakši dan",
+    "de": " · leichter Tag angewendet"
+  },
+  "{name} skipped": {
+    "bs": "Preskočeno: {name}",
+    "de": "{name} übersprungen"
+  },
+  "{name} removed": {
+    "bs": "Uklonjeno: {name}",
+    "de": "{name} entfernt"
+  },
+  " to {date}": {
+    "bs": " do {date}",
+    "de": " bis {date}"
+  },
+  " · by {date}": {
+    "bs": " · do {date}",
+    "de": " · bis {date}"
+  },
+  "Collapse {name}": {
+    "bs": "Sažmi: {name}",
+    "de": "{name} einklappen"
+  },
+  "Open {name}": {
+    "bs": "Otvori: {name}",
+    "de": "{name} öffnen"
+  },
+  "Kinra — Training, recovery & coaching in one app": {
+    "bs": "Kinra — Trening, oporavak i trenerstvo u jednoj aplikaciji",
+    "de": "Kinra — Training, Erholung und Coaching in einer App"
+  },
+  "Today — Kinra": {
+    "bs": "Danas — Kinra",
+    "de": "Heute — Kinra"
+  },
+  "Train — Programs & personal records | Kinra": {
+    "bs": "Trening — Programi i lični rekordi | Kinra",
+    "de": "Training — Programme und persönliche Rekorde | Kinra"
+  },
+  "Fuel — Kinra": {
+    "bs": "Prehrana — Kinra",
+    "de": "Ernährung — Kinra"
+  },
+  "Recover — Kinra": {
+    "bs": "Oporavak — Kinra",
+    "de": "Erholung — Kinra"
+  },
+  "Progress — Kinra": {
+    "bs": "Napredak — Kinra",
+    "de": "Fortschritt — Kinra"
+  },
+  "Your profile — Kinra": {
+    "bs": "Tvoj profil — Kinra",
+    "de": "Dein Profil — Kinra"
+  },
+  "Programs — Kinra": {
+    "bs": "Programi — Kinra",
+    "de": "Programme — Kinra"
+  },
+  "Clients — Kinra": {
+    "bs": "Klijenti — Kinra",
+    "de": "Klienten — Kinra"
+  },
+  "Client progress — Kinra": {
+    "bs": "Napredak klijenta — Kinra",
+    "de": "Klientenfortschritt — Kinra"
+  },
+  "Sign in — Kinra": {
+    "bs": "Prijava — Kinra",
+    "de": "Anmelden — Kinra"
+  },
+  "Bench Press": {
+    "bs": "Potisak s klupe",
+    "de": "Bankdrücken"
+  },
+  "Squat": {
+    "bs": "Čučanj",
+    "de": "Kniebeuge"
+  },
+  "Deadlift": {
+    "bs": "Mrtvo dizanje",
+    "de": "Kreuzheben"
+  },
+  "Upper body": {
+    "bs": "Gornji dio tijela",
+    "de": "Oberkörper"
+  },
+  "Lower body": {
+    "bs": "Donji dio tijela",
+    "de": "Unterkörper"
+  },
+  "chest": {
+    "bs": "prsa",
+    "de": "Brust"
+  },
+  "back": {
+    "bs": "leđa",
+    "de": "Rücken"
+  },
+  "shoulders": {
+    "bs": "ramena",
+    "de": "Schultern"
+  },
+  "arms": {
+    "bs": "ruke",
+    "de": "Arme"
+  },
+  "legs": {
+    "bs": "noge",
+    "de": "Beine"
+  },
+  "core": {
+    "bs": "trup",
+    "de": "Rumpf"
+  },
+  "glutes": {
+    "bs": "gluteusi",
+    "de": "Gesäß"
+  },
+  "Notifications": {
+    "bs": "Obavijesti",
+    "de": "Benachrichtigungen"
+  },
+  "From your coach · {when}": {
+    "bs": "Od tvog trenera · {when}",
+    "de": "Von deinem Coach · {when}"
+  },
+  "Trained {when}": {
+    "bs": "Trening {when}",
+    "de": "Trainiert {when}"
+  },
+  "Coach account": {
+    "bs": "Trenerski račun",
+    "de": "Coach-Konto"
+  },
+  "Client account": {
+    "bs": "Klijentski račun",
+    "de": "Klientenkonto"
+  },
+  "Solo account": {
+    "bs": "Samostalni račun",
+    "de": "Solo-Konto"
+  },
+  "{count} in 48 h": {
+    "bs": "{count} u posljednjih 48 h",
+    "de": "{count} in 48 Std."
+  }
+}

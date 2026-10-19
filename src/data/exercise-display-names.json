@@ -1,0 +1,3892 @@
+{
+  "exercise-0001-180-jump-skok-s-okretom-za-180": {
+    "en": "180° Jump",
+    "bs": "Skok s okretom za 180°",
+    "de": "Sprung mit 180°-Drehung"
+  },
+  "exercise-0002-360-jump-skok-s-okretom-za-360": {
+    "en": "360° Jump",
+    "bs": "Skok s okretom za 360°",
+    "de": "Sprung mit 360°-Drehung"
+  },
+  "exercise-0003-ab-wheel-rollout-kotacic-za-trbuh": {
+    "en": "Ab Wheel Rollout",
+    "bs": "Kotačić za trbuh",
+    "de": "Ab-Roller"
+  },
+  "exercise-0004-active-recovery-session-aktivni-oporavak-kompletna-sesija": {
+    "en": "Active Recovery Session",
+    "bs": "Aktivni oporavak — kompletna sesija",
+    "de": "Einheit zur aktiven Erholung"
+  },
+  "exercise-0005-adductor-rock-back-ljuljanje-u-adduktor-stretch": {
+    "en": "Adductor Rock Back",
+    "bs": "Ljuljanje u adduktor stretch",
+    "de": "Adduktorenmobilisation im Vierfüßlerstand"
+  },
+  "exercise-0006-adductor-stretch-leptir-pozicija-leptir-pozicija-stretch-adduktora": {
+    "en": "Adductor Stretch — Butterfly Position",
+    "bs": "Leptir pozicija — stretch adduktora",
+    "de": "Adduktorendehnung im Schmetterlingssitz"
+  },
+  "exercise-0007-agility-ladder-fast-feet-brze-noge-na-ljestricama": {
+    "en": "Agility Ladder — Fast Feet",
+    "bs": "Brze noge na ljestricama",
+    "de": "Koordinationsleiter — schnelle Schritte"
+  },
+  "exercise-0008-air-bike-assault-bike-vazdusni-bicikl": {
+    "en": "Air Bike / Assault Bike",
+    "bs": "Vazdušni bicikl",
+    "de": "Air Bike / Assault Bike"
+  },
+  "exercise-0009-alfredson-protocol-ekscentricni-heel-drop-alfredsonov-protokol": {
+    "en": "Alfredson Protocol — Eccentric Heel Drop",
+    "bs": "Alfredsonov protokol",
+    "de": "Alfredson-Protokoll — exzentrisches Fersenabsenken"
+  },
+  "exercise-0010-alternating-dumbbell-curl": {
+    "en": "Alternating Dumbbell Curl",
+    "bs": "Naizmjenični pregib bučicama",
+    "de": "Abwechselnde Kurzhantelcurls"
+  },
+  "exercise-0011-alternating-dumbbell-front-raise": {
+    "en": "Alternating Dumbbell Front Raise",
+    "bs": "Naizmjenično prednje podizanje bučica",
+    "de": "Abwechselndes Frontheben mit Kurzhanteln"
+  },
+  "exercise-0012-alternating-feet-jump-rope-preskakanje-s-izmjenom-nogu": {
+    "en": "Alternating Feet Jump Rope",
+    "bs": "Preskakanje s izmjenom nogu",
+    "de": "Seilspringen mit wechselndem Fußaufsatz"
+  },
+  "exercise-0013-alternating-hammer-curl": {
+    "en": "Alternating Hammer Curl",
+    "bs": "Naizmjenični čekić pregib",
+    "de": "Abwechselnde Hammercurls"
+  },
+  "exercise-0014-alternating-leg-bound-naizmjenicni-jednonozni-bounding": {
+    "en": "Alternating Leg Bound",
+    "bs": "Naizmjenični jednonožni bounding",
+    "de": "Wechselseitige Sprungläufe"
+  },
+  "exercise-0015-alternating-plate-front-raise": {
+    "en": "Alternating Plate Front Raise",
+    "bs": "Naizmjenično prednje podizanje ploča",
+    "de": "Abwechselndes Frontheben mit Gewichtsscheiben"
+  },
+  "exercise-0016-altitude-drop-spustanje-s-kutije-landing-mehanika": {
+    "en": "Altitude Drop",
+    "bs": "Spuštanje s kutije — landing mehanika",
+    "de": "Absprung von der Box — Landung"
+  },
+  "exercise-0017-amrap-protokol-as-many-rounds-as-possible": {
+    "en": "AMRAP — As Many Rounds As Possible",
+    "bs": "AMRAP — što više krugova",
+    "de": "AMRAP — möglichst viele Runden"
+  },
+  "exercise-0018-ankle-alphabet-abeceda-gleznjem": {
+    "en": "Ankle Alphabet",
+    "bs": "Abeceda gležnjem",
+    "de": "Alphabet mit dem Fuß zeichnen"
+  },
+  "exercise-0019-ankle-cars-kruzne-artikulacijske-rotacije-gleznja": {
+    "en": "ANKLE CARs",
+    "bs": "Kružne artikulacijske rotacije gležnja",
+    "de": "Kontrolliertes Sprunggelenkkreisen"
+  },
+  "exercise-0020-ankle-eversion-inversion-mobilization-mobilizacija-everzije-i-inverzije-gleznja": {
+    "en": "Ankle Eversion/Inversion Mobilization",
+    "bs": "Mobilizacija everzije i inverzije gležnja",
+    "de": "Sprunggelenkmobilisation — Einwärts- und Auswärtskippen"
+  },
+  "exercise-0021-ankle-hop-skokovi-s-gleznjeva-reaktivni": {
+    "en": "Ankle Hop",
+    "bs": "Skokovi s gležnjeva — reaktivni",
+    "de": "Reaktive Sprünge aus den Sprunggelenken"
+  },
+  "exercise-0022-ankle-proprioception-program-program-propriocepcije-gleznja": {
+    "en": "Ankle Proprioception Program",
+    "bs": "Program propriocepcije gležnja",
+    "de": "Propriozeptionstraining für das Sprunggelenk"
+  },
+  "exercise-0023-ankle-rotations-kruzenje-gleznjevima": {
+    "en": "Ankle Rotations",
+    "bs": "Kruženje gležnjevima",
+    "de": "Sprunggelenkkreisen"
+  },
+  "exercise-0024-anti-rotation-press-band-kruzni-anti-rotacijski-potisak-s-elastikom": {
+    "en": "Anti-Rotation Press — Band",
+    "bs": "Kružni anti-rotacijski potisak s elastikom",
+    "de": "Antirotationsdrücken mit Widerstandsband"
+  },
+  "exercise-0025-aqua-jogging-water-walking-trcanje-u-vodi": {
+    "en": "Aqua Jogging / Water Walking",
+    "bs": "Trčanje u vodi",
+    "de": "Aquajogging / Gehen im Wasser"
+  },
+  "exercise-0026-archer-push-up-strijelicarski-sklep": {
+    "en": "Archer Push-Up",
+    "bs": "Strijeličarski sklep",
+    "de": "Archer-Liegestütz"
+  },
+  "exercise-0027-arm-circles-kruzenje-rukama": {
+    "en": "Arm Circles",
+    "bs": "Kruženje rukama",
+    "de": "Armkreisen"
+  },
+  "exercise-0028-arm-circles-with-weights-kruzenje-rukama-s-laganim-utezima": {
+    "en": "Arm Circles With Weights",
+    "bs": "Kruženje rukama s laganim utezima",
+    "de": "Armkreisen mit leichten Gewichten"
+  },
+  "exercise-0029-arm-toning-lateral-raise-oblikovanje-ruku-lateralni-podizaci": {
+    "en": "Arm Toning — Lateral Raise",
+    "bs": "Oblikovanje ruku — lateralni podizači",
+    "de": "Seitheben zur Armkräftigung"
+  },
+  "exercise-0030-arnold-press": {
+    "en": "Arnold Press",
+    "bs": "Arnoldov potisak",
+    "de": "Arnold Press"
+  },
+  "exercise-0031-assisted-nordic-curl": {
+    "en": "Assisted Nordic Curl",
+    "bs": "Nordijski pregib uz pomoć",
+    "de": "Nordic Curl mit Unterstützung"
+  },
+  "exercise-0032-asymmetric-loaded-march-hod-s-asimetricnim-opterecenjem": {
+    "en": "Asymmetric Loaded March",
+    "bs": "Hod s asimetričnim opterećenjem",
+    "de": "Marschieren mit einseitiger Belastung"
+  },
+  "exercise-0033-b-skip-b-skip-sprint-drill-s-ekstenzijom": {
+    "en": "B-Skip",
+    "bs": "B-skip — sprint drill s ekstenzijom",
+    "de": "B-Skip — Lauftechnikübung"
+  },
+  "exercise-0034-back-extension": {
+    "en": "Back Extension",
+    "bs": "Ekstenzija leđa",
+    "de": "Rückenstrecken"
+  },
+  "exercise-0035-back-squat-cucanj-sa-sipkom": {
+    "en": "Back Squat",
+    "bs": "Čučanj sa šipkom",
+    "de": "Kniebeuge mit Langhantel auf dem Rücken"
+  },
+  "exercise-0036-band-pull-apart-razvlacenje-elastike-horizontalno": {
+    "en": "Band Pull-Apart",
+    "bs": "Razvlačenje elastike — horizontalno",
+    "de": "Widerstandsband auseinanderziehen"
+  },
+  "exercise-0037-band-resisted-punch-eksplozivni-udarac-s-elastikom": {
+    "en": "Band Resisted Punch",
+    "bs": "Eksplozivni udarac s elastikom",
+    "de": "Fauststoß gegen Widerstandsband"
+  },
+  "exercise-0038-banded-ankle-distraction-dekompresija-gleznja-s-elastikom": {
+    "en": "Banded Ankle Distraction",
+    "bs": "Dekompresija gležnja s elastikom",
+    "de": "Sprunggelenktraktion mit Widerstandsband"
+  },
+  "exercise-0039-banded-shoulder-distraction-dekompresija-ramena-s-elastikom": {
+    "en": "Banded Shoulder Distraction",
+    "bs": "Dekompresija ramena s elastikom",
+    "de": "Schultertraktion mit Widerstandsband"
+  },
+  "exercise-0040-barbell-curl": {
+    "en": "Barbell Curl",
+    "bs": "Pregib šipkom",
+    "de": "Langhantelcurl"
+  },
+  "exercise-0041-barbell-front-raise": {
+    "en": "Barbell Front Raise",
+    "bs": "Prednje podizanje šipke",
+    "de": "Frontheben mit der Langhantel"
+  },
+  "exercise-0042-barbell-glute-bridge": {
+    "en": "Barbell Glute Bridge",
+    "bs": "Most za gluteus sa šipkom",
+    "de": "Beckenheben mit Langhantel"
+  },
+  "exercise-0043-barbell-high-pull": {
+    "en": "Barbell High Pull",
+    "bs": "Visoko povlačenje šipke",
+    "de": "High Pull mit Langhantel"
+  },
+  "exercise-0044-barbell-hip-thrust": {
+    "en": "Barbell Hip Thrust",
+    "bs": "Potisak kukovima sa šipkom",
+    "de": "Hip Thrust mit Langhantel"
+  },
+  "exercise-0045-barbell-lunge-iskorak-sa-sipkom": {
+    "en": "Barbell Lunge",
+    "bs": "Iskorak sa šipkom",
+    "de": "Ausfallschritt mit Langhantel"
+  },
+  "exercise-0046-barbell-shrug-slijeganje-ramenima": {
+    "en": "Barbell Shrug",
+    "bs": "Slijeganje ramenima",
+    "de": "Schulterheben mit Langhantel"
+  },
+  "exercise-0047-barbell-shrugs": {
+    "en": "Barbell Shrugs",
+    "bs": "Slijeganje ramenima sa šipkom",
+    "de": "Schulterheben mit Langhantel"
+  },
+  "exercise-0048-barbell-standing-calf-raise": {
+    "en": "Barbell Standing Calf Raise",
+    "bs": "Stojeće podizanje na prste sa šipkom",
+    "de": "Wadenheben im Stehen mit Langhantel"
+  },
+  "exercise-0049-barbell-wrist-curl": {
+    "en": "Barbell Wrist Curl",
+    "bs": "Pregib zapešća sa šipkom",
+    "de": "Handgelenkcurls mit Langhantel"
+  },
+  "exercise-0050-battle-ropes-alternating-waves-naizmjenicni-valovi": {
+    "en": "Battle Ropes — Alternating Waves",
+    "bs": "Naizmjenični valovi",
+    "de": "Battle Ropes — abwechselnde Wellen"
+  },
+  "exercise-0051-battle-ropes-double-waves-simultani-valovi": {
+    "en": "Battle Ropes — Double Waves",
+    "bs": "Simultani valovi",
+    "de": "Battle Ropes — gleichzeitige Wellen"
+  },
+  "exercise-0052-battle-ropes-rotacijski-valovi-rotacijski-valovi": {
+    "en": "Battle Ropes — Rotational Waves",
+    "bs": "Rotacijski valovi",
+    "de": "Battle Ropes — Rotationswellen"
+  },
+  "exercise-0053-bayesian-cable-curl": {
+    "en": "Bayesian Cable Curl",
+    "bs": "Bayesian pregib na sajli",
+    "de": "Bayesian Curl am Kabelzug"
+  },
+  "exercise-0054-bear-crawl-zagrijavanje-puzanje-medvjeda-za-zagrijavanje": {
+    "en": "Bear Crawl — Warm-Up",
+    "bs": "Puzanje medvjeda za zagrijavanje",
+    "de": "Bärengang zum Aufwärmen"
+  },
+  "exercise-0055-bear-crawl-puzanje-medvjeda": {
+    "en": "Bear Crawl",
+    "bs": "Puzanje medvjeda",
+    "de": "Bärengang"
+  },
+  "exercise-0056-behind-the-back-barbell-shrugs": {
+    "en": "Behind the Back Barbell Shrugs",
+    "bs": "Slijeganje ramenima sa šipkom iza leđa",
+    "de": "Schulterheben mit Langhantel hinter dem Rücken"
+  },
+  "exercise-0057-bench-cable-fly": {
+    "en": "Bench Cable Fly",
+    "bs": "Razvlačenje na sajlama ležeći na klupi",
+    "de": "Fliegende am Kabelzug auf der Bank"
+  },
+  "exercise-0058-bench-dips": {
+    "en": "Bench Dips",
+    "bs": "Propadanja na klupi",
+    "de": "Dips an der Bank"
+  },
+  "exercise-0059-bench-leg-raise": {
+    "en": "Bench Leg Raise",
+    "bs": "Podizanje nogu na klupi",
+    "de": "Beinheben auf der Bank"
+  },
+  "exercise-0060-bench-press-potisak-s-ravne-klupe": {
+    "en": "Bench Press",
+    "bs": "Potisak s ravne klupe",
+    "de": "Bankdrücken auf der Flachbank"
+  },
+  "exercise-0061-bent-over-rear-delt-row": {
+    "en": "Bent Over Rear Delt Row",
+    "bs": "Veslanje u pretklonu za stražnje rame",
+    "de": "Vorgebeugtes Rudern für die hintere Schulter"
+  },
+  "exercise-0062-bent-over-barbell-row-veslanje-sipkom-u-pregibu": {
+    "en": "Bent-Over Barbell Row",
+    "bs": "Veslanje šipkom u pregibu",
+    "de": "Vorgebeugtes Langhantelrudern"
+  },
+  "exercise-0063-biceps-curl-oblikovanje-oblikovanje-bicepsa": {
+    "en": "Biceps Curl — Toning",
+    "bs": "Oblikovanje bicepsa",
+    "de": "Bizepscurls zur Kräftigung"
+  },
+  "exercise-0064-biceps-wall-stretch-stretch-bicepsa-uz-zid": {
+    "en": "Biceps Wall Stretch",
+    "bs": "Stretch bicepsa uz zid",
+    "de": "Bizepsdehnung an der Wand"
+  },
+  "exercise-0065-bicycle-crunch-oblikovanje-struka": {
+    "en": "Bicycle Crunch — Waist Toning",
+    "bs": "Bicikl trbušnjaci za oblikovanje struka",
+    "de": "Fahrrad-Crunches für die Taille"
+  },
+  "exercise-0066-bicycle-crunch-bicikl-crunches": {
+    "en": "Bicycle Crunch",
+    "bs": "Bicikl crunches",
+    "de": "Fahrrad-Crunches"
+  },
+  "exercise-0067-bird-dog-aktivacija-pas-koji-trazi-za-aktivaciju": {
+    "en": "Bird Dog — Activation",
+    "bs": "Pas koji traži za aktivaciju",
+    "de": "Bird Dog zur Aktivierung"
+  },
+  "exercise-0068-bird-dog-pas-koji-trazi-prticicu": {
+    "en": "Bird Dog",
+    "bs": "Pas koji traži prtičicu",
+    "de": "Bird Dog"
+  },
+  "exercise-0069-body-saw-tjelesna-pila": {
+    "en": "Body Saw",
+    "bs": "Tjelesna pila",
+    "de": "Body Saw — Unterarmstütz mit Vor- und Zurückschieben"
+  },
+  "exercise-0070-bodyweight-diamond-push-up": {
+    "en": "Bodyweight Diamond Push-Up",
+    "bs": "Dijamantni sklek s tjelesnom težinom",
+    "de": "Diamant-Liegestütz mit Körpergewicht"
+  },
+  "exercise-0071-bodyweight-squat-cucanj-s-tjelesnom-tezinom": {
+    "en": "Bodyweight Squat",
+    "bs": "Čučanj s tjelesnom težinom",
+    "de": "Kniebeuge mit Körpergewicht"
+  },
+  "exercise-0072-book-opening-otvaranje-knjige": {
+    "en": "Book Opening",
+    "bs": "Otvaranje knjige",
+    "de": "Brustwirbelsäulenrotation in Seitenlage — Buch öffnen"
+  },
+  "exercise-0073-bosu-balance-jednozno-jednozna-ravnoteza-na-bosu": {
+    "en": "BOSU Balance — Single Leg",
+    "bs": "Jednožna ravnoteža na Bosu",
+    "de": "Einbeiniger Stand auf dem BOSU"
+  },
+  "exercise-0074-bosu-burpee-burpee-s-bosu-loptom": {
+    "en": "BOSU Burpee",
+    "bs": "Burpee s BOSU loptom",
+    "de": "Burpee mit BOSU"
+  },
+  "exercise-0075-bosu-glute-bridge-most-za-gluteus-na-bosu-lopti": {
+    "en": "BOSU Glute Bridge",
+    "bs": "Most za gluteus na BOSU lopti",
+    "de": "Beckenheben auf dem BOSU"
+  },
+  "exercise-0076-bosu-lunge-iskorak-na-bosu-lopti": {
+    "en": "BOSU Lunge",
+    "bs": "Iskorak na BOSU lopti",
+    "de": "Ausfallschritt auf dem BOSU"
+  },
+  "exercise-0077-bosu-mountain-climber-penjac-na-bosu-lopti": {
+    "en": "BOSU Mountain Climber",
+    "bs": "Penjač na BOSU lopti",
+    "de": "Mountain Climbers am BOSU"
+  },
+  "exercise-0078-bosu-plank-plank-na-bosu-lopti": {
+    "en": "BOSU Plank",
+    "bs": "Plank na BOSU lopti",
+    "de": "Unterarmstütz auf dem BOSU"
+  },
+  "exercise-0079-bosu-push-up-sklek-na-bosu-lopti": {
+    "en": "BOSU Push-Up",
+    "bs": "Sklek na BOSU lopti",
+    "de": "Liegestütz am BOSU"
+  },
+  "exercise-0080-bosu-single-leg-deadlift-mrtvo-dizanje-na-jednoj-nozi-na-bosu": {
+    "en": "BOSU Single-Leg Deadlift",
+    "bs": "Mrtvo dizanje na jednoj nozi na BOSU",
+    "de": "Einbeiniges Kreuzheben auf dem BOSU"
+  },
+  "exercise-0081-bosu-squat-cucanj-na-bosu-lopti": {
+    "en": "BOSU Squat",
+    "bs": "Čučanj na BOSU lopti",
+    "de": "Kniebeuge auf dem BOSU"
+  },
+  "exercise-0082-bounding-atletski-bounding-skok-korak": {
+    "en": "Bounding",
+    "bs": "Atletski bounding — skok-korak",
+    "de": "Sprunglauf"
+  },
+  "exercise-0083-box-breathing-kvadratno-disanje": {
+    "en": "Box Breathing",
+    "bs": "Kvadratno disanje",
+    "de": "Box-Atmung"
+  },
+  "exercise-0084-box-jump-skok-na-kutiju": {
+    "en": "Box Jump",
+    "bs": "Skok na kutiju",
+    "de": "Boxsprung"
+  },
+  "exercise-0085-box-jump-forward-skok-na-kutiju-s-horizontalnim-priliazom": {
+    "en": "Box Jump Forward",
+    "bs": "Skok na kutiju s horizontalnim priliazom",
+    "de": "Vorwärtssprung auf die Box"
+  },
+  "exercise-0086-box-jump-over-skok-preko-kutije": {
+    "en": "Box Jump Over",
+    "bs": "Skok preko kutije",
+    "de": "Sprung über die Box"
+  },
+  "exercise-0087-box-squat": {
+    "en": "Box Squat",
+    "bs": "Čučanj na kutiju",
+    "de": "Box-Kniebeuge"
+  },
+  "exercise-0088-box-step-step-aerobics-step-aerobik": {
+    "en": "Box Step / Step Aerobics",
+    "bs": "Step aerobik",
+    "de": "Step-Ups / Step-Aerobic"
+  },
+  "exercise-0089-boxing-kickboxing-kardio-boksacki-kardio-trening": {
+    "en": "Boxing / Kickboxing Cardio",
+    "bs": "Boksački kardio trening",
+    "de": "Boxen / Kickboxen als Cardiotraining"
+  },
+  "exercise-0090-boxing-combinations-boksacki-udarci-na-vrecu-mitts": {
+    "en": "Boxing Combinations",
+    "bs": "Boksački udarci na vreću/mitts",
+    "de": "Boxkombinationen"
+  },
+  "exercise-0091-boxing-jump-rope-drill-boksacka-vijaca-drill": {
+    "en": "Boxing Jump Rope Drill",
+    "bs": "Boksačka vijaca — drill",
+    "de": "Seilspringen für das Boxtraining"
+  },
+  "exercise-0092-broad-jump-horizontalni-skok-s-mjesta": {
+    "en": "Broad Jump",
+    "bs": "Horizontalni skok s mjesta",
+    "de": "Standweitsprung"
+  },
+  "exercise-0093-broad-jump-to-sprint-skok-u-dalj-u-sprint": {
+    "en": "Broad Jump To Sprint",
+    "bs": "Skok u dalj u sprint",
+    "de": "Standweitsprung mit anschließendem Sprint"
+  },
+  "exercise-0094-bulgarian-split-squat": {
+    "en": "Bulgarian Split Squat",
+    "bs": "Bugarski iskorak",
+    "de": "Bulgarian Split Squat"
+  },
+  "exercise-0095-burpee-kardio-burpee-kao-kardio": {
+    "en": "Burpee — Cardio",
+    "bs": "Burpee kao kardio",
+    "de": "Burpees als Cardiotraining"
+  },
+  "exercise-0096-burpee-burpi": {
+    "en": "Burpee",
+    "bs": "Burpi",
+    "de": "Burpee"
+  },
+  "exercise-0097-butt-kicks-zagrijavanje-udarci-prema-straznjici-za-zagrijavanje": {
+    "en": "Butt Kicks — Warm-Up",
+    "bs": "Udarci prema stražnjici za zagrijavanje",
+    "de": "Anfersen zum Aufwärmen"
+  },
+  "exercise-0098-butt-kicks-udarcima-prema-straznjici": {
+    "en": "Butt Kicks",
+    "bs": "Udarcima prema stražnjici",
+    "de": "Anfersen"
+  },
+  "exercise-0099-cable-behind-body-lateral-raise": {
+    "en": "Cable Behind Body Lateral Raise",
+    "bs": "Bočno podizanje na sajli iza tijela",
+    "de": "Seitheben am Kabelzug hinter dem Körper"
+  },
+  "exercise-0100-cable-biceps-curl": {
+    "en": "Cable Biceps Curl",
+    "bs": "Biceps pregib na sajli",
+    "de": "Bizepscurl am Kabelzug"
+  },
+  "exercise-0101-cable-chest-fly": {
+    "en": "Cable Chest Fly",
+    "bs": "Razvlačenje za prsa na sajlama",
+    "de": "Brustfliegende am Kabelzug"
+  },
+  "exercise-0102-cable-chest-squeeze": {
+    "en": "Cable Chest Squeeze",
+    "bs": "Stiskanje prsa na sajlama",
+    "de": "Brustzusammenführen am Kabelzug"
+  },
+  "exercise-0103-cable-crossover": {
+    "en": "Cable Crossover",
+    "bs": "Ukrštanje sajli za prsa",
+    "de": "Kabel-Crossover"
+  },
+  "exercise-0104-cable-crossover-hold": {
+    "en": "Cable Crossover Hold",
+    "bs": "Ukrštanje sajli sa zadržavanjem",
+    "de": "Kabel-Crossover mit Halten"
+  },
+  "exercise-0105-cable-crunch": {
+    "en": "Cable Crunch",
+    "bs": "Trbušnjaci na sajli",
+    "de": "Crunch am Kabelzug"
+  },
+  "exercise-0106-cable-diagonal-lat-pulldown": {
+    "en": "Cable Diagonal Lat Pulldown",
+    "bs": "Dijagonalno povlačenje na sajli za leđa",
+    "de": "Diagonaler Latzug am Kabelzug"
+  },
+  "exercise-0107-cable-fly-hold": {
+    "en": "Cable Fly Hold",
+    "bs": "Razvlačenje na sajlama sa zadržavanjem",
+    "de": "Fliegende am Kabelzug mit Halten"
+  },
+  "exercise-0108-cable-fly-partials": {
+    "en": "Cable Fly Partials",
+    "bs": "Razvlačenje na sajlama djelimičnim pokretom",
+    "de": "Fliegende am Kabelzug — Teilbewegungen"
+  },
+  "exercise-0109-cable-fly-pulsing": {
+    "en": "Cable Fly Pulsing",
+    "bs": "Razvlačenje na sajlama s pulsiranjem",
+    "de": "Fliegende am Kabelzug — pulsierend"
+  },
+  "exercise-0110-cable-front-raise": {
+    "en": "Cable Front Raise",
+    "bs": "Prednje podizanje na sajli",
+    "de": "Frontheben am Kabelzug"
+  },
+  "exercise-0111-cable-glute-kickback": {
+    "en": "Cable Glute Kickback",
+    "bs": "Opružanje noge unazad na sajli",
+    "de": "Gluteus-Kickback am Kabelzug"
+  },
+  "exercise-0112-cable-hip-abduction": {
+    "en": "Cable Hip Abduction",
+    "bs": "Odvođenje noge u stranu na sajli",
+    "de": "Hüftabduktion am Kabelzug"
+  },
+  "exercise-0113-cable-hip-adduction": {
+    "en": "Cable Hip Adduction",
+    "bs": "Primicanje noge na sajli",
+    "de": "Hüftadduktion am Kabelzug"
+  },
+  "exercise-0114-cable-lat-isolation-row": {
+    "en": "Cable Lat Isolation Row",
+    "bs": "Izolacijsko veslanje za latissimus na sajli",
+    "de": "Isoliertes Latissimus-Rudern am Kabelzug"
+  },
+  "exercise-0115-cable-lat-prayer": {
+    "en": "Cable Lat Prayer",
+    "bs": "Molitveno povlačenje na sajli za leđa",
+    "de": "Lat Prayer am Kabelzug"
+  },
+  "exercise-0116-cable-lat-sweep": {
+    "en": "Cable Lat Sweep",
+    "bs": "Lučni potez na sajli za latissimus",
+    "de": "Latissimus-Zug im Bogen am Kabelzug"
+  },
+  "exercise-0117-cable-lateral-raise": {
+    "en": "Cable Lateral Raise",
+    "bs": "Bočno podizanje na sajli",
+    "de": "Seitheben am Kabelzug"
+  },
+  "exercise-0118-cable-leg-curl": {
+    "en": "Cable Leg Curl",
+    "bs": "Pregib potkoljenice na sajli",
+    "de": "Beinbeugen am Kabelzug"
+  },
+  "exercise-0119-cable-leg-extension": {
+    "en": "Cable Leg Extension",
+    "bs": "Opružanje potkoljenice na sajli",
+    "de": "Beinstrecken am Kabelzug"
+  },
+  "exercise-0120-cable-low-angle-lat-pulldown": {
+    "en": "Cable Low Angle Lat Pulldown",
+    "bs": "Povlačenje na sajli za leđa pod niskim uglom",
+    "de": "Latzug am Kabelzug aus flachem Winkel"
+  },
+  "exercise-0121-cable-low-lat-row": {
+    "en": "Cable Low Lat Row",
+    "bs": "Nisko veslanje na sajli za leđa",
+    "de": "Tiefes Latissimus-Rudern am Kabelzug"
+  },
+  "exercise-0122-cable-one-arm-lat-row-high-angle": {
+    "en": "Cable One-Arm Lat Row — High Angle",
+    "bs": "Jednoručno veslanje za leđa pod visokim uglom",
+    "de": "Einarmiges Latissimus-Rudern am hohen Kabelzug"
+  },
+  "exercise-0123-cable-overhead-curl": {
+    "en": "Cable Overhead Curl",
+    "bs": "Biceps pregib iznad glave na sajli",
+    "de": "Überkopf-Bizepscurl am Kabelzug"
+  },
+  "exercise-0124-cable-overhead-triceps-extension": {
+    "en": "Cable Overhead Triceps Extension",
+    "bs": "Triceps opružanje iznad glave na sajli",
+    "de": "Überkopf-Trizepsstrecken am Kabelzug"
+  },
+  "exercise-0125-cable-preacher-curl": {
+    "en": "Cable Preacher Curl",
+    "bs": "Pregib na Scott klupi sa sajlom",
+    "de": "Scott-Curl am Kabelzug"
+  },
+  "exercise-0126-cable-pull-through": {
+    "en": "Cable Pull Through",
+    "bs": "Povlačenje sajle između nogu",
+    "de": "Pull-Through am Kabelzug"
+  },
+  "exercise-0127-cable-pullover-straight-bar": {
+    "en": "Cable Pullover — Straight Bar",
+    "bs": "Pulover na sajli s ravnom šipkom",
+    "de": "Überzüge am Kabelzug mit gerader Stange"
+  },
+  "exercise-0128-cable-reverse-fly": {
+    "en": "Cable Reverse Fly",
+    "bs": "Obrnuto razvlačenje na sajlama",
+    "de": "Reverse Fly am Kabelzug"
+  },
+  "exercise-0129-cable-single-arm-curl": {
+    "en": "Cable Single Arm Curl",
+    "bs": "Jednoručni pregib na sajli",
+    "de": "Einarmiger Bizepscurl am Kabelzug"
+  },
+  "exercise-0130-cable-single-arm-low-fly": {
+    "en": "Cable Single Arm Low Fly",
+    "bs": "Jednoručno razvlačenje na niskoj sajli",
+    "de": "Einarmige Fliegende am tiefen Kabelzug"
+  },
+  "exercise-0131-cable-straight-arm-lat-pulldown": {
+    "en": "Cable Straight Arm Lat Pulldown",
+    "bs": "Povlačenje za leđa ispruženim rukama na sajli",
+    "de": "Latzug mit gestreckten Armen am Kabelzug"
+  },
+  "exercise-0132-cable-straight-bar-pushdown": {
+    "en": "Cable Straight Bar Pushdown",
+    "bs": "Triceps potisak na sajli s ravnom šipkom",
+    "de": "Trizepsdrücken am Kabelzug mit gerader Stange"
+  },
+  "exercise-0133-cable-stretch-fly": {
+    "en": "Cable Stretch Fly",
+    "bs": "Razvlačenje na sajlama s naglaskom na istezanje",
+    "de": "Fliegende am Kabelzug mit Dehnfokus"
+  },
+  "exercise-0134-cable-triceps-kickback": {
+    "en": "Cable Triceps Kickback",
+    "bs": "Triceps opružanje unazad na sajli",
+    "de": "Trizeps-Kickback am Kabelzug"
+  },
+  "exercise-0135-cable-underhand-lat-pulldown": {
+    "en": "Cable Underhand Lat Pulldown",
+    "bs": "Povlačenje za leđa na sajli pothvatom",
+    "de": "Latzug im Untergriff am Kabelzug"
+  },
+  "exercise-0136-cable-upper-chest-press": {
+    "en": "Cable Upper Chest Press",
+    "bs": "Potisak za gornja prsa na sajlama",
+    "de": "Drücken für die obere Brust am Kabelzug"
+  },
+  "exercise-0137-cable-upright-row": {
+    "en": "Cable Upright Row",
+    "bs": "Uspravno veslanje na sajli",
+    "de": "Aufrechtes Rudern am Kabelzug"
+  },
+  "exercise-0138-cable-v-bar-pushdown": {
+    "en": "Cable V-Bar Pushdown",
+    "bs": "Triceps potisak na sajli s V-ručkom",
+    "de": "Trizepsdrücken mit V-Griff am Kabelzug"
+  },
+  "exercise-0139-cable-woodchop-sjecanje-drva-na-kabelu": {
+    "en": "Cable Woodchop",
+    "bs": "Sjecanje drva na kabelu",
+    "de": "Holzhacker am Kabelzug"
+  },
+  "exercise-0140-calf-raises-zagrijavanje-podizanje-na-prste-za-zagrijavanje": {
+    "en": "Calf Raises — Warm-Up",
+    "bs": "Podizanje na prste za zagrijavanje",
+    "de": "Wadenheben zum Aufwärmen"
+  },
+  "exercise-0141-calf-stretch-bent-knee-stretch-listova-savijeno-koljeno-soleus": {
+    "en": "Calf Stretch — Bent Knee",
+    "bs": "Stretch listova — savijeno koljeno — Soleus",
+    "de": "Wadendehnung mit gebeugtem Knie"
+  },
+  "exercise-0142-calf-stretch-straight-leg-stretch-listova-ispruzeno-koljeno": {
+    "en": "Calf Stretch — Straight Leg",
+    "bs": "Stretch listova — ispruženo koljeno",
+    "de": "Wadendehnung mit gestrecktem Bein"
+  },
+  "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme": {
+    "en": "Cat-Cow",
+    "bs": "Mačka-krava — aktivna fleksija/ekstenzija kičme",
+    "de": "Katze-Kuh"
+  },
+  "exercise-0144-cervical-cars-kruzne-artikulacijske-rotacije-vrata": {
+    "en": "CERVICAL CARs",
+    "bs": "Kružne artikulacijske rotacije vrata",
+    "de": "Kontrolliertes Kreisen der Halswirbelsäule"
+  },
+  "exercise-0145-cervical-retraction-retrakcija-vrata-chin-tuck": {
+    "en": "Cervical Retraction",
+    "bs": "Retrakcija vrata — chin tuck",
+    "de": "Kinn zurückziehen"
+  },
+  "exercise-0146-cervical-rotation-mobilization-aktivna-rotacija-vrata": {
+    "en": "Cervical Rotation Mobilization",
+    "bs": "Aktivna rotacija vrata",
+    "de": "Aktive Rotation der Halswirbelsäule"
+  },
+  "exercise-0147-cervical-stabilization-izometriski-program": {
+    "en": "Cervical Stabilization — Isometric Program",
+    "bs": "Izometrijski program stabilizacije vrata",
+    "de": "Isometrisches Stabilisationstraining für die Halswirbelsäule"
+  },
+  "exercise-0148-cervical-traction-samopomoc-cervikalna-trakcija-samopomoc": {
+    "en": "Cervical Traction — Self-Assisted",
+    "bs": "Cervikalna trakcija — samopomoć",
+    "de": "Halswirbelsäulentraktion zur Selbstanwendung"
+  },
+  "exercise-0149-chest-stretch-ruke-iza-le-a-stretch-prsa-ruke-iza-le-a": {
+    "en": "Chest Stretch — Arms Behind Back",
+    "bs": "Stretch prsa — ruke iza leđa",
+    "de": "Brustdehnung mit Händen hinter dem Rücken"
+  },
+  "exercise-0150-chest-supported-dumbbell-lat-row": {
+    "en": "Chest Supported Dumbbell Lat Row",
+    "bs": "Veslanje bučicama za leđa s osloncem na prsa",
+    "de": "Brustgestütztes Kurzhantelrudern für den Latissimus"
+  },
+  "exercise-0151-chest-supported-lat-machine-row": {
+    "en": "Chest Supported Lat Machine Row",
+    "bs": "Veslanje za leđa na spravi s osloncem na prsa",
+    "de": "Brustgestütztes Latissimus-Rudern an der Maschine"
+  },
+  "exercise-0152-chest-supported-row-veslanje-s-osloncem-na-prsa": {
+    "en": "Chest Supported Row",
+    "bs": "Veslanje s osloncem na prsa",
+    "de": "Brustgestütztes Rudern"
+  },
+  "exercise-0153-chest-supported-single-arm-lat-row": {
+    "en": "Chest Supported Single Arm Lat Row",
+    "bs": "Jednoručno veslanje za leđa s osloncem na prsa",
+    "de": "Einarmiges brustgestütztes Latissimus-Rudern"
+  },
+  "exercise-0154-child-s-pose-pozicija-djeteta": {
+    "en": "Child's Pose",
+    "bs": "Pozicija djeteta",
+    "de": "Kindhaltung"
+  },
+  "exercise-0155-child-s-pose-s-bocnim-dosegom-pozicija-djeteta-s-bocnim-dosegom": {
+    "en": "Child's Pose With Side Reach",
+    "bs": "Pozicija djeteta s bočnim dosegom",
+    "de": "Kindhaltung mit seitlichem Strecken"
+  },
+  "exercise-0156-chin-tuck-progression-progresija-chin-tucka": {
+    "en": "Chin Tuck Progression",
+    "bs": "Progresija chin tucka",
+    "de": "Progression beim Kinnzurückziehen"
+  },
+  "exercise-0157-chin-up-zgibovi-supinated-hvat": {
+    "en": "Chin-Up",
+    "bs": "Zgibovi — supinated hvat",
+    "de": "Klimmzug im Untergriff"
+  },
+  "exercise-0158-circuit-kardio-trening-kruzni-kardio-trening": {
+    "en": "Cardio Circuit Training",
+    "bs": "Kružni kardio trening",
+    "de": "Cardio-Zirkeltraining"
+  },
+  "exercise-0159-clamshell-aktivacija-skoljka-za-aktivaciju": {
+    "en": "Clamshell — Activation",
+    "bs": "Školjka za aktivaciju",
+    "de": "Muschel-Übung zur Aktivierung"
+  },
+  "exercise-0160-clamshell-skoljka": {
+    "en": "Clamshell",
+    "bs": "Školjka",
+    "de": "Muschel-Übung"
+  },
+  "exercise-0161-clamshell-s-mini-bandom": {
+    "en": "Clamshell With Mini Band",
+    "bs": "Otvaranje koljena u bočnom ležanju s mini trakom",
+    "de": "Muschel-Übung mit Miniband"
+  },
+  "exercise-0162-clap-push-up-sklekovi-s-pljeskom": {
+    "en": "Clap Push-Up",
+    "bs": "Sklekovi s pljeskom",
+    "de": "Liegestütz mit Klatschen"
+  },
+  "exercise-0163-clean-and-press": {
+    "en": "Clean And Press",
+    "bs": "Nabačaj i potisak",
+    "de": "Umsetzen und Drücken"
+  },
+  "exercise-0164-close-grip-bench-press-uski-potisak": {
+    "en": "Close Grip Bench Press",
+    "bs": "Uski potisak",
+    "de": "Enges Bankdrücken"
+  },
+  "exercise-0165-cns-activation-drills-aktivacija-cns-a-eksplozivni-drillovi": {
+    "en": "CNS Activation Drills",
+    "bs": "Aktivacija CNS-a — eksplozivni drillovi",
+    "de": "Explosive Aktivierungsübungen"
+  },
+  "exercise-0166-commando-pull-up-komandos-zgib": {
+    "en": "Commando Pull-Up",
+    "bs": "Komandos zgib",
+    "de": "Kommandoklimmzug"
+  },
+  "exercise-0167-concentration-curl": {
+    "en": "Concentration Curl",
+    "bs": "Koncentracijski pregib",
+    "de": "Konzentrationscurl"
+  },
+  "exercise-0168-continuous-vertical-jumps-kontinuirani-vertikalni-skokovi": {
+    "en": "Continuous Vertical Jumps",
+    "bs": "Kontinuirani vertikalni skokovi",
+    "de": "Fortlaufende Vertikalsprünge"
+  },
+  "exercise-0169-conventional-deadlift-mrtvo-dizanje": {
+    "en": "Conventional Deadlift",
+    "bs": "Mrtvo dizanje",
+    "de": "Klassisches Kreuzheben"
+  },
+  "exercise-0170-cool-down-march-i-breath-work-smirujuci-hod-i-disanje": {
+    "en": "Cool-Down March and Breath Work",
+    "bs": "Smirujući hod i disanje",
+    "de": "Lockeres Gehen und Atemübungen zum Abwärmen"
+  },
+  "exercise-0171-copenhagen-plank-kopenhagen-bocna-daska": {
+    "en": "Copenhagen Plank",
+    "bs": "Kopenhagen bočna daska",
+    "de": "Copenhagen Plank"
+  },
+  "exercise-0172-couch-stretch-sofa-stretch-hip-flexori": {
+    "en": "Couch Stretch",
+    "bs": "Sofa stretch — hip flexori",
+    "de": "Couch Stretch — Hüftbeuger"
+  },
+  "exercise-0173-countermovement-jump-cmj-skok-s-prethodnim-spustanjem": {
+    "en": "Countermovement Jump — CMJ",
+    "bs": "Skok s prethodnim spuštanjem",
+    "de": "Countermovement Jump — Sprung mit Gegenbewegung"
+  },
+  "exercise-0174-crab-walk-hodanje-rakova": {
+    "en": "Crab Walk",
+    "bs": "Hodanje rakova",
+    "de": "Krebsgang"
+  },
+  "exercise-0175-cross-body-cable-lat-pulldown": {
+    "en": "Cross Body Cable Lat Pulldown",
+    "bs": "Jednoručno povlačenje sajle preko tijela za latissimus",
+    "de": "Einarmiger Latzug über Kreuz am Kabel"
+  },
+  "exercise-0176-cross-body-cable-triceps-extension": {
+    "en": "Cross Body Cable Triceps Extension",
+    "bs": "Opružanje tricepsa preko tijela na sajli",
+    "de": "Trizepsstrecken über Kreuz am Kabel"
+  },
+  "exercise-0177-cross-body-hammer-curl": {
+    "en": "Cross Body Hammer Curl",
+    "bs": "Čekić pregib preko tijela",
+    "de": "Hammercurl über Kreuz"
+  },
+  "exercise-0178-cross-trainer-hibridizirani-hibridni-kardio-trenazer": {
+    "en": "Hybrid Cross Trainer",
+    "bs": "Hibridni kardio trenažer",
+    "de": "Hybrid-Crosstrainer"
+  },
+  "exercise-0179-cross-body-shoulder-stretch-stretch-ramena-prema-suprotnom-ramenu": {
+    "en": "Cross-Body Shoulder Stretch",
+    "bs": "Stretch ramena prema suprotnom ramenu",
+    "de": "Schulterdehnung quer vor dem Körper"
+  },
+  "exercise-0180-crunch": {
+    "en": "Crunch",
+    "bs": "Trbušnjak",
+    "de": "Crunch"
+  },
+  "exercise-0181-curtsy-lunge-iskorak-u-naklon": {
+    "en": "Curtsy Lunge",
+    "bs": "Iskorak u 'naklon'",
+    "de": "Überkreuz-Ausfallschritt"
+  },
+  "exercise-0182-cycling-voznja-biciklom-na-otvorenom-outdoor-cycling": {
+    "en": "Outdoor Cycling",
+    "bs": "Vožnja biciklom na otvorenom",
+    "de": "Radfahren im Freien"
+  },
+  "exercise-0183-dance-cardio-zumba-plesni-kardio": {
+    "en": "Dance Cardio / Zumba",
+    "bs": "Plesni kardio",
+    "de": "Tanz-Cardio / Zumba"
+  },
+  "exercise-0184-dead-bug-aktivacija-mrtva-buba-za-aktivaciju-core-a": {
+    "en": "Dead Bug — Activation",
+    "bs": "Mrtva buba za aktivaciju core-a",
+    "de": "Dead Bug zur Rumpfaktivierung"
+  },
+  "exercise-0185-dead-bug-mrtva-buba": {
+    "en": "Dead Bug",
+    "bs": "Mrtva buba",
+    "de": "Dead Bug"
+  },
+  "exercise-0186-dead-bug-s-elasticnom-trakom": {
+    "en": "Dead Bug With Resistance Band",
+    "bs": "Mrtva buba s elastičnom trakom",
+    "de": "Dead Bug mit Widerstandsband"
+  },
+  "exercise-0187-dead-hang": {
+    "en": "Dead Hang",
+    "bs": "Pasivni vis",
+    "de": "Passives Hängen"
+  },
+  "exercise-0188-deadlift": {
+    "en": "Deadlift",
+    "bs": "Mrtvo dizanje",
+    "de": "Kreuzheben"
+  },
+  "exercise-0189-decline-bench-press-spusteni-potisak-donji-dio-prsa": {
+    "en": "Decline Bench Press",
+    "bs": "Spušteni potisak — donji dio prsa",
+    "de": "Negativbankdrücken"
+  },
+  "exercise-0190-decline-cable-crossover": {
+    "en": "Decline Cable Crossover",
+    "bs": "Ukrštanje sajli na negativnoj klupi",
+    "de": "Kabel-Crossover auf der Negativbank"
+  },
+  "exercise-0191-decline-cable-fly": {
+    "en": "Decline Cable Fly",
+    "bs": "Razvlačenje na sajlama na negativnoj klupi",
+    "de": "Fliegende am Kabel auf der Negativbank"
+  },
+  "exercise-0192-decline-crunch": {
+    "en": "Decline Crunch",
+    "bs": "Trbušnjaci na negativnoj klupi",
+    "de": "Crunch auf der Negativbank"
+  },
+  "exercise-0193-decline-dumbbell-fly": {
+    "en": "Decline Dumbbell Fly",
+    "bs": "Razvlačenje bučicama na negativnoj klupi",
+    "de": "Kurzhantelfliegen auf der Negativbank"
+  },
+  "exercise-0194-decline-dumbbell-triceps-extension": {
+    "en": "Decline Dumbbell Triceps Extension",
+    "bs": "Opružanje tricepsa bučicama na negativnoj klupi",
+    "de": "Kurzhantel-Trizepsstrecken auf der Negativbank"
+  },
+  "exercise-0195-decline-machine-chest-fly": {
+    "en": "Decline Machine Chest Fly",
+    "bs": "Razvlačenje za prsa na spravi pod negativnim uglom",
+    "de": "Brustfliegen an der Maschine — negativer Winkel"
+  },
+  "exercise-0196-decline-push-up-skleka-s-nogama-gore": {
+    "en": "Decline Push-Up",
+    "bs": "Skleka s nogama gore",
+    "de": "Liegestütz mit erhöhten Füßen"
+  },
+  "exercise-0197-decline-reverse-crunch": {
+    "en": "Decline Reverse Crunch",
+    "bs": "Obrnuti trbušnjaci na negativnoj klupi",
+    "de": "Reverse Crunch auf der Negativbank"
+  },
+  "exercise-0198-deep-neck-flexor-activation-aktivacija-dubokih-fleksora-vrata": {
+    "en": "Deep Neck Flexor Activation",
+    "bs": "Aktivacija dubokih fleksora vrata",
+    "de": "Aktivierung der tiefen Halsbeuger"
+  },
+  "exercise-0199-deep-squat-hold-duboki-cucanj-staticko-drzanje": {
+    "en": "Deep Squat Hold",
+    "bs": "Duboki čučanj — statičko držanje",
+    "de": "Tiefe Kniebeuge halten"
+  },
+  "exercise-0200-deficit-dumbbell-fly": {
+    "en": "Deficit Dumbbell Fly",
+    "bs": "Razvlačenje bučicama s povećanim opsegom pokreta",
+    "de": "Kurzhantelfliegen mit vergrößertem Bewegungsumfang"
+  },
+  "exercise-0201-depth-drop-to-broad-jump-spustanje-s-kutije-u-horizontalni-skok": {
+    "en": "Depth Drop To Broad Jump",
+    "bs": "Spuštanje s kutije u horizontalni skok",
+    "de": "Tiefsprung mit anschließendem Weitsprung"
+  },
+  "exercise-0202-depth-jump-skok-s-kutije-u-skok": {
+    "en": "Depth Jump",
+    "bs": "Skok s kutije u skok",
+    "de": "Tiefsprung mit anschließendem Hochsprung"
+  },
+  "exercise-0203-diagonal-bound-dijagonalni-skok": {
+    "en": "Diagonal Bound",
+    "bs": "Dijagonalni skok",
+    "de": "Diagonaler Sprung"
+  },
+  "exercise-0204-diamond-push-up-skleka-s-dijamantskim-hvatom": {
+    "en": "Diamond Push-Up",
+    "bs": "Skleka s dijamantskim hvatom",
+    "de": "Diamant-Liegestütz"
+  },
+  "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje": {
+    "en": "Diaphragmatic Breathing",
+    "bs": "Dijafragmalno disanje",
+    "de": "Zwerchfellatmung"
+  },
+  "exercise-0206-dip-parallel-bars-dip-na-paralelnim-rukohvatima": {
+    "en": "Dip — Parallel Bars",
+    "bs": "Dip na paralelnim rukohvatima",
+    "de": "Dips am Parallelbarren"
+  },
+  "exercise-0207-dips-paralelne-rukohvati": {
+    "en": "Dips",
+    "bs": "Propadanja na paralelnim ručkama",
+    "de": "Dips"
+  },
+  "exercise-0208-donkey-calf-raise": {
+    "en": "Donkey Calf Raise",
+    "bs": "Podizanje na prste u pretklonu",
+    "de": "Donkey-Wadenheben"
+  },
+  "exercise-0209-donkey-kick-oblikovanje-straznjice": {
+    "en": "Donkey Kick — Glute Toning",
+    "bs": "Opružanje noge unazad u četveronožnom položaju za oblikovanje stražnjice",
+    "de": "Donkey Kicks zur Gesäßkräftigung"
+  },
+  "exercise-0210-donkey-kick-udarac-magareta": {
+    "en": "Donkey Kick",
+    "bs": "Udarac magareta",
+    "de": "Donkey Kick"
+  },
+  "exercise-0211-doorway-chest-stretch-stretch-prsa-u-dovratku": {
+    "en": "Doorway Chest Stretch",
+    "bs": "Stretch prsa u dovratku",
+    "de": "Brustdehnung im Türrahmen"
+  },
+  "exercise-0212-doorway-stretch-rehabilitacijski-stretch-dovratka-za-kapsulu": {
+    "en": "Doorway Stretch — Rehabilitation",
+    "bs": "Stretch dovratka za kapsulu",
+    "de": "Brustdehnung im Türrahmen — Rehabilitation"
+  },
+  "exercise-0213-double-under-dvostruki-okret-vijace": {
+    "en": "Double Under",
+    "bs": "Dvostruki okret vijače",
+    "de": "Seilspringen mit doppeltem Durchschlag"
+  },
+  "exercise-0214-drag-curl": {
+    "en": "Drag Curl",
+    "bs": "Pregib povlačenjem uz tijelo",
+    "de": "Drag Curl"
+  },
+  "exercise-0215-dragon-flag-zmajeva-zastavica": {
+    "en": "Dragon Flag",
+    "bs": "Zmajeva zastavica",
+    "de": "Dragon Flag"
+  },
+  "exercise-0216-drop-jump-continuous-reactive-strength-kontinuirani-reaktivni-skokovi": {
+    "en": "Drop Jump Continuous — Reactive Strength",
+    "bs": "Kontinuirani reaktivni skokovi",
+    "de": "Fortlaufende Tiefsprünge — Reaktivkraft"
+  },
+  "exercise-0217-dumbbell-around-the-world": {
+    "en": "Dumbbell Around The World",
+    "bs": "Kruženje bučicama u ležećem položaju",
+    "de": "Kurzhantelkreisen im Liegen"
+  },
+  "exercise-0218-dumbbell-biceps-curl": {
+    "en": "Dumbbell Biceps Curl",
+    "bs": "Pregib bicepsa bučicama",
+    "de": "Bizepscurl mit Kurzhanteln"
+  },
+  "exercise-0219-dumbbell-chest-fly": {
+    "en": "Dumbbell Chest Fly",
+    "bs": "Razvlačenje bučicama za prsa",
+    "de": "Kurzhantelfliegen"
+  },
+  "exercise-0220-dumbbell-floor-fly": {
+    "en": "Dumbbell Floor Fly",
+    "bs": "Razvlačenje bučicama na podu",
+    "de": "Kurzhantelfliegen am Boden"
+  },
+  "exercise-0221-dumbbell-floor-skull-crusher": {
+    "en": "Dumbbell Floor Skull Crusher",
+    "bs": "Opružanje tricepsa bučicama prema čelu na podu",
+    "de": "Kurzhantel-Stirndrücken am Boden"
+  },
+  "exercise-0222-dumbbell-fly-hold": {
+    "en": "Dumbbell Fly Hold",
+    "bs": "Statičko držanje razvlačenja bučicama",
+    "de": "Kurzhantelfliegen statisch halten"
+  },
+  "exercise-0223-dumbbell-front-raise": {
+    "en": "Dumbbell Front Raise",
+    "bs": "Prednje podizanje bučica",
+    "de": "Frontheben mit Kurzhanteln"
+  },
+  "exercise-0224-dumbbell-glute-bridge": {
+    "en": "Dumbbell Glute Bridge",
+    "bs": "Most za stražnjicu s bučicom",
+    "de": "Gesäßbrücke mit Kurzhantel"
+  },
+  "exercise-0225-dumbbell-lat-focus-row": {
+    "en": "Dumbbell Lat Focus Row",
+    "bs": "Veslanje bučicom s naglaskom na latissimus",
+    "de": "Kurzhantelrudern mit Latissimus-Fokus"
+  },
+  "exercise-0226-dumbbell-lat-sweep-row": {
+    "en": "Dumbbell Lat Sweep Row",
+    "bs": "Veslanje bučicom lučnom putanjom za latissimus",
+    "de": "Kurzhantelrudern mit bogenförmiger Zugbahn"
+  },
+  "exercise-0227-dumbbell-lateral-raise": {
+    "en": "Dumbbell Lateral Raise",
+    "bs": "Bočno podizanje bučica",
+    "de": "Seitheben mit Kurzhanteln"
+  },
+  "exercise-0228-dumbbell-lunges-iskoraci-s-bucicama": {
+    "en": "Dumbbell Lunges",
+    "bs": "Iskoraci s bučicama",
+    "de": "Ausfallschritte mit Kurzhanteln"
+  },
+  "exercise-0229-dumbbell-pullover": {
+    "en": "Dumbbell Pullover",
+    "bs": "Pulover bučicom",
+    "de": "Kurzhantelüberzug"
+  },
+  "exercise-0230-dumbbell-pullover-on-bench": {
+    "en": "Dumbbell Pullover on Bench",
+    "bs": "Pulover bučicom na klupi",
+    "de": "Kurzhantelüberzug auf der Bank"
+  },
+  "exercise-0231-dumbbell-reverse-fly": {
+    "en": "Dumbbell Reverse Fly",
+    "bs": "Obrnuto razvlačenje bučicama",
+    "de": "Vorgebeugtes Seitheben mit Kurzhanteln"
+  },
+  "exercise-0232-dumbbell-reverse-wrist-curl": {
+    "en": "Dumbbell Reverse Wrist Curl",
+    "bs": "Obrnuti pregib ručnog zgloba bučicama",
+    "de": "Umgekehrter Handgelenkcurl mit Kurzhanteln"
+  },
+  "exercise-0233-dumbbell-shoulder-press-sjedeci-potisak-bucicama": {
+    "en": "Dumbbell Shoulder Press",
+    "bs": "Sjedeći potisak bučicama",
+    "de": "Schulterdrücken mit Kurzhanteln im Sitzen"
+  },
+  "exercise-0234-dumbbell-shrugs": {
+    "en": "Dumbbell Shrugs",
+    "bs": "Slijeganje ramenima s bučicama",
+    "de": "Schulterheben mit Kurzhanteln"
+  },
+  "exercise-0235-dumbbell-sissy-squat": {
+    "en": "Dumbbell Sissy Squat",
+    "bs": "Sissy čučanj s bučicom",
+    "de": "Sissy Squat mit Kurzhantel"
+  },
+  "exercise-0236-dumbbell-squeeze-fly": {
+    "en": "Dumbbell Squeeze Fly",
+    "bs": "Razvlačenje bučicama uz stiskanje",
+    "de": "Kurzhantelfliegen mit Zusammendrücken"
+  },
+  "exercise-0237-dumbbell-squeeze-press": {
+    "en": "Dumbbell Squeeze Press",
+    "bs": "Potisak bučicama uz stiskanje",
+    "de": "Kurzhanteldrücken mit Zusammendrücken"
+  },
+  "exercise-0238-dumbbell-standing-calf-raise": {
+    "en": "Dumbbell Standing Calf Raise",
+    "bs": "Podizanje na prste s bučicama stojeći",
+    "de": "Wadenheben mit Kurzhanteln im Stehen"
+  },
+  "exercise-0239-dumbbell-triceps-kickback": {
+    "en": "Dumbbell Triceps Kickback",
+    "bs": "Opružanje tricepsa bučicom unazad",
+    "de": "Trizeps-Kickback mit Kurzhantel"
+  },
+  "exercise-0240-dumbbell-upright-row": {
+    "en": "Dumbbell Upright Row",
+    "bs": "Uspravno veslanje bučicama",
+    "de": "Aufrechtes Rudern mit Kurzhanteln"
+  },
+  "exercise-0241-dumbbell-wrist-curl": {
+    "en": "Dumbbell Wrist Curl",
+    "bs": "Pregib ručnog zgloba bučicama",
+    "de": "Handgelenkcurl mit Kurzhanteln"
+  },
+  "exercise-0242-dynamic-hip-flexor-lunge-dinamicki-lunge-za-hip-flexore": {
+    "en": "Dynamic Hip Flexor Lunge",
+    "bs": "Dinamički lunge za hip flexore",
+    "de": "Dynamischer Ausfallschritt für die Hüftbeuger"
+  },
+  "exercise-0243-dynamic-hip-flexor-lunge-s-rotacijom": {
+    "en": "Dynamic Hip Flexor Lunge With Rotation",
+    "bs": "Dinamički iskorak za pregibače kuka s rotacijom",
+    "de": "Dynamischer Ausfallschritt mit Rotation"
+  },
+  "exercise-0244-eccentric-heel-drop-ekscentricno-spustanje-pete-ahilova-tetiva": {
+    "en": "Eccentric Heel Drop",
+    "bs": "Ekscentrično spuštanje pete — Ahilova tetiva",
+    "de": "Exzentrisches Fersenabsenken"
+  },
+  "exercise-0245-elipticni-trenazer-elipticni-aparat": {
+    "en": "Elliptical Trainer",
+    "bs": "Eliptični trenažer",
+    "de": "Ellipsentrainer"
+  },
+  "exercise-0246-emom-protokol-every-minute-on-the-minute": {
+    "en": "EMOM Protocol",
+    "bs": "EMOM trening — svake minute u minuti",
+    "de": "EMOM-Training"
+  },
+  "exercise-0247-empty-can-full-can-prazna-puna-konzerva-supraspinatus": {
+    "en": "Empty Can / Full Can",
+    "bs": "Prazna / puna konzerva — supraspinatus",
+    "de": "Empty Can / Full Can — Schulterheben"
+  },
+  "exercise-0248-evening-relaxation-stretch-vecernja-relaksacijska-rutina": {
+    "en": "Evening Relaxation Stretch",
+    "bs": "Večernja relaksacijska rutina",
+    "de": "Entspannende Dehnroutine am Abend"
+  },
+  "exercise-0249-explosive-pull-up-eksplozivni-zgibovi": {
+    "en": "Explosive Pull-Up",
+    "bs": "Eksplozivni zgibovi",
+    "de": "Explosiver Klimmzug"
+  },
+  "exercise-0250-external-rotation-band-vanjska-rotacija-s-elastikom": {
+    "en": "External Rotation — Band",
+    "bs": "Vanjska rotacija s elastikom",
+    "de": "Schulteraußenrotation mit Band"
+  },
+  "exercise-0251-external-rotation-bocno-lezanje-vanjska-rotacija-u-lezanju": {
+    "en": "External Rotation — Side-Lying",
+    "bs": "Vanjska rotacija u ležanju",
+    "de": "Schulteraußenrotation in Seitenlage"
+  },
+  "exercise-0252-ez-bar-curl": {
+    "en": "EZ Bar Curl",
+    "bs": "Pregib bicepsa EZ šipkom",
+    "de": "Bizepscurl mit SZ-Stange"
+  },
+  "exercise-0253-ez-bar-reverse-curl": {
+    "en": "EZ Bar Reverse Curl",
+    "bs": "Obrnuti pregib EZ šipkom",
+    "de": "Umgekehrter Curl mit SZ-Stange"
+  },
+  "exercise-0254-ez-bar-skull-crusher": {
+    "en": "EZ Bar Skull Crusher",
+    "bs": "Opružanje tricepsa EZ šipkom prema čelu",
+    "de": "Stirndrücken mit SZ-Stange"
+  },
+  "exercise-0255-face-pull-kabelsko-povlacenje-prema-licu": {
+    "en": "Face Pull",
+    "bs": "Kabelsko povlačenje prema licu",
+    "de": "Face Pull am Kabelzug"
+  },
+  "exercise-0256-face-pull-s-elasticnom-trakom": {
+    "en": "Resistance Band Face Pull",
+    "bs": "Povlačenje elastične trake prema licu",
+    "de": "Face Pull mit Widerstandsband"
+  },
+  "exercise-0257-farmer-s-carry-farmer-s-walk": {
+    "en": "Farmer's Carry",
+    "bs": "Hodanje s opterećenjem u obje ruke",
+    "de": "Farmer's Walk"
+  },
+  "exercise-0258-farmer-s-walk": {
+    "en": "Farmer’s Walk",
+    "bs": "Hodanje s opterećenjem u obje ruke",
+    "de": "Farmer's Walk"
+  },
+  "exercise-0259-fartlek-trening-igra-brzine-varijabilni-tempo": {
+    "en": "Fartlek Training",
+    "bs": "Igra brzine — varijabilni tempo",
+    "de": "Fahrtspiel — Training mit Tempowechseln"
+  },
+  "exercise-0260-figure-four-stretch-lezece-stretch-broja-cetiri-lezece": {
+    "en": "Figure Four Stretch — Lying",
+    "bs": "Stretch broja četiri — ležeće",
+    "de": "Dehnung in Viererposition im Liegen"
+  },
+  "exercise-0261-figure-four-stretch-stretch-u-obliku-broja-cetiri": {
+    "en": "Figure Four Stretch",
+    "bs": "Stretch u obliku broja četiri",
+    "de": "Dehnung in Viererposition"
+  },
+  "exercise-0262-finska-sauna-suha-sauna": {
+    "en": "Finnish Sauna",
+    "bs": "Finska sauna",
+    "de": "Finnische Sauna"
+  },
+  "exercise-0263-fire-hydrant-oblikovanje-vatrogasni-hidrant-za-oblikovanje": {
+    "en": "Fire Hydrant — Glute Toning",
+    "bs": "Vatrogasni hidrant za oblikovanje",
+    "de": "Fire Hydrant zur Gesäßkräftigung"
+  },
+  "exercise-0264-fire-hydrant-vatrogasni-hidrant": {
+    "en": "Fire Hydrant",
+    "bs": "Vatrogasni hidrant",
+    "de": "Fire Hydrant"
+  },
+  "exercise-0265-flat-machine-chest-press-narrow-grip": {
+    "en": "Flat Machine Chest Press — Narrow Grip",
+    "bs": "Potisak za prsa na spravi uskim hvatom",
+    "de": "Brustpresse — enger Griff"
+  },
+  "exercise-0266-flat-machine-chest-press-wide-grip": {
+    "en": "Flat Machine Chest Press — Wide Grip",
+    "bs": "Potisak za prsa na spravi širokim hvatom",
+    "de": "Brustpresse — weiter Griff"
+  },
+  "exercise-0267-flow-mobilizacijska-sekvenca-integralna-mobilizacijska-sekvenca": {
+    "en": "Mobility Flow Sequence",
+    "bs": "Integralna mobilizacijska sekvenca",
+    "de": "Fließende Mobilisationsfolge"
+  },
+  "exercise-0268-flutter-kicks": {
+    "en": "Flutter Kicks",
+    "bs": "Naizmjenično podizanje nogu u ležanju",
+    "de": "Flatterbeinschlag"
+  },
+  "exercise-0269-foam-roller-thoracic-extension-torakalna-ekstenzija-na-foam-rolleru": {
+    "en": "Foam Roller Thoracic Extension",
+    "bs": "Torakalna ekstenzija na foam rolleru",
+    "de": "Brustwirbelsäulenstreckung auf der Faszienrolle"
+  },
+  "exercise-0270-foam-rolling-calves-foam-rolling-listova": {
+    "en": "Foam Rolling — Calves",
+    "bs": "Foam rolling listova",
+    "de": "Waden mit der Faszienrolle ausrollen"
+  },
+  "exercise-0271-foam-rolling-hamstrings-foam-rolling-hamstringa": {
+    "en": "Foam Rolling — Hamstrings",
+    "bs": "Foam rolling hamstringa",
+    "de": "Oberschenkelrückseite mit der Faszienrolle ausrollen"
+  },
+  "exercise-0272-foam-rolling-quadriceps-foam-rolling-kvadricepsa": {
+    "en": "Foam Rolling — Quadriceps",
+    "bs": "Foam rolling kvadricepsa",
+    "de": "Oberschenkelvorderseite mit der Faszienrolle ausrollen"
+  },
+  "exercise-0273-foam-rolling-upper-back-foam-rolling-gornje-le-a": {
+    "en": "Foam Rolling — Upper Back",
+    "bs": "Foam rolling gornje leđa",
+    "de": "Oberen Rücken mit der Faszienrolle ausrollen"
+  },
+  "exercise-0274-foam-rolling-full-body-protocol-foam-rolling-cijelog-tijela": {
+    "en": "Foam Rolling Full Body Protocol",
+    "bs": "Foam rolling cijelog tijela",
+    "de": "Ganzkörperroutine mit der Faszienrolle"
+  },
+  "exercise-0275-frog-pumps": {
+    "en": "Frog Pumps",
+    "bs": "Žablje podizanje kukova",
+    "de": "Frog Pumps"
+  },
+  "exercise-0276-frog-stretch-zablji-stretch": {
+    "en": "Frog Stretch",
+    "bs": "Žablji stretch",
+    "de": "Froschdehnung"
+  },
+  "exercise-0277-front-lever-progression-progresija-prednje-poluge": {
+    "en": "Front Lever Progression",
+    "bs": "Progresija prednje poluge",
+    "de": "Front-Lever-Progression"
+  },
+  "exercise-0278-front-squat-prednji-cucanj": {
+    "en": "Front Squat",
+    "bs": "Prednji čučanj",
+    "de": "Frontkniebeuge"
+  },
+  "exercise-0279-glute-activation-mini-band-walk-aktivacija-gluteusa-s-mini-trakom": {
+    "en": "Glute Activation — Mini Band Walk",
+    "bs": "Aktivacija gluteusa s mini trakom",
+    "de": "Gesäßaktivierung — Gehen mit Miniband"
+  },
+  "exercise-0280-glute-bridge-aktivacija-most-straznjice-za-aktivaciju": {
+    "en": "Glute Bridge — Activation",
+    "bs": "Most stražnjice za aktivaciju",
+    "de": "Gesäßbrücke zur Aktivierung"
+  },
+  "exercise-0281-glute-bridge-rehabilitacijski-progresivni": {
+    "en": "Glute Bridge — Progressive Rehabilitation",
+    "bs": "Most za stražnjicu — progresivna rehabilitacija",
+    "de": "Gesäßbrücke — progressive Rehabilitation"
+  },
+  "exercise-0282-glute-bridge-most-straznjice": {
+    "en": "Glute Bridge",
+    "bs": "Most stražnjice",
+    "de": "Gesäßbrücke"
+  },
+  "exercise-0283-glute-bridge-pulse-most-straznjice-s-pulsiranjem": {
+    "en": "Glute Bridge Pulse",
+    "bs": "Most stražnjice s pulsiranjem",
+    "de": "Gesäßbrücke mit kleinen Auf-und-ab-Bewegungen"
+  },
+  "exercise-0284-goblet-squat": {
+    "en": "Goblet Squat",
+    "bs": "Čučanj s utegom ispred prsa",
+    "de": "Goblet Squat"
+  },
+  "exercise-0285-good-morning": {
+    "en": "Good Morning",
+    "bs": "Pretklon s opterećenjem",
+    "de": "Good Morning"
+  },
+  "exercise-0286-hack-squat-masinski-hack-cucanj": {
+    "en": "Hack Squat",
+    "bs": "Mašinski hack čučanj",
+    "de": "Hackenschmidt-Kniebeuge"
+  },
+  "exercise-0287-half-kneeling-t-spine-rotation-polukleknuti-torakalna-rotacija": {
+    "en": "Half Kneeling T-Spine Rotation",
+    "bs": "Polukleknuti torakalna rotacija",
+    "de": "Brustwirbelsäulenrotation im Halbkniestand"
+  },
+  "exercise-0288-hammer-curl": {
+    "en": "Hammer Curl",
+    "bs": "Čekić pregib",
+    "de": "Hammercurl"
+  },
+  "exercise-0289-hamstring-curl-rehabilitacijski-rehabilitacijski-hamstring-curl": {
+    "en": "Hamstring Curl — Rehabilitation",
+    "bs": "Rehabilitacijski hamstring curl",
+    "de": "Beinbeugen — Rehabilitation"
+  },
+  "exercise-0290-hand-bike-arm-ergometar-rucni-ergometar": {
+    "en": "Hand Bike / Arm Ergometer",
+    "bs": "Ručni ergometar",
+    "de": "Handbike / Arm-Ergometer"
+  },
+  "exercise-0291-handstand-push-up-wall-skleka-u-stoju-na-rukama-uz-zid": {
+    "en": "Handstand Push-Up — Wall",
+    "bs": "Skleka u stoju na rukama uz zid",
+    "de": "Handstand-Liegestütz an der Wand"
+  },
+  "exercise-0292-hang-clean": {
+    "en": "Hang Clean",
+    "bs": "Nabačaj iz visa",
+    "de": "Hang Clean"
+  },
+  "exercise-0293-hanging-knee-raise-podizanje-koljena-na-precki": {
+    "en": "Hanging Knee Raise",
+    "bs": "Podizanje koljena na prečki",
+    "de": "Knieheben im Hang"
+  },
+  "exercise-0294-hanging-leg-raise-podizanje-nogu-na-precki": {
+    "en": "Hanging Leg Raise",
+    "bs": "Podizanje nogu na prečki",
+    "de": "Beinheben im Hang"
+  },
+  "exercise-0295-hanging-oblique-raise": {
+    "en": "Hanging Oblique Raise",
+    "bs": "Bočno podizanje nogu u visu",
+    "de": "Seitliches Beinheben im Hang"
+  },
+  "exercise-0296-heavy-rope-jump-preskakanje-s-teskom-vijacom": {
+    "en": "Heavy Rope Jump",
+    "bs": "Preskakanje s teškom vijacom",
+    "de": "Seilspringen mit schwerem Seil"
+  },
+  "exercise-0297-heel-to-toe-walking-rehab-rehabilitacijski-hod-peta-prsti": {
+    "en": "Heel-To-Toe Walking Rehab",
+    "bs": "Rehabilitacijski hod peta-prsti",
+    "de": "Fersen-Zehen-Gang — Rehabilitation"
+  },
+  "exercise-0298-hex-bar-jump-skok-s-trap-bar-sipkom": {
+    "en": "Hex Bar Jump",
+    "bs": "Skok s trap bar šipkom",
+    "de": "Sprung mit Trap Bar"
+  },
+  "exercise-0299-high-cable-curl": {
+    "en": "High Cable Curl",
+    "bs": "Pregib bicepsa na visokoj sajli",
+    "de": "Bizepscurl am hohen Kabelzug"
+  },
+  "exercise-0300-high-knees-zagrijavanje-visoka-koljena-za-zagrijavanje": {
+    "en": "High Knees — Warm-Up",
+    "bs": "Visoka koljena za zagrijavanje",
+    "de": "Kniehebelauf zum Aufwärmen"
+  },
+  "exercise-0301-high-knees-visoka-koljena-trcanje-u-mjestu": {
+    "en": "High Knees",
+    "bs": "Visoka koljena — trčanje u mjestu",
+    "de": "Kniehebelauf"
+  },
+  "exercise-0302-high-plank-dlanovi-plank-na-dlanovima": {
+    "en": "High Plank — Hands",
+    "bs": "Plank na dlanovima",
+    "de": "Hoher Plank auf den Händen"
+  },
+  "exercise-0303-high-to-low-cable-fly": {
+    "en": "High To Low Cable Fly",
+    "bs": "Razvlačenje na sajlama odozgo prema dolje",
+    "de": "Fliegende am Kabel von oben nach unten"
+  },
+  "exercise-0304-hiit-tabata-protokol-visoko-intenzivni-intervalni-trening": {
+    "en": "HIIT — Tabata Protocol",
+    "bs": "Visoko-intenzivni intervalni trening",
+    "de": "HIIT — Tabata-Protokoll"
+  },
+  "exercise-0305-hip-90-90-devedeset-devedeset-pozicija-kuka": {
+    "en": "Hip 90/90",
+    "bs": "Devedeset-devedeset pozicija kuka",
+    "de": "90/90-Hüftsitz"
+  },
+  "exercise-0306-hip-abduction-rehabilitacijska-rehabilitacijska-abdukcija-kuka": {
+    "en": "Hip Abduction — Rehabilitation",
+    "bs": "Rehabilitacijska abdukcija kuka",
+    "de": "Hüftabduktion — Rehabilitation"
+  },
+  "exercise-0307-hip-abduction-machine": {
+    "en": "Hip Abduction — Machine",
+    "bs": "Odvođenje nogu na spravi",
+    "de": "Hüftabduktion an der Maschine"
+  },
+  "exercise-0308-hip-abduction-maschine": {
+    "en": "Hip Abduction — Machine",
+    "bs": "Odvođenje nogu na spravi",
+    "de": "Hüftabduktion an der Maschine"
+  },
+  "exercise-0309-hip-adduction-machine": {
+    "en": "Hip Adduction — Machine",
+    "bs": "Primicanje nogu na spravi",
+    "de": "Hüftadduktion an der Maschine"
+  },
+  "exercise-0310-hip-airplane-avion-rotacija-kuka": {
+    "en": "Hip Airplane",
+    "bs": "Avion rotacija kuka",
+    "de": "Hip Airplane — Hüftrotation im Einbeinstand"
+  },
+  "exercise-0311-hip-cars-kruzne-artikulacijske-rotacije-kuka": {
+    "en": "HIP CARs",
+    "bs": "Kružne artikulacijske rotacije kuka",
+    "de": "Kontrollierte Hüftkreise"
+  },
+  "exercise-0312-hip-circles-kruzenje-kukovima": {
+    "en": "Hip Circles",
+    "bs": "Kruženje kukovima",
+    "de": "Hüftkreisen"
+  },
+  "exercise-0313-hip-extension-machine": {
+    "en": "Hip Extension Machine",
+    "bs": "Opružanje kuka na spravi",
+    "de": "Hüftstrecken an der Maschine"
+  },
+  "exercise-0314-hip-flexor-progressive-stretch-progresivni-hip-flexor-stretch": {
+    "en": "Hip Flexor Progressive Stretch",
+    "bs": "Progresivni hip flexor stretch",
+    "de": "Progressive Hüftbeugerdehnung"
+  },
+  "exercise-0315-hip-flexor-stretch-klek-stretch-hip-flexora-u-kleku": {
+    "en": "Hip Flexor Stretch — Kneeling",
+    "bs": "Stretch hip flexora u kleku",
+    "de": "Hüftbeugerdehnung im Kniestand"
+  },
+  "exercise-0316-hip-hinge-rehabilitacijska-edukacija-edukacija-hip-hinge-a": {
+    "en": "Hip Hinge — Rehabilitation Education",
+    "bs": "Edukacija hip hinge-a",
+    "de": "Bewegungsschulung zum Hüftknick"
+  },
+  "exercise-0317-hollow-body-hold-suplje-tijelo-staticki": {
+    "en": "Hollow Body Hold",
+    "bs": "Šuplje tijelo — statički",
+    "de": "Hollow Body Hold"
+  },
+  "exercise-0318-hollow-hold": {
+    "en": "Hollow Hold",
+    "bs": "Statičko držanje šupljeg tijela",
+    "de": "Hollow Hold"
+  },
+  "exercise-0319-human-flag-progression-progresija-ljudske-zastavice": {
+    "en": "Human Flag Progression",
+    "bs": "Progresija ljudske zastavice",
+    "de": "Human-Flag-Progression"
+  },
+  "exercise-0320-hurdle-hop-preskakivanje-prepreka": {
+    "en": "Hurdle Hop",
+    "bs": "Preskakivanje prepreka",
+    "de": "Hürdensprung"
+  },
+  "exercise-0321-hurdle-jump-horizontal-preskakivanje-prepreka-horizontalno": {
+    "en": "Hurdle Jump — Horizontal",
+    "bs": "Preskakivanje prepreka horizontalno",
+    "de": "Horizontaler Hürdensprung"
+  },
+  "exercise-0322-hyperextension": {
+    "en": "Hyperextension",
+    "bs": "Ekstenzija leđa",
+    "de": "Rückenstrecken"
+  },
+  "exercise-0323-ice-skater-klizacev-skok-bocni-jednonozni": {
+    "en": "Ice Skater",
+    "bs": "Klizačev skok — bočni jednonožni",
+    "de": "Skater-Sprung"
+  },
+  "exercise-0324-inchworm-zagrijavanje-gusjenica-za-zagrijavanje": {
+    "en": "Inchworm — Warm-Up",
+    "bs": "Gusjenica za zagrijavanje",
+    "de": "Raupengang zum Aufwärmen"
+  },
+  "exercise-0325-inchworm-gusjenica": {
+    "en": "Inchworm",
+    "bs": "Gusjenica",
+    "de": "Raupengang"
+  },
+  "exercise-0326-inchworm-s-rotacijom-gusjenica-s-rotacijom": {
+    "en": "Inchworm With Rotation",
+    "bs": "Gusjenica s rotacijom",
+    "de": "Raupengang mit Rotation"
+  },
+  "exercise-0327-incline-bench-front-raise": {
+    "en": "Incline Bench Front Raise",
+    "bs": "Prednje podizanje na kosoj klupi",
+    "de": "Frontheben auf der Schrägbank"
+  },
+  "exercise-0328-incline-bench-lat-row": {
+    "en": "Incline Bench Lat Row",
+    "bs": "Veslanje za latissimus na kosoj klupi",
+    "de": "Latissimus-Rudern auf der Schrägbank"
+  },
+  "exercise-0329-incline-bench-lateral-raise": {
+    "en": "Incline Bench Lateral Raise",
+    "bs": "Bočno podizanje na kosoj klupi",
+    "de": "Seitheben auf der Schrägbank"
+  },
+  "exercise-0330-incline-bench-press-kosi-potisak-gornji-dio-prsa": {
+    "en": "Incline Bench Press",
+    "bs": "Kosi potisak — gornji dio prsa",
+    "de": "Schrägbankdrücken"
+  },
+  "exercise-0331-incline-bench-reverse-fly": {
+    "en": "Incline Bench Reverse Fly",
+    "bs": "Obrnuto razvlačenje na kosoj klupi",
+    "de": "Reverse Fly auf der Schrägbank"
+  },
+  "exercise-0332-incline-bench-single-arm-row": {
+    "en": "Incline Bench Single Arm Row",
+    "bs": "Jednoručno veslanje na kosoj klupi",
+    "de": "Einarmiges Rudern auf der Schrägbank"
+  },
+  "exercise-0333-incline-cable-fly": {
+    "en": "Incline Cable Fly",
+    "bs": "Razvlačenje na sajlama na kosoj klupi",
+    "de": "Fliegende am Kabel auf der Schrägbank"
+  },
+  "exercise-0334-incline-dumbbell-curl": {
+    "en": "Incline Dumbbell Curl",
+    "bs": "Pregib bučicama na kosoj klupi",
+    "de": "Kurzhantelcurl auf der Schrägbank"
+  },
+  "exercise-0335-incline-dumbbell-fly": {
+    "en": "Incline Dumbbell Fly",
+    "bs": "Razvlačenje bučicama na kosoj klupi",
+    "de": "Kurzhantelfliegen auf der Schrägbank"
+  },
+  "exercise-0336-incline-dumbbell-press-kosi-potisak-bucicama": {
+    "en": "Incline Dumbbell Press",
+    "bs": "Kosi potisak bučicama",
+    "de": "Kurzhanteldrücken auf der Schrägbank"
+  },
+  "exercise-0337-incline-dumbbell-squeeze-press": {
+    "en": "Incline Dumbbell Squeeze Press",
+    "bs": "Potisak bučicama uz stiskanje na kosoj klupi",
+    "de": "Kurzhanteldrücken mit Zusammendrücken auf der Schrägbank"
+  },
+  "exercise-0338-incline-dumbbell-triceps-extension": {
+    "en": "Incline Dumbbell Triceps Extension",
+    "bs": "Opružanje tricepsa bučicama na kosoj klupi",
+    "de": "Kurzhantel-Trizepsstrecken auf der Schrägbank"
+  },
+  "exercise-0339-incline-hammer-curl": {
+    "en": "Incline Hammer Curl",
+    "bs": "Čekić pregib na kosoj klupi",
+    "de": "Hammercurl auf der Schrägbank"
+  },
+  "exercise-0340-incline-machine-chest-fly": {
+    "en": "Incline Machine Chest Fly",
+    "bs": "Razvlačenje za prsa na spravi pod pozitivnim uglom",
+    "de": "Brustfliegen an der Maschine — positiver Winkel"
+  },
+  "exercise-0341-incline-rear-delt-row": {
+    "en": "Incline Rear Delt Row",
+    "bs": "Veslanje za stražnje rame na kosoj klupi",
+    "de": "Rudern für die hintere Schulter auf der Schrägbank"
+  },
+  "exercise-0342-infracrvena-sauna-ir-sauna": {
+    "en": "Infrared Sauna",
+    "bs": "IR sauna",
+    "de": "Infrarotsauna"
+  },
+  "exercise-0343-inner-thigh-lift-podizanje-unutarnje-strane-butine": {
+    "en": "Inner Thigh Lift",
+    "bs": "Podizanje unutarnje strane butine",
+    "de": "Beinheben für die Oberschenkelinnenseite"
+  },
+  "exercise-0344-internal-rotation-elasticna-traka-unutarnja-rotacija-s-elastikom": {
+    "en": "Internal Rotation — Resistance Band",
+    "bs": "Unutarnja rotacija s elastikom",
+    "de": "Schulterinnenrotation mit Widerstandsband"
+  },
+  "exercise-0345-inverted-row-obrnuto-veslanje-ispod-precke": {
+    "en": "Inverted Row",
+    "bs": "Obrnuto veslanje — ispod prečke",
+    "de": "Umgekehrtes Rudern"
+  },
+  "exercise-0346-isometric-cable-fly": {
+    "en": "Isometric Cable Fly",
+    "bs": "Izometrijsko razvlačenje na sajlama",
+    "de": "Isometrisches Brustfliegen am Kabel"
+  },
+  "exercise-0347-it-band-foam-rolling-protokol": {
+    "en": "IT Band Foam Rolling Protocol",
+    "bs": "Rolanje iliotibijalne trake pjenastim valjkom",
+    "de": "Faszienrollen-Routine für das IT-Band"
+  },
+  "exercise-0348-jump-rope-basic-preskakanje-vijace-osnovno": {
+    "en": "Jump Rope — Basic",
+    "bs": "Preskakanje vijače — osnovno",
+    "de": "Seilspringen — Grundsprung"
+  },
+  "exercise-0349-jump-rope-double-under-preskakanje-vijace-dvostruki-okret": {
+    "en": "Jump Rope — Double Under",
+    "bs": "Preskakanje vijače — dvostruki okret",
+    "de": "Seilspringen — doppelter Durchschlag"
+  },
+  "exercise-0350-jump-rope-single-leg-jednonozno-preskakanje-vijace": {
+    "en": "Jump Rope — Single Leg",
+    "bs": "Jednonožno preskakanje vijače",
+    "de": "Einbeiniges Seilspringen"
+  },
+  "exercise-0351-jump-rope-tabata-tabata-vijaca-protokol": {
+    "en": "Jump Rope Tabata",
+    "bs": "Tabata vijaca protokol",
+    "de": "Seilspringen nach dem Tabata-Protokoll"
+  },
+  "exercise-0352-jump-squat-skok-iz-cucnja": {
+    "en": "Jump Squat",
+    "bs": "Skok iz čučnja",
+    "de": "Sprungkniebeuge"
+  },
+  "exercise-0353-jumping-jacks-zagrijavanje-raznoska-za-zagrijavanje": {
+    "en": "Jumping Jacks — Warm-Up",
+    "bs": "Raznoška za zagrijavanje",
+    "de": "Hampelmann zum Aufwärmen"
+  },
+  "exercise-0354-jumping-jacks-raznoska": {
+    "en": "Jumping Jacks",
+    "bs": "Raznoška",
+    "de": "Hampelmann"
+  },
+  "exercise-0355-kettlebell-clean": {
+    "en": "Kettlebell Clean",
+    "bs": "Nabačaj girjom",
+    "de": "Kettlebell Clean"
+  },
+  "exercise-0356-kettlebell-goblet-squat": {
+    "en": "Kettlebell Goblet Squat",
+    "bs": "Čučanj s girjom ispred prsa",
+    "de": "Goblet Squat mit Kettlebell"
+  },
+  "exercise-0357-kettlebell-press-potisak-kettlebella": {
+    "en": "Kettlebell Press",
+    "bs": "Potisak kettlebella",
+    "de": "Kettlebell-Drücken"
+  },
+  "exercise-0358-kettlebell-shrugs": {
+    "en": "Kettlebell Shrugs",
+    "bs": "Slijeganje ramenima s girjama",
+    "de": "Schulterheben mit Kettlebells"
+  },
+  "exercise-0359-kettlebell-snatch": {
+    "en": "Kettlebell Snatch",
+    "bs": "Trzaj girjom",
+    "de": "Kettlebell Snatch"
+  },
+  "exercise-0360-kettlebell-swing-dvorucni-zamah": {
+    "en": "Kettlebell Swing",
+    "bs": "Dvoručni zamah",
+    "de": "Kettlebell Swing"
+  },
+  "exercise-0361-kettlebell-thruster": {
+    "en": "Kettlebell Thruster",
+    "bs": "Čučanj s potiskom girje",
+    "de": "Kettlebell Thruster"
+  },
+  "exercise-0362-kettlebell-windmill": {
+    "en": "Kettlebell Windmill",
+    "bs": "Vjetrenjača s girjom",
+    "de": "Kettlebell Windmill"
+  },
+  "exercise-0363-knee-circles-kruzenje-koljenima": {
+    "en": "Knee Circles",
+    "bs": "Kruženje koljenima",
+    "de": "Kniekreisen"
+  },
+  "exercise-0364-knee-push-up-skleka-s-koljenima": {
+    "en": "Knee Push-Up",
+    "bs": "Skleka s koljenima",
+    "de": "Liegestütz auf den Knien"
+  },
+  "exercise-0365-knee-to-chest-stretch-povlacenje-koljena-prema-grudima": {
+    "en": "Knee To Chest Stretch",
+    "bs": "Povlačenje koljena prema grudima",
+    "de": "Knie-zur-Brust-Dehnung"
+  },
+  "exercise-0366-kneeling-cable-crunch": {
+    "en": "Kneeling Cable Crunch",
+    "bs": "Trbušnjaci na sajli klečeći",
+    "de": "Crunch am Kabel im Kniestand"
+  },
+  "exercise-0367-kneeling-cable-lat-row": {
+    "en": "Kneeling Cable Lat Row",
+    "bs": "Veslanje za latissimus na sajli klečeći",
+    "de": "Latissimus-Rudern am Kabel im Kniestand"
+  },
+  "exercise-0368-kneeling-single-arm-cable-lat-pulldown": {
+    "en": "Kneeling Single Arm Cable Lat Pulldown",
+    "bs": "Jednoručno povlačenje visoke sajle klečeći",
+    "de": "Einarmiger Latzug am Kabel im Kniestand"
+  },
+  "exercise-0369-kneeling-single-arm-lat-pulldown": {
+    "en": "Kneeling Single Arm Lat Pulldown",
+    "bs": "Jednoručno povlačenje za latissimus klečeći",
+    "de": "Einarmiger Latzug im Kniestand"
+  },
+  "exercise-0370-kontrastna-terapija-sauna-hladna-kupka": {
+    "en": "Contrast Therapy — Sauna and Cold Bath",
+    "bs": "Kontrastna terapija — sauna i hladna kupka",
+    "de": "Wechselanwendung — Sauna und Kältebad"
+  },
+  "exercise-0371-l-sit": {
+    "en": "L-Sit",
+    "bs": "L-sjed",
+    "de": "L-Sit"
+  },
+  "exercise-0372-l-sit-pull-up-zgib-u-l-sit-poziciji": {
+    "en": "L-Sit Pull-Up",
+    "bs": "Zgib u L-sit poziciji",
+    "de": "Klimmzug im L-Sit"
+  },
+  "exercise-0373-lacrosse-ball-glutes-lacrosse-lopta-straznjica": {
+    "en": "Lacrosse Ball — Glutes",
+    "bs": "Lacrosse lopta — stražnjica",
+    "de": "Gesäßmassage mit dem Lacrosse-Ball"
+  },
+  "exercise-0374-lagano-trcanje-u-mjestu-jogging-in-place": {
+    "en": "Jogging in Place",
+    "bs": "Lagano trčanje u mjestu",
+    "de": "Lockeres Joggen auf der Stelle"
+  },
+  "exercise-0375-landmine-press": {
+    "en": "Landmine Press",
+    "bs": "Potisak landmine šipke",
+    "de": "Landmine-Drücken"
+  },
+  "exercise-0376-landmine-squat-to-press-squat-s-pritiskom-na-landmine": {
+    "en": "Landmine Squat To Press",
+    "bs": "Squat s pritiskom na landmine",
+    "de": "Landmine-Kniebeuge mit Drücken"
+  },
+  "exercise-0377-lat-pulldown-povlacenje-na-lat-masini": {
+    "en": "Lat Pulldown",
+    "bs": "Povlačenje na lat mašini",
+    "de": "Latzug"
+  },
+  "exercise-0378-lat-stretch-bocni-doseg-stretch-latissimusa-bocni-doseg": {
+    "en": "Lat Stretch — Side Reach",
+    "bs": "Stretch latissimusa — bočni doseg",
+    "de": "Latissimusdehnung mit seitlichem Greifen"
+  },
+  "exercise-0379-lateral-bound-bocni-jednonozni-skok": {
+    "en": "Lateral Bound",
+    "bs": "Bočni jednonožni skok",
+    "de": "Seitlicher Einbeinsprung"
+  },
+  "exercise-0380-lateral-bound-to-sprint-bocni-skok-u-sprint": {
+    "en": "Lateral Bound To Sprint",
+    "bs": "Bočni skok u sprint",
+    "de": "Seitlicher Sprung mit anschließendem Sprint"
+  },
+  "exercise-0381-lateral-box-shuffle-bocno-preskakivanje-kutije": {
+    "en": "Lateral Box Shuffle",
+    "bs": "Bočno preskakivanje kutije",
+    "de": "Seitliches Überspringen der Box"
+  },
+  "exercise-0382-lateral-hurdle-hop-bocni-skokovi-preko-prepreka": {
+    "en": "Lateral Hurdle Hop",
+    "bs": "Bočni skokovi preko prepreka",
+    "de": "Seitliche Hürdensprünge"
+  },
+  "exercise-0383-lateral-jump-to-balance-bocni-skok-u-ravnotezu": {
+    "en": "Lateral Jump To Balance",
+    "bs": "Bočni skok u ravnotežu",
+    "de": "Seitlicher Sprung mit stabiler Landung"
+  },
+  "exercise-0384-lateral-lunge-bocni-iskorak": {
+    "en": "Lateral Lunge",
+    "bs": "Bočni iskorak",
+    "de": "Seitlicher Ausfallschritt"
+  },
+  "exercise-0385-lateral-lunge-stretch-bocni-iskorak-mobilizacijski": {
+    "en": "Lateral Lunge Stretch",
+    "bs": "Bočni iskorak — mobilizacijski",
+    "de": "Dehnung im seitlichen Ausfallschritt"
+  },
+  "exercise-0386-lateral-shuffles-zagrijavanje-bocno-saflanje-za-zagrijavanje": {
+    "en": "Lateral Shuffles — Warm-Up",
+    "bs": "Bočno šaflanje za zagrijavanje",
+    "de": "Seitliche Nachstellschritte zum Aufwärmen"
+  },
+  "exercise-0387-lateral-shuffles-bocno-saflanje": {
+    "en": "Lateral Shuffles",
+    "bs": "Bočno šaflanje",
+    "de": "Seitliche Nachstellschritte"
+  },
+  "exercise-0388-lateral-step-up-rehabilitacijski-bocni-korak-rehabilitacijski": {
+    "en": "Lateral Step-Up — Rehabilitation",
+    "bs": "Bočni korak — rehabilitacijski",
+    "de": "Seitlicher Step-Up — Rehabilitation"
+  },
+  "exercise-0389-lateral-wall-press-bocni-pritisak-na-zid": {
+    "en": "Lateral Wall Press",
+    "bs": "Bočni pritisak na zid",
+    "de": "Seitliches Drücken gegen die Wand"
+  },
+  "exercise-0390-leaning-cable-lateral-raise": {
+    "en": "Leaning Cable Lateral Raise",
+    "bs": "Bočno podizanje na sajli uz nagib tijela",
+    "de": "Seitheben am Kabel in Schräglage"
+  },
+  "exercise-0391-ledena-kupka-ice-bath-hladna-imerzija": {
+    "en": "Ice Bath",
+    "bs": "Ledena kupka",
+    "de": "Eisbad"
+  },
+  "exercise-0392-leg-extension-machine": {
+    "en": "Leg Extension — Machine",
+    "bs": "Opružanje nogu na spravi",
+    "de": "Beinstrecken an der Maschine"
+  },
+  "exercise-0393-leg-press-potisak-nogama": {
+    "en": "Leg Press",
+    "bs": "Potisak nogama",
+    "de": "Beinpresse"
+  },
+  "exercise-0394-leg-press-calf-raise": {
+    "en": "Leg Press Calf Raise",
+    "bs": "Podizanje na prste na spravi za potisak nogama",
+    "de": "Wadenheben an der Beinpresse"
+  },
+  "exercise-0395-leg-raise-podizanje-nogu": {
+    "en": "Leg Raise",
+    "bs": "Podizanje nogu",
+    "de": "Beinheben"
+  },
+  "exercise-0396-leg-swings-frontalni-dinamicko-mahanje-nogom-bocno": {
+    "en": "Leg Swings — Frontal Plane",
+    "bs": "Dinamičko mahanje nogom bočno",
+    "de": "Seitliches Beinschwingen"
+  },
+  "exercise-0397-leg-swings-sagitalni-dinamicko-mahanje-nogom-naprijed-nazad": {
+    "en": "Leg Swings — Sagittal Plane",
+    "bs": "Dinamičko mahanje nogom naprijed-nazad",
+    "de": "Beinschwingen vor und zurück"
+  },
+  "exercise-0398-levator-scapulae-stretch-stretch-podizaca-lopatice": {
+    "en": "Levator Scapulae Stretch",
+    "bs": "Stretch podizača lopatice",
+    "de": "Dehnung des Schulterblatthebers"
+  },
+  "exercise-0399-low-cable-chest-press": {
+    "en": "Low Cable Chest Press",
+    "bs": "Potisak za prsa na niskoj sajli",
+    "de": "Brustdrücken am tiefen Kabelzug"
+  },
+  "exercise-0400-low-to-high-cable-fly": {
+    "en": "Low To High Cable Fly",
+    "bs": "Razvlačenje na sajlama odozdo prema gore",
+    "de": "Fliegende am Kabel von unten nach oben"
+  },
+  "exercise-0401-low-to-high-lift-dijagonalni-podizaj-kabel": {
+    "en": "Low-To-High Lift",
+    "bs": "Dijagonalni podizaj — kabel",
+    "de": "Diagonales Heben am Kabel von unten nach oben"
+  },
+  "exercise-0402-lunge-with-rotation-iskorak-s-rotacijom": {
+    "en": "Lunge With Rotation",
+    "bs": "Iskorak s rotacijom",
+    "de": "Ausfallschritt mit Rotation"
+  },
+  "exercise-0403-lying-glute-stretch-lezeci-stretch-straznjice": {
+    "en": "Lying Glute Stretch",
+    "bs": "Ležeći stretch stražnjice",
+    "de": "Gesäßdehnung im Liegen"
+  },
+  "exercise-0404-lying-hamstring-stretch-with-strap-lezeci-stretch-hamstringa-s-trakom": {
+    "en": "Lying Hamstring Stretch With Strap",
+    "bs": "Ležeći stretch hamstringa s trakom",
+    "de": "Dehnung der Oberschenkelrückseite mit Gurt im Liegen"
+  },
+  "exercise-0405-lying-leg-curl-machine": {
+    "en": "Lying Leg Curl — Machine",
+    "bs": "Pregib nogu ležeći na spravi",
+    "de": "Beinbeugen im Liegen an der Maschine"
+  },
+  "exercise-0406-machine-biceps-curl": {
+    "en": "Machine Biceps Curl",
+    "bs": "Pregib bicepsa na spravi",
+    "de": "Bizepscurl an der Maschine"
+  },
+  "exercise-0407-machine-chest-fly": {
+    "en": "Machine Chest Fly",
+    "bs": "Razvlačenje za prsa na spravi",
+    "de": "Brustfliegen an der Maschine"
+  },
+  "exercise-0408-machine-high-lat-row": {
+    "en": "Machine High Lat Row",
+    "bs": "Visoko veslanje za latissimus na spravi",
+    "de": "Hohes Latissimus-Rudern an der Maschine"
+  },
+  "exercise-0409-machine-iso-lateral-lat-row": {
+    "en": "Machine Iso-Lateral Lat Row",
+    "bs": "Izolateralno veslanje za latissimus na spravi",
+    "de": "Iso-laterales Latissimus-Rudern an der Maschine"
+  },
+  "exercise-0410-machine-lat-isolation-pulldown": {
+    "en": "Machine Lat Isolation Pulldown",
+    "bs": "Izolacijsko povlačenje za latissimus na spravi",
+    "de": "Isolierter Latzug an der Maschine"
+  },
+  "exercise-0411-machine-lat-pullover": {
+    "en": "Machine Lat Pullover",
+    "bs": "Pulover za latissimus na spravi",
+    "de": "Latissimusüberzug an der Maschine"
+  },
+  "exercise-0412-machine-lateral-raise": {
+    "en": "Machine Lateral Raise",
+    "bs": "Bočno podizanje na spravi",
+    "de": "Seitheben an der Maschine"
+  },
+  "exercise-0413-machine-neutral-grip-lat-pulldown": {
+    "en": "Machine Neutral Grip Lat Pulldown",
+    "bs": "Povlačenje za latissimus neutralnim hvatom na spravi",
+    "de": "Latzug mit neutralem Griff an der Maschine"
+  },
+  "exercise-0414-machine-one-arm-lat-row": {
+    "en": "Machine One Arm Lat Row",
+    "bs": "Jednoručno veslanje za latissimus na spravi",
+    "de": "Einarmiges Latissimus-Rudern an der Maschine"
+  },
+  "exercise-0415-machine-pec-deck-squeeze-focus": {
+    "en": "Machine Pec Deck — Squeeze Focus",
+    "bs": "Pec deck razvlačenje uz naglasak na stiskanje",
+    "de": "Butterfly-Maschine — Fokus auf Zusammendrücken"
+  },
+  "exercise-0416-machine-rear-delt-fly": {
+    "en": "Machine Rear Delt Fly",
+    "bs": "Obrnuto razvlačenje za stražnje rame na spravi",
+    "de": "Reverse Butterfly an der Maschine"
+  },
+  "exercise-0417-machine-triceps-extension": {
+    "en": "Machine Triceps Extension",
+    "bs": "Opružanje tricepsa na spravi",
+    "de": "Trizepsstrecken an der Maschine"
+  },
+  "exercise-0418-machine-unilateral-lat-row": {
+    "en": "Machine Unilateral Lat Row",
+    "bs": "Jednostrano veslanje za latissimus na spravi",
+    "de": "Einseitiges Latissimus-Rudern an der Maschine"
+  },
+  "exercise-0419-mcgill-bird-dog-pas-koji-trazi-mcgill-verzija": {
+    "en": "McGILL BIRD DOG",
+    "bs": "Pas koji traži — McGill verzija",
+    "de": "Bird Dog nach McGill"
+  },
+  "exercise-0420-mcgill-curl-up-mcgill-podizanje-trupa": {
+    "en": "McGILL CURL-UP",
+    "bs": "McGill podizanje trupa",
+    "de": "Curl-Up nach McGill"
+  },
+  "exercise-0421-mcgill-side-plank-modificiran-modificirana-bocna-daska": {
+    "en": "McGill Side Plank — Modified",
+    "bs": "Modificirana bočna daska",
+    "de": "Modifizierter Seitstütz nach McGill"
+  },
+  "exercise-0422-meadows-lat-isolation-row": {
+    "en": "Meadows Lat Isolation Row",
+    "bs": "Meadows veslanje za izolaciju latissimusa",
+    "de": "Meadows-Rudern mit Latissimus-Fokus"
+  },
+  "exercise-0423-medicine-ball-chest-pass-horizontalni-bacaj-iz-prsa": {
+    "en": "Medicine Ball Chest Pass",
+    "bs": "Horizontalni bačaj iz prsa",
+    "de": "Medizinball-Brustpass"
+  },
+  "exercise-0424-medicine-ball-chest-throw-bacaj-medicinske-lopte-iz-prsa": {
+    "en": "Medicine Ball Chest Throw",
+    "bs": "Bačaj medicinske lopte iz prsa",
+    "de": "Medizinballwurf aus der Brust"
+  },
+  "exercise-0425-medicine-ball-overhead-slam-slam-medicinskom-loptom": {
+    "en": "Medicine Ball Overhead Slam",
+    "bs": "Slam medicinskom loptom",
+    "de": "Medizinball-Slam über Kopf"
+  },
+  "exercise-0426-medicine-ball-rotational-throw-rotacijski-bacaj": {
+    "en": "Medicine Ball Rotational Throw",
+    "bs": "Rotacijski bačaj",
+    "de": "Rotationswurf mit dem Medizinball"
+  },
+  "exercise-0427-medicine-ball-scoop-toss-bacaj-od-kuka-prema-gore": {
+    "en": "Medicine Ball Scoop Toss",
+    "bs": "Bačaj od kuka prema gore",
+    "de": "Medizinball-Schaufelwurf"
+  },
+  "exercise-0428-medicine-ball-slam-bacanje-medicinske-lopte-prema-dolje": {
+    "en": "Medicine Ball Slam",
+    "bs": "Bacanje medicinske lopte prema dolje",
+    "de": "Medizinball-Slam"
+  },
+  "exercise-0429-medicine-ball-slam-abs": {
+    "en": "Medicine Ball Slam Abs",
+    "bs": "Bacanje medicinske lopte o pod za trbušne mišiće",
+    "de": "Medizinball-Slam für die Bauchmuskulatur"
+  },
+  "exercise-0430-medicine-ball-wall-ball-throw-bacaj-medicine-balla-prema-zidu-gornji": {
+    "en": "Medicine Ball Wall Ball Throw",
+    "bs": "Bačaj medicine balla prema zidu — gornji",
+    "de": "Medizinballwurf an die Wand"
+  },
+  "exercise-0431-mini-band-walk-lateral-bocni-hod-s-mini-elasticnom-trakom": {
+    "en": "Mini Band Walk — Lateral",
+    "bs": "Bočni hod s mini elastičnom trakom",
+    "de": "Seitliches Gehen mit Miniband"
+  },
+  "exercise-0432-mini-squat-progresivni-progresivni-mini-cucanj": {
+    "en": "Mini Squat — Progressive",
+    "bs": "Progresivni mini čučanj",
+    "de": "Mini-Kniebeuge mit Steigerung"
+  },
+  "exercise-0433-morning-stretch-routine-jutarnja-stretch-rutina": {
+    "en": "Morning Stretch Routine",
+    "bs": "Jutarnja stretch rutina",
+    "de": "Morgendliche Dehnroutine"
+  },
+  "exercise-0434-mountain-climber-planinar": {
+    "en": "Mountain Climber",
+    "bs": "Planinar",
+    "de": "Mountain Climber"
+  },
+  "exercise-0435-mountain-climbers-planinar-kardio": {
+    "en": "Mountain Climbers",
+    "bs": "Planinar — kardio",
+    "de": "Mountain Climbers — Cardio"
+  },
+  "exercise-0436-muscle-up-muscle-up": {
+    "en": "Muscle-Up",
+    "bs": "Muscle up",
+    "de": "Muscle-Up"
+  },
+  "exercise-0437-neck-rolls-kruzenje-glavom-zagrijavanje-vrata": {
+    "en": "Neck Rolls",
+    "bs": "Kruženje glavom — zagrijavanje vrata",
+    "de": "Kopfkreisen"
+  },
+  "exercise-0438-neck-side-bend-stretch-bocna-fleksija-vrata": {
+    "en": "Neck Side Bend Stretch",
+    "bs": "Bočna fleksija vrata",
+    "de": "Seitliche Nackendehnung"
+  },
+  "exercise-0439-neutral-grip-pull-up-zgib-s-neutralnim-hvatom": {
+    "en": "Neutral Grip Pull-Up",
+    "bs": "Zgib s neutralnim hvatom",
+    "de": "Klimmzug mit neutralem Griff"
+  },
+  "exercise-0440-nordic-hamstring-curl-nordijsko-savijanje-koljena": {
+    "en": "Nordic Hamstring Curl",
+    "bs": "Nordijsko savijanje koljena",
+    "de": "Nordic Hamstring Curl"
+  },
+  "exercise-0441-oblique-crunch": {
+    "en": "Oblique Crunch",
+    "bs": "Bočni trbušnjak",
+    "de": "Seitlicher Crunch"
+  },
+  "exercise-0442-one-arm-leaning-dumbbell-lateral-raise": {
+    "en": "One Arm Leaning Dumbbell Lateral Raise",
+    "bs": "Jednoručno bočno podizanje bučice uz nagib tijela",
+    "de": "Einarmiges Kurzhantel-Seitheben in Schräglage"
+  },
+  "exercise-0443-one-arm-push-up-jednoruki-sklep": {
+    "en": "One-Arm Push-Up",
+    "bs": "Jednoruki sklep",
+    "de": "Einarmiger Liegestütz"
+  },
+  "exercise-0444-overhead-cable-triceps-extension-rope": {
+    "en": "Overhead Cable Triceps Extension — Rope",
+    "bs": "Opružanje tricepsa iznad glave na sajli s užetom",
+    "de": "Trizepsstrecken über Kopf am Kabel mit Seil"
+  },
+  "exercise-0445-overhead-carry-nosenje-iznad-glave": {
+    "en": "Overhead Carry",
+    "bs": "Nošenje iznad glave",
+    "de": "Tragen über Kopf"
+  },
+  "exercise-0446-overhead-press-military-press-potisak-iznad-glave": {
+    "en": "Overhead Press / Military Press",
+    "bs": "Potisak iznad glave",
+    "de": "Schulterdrücken / Military Press"
+  },
+  "exercise-0447-overhead-squat-cucanj-s-opterecenjem-iznad-glave": {
+    "en": "Overhead Squat",
+    "bs": "Čučanj s opterećenjem iznad glave",
+    "de": "Überkopfkniebeuge"
+  },
+  "exercise-0448-overhead-triceps-extension-dumbbell": {
+    "en": "Overhead Triceps Extension — Dumbbell",
+    "bs": "Opružanje tricepsa bučicom iznad glave",
+    "de": "Trizepsstrecken über Kopf mit Kurzhantel"
+  },
+  "exercise-0449-pallof-press-klececi": {
+    "en": "Pallof Press — Kneeling",
+    "bs": "Pallof potisak klečeći",
+    "de": "Pallof Press im Kniestand"
+  },
+  "exercise-0450-pallof-press-stojeci-anti-rotacijski-kabelski-potisak": {
+    "en": "Pallof Press — Standing",
+    "bs": "Anti-rotacijski kabelski potisak",
+    "de": "Pallof Press im Stehen"
+  },
+  "exercise-0451-pallof-press-kabelski-anti-rotacijski-potisak": {
+    "en": "Pallof Press",
+    "bs": "Kabelski anti-rotacijski potisak",
+    "de": "Pallof Press"
+  },
+  "exercise-0452-parallel-bar-dips": {
+    "en": "Parallel Bar Dips",
+    "bs": "Propadanja na paralelnim ručkama",
+    "de": "Dips am Parallelbarren"
+  },
+  "exercise-0453-parna-kupelj-turska-kupelj-hamam": {
+    "en": "Steam Bath",
+    "bs": "Parna kupelj",
+    "de": "Dampfbad / Hamam"
+  },
+  "exercise-0454-pec-deck-fly": {
+    "en": "Pec Deck Fly",
+    "bs": "Pec deck razvlačenje",
+    "de": "Butterfly an der Maschine"
+  },
+  "exercise-0455-pelvic-tilt-neutralna-pozicija-pelvicki-nagib-neutralizacija": {
+    "en": "Pelvic Tilt — Neutral Position",
+    "bs": "Pelvički nagib — neutralizacija",
+    "de": "Beckenkippen zur neutralen Position"
+  },
+  "exercise-0456-pendlay-row": {
+    "en": "Pendlay Row",
+    "bs": "Pendlay veslanje",
+    "de": "Pendlay-Rudern"
+  },
+  "exercise-0457-pendulum-squat": {
+    "en": "Pendulum Squat",
+    "bs": "Čučanj na njihajućoj spravi",
+    "de": "Pendulum-Kniebeuge"
+  },
+  "exercise-0458-pendulum-vjezbe-codman-pendulum": {
+    "en": "Pendulum Exercises — Codman",
+    "bs": "Codmanove vježbe njihanja",
+    "de": "Codman-Pendelübungen"
+  },
+  "exercise-0459-peroneal-strengthening-jacanje-peroneala-post-distorzija": {
+    "en": "Peroneal Strengthening",
+    "bs": "Jačanje peroneala — post distorzija",
+    "de": "Kräftigung der Peronealmuskulatur"
+  },
+  "exercise-0460-pigeon-pose-aktivni-aktivna-golubija-pozicija": {
+    "en": "Pigeon Pose — Active",
+    "bs": "Aktivna golubija pozicija",
+    "de": "Aktive Taubenhaltung"
+  },
+  "exercise-0461-pigeon-pose-stretch-golubija-pozicija-stretch-straznjice": {
+    "en": "Pigeon Pose Stretch",
+    "bs": "Golubija pozicija — stretch stražnjice",
+    "de": "Dehnung in der Taubenhaltung"
+  },
+  "exercise-0462-pike-push-up-skleka-u-v-poziciji": {
+    "en": "Pike Push-Up",
+    "bs": "Skleka u V poziciji",
+    "de": "Pike Push-Up"
+  },
+  "exercise-0463-piriformis-stretch-rehabilitacijski-rehabilitacijski-piriformis-stretch": {
+    "en": "Piriformis Stretch — Rehabilitation",
+    "bs": "Rehabilitacijski piriformis stretch",
+    "de": "Piriformisdehnung — Rehabilitation"
+  },
+  "exercise-0464-pistol-squat-jednonozni-cucanj": {
+    "en": "Pistol Squat",
+    "bs": "Jednonožni čučanj",
+    "de": "Pistol Squat"
+  },
+  "exercise-0465-planche-progression-progresija-plansa": {
+    "en": "Planche Progression",
+    "bs": "Progresija planša",
+    "de": "Planche-Progression"
+  },
+  "exercise-0466-plank-podlaktice-prednja-daska-na-podlakticama": {
+    "en": "Plank — Forearms",
+    "bs": "Prednja daska na podlakticama",
+    "de": "Unterarmstütz"
+  },
+  "exercise-0467-plank-prednja-daska": {
+    "en": "Plank",
+    "bs": "Prednja daska",
+    "de": "Plank"
+  },
+  "exercise-0468-plank-drag-plank-s-povlacenjem-opterecenja": {
+    "en": "Plank Drag",
+    "bs": "Plank s povlačenjem opterećenja",
+    "de": "Plank mit Gewichtziehen"
+  },
+  "exercise-0469-plank-shoulder-tap-plank-s-dodirivanjem-ramena": {
+    "en": "Plank Shoulder Tap",
+    "bs": "Plank s dodirivanjem ramena",
+    "de": "Plank mit Schulterberührung"
+  },
+  "exercise-0470-plank-with-leg-lift-plank-s-podizanjem-noge": {
+    "en": "Plank With Leg Lift",
+    "bs": "Plank s podizanjem noge",
+    "de": "Plank mit Beinheben"
+  },
+  "exercise-0471-plantar-fascia-stretch-stretch-plantarne-fascije": {
+    "en": "Plantar Fascia Stretch",
+    "bs": "Stretch plantarne fascije",
+    "de": "Dehnung der Plantarfaszie"
+  },
+  "exercise-0472-plate-chest-fly": {
+    "en": "Plate Chest Fly",
+    "bs": "Razvlačenje za prsa s pločama",
+    "de": "Brustfliegen mit Hantelscheiben"
+  },
+  "exercise-0473-plate-curl": {
+    "en": "Plate Curl",
+    "bs": "Pregib bicepsa s pločom",
+    "de": "Bizepscurl mit Hantelscheibe"
+  },
+  "exercise-0474-plate-front-raise": {
+    "en": "Plate Front Raise",
+    "bs": "Prednje podizanje ploče",
+    "de": "Frontheben mit Hantelscheibe"
+  },
+  "exercise-0475-plate-pinch-hold": {
+    "en": "Plate Pinch Hold",
+    "bs": "Držanje ploča stiskom prstiju",
+    "de": "Hantelscheiben im Pinzettengriff halten"
+  },
+  "exercise-0476-plate-squeeze-press": {
+    "en": "Plate Squeeze Press",
+    "bs": "Potisak ploča uz stiskanje",
+    "de": "Brustdrücken mit zusammengepressten Hantelscheiben"
+  },
+  "exercise-0477-plie-squat-oblikovanje-plie-cucanj": {
+    "en": "Plié Squat — Toning",
+    "bs": "Plie čučanj",
+    "de": "Plié-Kniebeuge zur Kräftigung"
+  },
+  "exercise-0478-plyometric-push-up-pliometrijski-sklekovi": {
+    "en": "Plyometric Push-Up",
+    "bs": "Pliometrijski sklekovi",
+    "de": "Plyometrischer Liegestütz"
+  },
+  "exercise-0479-pnf-adductor-stretch-pnf-istezanje-adduktora": {
+    "en": "Pnf Adductor Stretch",
+    "bs": "PNF istezanje adduktora",
+    "de": "PNF-Dehnung der Adduktoren"
+  },
+  "exercise-0480-pnf-calf-stretch-pnf-istezanje-listova": {
+    "en": "Pnf Calf Stretch",
+    "bs": "PNF istezanje listova",
+    "de": "PNF-Wadendehnung"
+  },
+  "exercise-0481-pnf-hamstring-stretch-pnf-istezanje-hamstringa": {
+    "en": "Pnf Hamstring Stretch",
+    "bs": "PNF istezanje hamstringa",
+    "de": "PNF-Dehnung der Oberschenkelrückseite"
+  },
+  "exercise-0482-pnf-hip-flexor-stretch-pnf-istezanje-hip-flexora": {
+    "en": "Pnf Hip Flexor Stretch",
+    "bs": "PNF istezanje hip flexora",
+    "de": "PNF-Hüftbeugerdehnung"
+  },
+  "exercise-0483-pnf-piriformis-stretch-pnf-istezanje-piriformisa": {
+    "en": "Pnf Piriformis Stretch",
+    "bs": "PNF istezanje piriformisa",
+    "de": "PNF-Piriformisdehnung"
+  },
+  "exercise-0484-pnf-shoulder-external-rotation-stretch-pnf-stretch-vanjske-rotacije-ramena": {
+    "en": "Pnf Shoulder External Rotation Stretch",
+    "bs": "PNF stretch vanjske rotacije ramena",
+    "de": "PNF-Dehnung der Schulteraußenrotation"
+  },
+  "exercise-0485-pogo-jump-reaktivni-skokovi-na-prstima": {
+    "en": "Pogo Jump",
+    "bs": "Reaktivni skokovi na prstima",
+    "de": "Pogo-Sprünge"
+  },
+  "exercise-0486-post-cardio-cool-down-cool-down-nakon-kardio-treninga": {
+    "en": "Post-Cardio Cool-Down",
+    "bs": "Cool-down nakon kardio treninga",
+    "de": "Abwärmen nach dem Cardiotraining"
+  },
+  "exercise-0487-post-leg-day-cool-down-cool-down-nakon-treninga-nogu": {
+    "en": "Post-Leg Day Cool-Down",
+    "bs": "Cool-down nakon treninga nogu",
+    "de": "Abwärmen nach dem Beintraining"
+  },
+  "exercise-0488-post-upper-body-cool-down-cool-down-nakon-treninga-gornjeg-tijela": {
+    "en": "Post-Upper Body Cool-Down",
+    "bs": "Cool-down nakon treninga gornjeg tijela",
+    "de": "Abwärmen nach dem Oberkörpertraining"
+  },
+  "exercise-0489-postoperativni-progresivni-program-opsti-protokol": {
+    "en": "Postoperative Progressive Program — General Protocol",
+    "bs": "Postoperativni progresivni program — opći protokol",
+    "de": "Postoperatives Aufbauprogramm — allgemeiner Ablauf"
+  },
+  "exercise-0490-postural-correction-exercises-posturalne-korekcijske-vjezbe": {
+    "en": "Postural Correction Exercises",
+    "bs": "Posturalne korekcijske vježbe",
+    "de": "Übungen zur Haltungskorrektur"
+  },
+  "exercise-0491-power-clean": {
+    "en": "Power Clean",
+    "bs": "Nabačaj u visoki prihvat",
+    "de": "Power Clean"
+  },
+  "exercise-0492-prayer-stretch-molitva-stretch-zapesce": {
+    "en": "Prayer Stretch",
+    "bs": "Molitva stretch — zapešće",
+    "de": "Handgelenkdehnung in Gebetshaltung"
+  },
+  "exercise-0493-preacher-curl": {
+    "en": "Preacher Curl",
+    "bs": "Pregib bicepsa na Scott klupi",
+    "de": "Preacher Curl"
+  },
+  "exercise-0494-progressive-muscle-relaxation-progresivna-misicna-relaksacija": {
+    "en": "Progressive Muscle Relaxation",
+    "bs": "Progresivna mišićna relaksacija",
+    "de": "Progressive Muskelentspannung"
+  },
+  "exercise-0495-prone-hip-abduction-abdukcija-kuka-u-lezanju-na-stomaku": {
+    "en": "Prone Hip Abduction",
+    "bs": "Abdukcija kuka u ležanju na stomaku",
+    "de": "Hüftabduktion in Bauchlage"
+  },
+  "exercise-0496-prone-hip-extension-rehabilitacijska-ekstenzija-kuka-u-lezanju-na-stomaku": {
+    "en": "Prone Hip Extension — Rehabilitation",
+    "bs": "Ekstenzija kuka u ležanju na stomaku",
+    "de": "Hüftstreckung in Bauchlage — Rehabilitation"
+  },
+  "exercise-0497-prone-press-up-mckenzie-ekstenzija": {
+    "en": "Prone Press-Up",
+    "bs": "McKenzie ekstenzija",
+    "de": "Aufstützen in Bauchlage nach McKenzie"
+  },
+  "exercise-0498-prone-quad-stretch-lezeci-stretch-kvadricepsa-na-stomaku": {
+    "en": "Prone Quad Stretch",
+    "bs": "Ležeći stretch kvadricepsa na stomaku",
+    "de": "Quadrizepsdehnung in Bauchlage"
+  },
+  "exercise-0499-prone-t-y-w-rehabilitacijski": {
+    "en": "Prone T / Y / W — Rehabilitation",
+    "bs": "Podizanje ruku u T, Y i W položajima ležeći na stomaku — rehabilitacija",
+    "de": "T-/Y-/W-Heben in Bauchlage — Rehabilitation"
+  },
+  "exercise-0500-prone-t-raise": {
+    "en": "Prone T Raise",
+    "bs": "Podizanje ruku u T položaj ležeći na stomaku",
+    "de": "T-Heben in Bauchlage"
+  },
+  "exercise-0501-prone-y-raise": {
+    "en": "Prone Y Raise",
+    "bs": "Podizanje ruku u Y položaj ležeći na stomaku",
+    "de": "Y-Heben in Bauchlage"
+  },
+  "exercise-0502-prone-y-t-w-lezece-y-t-w-vjezbe": {
+    "en": "Prone Y-T-W",
+    "bs": "Ležeće Y-T-W vježbe",
+    "de": "Y-T-W-Heben in Bauchlage"
+  },
+  "exercise-0503-prowler-push-kondicioniranje-prowler-kondicioniraju-sprint": {
+    "en": "Prowler Push — Conditioning",
+    "bs": "Prowler — kondicioniraju sprint",
+    "de": "Prowler-Schieben zum Konditionstraining"
+  },
+  "exercise-0504-prowler-push-guranje-prowler-saonice": {
+    "en": "Prowler Push",
+    "bs": "Guranje Prowler saonice",
+    "de": "Prowler-Schieben"
+  },
+  "exercise-0505-pull-up-zgibovi-pronated-hvat": {
+    "en": "Pull-Up",
+    "bs": "Zgibovi — pronated hvat",
+    "de": "Klimmzug im Obergriff"
+  },
+  "exercise-0506-push-press": {
+    "en": "Push Press",
+    "bs": "Potisak uz pomoć nogu",
+    "de": "Schwungdrücken"
+  },
+  "exercise-0507-push-up-skleka": {
+    "en": "Push-Up",
+    "bs": "Skleka",
+    "de": "Liegestütz"
+  },
+  "exercise-0508-push-up-plus-skleka-s-dodatnom-protrakcijom": {
+    "en": "Push-Up Plus",
+    "bs": "Skleka s dodatnom protrakcijom",
+    "de": "Liegestütz mit zusätzlichem Schulterblattvorschub"
+  },
+  "exercise-0509-push-up-to-explosive-row-sklep-u-eksplozivno-veslanje": {
+    "en": "Push-Up To Explosive Row",
+    "bs": "Sklep u eksplozivno veslanje",
+    "de": "Liegestütz mit explosivem Rudern"
+  },
+  "exercise-0510-quad-sets-izometrijska-aktivacija-kvadricepsa": {
+    "en": "Quad Sets",
+    "bs": "Izometrijska aktivacija kvadricepsa",
+    "de": "Isometrisches Anspannen des Quadrizeps"
+  },
+  "exercise-0511-quadruped-thoracic-extension-cetveronozna-torakalna-ekstenzija": {
+    "en": "Quadruped Thoracic Extension",
+    "bs": "Četveronožna torakalna ekstenzija",
+    "de": "Brustwirbelsäulenstreckung im Vierfüßlerstand"
+  },
+  "exercise-0512-quadruped-thoracic-rotation-cetveronozna-torakalna-rotacija": {
+    "en": "Quadruped Thoracic Rotation",
+    "bs": "Četveronožna torakalna rotacija",
+    "de": "Brustwirbelsäulenrotation im Vierfüßlerstand"
+  },
+  "exercise-0513-rack-pull": {
+    "en": "Rack Pull",
+    "bs": "Mrtvo dizanje s nosača",
+    "de": "Kreuzheben von Ablagen"
+  },
+  "exercise-0514-recumbent-bike-lezeci-bicikl": {
+    "en": "Recumbent Bike",
+    "bs": "Ležeći bicikl",
+    "de": "Liegeergometer"
+  },
+  "exercise-0515-renegade-row": {
+    "en": "Renegade Row",
+    "bs": "Veslanje u položaju planka",
+    "de": "Renegade Row"
+  },
+  "exercise-0516-resistance-band-calf-raise": {
+    "en": "Resistance Band Calf Raise",
+    "bs": "Podizanje na prste s elastičnom trakom",
+    "de": "Wadenheben mit Widerstandsband"
+  },
+  "exercise-0517-resistance-band-chest-fly": {
+    "en": "Resistance Band Chest Fly",
+    "bs": "Razvlačenje za prsa s elastičnom trakom",
+    "de": "Brustfliegen mit Widerstandsband"
+  },
+  "exercise-0518-resistance-band-curl": {
+    "en": "Resistance Band Curl",
+    "bs": "Pregib bicepsa s elastičnom trakom",
+    "de": "Bizepscurl mit Widerstandsband"
+  },
+  "exercise-0519-resistance-band-donkey-kick": {
+    "en": "Resistance Band Donkey Kick",
+    "bs": "Opružanje noge unazad u četveronožnom položaju s trakom",
+    "de": "Donkey Kick mit Widerstandsband"
+  },
+  "exercise-0520-resistance-band-front-raise": {
+    "en": "Resistance Band Front Raise",
+    "bs": "Prednje podizanje s elastičnom trakom",
+    "de": "Frontheben mit Widerstandsband"
+  },
+  "exercise-0521-resistance-band-glute-bridge": {
+    "en": "Resistance Band Glute Bridge",
+    "bs": "Most za stražnjicu s elastičnom trakom",
+    "de": "Gesäßbrücke mit Widerstandsband"
+  },
+  "exercise-0522-resistance-band-hip-abduction": {
+    "en": "Resistance Band Hip Abduction",
+    "bs": "Odvođenje noge s elastičnom trakom",
+    "de": "Hüftabduktion mit Widerstandsband"
+  },
+  "exercise-0523-resistance-band-hip-adduction": {
+    "en": "Resistance Band Hip Adduction",
+    "bs": "Primicanje noge s elastičnom trakom",
+    "de": "Hüftadduktion mit Widerstandsband"
+  },
+  "exercise-0524-resistance-band-kickback": {
+    "en": "Resistance Band Kickback",
+    "bs": "Opružanje unazad s elastičnom trakom",
+    "de": "Kickback mit Widerstandsband"
+  },
+  "exercise-0525-resistance-band-lat-pulldown": {
+    "en": "Resistance Band Lat Pulldown",
+    "bs": "Povlačenje za latissimus s elastičnom trakom",
+    "de": "Latzug mit Widerstandsband"
+  },
+  "exercise-0526-resistance-band-lat-sweep": {
+    "en": "Resistance Band Lat Sweep",
+    "bs": "Lučno povlačenje za latissimus s elastičnom trakom",
+    "de": "Bogenförmiger Latissimuszug mit Widerstandsband"
+  },
+  "exercise-0527-resistance-band-lateral-raise": {
+    "en": "Resistance Band Lateral Raise",
+    "bs": "Bočno podizanje s elastičnom trakom",
+    "de": "Seitheben mit Widerstandsband"
+  },
+  "exercise-0528-resistance-band-leg-curl": {
+    "en": "Resistance Band Leg Curl",
+    "bs": "Pregib noge s elastičnom trakom",
+    "de": "Beinbeugen mit Widerstandsband"
+  },
+  "exercise-0529-resistance-band-leg-extension": {
+    "en": "Resistance Band Leg Extension",
+    "bs": "Opružanje noge s elastičnom trakom",
+    "de": "Beinstrecken mit Widerstandsband"
+  },
+  "exercise-0530-resistance-band-reverse-fly": {
+    "en": "Resistance Band Reverse Fly",
+    "bs": "Obrnuto razvlačenje s elastičnom trakom",
+    "de": "Reverse Fly mit Widerstandsband"
+  },
+  "exercise-0531-resistance-band-reverse-nordic": {
+    "en": "Resistance Band Reverse Nordic",
+    "bs": "Obrnuti nordijski pregib s elastičnom trakom",
+    "de": "Reverse Nordic mit Widerstandsband"
+  },
+  "exercise-0532-resistance-band-straight-arm-pulldown": {
+    "en": "Resistance Band Straight Arm Pulldown",
+    "bs": "Povlačenje elastične trake ravnim rukama",
+    "de": "Latzug mit gestreckten Armen und Widerstandsband"
+  },
+  "exercise-0533-resistance-band-triceps-pushdown": {
+    "en": "Resistance Band Triceps Pushdown",
+    "bs": "Potisak tricepsa elastičnom trakom",
+    "de": "Trizepsdrücken mit Widerstandsband"
+  },
+  "exercise-0534-resisted-jump-skok-s-elasticnim-otporom": {
+    "en": "Resisted Jump",
+    "bs": "Skok s elastičnim otporom",
+    "de": "Sprung gegen Bandwiderstand"
+  },
+  "exercise-0535-reverse-barbell-wrist-curl": {
+    "en": "Reverse Barbell Wrist Curl",
+    "bs": "Obrnuti pregib ručnog zgloba šipkom",
+    "de": "Umgekehrter Handgelenkcurl mit Langhantel"
+  },
+  "exercise-0536-reverse-bench-crunch": {
+    "en": "Reverse Bench Crunch",
+    "bs": "Obrnuti trbušnjaci na klupi",
+    "de": "Reverse Crunch auf der Bank"
+  },
+  "exercise-0537-reverse-crunch": {
+    "en": "Reverse Crunch",
+    "bs": "Obrnuti trbušnjak",
+    "de": "Reverse Crunch"
+  },
+  "exercise-0538-reverse-curl-barbell": {
+    "en": "Reverse Curl — Barbell",
+    "bs": "Obrnuti pregib bicepsa šipkom",
+    "de": "Umgekehrter Langhantelcurl"
+  },
+  "exercise-0539-reverse-grip-dumbbell-skull-crusher": {
+    "en": "Reverse Grip Dumbbell Skull Crusher",
+    "bs": "Opružanje tricepsa bučicama prema čelu obrnutim hvatom",
+    "de": "Kurzhantel-Stirndrücken im Untergriff"
+  },
+  "exercise-0540-reverse-grip-triceps-pushdown": {
+    "en": "Reverse Grip Triceps Pushdown",
+    "bs": "Potisak tricepsa na sajli obrnutim hvatom",
+    "de": "Trizepsdrücken am Kabel im Untergriff"
+  },
+  "exercise-0541-reverse-hyperextension": {
+    "en": "Reverse Hyperextension",
+    "bs": "Obrnuta hiperekstenzija",
+    "de": "Umgekehrtes Rückenstrecken"
+  },
+  "exercise-0542-reverse-lunge-iskorak-unazad": {
+    "en": "Reverse Lunge",
+    "bs": "Iskorak unazad",
+    "de": "Ausfallschritt rückwärts"
+  },
+  "exercise-0543-reverse-lunge-with-knee-raise-obrnuti-iskorak-s-podizanjem-koljena": {
+    "en": "Reverse Lunge With Knee Raise",
+    "bs": "Obrnuti iskorak s podizanjem koljena",
+    "de": "Ausfallschritt rückwärts mit Knieheben"
+  },
+  "exercise-0544-reverse-nordic-curl": {
+    "en": "Reverse Nordic Curl",
+    "bs": "Obrnuti nordijski pregib",
+    "de": "Reverse Nordic Curl"
+  },
+  "exercise-0545-reverse-pec-deck": {
+    "en": "Reverse Pec Deck",
+    "bs": "Obrnuti pec deck",
+    "de": "Reverse Butterfly"
+  },
+  "exercise-0546-ring-triceps-extension": {
+    "en": "Ring Triceps Extension",
+    "bs": "Opružanje tricepsa na karikama",
+    "de": "Trizepsstrecken an Ringen"
+  },
+  "exercise-0547-rkc-plank-plank-s-maksimalnom-napetoscu": {
+    "en": "Rkc Plank",
+    "bs": "Plank s maksimalnom napetošću",
+    "de": "RKC-Plank"
+  },
+  "exercise-0548-roman-chair-back-extension": {
+    "en": "Roman Chair Back Extension",
+    "bs": "Ekstenzija leđa na rimskoj klupi",
+    "de": "Rückenstrecken am Roman Chair"
+  },
+  "exercise-0549-romanian-deadlift": {
+    "en": "Romanian Deadlift",
+    "bs": "Rumunsko mrtvo dizanje",
+    "de": "Rumänisches Kreuzheben"
+  },
+  "exercise-0550-romanian-deadlift-rdl": {
+    "en": "Romanian Deadlift — RDL",
+    "bs": "Rumunsko mrtvo dizanje — RDL",
+    "de": "Rumänisches Kreuzheben — RDL"
+  },
+  "exercise-0551-rope-climb-kondicioniranje-penjanje-po-konopcu-kondicioniranje": {
+    "en": "Rope Climb — Conditioning",
+    "bs": "Penjanje po konopcu — kondicioniranje",
+    "de": "Seilklettern zum Konditionstraining"
+  },
+  "exercise-0552-rope-climb-penjanje-po-konopcu": {
+    "en": "Rope Climb",
+    "bs": "Penjanje po konopcu",
+    "de": "Seilklettern"
+  },
+  "exercise-0553-rope-hammer-curl": {
+    "en": "Rope Hammer Curl",
+    "bs": "Čekić pregib na sajli s užetom",
+    "de": "Hammercurl am Seilzug"
+  },
+  "exercise-0554-rope-triceps-pushdown": {
+    "en": "Rope Triceps Pushdown",
+    "bs": "Potisak tricepsa na sajli s užetom",
+    "de": "Trizepsdrücken am Seilzug"
+  },
+  "exercise-0555-rotational-box-jump-rotacijski-skok-na-kutiju": {
+    "en": "Rotational Box Jump",
+    "bs": "Rotacijski skok na kutiju",
+    "de": "Boxsprung mit Drehung"
+  },
+  "exercise-0556-rotational-chop-dijagonalni-sijek-kabel-ili-bucica": {
+    "en": "Rotational Chop",
+    "bs": "Dijagonalni sijek — kabel ili bučica",
+    "de": "Diagonales Rumpfdrehen — Woodchop"
+  },
+  "exercise-0557-rotational-medicine-ball-throw-rotacijski-bacaj": {
+    "en": "Rotational Medicine Ball Throw",
+    "bs": "Rotacijski bačaj",
+    "de": "Rotationswurf mit dem Medizinball"
+  },
+  "exercise-0558-rowing-ergometar-veslacki-ergometar-concept2": {
+    "en": "Rowing Ergometer",
+    "bs": "Veslački ergometar — Concept2",
+    "de": "Ruderergometer"
+  },
+  "exercise-0559-russian-twist": {
+    "en": "Russian Twist",
+    "bs": "Ruski zaokret",
+    "de": "Russian Twist"
+  },
+  "exercise-0560-sandbag-carry-nosenje-vrece-pijeska": {
+    "en": "Sandbag Carry",
+    "bs": "Nošenje vreće pijeska",
+    "de": "Sandsacktragen"
+  },
+  "exercise-0561-sandbag-over-shoulder-prebacivanje-vrece-pijeska": {
+    "en": "Sandbag Over Shoulder",
+    "bs": "Prebacivanje vreće pijeska",
+    "de": "Sandsack über die Schulter heben"
+  },
+  "exercise-0562-savasana-body-scan-tijelo-skeniranje-relaksacija": {
+    "en": "Savasana / Body Scan",
+    "bs": "Tijelo skeniranje — relaksacija",
+    "de": "Savasana / Körperreise"
+  },
+  "exercise-0563-scapular-activation-band-pull-apart-aktivacija-skapule-razvlacenje-trake": {
+    "en": "Scapular Activation — Band Pull-Apart",
+    "bs": "Aktivacija skapule — razvlačenje trake",
+    "de": "Schulterblattaktivierung — Band auseinanderziehen"
+  },
+  "exercise-0564-scapular-depression-exercise-depresija-lopatice-vrat-rasterecenje": {
+    "en": "Scapular Depression Exercise",
+    "bs": "Depresija lopatice — vrat rasterećenje",
+    "de": "Schulterblätter nach unten ziehen"
+  },
+  "exercise-0565-scapular-pull-ups": {
+    "en": "Scapular Pull Ups",
+    "bs": "Zgibovi pokretom lopatica",
+    "de": "Schulterblatt-Klimmzüge"
+  },
+  "exercise-0566-scapular-retraction-elasticna-traka-skapularna-retrakcija": {
+    "en": "Scapular Retraction — Resistance Band",
+    "bs": "Skapularna retrakcija",
+    "de": "Schulterblätter mit Widerstandsband zusammenziehen"
+  },
+  "exercise-0567-scissor-kicks": {
+    "en": "Scissor Kicks",
+    "bs": "Makazice nogama",
+    "de": "Scherenschlag"
+  },
+  "exercise-0568-scott-curl": {
+    "en": "Scott Curl",
+    "bs": "Scott pregib",
+    "de": "Scott Curl"
+  },
+  "exercise-0569-seal-row-lat-focus": {
+    "en": "Seal Row — Lat Focus",
+    "bs": "Veslanje ležeći na klupi s naglaskom na latissimus",
+    "de": "Seal Row mit Latissimus-Fokus"
+  },
+  "exercise-0570-seated-bent-over-reverse-fly": {
+    "en": "Seated Bent Over Reverse Fly",
+    "bs": "Obrnuto razvlačenje u pretklonu sjedeći",
+    "de": "Vorgebeugtes Reverse Fly im Sitzen"
+  },
+  "exercise-0571-seated-butterfly-with-forward-lean-leptir-s-nagibom-naprijed": {
+    "en": "Seated Butterfly With Forward Lean",
+    "bs": "Leptir s nagibom naprijed",
+    "de": "Schmetterlingsdehnung mit Vorbeuge im Sitzen"
+  },
+  "exercise-0572-seated-cable-curl": {
+    "en": "Seated Cable Curl",
+    "bs": "Pregib bicepsa na sajli sjedeći",
+    "de": "Bizepscurl am Kabel im Sitzen"
+  },
+  "exercise-0573-seated-cable-lat-row-close-grip": {
+    "en": "Seated Cable Lat Row — Close Grip",
+    "bs": "Veslanje za latissimus uskim hvatom na sajli sjedeći",
+    "de": "Enges Latissimus-Rudern am Kabel im Sitzen"
+  },
+  "exercise-0574-seated-cable-row-veslanje-na-sajli-sjedece": {
+    "en": "Seated Cable Row",
+    "bs": "Veslanje na sajli — sjedeće",
+    "de": "Rudern am Kabel im Sitzen"
+  },
+  "exercise-0575-seated-calf-raise": {
+    "en": "Seated Calf Raise",
+    "bs": "Podizanje na prste sjedeći",
+    "de": "Wadenheben im Sitzen"
+  },
+  "exercise-0576-seated-dumbbell-curl": {
+    "en": "Seated Dumbbell Curl",
+    "bs": "Pregib bučicama sjedeći",
+    "de": "Kurzhantelcurl im Sitzen"
+  },
+  "exercise-0577-seated-dumbbell-front-raise": {
+    "en": "Seated Dumbbell Front Raise",
+    "bs": "Prednje podizanje bučica sjedeći",
+    "de": "Frontheben mit Kurzhanteln im Sitzen"
+  },
+  "exercise-0578-seated-dumbbell-lateral-raise": {
+    "en": "Seated Dumbbell Lateral Raise",
+    "bs": "Bočno podizanje bučica sjedeći",
+    "de": "Seitheben mit Kurzhanteln im Sitzen"
+  },
+  "exercise-0579-seated-figure-4-s-nagibom-sjedeci-stretch-piriformisa-s-nagibom": {
+    "en": "Seated Figure Four Stretch With Forward Lean",
+    "bs": "Sjedeći stretch piriformisa s nagibom",
+    "de": "Vierer-Dehnung mit Vorbeuge im Sitzen"
+  },
+  "exercise-0580-seated-hamstring-stretch-sjedeci-stretch-hamstringa": {
+    "en": "Seated Hamstring Stretch",
+    "bs": "Sjedeći stretch hamstringa",
+    "de": "Dehnung der Oberschenkelrückseite im Sitzen"
+  },
+  "exercise-0581-seated-knee-tuck": {
+    "en": "Seated Knee Tuck",
+    "bs": "Privlačenje koljena sjedeći",
+    "de": "Knieanziehen im Sitzen"
+  },
+  "exercise-0582-seated-leg-curl-machine": {
+    "en": "Seated Leg Curl — Machine",
+    "bs": "Pregib nogu sjedeći na spravi",
+    "de": "Beinbeugen im Sitzen an der Maschine"
+  },
+  "exercise-0583-seated-thoracic-rotation-sjedeca-torakalna-rotacija": {
+    "en": "Seated Thoracic Rotation",
+    "bs": "Sjedeća torakalna rotacija",
+    "de": "Brustwirbelsäulenrotation im Sitzen"
+  },
+  "exercise-0584-serratus-wall-push-serapusni-potisak-na-zid": {
+    "en": "Serratus Wall Push",
+    "bs": "Serapusni potisak na zid",
+    "de": "Serratus-Drücken an der Wand"
+  },
+  "exercise-0585-short-arc-quad-kratki-luk-kvadricepsa": {
+    "en": "Short Arc Quad",
+    "bs": "Kratki luk kvadricepsa",
+    "de": "Kniestreckung mit kleinem Bewegungsumfang"
+  },
+  "exercise-0586-shoulder-cars-kruzne-artikulacijske-rotacije-ramena": {
+    "en": "SHOULDER CARs",
+    "bs": "Kružne artikulacijske rotacije ramena",
+    "de": "Kontrollierte Schulterkreise"
+  },
+  "exercise-0587-shoulder-flexion-mobilization-aktivan-aktivna-fleksijska-mobilizacija-ramena": {
+    "en": "Shoulder Flexion Mobilization — Active",
+    "bs": "Aktivna fleksijska mobilizacija ramena",
+    "de": "Aktive Mobilisation der Schulterbeugung"
+  },
+  "exercise-0588-shoulder-flexion-wall-walk-hodanje-rukama-uz-zid": {
+    "en": "Shoulder Flexion Wall Walk",
+    "bs": "Hodanje rukama uz zid",
+    "de": "Mit den Händen an der Wand hochlaufen"
+  },
+  "exercise-0589-shoulder-isometrics-izometrijske-vjezbe-ramena": {
+    "en": "Shoulder Isometrics",
+    "bs": "Izometrijske vježbe ramena",
+    "de": "Isometrische Schulterübungen"
+  },
+  "exercise-0590-shrimp-squat-shrimp-cucanj": {
+    "en": "Shrimp Squat",
+    "bs": "Shrimp čučanj",
+    "de": "Shrimp Squat"
+  },
+  "exercise-0591-shuttle-run-naizmjenicni-sprint-s-okretom": {
+    "en": "Shuttle Run",
+    "bs": "Naizmjenični sprint s okretom",
+    "de": "Pendellauf"
+  },
+  "exercise-0592-side-bend-oblikovanje-struka-bocna-fleksija-za-struk": {
+    "en": "Side Bend — Waist Toning",
+    "bs": "Bočna fleksija za struk",
+    "de": "Seitbeugen zur Rumpfkräftigung"
+  },
+  "exercise-0593-side-kick-oblikovanje-bokova-bocni-udarac-za-bokove": {
+    "en": "Side Kick — Hip Toning",
+    "bs": "Bočni udarac za bokove",
+    "de": "Seitlicher Kick zur Hüftkräftigung"
+  },
+  "exercise-0594-side-lying-hip-adduction": {
+    "en": "Side Lying Hip Adduction",
+    "bs": "Primicanje noge u bočnom ležanju",
+    "de": "Hüftadduktion in Seitenlage"
+  },
+  "exercise-0595-side-plank-podlaktica-bocna-daska-na-podlaktici": {
+    "en": "Side Plank — Forearm",
+    "bs": "Bočna daska na podlaktici",
+    "de": "Seitstütz auf dem Unterarm"
+  },
+  "exercise-0596-side-plank-bocna-daska": {
+    "en": "Side Plank",
+    "bs": "Bočna daska",
+    "de": "Seitstütz"
+  },
+  "exercise-0597-side-plank-s-podizanjem-noge": {
+    "en": "Side Plank With Leg Lift",
+    "bs": "Bočna daska s podizanjem noge",
+    "de": "Seitstütz mit Beinheben"
+  },
+  "exercise-0598-side-plank-s-rotacijom-bocna-daska-s-rotacijom": {
+    "en": "Side Plank With Rotation",
+    "bs": "Bočna daska s rotacijom",
+    "de": "Seitstütz mit Rotation"
+  },
+  "exercise-0599-side-lying-external-rotation-dumbbell-vanjska-rotacija-s-bucicom-bocno": {
+    "en": "Side-Lying External Rotation — Dumbbell",
+    "bs": "Vanjska rotacija s bučicom — bočno",
+    "de": "Schulteraußenrotation mit Kurzhantel in Seitenlage"
+  },
+  "exercise-0600-side-lying-hip-abduction-bocna-abdukcija-kuka": {
+    "en": "Side-Lying Hip Abduction",
+    "bs": "Bočna abdukcija kuka",
+    "de": "Hüftabduktion in Seitenlage"
+  },
+  "exercise-0601-side-lying-thoracic-rotation-s-potporom": {
+    "en": "Supported Side-Lying Thoracic Rotation",
+    "bs": "Rotacija grudne kičme u bočnom ležanju s potporom",
+    "de": "Unterstützte Brustwirbelsäulenrotation in Seitenlage"
+  },
+  "exercise-0602-sidelying-hip-internal-rotation-unutarnja-rotacija-kuka-u-bocnom-lezanju": {
+    "en": "Sidelying Hip Internal Rotation",
+    "bs": "Unutarnja rotacija kuka u bočnom ležanju",
+    "de": "Hüftinnenrotation in Seitenlage"
+  },
+  "exercise-0603-single-arm-cable-fly": {
+    "en": "Single Arm Cable Fly",
+    "bs": "Jednoručno razvlačenje na sajli",
+    "de": "Einarmiges Brustfliegen am Kabel"
+  },
+  "exercise-0604-single-arm-cable-front-raise": {
+    "en": "Single Arm Cable Front Raise",
+    "bs": "Jednoručno prednje podizanje na sajli",
+    "de": "Einarmiges Frontheben am Kabel"
+  },
+  "exercise-0605-single-arm-cable-lat-pulldown": {
+    "en": "Single Arm Cable Lat Pulldown",
+    "bs": "Jednoručno povlačenje za latissimus na sajli",
+    "de": "Einarmiger Latzug am Kabel"
+  },
+  "exercise-0606-single-arm-cable-lat-pullover": {
+    "en": "Single Arm Cable Lat Pullover",
+    "bs": "Jednoručni pulover za latissimus na sajli",
+    "de": "Einarmiger Latissimusüberzug am Kabel"
+  },
+  "exercise-0607-single-arm-cable-lat-row": {
+    "en": "Single Arm Cable Lat Row",
+    "bs": "Jednoručno veslanje za latissimus na sajli",
+    "de": "Einarmiges Latissimus-Rudern am Kabel"
+  },
+  "exercise-0608-single-arm-cable-pushdown": {
+    "en": "Single Arm Cable Pushdown",
+    "bs": "Jednoručni potisak tricepsa na sajli",
+    "de": "Einarmiges Trizepsdrücken am Kabel"
+  },
+  "exercise-0609-single-arm-cable-reverse-fly": {
+    "en": "Single Arm Cable Reverse Fly",
+    "bs": "Jednoručno obrnuto razvlačenje na sajli",
+    "de": "Einarmiges Reverse Fly am Kabel"
+  },
+  "exercise-0610-single-arm-dumbbell-lat-row": {
+    "en": "Single Arm Dumbbell Lat Row",
+    "bs": "Jednoručno veslanje bučicom za latissimus",
+    "de": "Einarmiges Latissimus-Rudern mit Kurzhantel"
+  },
+  "exercise-0611-single-arm-dumbbell-lateral-raise": {
+    "en": "Single Arm Dumbbell Lateral Raise",
+    "bs": "Jednoručno bočno podizanje bučice",
+    "de": "Einarmiges Seitheben mit Kurzhantel"
+  },
+  "exercise-0612-single-arm-dumbbell-pullover": {
+    "en": "Single Arm Dumbbell Pullover",
+    "bs": "Jednoručni pulover bučicom",
+    "de": "Einarmiger Kurzhantelüberzug"
+  },
+  "exercise-0613-single-arm-lat-machine-pullover": {
+    "en": "Single Arm Lat Machine Pullover",
+    "bs": "Jednoručni pulover za latissimus na spravi",
+    "de": "Einarmiger Latissimusüberzug an der Maschine"
+  },
+  "exercise-0614-single-arm-machine-lat-pulldown": {
+    "en": "Single Arm Machine Lat Pulldown",
+    "bs": "Jednoručno povlačenje za latissimus na spravi",
+    "de": "Einarmiger Latzug an der Maschine"
+  },
+  "exercise-0615-single-arm-overhead-dumbbell-extension": {
+    "en": "Single Arm Overhead Dumbbell Extension",
+    "bs": "Jednoručno opružanje tricepsa bučicom iznad glave",
+    "de": "Einarmiges Trizepsstrecken mit Kurzhantel über Kopf"
+  },
+  "exercise-0616-single-arm-pec-deck": {
+    "en": "Single Arm Pec Deck",
+    "bs": "Jednoručno pec deck razvlačenje",
+    "de": "Einarmiges Butterfly an der Maschine"
+  },
+  "exercise-0617-single-arm-preacher-curl": {
+    "en": "Single Arm Preacher Curl",
+    "bs": "Jednoručni pregib na Scott klupi",
+    "de": "Einarmiger Preacher Curl"
+  },
+  "exercise-0618-single-arm-resistance-band-lat-row": {
+    "en": "Single Arm Resistance Band Lat Row",
+    "bs": "Jednoručno veslanje za latissimus s elastičnom trakom",
+    "de": "Einarmiges Latissimus-Rudern mit Widerstandsband"
+  },
+  "exercise-0619-single-leg-deadlift": {
+    "en": "Single Leg Deadlift",
+    "bs": "Jednonožno mrtvo dizanje",
+    "de": "Einbeiniges Kreuzheben"
+  },
+  "exercise-0620-single-leg-extension": {
+    "en": "Single Leg Extension",
+    "bs": "Jednonožno opružanje noge",
+    "de": "Einbeiniges Beinstrecken"
+  },
+  "exercise-0621-single-leg-hip-abduction-machine": {
+    "en": "Single Leg Hip Abduction — Machine",
+    "bs": "Jednonožno odvođenje noge na spravi",
+    "de": "Einbeinige Hüftabduktion an der Maschine"
+  },
+  "exercise-0622-single-leg-hip-adduction-machine": {
+    "en": "Single Leg Hip Adduction — Machine",
+    "bs": "Jednonožno primicanje noge na spravi",
+    "de": "Einbeinige Hüftadduktion an der Maschine"
+  },
+  "exercise-0623-single-leg-lying-leg-curl": {
+    "en": "Single Leg Lying Leg Curl",
+    "bs": "Jednonožni pregib noge ležeći",
+    "de": "Einbeiniges Beinbeugen im Liegen"
+  },
+  "exercise-0624-single-leg-seated-calf-raise": {
+    "en": "Single Leg Seated Calf Raise",
+    "bs": "Jednonožno podizanje na prste sjedeći",
+    "de": "Einbeiniges Wadenheben im Sitzen"
+  },
+  "exercise-0625-single-leg-seated-leg-curl": {
+    "en": "Single Leg Seated Leg Curl",
+    "bs": "Jednonožni pregib noge sjedeći",
+    "de": "Einbeiniges Beinbeugen im Sitzen"
+  },
+  "exercise-0626-single-leg-sissy-squat": {
+    "en": "Single Leg Sissy Squat",
+    "bs": "Jednonožni sissy čučanj",
+    "de": "Einbeiniger Sissy Squat"
+  },
+  "exercise-0627-single-leg-standing-calf-raise": {
+    "en": "Single Leg Standing Calf Raise",
+    "bs": "Jednonožno podizanje na prste stojeći",
+    "de": "Einbeiniges Wadenheben im Stehen"
+  },
+  "exercise-0628-single-arm-dumbbell-row-jednoruko-veslanje-bucicom": {
+    "en": "Single-Arm Dumbbell Row",
+    "bs": "Jednoruko veslanje bučicom",
+    "de": "Einarmiges Kurzhantelrudern"
+  },
+  "exercise-0629-single-arm-farmer-hold-jednorucno-staticko-drzanje": {
+    "en": "Single-Arm Farmer Hold",
+    "bs": "Jednoručno statičko držanje",
+    "de": "Einarmiges statisches Gewichttragen"
+  },
+  "exercise-0630-single-arm-kettlebell-swing-jednorucni-zamah": {
+    "en": "Single-Arm Kettlebell Swing",
+    "bs": "Jednoručni zamah",
+    "de": "Einarmiger Kettlebell Swing"
+  },
+  "exercise-0631-single-leg-balance-jednozna-ravnoteza": {
+    "en": "Single-Leg Balance",
+    "bs": "Jednonožna ravnoteža",
+    "de": "Einbeinstand"
+  },
+  "exercise-0632-single-leg-box-jump-jednonozni-skok-na-kutiju": {
+    "en": "Single-Leg Box Jump",
+    "bs": "Jednonožni skok na kutiju",
+    "de": "Einbeiniger Boxsprung"
+  },
+  "exercise-0633-single-leg-glute-bridge-jednonozni-most": {
+    "en": "Single-Leg Glute Bridge",
+    "bs": "Jednonožni most",
+    "de": "Einbeinige Gesäßbrücke"
+  },
+  "exercise-0634-single-leg-heel-raise-jednonozno-podizanje-na-prste": {
+    "en": "Single-Leg Heel Raise",
+    "bs": "Jednonožno podizanje na prste",
+    "de": "Einbeiniges Fersenheben"
+  },
+  "exercise-0635-single-leg-press-rehabilitacijski-jednonozni-leg-press": {
+    "en": "Single-Leg Press — Rehabilitation",
+    "bs": "Jednonožni leg press",
+    "de": "Einbeinige Beinpresse — Rehabilitation"
+  },
+  "exercise-0636-single-leg-rdl-to-row-jednonozni-rdl-s-veslanjem": {
+    "en": "Single-Leg RDL to Row",
+    "bs": "Jednonožni RDL s veslanjem",
+    "de": "Einbeiniges rumänisches Kreuzheben mit Rudern"
+  },
+  "exercise-0637-single-leg-romanian-deadlift": {
+    "en": "Single-Leg Romanian Deadlift",
+    "bs": "Jednonožno rumunsko mrtvo dizanje",
+    "de": "Einbeiniges rumänisches Kreuzheben"
+  },
+  "exercise-0638-sissy-squat": {
+    "en": "Sissy Squat",
+    "bs": "Sissy čučanj",
+    "de": "Sissy Squat"
+  },
+  "exercise-0639-sit-to-stand-rehabilitacijski-ustajanje-sa-stolice-rehabilitacijski": {
+    "en": "Sit to Stand — Rehabilitation",
+    "bs": "Ustajanje sa stolice — rehabilitacijski",
+    "de": "Aufstehen vom Stuhl — Rehabilitation"
+  },
+  "exercise-0640-sit-ups": {
+    "en": "Sit Ups",
+    "bs": "Podizanje trupa",
+    "de": "Sit-ups"
+  },
+  "exercise-0641-skater-jump-with-reach-klizacev-skok-s-dosegom": {
+    "en": "Skater Jump With Reach",
+    "bs": "Klizačev skok s dosegom",
+    "de": "Skater-Sprung mit Greifbewegung"
+  },
+  "exercise-0642-ski-erg-skijaski-ergometar": {
+    "en": "Ski Erg",
+    "bs": "Skijaški ergometar",
+    "de": "SkiErg"
+  },
+  "exercise-0643-skull-crusher": {
+    "en": "Skull Crusher",
+    "bs": "Opružanje tricepsa prema čelu",
+    "de": "Stirndrücken"
+  },
+  "exercise-0644-sled-pull-kardio-vuca-saonica-kardio": {
+    "en": "Sled Pull — Cardio",
+    "bs": "Vuča saonica — kardio",
+    "de": "Schlittenziehen — Cardio"
+  },
+  "exercise-0645-sled-pull-vuca-saonica": {
+    "en": "Sled Pull",
+    "bs": "Vuča saonica",
+    "de": "Schlittenziehen"
+  },
+  "exercise-0646-sled-push-kardio-guranje-saonica-kardio": {
+    "en": "Sled Push — Cardio",
+    "bs": "Guranje saonica — kardio",
+    "de": "Schlittenschieben — Cardio"
+  },
+  "exercise-0647-sled-push-guranje-saonica": {
+    "en": "Sled Push",
+    "bs": "Guranje saonica",
+    "de": "Schlittenschieben"
+  },
+  "exercise-0648-sleeper-stretch-stretch-spavaca-posteriorna-kapsula": {
+    "en": "Sleeper Stretch",
+    "bs": "Stretch spavača — posteriorna kapsula",
+    "de": "Sleeper Stretch"
+  },
+  "exercise-0649-smith-machine-calf-raise": {
+    "en": "Smith Machine Calf Raise",
+    "bs": "Podizanje na prste na Smith spravi",
+    "de": "Wadenheben an der Multipresse"
+  },
+  "exercise-0650-smith-machine-decline-press": {
+    "en": "Smith Machine Decline Press",
+    "bs": "Potisak na negativnoj klupi na Smith spravi",
+    "de": "Negativbankdrücken an der Multipresse"
+  },
+  "exercise-0651-smith-machine-incline-press": {
+    "en": "Smith Machine Incline Press",
+    "bs": "Potisak na kosoj klupi na Smith spravi",
+    "de": "Schrägbankdrücken an der Multipresse"
+  },
+  "exercise-0652-snatch-grip-deadlift": {
+    "en": "Snatch Grip Deadlift",
+    "bs": "Mrtvo dizanje širokim hvatom za trzaj",
+    "de": "Kreuzheben im Reißgriff"
+  },
+  "exercise-0653-specific-warm-up-lagane-serije-specificno-zagrijavanje-lagane-serije": {
+    "en": "Specific Warm-Up — Light Sets",
+    "bs": "Specifično zagrijavanje — lagane serije",
+    "de": "Spezifisches Aufwärmen — leichte Sätze"
+  },
+  "exercise-0654-speed-bound-brzi-bounding-sprint-specificnost": {
+    "en": "Speed Bound",
+    "bs": "Brzi bounding — sprint specifičnost",
+    "de": "Schnelle Sprungläufe"
+  },
+  "exercise-0655-sphinx-pose-sfinga-pozicija-torakalna-ekstenzija": {
+    "en": "Sphinx Pose",
+    "bs": "Sfinga pozicija — torakalna ekstenzija",
+    "de": "Sphinxhaltung"
+  },
+  "exercise-0656-sphinx-to-cobra-progression-progresija-sfinge-do-kobre": {
+    "en": "Sphinx To Cobra Progression",
+    "bs": "Progresija sfinge do kobre",
+    "de": "Übergang von der Sphinx zur Kobra"
+  },
+  "exercise-0657-spider-curl": {
+    "en": "Spider Curl",
+    "bs": "Spider pregib",
+    "de": "Spider Curl"
+  },
+  "exercise-0658-spinning-bike-peloton-spinning-bicikl": {
+    "en": "Spinning Bike / Peloton",
+    "bs": "Spinning bicikl",
+    "de": "Spinning-Bike / Peloton"
+  },
+  "exercise-0659-split-squat-jump-skok-iz-split-squat-pozicije": {
+    "en": "Split Squat Jump",
+    "bs": "Skok iz split squat pozicije",
+    "de": "Sprung aus dem Ausfallschritt"
+  },
+  "exercise-0660-sprint-trcanje-na-otvorenom-sprint-na-otvorenom": {
+    "en": "Outdoor Sprint",
+    "bs": "Sprint na otvorenom",
+    "de": "Sprint im Freien"
+  },
+  "exercise-0661-sprint-acceleration-drills-a-skip-a-skip": {
+    "en": "Sprint Acceleration Drills — A-Skip",
+    "bs": "Vježba ubrzanja za sprint — A-skip",
+    "de": "Sprintbeschleunigung — A-Skip"
+  },
+  "exercise-0662-squat-jump-skok-iz-cucnja": {
+    "en": "Squat Jump",
+    "bs": "Skok iz čučnja",
+    "de": "Sprungkniebeuge"
+  },
+  "exercise-0663-squat-jump-to-box-continuous-kontinuirani-skokovi-na-kutiju": {
+    "en": "Squat Jump To Box — Continuous",
+    "bs": "Kontinuirani skokovi na kutiju",
+    "de": "Fortlaufende Sprungkniebeugen auf die Box"
+  },
+  "exercise-0664-squat-jumps-kardio-serija-serija-squat-jumpova": {
+    "en": "Squat Jumps — Cardio Set",
+    "bs": "Serija squat jumpova",
+    "de": "Sprungkniebeugen — Cardio-Serie"
+  },
+  "exercise-0665-squat-pulse-cucanj-s-pulsiranjem": {
+    "en": "Squat Pulse",
+    "bs": "Čučanj s pulsiranjem",
+    "de": "Kniebeuge mit kleinen Auf-und-ab-Bewegungen"
+  },
+  "exercise-0666-squat-to-stand-zagrijavanje-cucanj-do-stajanja-za-zagrijavanje": {
+    "en": "Squat to Stand — Warm-Up",
+    "bs": "Čučanj do stajanja za zagrijavanje",
+    "de": "Aus der Kniebeuge in den Stand zum Aufwärmen"
+  },
+  "exercise-0667-squat-to-stand-cucanj-do-stajanja-mobilizacijska-sekvenca": {
+    "en": "Squat To Stand",
+    "bs": "Čučanj do stajanja — mobilizacijska sekvenca",
+    "de": "Aus der Kniebeuge in den Stand"
+  },
+  "exercise-0668-stability-ball-back-extension": {
+    "en": "Stability Ball Back Extension",
+    "bs": "Ekstenzija leđa na pilates lopti",
+    "de": "Rückenstrecken auf dem Gymnastikball"
+  },
+  "exercise-0669-stability-ball-crunch": {
+    "en": "Stability Ball Crunch",
+    "bs": "Trbušnjaci na pilates lopti",
+    "de": "Crunch auf dem Gymnastikball"
+  },
+  "exercise-0670-stability-ball-leg-curl": {
+    "en": "Stability Ball Leg Curl",
+    "bs": "Pregib nogu na pilates lopti",
+    "de": "Beinbeugen auf dem Gymnastikball"
+  },
+  "exercise-0671-stability-ball-pike": {
+    "en": "Stability Ball Pike",
+    "bs": "Podizanje kukova u V položaj na pilates lopti",
+    "de": "Pike auf dem Gymnastikball"
+  },
+  "exercise-0672-stability-ball-plank-plank-na-lopti": {
+    "en": "Stability Ball Plank",
+    "bs": "Plank na lopti",
+    "de": "Plank auf dem Gymnastikball"
+  },
+  "exercise-0673-stacionarni-bicikl-upright-sobni-bicikl-uspravan": {
+    "en": "Stationary Bike — Upright",
+    "bs": "Sobni bicikl — uspravan",
+    "de": "Aufrechtes Fahrradergometer"
+  },
+  "exercise-0674-standing-abductor-kicks-oblikovanje-stojeci-bocni-udarci": {
+    "en": "Standing Abductor Kicks — Toning",
+    "bs": "Stojeći bočni udarci",
+    "de": "Seitliches Beinschwingen im Stand zur Kräftigung"
+  },
+  "exercise-0675-standing-bicycle-crunch-stojece-bicikl-crunches": {
+    "en": "Standing Bicycle Crunch",
+    "bs": "Stojeće bicikl crunches",
+    "de": "Bicycle Crunch im Stehen"
+  },
+  "exercise-0676-standing-cable-chest-press": {
+    "en": "Standing Cable Chest Press",
+    "bs": "Potisak za prsa na sajli stojeći",
+    "de": "Brustdrücken am Kabel im Stehen"
+  },
+  "exercise-0677-standing-cable-lat-row": {
+    "en": "Standing Cable Lat Row",
+    "bs": "Veslanje za latissimus na sajli stojeći",
+    "de": "Latissimus-Rudern am Kabel im Stehen"
+  },
+  "exercise-0678-standing-cable-row-stojece-veslanje-na-kabelu": {
+    "en": "Standing Cable Row",
+    "bs": "Stojeće veslanje na kabelu",
+    "de": "Rudern am Kabel im Stehen"
+  },
+  "exercise-0679-standing-calf-raise-machine": {
+    "en": "Standing Calf Raise — Machine",
+    "bs": "Podizanje na prste stojeći na spravi",
+    "de": "Wadenheben im Stehen an der Maschine"
+  },
+  "exercise-0680-standing-calf-stretch-gastrocnemius-stojeci-stretch-listova-gastrocnemius": {
+    "en": "Standing Calf Stretch — Gastrocnemius",
+    "bs": "Stojeći stretch listova — gastrocnemius",
+    "de": "Wadendehnung im Stehen — Gastrocnemius"
+  },
+  "exercise-0681-standing-calf-stretch-soleus-stojeci-stretch-listova-soleus": {
+    "en": "Standing Calf Stretch — Soleus",
+    "bs": "Stojeći stretch listova — soleus",
+    "de": "Wadendehnung im Stehen — Soleus"
+  },
+  "exercise-0682-standing-core-rotation-stojeca-core-rotacija-oblikovanje-struka": {
+    "en": "Standing Core Rotation",
+    "bs": "Stojeća core rotacija — oblikovanje struka",
+    "de": "Rumpfrotation im Stehen"
+  },
+  "exercise-0683-standing-hip-flexor-mobilization-stojeca-mobilizacija-hip-flexora": {
+    "en": "Standing Hip Flexor Mobilization",
+    "bs": "Stojeća mobilizacija hip flexora",
+    "de": "Hüftbeugermobilisation im Stehen"
+  },
+  "exercise-0684-standing-leg-curl-machine": {
+    "en": "Standing Leg Curl — Machine",
+    "bs": "Pregib noge stojeći na spravi",
+    "de": "Beinbeugen im Stehen an der Maschine"
+  },
+  "exercise-0685-standing-long-jump-skok-u-dalj-s-mjesta": {
+    "en": "Standing Long Jump",
+    "bs": "Skok u dalj s mjesta",
+    "de": "Standweitsprung"
+  },
+  "exercise-0686-standing-plate-press": {
+    "en": "Standing Plate Press",
+    "bs": "Potisak ploče stojeći",
+    "de": "Drücken mit Hantelscheibe im Stehen"
+  },
+  "exercise-0687-standing-quad-stretch-stojeci-stretch-kvadricepsa": {
+    "en": "Standing Quad Stretch",
+    "bs": "Stojeći stretch kvadricepsa",
+    "de": "Quadrizepsdehnung im Stehen"
+  },
+  "exercise-0688-step-touch-march-oblikovanje-korak-dodir-za-oblikovanje": {
+    "en": "Step Touch / March — Toning",
+    "bs": "Korak-dodir za oblikovanje",
+    "de": "Step Touch / Marschieren zur Kräftigung"
+  },
+  "exercise-0689-step-down-eccentric-rehabilitacijski": {
+    "en": "Step-Down Eccentric — Rehabilitation",
+    "bs": "Ekscentrični silazak sa stepenice — rehabilitacija",
+    "de": "Exzentrisches Herabsteigen — Rehabilitation"
+  },
+  "exercise-0690-step-down-eccentric-ekscentricni-silazak-sa-stepenice": {
+    "en": "Step-Down Eccentric",
+    "bs": "Ekscentrični silazak sa stepenice",
+    "de": "Exzentrisches Herabsteigen"
+  },
+  "exercise-0691-step-up-korak-na-klupe-stepenice": {
+    "en": "Step-Up",
+    "bs": "Korak na klupe/stepenice",
+    "de": "Step-Up"
+  },
+  "exercise-0692-step-up-with-knee-drive-korak-s-podizanjem-koljena": {
+    "en": "Step-Up With Knee Drive",
+    "bs": "Korak s podizanjem koljena",
+    "de": "Step-Up mit Knieheben"
+  },
+  "exercise-0693-stepper-stairmaster-stepper-penjanje-stepenicama": {
+    "en": "Stepper / Stairmaster",
+    "bs": "Stepper — penjanje stepenicama",
+    "de": "Stepper / StairMaster"
+  },
+  "exercise-0694-stir-the-pot-mijesanje-lonca-na-lopti": {
+    "en": "Stir The Pot",
+    "bs": "Miješanje lonca na lopti",
+    "de": "Unterarmkreisen auf dem Gymnastikball"
+  },
+  "exercise-0695-straight-arm-cable-pulldown": {
+    "en": "Straight Arm Cable Pulldown",
+    "bs": "Povlačenje sajle ravnim rukama",
+    "de": "Latzug mit gestreckten Armen am Kabel"
+  },
+  "exercise-0696-straight-arm-rope-pulldown": {
+    "en": "Straight Arm Rope Pulldown",
+    "bs": "Povlačenje užeta na sajli ravnim rukama",
+    "de": "Latzug mit gestreckten Armen am Seilzug"
+  },
+  "exercise-0697-straight-leg-raise-rehabilitacijski-podizanje-ispruzene-noge": {
+    "en": "Straight Leg Raise — Rehabilitation",
+    "bs": "Podizanje ispružene noge",
+    "de": "Gestrecktes Beinheben — Rehabilitation"
+  },
+  "exercise-0698-suitcase-carry-stabilizacijska-varijanta": {
+    "en": "Suitcase Carry — Stabilization Variant",
+    "bs": "Jednoručno nošenje za stabilizaciju",
+    "de": "Einseitiges Koffertragen zur Stabilisierung"
+  },
+  "exercise-0699-suitcase-carry-jednorucno-nosenje": {
+    "en": "Suitcase Carry",
+    "bs": "Jednoručno nošenje",
+    "de": "Einseitiges Koffertragen"
+  },
+  "exercise-0700-sumo-deadlift": {
+    "en": "Sumo Deadlift",
+    "bs": "Sumo mrtvo dizanje",
+    "de": "Sumo-Kreuzheben"
+  },
+  "exercise-0701-sumo-squat-sumo-cucanj": {
+    "en": "Sumo Squat",
+    "bs": "Sumo čučanj",
+    "de": "Sumo-Kniebeuge"
+  },
+  "exercise-0702-sumo-squat-with-heel-raise-sumo-cucanj-s-podizanjem-na-prste": {
+    "en": "Sumo Squat With Heel Raise",
+    "bs": "Sumo čučanj s podizanjem na prste",
+    "de": "Sumo-Kniebeuge mit Fersenheben"
+  },
+  "exercise-0703-superman": {
+    "en": "Superman",
+    "bs": "Superman podizanje ruku i nogu",
+    "de": "Superman"
+  },
+  "exercise-0704-supine-marching-hodanje-u-lezanju": {
+    "en": "Supine Marching",
+    "bs": "Hodanje u ležanju",
+    "de": "Marschieren in Rückenlage"
+  },
+  "exercise-0705-supine-twist-lezeca-rotacija-kicme": {
+    "en": "Supine Twist",
+    "bs": "Ležeća rotacija kičme",
+    "de": "Rumpfdrehung in Rückenlage"
+  },
+  "exercise-0706-supported-sissy-squat": {
+    "en": "Supported Sissy Squat",
+    "bs": "Sissy čučanj uz potporu",
+    "de": "Sissy Squat mit Unterstützung"
+  },
+  "exercise-0707-suspension-chest-fly": {
+    "en": "Suspension Chest Fly",
+    "bs": "Razvlačenje za prsa na suspenzijskim trakama",
+    "de": "Brustfliegen am Schlingentrainer"
+  },
+  "exercise-0708-suspension-trainer-triceps-extension": {
+    "en": "Suspension Trainer Triceps Extension",
+    "bs": "Opružanje tricepsa na suspenzijskim trakama",
+    "de": "Trizepsstrecken am Schlingentrainer"
+  },
+  "exercise-0709-swimming-plivanje-plivanje-kao-kardio": {
+    "en": "Swimming",
+    "bs": "Plivanje kao kardio",
+    "de": "Schwimmen"
+  },
+  "exercise-0710-swiss-ball-dead-bug-dead-bug-s-pilates-loptom": {
+    "en": "Swiss Ball Dead Bug",
+    "bs": "Dead bug s pilates loptom",
+    "de": "Dead Bug mit Gymnastikball"
+  },
+  "exercise-0711-swiss-ball-dumbbell-fly": {
+    "en": "Swiss Ball Dumbbell Fly",
+    "bs": "Razvlačenje bučicama na pilates lopti",
+    "de": "Kurzhantelfliegen auf dem Gymnastikball"
+  },
+  "exercise-0712-swiss-ball-glute-bridge-most-za-gluteus-s-pilates-loptom": {
+    "en": "Swiss Ball Glute Bridge",
+    "bs": "Most za gluteus s pilates loptom",
+    "de": "Gesäßbrücke mit Gymnastikball"
+  },
+  "exercise-0713-swiss-ball-hamstring-curl-pregib-potkoljenica-na-pilates-lopti": {
+    "en": "Swiss Ball Hamstring Curl",
+    "bs": "Pregib potkoljenica na pilates lopti",
+    "de": "Beinbeugen auf dem Gymnastikball"
+  },
+  "exercise-0714-swiss-ball-plank-plank-s-podlakticama-na-pilates-lopti": {
+    "en": "Swiss Ball Plank",
+    "bs": "Plank s podlakticama na pilates lopti",
+    "de": "Unterarmstütz auf dem Gymnastikball"
+  },
+  "exercise-0715-swiss-ball-push-up-sklek-s-rukama-na-pilates-lopti": {
+    "en": "Swiss Ball Push-Up",
+    "bs": "Sklek s rukama na pilates lopti",
+    "de": "Liegestütz auf dem Gymnastikball"
+  },
+  "exercise-0716-swiss-ball-roll-out-roll-out-podlakticama-na-pilates-lopti": {
+    "en": "Swiss Ball Roll-Out",
+    "bs": "Roll-out podlakticama na pilates lopti",
+    "de": "Unterarm-Rollout auf dem Gymnastikball"
+  },
+  "exercise-0717-swiss-ball-russian-twist-rotacija-trupa-na-pilates-lopti": {
+    "en": "Swiss Ball Russian Twist",
+    "bs": "Rotacija trupa na pilates lopti",
+    "de": "Russian Twist auf dem Gymnastikball"
+  },
+  "exercise-0718-swiss-ball-wall-squat-cucanj-uz-zid-s-pilates-loptom": {
+    "en": "Swiss Ball Wall Squat",
+    "bs": "Čučanj uz zid s pilates loptom",
+    "de": "Wandkniebeuge mit Gymnastikball"
+  },
+  "exercise-0719-t-bar-row-veslanje-t-sipkom": {
+    "en": "T-Bar Row",
+    "bs": "Veslanje T šipkom",
+    "de": "T-Bar-Rudern"
+  },
+  "exercise-0720-tate-press": {
+    "en": "Tate Press",
+    "bs": "Tate potisak",
+    "de": "Tate Press"
+  },
+  "exercise-0721-terminal-knee-extension-tke-terminalna-ekstenzija-koljena": {
+    "en": "Terminal Knee Extension — Tke",
+    "bs": "Terminalna ekstenzija koljena",
+    "de": "Endgradige Kniestreckung — TKE"
+  },
+  "exercise-0722-terminal-knee-extension-tke-s-elastikom": {
+    "en": "Terminal Knee Extension — TKE With Band",
+    "bs": "Završno opružanje koljena s elastičnom trakom — TKE",
+    "de": "Endgradige Kniestreckung mit Band — TKE"
+  },
+  "exercise-0723-thoracic-cat-cow-torakalna-macka-krava": {
+    "en": "Thoracic Cat-Cow",
+    "bs": "Torakalna mačka-krava",
+    "de": "Katze-Kuh für die Brustwirbelsäule"
+  },
+  "exercise-0724-thoracic-extension-on-foam-roller-torakalna-ekstenzija-na-foam-rolleru": {
+    "en": "Thoracic Extension On Foam Roller",
+    "bs": "Torakalna ekstenzija na foam rolleru",
+    "de": "Brustwirbelsäulenstreckung auf der Faszienrolle"
+  },
+  "exercise-0725-thoracic-extension-stretch-stretch-torakalne-ekstenzije": {
+    "en": "Thoracic Extension Stretch",
+    "bs": "Stretch torakalne ekstenzije",
+    "de": "Dehnung in Brustwirbelsäulenstreckung"
+  },
+  "exercise-0726-thoracic-rotation-cetveronozna-torakalna-rotacija-u-cetveronoznoj": {
+    "en": "Thoracic Rotation — Quadruped",
+    "bs": "Torakalna rotacija u četveronožnoj",
+    "de": "Brustwirbelsäulenrotation im Vierfüßlerstand"
+  },
+  "exercise-0727-thoracic-rotation-dinamicka-dinamicka-torakalna-rotacija": {
+    "en": "Thoracic Rotation — Dynamic",
+    "bs": "Dinamička torakalna rotacija",
+    "de": "Dynamische Brustwirbelsäulenrotation"
+  },
+  "exercise-0728-thread-the-needle-provlacenje-igle": {
+    "en": "Thread The Needle",
+    "bs": "Provlačenje igle",
+    "de": "Einfädeln im Vierfüßlerstand"
+  },
+  "exercise-0729-thruster-squat-to-press": {
+    "en": "Thruster",
+    "bs": "Čučanj s potiskom",
+    "de": "Thruster — Kniebeuge mit Drücken"
+  },
+  "exercise-0730-tire-flip-kondicioniranje-okretanje-gume-kondicioniranje": {
+    "en": "Tire Flip — Conditioning",
+    "bs": "Okretanje gume — kondicioniranje",
+    "de": "Reifenwenden zum Konditionstraining"
+  },
+  "exercise-0731-tire-flip-okretanje-gume": {
+    "en": "Tire Flip",
+    "bs": "Okretanje gume",
+    "de": "Reifenwenden"
+  },
+  "exercise-0732-toe-extension-stretch-stretch-ekstenzije-prstiju-plantarna-fascija": {
+    "en": "Toe Extension Stretch",
+    "bs": "Stretch ekstenzije prstiju — plantarna fascija",
+    "de": "Dehnung der Zehenstreckung"
+  },
+  "exercise-0733-toe-touch-crunch": {
+    "en": "Toe Touch Crunch",
+    "bs": "Trbušnjak s dodirivanjem prstiju stopala",
+    "de": "Crunch mit Zehenberührung"
+  },
+  "exercise-0734-torso-rotations-rotacije-torza": {
+    "en": "Torso Rotations",
+    "bs": "Rotacije torza",
+    "de": "Rumpfrotationen"
+  },
+  "exercise-0735-towel-pick-up-skupljanje-rucnika-prstima-plantarna-fascija": {
+    "en": "Towel Pick-Up",
+    "bs": "Skupljanje ručnika prstima — plantarna fascija",
+    "de": "Handtuch mit den Zehen aufnehmen"
+  },
+  "exercise-0736-towel-toe-scrunches-skupljanje-rucnika-prstima-stopala": {
+    "en": "Towel Toe Scrunches",
+    "bs": "Skupljanje ručnika prstima stopala",
+    "de": "Handtuch mit den Zehen zusammenziehen"
+  },
+  "exercise-0737-trap-bar-carry": {
+    "en": "Trap Bar Carry",
+    "bs": "Nošenje trap bar šipke",
+    "de": "Tragen mit der Trap Bar"
+  },
+  "exercise-0738-trap-bar-deadlift-hex-bar-deadlift": {
+    "en": "Trap Bar Deadlift",
+    "bs": "Mrtvo dizanje trap bar šipkom",
+    "de": "Trap-Bar-Kreuzheben"
+  },
+  "exercise-0739-treadmill-hodanje-s-nagibom-incline-walking": {
+    "en": "Treadmill — Incline Walking",
+    "bs": "Hodanje s nagibom na traci",
+    "de": "Gehen mit Steigung auf dem Laufband"
+  },
+  "exercise-0740-treadmill-sprint-intervali-sprint-intervali-na-traci": {
+    "en": "Treadmill — Sprint Intervals",
+    "bs": "Sprint intervali na traci",
+    "de": "Sprintintervalle auf dem Laufband"
+  },
+  "exercise-0741-treadmill-trcanje-traka-za-trcanje": {
+    "en": "Treadmill — Running",
+    "bs": "Traka za trčanje",
+    "de": "Laufen auf dem Laufband"
+  },
+  "exercise-0742-triceps-kickback-oblikovanje-oblikovanje-tricepsa": {
+    "en": "Triceps Kickback — Toning",
+    "bs": "Oblikovanje tricepsa",
+    "de": "Trizeps-Kickback zur Armkräftigung"
+  },
+  "exercise-0743-triceps-overhead-stretch-stretch-tricepsa-iznad-glave": {
+    "en": "Triceps Overhead Stretch",
+    "bs": "Stretch tricepsa iznad glave",
+    "de": "Trizepsdehnung über Kopf"
+  },
+  "exercise-0744-triceps-pushdown": {
+    "en": "Triceps Pushdown",
+    "bs": "Potisak tricepsa na sajli",
+    "de": "Trizepsdrücken am Kabel"
+  },
+  "exercise-0745-triple-hop-trostruki-jednonozni-skok": {
+    "en": "Triple Hop",
+    "bs": "Trostruki jednonožni skok",
+    "de": "Dreifacher Einbeinsprung"
+  },
+  "exercise-0746-tuck-jump-skok-s-povlacenjem-koljena": {
+    "en": "Tuck Jump",
+    "bs": "Skok s povlačenjem koljena",
+    "de": "Hocksprung"
+  },
+  "exercise-0747-turkish-get-up-tgu": {
+    "en": "Turkish Get-Up",
+    "bs": "Tursko ustajanje",
+    "de": "Turkish Get-Up"
+  },
+  "exercise-0748-upper-back-stretch-rounded-arms-stretch-gornje-le-a-zaokruzene-ruke": {
+    "en": "Upper Back Stretch — Rounded Arms",
+    "bs": "Stretch gornje leđa — zaokružene ruke",
+    "de": "Dehnung des oberen Rückens mit gerundeten Armen"
+  },
+  "exercise-0749-upright-row-uspravno-veslanje": {
+    "en": "Upright Row",
+    "bs": "Uspravno veslanje",
+    "de": "Aufrechtes Rudern"
+  },
+  "exercise-0750-v-up-v-podizanje": {
+    "en": "V-Up",
+    "bs": "V podizanje",
+    "de": "V-Up"
+  },
+  "exercise-0751-v-ups": {
+    "en": "V-Ups",
+    "bs": "V-podizanja trupa i nogu",
+    "de": "V-Ups"
+  },
+  "exercise-0752-versaclimber-vertikalni-penjac": {
+    "en": "Versaclimber",
+    "bs": "Vertikalni penjač",
+    "de": "VersaClimber"
+  },
+  "exercise-0753-walking-knee-hugs-hod-s-povlacenjem-koljena": {
+    "en": "Walking Knee Hugs",
+    "bs": "Hod s povlačenjem koljena",
+    "de": "Knieumarmen im Gehen"
+  },
+  "exercise-0754-walking-lunge-hodajuci-iskorak": {
+    "en": "Walking Lunge",
+    "bs": "Hodajući iskorak",
+    "de": "Gehende Ausfallschritte"
+  },
+  "exercise-0755-walking-quad-stretch-hod-s-dinamickim-stretchom-kvadricepsa": {
+    "en": "Walking Quad Stretch",
+    "bs": "Hod s dinamičkim stretchom kvadricepsa",
+    "de": "Quadrizepsdehnung im Gehen"
+  },
+  "exercise-0756-wall-angel-an-eo-uz-zid": {
+    "en": "Wall Angel",
+    "bs": "Anđeo uz zid",
+    "de": "Wandengel"
+  },
+  "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid": {
+    "en": "Wall Ankle Mobilization",
+    "bs": "Mobilizacija gležnja uz zid",
+    "de": "Sprunggelenkmobilisation an der Wand"
+  },
+  "exercise-0758-wall-ball-bacanje-medicinske-lopte-prema-zidu": {
+    "en": "Wall Ball",
+    "bs": "Bacanje medicinske lopte prema zidu",
+    "de": "Wall Ball"
+  },
+  "exercise-0759-wall-handstand-hold-stoj-na-rukama-uz-zid": {
+    "en": "Wall Handstand Hold",
+    "bs": "Stoj na rukama uz zid",
+    "de": "Handstand an der Wand halten"
+  },
+  "exercise-0760-wall-push-up-plus-skleka-uz-zid-s-protrakcijom-serratus": {
+    "en": "Wall Push-Up Plus",
+    "bs": "Skleka uz zid s protrakcijom — serratus",
+    "de": "Wandliegestütz mit zusätzlichem Schulterblattvorschub"
+  },
+  "exercise-0761-wall-sit-staticki-cucanj-uz-zid": {
+    "en": "Wall Sit",
+    "bs": "Statički čučanj uz zid",
+    "de": "Wandsitz"
+  },
+  "exercise-0762-wall-slide-klizanje-uz-zid": {
+    "en": "Wall Slide",
+    "bs": "Klizanje uz zid",
+    "de": "Wandgleiten"
+  },
+  "exercise-0763-wall-squat-rehabilitacijski-cucanj-uz-zid-za-rehabilitaciju": {
+    "en": "Wall Squat — Rehabilitation",
+    "bs": "Čučanj uz zid za rehabilitaciju",
+    "de": "Wandkniebeuge — Rehabilitation"
+  },
+  "exercise-0764-water-rower-hidraulicni-rower-veslanje-na-vodi": {
+    "en": "Water / Hydraulic Rower",
+    "bs": "Veslački ergometar s vodenim ili hidrauličnim otporom",
+    "de": "Wasser- / Hydraulik-Rudergerät"
+  },
+  "exercise-0765-weighted-bench-dips": {
+    "en": "Weighted Bench Dips",
+    "bs": "Propadanja na klupi s dodatnim opterećenjem",
+    "de": "Bankdips mit Zusatzgewicht"
+  },
+  "exercise-0766-wide-leg-seated-stretch-sjedeci-stretch-rasirenih-nogu": {
+    "en": "Wide Leg Seated Stretch",
+    "bs": "Sjedeći stretch raširenih nogu",
+    "de": "Dehnung im Grätschsitz"
+  },
+  "exercise-0767-wide-push-up-skleka-sa-sirokim-rukama": {
+    "en": "Wide Push-Up",
+    "bs": "Skleka sa širokim rukama",
+    "de": "Breiter Liegestütz"
+  },
+  "exercise-0768-wobble-board-balance-ravnoteza-na-wobble-ploci": {
+    "en": "Wobble Board Balance",
+    "bs": "Ravnoteža na wobble ploči",
+    "de": "Balance auf dem Wackelbrett"
+  },
+  "exercise-0769-world-s-greatest-stretch-zagrijavanje": {
+    "en": "World's Greatest Stretch — Warm-Up",
+    "bs": "Najveće istezanje na svijetu za zagrijavanje",
+    "de": "World's Greatest Stretch zum Aufwärmen"
+  },
+  "exercise-0770-world-s-greatest-stretch-najveci-stretch-na-svijetu": {
+    "en": "World's Greatest Stretch",
+    "bs": "Najveći stretch na svijetu",
+    "de": "World's Greatest Stretch"
+  },
+  "exercise-0771-wrist-cars-kruzne-artikulacijske-rotacije-zapesca": {
+    "en": "WRIST CARs",
+    "bs": "Kružne artikulacijske rotacije zapešća",
+    "de": "Kontrollierte Handgelenkkreise"
+  },
+  "exercise-0772-wrist-extensor-stretch-stretch-ekstenzora-zapesca": {
+    "en": "Wrist Extensor Stretch",
+    "bs": "Stretch ekstenzora zapešća",
+    "de": "Dehnung der Handgelenkstrecker"
+  },
+  "exercise-0773-wrist-flexor-stretch-stretch-fleksora-zapesca": {
+    "en": "Wrist Flexor Stretch",
+    "bs": "Stretch fleksora zapešća",
+    "de": "Dehnung der Handgelenkbeuger"
+  },
+  "exercise-0774-wrist-roller": {
+    "en": "Wrist Roller",
+    "bs": "Namotavanje utega za podlaktice",
+    "de": "Handgelenkroller"
+  },
+  "exercise-0775-yoga-inspired-cool-down-flow-yoga-inspirisan-cool-down-flow": {
+    "en": "Yoga-Inspired Cool-Down Flow",
+    "bs": "Smirujuća sekvenca pokreta inspirisana jogom",
+    "de": "Yoga-inspirierte Bewegungsfolge zum Abwärmen"
+  },
+  "exercise-0776-zercher-squat": {
+    "en": "Zercher Squat",
+    "bs": "Zercher čučanj",
+    "de": "Zercher-Kniebeuge"
+  },
+  "exercise-0777-zone-2-trening-zone-2-aerobni-trening": {
+    "en": "Zone 2 Training",
+    "bs": "Zone 2 aerobni trening",
+    "de": "Ausdauertraining in Zone 2"
+  },
+  "exercise-0778-zottman-curl": {
+    "en": "Zottman Curl",
+    "bs": "Zottman pregib",
+    "de": "Zottman Curl"
+  }
+}

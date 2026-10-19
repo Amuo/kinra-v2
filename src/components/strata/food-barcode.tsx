@@ -1,3 +1,5 @@
+import { errorText } from "@/lib/i18n-errors";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Barcode, Camera, Loader2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +14,7 @@ export function FoodBarcode({
   onUse: (food: ReturnType<typeof barcodePortion>) => void;
   onClose: () => void;
 }) {
+  useLanguage();
   const api = useApi();
   const [barcode, setBarcode] = useState("");
   const [food, setFood] = useState<BarcodeFood | null>(null);
@@ -97,10 +100,17 @@ export function FoodBarcode({
   const valid = Number.isFinite(amount) && amount > 0 && amount <= 10000;
   const portion = food && valid ? barcodePortion(food, amount) : null;
   return (
-    <section aria-label="Food barcode scanner" className="mb-5 border-y border-border py-4">
+    <section aria-label={tr("Food barcode scanner")} className="mb-5 border-y border-border py-4">
       <div className="mb-4 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
-        <h3 className="min-w-0 font-display text-title font-bold">Food barcode</h3>
-        <Button variant="ghost" size="icon" aria-label="Close barcode scanner" onClick={onClose}>
+        <h3 className="min-w-0 font-display text-title font-bold">
+          <Message source="Food barcode" />
+        </h3>
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label={tr("Close barcode scanner")}
+          onClick={onClose}
+        >
           <X />
         </Button>
       </div>
@@ -112,10 +122,10 @@ export function FoodBarcode({
             playsInline
             autoPlay
             className="mb-3 aspect-video w-full rounded-tile bg-surface-2 object-cover"
-            aria-label="Barcode camera preview"
+            aria-label={tr("Barcode camera preview")}
           />
           <Button variant="glass" className="mb-4 h-12 w-full" onClick={() => setCamera(false)}>
-            Stop camera
+            <Message source="Stop camera" />
           </Button>
         </>
       ) : (
@@ -129,7 +139,7 @@ export function FoodBarcode({
           }}
         >
           <Camera />
-          Scan with camera
+          <Message source="Scan with camera" />
         </Button>
       )}
       <form
@@ -140,9 +150,9 @@ export function FoodBarcode({
         className="grid grid-cols-[minmax(0,1fr)_auto] gap-2"
       >
         <Input
-          aria-label="Food barcode number"
+          aria-label={tr("Food barcode number")}
           inputMode="numeric"
-          placeholder="Enter barcode number"
+          placeholder={tr("Enter barcode number")}
           value={barcode}
           maxLength={14}
           onChange={(e) => setBarcode(e.target.value.replace(/\D/g, ""))}
@@ -151,7 +161,7 @@ export function FoodBarcode({
         <Button
           type="submit"
           variant="glass"
-          aria-label="Look up barcode"
+          aria-label={tr("Look up barcode")}
           disabled={busy || !/^\d{8,14}$/.test(barcode)}
           className="h-12"
         >
@@ -160,12 +170,12 @@ export function FoodBarcode({
       </form>
       {busy && (
         <p role="status" className="mt-3 text-body text-muted-foreground">
-          Looking up food…
+          <Message source="Looking up food…" />
         </p>
       )}
       {error && (
         <p role="alert" className="mt-3 text-body text-destructive">
-          {error}
+          {errorText(error)}
         </p>
       )}
       {food && (
@@ -173,11 +183,20 @@ export function FoodBarcode({
           <h4 className="break-words text-title font-bold">{food.name}</h4>
           {food.brand && <p className="mt-1 text-label text-muted-foreground">{food.brand}</p>}
           <p className="mt-3 text-label text-muted-foreground">
-            Per 100 g: {Math.round(food.calories)} kcal · {food.protein} g protein · {food.carbs} g
-            carbs · {food.fat} g fat
+            <Message
+              source="Per 100 g: {p0}kcal · {p1}g protein · {p2}g carbs · {p3}g fat"
+              values={{
+                p0: Math.round(food.calories),
+                p1: food.protein,
+                p2: food.carbs,
+                p3: food.fat,
+              }}
+            />
           </p>
           <label className="mt-4 block">
-            <span className="mb-2 block text-label font-semibold">Portion · grams</span>
+            <span className="mb-2 block text-label font-semibold">
+              <Message source="Portion · grams" />
+            </span>
             <Input
               type="number"
               min={1}
@@ -191,7 +210,10 @@ export function FoodBarcode({
           </label>
           {portion && (
             <p className="num mt-3 text-body">
-              {portion.calories} kcal · {portion.protein} g protein
+              <Message
+                source="{p0}kcal · {p1}g protein"
+                values={{ p0: portion.calories, p1: portion.protein }}
+              />
             </p>
           )}
           <Button
@@ -202,10 +224,10 @@ export function FoodBarcode({
               if (portion) onUse(portion);
             }}
           >
-            Use this food
+            <Message source="Use this food" />
           </Button>
           <p className="mt-3 text-label text-muted-foreground">
-            Open Food Facts · Verify against the package label.
+            <Message source="Open Food Facts · Verify against the package label." />
           </p>
         </div>
       )}

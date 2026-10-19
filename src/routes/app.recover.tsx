@@ -1,5 +1,7 @@
+import { displayNumber } from "@/lib/i18n";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute } from "@tanstack/react-router";
-import { format } from "date-fns";
+import { format } from "@/lib/i18n";
 import {
   ArrowUpRight,
   BatteryMedium,
@@ -23,7 +25,7 @@ import { RecoverBreathing } from "@/components/strata/recover-breathing";
 export const Route = createFileRoute("/app/recover")({
   head: () => ({
     meta: [
-      { title: "Recover — Kinra" },
+      { title: tr("Recover — Kinra") },
       {
         name: "description",
         content: "Track sleep, reflect on your day and take a breathing break with Kinra.",
@@ -41,6 +43,7 @@ export const Route = createFileRoute("/app/recover")({
 });
 
 function Recover() {
+  useLanguage();
   const me = useMe().data;
   const { log } = useShell();
   const sq = useLog("sleep_logs", me?.id);
@@ -65,7 +68,7 @@ function Recover() {
 
   return (
     <div className="min-w-0">
-      <PageHeader eyebrow="Sleep & mind" title="Recover" />
+      <PageHeader eyebrow={tr("Sleep & mind")} title={tr("Recover")} />
       <div className="mb-8 grid grid-cols-2 gap-3">
         <Button
           variant="glass"
@@ -73,7 +76,7 @@ function Recover() {
           onClick={() => log("sleep")}
         >
           <Moon className="text-dream" />
-          Log sleep
+          <Message source="Log sleep" />
         </Button>
         <Button
           variant="glass"
@@ -81,17 +84,17 @@ function Recover() {
           onClick={() => log("journal")}
         >
           <NotebookPen className="text-pulse" />
-          Check in
+          <Message source="Check in" />
         </Button>
       </div>
       {sq.isLoading ? (
-        <div aria-busy="true" aria-label="Loading sleep">
+        <div aria-busy="true" aria-label={tr("Loading sleep")}>
           <Skeleton className="h-8 w-36" />
           <Skeleton className="mt-5 h-64" />
         </div>
       ) : sq.error ? (
         <ErrorState
-          message="Your sleep entries couldn't load. They're still saved."
+          message={tr("Your sleep entries couldn't load. They're still saved.")}
           onRetry={() => sq.refetch()}
         />
       ) : (
@@ -99,12 +102,14 @@ function Recover() {
           <RecoverSleep sleep={sleep} onLog={() => log("sleep")} />
           {sleep.length > 0 && (
             <div className="mt-5">
-              <div className="eyebrow mb-2">Recent nights · swipe left to delete</div>
+              <div className="eyebrow mb-2">
+                <Message source="Recent nights · swipe left to delete" />
+              </div>
               <div className="space-y-2">
                 {sleep.slice(0, 5).map((n) => (
                   <SwipeRow
                     key={n.id}
-                    label={`Sleep ${n.log_date}`}
+                    label={tr("Sleep {p0}", { p0: n.log_date })}
                     onDelete={() => removeSleep(n, "Sleep entry deleted")}
                   >
                     <div className="flex min-h-[52px] items-center justify-between rounded-tile border border-border bg-surface px-4">
@@ -112,8 +117,12 @@ function Recover() {
                         {format(new Date(`${n.log_date}T12:00`), "EEE d MMM")}
                       </span>
                       <span className="num text-label">
-                        <span className="font-bold text-dream">{n.hours} h</span>
-                        <span className="ml-2 text-muted-foreground">quality {n.quality}/5</span>
+                        <span className="font-bold text-dream">
+                          <Message source="{p0}h" values={{ p0: n.hours }} />
+                        </span>
+                        <span className="ml-2 text-muted-foreground">
+                          <Message source="quality {p0}/5" values={{ p0: n.quality }} />
+                        </span>
                       </span>
                     </div>
                   </SwipeRow>
@@ -124,7 +133,7 @@ function Recover() {
         </>
       )}
 
-      <section aria-label="Breathing break" className="mt-6 border-b border-border pb-6">
+      <section aria-label={tr("Breathing break")} className="mt-6 border-b border-border pb-6">
         <Button
           variant="ghost"
           onClick={() => setBreathe(true)}
@@ -134,14 +143,18 @@ function Recover() {
             <Wind />
           </span>
           <span className="min-w-0 flex-1">
-            <span className="eyebrow block text-pulse">Box breathing · 2 min</span>
-            <span className="mt-2 block font-display text-title font-bold">A moment to reset.</span>
+            <span className="eyebrow block text-pulse">
+              <Message source="Box breathing · 2 min" />
+            </span>
+            <span className="mt-2 block font-display text-title font-bold">
+              <Message source="A moment to reset." />
+            </span>
           </span>
           <ArrowUpRight className="shrink-0 text-pulse" />
         </Button>
       </section>
 
-      <section aria-label="Journal entries">
+      <section aria-label={tr("Journal entries")}>
         <SectionTitle
           action={
             <Button
@@ -150,20 +163,20 @@ function Recover() {
               onClick={() => log("journal")}
             >
               <Plus />
-              Check in
+              <Message source="Check in" />
             </Button>
           }
         >
-          Your headspace
+          <Message source="Your headspace" />
         </SectionTitle>
         {jq.isLoading ? (
-          <div aria-busy="true" aria-label="Loading journal">
+          <div aria-busy="true" aria-label={tr("Loading journal")}>
             <Skeleton className="h-20" />
             <Skeleton className="mt-3 h-24" />
           </div>
         ) : jq.error ? (
           <ErrorState
-            message="Your journal couldn't load. Your words are still saved."
+            message={tr("Your journal couldn't load. Your words are still saved.")}
             onRetry={() => jq.refetch()}
           />
         ) : (
@@ -171,17 +184,21 @@ function Recover() {
             {recent.length > 0 && (
               <div className="mb-5 grid grid-cols-2 gap-5 border-b border-border pb-5">
                 <div>
-                  <div className="eyebrow">Mood · last 7 days</div>
+                  <div className="eyebrow">
+                    <Message source="Mood · last 7 days" />
+                  </div>
                   <div className="num mt-2 text-title font-bold text-pulse">
-                    {avgMood?.toFixed(1)}
+                    {displayNumber(avgMood?.toFixed(1) ?? "—")}
                     <span className="ml-1 text-caption text-muted-foreground">/ 5</span>
                   </div>
                 </div>
                 <div>
-                  <div className="eyebrow">Energy · last 7 days</div>
+                  <div className="eyebrow">
+                    <Message source="Energy · last 7 days" />
+                  </div>
                   <div className="num mt-2 flex items-center gap-2 text-title font-bold">
                     <BatteryMedium className="size-4 text-pulse" />
-                    {avgEnergy?.toFixed(1)}
+                    {displayNumber(avgEnergy?.toFixed(1) ?? "—")}
                     <span className="text-caption text-muted-foreground">/ 5</span>
                   </div>
                 </div>
@@ -197,17 +214,17 @@ function Recover() {
                 return (
                   <SwipeRow
                     key={entry.id}
-                    label="Check-in: swipe left to delete"
+                    label={tr("Check-in: swipe left to delete")}
                     onDelete={() => removeEntry(entry, "Check-in deleted")}
                   >
                     <article className="rounded-tile border border-border bg-surface p-4">
                       <div className="flex items-start gap-3">
                         <span className="grid size-11 shrink-0 place-items-center rounded-full bg-pulse/10 text-pulse">
-                          <mood.icon className="size-5" aria-label={mood.label} />
+                          <mood.icon className="size-5" aria-label={tr(mood.label)} />
                         </span>
                         <div className="min-w-0 flex-1">
                           <div className="flex flex-wrap items-center justify-between gap-2">
-                            <h3 className="text-label font-bold">{mood.label}</h3>
+                            <h3 className="text-label font-bold">{tr(mood.label)}</h3>
                             <time
                               dateTime={entry.created_at}
                               className="num text-caption text-muted-foreground"
@@ -216,7 +233,7 @@ function Recover() {
                             </time>
                           </div>
                           <div className="mt-1 text-caption text-muted-foreground">
-                            Energy {entry.energy} / 5
+                            <Message source="Energy {p0}/ 5" values={{ p0: entry.energy }} />
                           </div>
                         </div>
                       </div>
@@ -224,7 +241,9 @@ function Recover() {
                         className={`mt-3 whitespace-pre-wrap break-words text-body [overflow-wrap:anywhere] ${long && !open ? "line-clamp-3" : ""}`}
                       >
                         {entry.body || (
-                          <span className="text-muted-foreground">A check-in, without words.</span>
+                          <span className="text-muted-foreground">
+                            <Message source="A check-in, without words." />
+                          </span>
                         )}
                       </p>
                       {long && (
@@ -239,7 +258,7 @@ function Recover() {
                           }
                         >
                           {open ? <ChevronUp /> : <ChevronDown />}
-                          {open ? "Read less" : "Read more"}
+                          {open ? tr("Read less") : tr("Read more")}
                         </Button>
                       )}
                     </article>
@@ -253,14 +272,16 @@ function Recover() {
                     <span className="h-5 w-14 rounded-full bg-pulse/40" />
                     <span className="h-8 w-14 rounded-full bg-surface-2" />
                   </div>
-                  <p className="text-body text-muted-foreground">A few words. A clearer head.</p>
+                  <p className="text-body text-muted-foreground">
+                    <Message source="A few words. A clearer head." />
+                  </p>
                   <Button
                     variant="glass"
                     className="mt-4 h-11 text-label text-pulse"
                     onClick={() => log("journal")}
                   >
                     <NotebookPen />
-                    First check-in
+                    <Message source="First check-in" />
                   </Button>
                 </div>
               )}
@@ -272,7 +293,9 @@ function Recover() {
                   aria-expanded={showAll}
                 >
                   {showAll ? <ChevronUp /> : <ChevronDown />}
-                  {showAll ? "Show less" : `Show all ${journal.length} check-ins`}
+                  {showAll
+                    ? tr("Show less")
+                    : tr("Show all {p0} check-ins", { p0: journal.length })}
                 </Button>
               )}
             </div>

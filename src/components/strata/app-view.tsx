@@ -1,3 +1,4 @@
+import { useLanguage } from "@/lib/i18n";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { useApi, useMe } from "@/lib/api";
 
@@ -8,6 +9,7 @@ const AppViewContext = createContext<{ personal: boolean; setView: (view: AppVie
 });
 
 export function AppViewProvider({ children }: { children: ReactNode }) {
+  useLanguage();
   const me = useMe().data;
   const { mode } = useApi();
   const key = me ? `strata:app-view:${mode}:${me.id}` : "";

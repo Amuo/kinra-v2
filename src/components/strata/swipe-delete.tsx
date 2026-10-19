@@ -1,3 +1,5 @@
+import { errorText } from "@/lib/i18n-errors";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import type { ReactNode } from "react";
 import { motion, useMotionValue, useTransform } from "motion/react";
 import { toast } from "sonner";
@@ -18,14 +20,14 @@ export function useRemoveWithUndo<T extends LogTable>(table: T) {
       onSuccess: () =>
         toast(label, {
           action: {
-            label: "Undo",
+            label: tr("Undo"),
             onClick: () =>
               restore.mutate(rest as Partial<LogTables[T]>, {
-                onError: (e) => toast.error(e.message),
+                onError: (e) => toast.error(errorText(e.message)),
               }),
           },
         }),
-      onError: (e) => toast.error(e.message),
+      onError: (e) => toast.error(errorText(e.message)),
     });
   };
 }
@@ -40,6 +42,7 @@ export function SwipeRow({
   children: ReactNode;
   label: string;
 }) {
+  useLanguage();
   const x = useMotionValue(0);
   const reveal = useTransform(x, [-90, -12, 0], [1, 0.35, 0]);
   return (
@@ -49,7 +52,7 @@ export function SwipeRow({
         style={{ opacity: reveal }}
         aria-hidden
       >
-        <Trash2 className="mr-2 size-4" /> Delete
+        <Trash2 className="mr-2 size-4" /> <Message source="Delete" />
       </motion.div>
       <motion.div
         drag="x"
@@ -68,11 +71,11 @@ export function SwipeRow({
         variant="ghost"
         size="sm"
         className="pointer-events-none absolute inset-y-1 right-1 z-10 h-auto bg-surface-2 text-destructive opacity-0 focus:pointer-events-auto focus:opacity-100"
-        aria-label={`Delete ${label.replace(/: swipe left to delete$/, "")}`}
+        aria-label={tr("Delete {p0}", { p0: label.replace(/: swipe left to delete$/, "") })}
         onClick={onDelete}
       >
         <Trash2 />
-        Delete
+        <Message source="Delete" />
       </Button>
     </div>
   );

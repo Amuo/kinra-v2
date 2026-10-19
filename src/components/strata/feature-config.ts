@@ -76,7 +76,6 @@ export const featureHints: Partial<Record<FeatureKind, string>> = {
   reminder: "Save reminder preferences here. Device notification delivery is not connected.",
   notification_preferences:
     "Store quiet hours and categories. Device notification delivery is not connected.",
-  preferences:
-    "Choose the modules and display settings you want to use. Bosnian is available for toolkit navigation; other screens and forms remain in English.",
+  preferences: "Choose your language, modules and display settings.",
   report: "Private reports are recorded for follow-up. No staffed moderation response is promised.",
 };

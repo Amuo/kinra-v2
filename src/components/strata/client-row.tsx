@@ -1,6 +1,7 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
-import { formatDistanceToNow } from "date-fns";
+import { formatDistanceToNow } from "@/lib/i18n";
 import { motion, useReducedMotion } from "motion/react";
 import { ChevronRight, TrendingUp, TrendingDown, Minus, ThumbsUp } from "lucide-react";
 import { Ring } from "./ui";
@@ -11,9 +12,9 @@ import { trend, within } from "@/lib/stats";
 import { cn } from "@/lib/utils";
 
 export function status(pct: number) {
-  if (pct >= 0.8) return { label: "On track", bar: "bg-primary", text: "text-volt" };
-  if (pct >= 0.5) return { label: "Behind", bar: "bg-ember", text: "text-ember" };
-  return { label: "At risk", bar: "bg-destructive", text: "text-destructive" };
+  if (pct >= 0.8) return { label: tr("On track"), bar: "bg-primary", text: "text-volt" };
+  if (pct >= 0.5) return { label: tr("Behind"), bar: "bg-ember", text: "text-ember" };
+  return { label: tr("At risk"), bar: "bg-destructive", text: "text-destructive" };
 }
 
 export function ClientRow({
@@ -33,6 +34,7 @@ export function ClientRow({
   reasons?: string[];
   kudos?: boolean;
 }) {
+  useLanguage();
   const [open, setOpen] = useState(false);
   const dragging = useRef(false);
   const reduced = useReducedMotion();
@@ -75,9 +77,9 @@ export function ClientRow({
             if (dragging.current) e.preventDefault();
           }}
           className="flex min-w-0 items-center gap-3 rounded-tile"
-          aria-label={`View ${r.display_name ?? "client"}`}
+          aria-label={tr("View {p0}", { p0: r.display_name ?? "client" })}
         >
-          <div aria-label={`${Math.round(pct * 100)}% compliance over 30 days`}>
+          <div aria-label={tr("{p0}% compliance over 30 days", { p0: Math.round(pct * 100) })}>
             <Ring
               value={pct}
               size={56}
@@ -93,14 +95,17 @@ export function ClientRow({
             </Ring>
           </div>
           <div className="min-w-0 flex-1">
-            <h3 className="break-words text-body font-bold">{r.display_name ?? "Client"}</h3>
+            <h3 className="break-words text-body font-bold">{r.display_name ?? tr("Client")}</h3>
             <div className="mt-1 break-words text-caption text-muted-foreground">
-              {r.goal ?? "No goal set"}
+              {r.goal ?? tr("No goal set")}
             </div>
             <div className={cn("mt-1 text-caption font-semibold", st.text)}>
-              {st.label}{" "}
+              {tr(st.label)}{" "}
               <span className="num text-muted-foreground">
-                · {n}/{COMPLIANCE_TARGET} sessions · 30d
+                <Message
+                  source="· {p0}/{p1}sessions · 30d"
+                  values={{ p0: n, p1: COMPLIANCE_TARGET }}
+                />
               </span>
             </div>
           </div>
@@ -120,8 +125,10 @@ export function ClientRow({
           <div className="min-w-0 text-caption text-muted-foreground">
             <div>
               {last
-                ? `Trained ${formatDistanceToNow(new Date(last.performed_at))} ago`
-                : "No training yet"}
+                ? tr("Trained {when}", {
+                    when: formatDistanceToNow(new Date(last.performed_at), { addSuffix: true }),
+                  })
+                : tr("No training yet")}
             </div>
             {!!r.journal?.length && (
               <span
@@ -129,10 +136,10 @@ export function ClientRow({
                   "mt-1 flex items-center gap-1",
                   t === "up" ? "text-volt" : t === "down" ? "text-ember" : "",
                 )}
-                aria-label={`Mood trend ${t}`}
+                aria-label={tr("Mood trend {p0}", { p0: t })}
               >
                 <TrendIcon className="size-3.5" />
-                Mood {t === "flat" ? "steady" : t}
+                <Message source="Mood {p0}" values={{ p0: t === "flat" ? "steady" : t }} />
               </span>
             )}
           </div>
@@ -140,11 +147,11 @@ export function ClientRow({
             <Button
               variant="ghost"
               className="h-11 rounded-full px-3 text-label text-volt"
-              aria-label={`Give kudos to ${r.display_name ?? "client"}`}
+              aria-label={tr("Give kudos to {p0}", { p0: r.display_name ?? "client" })}
               onClick={() => setOpen(true)}
             >
               <ThumbsUp />
-              Kudos
+              <Message source="Kudos" />
             </Button>
           )}
         </div>

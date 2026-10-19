@@ -1,3 +1,4 @@
+import { useLanguage } from "@/lib/i18n";
 import * as React from "react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
 import { Check, ChevronRight, Circle } from "lucide-react";
@@ -5,22 +6,27 @@ import { Check, ChevronRight, Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function MenubarMenu({ ...props }: React.ComponentProps<typeof MenubarPrimitive.Menu>) {
+  useLanguage();
   return <MenubarPrimitive.Menu {...props} />;
 }
 
 function MenubarGroup({ ...props }: React.ComponentProps<typeof MenubarPrimitive.Group>) {
+  useLanguage();
   return <MenubarPrimitive.Group {...props} />;
 }
 
 function MenubarPortal({ ...props }: React.ComponentProps<typeof MenubarPrimitive.Portal>) {
+  useLanguage();
   return <MenubarPrimitive.Portal {...props} />;
 }
 
 function MenubarRadioGroup({ ...props }: React.ComponentProps<typeof MenubarPrimitive.RadioGroup>) {
+  useLanguage();
   return <MenubarPrimitive.RadioGroup {...props} />;
 }
 
 function MenubarSub({ ...props }: React.ComponentProps<typeof MenubarPrimitive.Sub>) {
+  useLanguage();
   return <MenubarPrimitive.Sub data-slot="menubar-sub" {...props} />;
 }
 

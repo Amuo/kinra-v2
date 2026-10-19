@@ -1,5 +1,6 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { Link } from "@tanstack/react-router";
-import { format } from "date-fns";
+import { format } from "@/lib/i18n";
 import { ArrowUpRight, Check, ClipboardList, Users } from "lucide-react";
 import { useQ } from "@/lib/api";
 import { clientAttention } from "@/lib/coach";
@@ -10,6 +11,7 @@ import { Avatar, Empty, ErrorState, PageHeader, SectionTitle, Skeleton, Stat } f
 import { ClientRow } from "./client-row";
 
 export function CoachHome({ name, avatar }: { name: string | null; avatar?: string | undefined }) {
+  useLanguage();
   const agg = useQ(["coach-agg"], async (api) => {
     const clients = await api.clients();
     return Promise.all(
@@ -35,11 +37,15 @@ export function CoachHome({ name, avatar }: { name: string | null; avatar?: stri
   return (
     <div className="min-w-0">
       <PageHeader
-        eyebrow={`${format(new Date(), "EEE · d MMM")} / Coach`}
-        title={<>Hey, {firstName(name?.replace("Coach ", ""))}</>}
+        eyebrow={tr("{p0} / Coach", { p0: format(new Date(), "EEE · d MMM") })}
+        title={
+          <>
+            <Message source="Hey, {p0}" values={{ p0: firstName(name?.replace("Coach ", "")) }} />
+          </>
+        }
         action={
           <Button asChild variant="ghost" size="icon" className="size-11 shrink-0 rounded-full">
-            <Link to="/app/me" aria-label="Coach profile">
+            <Link to="/app/me" aria-label={tr("Coach profile")}>
               <Avatar name={name} src={avatar} size={40} />
             </Link>
           </Button>
@@ -56,11 +62,13 @@ export function CoachHome({ name, avatar }: { name: string | null; avatar?: stri
       ) : !rows.length ? (
         <Empty
           icon={<Users className="size-7" />}
-          title="Your team starts here"
+          title={tr("Your team starts here")}
           body="Share your coach code to connect your first client."
           action={
             <Button asChild variant="volt" size="xl">
-              <Link to="/app/me">Get my code</Link>
+              <Link to="/app/me">
+                <Message source="Get my code" />
+              </Link>
             </Button>
           }
         />
@@ -69,9 +77,11 @@ export function CoachHome({ name, avatar }: { name: string | null; avatar?: stri
           <section aria-labelledby="attention-title">
             <div className="flex items-end justify-between gap-3 border-b border-border pb-5">
               <div>
-                <div className="eyebrow mb-2">Your focus today</div>
+                <div className="eyebrow mb-2">
+                  <Message source="Your focus today" />
+                </div>
                 <h2 id="attention-title" className="font-display text-title font-bold">
-                  {attention.length ? "Needs your attention" : "Your team is in rhythm"}
+                  {attention.length ? tr("Needs your attention") : tr("Your team is in rhythm")}
                 </h2>
               </div>
               <div
@@ -94,7 +104,7 @@ export function CoachHome({ name, avatar }: { name: string | null; avatar?: stri
             </div>
             {!attention.length && (
               <p className="mt-4 text-label text-muted-foreground">
-                No inactivity, low mood or low sleep flags.
+                <Message source="No inactivity, low mood or low sleep flags." />
               </p>
             )}
           </section>
@@ -106,12 +116,13 @@ export function CoachHome({ name, avatar }: { name: string | null; avatar?: stri
                 className="h-11 rounded-full px-2 text-label text-volt"
               >
                 <Link to="/app/clients">
-                  All clients <ArrowUpRight />
+                  <Message source="All clients" />
+                  <ArrowUpRight />
                 </Link>
               </Button>
             }
           >
-            Keep the momentum
+            <Message source="Keep the momentum" />
           </SectionTitle>
           <div className="space-y-3">
             {recent
@@ -123,18 +134,20 @@ export function CoachHome({ name, avatar }: { name: string | null; avatar?: stri
           </div>
           {!recent.filter((r) => !attention.some((a) => a.r.id === r.id)).length && (
             <p className="text-label text-muted-foreground">
-              No other sessions in the last 7 days.
+              <Message source="No other sessions in the last 7 days." />
             </p>
           )}
           <section
             className="mt-8 border-y border-border py-5"
-            aria-label="Team training over the last 30 days"
+            aria-label={tr("Team training over the last 30 days")}
           >
-            <div className="eyebrow mb-4">Team pulse · last 30 days</div>
+            <div className="eyebrow mb-4">
+              <Message source="Team pulse · last 30 days" />
+            </div>
             <div className="mb-6 grid grid-cols-3 gap-3">
-              <Stat label="Sessions" value={all.length} />
-              <Stat label="Volume" value={vol.value} unit={vol.unit} />
-              <Stat label="Active 7d" value={`${recent.length}/${rows.length}`} />
+              <Stat label={tr("Sessions")} value={all.length} />
+              <Stat label={tr("Volume")} value={vol.value} unit={vol.unit} />
+              <Stat label={tr("Active 7d")} value={`${recent.length}/${rows.length}`} />
             </div>
             <div className="space-y-3">
               {rows.map((r) => {
@@ -145,7 +158,10 @@ export function CoachHome({ name, avatar }: { name: string | null; avatar?: stri
                     to="/app/clients/$clientId"
                     params={{ clientId: r.id }}
                     className="flex min-h-11 items-center gap-3 rounded-tile"
-                    aria-label={`${r.display_name}: ${r.workouts.filter((w) => within(w.performed_at, 30)).length} sessions in 30 days`}
+                    aria-label={tr("{p0}: {p1} sessions in 30 days", {
+                      p0: r.display_name,
+                      p1: r.workouts.filter((w) => within(w.performed_at, 30)).length,
+                    })}
                   >
                     <span className="w-12 shrink-0 truncate text-caption font-semibold text-muted-foreground">
                       {firstName(r.display_name)}
@@ -170,13 +186,16 @@ export function CoachHome({ name, avatar }: { name: string | null; avatar?: stri
             </div>
             <div className="num mt-2 flex justify-between pl-15 text-caption text-muted-foreground">
               <span>{days[0] ? format(new Date(`${days[0]}T12:00`), "d MMM") : ""}</span>
-              <span>Today</span>
+              <span>
+                <Message source="Today" />
+              </span>
             </div>
           </section>
           <Button asChild variant="glass" className="mt-5 h-14 w-full text-label">
             <Link to="/app/programs">
               <ClipboardList />
-              Manage editable plans <ArrowUpRight />
+              <Message source="Manage editable plans" />
+              <ArrowUpRight />
             </Link>
           </Button>
         </>

@@ -1,3 +1,4 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { Check, Pause, Play, RotateCcw, Wind, X } from "lucide-react";
@@ -6,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { breathFrame, BREATH_SECONDS } from "@/lib/recover";
 
 export function RecoverBreathing({ onClose }: { onClose: () => void }) {
+  useLanguage();
   const [elapsed, setElapsed] = useState(0);
   const [paused, setPaused] = useState(false);
   const reduce = useReducedMotion();
@@ -32,24 +34,26 @@ export function RecoverBreathing({ onClose }: { onClose: () => void }) {
         <Dialog.Overlay className="fixed inset-0 z-50 bg-background/90" />
         <Dialog.Content className="fixed inset-y-0 left-1/2 z-50 flex w-full max-w-md -translate-x-1/2 flex-col overflow-y-auto bg-background px-5 pb-safe pt-5">
           <div className="flex items-center justify-between gap-3">
-            <span className="eyebrow text-pulse">Make room to recover</span>
+            <span className="eyebrow text-pulse">
+              <Message source="Make room to recover" />
+            </span>
             <Button
               variant="ghost"
               size="icon"
               className="size-11 rounded-full"
-              aria-label="Close breathing"
+              aria-label={tr("Close breathing")}
               onClick={onClose}
             >
               <X />
             </Button>
           </div>
           <Dialog.Title className="mt-4 font-display text-title-l font-extrabold">
-            {frame.done ? "A little more space." : "Find your rhythm."}
+            {frame.done ? tr("A little more space.") : tr("Find your rhythm.")}
           </Dialog.Title>
           <Dialog.Description className="mt-2 text-label text-muted-foreground">
             {frame.done
-              ? "Eight rounds complete. Take the calm with you."
-              : "Box breathing · 4 seconds each phase · 8 rounds"}
+              ? tr("Eight rounds complete. Take the calm with you.")
+              : tr("Box breathing · 4 seconds each phase · 8 rounds")}
           </Dialog.Description>
           <div className="relative my-auto flex min-h-80 items-center justify-center py-10">
             <div
@@ -69,11 +73,13 @@ export function RecoverBreathing({ onClose }: { onClose: () => void }) {
               ) : (
                 <>
                   <div className="text-title font-bold text-pulse">
-                    {paused ? "Paused" : frame.name}
+                    {paused ? tr("Paused") : tr(frame.name)}
                   </div>
                   <div className="num mt-3 text-display font-bold">
                     {frame.left}
-                    <span className="ml-1 text-title text-muted-foreground">s</span>
+                    <span className="ml-1 text-title text-muted-foreground">
+                      <Message source="s" />
+                    </span>
                   </div>
                 </>
               )}
@@ -81,10 +87,17 @@ export function RecoverBreathing({ onClose }: { onClose: () => void }) {
           </div>
           <div className="mb-6">
             <div className="flex flex-wrap justify-between gap-2 text-label">
-              <span>{frame.rounds} / 8 rounds</span>
+              <span>
+                <Message source="{p0}/ 8 rounds" values={{ p0: frame.rounds }} />
+              </span>
               <span className="num text-muted-foreground">
-                {Math.floor(frame.remaining / 60)}:{String(frame.remaining % 60).padStart(2, "0")}{" "}
-                remaining
+                <Message
+                  source="{p0}:{p1} remaining"
+                  values={{
+                    p0: Math.floor(frame.remaining / 60),
+                    p1: String(frame.remaining % 60).padStart(2, "0"),
+                  }}
+                />
               </span>
             </div>
             <div className="mt-3 h-1 overflow-hidden rounded-full bg-surface-2">
@@ -114,7 +127,7 @@ export function RecoverBreathing({ onClose }: { onClose: () => void }) {
               variant="glass"
               size="icon"
               className="size-14 shrink-0 rounded-full"
-              aria-label="Restart breathing"
+              aria-label={tr("Restart breathing")}
               onClick={() => {
                 setElapsed(0);
                 setPaused(true);
@@ -128,12 +141,12 @@ export function RecoverBreathing({ onClose }: { onClose: () => void }) {
               onClick={() => (frame.done ? onClose() : setPaused((value) => !value))}
             >
               {frame.done ? <Check /> : paused ? <Play /> : <Pause />}
-              {frame.done ? "Done" : paused ? "Resume" : "Pause"}
+              {frame.done ? tr("Done") : paused ? tr("Resume") : tr("Pause")}
             </Button>
           </div>
           <p className="mb-4 flex items-center justify-center gap-2 text-caption text-muted-foreground">
             <Wind className="size-4" />
-            Keep it comfortable. Stop if you feel dizzy.
+            <Message source="Keep it comfortable. Stop if you feel dizzy." />
           </p>
         </Dialog.Content>
       </Dialog.Portal>

@@ -1,3 +1,4 @@
+import { t as tr } from "@/lib/i18n";
 import type { BodyMetric, FoodLog, JournalEntry, ReportSummary, SleepLog, Workout } from "./types";
 import { avg, iso, volume } from "./stats";
 
@@ -87,22 +88,33 @@ export function buildSummary(
   };
 
   if (sum.adherence >= 0.85)
-    sum.highlights.push(`Hit ${Math.round(sum.adherence * 100)}% of planned sessions`);
+    sum.highlights.push(
+      tr("Hit {p0}% of planned sessions", { p0: Math.round(sum.adherence * 100) }),
+    );
   if (sum.volumeDeltaPct != null && sum.volumeDeltaPct > 5)
-    sum.highlights.push(`Training volume up ${sum.volumeDeltaPct}%`);
+    sum.highlights.push(tr("Training volume up {p0}%", { p0: sum.volumeDeltaPct }));
   if (prs.length)
-    sum.highlights.push(`${prs.length} new personal record${prs.length > 1 ? "s" : ""}`);
-  if (sum.avgSleep >= 7.5) sum.highlights.push(`Strong sleep — ${sum.avgSleep} h average`);
-  if (sum.avgProtein >= 130) sum.highlights.push(`Protein on point at ${sum.avgProtein} g/day`);
+    sum.highlights.push(
+      tr("{p0} new personal record{p1}", { p0: prs.length, p1: prs.length > 1 ? "s" : "" }),
+    );
+  if (sum.avgSleep >= 7.5)
+    sum.highlights.push(tr("Strong sleep — {p0} h average", { p0: sum.avgSleep }));
+  if (sum.avgProtein >= 130)
+    sum.highlights.push(tr("Protein on point at {p0} g/day", { p0: sum.avgProtein }));
 
   if (sum.adherence < 0.6)
-    sum.watchouts.push(`Only ${sum.sessions} of ${expected} planned sessions`);
+    sum.watchouts.push(
+      tr("Only {p0} of {p1} planned sessions", { p0: sum.sessions, p1: expected }),
+    );
   if (sum.avgSleep && sum.avgSleep < 6.8)
-    sum.watchouts.push(`Sleep is low at ${sum.avgSleep} h average`);
-  if (sum.avgMood && sum.avgMood < 3) sum.watchouts.push(`Mood trending low (${sum.avgMood}/5)`);
+    sum.watchouts.push(tr("Sleep is low at {p0} h average", { p0: sum.avgSleep }));
+  if (sum.avgMood && sum.avgMood < 3)
+    sum.watchouts.push(tr("Mood trending low ({p0}/5)", { p0: sum.avgMood }));
   if (sum.avgRpe >= 8.5)
-    sum.watchouts.push(`High average effort (RPE ${sum.avgRpe}) — watch fatigue`);
+    sum.watchouts.push(tr("High average effort (RPE {p0}) — watch fatigue", { p0: sum.avgRpe }));
   if (sum.loggedFoodDays < periodDays * 0.5)
-    sum.watchouts.push(`Food logged on ${sum.loggedFoodDays} of ${periodDays} days`);
+    sum.watchouts.push(
+      tr("Food logged on {p0} of {p1} days", { p0: sum.loggedFoodDays, p1: periodDays }),
+    );
   return sum;
 }

@@ -1,6 +1,8 @@
+import { programExerciseName } from "@/lib/exercise-catalogue";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import { format } from "date-fns";
+import { format } from "@/lib/i18n";
 import {
   ChevronDown,
   ChevronLeft,
@@ -38,7 +40,7 @@ const ExerciseLibrary = lazy(() =>
 export const Route = createFileRoute("/app/train")({
   head: () => ({
     meta: [
-      { title: "Train — Programs & personal records | Kinra" },
+      { title: tr("Train — Programs & personal records | Kinra") },
       {
         name: "description",
         content: "Your next program session, strength records and weekly workout history in Kinra.",
@@ -56,6 +58,7 @@ export const Route = createFileRoute("/app/train")({
 });
 
 function Train() {
+  useLanguage();
   const me = useMe().data;
   const { startSession, editWorkout } = useShell();
   const removeWorkout = useRemoveWithUndo("workouts");
@@ -112,26 +115,32 @@ function Train() {
   return (
     <div className="min-w-0">
       <Button variant="glass" className="mb-4 h-12 w-full" onClick={() => setLibrary(true)}>
-        Browse exercise library
+        <Message source="Browse exercise library" />
       </Button>
       {library && (
-        <Sheet open onOpenChange={setLibrary} title="Exercise library">
-          <Suspense fallback={<p>Loading movements…</p>}>
+        <Sheet open onOpenChange={setLibrary} title={tr("Exercise library")}>
+          <Suspense
+            fallback={
+              <p>
+                <Message source="Loading movements…" />
+              </p>
+            }
+          >
             <ExerciseLibrary />
           </Suspense>
         </Sheet>
       )}
       <PageHeader
-        eyebrow="Build your strength"
-        title="Train"
+        eyebrow={tr("Build your strength")}
+        title={tr("Train")}
         action={
           <Button variant="glass" className="h-11 px-4 text-label" onClick={() => startSession()}>
-            <Play /> Freestyle
+            <Play /> <Message source="Freestyle" />
           </Button>
         }
       />
       {loading ? (
-        <div aria-busy="true" aria-label="Loading training">
+        <div aria-busy="true" aria-label={tr("Loading training")}>
           <Skeleton className="mb-3 h-5 w-40" />
           <Skeleton className="h-80 rounded-card" />
           <Skeleton className="mt-8 h-5 w-32" />
@@ -153,14 +162,19 @@ function Train() {
       ) : (
         <>
           {program ? (
-            <section aria-label="Your program">
+            <section aria-label={tr("Your program")}>
               <div className="mb-3 flex items-end justify-between gap-3">
                 <div className="min-w-0">
-                  <div className="eyebrow mb-1">Your program</div>
+                  <div className="eyebrow mb-1">
+                    <Message source="Your program" />
+                  </div>
                   <h2 className="font-display text-title font-bold">{program.name}</h2>
                 </div>
                 <span className="num shrink-0 text-caption text-muted-foreground">
-                  {done.filter(Boolean).length}/{program.days.length} this week
+                  <Message
+                    source="{p0}/{p1}this week"
+                    values={{ p0: done.filter(Boolean).length, p1: program.days.length }}
+                  />
                 </span>
               </div>
               <div
@@ -181,26 +195,37 @@ function Train() {
                     )}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="eyebrow">Day {i + 1}</span>
+                      <span className="eyebrow">
+                        <Message source="Day {p0}" values={{ p0: i + 1 }} />
+                      </span>
                       {done[i] ? (
                         <Tag tone="volt">
-                          <Check className="size-3" /> Done
+                          <Check className="size-3" /> <Message source="Done" />
                         </Tag>
                       ) : i === nextIdx ? (
-                        <Tag tone="volt">Next up</Tag>
+                        <Tag tone="volt">
+                          <Message source="Next up" />
+                        </Tag>
                       ) : (
-                        <Tag>Upcoming</Tag>
+                        <Tag>
+                          <Message source="Upcoming" />
+                        </Tag>
                       )}
                     </div>
                     <h3 className="mt-3 font-display text-title font-bold">{day.title}</h3>
                     <div className="num mt-2 text-caption text-muted-foreground">
-                      {day.exercises.length} exercises ·{" "}
-                      {day.exercises.reduce((sum, ex) => sum + ex.sets, 0)} sets
+                      <Message
+                        source="{p0}exercises · {p1}sets"
+                        values={{
+                          p0: day.exercises.length,
+                          p1: day.exercises.reduce((sum, ex) => sum + ex.sets, 0),
+                        }}
+                      />
                     </div>
                     <ul className="mt-4 divide-y divide-border">
                       {day.exercises.map((ex, n) => (
                         <li
-                          key={`${ex.name}-${n}`}
+                          key={`${programExerciseName(ex)}-${n}`}
                           className="flex items-center gap-3 py-3 text-label"
                         >
                           <span className="num text-caption text-muted-foreground">
@@ -220,20 +245,23 @@ function Train() {
                       onClick={() => startSession(day)}
                     >
                       <Play />
-                      {done[i] ? "Train again" : "Start session"}
+                      {done[i] ? tr("Train again") : tr("Start session")}
                     </Button>
                   </article>
                 ))}
               </div>
               <div className="mt-1 flex items-center justify-between">
                 <span className="num text-caption text-muted-foreground">
-                  Day {activeDay + 1} of {program.days.length}
+                  <Message
+                    source="Day {p0}of {p1}"
+                    values={{ p0: activeDay + 1, p1: program.days.length }}
+                  />
                 </span>
                 <div className="flex gap-1">
                   <Button
                     variant="ghost"
                     size="icon"
-                    aria-label="Previous program day"
+                    aria-label={tr("Previous program day")}
                     disabled={activeDay === 0}
                     onClick={() => scrollDay(activeDay - 1)}
                     className="size-11 rounded-full"
@@ -243,7 +271,7 @@ function Train() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    aria-label="Next program day"
+                    aria-label={tr("Next program day")}
                     disabled={activeDay >= program.days.length - 1}
                     onClick={() => scrollDay(activeDay + 1)}
                     className="size-11 rounded-full"
@@ -256,23 +284,25 @@ function Train() {
           ) : (
             <Empty
               icon={<Dumbbell className="size-7" />}
-              title="Your next session starts here"
+              title={tr("Your next session starts here")}
               body="No program assigned yet."
               action={
                 <Button variant="volt" size="xl" onClick={() => startSession()}>
-                  <Play /> Start session
+                  <Play /> <Message source="Start session" />
                 </Button>
               }
             />
           )}
           {topPrs.length > 0 && (
-            <section aria-label="Personal records">
+            <section aria-label={tr("Personal records")}>
               <SectionTitle
                 action={
-                  <span className="text-caption text-muted-foreground">Best logged sets</span>
+                  <span className="text-caption text-muted-foreground">
+                    <Message source="Best logged sets" />
+                  </span>
                 }
               >
-                Personal records
+                <Message source="Personal records" />
               </SectionTitle>
               <div className="grid grid-cols-3 gap-2">
                 {topPrs.map(([name, weight]) => (
@@ -280,7 +310,10 @@ function Train() {
                     key={name}
                     variant="ghost"
                     onClick={() => setPr(name)}
-                    aria-label={`${name}, best logged weight ${weight} kilograms. View strength trend`}
+                    aria-label={tr("{p0}, best logged weight {p1} kilograms. View strength trend", {
+                      p0: name,
+                      p1: weight,
+                    })}
                     className="tile h-auto min-h-32 min-w-0 flex-col items-start justify-between gap-2 whitespace-normal p-3 text-left"
                   >
                     <div className="flex w-full items-center justify-between">
@@ -290,7 +323,7 @@ function Train() {
                     <div className="num text-title font-bold">
                       {weight}
                       <span className="ml-1 text-caption font-normal text-muted-foreground">
-                        kg
+                        <Message source="kg" />
                       </span>
                     </div>
                     <span className="line-clamp-2 text-caption font-semibold text-muted-foreground">
@@ -301,20 +334,20 @@ function Train() {
               </div>
             </section>
           )}
-          <section aria-label="Workout history">
+          <section aria-label={tr("Workout history")}>
             <SectionTitle
               action={
                 <span className="num text-caption text-muted-foreground">
-                  {workouts.length} total sessions
+                  <Message source="{p0}total sessions" values={{ p0: workouts.length }} />
                 </span>
               }
             >
-              History
+              <Message source="History" />
             </SectionTitle>
             {!workouts.length ? (
               <Empty
                 icon={<Dumbbell className="size-7" />}
-                title="A fresh start"
+                title={tr("A fresh start")}
                 body="Your completed sessions will appear here."
               />
             ) : (
@@ -323,8 +356,8 @@ function Train() {
                   const open = weekOverrides[week] ?? index === 0;
                   const label =
                     week === thisWeek
-                      ? "This week"
-                      : `Week of ${format(new Date(week + "T12:00"), "d MMM")}`;
+                      ? tr("This week")
+                      : tr("Week of {p0}", { p0: format(new Date(week + "T12:00"), "d MMM") });
                   const id = `history-${week}`;
                   return (
                     <div key={week} className="border-b border-border pb-3 last:border-0">
@@ -338,10 +371,16 @@ function Train() {
                         <div>
                           <div className="text-label font-bold">{label}</div>
                           <div className="num mt-2 text-caption text-muted-foreground">
-                            {sessions.length} session{sessions.length === 1 ? "" : "s"} ·{" "}
-                            {volumeText(
-                              sessions.reduce((sum, workout) => sum + volume(workout), 0),
-                            )}
+                            <Message
+                              source="{p0}session{p1}· {p2}"
+                              values={{
+                                p0: sessions.length,
+                                p1: sessions.length === 1 ? "" : "s",
+                                p2: volumeText(
+                                  sessions.reduce((sum, workout) => sum + volume(workout), 0),
+                                ),
+                              }}
+                            />
                           </div>
                         </div>
                         <ChevronDown
@@ -355,7 +394,7 @@ function Train() {
                         {sessions.map((workout) => (
                           <SwipeRow
                             key={workout.id}
-                            label={`${workout.title}: swipe left to delete`}
+                            label={tr("{p0}: swipe left to delete", { p0: workout.title })}
                             onDelete={() => removeWorkout(workout, "Workout deleted")}
                           >
                             <WorkoutRow w={workout} onEdit={() => editWorkout(workout)} />
@@ -368,7 +407,7 @@ function Train() {
                 {weeks.length > weeksShown && (
                   <div className="flex justify-center">
                     <TextAction onClick={() => setWeeksShown((count) => count + 3)}>
-                      Show earlier weeks
+                      <Message source="Show earlier weeks" />
                     </TextAction>
                   </div>
                 )}
@@ -383,7 +422,7 @@ function Train() {
           if (!open) setPr(null);
         }}
         title={pr ?? ""}
-        sub="Strength over time"
+        sub={tr("Strength over time")}
       >
         {pr && <ExerciseTrend name={pr} workouts={workouts} />}
       </Sheet>

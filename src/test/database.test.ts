@@ -147,6 +147,48 @@ describe("feature records security and workflows", () => {
       ),
     ).rejects.toMatchObject({ code: "42501" });
   });
+  it("persists all three languages under existing owner RLS and rejects unsupported locales", async () => {
+    await db.exec("begin");
+    try {
+      let record: string | undefined;
+      for (const language of ["en", "bs", "de"]) {
+        const payload = {
+          language,
+          theme: "dark",
+          modules: { train: true },
+          timezone: "Europe/Sarajevo",
+        } as FeaturePayloads["preferences"];
+        if (!record) record = await feature(client, "preferences", payload);
+        else
+          await asUser(client, () =>
+            db.query("update feature_records set payload=$1 where id=$2", [
+              JSON.stringify(payload),
+              record,
+            ]),
+          );
+        const own = await asUser(client, () =>
+          db.query<{ language: string }>(
+            "select payload->>'language' as language from feature_records where id=$1",
+            [record],
+          ),
+        );
+        expect(own.rows[0]?.language).toBe(language);
+        const other = await asUser(coachA, () =>
+          db.query("select id from feature_records where id=$1", [record]),
+        );
+        expect(other.rows).toHaveLength(0);
+      }
+    } finally {
+      await db.exec("rollback");
+    }
+    await expect(
+      asUser(client, () =>
+        db.query("insert into feature_records(kind,payload) values('preferences',$1)", [
+          JSON.stringify({ language: "fr", theme: "dark", modules: {}, timezone: "UTC" }),
+        ]),
+      ),
+    ).rejects.toMatchObject({ code: "23514" });
+  });
   it("validates real calendar dates, units, bounds and timezones in PostgreSQL", async () => {
     for (const [kind, payload] of [
       ["measurement", { date: "2026-02-30", type: "waist", value: 80, unit: "cm" }],

@@ -38,13 +38,24 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  /** Let translated action labels wrap without a fixed-height crop. */
+  wrap?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, wrap = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
-      <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
+      <Comp
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          wrap &&
+            "h-auto min-h-11 min-w-0 max-w-full whitespace-normal break-words hyphens-auto py-3 text-center",
+          wrap && size === "xl" && "min-h-14",
+        )}
+        ref={ref}
+        {...props}
+      />
     );
   },
 );

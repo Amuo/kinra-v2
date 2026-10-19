@@ -68,10 +68,7 @@ const output = `-- Kinra v2: additive installation in the existing Kinra project
 mkdirSync(new URL("supabase/migrations/", root), { recursive: true });
 writeFileSync(
   new URL("supabase/migrations/202610140001_kinra_v2.sql", root),
-  output.replace(
-    "schema version 0003_security_and_integrity",
-    "schema version 0008_message_compatibility",
-  ),
+  output.replace("schema version 0003_security_and_integrity", "schema version 0009_languages"),
 );
 const upgradeBody = body.slice(body.indexOf("-- Source: 0004_feature_schemas.sql"));
 writeFileSync(

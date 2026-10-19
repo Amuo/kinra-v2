@@ -2,6 +2,10 @@
 
 Training, nutrition, recovery and coach/client tracking built with React 19, TanStack Start, TypeScript, Supabase and Tailwind CSS. Demo and authenticated screens share the same typed API.
 
+## Languages
+
+English, Bosanski and Deutsch are available from the landing page, authentication screens and profile. The selected language follows the signed-in account; exercise display names, dates, numbers and active account emails follow it too. Custom names, notes and source evidence retain their original text. See [docs/LOCALIZATION-RELEASE-2026-10-19.md](docs/LOCALIZATION-RELEASE-2026-10-19.md) for scope and verification.
+
 ## Run locally
 
 Use Node 24 and Bun 1.4.3 or newer. Copy `.env.example` to `.env` and provide the project's public Supabase URL and anon/publishable key. Never put a service-role key or Resend key in a `VITE_` variable.
@@ -13,7 +17,7 @@ bun run check
 bun run preview
 ```
 
-`check` runs TypeScript, ESLint, the application and PostgreSQL authorization tests, and a production build. Preview runs the compiled Cloudflare worker locally through Wrangler. Build before preview; stop preview before rebuilding on Windows.
+`check` verifies translation coverage and runs TypeScript, ESLint, the application and PostgreSQL authorization tests, and a production build. Preview runs the compiled Cloudflare worker locally through Wrangler. Build before preview; stop preview before rebuilding on Windows.
 
 ## Production
 

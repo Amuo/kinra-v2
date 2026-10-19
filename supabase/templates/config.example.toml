@@ -1,24 +1,24 @@
 # Versioned local email templates. Hosted templates are configured separately.
 [auth.email.template.confirmation]
-subject = "Confirm your email for Kinra"
+subject = "{{ if eq .Data.kinra_language \"bs\" }}Potvrdi svoju email adresu za Kinru{{ else if eq .Data.kinra_language \"de\" }}Bestätige deine E-Mail-Adresse für Kinra{{ else }}Confirm your email for Kinra{{ end }}"
 content_path = "./supabase/templates/confirmation.html"
 
 [auth.email.template.recovery]
-subject = "Reset your Kinra password"
+subject = "{{ if eq .Data.kinra_language \"bs\" }}Promijeni svoju Kinra lozinku{{ else if eq .Data.kinra_language \"de\" }}Setze dein Kinra-Passwort zurück{{ else }}Reset your Kinra password{{ end }}"
 content_path = "./supabase/templates/recovery.html"
 
 [auth.email.template.magic_link]
-subject = "Your Kinra sign-in link"
+subject = "{{ if eq .Data.kinra_language \"bs\" }}Tvoj Kinra link za prijavu{{ else if eq .Data.kinra_language \"de\" }}Dein Kinra-Anmeldelink{{ else }}Your Kinra sign-in link{{ end }}"
 content_path = "./supabase/templates/magic_link.html"
 
 [auth.email.template.invite]
-subject = "You’re invited to Kinra"
+subject = "{{ if eq .Data.kinra_language \"bs\" }}Pozivnica za Kinru{{ else if eq .Data.kinra_language \"de\" }}Du bist zu Kinra eingeladen{{ else }}You’re invited to Kinra{{ end }}"
 content_path = "./supabase/templates/invite.html"
 
 [auth.email.template.email_change]
-subject = "Confirm your email change for Kinra"
+subject = "{{ if eq .Data.kinra_language \"bs\" }}Potvrdi promjenu email adrese za Kinru{{ else if eq .Data.kinra_language \"de\" }}Bestätige die E-Mail-Änderung für Kinra{{ else }}Confirm your email change for Kinra{{ end }}"
 content_path = "./supabase/templates/email_change.html"
 
 [auth.email.template.reauthentication]
-subject = "Your Kinra verification code"
+subject = "{{ if eq .Data.kinra_language \"bs\" }}Tvoj Kinra kod za provjeru{{ else if eq .Data.kinra_language \"de\" }}Dein Kinra-Bestätigungscode{{ else }}Your Kinra verification code{{ end }}"
 content_path = "./supabase/templates/reauthentication.html"

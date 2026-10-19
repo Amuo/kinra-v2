@@ -1,3 +1,5 @@
+import { errorText } from "@/lib/i18n-errors";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { lazy, Suspense, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Plus, Trash2, Save, X, Loader2 } from "lucide-react";
@@ -23,6 +25,7 @@ export function ProgramBuilder({
   clientId?: string;
   onClose: () => void;
 }) {
+  useLanguage();
   const [draft, setDraft] = useState(() => programDraft(program));
   const [picking, setPicking] = useState<{ day: number; exercise: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -61,20 +64,24 @@ export function ProgramBuilder({
       onOpenChange={(open) => {
         if (!open && !save.isPending) onClose();
       }}
-      title={program ? "Edit program" : clientId ? "Custom client program" : "New program"}
+      title={
+        program ? tr("Edit program") : clientId ? tr("Custom client program") : tr("New program")
+      }
       sub={
         program
-          ? "Changes apply to assigned clients' future sessions. Completed workouts stay unchanged."
+          ? tr(
+              "Changes apply to assigned clients' future sessions. Completed workouts stay unchanged.",
+            )
           : clientId
             ? ""
-            : "Build your next training block."
+            : tr("Build your next training block.")
       }
     >
       <Button
         variant="ghost"
         size="icon"
         className="absolute right-4 top-4 size-11 rounded-full"
-        aria-label="Close program editor"
+        aria-label={tr("Close program editor")}
         disabled={save.isPending}
         onClick={onClose}
       >
@@ -82,27 +89,33 @@ export function ProgramBuilder({
       </Button>
       <fieldset disabled={save.isPending || !!savedId.current} className="min-w-0 space-y-4">
         <label className="block">
-          <span className="mb-2 block text-label font-semibold">Program name</span>
+          <span className="mb-2 block text-label font-semibold">
+            <Message source="Program name" />
+          </span>
           <Input
             value={draft.name}
             onChange={(e) => setDraft({ ...draft, name: e.target.value })}
-            placeholder="Program name"
+            placeholder={tr("Program name")}
             className="h-12 rounded-tile bg-surface text-body"
           />
         </label>
         <label className="block">
-          <span className="mb-2 block text-label font-semibold">Description</span>
+          <span className="mb-2 block text-label font-semibold">
+            <Message source="Description" />
+          </span>
           <Textarea
             value={draft.description ?? ""}
             onChange={(e) => setDraft({ ...draft, description: e.target.value })}
-            placeholder="Focus for this block"
+            placeholder={tr("Focus for this block")}
             className="rounded-tile bg-surface text-body"
           />
         </label>
         <label className="flex items-center justify-between gap-3">
-          <span className="text-label font-semibold">Weeks</span>
+          <span className="text-label font-semibold">
+            <Message source="Weeks" />
+          </span>
           <Input
-            aria-label="Weeks"
+            aria-label={tr("Weeks")}
             type="number"
             min={1}
             step={1}
@@ -114,16 +127,18 @@ export function ProgramBuilder({
         {draft.days.map((day, i) => (
           <section
             key={i}
-            aria-label={`Training day ${i + 1}`}
+            aria-label={tr("Training day {p0}", { p0: i + 1 })}
             className="border-t border-border pt-6"
           >
             <div className="mb-3 flex items-center justify-between gap-3">
-              <h3 className="font-display text-title font-bold">Day {i + 1}</h3>
+              <h3 className="font-display text-title font-bold">
+                <Message source="Day {p0}" values={{ p0: i + 1 }} />
+              </h3>
               <Button
                 variant="ghost"
                 size="icon"
                 className="size-11 rounded-full text-muted-foreground"
-                aria-label={`Remove day ${i + 1}`}
+                aria-label={tr("Remove day {p0}", { p0: i + 1 })}
                 onClick={() =>
                   setDraft({ ...draft, days: draft.days.filter((_, index) => index !== i) })
                 }
@@ -132,7 +147,7 @@ export function ProgramBuilder({
               </Button>
             </div>
             <Input
-              aria-label={`Day ${i + 1} title`}
+              aria-label={tr("Day {p0} title", { p0: i + 1 })}
               value={day.title}
               onChange={(e) => updateDay(i, { title: e.target.value })}
               className="mb-4 h-12 rounded-tile bg-surface text-body font-semibold"
@@ -141,16 +156,18 @@ export function ProgramBuilder({
               <div
                 key={j}
                 role="group"
-                aria-label={`Day ${i + 1} exercise ${j + 1}`}
+                aria-label={tr("Day {p0} exercise {p1}", { p0: i + 1, p1: j + 1 })}
                 className="mb-5 rounded-tile border border-border bg-surface/50 p-4"
               >
                 <div className="mb-3 flex items-center justify-between">
-                  <span className="eyebrow">Exercise {j + 1}</span>
+                  <span className="eyebrow">
+                    <Message source="Exercise {p0}" values={{ p0: j + 1 }} />
+                  </span>
                   <Button
                     variant="ghost"
                     size="icon"
                     className="size-11 rounded-full text-muted-foreground"
-                    aria-label={`Remove exercise ${j + 1} from day ${i + 1}`}
+                    aria-label={tr("Remove exercise {p0} from day {p1}", { p0: j + 1, p1: i + 1 })}
                     onClick={() =>
                       updateDay(i, { exercises: day.exercises.filter((_, k) => k !== j) })
                     }
@@ -159,24 +176,29 @@ export function ProgramBuilder({
                   </Button>
                 </div>
                 <label className="block">
-                  <span className="mb-2 block text-label font-semibold">Exercise</span>
+                  <span className="mb-2 block text-label font-semibold">
+                    <Message source="Exercise" />
+                  </span>
                   <Input
                     value={exercise.name}
-                    placeholder="Exercise name"
+                    placeholder={tr("Exercise name")}
                     onChange={(e) => updateExercise(i, j, { name: e.target.value })}
                     className="h-12 rounded-tile bg-surface text-body"
                   />
                 </label>
                 <Button
+                  wrap
                   variant="glass"
                   className="mt-3 h-11 w-full"
                   onClick={() => setPicking({ day: i, exercise: j })}
                 >
-                  Choose from exercise library
+                  <Message source="Choose from exercise library" />
                 </Button>
                 <div className="mt-4 grid grid-cols-2 gap-3">
                   <label>
-                    <span className="mb-2 block text-label">Section</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Section" />
+                    </span>
                     <select
                       className={inputClass + " w-full border border-input px-2"}
                       value={exercise.section ?? "main"}
@@ -186,31 +208,43 @@ export function ProgramBuilder({
                         })
                       }
                     >
-                      <option value="warmup">Warm-up</option>
-                      <option value="main">Main work</option>
-                      <option value="cooldown">Cool-down</option>
+                      <option value="warmup">
+                        <Message source="Warm-up" />
+                      </option>
+                      <option value="main">
+                        <Message source="Main work" />
+                      </option>
+                      <option value="cooldown">
+                        <Message source="Cool-down" />
+                      </option>
                     </select>
                   </label>
                   <label>
-                    <span className="mb-2 block text-label">Group / superset</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Group / superset" />
+                    </span>
                     <Input
                       className={inputClass}
                       value={exercise.group ?? ""}
-                      placeholder="A, B, circuit…"
+                      placeholder={tr("A, B, circuit…")}
                       onChange={(e) => updateExercise(i, j, { group: e.target.value })}
                     />
                   </label>
                   <label className="col-span-2">
-                    <span className="mb-2 block text-label">Equipment</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Equipment" />
+                    </span>
                     <Input
                       className={inputClass}
                       value={exercise.equipment ?? ""}
-                      placeholder="Dumbbells, bench…"
+                      placeholder={tr("Dumbbells, bench…")}
                       onChange={(e) => updateExercise(i, j, { equipment: e.target.value })}
                     />
                   </label>
                   <label className="col-span-2">
-                    <span className="mb-2 block text-label">Substitutions · one per line</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Substitutions · one per line" />
+                    </span>
                     <Textarea
                       className="bg-surface text-body"
                       value={(exercise.substitutions ?? []).join("\n")}
@@ -220,7 +254,9 @@ export function ProgramBuilder({
                     />
                   </label>
                   <label>
-                    <span className="mb-2 block text-label">Sets</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Sets" />
+                    </span>
                     <Input
                       type="number"
                       min={1}
@@ -231,7 +267,9 @@ export function ProgramBuilder({
                     />
                   </label>
                   <label>
-                    <span className="mb-2 block text-label">Reps</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Reps" />
+                    </span>
                     <Input
                       value={exercise.reps}
                       placeholder="8–10"
@@ -240,25 +278,29 @@ export function ProgramBuilder({
                     />
                   </label>
                   <label>
-                    <span className="mb-2 block text-label">Weight · kg</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Weight · kg" />
+                    </span>
                     <Input
                       type="number"
                       min={0}
                       step="any"
                       value={exercise.weight ?? ""}
-                      placeholder="Previous"
+                      placeholder={tr("Previous")}
                       onChange={(e) => updateExercise(i, j, { weight: numeric(e.target.value) })}
                       className={inputClass}
                     />
                   </label>
                   <label>
-                    <span className="mb-2 block text-label">Rest · seconds</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Rest · seconds" />
+                    </span>
                     <Input
                       type="number"
                       min={0}
                       step={1}
                       value={exercise.rest_seconds ?? ""}
-                      placeholder="Auto"
+                      placeholder={tr("Auto")}
                       onChange={(e) =>
                         updateExercise(i, j, { rest_seconds: numeric(e.target.value) })
                       }
@@ -266,20 +308,24 @@ export function ProgramBuilder({
                     />
                   </label>
                   <label>
-                    <span className="mb-2 block text-label">Effort · RPE / 10</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Effort · RPE / 10" />
+                    </span>
                     <Input
                       type="number"
                       min={1}
                       max={10}
                       step={1}
                       value={exercise.rpe ?? ""}
-                      placeholder="Optional"
+                      placeholder={tr("Optional")}
                       onChange={(e) => updateExercise(i, j, { rpe: numeric(e.target.value) })}
                       className={inputClass}
                     />
                   </label>
                   <label>
-                    <span className="mb-2 block text-label">Tempo</span>
+                    <span className="mb-2 block text-label">
+                      <Message source="Tempo" />
+                    </span>
                     <Input
                       value={exercise.tempo ?? ""}
                       placeholder="3-1-1"
@@ -289,10 +335,12 @@ export function ProgramBuilder({
                   </label>
                 </div>
                 <label className="mt-4 block">
-                  <span className="mb-2 block text-label">Coach notes</span>
+                  <span className="mb-2 block text-label">
+                    <Message source="Coach notes" />
+                  </span>
                   <Textarea
                     value={exercise.notes ?? ""}
-                    placeholder="Cues, warm-up, or substitutions"
+                    placeholder={tr("Cues, warm-up, or substitutions")}
                     onChange={(e) => updateExercise(i, j, { notes: e.target.value })}
                     className="rounded-tile bg-surface text-body"
                   />
@@ -300,16 +348,18 @@ export function ProgramBuilder({
               </div>
             ))}
             <Button
+              wrap
               variant="glass"
               className="h-11 w-full text-label"
               onClick={() => updateDay(i, { exercises: [...day.exercises, blankExercise()] })}
             >
               <Plus />
-              Add exercise
+              <Message source="Add exercise" />
             </Button>
           </section>
         ))}
         <Button
+          wrap
           variant="glass"
           className="h-12 w-full text-label"
           onClick={() =>
@@ -317,12 +367,18 @@ export function ProgramBuilder({
           }
         >
           <Plus />
-          Add day
+          <Message source="Add day" />
         </Button>
       </fieldset>
       {picking && (
-        <Sheet open onOpenChange={(o) => !o && setPicking(null)} title="Choose an exercise">
-          <Suspense fallback={<p>Loading library…</p>}>
+        <Sheet open onOpenChange={(o) => !o && setPicking(null)} title={tr("Choose an exercise")}>
+          <Suspense
+            fallback={
+              <p>
+                <Message source="Loading library…" />
+              </p>
+            }
+          >
             <ExerciseLibrary
               onPick={(entry) => {
                 updateExercise(picking.day, picking.exercise, {
@@ -337,11 +393,12 @@ export function ProgramBuilder({
       )}
       {error && (
         <p role="alert" className="mt-4 text-label text-destructive">
-          {error}
+          {errorText(error)}
         </p>
       )}
       <div className="sticky bottom-0 -mx-5 mt-5 border-t border-border bg-popover px-5 py-4">
         <Button
+          wrap
           variant="volt"
           className="h-14 w-full text-body"
           disabled={save.isPending}
@@ -353,10 +410,10 @@ export function ProgramBuilder({
               onSuccess: () => {
                 toast.success(
                   program
-                    ? "Program updated"
+                    ? tr("Program updated")
                     : clientId
-                      ? "Program saved and assigned"
-                      : "Program saved",
+                      ? tr("Program saved and assigned")
+                      : tr("Program saved"),
                 );
                 onClose();
               },
@@ -364,8 +421,10 @@ export function ProgramBuilder({
                 qc.invalidateQueries({ queryKey: [mode, ownerId, "programs"] });
                 setError(
                   savedId.current
-                    ? "Program saved in your library, but assignment failed. Retry to assign it without creating another copy."
-                    : "Couldn't save this plan. Your draft is still here; try again.",
+                    ? tr(
+                        "Program saved in your library, but assignment failed. Retry to assign it without creating another copy.",
+                      )
+                    : tr("Couldn't save this plan. Your draft is still here; try again."),
                 );
               },
             });
@@ -373,14 +432,14 @@ export function ProgramBuilder({
         >
           {save.isPending ? <Loader2 className="animate-spin" /> : <Save />}
           {save.isPending
-            ? "Saving…"
+            ? tr("Saving…")
             : program
-              ? "Save changes"
+              ? tr("Save changes")
               : clientId
                 ? savedId.current
-                  ? "Retry assignment"
-                  : "Save & assign"
-                : "Save program"}
+                  ? tr("Retry assignment")
+                  : tr("Save & assign")
+                : tr("Save program")}
         </Button>
       </div>
     </Sheet>

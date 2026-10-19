@@ -1,3 +1,6 @@
+import { errorText } from "@/lib/i18n-errors";
+import { LanguageSelector } from "@/components/strata/language-selector";
+import { roleLabel, t as tr, useLanguage, Message } from "@/lib/i18n";
 import { PrivateMessages } from "@/components/strata/private-messages";
 import { DeleteKinraData } from "@/components/strata/delete-kinra-data";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
@@ -33,7 +36,7 @@ const FeatureHub = lazy(() =>
 export const Route = createFileRoute("/app/me")({
   head: () => ({
     meta: [
-      { title: "Your profile — Kinra" },
+      { title: tr("Your profile — Kinra") },
       { name: "description", content: "Manage your Kinra profile and coach connection." },
       { property: "og:title", content: "Your profile — Kinra" },
       { property: "og:description", content: "Manage your Kinra profile and coach connection." },
@@ -45,6 +48,7 @@ export const Route = createFileRoute("/app/me")({
 });
 
 function MePage() {
+  useLanguage();
   const me = useMe().data;
   const { personal, setView } = useAppView();
   const api = useApi();
@@ -68,28 +72,43 @@ function MePage() {
   if (!me) return null;
   return (
     <div>
-      <PageHeader eyebrow={me.role === "trainer" ? "Coach" : (me.role ?? "")} title="Profile" />
+      <PageHeader eyebrow={roleLabel(me.role)} title={tr("Profile")} />
       <Button variant="volt" className="mb-4 h-12 w-full" onClick={() => setToolsOpen(true)}>
-        Explore your Kinra toolkit
+        <Message source="Explore your Kinra toolkit" />
       </Button>
       {toolsOpen && (
         <Sheet
           open
           onOpenChange={setToolsOpen}
-          title="Explore Kinra"
-          sub="Your library, routines and community."
+          title={tr("Explore Kinra")}
+          sub={tr("Your library, routines and community.")}
         >
-          <Suspense fallback={<p role="status">Loading your tools…</p>}>
+          <Suspense
+            fallback={
+              <p role="status">
+                <Message source="Loading your tools…" />
+              </p>
+            }
+          >
             <FeatureHub />
           </Suspense>
         </Sheet>
       )}
+      <div className="mb-5">
+        <LanguageSelector />
+      </div>
       <Panel className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-4">
         <Avatar name={me.display_name} src={me.avatar_url} size={72} />
         <div className="min-w-0">
           <div className="break-words font-display text-title font-bold">{me.display_name}</div>
           <div className="text-label capitalize text-muted-foreground">
-            {me.role === "trainer" ? "coach" : me.role} account
+            {tr(
+              me.role === "trainer"
+                ? "Coach account"
+                : me.role === "client"
+                  ? "Client account"
+                  : "Solo account",
+            )}
           </div>
           {me.bio && <p className="mt-2 break-words text-body text-muted-foreground">{me.bio}</p>}
         </div>
@@ -101,12 +120,14 @@ function MePage() {
       <DeleteKinraData />
       {me.role === "trainer" && (
         <>
-          <SectionTitle>App view</SectionTitle>
+          <SectionTitle>
+            <Message source="App view" />
+          </SectionTitle>
           <div className="grid grid-cols-2 gap-3">
             {(
               [
-                { view: "coach", label: "Coaching", icon: Users },
-                { view: "personal", label: "My health", icon: Dumbbell },
+                { view: "coach", label: tr("Coaching"), icon: Users },
+                { view: "personal", label: tr("My health"), icon: Dumbbell },
               ] as const
             ).map((option) => (
               <Button
@@ -120,7 +141,7 @@ function MePage() {
                 }}
               >
                 <option.icon />
-                {option.label}
+                {tr(option.label)}
               </Button>
             ))}
           </div>
@@ -129,17 +150,19 @@ function MePage() {
 
       {me.role === "trainer" && me.trainer_code && (
         <>
-          <SectionTitle>Your coach code</SectionTitle>
+          <SectionTitle>
+            <Message source="Your coach code" />
+          </SectionTitle>
           <Panel className="grid-lines flex items-center justify-between">
             <div className="num break-all text-title-l font-bold text-volt">{me.trainer_code}</div>
             <Button
               variant="glass"
               size="icon"
-              aria-label="Copy code"
+              aria-label={tr("Copy code")}
               onClick={() => {
                 if (me.trainer_code) {
                   navigator.clipboard.writeText(me.trainer_code);
-                  toast.success("Copied");
+                  toast.success(tr("Copied"));
                 }
               }}
             >
@@ -147,18 +170,22 @@ function MePage() {
             </Button>
           </Panel>
           <p className="mt-2 text-caption text-muted-foreground">
-            Clients enter this code in their profile to connect with you.
+            <Message source="Clients enter this code in their profile to connect with you." />
           </p>
         </>
       )}
 
       {me.role !== "trainer" && (
         <>
-          <SectionTitle>Coach</SectionTitle>
+          <SectionTitle>
+            <Message source="Coach" />
+          </SectionTitle>
           {trainers.error ? (
             <ErrorState onRetry={() => trainers.refetch()} />
           ) : trainers.isPending ? (
-            <p role="status">Loading your connections…</p>
+            <p role="status">
+              <Message source="Loading your connections…" />
+            </p>
           ) : (
             <div className="space-y-3">
               {trainers.data?.map((trainer) => (
@@ -168,15 +195,14 @@ function MePage() {
                     <div className="font-semibold">{trainer.display_name}</div>
                   </div>
                   <p className="text-caption text-muted-foreground">
-                    Can read your training, food, sleep, journal and progress photos, and assign
-                    programs.
+                    <Message source="Can read your training, food, sleep, journal and progress photos, and assign programs." />
                   </p>
                   <Button
                     variant="ghost"
                     className="text-destructive"
                     onClick={() => setDisconnect(trainer)}
                   >
-                    Disconnect coach
+                    <Message source="Disconnect coach" />
                   </Button>
                 </Panel>
               ))}
@@ -185,13 +211,13 @@ function MePage() {
           {!trainers.isPending && !trainers.error && (
             <Panel>
               <div className="mb-3 text-label text-muted-foreground">
-                Have a code from your coach?
+                <Message source="Have a code from your coach?" />
               </div>
               <div className="flex gap-2">
                 <Input
                   value={code}
                   onChange={(e) => setCode(e.target.value.toUpperCase())}
-                  placeholder="ABC123"
+                  placeholder={tr("ABC123")}
                   className="num h-11 bg-surface tracking-widest"
                   maxLength={6}
                 />
@@ -201,12 +227,12 @@ function MePage() {
                   disabled={code.length < 6 || join.isPending}
                   onClick={() =>
                     join.mutate(code, {
-                      onSuccess: (n) => toast.success(`Connected with ${n}`),
-                      onError: (e) => toast.error(e.message),
+                      onSuccess: (n) => toast.success(tr("Connected with {p0}", { p0: n })),
+                      onError: (e) => toast.error(errorText(e.message)),
                     })
                   }
                 >
-                  <UserPlus /> Join
+                  <UserPlus /> <Message source="Join" />
                 </Button>
               </div>
             </Panel>
@@ -216,8 +242,10 @@ function MePage() {
             onOpenChange={(open) => {
               if (!open && !leave.isPending) setDisconnect(null);
             }}
-            title="Disconnect coach?"
-            sub="This revokes access to your logs and private photos. Previously delivered notes and reports remain in your history."
+            title={tr("Disconnect coach?")}
+            sub={tr(
+              "This revokes access to your logs and private photos. Previously delivered notes and reports remain in your history.",
+            )}
           >
             <Button
               variant="destructive"
@@ -228,29 +256,32 @@ function MePage() {
                 leave.mutate(disconnect.id, {
                   onSuccess: () => {
                     setDisconnect(null);
-                    toast.success("Coach disconnected");
+                    toast.success(tr("Coach disconnected"));
                   },
-                  onError: (e) => toast.error(e.message),
+                  onError: (e) => toast.error(errorText(e.message)),
                 })
               }
             >
-              Disconnect {disconnect?.display_name}
+              <Message source="Disconnect {p0}" values={{ p0: disconnect?.display_name }} />
             </Button>
           </Sheet>
         </>
       )}
 
-      <SectionTitle>Details</SectionTitle>
+      <SectionTitle>
+        <Message source="Details" />
+      </SectionTitle>
       <ProfileEditor key={me.id} me={me} />
 
       <Button variant="ghost" className="mt-6 w-full text-destructive" onClick={signOut}>
-        <LogOut /> {api.mode === "live" ? "Sign out" : "Exit demo"}
+        <LogOut /> {api.mode === "live" ? tr("Sign out") : tr("Exit demo")}
       </Button>
     </div>
   );
 }
 
 function ProfileEditor({ me }: { me: Me }) {
+  useLanguage();
   const [name, setName] = useState(me.display_name ?? "");
   const [goal, setGoal] = useState(me.goal ?? "");
   const [bio, setBio] = useState(me.bio ?? "");
@@ -271,7 +302,7 @@ function ProfileEditor({ me }: { me: Me }) {
     }
     setError(null);
     photo.mutate(file, {
-      onSuccess: () => toast.success("Profile photo updated"),
+      onSuccess: () => toast.success(tr("Profile photo updated")),
       onError: (e) => setError(e.message),
     });
   };
@@ -281,7 +312,7 @@ function ProfileEditor({ me }: { me: Me }) {
         e.preventDefault();
         setError(null);
         save.mutate(undefined, {
-          onSuccess: () => toast.success("Profile updated"),
+          onSuccess: () => toast.success(tr("Profile updated")),
           onError: (e) => setError(e.message),
         });
       }}
@@ -292,7 +323,7 @@ function ProfileEditor({ me }: { me: Me }) {
           ref={fileInput}
           type="file"
           accept="image/jpeg,image/png,image/webp"
-          aria-label="Profile photo file"
+          aria-label={tr("Profile photo file")}
           className="hidden"
           onChange={(e) => {
             choosePhoto(e.target.files?.[0]);
@@ -306,7 +337,8 @@ function ProfileEditor({ me }: { me: Me }) {
           className="h-12 text-label"
           onClick={() => fileInput.current?.click()}
         >
-          {photo.isPending ? <Loader2 className="animate-spin" /> : <Camera />}Change photo
+          {photo.isPending ? <Loader2 className="animate-spin" /> : <Camera />}
+          <Message source="Change photo" />
         </Button>
         {(me.avatar_url || me.avatar_path) && (
           <Button
@@ -316,18 +348,20 @@ function ProfileEditor({ me }: { me: Me }) {
             className="h-12 text-label text-destructive"
             onClick={() =>
               photo.mutate(null, {
-                onSuccess: () => toast.success("Photo removed"),
+                onSuccess: () => toast.success(tr("Photo removed")),
                 onError: (e) => setError(e.message),
               })
             }
           >
             <Trash2 />
-            Remove photo
+            <Message source="Remove photo" />
           </Button>
         )}
       </div>
       <label className="block">
-        <span className="mb-2 block text-body font-semibold">Display name</span>
+        <span className="mb-2 block text-body font-semibold">
+          <Message source="Display name" />
+        </span>
         <Input
           required
           maxLength={80}
@@ -337,29 +371,33 @@ function ProfileEditor({ me }: { me: Me }) {
         />
       </label>
       <label className="block">
-        <span className="mb-2 block text-body font-semibold">Your main goal</span>
+        <span className="mb-2 block text-body font-semibold">
+          <Message source="Your main goal" />
+        </span>
         <Input
           maxLength={160}
           value={goal}
           onChange={(e) => setGoal(e.target.value)}
-          placeholder="What are you working toward?"
+          placeholder={tr("What are you working toward?")}
           className="h-12 bg-surface text-body"
         />
       </label>
       <label className="block">
-        <span className="mb-2 block text-body font-semibold">About you</span>
+        <span className="mb-2 block text-body font-semibold">
+          <Message source="About you" />
+        </span>
         <Textarea
           maxLength={500}
           rows={4}
           value={bio}
           onChange={(e) => setBio(e.target.value)}
-          placeholder="A little about your training and interests"
+          placeholder={tr("A little about your training and interests")}
           className="bg-surface text-body"
         />
       </label>
       {error && (
         <p role="alert" className="text-body text-destructive">
-          {error}
+          {errorText(error)}
         </p>
       )}
       <Button
@@ -368,7 +406,8 @@ function ProfileEditor({ me }: { me: Me }) {
         disabled={!name.trim() || save.isPending || photo.isPending}
         className="h-14 w-full text-body"
       >
-        {save.isPending ? <Loader2 className="animate-spin" /> : <Save />}Save profile
+        {save.isPending ? <Loader2 className="animate-spin" /> : <Save />}
+        <Message source="Save profile" />
       </Button>
     </form>
   );

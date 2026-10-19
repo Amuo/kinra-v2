@@ -1,3 +1,5 @@
+import { LanguageSelector } from "@/components/strata/language-selector";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "motion/react";
@@ -26,7 +28,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { title: "Kinra — Training, recovery & coaching in one app" },
+      { title: tr("Kinra — Training, recovery & coaching in one app") },
       {
         name: "description",
         content:
@@ -54,6 +56,7 @@ function useDemo() {
 }
 
 function HeroImage({ className }: { className?: string }) {
+  useLanguage();
   const [loaded, setLoaded] = useState(false);
   return (
     <div
@@ -64,7 +67,7 @@ function HeroImage({ className }: { className?: string }) {
     >
       <img
         src={hero}
-        alt="Athlete preparing to deadlift under green light"
+        alt={tr("Athlete preparing to deadlift under green light")}
         width={864}
         height={1280}
         fetchPriority="high"
@@ -80,19 +83,27 @@ function HeroImage({ className }: { className?: string }) {
 
 /** Static preview of the Today screen for the device frame. */
 function TodayMock() {
+  useLanguage();
   return (
     <div className="flex h-full flex-col gap-3 bg-background px-4 pt-10 text-left">
       <div>
-        <div className="eyebrow">Wednesday · 14 October</div>
+        <div className="eyebrow">
+          <Message source="Wednesday · 14 October" />
+        </div>
         <div className="mt-1 font-display text-title font-bold">
-          Good morning, <span className="text-volt">Maya</span>
+          <Message source="Good morning," />
+          <span className="text-volt">
+            <Message source="Maya" />
+          </span>
         </div>
       </div>
       <div className="panel flex items-center gap-4 p-4">
         <Ring value={0.82} size={92} stroke={9}>
           <div>
             <div className="num text-title font-bold">82</div>
-            <div className="eyebrow">Ready</div>
+            <div className="eyebrow">
+              <Message source="Ready" />
+            </div>
           </div>
         </Ring>
         <div className="grid flex-1 grid-cols-2 gap-2">
@@ -103,7 +114,7 @@ function TodayMock() {
             ["Protein", "84", "g", "text-ember"],
           ].map(([l, v, u, t]) => (
             <div key={l}>
-              <div className="eyebrow">{l}</div>
+              <div className="eyebrow">{tr(l ?? "")}</div>
               <div className={`num text-title font-bold ${t}`}>
                 {v}
                 <span className="ml-0.5 font-sans text-caption text-muted-foreground">{u}</span>
@@ -113,13 +124,17 @@ function TodayMock() {
         </div>
       </div>
       <div className="panel p-4">
-        <div className="eyebrow">Foundations · Week 3/6</div>
-        <div className="mt-1 font-display text-title font-bold">Day B · Hinge focus</div>
+        <div className="eyebrow">
+          <Message source="Foundations · Week 3/6" />
+        </div>
+        <div className="mt-1 font-display text-title font-bold">
+          <Message source="Day B · Hinge focus" />
+        </div>
         <div className="num mt-1 text-caption text-muted-foreground">
-          Deadlift 4×4 · Overhead Press 4×6
+          <Message source="Deadlift 4×4 · Overhead Press 4×6" />
         </div>
         <div className="mt-3 flex h-11 items-center justify-center gap-2 rounded-full bg-volt-gradient text-label font-semibold text-primary-foreground">
-          <Play className="size-4" /> Start session
+          <Play className="size-4" /> <Message source="Start session" />
         </div>
       </div>
       <div className="grid grid-cols-4 gap-2">
@@ -138,7 +153,9 @@ function TodayMock() {
         })}
       </div>
       <div className="panel p-4">
-        <div className="eyebrow mb-3">Last 28 days</div>
+        <div className="eyebrow mb-3">
+          <Message source="Last 28 days" />
+        </div>
         <div className="flex h-16 items-end gap-[3px]">
           {[4, 0, 6, 3, 0, 7, 0, 5, 6, 0, 4, 8, 0, 0, 6, 5, 0, 7, 4, 0, 8, 6, 0, 5, 7, 0, 6, 8].map(
             (v, i) => (
@@ -159,6 +176,7 @@ function TodayMock() {
 }
 
 function Phone({ children }: { children: React.ReactNode }) {
+  useLanguage();
   return (
     <div className="relative mx-auto aspect-[9/19] w-[320px] rounded-[48px] border border-border bg-surface p-2.5 shadow-glow">
       <div className="absolute left-1/2 top-4 z-10 h-6 w-24 -translate-x-1/2 rounded-full bg-background" />
@@ -175,6 +193,7 @@ const features = [
 ];
 
 function Landing() {
+  useLanguage();
   const demo = useDemo();
   return (
     <div className="min-h-dvh overflow-x-hidden">
@@ -182,45 +201,49 @@ function Landing() {
       <section className="relative h-[88dvh] min-h-[600px] md:hidden">
         <HeroImage className="absolute inset-0" />
         <div className="bg-fade absolute inset-0" />
-        <header className="relative z-10 flex items-center justify-between px-5 pt-4">
+        <header className="relative z-10 flex flex-wrap items-center justify-between gap-2 px-5 pt-4">
           <Logo />
+          <LanguageSelector compact />
           <Link to="/auth" className="flex min-h-[44px] items-center px-2 text-label font-semibold">
-            Sign in
+            <Message source="Sign in" />
           </Link>
         </header>
         <div className="absolute inset-x-0 bottom-0 z-10 px-5 pb-6">
-          <div className="eyebrow mb-3 !text-volt">Health · Fitness · Recovery</div>
+          <div className="eyebrow mb-3 !text-volt">
+            <Message source="Health · Fitness · Recovery" />
+          </div>
           <h1 className="font-display text-display font-black uppercase leading-[0.9] [font-stretch:120%]">
-            Every layer
+            <Message source="Every layer" />
             <br />
-            of you.
+            <Message source="of you." />
           </h1>
           <p className="mt-4 max-w-xs text-body text-muted-foreground">
-            Training, food, sleep and mind in one place — with your coach right there.
+            <Message source="Training, food, sleep and mind in one place — with your coach right there." />
           </p>
           <div className="mt-6 flex flex-col gap-2">
             <motion.div whileTap={press}>
               <Link
                 to="/auth"
-                className="flex h-14 items-center justify-center gap-2 rounded-full bg-volt-gradient font-semibold text-primary-foreground shadow-glow"
+                className="flex min-h-14 min-w-0 items-center justify-center gap-2 rounded-full px-4 py-3 text-center bg-volt-gradient font-semibold text-primary-foreground shadow-glow"
               >
-                Start free <ArrowRight className="size-5" />
+                <Message source="Start free" />
+                <ArrowRight className="size-5" />
               </Link>
             </motion.div>
             <div className="grid grid-cols-2 gap-2">
               <motion.button
                 whileTap={press}
                 onClick={() => demo("client")}
-                className="h-14 rounded-full border border-border bg-surface-2/70 font-semibold backdrop-blur"
+                className="min-h-14 min-w-0 whitespace-normal break-words rounded-full border border-border bg-surface-2/70 px-3 py-3 font-semibold hyphens-auto backdrop-blur"
               >
-                Demo · Client
+                <Message source="Demo · Client" />
               </motion.button>
               <motion.button
                 whileTap={press}
                 onClick={() => demo("trainer")}
-                className="h-14 rounded-full border border-border bg-surface-2/70 font-semibold backdrop-blur"
+                className="min-h-14 min-w-0 whitespace-normal break-words rounded-full border border-border bg-surface-2/70 px-3 py-3 font-semibold hyphens-auto backdrop-blur"
               >
-                Demo · Coach
+                <Message source="Demo · Coach" />
               </motion.button>
             </div>
           </div>
@@ -229,34 +252,36 @@ function Landing() {
 
       {/* ---------- desktop hero ---------- */}
       <section className="app-backdrop relative hidden md:block">
-        <header className="mx-auto flex max-w-6xl items-center justify-between px-8 py-6">
+        <header className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-8 py-6">
           <Logo />
-          <nav className="flex items-center gap-2">
+          <nav className="flex min-w-0 flex-wrap items-center gap-2">
+            <LanguageSelector compact />
             <Link
               to="/auth"
               className="flex min-h-[44px] items-center px-4 text-label font-semibold text-muted-foreground hover:text-foreground"
             >
-              Sign in
+              <Message source="Sign in" />
             </Link>
             <Link
               to="/auth"
               className="flex min-h-[44px] items-center rounded-full bg-primary px-5 text-label font-bold text-primary-foreground"
             >
-              Start free
+              <Message source="Start free" />
             </Link>
           </nav>
         </header>
         <div className="mx-auto grid max-w-6xl grid-cols-[1.1fr_1fr] items-center gap-12 px-8 pb-24 pt-10">
           <div>
-            <div className="eyebrow mb-4 !text-volt">Health · Fitness · Recovery · Coaching</div>
+            <div className="eyebrow mb-4 !text-volt">
+              <Message source="Health · Fitness · Recovery · Coaching" />
+            </div>
             <h1 className="font-display text-[4.5rem] font-black uppercase leading-[0.88] [font-stretch:120%] lg:text-[5.5rem]">
-              Every layer
+              <Message source="Every layer" />
               <br />
-              of you.
+              <Message source="of you." />
             </h1>
             <p className="mt-6 max-w-md text-title font-normal text-muted-foreground">
-              Live workout sessions, sleep, food and mood in one app — with your coach seeing what
-              matters.
+              <Message source="Live workout sessions, sleep, food and mood in one app — with your coach seeing what matters." />
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <motion.div whileTap={press}>
@@ -264,7 +289,8 @@ function Landing() {
                   to="/auth"
                   className="flex h-14 items-center gap-2 rounded-full bg-volt-gradient px-8 font-semibold text-primary-foreground shadow-glow"
                 >
-                  Start free <ArrowRight className="size-5" />
+                  <Message source="Start free" />
+                  <ArrowRight className="size-5" />
                 </Link>
               </motion.div>
               <motion.button
@@ -272,14 +298,14 @@ function Landing() {
                 onClick={() => demo("client")}
                 className="h-14 rounded-full border border-border bg-surface px-8 font-semibold"
               >
-                Try the live demo
+                <Message source="Try the live demo" />
               </motion.button>
             </div>
             <button
               onClick={() => demo("trainer")}
               className="mt-4 min-h-[44px] text-label text-muted-foreground underline-offset-4 hover:underline"
             >
-              Are you a coach? See the coach demo →
+              <Message source="Are you a coach? See the coach demo →" />
             </button>
           </div>
           <div className="relative">
@@ -297,48 +323,57 @@ function Landing() {
       <div className="mx-auto max-w-6xl md:grid md:grid-cols-3 md:gap-6 md:px-8 md:py-16">
         <section className="px-5 py-12 md:panel md:p-8">
           <Timer className="mb-4 hidden size-7 text-volt md:block" />
-          <div className="eyebrow mb-2">Session</div>
+          <div className="eyebrow mb-2">
+            <Message source="Session" />
+          </div>
           <h2 className="font-display text-title-l font-extrabold [font-stretch:110%]">
-            Live sessions that feel like a coach.
+            <Message source="Live sessions that feel like a coach." />
           </h2>
           <ul className="mt-5 space-y-3 text-body text-muted-foreground">
             <li className="flex gap-3">
-              <Check className="mt-0.5 size-5 shrink-0 text-volt" /> Last-time weights pre-filled
+              <Check className="mt-0.5 size-5 shrink-0 text-volt" />{" "}
+              <Message source="Last-time weights pre-filled" />
             </li>
             <li className="flex gap-3">
-              <Check className="mt-0.5 size-5 shrink-0 text-volt" /> Auto rest timer on every set
+              <Check className="mt-0.5 size-5 shrink-0 text-volt" />{" "}
+              <Message source="Auto rest timer on every set" />
             </li>
             <li className="flex gap-3">
-              <Trophy className="mt-0.5 size-5 shrink-0 text-volt" /> Instant PR detection
+              <Trophy className="mt-0.5 size-5 shrink-0 text-volt" />{" "}
+              <Message source="Instant PR detection" />
             </li>
           </ul>
           <div className="mt-6 grid grid-cols-4 gap-2 md:hidden">
             {features.map((f) => (
-              <div key={f.label} className="tile flex flex-col items-center gap-2 p-3">
+              <div key={tr(f.label)} className="tile flex flex-col items-center gap-2 p-3">
                 <f.icon className={`size-6 ${f.tone}`} />
-                <span className="text-caption font-semibold">{f.label}</span>
+                <span className="text-caption font-semibold">{tr(f.label)}</span>
               </div>
             ))}
           </div>
         </section>
         <section className="border-y border-border px-5 py-12 md:panel md:border md:p-8">
-          <div className="eyebrow mb-2">Readiness</div>
+          <div className="eyebrow mb-2">
+            <Message source="Readiness" />
+          </div>
           <h2 className="font-display text-title-l font-extrabold [font-stretch:110%]">
-            Know how hard to push.
+            <Message source="Know how hard to push." />
           </h2>
           <div className="mt-6 flex items-center gap-5">
             <Ring value={0.82} size={96} stroke={9}>
               <span className="num text-title font-bold">82</span>
             </Ring>
             <p className="text-body text-muted-foreground">
-              Sleep, training load and mood fused into one daily score.
+              <Message source="Sleep, training load and mood fused into one daily score." />
             </p>
           </div>
         </section>
         <section className="grid-lines px-5 py-12 md:panel md:p-8">
-          <div className="eyebrow mb-2">Coach</div>
+          <div className="eyebrow mb-2">
+            <Message source="Coach" />
+          </div>
           <h2 className="font-display text-title-l font-extrabold [font-stretch:110%]">
-            Every client at a glance.
+            <Message source="Every client at a glance." />
           </h2>
           <ul className="mt-5 space-y-3">
             {[
@@ -349,7 +384,7 @@ function Landing() {
               const I = Icon as typeof Users;
               return (
                 <li key={i} className="flex items-start gap-3 text-body">
-                  <I className="mt-0.5 size-5 shrink-0 text-volt" /> {t as string}
+                  <I className="mt-0.5 size-5 shrink-0 text-volt" /> {tr(t as string)}
                 </li>
               );
             })}
@@ -358,17 +393,27 @@ function Landing() {
       </div>
 
       <section className="mx-auto max-w-6xl px-5 pb-16 md:px-8">
-        <div className="eyebrow mb-3">Coming soon</div>
+        <div className="eyebrow mb-3">
+          <Message source="Coming soon" />
+        </div>
         <div className="grid grid-cols-2 gap-3">
           <div className="panel p-4 md:p-6">
             <Building2 className="mb-2 size-5 text-pulse" />
-            <div className="font-semibold">Gyms & facilities</div>
-            <div className="text-caption text-muted-foreground">Member check-ins & tracking</div>
+            <div className="font-semibold">
+              <Message source="Gyms & facilities" />
+            </div>
+            <div className="text-caption text-muted-foreground">
+              <Message source="Member check-ins & tracking" />
+            </div>
           </div>
           <div className="panel p-4 md:p-6">
             <Stethoscope className="mb-2 size-5 text-dream" />
-            <div className="font-semibold">Doctors & dietitians</div>
-            <div className="text-caption text-muted-foreground">Labs and care plans</div>
+            <div className="font-semibold">
+              <Message source="Doctors & dietitians" />
+            </div>
+            <div className="text-caption text-muted-foreground">
+              <Message source="Labs and care plans" />
+            </div>
           </div>
         </div>
         <div className="mt-8 flex flex-col gap-2 md:flex-row md:justify-center">
@@ -376,13 +421,13 @@ function Landing() {
             to="/auth"
             className="flex h-14 items-center justify-center rounded-full bg-volt-gradient px-8 font-semibold text-primary-foreground"
           >
-            Start free
+            <Message source="Start free" />
           </Link>
           <button
             onClick={() => demo("client")}
             className="h-14 rounded-full border border-border px-8 font-semibold"
           >
-            Try the live demo
+            <Message source="Try the live demo" />
           </button>
         </div>
       </section>

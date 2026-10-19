@@ -1,3 +1,4 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { z } from "zod";
 import { Plus, Trash2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -5,10 +6,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
 export function fieldLabel(key: string) {
-  return key
-    .replace(/([a-z])([A-Z])/g, "$1 $2")
-    .replace(/_/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return tr(
+    key
+      .replace(/([a-z])([A-Z])/g, "$1 $2")
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase()),
+  );
 }
 export function unwrap(schema: z.ZodTypeAny): z.ZodTypeAny {
   if (
@@ -47,6 +50,7 @@ export function SchemaFields({
   onChange: (v: unknown) => void;
   path?: string;
 }) {
+  useLanguage();
   const base = unwrap(schema);
   if (!(base instanceof z.ZodObject)) return null;
   const record = (value ?? {}) as Record<string, unknown>;
@@ -79,6 +83,7 @@ function SchemaField({
   onChange: (v: unknown) => void;
   path: string;
 }) {
+  useLanguage();
   const base = unwrap(schema);
   const title = fieldLabel(name);
   const optional = schema.isOptional();
@@ -127,11 +132,13 @@ function SchemaField({
     const days = Array.isArray(value) ? (value as number[]) : [];
     return (
       <fieldset>
-        <legend className="mb-2 text-label font-semibold">Days of week</legend>
+        <legend className="mb-2 text-label font-semibold">
+          <Message source="Days of week" />
+        </legend>
         <div className="flex flex-wrap gap-2">
           {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, i) => (
             <Button
-              key={day}
+              key={tr(day)}
               type="button"
               variant={days.includes(i) ? "volt" : "glass"}
               aria-pressed={days.includes(i)}
@@ -161,14 +168,14 @@ function SchemaField({
                 type="button"
                 variant="ghost"
                 size="icon"
-                aria-label={`Remove ${title} ${index + 1}`}
+                aria-label={tr("Remove {p0} {p1}", { p0: title, p1: index + 1 })}
                 onClick={() => onChange(values.filter((_, i) => i !== index))}
               >
                 <Trash2 className="size-4" />
               </Button>
             </div>
             <SchemaField
-              name={base.element instanceof z.ZodObject ? "Details" : "Value"}
+              name={base.element instanceof z.ZodObject ? tr("Details") : tr("Value")}
               schema={base.element}
               value={item}
               path={`${path}.${index}`}
@@ -183,7 +190,7 @@ function SchemaField({
           onClick={() => onChange([...values, initialValue(base.element)])}
         >
           <Plus className="size-4" />
-          Add {title.toLowerCase()}
+          <Message source="Add {p0}" values={{ p0: title.toLowerCase() }} />
         </Button>
       </fieldset>
     );
@@ -210,7 +217,11 @@ function SchemaField({
   const label = (
     <span className="mb-1.5 block text-label font-semibold">
       {title}
-      {optional ? <span className="ml-1 font-normal text-muted-foreground">· optional</span> : null}
+      {optional ? (
+        <span className="ml-1 font-normal text-muted-foreground">
+          <Message source="· optional" />
+        </span>
+      ) : null}
     </span>
   );
   if (base instanceof z.ZodEnum)
@@ -226,7 +237,9 @@ function SchemaField({
         >
           {base.options.map((v: string) => (
             <option key={v} value={v}>
-              {fieldLabel(v)}
+              {name === "language"
+                ? ({ en: "English", bs: "Bosanski", de: "Deutsch" }[v as "en" | "bs" | "de"] ?? v)
+                : fieldLabel(v)}
             </option>
           ))}
         </select>

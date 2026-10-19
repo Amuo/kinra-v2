@@ -1,9 +1,12 @@
+import { useLanguage, setLanguage, t, Message } from "@/lib/i18n";
+import { clearFieldValidity, invalidField } from "@/lib/i18n-errors";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -18,18 +21,23 @@ import { Toaster } from "@/components/ui/sonner";
 import { supabase } from "@/integrations/supabase/client";
 
 function NotFoundComponent() {
+  useLanguage();
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="num text-7xl font-bold text-primary">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">This page doesn't exist or has moved.</p>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">
+          <Message source="Page not found" />
+        </h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          <Message source="This page doesn't exist or has moved." />
+        </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex h-11 items-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
           >
-            Go home
+            <Message source="Go home" />
           </Link>
         </div>
       </div>
@@ -38,6 +46,7 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: ErrorComponentProps) {
+  useLanguage();
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -48,10 +57,10 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          <Message source="This page didn't load" />
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong. Try refreshing or head back home.
+          <Message source="Something went wrong. Try refreshing or head back home." />
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -61,13 +70,13 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
             }}
             className="inline-flex h-11 items-center rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
           >
-            Try again
+            <Message source="Try again" />
           </button>
           <a
             href="/"
             className="inline-flex h-11 items-center rounded-full border border-input px-6 text-sm font-medium text-foreground"
           >
-            Go home
+            <Message source="Go home" />
           </a>
         </div>
       </div>
@@ -110,6 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  useLanguage();
   return (
     <html lang="en">
       <head>
@@ -124,6 +134,28 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
+  const { language } = useLanguage();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  useEffect(() => {
+    setLanguage(language, false);
+    const titles: Record<string, string> = {
+      "/": "Kinra — Training, recovery & coaching in one app",
+      "/auth": "Sign in — Kinra",
+      "/auth/confirm": "Kinra account",
+      "/app": "Today — Kinra",
+      "/app/train": "Train — Programs & personal records | Kinra",
+      "/app/fuel": "Fuel — Kinra",
+      "/app/recover": "Recover — Kinra",
+      "/app/progress": "Progress — Kinra",
+      "/app/programs": "Programs — Kinra",
+      "/app/me": "Your profile — Kinra",
+      "/app/clients": "Clients — Kinra",
+    };
+    document.title = t(
+      titles[pathname] ??
+        (pathname.startsWith("/app/clients/") ? "Client progress — Kinra" : "Kinra"),
+    );
+  }, [language, pathname]);
   const { queryClient } = Route.useRouteContext();
   const router = useRouter();
 
@@ -156,7 +188,13 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthIdentityContext.Provider value={identity}>
-        <Outlet />
+        <div
+          className="contents"
+          onInvalidCapture={invalidField}
+          onInputCapture={clearFieldValidity}
+        >
+          <Outlet />
+        </div>
       </AuthIdentityContext.Provider>
       <Toaster position="top-center" />
     </QueryClientProvider>

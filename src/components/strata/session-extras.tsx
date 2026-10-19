@@ -1,3 +1,4 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useEffect, useRef, useState } from "react";
 import { animate, motion, useReducedMotion } from "motion/react";
 import { today } from "@/lib/stats";
@@ -72,6 +73,7 @@ export function CountUp({
   duration?: number;
   suffix?: string;
 }) {
+  useLanguage();
   const ref = useRef<HTMLSpanElement>(null);
   const reduce = useReducedMotion();
   useEffect(() => {
@@ -110,6 +112,7 @@ const BANDS = [
   "var(--surface-3, var(--surface-2))",
 ];
 export function StrataBands({ onDone }: { onDone?: () => void }) {
+  useLanguage();
   const reduce = useReducedMotion();
   return (
     <motion.div
@@ -144,6 +147,7 @@ export function PrMoment({
   kg: number;
   onDone: () => void;
 }) {
+  useLanguage();
   const canvas = useRef<HTMLCanvasElement>(null);
   const reduce = useReducedMotion();
   useEffect(() => {
@@ -210,7 +214,7 @@ export function PrMoment({
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 18 }}
         >
-          NEW PR
+          <Message source="NEW PR" />
         </motion.div>
         <div className="mt-3 text-label font-semibold text-muted-foreground">{exercise}</div>
         <div className="mt-1 text-display font-black">
@@ -243,6 +247,7 @@ export function platesFor(total: number, bar = 20) {
   return { out, rest: +(side * 2).toFixed(2) };
 }
 export function Barbell({ kg, bar = 20 }: { kg: number; bar?: number }) {
+  useLanguage();
   const { out } = platesFor(kg, bar);
   const reduce = useReducedMotion();
   const sides = [1, -1] as const;
@@ -251,7 +256,11 @@ export function Barbell({ kg, bar = 20 }: { kg: number; bar?: number }) {
       viewBox="0 0 340 110"
       className="w-full"
       role="img"
-      aria-label={`${kg} kg: ${bar} kg bar plus ${out.length ? out.join(", ") + " kg per side" : "no plates"}`}
+      aria-label={tr("{p0} kg: {p1} kg bar plus {p2}", {
+        p0: kg,
+        p1: bar,
+        p2: out.length ? out.join(", ") + " kg per side" : "no plates",
+      })}
     >
       <rect
         x="4"
@@ -311,6 +320,7 @@ export function musclesFor(names: string[]) {
   return s;
 }
 export function BodyMap({ exercises }: { exercises: string[] }) {
+  useLanguage();
   const on = musclesFor(exercises);
   const reduce = useReducedMotion();
   const P = ({ m, d, delay = 0 }: { m: Muscle; d: string; delay?: number }) => (
@@ -329,7 +339,9 @@ export function BodyMap({ exercises }: { exercises: string[] }) {
     <div
       className="grid grid-cols-2 gap-4"
       role="img"
-      aria-label={`Muscles worked: ${[...on].join(", ") || "none recorded"}`}
+      aria-label={tr("Muscles worked: {p0}", {
+        p0: [...on].map((m) => tr(m)).join(", ") || tr("none recorded"),
+      })}
     >
       {(["Front", "Back"] as const).map((side) => (
         <div key={side} className="text-center">
@@ -362,7 +374,7 @@ export function BodyMap({ exercises }: { exercises: string[] }) {
             )}
             <P m="calves" d="M36 150 H47 L46 188 H38 Z M53 150 H64 L62 188 H54 Z" delay={0.25} />
           </svg>
-          <div className="eyebrow mt-1">{side}</div>
+          <div className="eyebrow mt-1">{tr(side === "Back" ? "Back view" : side)}</div>
         </div>
       ))}
     </div>
@@ -397,7 +409,7 @@ export async function shareSession(d: {
   g.globalAlpha = 1;
   g.fillStyle = mute;
   g.font = "600 36px 'JetBrains Mono', monospace";
-  g.fillText("KINRA · SESSION COMPLETE", 80, 400);
+  g.fillText(tr("KINRA · SESSION COMPLETE"), 80, 400);
   g.fillStyle = fg;
   g.font = "900 104px Archivo, sans-serif";
   wrap(g, d.title, 80, 530, 920, 110);
@@ -412,7 +424,7 @@ export async function shareSession(d: {
       y = 860 + Math.floor(i / 2) * 260;
     g.fillStyle = mute;
     g.font = "600 32px 'JetBrains Mono', monospace";
-    g.fillText(l.toUpperCase(), x, y);
+    g.fillText(tr(l).toUpperCase(), x, y);
     g.fillStyle = l === "PRs" && d.prs.length ? volt : fg;
     g.font = "800 110px 'JetBrains Mono', monospace";
     g.fillText(val, x, y + 120);
@@ -424,7 +436,7 @@ export async function shareSession(d: {
   });
   g.fillStyle = mute;
   g.font = "600 32px Manrope, sans-serif";
-  g.fillText("Tracked with KINRA", 80, 1820);
+  g.fillText(tr("Tracked with KINRA"), 80, 1820);
   const blob: Blob = await new Promise((r) => c.toBlob((b) => r(b!), "image/png"));
   const file = new File([blob], "kinra-session.png", { type: "image/png" });
   if (navigator.canShare?.({ files: [file] })) {

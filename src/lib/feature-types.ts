@@ -41,7 +41,7 @@ export const featureSchemas = {
     .strict(),
   preferences: z
     .object({
-      language: z.enum(["en", "bs"]),
+      language: z.enum(["en", "bs", "de"]),
       theme: z.enum(["light", "dark", "system"]),
       modules: z.record(z.boolean()),
       timezone,

@@ -1,3 +1,4 @@
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useState } from "react";
 import { Check, Send, ThumbsUp } from "lucide-react";
 import { useAct } from "@/lib/api";
@@ -19,6 +20,7 @@ export function CoachKudos({
   open: boolean;
   onClose: () => void;
 }) {
+  useLanguage();
   const [body, setBody] = useState(() => kudosDraft(name, workout));
   const [sent, setSent] = useState(false);
   const send = useAct((api, message: string) => api.addNote(clientId, message));
@@ -34,18 +36,20 @@ export function CoachKudos({
           {sent ? <Check /> : <ThumbsUp />}
         </div>
         <DialogTitle className="pr-5 font-display text-title">
-          {sent ? "Kudos sent" : `A little lift for ${name?.split(" ")[0] ?? "your client"}`}
+          {sent
+            ? tr("Kudos sent")
+            : tr("A little lift for {p0}", { p0: name?.split(" ")[0] ?? "your client" })}
         </DialogTitle>
         <DialogDescription>
           {sent
-            ? "Your note is on their Today screen."
+            ? tr("Your note is on their Today screen.")
             : (workout?.title ?? "A note from their coach")}
         </DialogDescription>
         {sent ? (
           <>
             <p className="break-words text-body">{body}</p>
             <Button variant="glass" className="h-12" onClick={onClose}>
-              Done
+              <Message source="Done" />
             </Button>
           </>
         ) : (
@@ -58,7 +62,7 @@ export function CoachKudos({
             }}
           >
             <Textarea
-              aria-label="Kudos note"
+              aria-label={tr("Kudos note")}
               value={body}
               onChange={(e) => setBody(e.target.value)}
               rows={4}
@@ -66,7 +70,7 @@ export function CoachKudos({
             />
             {send.error && (
               <p role="alert" className="text-label text-destructive">
-                Couldn’t send. Your note is still here. Try again.
+                <Message source="Couldn’t send. Your note is still here. Try again." />
               </p>
             )}
             <Button
@@ -77,7 +81,7 @@ export function CoachKudos({
               disabled={!body.trim() || send.isPending}
             >
               <Send />
-              {send.isPending ? "Sending…" : "Send kudos"}
+              {send.isPending ? tr("Sending…") : tr("Send kudos")}
             </Button>
           </form>
         )}
