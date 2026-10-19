@@ -139,7 +139,17 @@ export function format(value: Date | number, pattern: string, options?: FormatOp
   });
 }
 export function number(value: number, options?: Intl.NumberFormatOptions): string {
-  return new Intl.NumberFormat(localeFor[currentLanguage()], options).format(value);
+  const selected = currentLanguage();
+  const requested = localeFor[selected];
+  // Some browser ICU versions advertise Bosnian but retain legacy dot decimals.
+  // German provides the same comma decimal/dot grouping convention for this fallback.
+  const locale =
+    selected === "bs" &&
+    new Intl.NumberFormat(requested).formatToParts(1.1).find((part) => part.type === "decimal")
+      ?.value !== ","
+      ? "de-DE"
+      : requested;
+  return new Intl.NumberFormat(locale, options).format(value);
 }
 export const dateLocale = () => ({ en: enUS, bs, de })[currentLanguage()];
 export function displayNumber(value: string | number): string {

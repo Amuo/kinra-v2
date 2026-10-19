@@ -10,7 +10,7 @@ All 778 exercise IDs have complete display names in all three languages, and sea
 
 ## Design
 
-The Astra UI agent consulted vault design/typography/localization evidence and adjusted the language selector, touch targets, navigation wrapping, dialog actions, session titles and feature headers. Narrow cards stack the readiness ring above its content so long German headings and numeric stats remain readable. Parent browser checks inspected actual 320px and 390px iframe app viewports and the ordinary desktop view. These are representative checks in the available browser, not a claim of exhaustive device or assistive-technology coverage.
+The Astra UI agent consulted vault design/typography/localization evidence and adjusted the language selector, touch targets, navigation wrapping, dialog actions, session titles and feature headers. The landing-page phone preview wraps numeric units and gives its stats adequate width. Narrow cards stack the readiness ring above its content so long German headings and numeric stats remain readable. Parent browser checks inspected actual 320px and 390px iframe app viewports and the ordinary desktop view. These are representative checks in the available browser, not a claim of exhaustive device or assistive-technology coverage.
 
 ## Database and mail
 
@@ -25,8 +25,9 @@ The security advisor still reports existing shared-project notices: 24 policy-le
 ## Verification
 
 - Translation checker: complete Bosnian/German coverage of explicit render messages and feature-schema field labels (1,403 catalogue messages).
+- Browser compatibility: explicit comma-decimal/dot-grouping fallback when a browser advertises Bosnian but uses legacy dot decimals; regression test included.
 - TypeScript: passed. ESLint: zero errors; existing Fast Refresh/dependency warnings remain.
-- Vitest: 98 tests passed, including full PostgreSQL authorization tests, all three preference values, unsupported-language rejection, preserved preference fields, guest-choice precedence, reactive draft retention, server/client hydration with saved locale, formatting/plurals/errors and exercise coverage/search.
+- Vitest: 99 tests passed, including full PostgreSQL authorization tests, all three preference values, unsupported-language rejection, preserved preference fields, guest-choice precedence, reactive draft retention, server/client hydration with saved locale, formatting/plurals/errors and exercise coverage/search.
 - Production build: passed. CI `check` now includes translation coverage before type/lint/tests/build.
 - Browser: English/Bosnian/German selection, localized document titles/navigation, retained open profile draft, numeric/relative dates and German narrow readiness/profile layouts inspected.
 

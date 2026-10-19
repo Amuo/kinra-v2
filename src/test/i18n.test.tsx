@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { useState } from "react";
 import { LanguageSelector } from "@/components/strata/language-selector";
@@ -77,6 +77,17 @@ describe("language changes", () => {
     setLanguage("de", false);
     expect(countMessage(1, "sets")).toBe("1 Satz");
     expect(countMessage(2, "sets")).toBe("2 Sätze");
+  });
+  it("keeps Bosnian comma decimals when a browser advertises legacy dot formatting", () => {
+    setLanguage("bs", false);
+    const probe = vi
+      .spyOn(Intl.NumberFormat.prototype, "formatToParts")
+      .mockReturnValueOnce([{ type: "decimal", value: "." }]);
+    try {
+      expect(number(1234.5)).toBe("1.234,5");
+    } finally {
+      probe.mockRestore();
+    }
   });
   it("localizes known auth and validation failures and safely handles unknown errors", () => {
     setLanguage("de", false);

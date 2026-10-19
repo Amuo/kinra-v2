@@ -97,7 +97,7 @@ function TodayMock() {
           </span>
         </div>
       </div>
-      <div className="panel flex items-center gap-4 p-4">
+      <div className="panel flex flex-col items-center gap-4 p-4">
         <Ring value={0.82} size={92} stroke={9}>
           <div>
             <div className="num text-title font-bold">82</div>
@@ -106,20 +106,24 @@ function TodayMock() {
             </div>
           </div>
         </Ring>
-        <div className="grid flex-1 grid-cols-2 gap-2">
+        <div className="grid w-full min-w-0 grid-cols-2 gap-x-3 gap-y-2">
           {[
             ["Sleep", "7.8", "h", "text-dream"],
             ["Streak", "6", "d", "text-volt"],
             ["Eaten", "1.2k", "kcal", "text-ember"],
             ["Protein", "84", "g", "text-ember"],
           ].map(([l, v, u, t]) => (
-            <div key={l}>
-              <div className="eyebrow">{tr(l ?? "")}</div>
-              <div className={`num text-title font-bold ${t}`}>
+            <div key={l} className="min-w-0">
+              <div className="eyebrow whitespace-normal hyphens-auto [overflow-wrap:anywhere]">
+                {tr(l ?? "")}
+              </div>
+              <div
+                className={`num flex min-w-0 flex-wrap items-baseline gap-x-1 text-title font-bold leading-tight ${t}`}
+              >
                 {v === "1.2k"
                   ? `${number(1.2, { minimumFractionDigits: 1 })}k`
                   : displayNumber(v ?? "")}
-                <span className="ml-0.5 font-sans text-caption text-muted-foreground">{u}</span>
+                <span className="font-sans text-caption text-muted-foreground">{u}</span>
               </div>
             </div>
           ))}
