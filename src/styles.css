@@ -252,3 +252,29 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Explicit user-selected light palette; the brand accent retains dark text. */
+:root.kinra-light {
+  --gradient-surface: linear-gradient(180deg, oklch(1 0 0), oklch(0.96 0.005 260));
+  --shadow-card: 0 1px 4px oklch(0.2 0.01 260 / 6%);
+  --background: oklch(0.98 0.004 260);
+  --foreground: oklch(0.19 0.008 260);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.93 0.008 260);
+  --card: var(--surface);
+  --card-foreground: var(--foreground);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+  --muted: oklch(0.94 0.006 260);
+  --muted-foreground: oklch(0.42 0.015 260);
+  --border: oklch(0.83 0.01 260);
+  --input: var(--border);
+  --secondary: var(--surface-2);
+  --secondary-foreground: var(--foreground);
+  --accent: var(--surface-2);
+  --accent-foreground: var(--foreground);
+  --volt: oklch(0.46 0.14 130);
+  --pulse: oklch(0.45 0.11 220);
+  --dream: oklch(0.46 0.15 290);
+  --ember: oklch(0.47 0.16 40);
+}

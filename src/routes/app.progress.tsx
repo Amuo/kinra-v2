@@ -1,3 +1,4 @@
+import { Sheet } from "@/components/strata/sheets";
 import { createFileRoute } from "@tanstack/react-router";
 import { format } from "date-fns";
 import {
@@ -10,7 +11,7 @@ import {
   Lock,
   ArrowUpRight,
 } from "lucide-react";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { useLog, useMe, useQ } from "@/lib/api";
 import { ErrorState, PageHeader, SectionTitle, Skeleton, Stat } from "@/components/strata/ui";
 import { Button } from "@/components/ui/button";
@@ -21,6 +22,10 @@ import { ReportView } from "@/components/strata/report-view";
 import { WeightChart } from "@/components/strata/progress-weight";
 import { SwipeRow, useRemoveWithUndo } from "@/components/strata/swipe-delete";
 import { progressMilestones, weeklyRecap, type WeightRange } from "@/lib/progress";
+
+const FeatureWorkspace = lazy(() =>
+  import("@/components/strata/feature-hub").then((m) => ({ default: m.FeatureWorkspace })),
+);
 
 export const Route = createFileRoute("/app/progress")({
   head: () => ({
@@ -109,6 +114,7 @@ export function CalendarHeatmap({ counts }: { counts: Map<string, number> }) {
 }
 
 function Progress() {
+  const [workspace, setWorkspace] = useState<"measurement" | "goal" | null>(null);
   const me = useMe().data;
   const { log } = useShell();
   const mq = useLog("body_metrics", me?.id);
@@ -152,6 +158,25 @@ function Progress() {
   if (!me || !current) return null;
   return (
     <div className="min-w-0">
+      <div className="mb-4 grid grid-cols-2 gap-2">
+        <Button variant="glass" className="h-11" onClick={() => setWorkspace("measurement")}>
+          Measurements
+        </Button>
+        <Button variant="glass" className="h-11" onClick={() => setWorkspace("goal")}>
+          Goals
+        </Button>
+      </div>
+      {workspace && (
+        <Sheet
+          open
+          onOpenChange={(o) => !o && setWorkspace(null)}
+          title={workspace === "measurement" ? "Measurements" : "Goals"}
+        >
+          <Suspense fallback={<p>Loading workspace…</p>}>
+            <FeatureWorkspace compact kind={workspace} />
+          </Suspense>
+        </Sheet>
+      )}
       <PageHeader
         eyebrow="The bigger picture"
         title="Progress"

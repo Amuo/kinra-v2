@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { format } from "date-fns";
 import {
   ChevronDown,
@@ -31,6 +31,10 @@ import { volume, volumeText, weekStart } from "@/lib/stats";
 import { cn } from "@/lib/utils";
 import type { Workout } from "@/lib/types";
 
+const ExerciseLibrary = lazy(() =>
+  import("@/components/strata/exercise-library").then((m) => ({ default: m.ExerciseLibrary })),
+);
+
 export const Route = createFileRoute("/app/train")({
   head: () => ({
     meta: [
@@ -61,6 +65,7 @@ function Train() {
   const programs = useQ(["programs"], (api) => api.programs());
   const program = programs.data?.find((p) => p.id === assignments.data?.[0]?.program_id);
   const [weeksShown, setWeeksShown] = useState(3);
+  const [library, setLibrary] = useState(false);
   const [pr, setPr] = useState<string | null>(null);
   const [weekOverrides, setWeekOverrides] = useState<Record<string, boolean>>({});
   const [activeDay, setActiveDay] = useState(0);
@@ -106,6 +111,16 @@ function Train() {
 
   return (
     <div className="min-w-0">
+      <Button variant="glass" className="mb-4 h-12 w-full" onClick={() => setLibrary(true)}>
+        Browse exercise library
+      </Button>
+      {library && (
+        <Sheet open onOpenChange={setLibrary} title="Exercise library">
+          <Suspense fallback={<p>Loading movements…</p>}>
+            <ExerciseLibrary />
+          </Suspense>
+        </Sheet>
+      )}
       <PageHeader
         eyebrow="Build your strength"
         title="Train"

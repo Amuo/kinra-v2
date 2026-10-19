@@ -13,6 +13,11 @@ export type SSet = {
   at?: number;
 };
 export type SEx = {
+  catalogue_id?: string | undefined;
+  section?: "warmup" | "main" | "cooldown" | undefined;
+  group?: string | undefined;
+  equipment?: string | undefined;
+  substitutions?: string[] | undefined;
   name: string;
   sets: SSet[];
   targetWeight?: number | null | undefined;

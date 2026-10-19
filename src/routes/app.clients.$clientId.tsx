@@ -1,3 +1,4 @@
+import { PrivateMessages } from "@/components/strata/private-messages";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { format } from "date-fns";
@@ -109,6 +110,9 @@ function ClientDetail() {
         />
       )}
       <div className="sticky top-0 z-20 -mx-5 mb-4 bg-background/90 px-5 py-2 backdrop-blur">
+        <div className="my-4">
+          <PrivateMessages recipientId={clientId} />
+        </div>
         <Segmented
           className="grid grid-cols-3 gap-1 rounded-[14px]"
           value={tab}

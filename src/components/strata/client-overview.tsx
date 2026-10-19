@@ -33,6 +33,7 @@ import {
   lastNDays,
   macrosFor,
   readiness,
+  recentSleep,
   readinessParts,
   streak,
   today,
@@ -89,11 +90,11 @@ export function ReadinessHero({
   const m = macrosFor(d.food, today());
   const label =
     score >= 75
-      ? "Primed — push today"
+      ? "Higher readiness estimate"
       : score >= 55
-        ? "Steady — train as planned"
-        : "Recover — keep it light";
-  const hasData = d.sleep.length > 0;
+        ? "Steady readiness estimate"
+        : "Lower readiness estimate";
+  const hasData = recentSleep(d.sleep).length > 0;
   return (
     <>
       <Panel
@@ -126,7 +127,7 @@ export function ReadinessHero({
           </div>
           <div className="min-w-0 flex-1">
             <div className="font-display text-title font-bold">
-              {hasData ? label : "Log sleep to unlock"}
+              {hasData ? label : "Recent sleep needed"}
             </div>
             <div className="mt-3 grid grid-cols-2 gap-x-3 gap-y-3">
               <Stat
@@ -153,7 +154,7 @@ export function ReadinessHero({
           open={open}
           onOpenChange={setOpen}
           title={`Readiness ${hasData ? score : "—"}`}
-          sub="A daily blend of how you slept, how hard you've trained and how you feel."
+          sub="A simple estimate from recent sleep and training frequency. Mood is context, not part of the score."
         >
           {[
             {
@@ -168,7 +169,7 @@ export function ReadinessHero({
               tone: "text-volt",
               name: "Load",
               value: `${parts.sessions48h} session${parts.sessions48h === 1 ? "" : "s"} in 48 h`,
-              body: "Hard back-to-back sessions lower readiness so you recover before pushing again.",
+              body: "Recent sessions reduce this heuristic score. It does not measure your physiological recovery.",
             },
             {
               icon: Smile,
@@ -190,11 +191,9 @@ export function ReadinessHero({
             </div>
           ))}
           <p className="mt-3 text-body">
-            {score >= 75
-              ? "You're recovered. Go for your top sets today."
-              : score >= 60
-                ? "Train as planned and stop a rep short of failure."
-                : "Your body is still catching up. Keep today's weights lighter."}
+            {!hasData
+              ? "Readiness is unknown without recent sleep records. You can still choose a session based on how you feel."
+              : "Use this estimate as one piece of context. Consider how you feel, your plan and any guidance from your coach before choosing today's effort."}
           </p>
           {hasData && score < 60 && (
             <label className="tile mt-3 flex min-h-[56px] items-center justify-between gap-3 px-4">
@@ -215,7 +214,7 @@ export function ReadinessHero({
 
 export function PinnedCoachNote({ userId }: { userId: string }) {
   const notes = useQ(["notes", userId], (api) => api.notes(userId));
-  const n = notes.data?.[0];
+  const n = notes.data?.find((note) => !note.sender_id || note.sender_id === note.trainer_id);
   if (!n || !within(n.created_at, 7)) return null;
   return (
     <Panel index={1} className="mt-3 flex gap-3 border-primary/30 p-4">

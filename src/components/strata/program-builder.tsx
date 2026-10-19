@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Plus, Trash2, Save, X, Loader2 } from "lucide-react";
 import { toast } from "sonner";
@@ -10,6 +10,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Sheet } from "./sheets";
 
+const ExerciseLibrary = lazy(() =>
+  import("./exercise-library").then((m) => ({ default: m.ExerciseLibrary })),
+);
+
 export function ProgramBuilder({
   program,
   clientId,
@@ -20,6 +24,7 @@ export function ProgramBuilder({
   onClose: () => void;
 }) {
   const [draft, setDraft] = useState(() => programDraft(program));
+  const [picking, setPicking] = useState<{ day: number; exercise: number } | null>(null);
   const [error, setError] = useState<string | null>(null);
   const savedId = useRef<string | null>(null);
   const qc = useQueryClient();
@@ -162,7 +167,58 @@ export function ProgramBuilder({
                     className="h-12 rounded-tile bg-surface text-body"
                   />
                 </label>
+                <Button
+                  variant="glass"
+                  className="mt-3 h-11 w-full"
+                  onClick={() => setPicking({ day: i, exercise: j })}
+                >
+                  Choose from exercise library
+                </Button>
                 <div className="mt-4 grid grid-cols-2 gap-3">
+                  <label>
+                    <span className="mb-2 block text-label">Section</span>
+                    <select
+                      className={inputClass + " w-full border border-input px-2"}
+                      value={exercise.section ?? "main"}
+                      onChange={(e) =>
+                        updateExercise(i, j, {
+                          section: e.target.value as "warmup" | "main" | "cooldown",
+                        })
+                      }
+                    >
+                      <option value="warmup">Warm-up</option>
+                      <option value="main">Main work</option>
+                      <option value="cooldown">Cool-down</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span className="mb-2 block text-label">Group / superset</span>
+                    <Input
+                      className={inputClass}
+                      value={exercise.group ?? ""}
+                      placeholder="A, B, circuit…"
+                      onChange={(e) => updateExercise(i, j, { group: e.target.value })}
+                    />
+                  </label>
+                  <label className="col-span-2">
+                    <span className="mb-2 block text-label">Equipment</span>
+                    <Input
+                      className={inputClass}
+                      value={exercise.equipment ?? ""}
+                      placeholder="Dumbbells, bench…"
+                      onChange={(e) => updateExercise(i, j, { equipment: e.target.value })}
+                    />
+                  </label>
+                  <label className="col-span-2">
+                    <span className="mb-2 block text-label">Substitutions · one per line</span>
+                    <Textarea
+                      className="bg-surface text-body"
+                      value={(exercise.substitutions ?? []).join("\n")}
+                      onChange={(e) =>
+                        updateExercise(i, j, { substitutions: e.target.value.split("\n") })
+                      }
+                    />
+                  </label>
                   <label>
                     <span className="mb-2 block text-label">Sets</span>
                     <Input
@@ -264,6 +320,21 @@ export function ProgramBuilder({
           Add day
         </Button>
       </fieldset>
+      {picking && (
+        <Sheet open onOpenChange={(o) => !o && setPicking(null)} title="Choose an exercise">
+          <Suspense fallback={<p>Loading library…</p>}>
+            <ExerciseLibrary
+              onPick={(entry) => {
+                updateExercise(picking.day, picking.exercise, {
+                  name: entry.name,
+                  catalogue_id: entry.id,
+                });
+                setPicking(null);
+              }}
+            />
+          </Suspense>
+        </Sheet>
+      )}
       {error && (
         <p role="alert" className="mt-4 text-label text-destructive">
           {error}

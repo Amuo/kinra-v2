@@ -33,10 +33,12 @@ import demoAfter from "@/assets/demo-after.jpg";
 import { buildSummary } from "./report";
 import { lookupFoodBarcode } from "./barcode.functions";
 import type { BarcodeFood } from "./barcode";
+import { createLiveFeatures, createDemoFeatures, type FeatureApi } from "./feature-api";
 
 export type Mode = "live" | "demo-client" | "demo-trainer";
 
 export interface Api {
+  features: FeatureApi;
   mode: Mode;
   ownerId: string;
   me(): Promise<Me>;
@@ -103,6 +105,7 @@ async function withAvatar<T extends Person>(person: T): Promise<T> {
 export function createLiveApi(ownerId: string): Api {
   const uid = () => authenticatedId(ownerId);
   return {
+    features: createLiveFeatures(ownerId),
     mode: "live",
     ownerId,
     async me() {
@@ -119,6 +122,7 @@ export function createLiveApi(ownerId: string): Api {
     },
     async setRole(role) {
       const id = await uid();
+      must(await from("profiles").upsert({ id }, { onConflict: "id", ignoreDuplicates: true }));
       must(await from("user_roles").insert({ user_id: id, role }));
     },
     async updateProfile(p) {
@@ -415,6 +419,52 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
   const isTrainer = mode === "demo-trainer";
   const meId = isTrainer ? DEMO_TRAINER_ID : DEMO_CLIENT_ID;
   return {
+    features: createDemoFeatures(
+      meId,
+      (foods, meal, date) => {
+        for (const food of foods)
+          db().nutrition_logs.push({
+            id: crypto.randomUUID(),
+            user_id: meId,
+            log_date: date,
+            meal,
+            name: food.name,
+            calories: food.calories,
+            protein: food.protein,
+            carbs: food.carbs,
+            fat: food.fat,
+          });
+      },
+      (coachId, clientId) =>
+        !disconnectedDemo &&
+        coachId === DEMO_TRAINER_ID &&
+        db().assignments.some((a) => a.client_id === clientId),
+      () => {
+        const data = db();
+        for (const table of [
+          "workouts",
+          "sleep_logs",
+          "nutrition_logs",
+          "journal_entries",
+          "body_metrics",
+        ] as const) {
+          for (let i = data[table].length - 1; i >= 0; i--)
+            if (data[table][i]?.user_id === meId) data[table].splice(i, 1);
+        }
+        for (let i = demoPhotos.length - 1; i >= 0; i--)
+          if (demoPhotos[i]?.user_id === meId) demoPhotos.splice(i, 1);
+        for (let i = demoReports.length - 1; i >= 0; i--)
+          if (demoReports[i]?.client_id === meId || demoReports[i]?.trainer_id === meId)
+            demoReports.splice(i, 1);
+        data.notes = data.notes.filter((n) => n.client_id !== meId && n.trainer_id !== meId);
+        data.assignments = data.assignments.filter(
+          (a) => a.client_id !== meId && a.trainer_id !== meId,
+        );
+        data.programs = data.programs.filter((p) => p.trainer_id !== meId);
+        demoProfiles.delete(meId);
+        disconnectedDemo = true;
+      },
+    ),
     mode,
     ownerId: meId,
     async me() {

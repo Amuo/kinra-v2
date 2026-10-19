@@ -14,3 +14,9 @@ export const trainerByCode = (code: string) =>
   );
 export const bucket = (name: "profile-avatars" | "progress-photos") =>
   supabase.storage.from(isolated ? `kinra-v2-${name}` : name);
+type FeatureRpcName =
+  "kinra_consume_meal" | "kinra_respond_appointment" | "kinra_erase_data" | "kinra_send_message";
+export const featureRpc = <N extends FeatureRpcName>(
+  name: N,
+  args: Database["public"]["Functions"][N]["Args"],
+) => supabase.rpc((isolated ? `kinra_v2_${name}` : name) as N, args as never);

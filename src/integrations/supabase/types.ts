@@ -14,6 +14,12 @@ export type Database = {
   }
   public: {
     Tables: {
+      feature_records: {
+        Row: { id: string; owner_id: string; kind: string; payload: Json; visibility: string; client_id: string | null; created_at: string; updated_at: string }
+        Insert: { id?: string; owner_id?: string; kind: string; payload: Json; visibility?: string; client_id?: string | null; created_at?: string; updated_at?: string }
+        Update: { id?: string; owner_id?: string; kind?: string; payload?: Json; visibility?: string; client_id?: string | null; created_at?: string; updated_at?: string }
+        Relationships: []
+      }
       body_metrics: {
         Row: {
           body_fat: number | null
@@ -411,6 +417,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      kinra_erase_data: { Args: { confirmation: string; expected_owner: string }; Returns: undefined }
+      kinra_send_message: { Args: { recipient_id: string; body: string; expected_owner: string }; Returns: string }
+      kinra_consume_meal: { Args: { plan_id: string; meal_index: number; log_date: string }; Returns: undefined }
+      kinra_respond_appointment: { Args: { record_id: string; new_status: string }; Returns: undefined }
       find_trainer_by_code: {
         Args: { _code: string }
         Returns: {

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef, useState } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
 import { addDays, format } from "date-fns";
 import {
   ChevronLeft,
@@ -23,6 +23,10 @@ import { FuelWater } from "@/components/strata/fuel-water";
 import { FUEL_TARGET as TARGET, MEALS, copyFood, recentFoods, type FoodDraft } from "@/lib/fuel";
 import { iso, macrosFor, today } from "@/lib/stats";
 import type { FoodLog } from "@/lib/types";
+
+const FeatureWorkspace = lazy(() =>
+  import("@/components/strata/feature-hub").then((m) => ({ default: m.FeatureWorkspace })),
+);
 
 export const Route = createFileRoute("/app/fuel")({
   head: () => ({
@@ -102,6 +106,7 @@ function FoodRow({ f }: { f: FoodLog }) {
 }
 
 function Fuel() {
+  const [workspace, setWorkspace] = useState<"nutrition_plan" | "supplement" | null>(null);
   const me = useMe().data;
   const api = useApi();
   const q = useLog("nutrition_logs", me?.id);
@@ -142,6 +147,25 @@ function Fuel() {
 
   return (
     <div className="min-w-0">
+      <div className="mb-4 grid grid-cols-2 gap-2">
+        <Button variant="glass" className="h-11" onClick={() => setWorkspace("nutrition_plan")}>
+          Meal plans
+        </Button>
+        <Button variant="glass" className="h-11" onClick={() => setWorkspace("supplement")}>
+          Supplements
+        </Button>
+      </div>
+      {workspace && (
+        <Sheet
+          open
+          onOpenChange={(o) => !o && setWorkspace(null)}
+          title={workspace === "nutrition_plan" ? "Meal plans" : "Supplements"}
+        >
+          <Suspense fallback={<p>Loading workspace…</p>}>
+            <FeatureWorkspace compact kind={workspace} />
+          </Suspense>
+        </Sheet>
+      )}
       <PageHeader eyebrow="Nourish your day" title="Fuel" />
       <div className="mb-5 flex items-center justify-between border-b border-border pb-3">
         <Button

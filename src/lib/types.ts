@@ -49,6 +49,11 @@ export interface BodyMetric {
   body_fat: number | null;
 }
 export interface ProgramExercise {
+  catalogue_id?: string;
+  section?: "warmup" | "main" | "cooldown";
+  group?: string;
+  equipment?: string;
+  substitutions?: string[];
   name: string;
   sets: number;
   reps: string;
@@ -78,6 +83,7 @@ export interface Assignment {
   start_date: string;
 }
 export interface TrainerNote {
+  sender_id?: string | null;
   id: string;
   trainer_id: string;
   client_id: string;

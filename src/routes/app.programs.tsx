@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { ClipboardList, Plus, Pencil, Search } from "lucide-react";
 import { useMe, useQ } from "@/lib/api";
 import { Empty, ErrorState, PageHeader, Skeleton } from "@/components/strata/ui";
@@ -9,6 +9,10 @@ import type { Program } from "@/lib/types";
 import { Input } from "@/components/ui/input";
 import { ProgramSummary } from "@/components/strata/program-summary";
 import { searchPrograms } from "@/lib/programs";
+
+const ProgramReferences = lazy(() =>
+  import("@/components/strata/exercise-library").then((m) => ({ default: m.ProgramReferences })),
+);
 
 export const Route = createFileRoute("/app/programs")({
   head: () => ({
@@ -33,6 +37,7 @@ export const Route = createFileRoute("/app/programs")({
 function Programs() {
   const me = useMe().data;
   const [editing, setEditing] = useState<Program | "new" | null>(null);
+  const [references, setReferences] = useState(false);
   const [query, setQuery] = useState("");
   const programs = useQ(["programs"], (api) => api.programs());
   const filtered = searchPrograms(programs.data ?? [], query);
@@ -50,6 +55,16 @@ function Programs() {
           ) : undefined
         }
       />
+      <Button variant="glass" className="mb-4 h-12 w-full" onClick={() => setReferences((v) => !v)}>
+        {references ? "Hide reference library" : "Explore 18 program references"}
+      </Button>
+      {references && (
+        <div className="mb-6">
+          <Suspense fallback={<p>Loading references…</p>}>
+            <ProgramReferences />
+          </Suspense>
+        </div>
+      )}
       <div className="relative mb-4">
         <Search className="absolute left-3 top-3.5 size-5 text-muted-foreground" />
         <Input

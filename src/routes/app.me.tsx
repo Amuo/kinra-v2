@@ -1,5 +1,7 @@
+import { PrivateMessages } from "@/components/strata/private-messages";
+import { DeleteKinraData } from "@/components/strata/delete-kinra-data";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useRef, useState } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import {
   Copy,
@@ -24,6 +26,10 @@ import type { Me, Person } from "@/lib/types";
 import { Sheet } from "@/components/strata/sheets";
 import { ErrorState } from "@/components/strata/ui";
 
+const FeatureHub = lazy(() =>
+  import("@/components/strata/feature-hub").then((m) => ({ default: m.FeatureHub })),
+);
+
 export const Route = createFileRoute("/app/me")({
   head: () => ({
     meta: [
@@ -44,6 +50,7 @@ function MePage() {
   const api = useApi();
   const qc = useQueryClient();
   const navigate = useNavigate();
+  const [toolsOpen, setToolsOpen] = useState(false);
   const [code, setCode] = useState("");
   const trainers = useQ(["trainers"], (a) => a.trainers(), me?.role !== "trainer");
   const [disconnect, setDisconnect] = useState<Person | null>(null);
@@ -62,6 +69,21 @@ function MePage() {
   return (
     <div>
       <PageHeader eyebrow={me.role === "trainer" ? "Coach" : (me.role ?? "")} title="Profile" />
+      <Button variant="volt" className="mb-4 h-12 w-full" onClick={() => setToolsOpen(true)}>
+        Explore your Kinra toolkit
+      </Button>
+      {toolsOpen && (
+        <Sheet
+          open
+          onOpenChange={setToolsOpen}
+          title="Explore Kinra"
+          sub="Your library, routines and community."
+        >
+          <Suspense fallback={<p role="status">Loading your tools…</p>}>
+            <FeatureHub />
+          </Suspense>
+        </Sheet>
+      )}
       <Panel className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-4">
         <Avatar name={me.display_name} src={me.avatar_url} size={72} />
         <div className="min-w-0">
@@ -73,6 +95,10 @@ function MePage() {
         </div>
       </Panel>
 
+      <div className="mt-4">
+        <PrivateMessages />
+      </div>
+      <DeleteKinraData />
       {me.role === "trainer" && (
         <>
           <SectionTitle>App view</SectionTitle>

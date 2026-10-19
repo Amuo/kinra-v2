@@ -62,6 +62,7 @@ export function CompareSlider({ before, after }: { before: ProgressPhoto; after:
 
 export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boolean }) {
   const photos = usePhotos(userId);
+  const [sideBySide, setSideBySide] = useState(false);
   const [pose, setPose] = useState("Front");
   const [view, setView] = useState<ProgressPhoto | null>(null);
   const input = useRef<HTMLInputElement>(null);
@@ -87,9 +88,45 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
 
       {first && last && first.id !== last.id ? (
         <Panel className="p-2">
-          <CompareSlider before={first} after={last} />
+          <div className="mb-2 flex gap-2">
+            <Button
+              variant={sideBySide ? "glass" : "volt"}
+              className="h-11 flex-1"
+              onClick={() => setSideBySide(false)}
+              aria-pressed={!sideBySide}
+            >
+              Slider
+            </Button>
+            <Button
+              variant={sideBySide ? "volt" : "glass"}
+              className="h-11 flex-1"
+              onClick={() => setSideBySide(true)}
+              aria-pressed={sideBySide}
+            >
+              Side by side
+            </Button>
+          </div>
+          {sideBySide ? (
+            <div className="grid grid-cols-2 gap-2">
+              {[first, last].map((photo) => (
+                <figure key={photo.id}>
+                  <img
+                    src={photo.url}
+                    alt={`${photo.pose} progress on ${photo.taken_on}`}
+                    className="aspect-[3/4] w-full rounded-xl object-contain bg-surface-2"
+                  />
+                  <figcaption className="py-2 text-center text-caption">
+                    {format(new Date(photo.taken_on + "T12:00"), "d MMM yyyy")}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          ) : (
+            <CompareSlider before={first} after={last} />
+          )}
           <div className="num px-2 py-2 text-center text-caption text-muted-foreground">
-            Drag to compare · {posed.length} {pose.toLowerCase()} photos
+            {sideBySide ? "Side-by-side comparison" : "Drag to compare"} · {posed.length}{" "}
+            {pose.toLowerCase()} photos
           </div>
         </Panel>
       ) : !photos.isLoading && !posed.length ? (

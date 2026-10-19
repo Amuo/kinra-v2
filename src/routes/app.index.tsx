@@ -1,3 +1,4 @@
+import { TodayRoutines } from "@/components/strata/today-routines";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { format } from "date-fns";
 import { motion } from "motion/react";
@@ -84,6 +85,7 @@ function ClientHome({
       <ReadinessHero userId={id} />
       <FirstRun userId={id} />
       <TodaySession userId={id} />
+      <TodayRoutines />
       <PinnedCoachNote userId={id} />
       <Insights userId={id} />
 

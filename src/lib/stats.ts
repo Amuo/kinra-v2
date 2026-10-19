@@ -49,8 +49,18 @@ export function macrosFor(foods: FoodLog[], date: string) {
 
 export const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
 
+export function recentSleep(sleep: SleepLog[], now = Date.now()) {
+  const start = new Date(now);
+  start.setDate(start.getDate() - 2);
+  const from = iso(start);
+  const to = iso(new Date(now));
+  return sleep
+    .filter((night) => night.log_date >= from && night.log_date <= to)
+    .sort((a, b) => b.log_date.localeCompare(a.log_date))
+    .slice(0, 3);
+}
 export function readiness(sleep: SleepLog[], workouts: Workout[]) {
-  const last = sleep.slice(0, 3);
+  const last = recentSleep(sleep);
   const s = avg(last.map((x) => Math.min(x.hours / 8, 1) * 0.7 + (x.quality / 5) * 0.3));
   const load = workouts
     .filter((w) => within(w.performed_at, 2))
@@ -80,7 +90,7 @@ export const volumeText = (kg: number) => {
 export const isCardio = (w: Workout) => volume(w) === 0;
 
 export function readinessParts(sleep: SleepLog[], workouts: Workout[], moods: number[]) {
-  const last = sleep.slice(0, 3);
+  const last = recentSleep(sleep);
   const sleepScore = Math.round(
     avg(last.map((x) => Math.min(x.hours / 8, 1) * 0.7 + (x.quality / 5) * 0.3)) * 100,
   );

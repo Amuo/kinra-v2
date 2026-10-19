@@ -1,0 +1,55 @@
+{
+  "archive": "D:/Projects/output/FitConnect-Kinra-Research-2026-10-19.zip",
+  "archiveSha256": "df169b5108efa4c65182d6b469d7e7d139399ba75055c824c1a8c3ac6872da74",
+  "observedDate": "2026-10-19",
+  "exerciseRows": 778,
+  "programRows": 18,
+  "verified": [
+    {
+      "file": "FitConnect-Kinra-Research-Deliverable.html",
+      "bytes": 234627,
+      "sha256": "e66036d8b3b1f71b50cc6c196674745046c1b68f19b9cb217c687bc3c954ccbe"
+    },
+    {
+      "file": "Exercises.csv",
+      "bytes": 259990,
+      "sha256": "35cef702263b3e5fcad5fb53a9101ff0153e4bbd4fe214e004b75a59bdb3e749"
+    },
+    {
+      "file": "Programs.csv",
+      "bytes": 7258,
+      "sha256": "7bf4c4fc0fb5f6584d233c78c77183c43ff70223dfe56296a648ddba427152e7"
+    },
+    {
+      "file": "Library-research.json",
+      "bytes": 503607,
+      "sha256": "71b98cc256b230e332368d1a57f6e7ad967bdcfe6d0398444b1467432174f305"
+    },
+    {
+      "file": "README.txt",
+      "bytes": 1064,
+      "sha256": "d4f36eeb2902d849d458e3b087eff1b46c5654ae5cc1f16691d0ca021e110c3d"
+    },
+    {
+      "file": "FitConnect-client-feature-inventory.txt",
+      "bytes": 23724,
+      "sha256": "b8a0995cea2b1afd52f6c66768694dcb2f6a6f9707da8da7a51df4a603fc4ea5"
+    },
+    {
+      "file": "Interaction-checklist.txt",
+      "bytes": 15104,
+      "sha256": "37d2468dae6b42e4fbf81e3205481a4b97347f98f3d110963158db0f66e11b70"
+    },
+    {
+      "file": "Kinra-improvement-plan.txt",
+      "bytes": 17729,
+      "sha256": "a41e0c52c8ffe8bbbabe70d802b7e559dfe2047c0c61bcb9143b626e944e6c4c"
+    },
+    {
+      "file": "Synthetic-test-records.txt",
+      "bytes": 3861,
+      "sha256": "101cf6b7a65d92bda8c83d34a83df801777c102c9ce245e4cb0eea7c49211565"
+    }
+  ],
+  "limits": "Metadata inventory, not a full instructional or program-content export. No third-party media or authored instructions shipped. Source listing authorship is attribution, not Kinra endorsement."
+}

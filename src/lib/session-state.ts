@@ -13,6 +13,7 @@ export type LSet = {
 };
 export type LEx = {
   name: string;
+  group?: string | undefined;
   sets: LSet[];
   skipped?: boolean;
   note?: string;
@@ -129,6 +130,53 @@ export function removeUnfinished<T extends Lifecycle>(s: T): T {
 
 /** Sets that count toward volume and PRs: done, not warm-up, exercise not skipped. */
 export const countsForStats = (x: LSet) => x.done && x.type !== "warmup";
+
+/** Same-round circuit transitions come before the next round. A shorter or
+ * skipped exercise contributes no invented set; completed sets never repeat. */
+export function nextGroupedSet(
+  session: Pick<Lifecycle, "exercises">,
+  completedExerciseIndex: number,
+  completedSetIndex: number,
+): { e: number; s: number } | null {
+  const current = session.exercises[completedExerciseIndex];
+  if (
+    !current?.group?.trim() ||
+    !Number.isInteger(completedSetIndex) ||
+    completedSetIndex < 0 ||
+    !current.sets[completedSetIndex]
+  )
+    return null;
+  const group = session.exercises
+    .map((exercise, e) => ({ exercise, e }))
+    .filter(({ exercise }) => !exercise.skipped && exercise.group === current.group);
+  const available = (e: number, s: number) =>
+    !(e === completedExerciseIndex && s === completedSetIndex) &&
+    session.exercises[e]?.sets[s]?.done === false;
+  const roundOrder = [
+    ...group.filter(({ e }) => e > completedExerciseIndex),
+    ...group.filter(({ e }) => e <= completedExerciseIndex),
+  ];
+  for (const { e } of roundOrder)
+    if (available(e, completedSetIndex)) return { e, s: completedSetIndex };
+  const maxRounds = Math.max(0, ...group.map(({ exercise }) => exercise.sets.length));
+  for (const s of [
+    ...Array.from(
+      { length: Math.max(0, maxRounds - completedSetIndex - 1) },
+      (_, n) => completedSetIndex + n + 1,
+    ),
+    ...Array.from({ length: completedSetIndex }, (_, n) => n),
+  ])
+    for (const { e } of group) if (available(e, s)) return { e, s };
+  return null;
+}
+export function shouldRestAfterGroupedSet(
+  session: Pick<Lifecycle, "exercises">,
+  completedExerciseIndex: number,
+  completedSetIndex: number,
+): boolean {
+  const next = nextGroupedSet(session, completedExerciseIndex, completedSetIndex);
+  return !next || next.s !== completedSetIndex;
+}
 
 export function setsForSave(s: Lifecycle) {
   // Saved workouts have no set-type column, so warm-ups stay out of history to keep volume and records clean.

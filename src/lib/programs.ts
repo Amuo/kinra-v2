@@ -1,4 +1,5 @@
 import type { Program, ProgramDay, ProgramExercise } from "./types";
+import { exerciseById } from "./exercise-catalogue";
 
 export type ProgramDraft = Omit<Program, "id" | "trainer_id">;
 export const blankExercise = (): ProgramExercise => ({ name: "", sets: 3, reps: "8" });
@@ -33,23 +34,47 @@ export function programDraft(program?: Program): ProgramDraft {
     : { name: "", description: "", weeks: 4, days: [blankDay(1)] };
 }
 export function programError(draft: ProgramDraft): string | null {
-  if (!draft.name.trim()) return "Give your program a name.";
-  if (!Number.isInteger(draft.weeks) || draft.weeks < 1)
-    return "Enter a whole number of weeks, at least 1.";
-  if (!draft.days.length) return "Add at least one training day.";
+  if (!draft.name.trim() || draft.name.length > 200)
+    return "Give your program a name of up to 200 characters.";
+  if (!Number.isInteger(draft.weeks) || draft.weeks < 1 || draft.weeks > 104)
+    return "Enter a whole number of weeks, from 1 to 104.";
+  if (!draft.days.length || draft.days.length > 31) return "Add 1–31 training days.";
   for (const day of draft.days) {
     if (!day.title.trim() || !day.exercises.length)
       return "Each day needs a name and at least one exercise.";
     for (const exercise of day.exercises) {
       if (!exercise.name.trim() || !exercise.reps.trim())
         return "Give every exercise a name and rep target.";
+      if (exercise.name.length > 200 || exercise.reps.length > 100)
+        return "Shorten the exercise name or rep target.";
+      if (exercise.catalogue_id && !exerciseById(exercise.catalogue_id))
+        return "Choose a catalogue exercise or clear its reference.";
+      if (exercise.section && !["warmup", "main", "cooldown"].includes(exercise.section))
+        return "Choose a valid training section.";
+      if (exercise.group && exercise.group.length > 100)
+        return "Use a shorter circuit or superset name.";
+      if (exercise.equipment && exercise.equipment.length > 500)
+        return "Use a shorter equipment note.";
+      if (
+        exercise.substitutions &&
+        (exercise.substitutions.length > 20 ||
+          exercise.substitutions.some((s) => !s.trim() || s.length > 200))
+      )
+        return "Use up to 20 named exercise alternatives.";
+      if ((exercise.tempo?.length ?? 0) > 100 || (exercise.notes?.length ?? 0) > 10000)
+        return "Shorten the exercise tempo or notes.";
       if (!Number.isInteger(exercise.sets) || exercise.sets < 1 || exercise.sets > 8)
         return "Use 1–8 sets per exercise.";
-      if (exercise.weight != null && (!Number.isFinite(exercise.weight) || exercise.weight < 0))
+      if (
+        exercise.weight != null &&
+        (!Number.isFinite(exercise.weight) || exercise.weight < 0 || exercise.weight > 2000)
+      )
         return "Weight must be 0 kg or more. Leave blank to use previous weights.";
       if (
         exercise.rest_seconds != null &&
-        (!Number.isInteger(exercise.rest_seconds) || exercise.rest_seconds < 0)
+        (!Number.isInteger(exercise.rest_seconds) ||
+          exercise.rest_seconds < 0 ||
+          exercise.rest_seconds > 3600)
       )
         return "Rest must be a whole number of seconds, 0 or more.";
       if (

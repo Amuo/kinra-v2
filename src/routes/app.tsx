@@ -1,3 +1,4 @@
+import { FeaturePreferences } from "@/components/strata/feature-preferences";
 import {
   createFileRoute,
   Link,
@@ -159,6 +160,7 @@ function Shell({ mode }: { mode: Mode }) {
 
   return (
     <ShellCtx.Provider value={api}>
+      <FeaturePreferences />
       <div className="relative mx-auto min-h-dvh max-w-md bg-background md:border-x md:border-border">
         {mode !== "live" && <DemoPill role={role} />}
         <main className="px-5 pb-36 pt-4">

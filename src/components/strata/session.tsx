@@ -40,6 +40,8 @@ import { IconButton, SaveButton, springPress, Tag } from "./ui";
 import type { LiveSessionState, SEx, SSet } from "./shell";
 import {
   autoPauseAt,
+  nextGroupedSet,
+  shouldRestAfterGroupedSet,
   countsForStats,
   doneCount,
   durationMin,
@@ -146,6 +148,11 @@ export function sessionFromTemplate(
       const reps = parseInt(e.reps) || prev?.[0]?.reps || 8;
       return {
         name: e.name,
+        catalogue_id: e.catalogue_id,
+        section: e.section,
+        group: e.group,
+        equipment: e.equipment,
+        substitutions: e.substitutions,
         targetWeight: e.weight,
         rest_seconds: e.rest_seconds,
         rpe: e.rpe,
@@ -406,6 +413,7 @@ type RowCtx = {
   openKeypad: (t: Target) => void;
   openSetMenu: (t: Target) => void;
   openExMenu: (e: number) => void;
+  substitute: (e: number, name: string) => void;
   restore: (e: number) => void;
   last: Map<string, { reps: number; weight: number }[]>;
   lighter: boolean;
@@ -498,6 +506,44 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
         </button>
       ) : (
         <div className="mt-2">
+          {(ex.section || ex.group || ex.equipment) && (
+            <p className="mb-3 text-caption text-volt">
+              {[
+                ex.section === "warmup"
+                  ? "Warm-up"
+                  : ex.section === "cooldown"
+                    ? "Cool-down"
+                    : ex.section
+                      ? "Main work"
+                      : null,
+                ex.group ? `Group ${ex.group} · alternate exercises, rest between rounds` : null,
+                ex.equipment,
+              ]
+                .filter(Boolean)
+                .join(" · ")}
+            </p>
+          )}
+          {!!ex.substitutions?.length && (
+            <details className="mb-3 rounded-tile bg-surface-2 p-3">
+              <summary className="cursor-pointer text-label">Planned alternatives</summary>
+              <p className="mt-2 text-caption text-muted-foreground">
+                Choose before logging any sets. Review the load for the new movement.
+              </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {ex.substitutions.filter(Boolean).map((name) => (
+                  <button
+                    key={name}
+                    type="button"
+                    disabled={ex.sets.some((set) => set.done)}
+                    onClick={() => c.substitute(e, name)}
+                    className="min-h-11 rounded-full border border-border px-3 text-label disabled:opacity-50"
+                  >
+                    {name}
+                  </button>
+                ))}
+              </div>
+            </details>
+          )}
           {(ex.targetWeight != null ||
             ex.rest_seconds != null ||
             ex.rpe != null ||
@@ -1104,12 +1150,14 @@ export function LiveSession({
     const isPr = !warm && st.kg > 0 && st.kg > prevBest && (best.get(ex.name) ?? 0) > 0;
     const next = patchSet(session, e, s, { done: true, pr: isPr, at: Date.now() });
     commit(
-      paused || editing ? next : startRest(ex.name, ex.rest_seconds ?? restFor(ex.name), next),
+      paused || editing || !shouldRestAfterGroupedSet(next, e, s)
+        ? { ...next, rest: null }
+        : startRest(ex.name, ex.rest_seconds ?? restFor(ex.name), next),
     );
     haptic.light();
     sound.tick();
     if (isPr) setPr({ ex: ex.name, kg: st.kg });
-    setActive(null);
+    setActive(nextGroupedSet(next, e, s));
   };
 
   const withUndo = (msg: string, snapshot: LiveSessionState) =>
@@ -1210,6 +1258,27 @@ export function LiveSession({
       ),
     openKeypad: (t) => (setTarget(t), setSheet("keypad")),
     openSetMenu: (t) => (setTarget(t), setNoteFor(null), setSheet("setMenu")),
+    substitute: (e, name) => {
+      const original = session.exercises[e];
+      if (!original || original.sets.some((set) => set.done)) return;
+      if (
+        session.exercises.some(
+          (ex, index) => index !== e && ex.name.toLowerCase() === name.toLowerCase(),
+        )
+      )
+        return void toast("Already in this session");
+      commit(
+        patchEx(session, e, (ex) => ({
+          ...ex,
+          name,
+          catalogue_id: undefined,
+          targetWeight: undefined,
+          sets: ex.sets.map((set) => ({ ...set, kg: 0 })),
+          substitutions: [original.name, ...(ex.substitutions ?? []).filter((n) => n !== name)],
+        })),
+      );
+      toast("Alternative selected. Set a suitable load before starting.");
+    },
     openExMenu: (e) => (setExMenu(e), setNoteFor(null), setSheet("exMenu")),
     restore: (e) => commit(patchEx(session, e, (x) => ({ ...x, skipped: false }))),
     last,

@@ -36,3 +36,9 @@ Confirmation and password recovery match current app flows. Magic-link sign-in, 
 ## Repair verification
 
 See [docs/REPAIRS.md](docs/REPAIRS.md) for the repair scope, evidence and remaining verification limits. Historical import/audit artifacts are retained locally under `audit/` and excluded from Git and deployment uploads.
+
+## Feature expansion — 19 October 2026
+
+See [feature delivery and rollout](docs/FEATURE-EXPANSION-2026-10-19.md) and [frontend verification](docs/FRONTEND-IMPLEMENTATION.md). The exercise catalogue includes all 778 research inventory rows and 18 reference-only program listings. Full authored routines, exercise instructions and media were not supplied in the source archive.
+
+For an existing v2 installation without feature records, apply only `supabase/migrations/202610190001_features.sql`. The installation bundle above includes the new schema for fresh installations; do not rerun it against an existing installation. The feature migration has been applied to Kinra's hosted Supabase project, preserving its newer coaching extensions. Current release evidence is in [the feature report](docs/FEATURE-EXPANSION-2026-10-19.md).

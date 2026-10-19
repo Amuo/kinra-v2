@@ -24,6 +24,27 @@ const names = [
   "progress_reports",
   "kinra_valid_sets",
   "kinra_valid_program_days",
+  "feature_records",
+  "kinra_feature_schemas",
+  "kinra_json_matches",
+  "kinra_feature_blocked",
+  "kinra_feature_visible",
+  "kinra_group_visible",
+  "kinra_guard_feature",
+  "kinra_consume_meal",
+  "kinra_respond_appointment",
+  "kinra_valid_program_metadata",
+  "kinra_erase_data",
+  "kinra_send_message",
+  "kinra_guard_message_sender",
+  "check_ins",
+  "check_in_schedules",
+  "calendar_events",
+  "coach_branding",
+  "habit_completions",
+  "habits",
+  "message_receipts",
+  "push_subscriptions",
 ];
 const matcher = new RegExp(`\\b(${names.join("|")})\\b`, "g");
 const migrations = readdirSync(new URL("drizzle/migrations/", root))
@@ -45,7 +66,18 @@ const body = migrations
   .join("\n\n");
 const output = `-- Kinra v2: additive installation in the existing Kinra project.\n-- Does not change the previous app's tables, functions, buckets or auth.\n-- Run once as postgres. The transaction rolls back in full on any failure.\nBEGIN;\n${body}\n\n-- Existing Supabase identities receive a v2 profile; roles are chosen in v2.\nINSERT INTO public.kinra_v2_profiles(id, display_name)\nSELECT id, left(coalesce(raw_user_meta_data->>'display_name', raw_user_meta_data->>'full_name', split_part(email,'@',1), 'Member'),80) FROM auth.users\nON CONFLICT(id) DO NOTHING;\nCOMMENT ON TABLE public.kinra_v2_profiles IS 'Kinra v2 schema version 0003_security_and_integrity';\nNOTIFY pgrst, 'reload schema';\nCOMMIT;\n`;
 mkdirSync(new URL("supabase/migrations/", root), { recursive: true });
-writeFileSync(new URL("supabase/migrations/202610140001_kinra_v2.sql", root), output);
+writeFileSync(
+  new URL("supabase/migrations/202610140001_kinra_v2.sql", root),
+  output.replace(
+    "schema version 0003_security_and_integrity",
+    "schema version 0008_message_compatibility",
+  ),
+);
+const upgradeBody = body.slice(body.indexOf("-- Source: 0004_feature_schemas.sql"));
+writeFileSync(
+  new URL("supabase/migrations/202610190001_features.sql", root),
+  `-- Existing Kinra v2 installation: additive feature expansion, 2026-10-19.\n-- Retains previously installed extensions and their schema-version history.\nBEGIN;\n${upgradeBody}\nDO $version$ BEGIN EXECUTE format('COMMENT ON TABLE public.kinra_v2_profiles IS %L', coalesce(obj_description('public.kinra_v2_profiles'::regclass), 'Kinra v2') || '; feature expansion 20261019'); END $version$;\nNOTIFY pgrst, 'reload schema';\nCOMMIT;\n`,
+);
 console.log(
   `Prepared ${migrations.length} migrations for the isolated v2 namespace in ${fileURLToPath(root)}`,
 );

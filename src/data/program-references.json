@@ -1,0 +1,240 @@
+[
+  {
+    "id": "reference-6617bd7a-7728-4a41-be4a-a90ea261b0d4",
+    "name": "PROGRAM ZA POČETNIKE U TERETANI",
+    "classification": "Trening · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      "Vlastita težina",
+      "Bučice",
+      "Šipka",
+      "+10"
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/6617bd7a-7728-4a41-be4a-a90ea261b0d4",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 36
+  },
+  {
+    "id": "reference-cdd3774d-bbed-4ca4-bb0c-a50309890d3b",
+    "name": "KUĆNI PROGRAM ZA MOBILNOST, DRZANJE I SNAGU DJECE OD 4 DO 9 GODINA",
+    "classification": "Trening · Općenita forma · Srednji",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      "Vlastita težina"
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/cdd3774d-bbed-4ca4-bb0c-a50309890d3b",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 18
+  },
+  {
+    "id": "reference-02523cf9-e3bb-4256-8a2f-3c6af49241ed",
+    "name": "ISHRANA ZA DJECU OD 4 DO 9 GODINA",
+    "classification": "Ishrana · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      ""
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/02523cf9-e3bb-4256-8a2f-3c6af49241ed",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 35
+  },
+  {
+    "id": "reference-0913b918-04c6-4c27-88b9-0c32db620869",
+    "name": "PROGRAM ZA DJECU OD 7 DO 9 GODINA",
+    "classification": "Trening · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      "Vlastita težina"
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/0913b918-04c6-4c27-88b9-0c32db620869",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 0
+  },
+  {
+    "id": "reference-14edfe57-c40d-45e8-bea3-87e0fdd72d5f",
+    "name": "PROGRAM ZA DJECU OD 4 DO 6 GODINA",
+    "classification": "Trening · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      "Vlastita težina"
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/14edfe57-c40d-45e8-bea3-87e0fdd72d5f",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 0
+  },
+  {
+    "id": "reference-d4f6e60a-6944-43f2-94ed-53220c6ee5a9",
+    "name": "PAMETNA SUPLEMENTACIJA ZA OSOBE 60+",
+    "classification": "Suplementi · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      ""
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/d4f6e60a-6944-43f2-94ed-53220c6ee5a9",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 6
+  },
+  {
+    "id": "reference-e3493136-c6ea-499f-836d-82ffc851a0e6",
+    "name": "LAGANI DNEVNI JELOVNIK ZA OSOBE 60+",
+    "classification": "Ishrana · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      ""
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/e3493136-c6ea-499f-836d-82ffc851a0e6",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 5
+  },
+  {
+    "id": "reference-d2c9672d-16c7-49a6-a292-4e76ac15c0ac",
+    "name": "TRENING ZA OSOBE  60+",
+    "classification": "Trening · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      "Vlastita težina"
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/d2c9672d-16c7-49a6-a292-4e76ac15c0ac",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 9
+  },
+  {
+    "id": "reference-6e65e0f1-1575-4096-9944-cb6434e5149a",
+    "name": "PREHRANA ZA POVEĆANJE MIŠIĆNE MASE",
+    "classification": "Ishrana · Mišićna masa · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      ""
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/6e65e0f1-1575-4096-9944-cb6434e5149a",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 5
+  },
+  {
+    "id": "reference-e2d92b19-8da1-4c16-a17d-ec90c12a124f",
+    "name": "OSNOVNA SUPLEMENTACIJA ZA GUBITAK MASNOG TKIVA",
+    "classification": "Suplementi · Mršavljenje · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      ""
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/e2d92b19-8da1-4c16-a17d-ec90c12a124f",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 5
+  },
+  {
+    "id": "reference-b8391a79-c68f-409c-acbf-af3430775dc9",
+    "name": "ZAGRIJAVANJE I MOBILNOST GORNJEG DIJELA TIJELA",
+    "classification": "Trening · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      "Vlastita težina"
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/b8391a79-c68f-409c-acbf-af3430775dc9",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 10
+  },
+  {
+    "id": "reference-4f5db165-ca45-43af-9589-cc933c84aa65",
+    "name": "MOBILNOST DONJEG DIJELA LEDJA",
+    "classification": "Trening · Mobilnost · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      "Strunjača"
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/4f5db165-ca45-43af-9589-cc933c84aa65",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 7
+  },
+  {
+    "id": "reference-e82a02f5-859d-4774-ba20-87b272c711f6",
+    "name": "TRENING NA ODMORU",
+    "classification": "Trening · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      "Vlastita težina"
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/e82a02f5-859d-4774-ba20-87b272c711f6",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 17
+  },
+  {
+    "id": "reference-571b1788-115e-4580-b90b-092393f71c5c",
+    "name": "OSNOVE ZDRAVE PREHRANE",
+    "classification": "Ishrana · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      ""
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/571b1788-115e-4580-b90b-092393f71c5c",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 5
+  },
+  {
+    "id": "reference-d9da4c88-4dd5-4ef8-bd2e-cb33460e7ae8",
+    "name": "OSNOVNA SUPLEMENTACIJA ZA POVEĆANJE MIŠIĆNE MASE",
+    "classification": "Suplementi · Mišićna masa · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      ""
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/d9da4c88-4dd5-4ef8-bd2e-cb33460e7ae8",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 4
+  },
+  {
+    "id": "reference-ecdfc9bd-4a63-4abd-bdcf-6baca2d766e1",
+    "name": "KETO 2000kcal",
+    "classification": "Ishrana · Mršavljenje · Srednji",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      ""
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/ecdfc9bd-4a63-4abd-bdcf-6baca2d766e1",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 5
+  },
+  {
+    "id": "reference-101d52b5-5b63-47ad-bc6a-4e91e6be5659",
+    "name": "AKTIVACIJA/JAČANJE DONJEG DIJELA LEDJA",
+    "classification": "Trening · Općenita forma · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      "Vlastita težina",
+      "Strunjača"
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/101d52b5-5b63-47ad-bc6a-4e91e6be5659",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 8
+  },
+  {
+    "id": "reference-adb24a2d-78e1-4f14-ba20-8471afb807dd",
+    "name": "OSNOVNI SUPLEMENTI",
+    "classification": "Suplementi · Mršavljenje · Početnik",
+    "author": "Aldin Rastoder",
+    "equipment": [
+      ""
+    ],
+    "sourceUrl": "https://www.fitconnect.world/programs/adb24a2d-78e1-4f14-ba20-8471afb807dd",
+    "observedDate": "2026-10-19",
+    "coverage": "reference-only",
+    "observedItemCount": 6
+  }
+]
