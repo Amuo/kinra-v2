@@ -24,9 +24,29 @@ export const onboardingAnswers = z
     theme: z.enum(["dark", "light", "system"]),
     language: z.enum(["en", "bs", "de"]),
     timezone: z.string().min(1).max(80),
+    gender: z
+      .enum(["woman", "man", "non_binary", "another_identity", "prefer_not_to_say"])
+      .nullable()
+      .default(null),
+    height_cm: z.number().finite().min(80).max(250).nullable().default(null),
+    weight_kg: z.number().finite().min(20).max(350).nullable().default(null),
+    units: z.enum(["metric", "imperial"]).default("metric"),
+    experience: z.enum(["new", "some", "experienced"]).nullable().default(null),
   })
   .strict();
 export type OnboardingAnswers = z.infer<typeof onboardingAnswers>;
+export const genderLabels = {
+  woman: "Woman",
+  man: "Man",
+  non_binary: "Non-binary",
+  another_identity: "Another identity",
+  prefer_not_to_say: "Prefer not to say",
+} as const;
+export const experienceLabels = {
+  new: "New to training",
+  some: "Some experience",
+  experienced: "Experienced",
+} as const;
 export type OnboardingState = {
   answers: OnboardingAnswers;
   step: number;
@@ -34,6 +54,19 @@ export type OnboardingState = {
   completed_at: string | null;
   updated_at: string;
 };
+// Older four-step drafts resume at the same task after the optional step was added.
+export function decodeOnboardingState(
+  row: Omit<OnboardingState, "answers"> & { answers: unknown },
+): OnboardingState {
+  if (row.version !== 1 && row.version !== 2)
+    throw new Error("Could not load your setup. Your account is unchanged.");
+  return {
+    ...row,
+    answers: onboardingAnswers.parse(row.answers),
+    version: 2,
+    step: row.version === 1 && row.step >= 2 ? row.step + 1 : row.step,
+  };
+}
 export const startingActions = {
   solo: [
     {
@@ -108,6 +141,11 @@ export function initialOnboarding(
     theme: preferences?.theme ?? "system",
     language: currentLanguage(),
     timezone: preferences?.timezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone ?? "UTC",
+    gender: null,
+    height_cm: null,
+    weight_kg: null,
+    units: preferences?.units ?? "metric",
+    experience: null,
   };
 }
 export function chooseOnboardingRole(answers: OnboardingAnswers, role: Role): OnboardingAnswers {
@@ -124,13 +162,13 @@ export function onboardingDestination(answers: OnboardingAnswers) {
 export function validateOnboarding(answers: OnboardingAnswers, step: number): string | null {
   if (!answers.role) return "Choose how you will use Kinra.";
   if (step >= 1 && !answers.display_name.trim()) return "Enter a name for your profile.";
-  if (step >= 2 && !onboardingDestination(answers)) return "Choose your first step.";
+  if (step >= 3 && !onboardingDestination(answers)) return "Choose your first step.";
   return null;
 }
 export function resumedOnboardingStep(answers: OnboardingAnswers, stored: number): number {
   if (!answers.role) return 0;
-  const step = Math.max(0, Math.min(3, stored));
+  const step = Math.max(0, Math.min(4, stored));
   if (step > 1 && !answers.display_name.trim()) return 1;
-  if (step > 2 && !onboardingDestination(answers)) return 2;
+  if (step > 3 && !onboardingDestination(answers)) return 3;
   return step;
 }

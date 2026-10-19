@@ -36,6 +36,7 @@ import type { BarcodeFood } from "./barcode";
 import { createLiveFeatures, createDemoFeatures, type FeatureApi } from "./feature-api";
 import {
   onboardingAnswers,
+  decodeOnboardingState,
   validateOnboarding,
   type OnboardingAnswers,
   type OnboardingState,
@@ -144,13 +145,13 @@ export function createLiveApi(ownerId: string): Api {
         completed_at: string | null;
         updated_at: string;
       } | null;
-      return row ? { ...row, answers: onboardingAnswers.parse(row.answers) } : null;
+      return row ? decodeOnboardingState(row) : null;
     },
     async saveOnboarding(answers, step, finish) {
       const id = await uid();
       const data = onboardingAnswers.parse(answers);
       if (finish) {
-        const error = validateOnboarding(data, 3);
+        const error = validateOnboarding(data, 4);
         if (error) throw new Error(error);
       }
       must(
@@ -525,7 +526,7 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
       if (data.role !== role)
         throw new Error("Your account type is already set. Reopen setup to continue.");
       if (finish) {
-        const error = validateOnboarding(data, 3);
+        const error = validateOnboarding(data, 4);
         if (error) throw new Error(error);
         demoProfiles.set(meId, {
           ...demoProfiles.get(meId),
@@ -539,14 +540,15 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
             ...(preferences?.payload ?? { modules: {}, timezone: data.timezone }),
             language: data.language,
             theme: data.theme,
+            units: data.units,
           },
           preferences ? { id: preferences.id } : {},
         );
       }
       demoOnboarding.set(meId, {
         answers: data,
-        version: 1,
-        step: finish ? 3 : step,
+        version: 2,
+        step: finish ? 4 : step,
         updated_at: new Date().toISOString(),
         completed_at: finish
           ? (demoOnboarding.get(meId)?.completed_at ?? new Date().toISOString())

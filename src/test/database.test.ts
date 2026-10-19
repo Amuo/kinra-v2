@@ -850,7 +850,7 @@ describe("private role-specific onboarding", () => {
     expect(
       (await db.query("select completed_at,step from onboarding_state where owner_id=$1", [id]))
         .rows,
-    ).toEqual([{ completed_at: null, step: 2 }]);
+    ).toEqual([{ completed_at: null, step: 3 }]);
   });
 
   it("rolls back profile and role writes when the final preference write fails", async () => {
@@ -894,5 +894,93 @@ describe("private role-specific onboarding", () => {
       (await db.query("select * from onboarding_state where owner_id=$1", [id])).rows,
     ).toHaveLength(0);
     expect((await db.query("select id from auth.users where id=$1", [id])).rows).toHaveLength(1);
+  });
+  it("saves optional facts privately, changes units deliberately and protects facts from cached clients", async () => {
+    const id = await newMember(17);
+    await db.query("insert into trainer_clients(trainer_id,client_id) values($1,$2)", [coachA, id]);
+    const data = {
+      ...answer("client"),
+      gender: "non_binary",
+      height_cm: 172.72,
+      weight_kg: 72.5747792,
+      units: "imperial",
+      experience: "some",
+    };
+    await save(id, data, false, 2);
+    expect(
+      (await db.query("select version,step,answers from onboarding_state where owner_id=$1", [id]))
+        .rows,
+    ).toMatchObject([{ version: 2, step: 2, answers: data }]);
+    expect(
+      (
+        await asUser(coachA, () =>
+          db.query("select * from onboarding_state where owner_id=$1", [id]),
+        )
+      ).rows,
+    ).toHaveLength(0);
+    await save(id, data, true, 4);
+    expect(
+      (
+        await db.query<{ payload: { units: string } }>(
+          "select payload from feature_records where owner_id=$1 and kind='preferences'",
+          [id],
+        )
+      ).rows[0]!.payload.units,
+    ).toBe("imperial");
+    expect((await db.query("select * from body_metrics where user_id=$1", [id])).rows).toHaveLength(
+      0,
+    );
+    await save(id, { ...answer("client"), goal: "Legacy edit" }, true, 3);
+    expect(
+      (await db.query("select version,step,answers from onboarding_state where owner_id=$1", [id]))
+        .rows,
+    ).toMatchObject([{ version: 2, step: 4, answers: { ...data, goal: "Legacy edit" } }]);
+    await save(
+      id,
+      {
+        ...data,
+        gender: null,
+        height_cm: null,
+        weight_kg: null,
+        experience: null,
+        units: "metric",
+      },
+      true,
+      4,
+    );
+    expect(
+      (await db.query("select answers from onboarding_state where owner_id=$1", [id])).rows,
+    ).toMatchObject([
+      { answers: { gender: null, height_cm: null, weight_kg: null, experience: null } },
+    ]);
+  });
+  it("rejects malformed optional facts and never manufactures skipped measurements", async () => {
+    const id = await newMember(18);
+    const data = {
+      ...answer("solo"),
+      gender: null,
+      height_cm: null,
+      weight_kg: null,
+      units: "metric",
+      experience: null,
+    };
+    for (const patch of [
+      { height_cm: 79 },
+      { height_cm: 251 },
+      { height_cm: "170" },
+      { weight_kg: 19 },
+      { weight_kg: 351 },
+      { gender: "invalid" },
+      { experience: 5 },
+      { units: null },
+    ]) {
+      await expect(save(id, { ...data, ...patch }, true, 4)).rejects.toMatchObject({
+        code: "22023",
+      });
+    }
+    await save(id, data, true, 4);
+    expect(
+      (await db.query("select answers from onboarding_state where owner_id=$1", [id])).rows,
+    ).toMatchObject([{ answers: { height_cm: null, weight_kg: null, gender: null } }]);
   });
 });

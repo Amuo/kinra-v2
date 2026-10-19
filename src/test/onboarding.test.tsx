@@ -8,6 +8,8 @@ import {
   onboardingDestination,
   resumedOnboardingStep,
   validateOnboarding,
+  decodeOnboardingState,
+  onboardingAnswers,
 } from "@/lib/onboarding";
 import { setLanguage } from "@/lib/i18n";
 import type { Me } from "@/lib/types";
@@ -80,6 +82,8 @@ describe("role onboarding", () => {
         target: { value: "Fictional member" },
       });
       fireEvent.click(screen.getByRole("button", { name: "Save & continue" }));
+      await screen.findByRole("heading", { name: /starting point/i });
+      fireEvent.click(screen.getByRole("button", { name: "Save & continue" }));
       await screen.findByRole("radio", { name: new RegExp(first) });
       expect(screen.queryByRole("radio", { name: /Start my food diary/ })).toBe(
         role === "solo" ? screen.getByRole("radio", { name: /Start my food diary/ }) : null,
@@ -93,7 +97,7 @@ describe("role onboarding", () => {
       await waitFor(() => expect(backend.navigate).toHaveBeenCalledWith({ to, replace: true }));
       expect(backend.save).toHaveBeenLastCalledWith(
         expect.objectContaining({ role, display_name: "Fictional member" }),
-        3,
+        4,
         true,
       );
     },
@@ -134,5 +138,44 @@ describe("role onboarding", () => {
     expect(resumedOnboardingStep(blank, 3)).toBe(1);
     expect(validateOnboarding(blank, 3)).toBe("Enter a name for your profile.");
     expect(onboardingDestination({ ...blank, first_action: "clients" })).toBeNull();
+  });
+  it("preserves missing values, validates canonical measurements and resumes four-step drafts", () => {
+    const fresh = initialOnboarding(backend.me);
+    expect(fresh).toMatchObject({
+      gender: null,
+      height_cm: null,
+      weight_kg: null,
+      experience: null,
+    });
+    const { gender, height_cm, weight_kg, units, experience, ...legacy } = fresh;
+    expect(onboardingAnswers.parse(legacy)).toMatchObject({
+      gender,
+      height_cm,
+      weight_kg,
+      units,
+      experience,
+    });
+    for (const step of [0, 1, 2, 3])
+      expect(
+        decodeOnboardingState({
+          answers: legacy,
+          step,
+          version: 1,
+          completed_at: null,
+          updated_at: "now",
+        }).step,
+      ).toBe(step >= 2 ? step + 1 : step);
+    for (const patch of [
+      { height_cm: 79 },
+      { height_cm: 251 },
+      { weight_kg: 19 },
+      { weight_kg: Infinity },
+      { gender: "invalid" },
+      { units: "stone" },
+    ])
+      expect(onboardingAnswers.safeParse({ ...fresh, ...patch }).success).toBe(false);
+    expect(
+      onboardingAnswers.parse({ ...fresh, height_cm: 172.72, weight_kg: 72.5747792 }),
+    ).toMatchObject({ height_cm: 172.72, weight_kg: 72.5747792 });
   });
 });

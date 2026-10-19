@@ -4229,7 +4229,7 @@
   },
   "Units": {
     "bs": "Mjerne jedinice",
-    "de": "Maßeinheiten"
+    "de": "Einheiten"
   },
   "Metric": {
     "bs": "Metričke",
@@ -5985,5 +5985,101 @@
   "See your client overview and the information that helps you follow up.": {
     "bs": "Pregledaj klijente i informacije koje ti pomažu da pratiš njihov napredak.",
     "de": "Sieh deine Klientenübersicht und die Informationen, die dir beim Nachfassen helfen."
+  },
+  "Your starting point": {
+    "bs": "Tvoja polazna tačka",
+    "de": "Dein Ausgangspunkt"
+  },
+  "Woman": {
+    "bs": "Žena",
+    "de": "Frau"
+  },
+  "Man": {
+    "bs": "Muškarac",
+    "de": "Mann"
+  },
+  "Non-binary": {
+    "bs": "Nebinarna osoba",
+    "de": "Nichtbinär"
+  },
+  "Another identity": {
+    "bs": "Drugi identitet",
+    "de": "Andere Identität"
+  },
+  "Prefer not to say": {
+    "bs": "Ne želim navesti",
+    "de": "Keine Angabe"
+  },
+  "New to training": {
+    "bs": "Tek počinjem trenirati",
+    "de": "Neu beim Training"
+  },
+  "Some experience": {
+    "bs": "Imam nešto iskustva",
+    "de": "Etwas Erfahrung"
+  },
+  "Experienced": {
+    "bs": "Imam dosta iskustva",
+    "de": "Erfahren"
+  },
+  "All of this is optional. These details stay in your private setup and are not added to your diary or shared with a coach.": {
+    "bs": "Sve je ovo neobavezno. Ovi podaci ostaju u tvojim privatnim postavkama i ne dodaju se u dnevnik niti dijele s trenerom.",
+    "de": "Alle Angaben sind freiwillig. Diese Daten bleiben in deiner privaten Einrichtung und werden weder ins Tagebuch übernommen noch mit einem Coach geteilt."
+  },
+  "Gender (optional)": {
+    "bs": "Rod (neobavezno)",
+    "de": "Geschlecht (optional)"
+  },
+  "Height (optional)": {
+    "bs": "Visina (neobavezno)",
+    "de": "Körpergröße (optional)"
+  },
+  "Weight (optional)": {
+    "bs": "Težina (neobavezno)",
+    "de": "Gewicht (optional)"
+  },
+  "Training experience (optional)": {
+    "bs": "Iskustvo u treningu (neobavezno)",
+    "de": "Trainingserfahrung (optional)"
+  },
+  "Metric (cm, kg)": {
+    "bs": "Metričke (cm, kg)",
+    "de": "Metrisch (cm, kg)"
+  },
+  "Imperial (in, lb)": {
+    "bs": "Imperijalne (in, lb)",
+    "de": "Imperial (in, lb)"
+  },
+  "Not added": {
+    "bs": "Nije dodano",
+    "de": "Nicht angegeben"
+  },
+  "Leave any field blank and continue. You can change these details later.": {
+    "bs": "Možeš ostaviti bilo koje polje prazno i nastaviti. Ove podatke možeš kasnije promijeniti.",
+    "de": "Du kannst jedes Feld leer lassen und fortfahren. Diese Angaben kannst du später ändern."
+  },
+  "Optional. Scroll to choose or type a value. Nothing changes until you confirm.": {
+    "bs": "Neobavezno. Pomjeri točkić ili upiši vrijednost. Promjene se primjenjuju tek kada potvrdiš.",
+    "de": "Optional. Wähle einen Wert durch Scrollen oder Eingabe. Änderungen werden erst nach deiner Bestätigung übernommen."
+  },
+  "Enter value": {
+    "bs": "Upiši vrijednost",
+    "de": "Wert eingeben"
+  },
+  "Range: {min}–{max} {unit}": {
+    "bs": "Raspon: {min}–{max} {unit}",
+    "de": "Bereich: {min}–{max} {unit}"
+  },
+  "Use value": {
+    "bs": "Potvrdi vrijednost",
+    "de": "Wert übernehmen"
+  },
+  "Leave blank": {
+    "bs": "Ostavi prazno",
+    "de": "Leer lassen"
+  },
+  "Enter a value between {min} and {max} {unit}.": {
+    "bs": "Upiši vrijednost između {min} i {max} {unit}.",
+    "de": "Gib einen Wert zwischen {min} und {max} {unit} ein."
   }
 }

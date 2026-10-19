@@ -10,6 +10,8 @@ English, Bosanski and Deutsch are available from the landing page, authenticatio
 
 New accounts receive role-specific setup for solo training, working with a coach or coaching clients. Existing members can reopen it from **Profile → Personalize your setup**. Private drafts resume before completion; coach connections remain a separate action. Meal sections use distinct icons, accents and headings. See [onboarding and meals](docs/ONBOARDING-AND-MEALS-2026-10-19.md) for scope and verification.
 
+The optional starting-point step adds gender, height, weight and training experience. Measurement wheels support scrolling, keyboard controls and direct entry, with metric/imperial display and explicit confirmation. See [measurement setup](docs/ONBOARDING-MEASUREMENTS-2026-10-19.md) for persistence, privacy and verification.
+
 ## Run locally
 
 Use Node 24 and Bun 1.4.3 or newer. Copy `.env.example` to `.env` and provide the project's public Supabase URL and anon/publishable key. Never put a service-role key or Resend key in a `VITE_` variable.

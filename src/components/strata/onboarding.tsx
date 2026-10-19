@@ -26,6 +26,9 @@ import { currentLanguage, roleLabel, t, useLanguage } from "@/lib/i18n";
 import { errorText } from "@/lib/i18n-errors";
 import { cn } from "@/lib/utils";
 import type { Me } from "@/lib/types";
+import { StartingPoint } from "./starting-point";
+import { genderLabels, experienceLabels } from "@/lib/onboarding";
+import { number } from "@/lib/i18n";
 import { LanguageSelector } from "./language-selector";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -51,7 +54,7 @@ const roles = [
     body: "Create programs, connect clients and follow their progress.",
   },
 ] as const;
-const steps = ["Your path", "About you", "First step", "Review"];
+const steps = ["Your path", "About you", "Your starting point", "First step", "Review"];
 const goalOptions = {
   solo: ["Build strength", "Improve fitness", "Build consistency"],
   client: ["Build strength", "Follow my plan", "Build consistency"],
@@ -93,7 +96,17 @@ export function Onboarding({
           role: me.data.role ?? saved.answers.role,
           language: currentLanguage(),
         }
-      : fresh;
+      : {
+          ...fresh,
+          ...(saved
+            ? {
+                gender: saved.answers.gender,
+                height_cm: saved.answers.height_cm,
+                weight_kg: saved.answers.weight_kg,
+                experience: saved.answers.experience,
+              }
+            : {}),
+        };
   return (
     <OnboardingForm
       me={me.data}
@@ -180,8 +193,10 @@ function OnboardingForm({
             ? "Make coaching personal."
             : "Start with what matters to you."
         : step === 2
-          ? "Choose a useful first step."
-          : "Your setup, at a glance.";
+          ? "Your starting point"
+          : step === 3
+            ? "Choose a useful first step."
+            : "Your setup, at a glance.";
   return (
     <div
       className={cn(
@@ -193,7 +208,7 @@ function OnboardingForm({
         <p className="eyebrow text-volt">{t("Welcome to Kinra")}</p>
         <LanguageSelector compact />
       </div>
-      <ol aria-label={t("Setup progress")} className="mb-7 grid grid-cols-4 gap-2">
+      <ol aria-label={t("Setup progress")} className="mb-7 grid grid-cols-5 gap-2">
         {steps.map((label, index) => (
           <li key={label} aria-current={step === index ? "step" : undefined} className="min-w-0">
             <div
@@ -214,7 +229,7 @@ function OnboardingForm({
         ))}
       </ol>
       <p className="mb-2 text-caption text-muted-foreground">
-        {t("Step {current} of {total}", { current: step + 1, total: 4 })}
+        {t("Step {current} of {total}", { current: step + 1, total: 5 })}
       </p>
       <h1
         ref={heading}
@@ -227,7 +242,7 @@ function OnboardingForm({
         className="mt-6"
         onSubmit={(event) => {
           event.preventDefault();
-          void advance(Math.min(step + 1, 3), step === 3);
+          void advance(Math.min(step + 1, 4), step === 4);
         }}
       >
         <fieldset disabled={busy} className="min-w-0 space-y-5">
@@ -337,7 +352,8 @@ function OnboardingForm({
               </p>
             </>
           )}
-          {step === 2 && role && (
+          {step === 2 && <StartingPoint answers={answers} update={update} />}
+          {step === 3 && role && (
             <>
               <p className="text-label text-muted-foreground">
                 {t(
@@ -403,7 +419,7 @@ function OnboardingForm({
               </div>
             </>
           )}
-          {step === 3 && role && destination && (
+          {step === 4 && role && destination && (
             <>
               <dl className="panel divide-y divide-border px-4">
                 {[
@@ -412,6 +428,26 @@ function OnboardingForm({
                   [
                     role === "trainer" ? "Coaching priority" : "Goal",
                     answers.goal.trim() || t("Add later"),
+                  ],
+                  [
+                    "Gender (optional)",
+                    answers.gender ? t(genderLabels[answers.gender]) : t("Not added"),
+                  ],
+                  [
+                    "Height (optional)",
+                    answers.height_cm === null
+                      ? t("Not added")
+                      : `${number(answers.units === "imperial" ? answers.height_cm / 2.54 : answers.height_cm, { maximumFractionDigits: 1 })} ${answers.units === "imperial" ? "in" : "cm"}`,
+                  ],
+                  [
+                    "Weight (optional)",
+                    answers.weight_kg === null
+                      ? t("Not added")
+                      : `${number(answers.units === "imperial" ? answers.weight_kg / 0.45359237 : answers.weight_kg, { maximumFractionDigits: 1 })} ${answers.units === "imperial" ? "lb" : "kg"}`,
+                  ],
+                  [
+                    "Training experience (optional)",
+                    answers.experience ? t(experienceLabels[answers.experience]) : t("Not added"),
                   ],
                   ["First step", t(destination.title)],
                   [
@@ -490,12 +526,12 @@ function OnboardingForm({
           >
             {busy ? (
               <Loader2 aria-hidden="true" className="size-4 shrink-0 animate-spin" />
-            ) : step === 3 ? (
+            ) : step === 4 ? (
               <Check aria-hidden="true" className="size-4 shrink-0" />
             ) : (
               <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
             )}
-            {t(busy ? "Saving…" : step === 3 ? "Finish setup" : "Save & continue")}
+            {t(busy ? "Saving…" : step === 4 ? "Finish setup" : "Save & continue")}
           </Button>
         </div>
         {onClose && (

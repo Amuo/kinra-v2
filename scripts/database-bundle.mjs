@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 const root = new URL("../", import.meta.url);
 const names = [
   "onboarding_state",
+  "onboarding_state_version_check",
+  "onboarding_state_step_check",
   "kinra_valid_onboarding",
   "kinra_save_onboarding",
   "app_role",
@@ -71,7 +73,10 @@ const output = `-- Kinra v2: additive installation in the existing Kinra project
 mkdirSync(new URL("supabase/migrations/", root), { recursive: true });
 writeFileSync(
   new URL("supabase/migrations/202610140001_kinra_v2.sql", root),
-  output.replace("schema version 0003_security_and_integrity", "schema version 0010_onboarding"),
+  output.replace(
+    "schema version 0003_security_and_integrity",
+    "schema version 0011_onboarding_measurements",
+  ),
 );
 const upgradeBody = body.slice(body.indexOf("-- Source: 0004_feature_schemas.sql"));
 writeFileSync(

@@ -51,7 +51,9 @@ for (const dir of ["src/routes", "src/components/strata", "src/components/ui", "
         ts.isVariableDeclaration(node) &&
         node.initializer &&
         ((pathname === "src/lib/onboarding.ts" &&
-          node.name.getText(source) === "startingActions") ||
+          ["startingActions", "genderLabels", "experienceLabels"].includes(
+            node.name.getText(source),
+          )) ||
           (pathname === "src/components/strata/onboarding.tsx" &&
             ["roles", "steps", "goalOptions", "title"].includes(node.name.getText(source))))
       ) {
@@ -60,7 +62,9 @@ for (const dir of ["src/routes", "src/components/strata", "src/components/ui", "
           requireConfig(
             node.initializer,
             pathname,
-            ["steps", "goalOptions"].includes(node.name.getText(source)),
+            ["steps", "goalOptions", "genderLabels", "experienceLabels"].includes(
+              node.name.getText(source),
+            ),
           );
       }
       if (
