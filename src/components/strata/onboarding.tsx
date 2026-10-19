@@ -93,6 +93,7 @@ export function Onboarding({
       ? {
           ...fresh,
           ...saved.answers,
+          units: saved.units_set === false ? fresh.units : saved.answers.units,
           role: me.data.role ?? saved.answers.role,
           language: currentLanguage(),
         }

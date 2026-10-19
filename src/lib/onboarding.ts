@@ -53,6 +53,7 @@ export type OnboardingState = {
   version: number;
   completed_at: string | null;
   updated_at: string;
+  units_set?: boolean;
 };
 // Older four-step drafts resume at the same task after the optional step was added.
 export function decodeOnboardingState(
@@ -64,6 +65,7 @@ export function decodeOnboardingState(
     ...row,
     answers: onboardingAnswers.parse(row.answers),
     version: 2,
+    units_set: typeof row.answers === "object" && row.answers !== null && "units" in row.answers,
     step: row.version === 1 && row.step >= 2 ? row.step + 1 : row.step,
   };
 }

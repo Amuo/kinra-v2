@@ -21,6 +21,7 @@ const backend = vi.hoisted(() => ({
   error: false,
   profileError: false,
   retryProfile: vi.fn(),
+  preferences: [] as unknown[],
 }));
 vi.mock("@tanstack/react-router", () => ({ useNavigate: () => backend.navigate }));
 vi.mock("@/lib/api", () => ({
@@ -33,7 +34,7 @@ vi.mock("@/lib/api", () => ({
   useQ: (key: string[]) => ({
     isLoading: false,
     error: backend.error,
-    data: key[0] === "onboarding" ? backend.draft : [],
+    data: key[0] === "onboarding" ? backend.draft : backend.preferences,
     refetch: vi.fn(),
   }),
 }));
@@ -50,6 +51,7 @@ beforeEach(() => {
   backend.draft = null;
   backend.error = false;
   backend.profileError = false;
+  backend.preferences = [];
   backend.retryProfile.mockReset();
   backend.save.mockReset().mockResolvedValue(undefined);
   backend.navigate.mockReset().mockResolvedValue(undefined);
@@ -177,5 +179,36 @@ describe("role onboarding", () => {
     expect(
       onboardingAnswers.parse({ ...fresh, height_cm: 172.72, weight_kg: 72.5747792 }),
     ).toMatchObject({ height_cm: 172.72, weight_kg: 72.5747792 });
+  });
+  it("keeps existing imperial preferences when an older draft has no unit choice", async () => {
+    backend.me = { ...backend.me, role: "client", display_name: "Existing member" };
+    backend.preferences = [
+      {
+        payload: { language: "en", theme: "dark", modules: {}, timezone: "UTC", units: "imperial" },
+      },
+    ];
+    const { gender, height_cm, weight_kg, units, experience, ...legacy } = initialOnboarding(
+      backend.me,
+    );
+    void [gender, height_cm, weight_kg, units, experience];
+    backend.draft = decodeOnboardingState({
+      answers: legacy,
+      step: 1,
+      version: 1,
+      completed_at: null,
+      updated_at: "now",
+    });
+    mount();
+    fireEvent.click(screen.getByRole("button", { name: "Save & continue" }));
+    await screen.findByRole("heading", { name: "Your starting point" });
+    expect(screen.getByRole("button", { name: "Imperial (in, lb)" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+    expect(backend.save).toHaveBeenLastCalledWith(
+      expect.objectContaining({ units: "imperial" }),
+      2,
+      false,
+    );
   });
 });
