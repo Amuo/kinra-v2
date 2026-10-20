@@ -1,4 +1,5 @@
-import { createContext, useContext, useMemo, type ReactNode } from "react";
+import { useContext, useMemo, type ReactNode } from "react";
+import { ApiCtx } from "./api-context";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -33,6 +34,11 @@ import demoAfter from "@/assets/demo-after.jpg";
 import { buildSummary } from "./report";
 import { currentLanguage } from "./i18n";
 import { programTemplates, localizedTemplate } from "./program-templates";
+import {
+  templateOrigins,
+  demoTemplateSource,
+  registerDemoTemplateSource,
+} from "./template-origins";
 import {
   accountRoleSchema,
   coreRole,
@@ -352,9 +358,18 @@ export function createLiveApi(ownerId: string): Api {
     },
     async programs() {
       await uid();
-      return must(
-        await from("programs").select("*").order("created_at", { ascending: false }),
-      ) as unknown as Program[];
+      const [result, origins] = await Promise.all([
+        from("programs").select("*").order("created_at", { ascending: false }),
+        templateOrigins(ownerId),
+      ]);
+      return (must(result) as unknown as Program[]).map((program) => {
+        const origin = origins.find(
+          (item) => item.kind === "training" && item.target_id === program.id,
+        );
+        return origin
+          ? { ...program, template_source: { id: origin.id, version: origin.version } }
+          : program;
+      });
     },
     async adoptTemplate(templateId) {
       const owner = await uid();
@@ -371,7 +386,16 @@ export function createLiveApi(ownerId: string): Api {
       const error = programError(p);
       if (error) throw new Error(error);
       const id = crypto.randomUUID();
-      must(await from("programs").insert({ ...p, id, trainer_id: owner, days: p.days as never }));
+      must(
+        await from("programs").insert({
+          name: p.name,
+          description: p.description,
+          weeks: p.weeks,
+          id,
+          trainer_id: owner,
+          days: p.days as never,
+        }),
+      );
       return id;
     },
     async updateProgram(id, p) {
@@ -380,7 +404,12 @@ export function createLiveApi(ownerId: string): Api {
       if (error) throw new Error(error);
       const rows = must(
         await from("programs")
-          .update({ ...p, days: p.days as never })
+          .update({
+            name: p.name,
+            description: p.description,
+            weeks: p.weeks,
+            days: p.days as never,
+          })
           .eq("id", id)
           .eq("trainer_id", owner)
           .select("id"),
@@ -745,11 +774,15 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
       return demoTrainer.display_name!;
     },
     async programs() {
-      if (isTrainer) return db().programs;
       const ids = db()
         .assignments.filter((a) => a.client_id === meId)
         .map((a) => a.program_id);
-      return db().programs.filter((p) => ids.includes(p.id) || p.trainer_id === meId);
+      return db()
+        .programs.filter((p) => isTrainer || ids.includes(p.id) || p.trainer_id === meId)
+        .map((program) => {
+          const source = demoTemplateSource(program.id);
+          return source ? { ...program, template_source: source } : program;
+        });
     },
     async adoptTemplate(templateId) {
       const source = programTemplates.find((p) => p.id === templateId);
@@ -768,7 +801,9 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
       if (template.type === "training")
         id = await this.saveProgram({
           name: template.title,
-          description: template.summary,
+          description: [template.summary, template.progression, template.considerations].join(
+            "\n\n",
+          ),
           weeks: template.weeks,
           days: template.days,
         });
@@ -778,6 +813,7 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
       }
       const result = { id, kind: template.type };
       demoTemplateAdoptions.set(key, result);
+      registerDemoTemplateSource(id, { id: templateId, version: 1 });
       return { ...result, alreadySaved: false };
     },
     async saveProgram(p) {
@@ -885,7 +921,6 @@ let disconnectedDemo = false;
 const demoOnboarding = new Map<string, OnboardingState>();
 const demoTemplateAdoptions = new Map<string, { id: string; kind: "training" | "nutrition" }>();
 const demoWorkspaces = new Map<string, WorkspaceState>();
-const ApiCtx = createContext<Api | null>(null);
 
 export function ApiProvider({
   mode,

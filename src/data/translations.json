@@ -1,4 +1,12 @@
 {
+  "This resource is no longer available.": {
+    "bs": "Ovaj materijal više nije dostupan.",
+    "de": "Dieses Material ist nicht mehr verfügbar."
+  },
+  "This attachment is no longer available.": {
+    "bs": "Ovaj prilog više nije dostupan.",
+    "de": "Dieser Anhang ist nicht mehr verfügbar."
+  },
   "Client unavailable": {
     "bs": "Klijent nije dostupan",
     "de": "Klient nicht verfügbar"
@@ -3584,12 +3592,12 @@
     "de": "Deine letzten Befindenseinträge geben deinem Coach Kontext zu Stress und Energie."
   },
   "Week complete — recover well.": {
-    "bs": "Sedmica završena — dobro se oporavi.",
-    "de": "Woche abgeschlossen — erhole dich gut."
+    "de": "Woche abgeschlossen – erhole dich gut.",
+    "bs": "Sedmica je završena — odmorite se."
   },
   "Recover well. See you next session.": {
-    "bs": "Dobro se oporavi. Vidimo se na sljedećem treningu.",
-    "de": "Erhole dich gut. Bis zur nächsten Einheit."
+    "de": "Erhole dich gut. Bis zum nächsten Training.",
+    "bs": "Odmorite se. Vidimo se na sljedećem treningu."
   },
   "Log your first workout": {
     "bs": "Zabilježi prvi trening",
@@ -7897,5 +7905,353 @@
   "Open Groups in Profile to join conversations, manage members and share private invitation codes.": {
     "de": "Öffne Gruppen im Profil, um an Gesprächen teilzunehmen, Mitglieder zu verwalten und private Einladungscodes zu teilen.",
     "bs": "Otvorite Grupe u Profilu da učestvujete u razgovorima, upravljate članovima i podijelite privatne pozivne kodove."
+  },
+  "Listing view": {
+    "de": "Eintragsansicht",
+    "bs": "Prikaz profila"
+  },
+  "Discover": {
+    "de": "Entdecken",
+    "bs": "Otkrijte"
+  },
+  "My listings": {
+    "de": "Meine Einträge",
+    "bs": "Moji profili"
+  },
+  "Opening hours": {
+    "de": "Öffnungszeiten",
+    "bs": "Radno vrijeme"
+  },
+  "Show password": {
+    "de": "Passwort anzeigen",
+    "bs": "Prikaži lozinku"
+  },
+  "Not recorded": {
+    "bs": "Nije zabilježeno",
+    "de": "Nicht erfasst"
+  },
+  "Duration · seconds": {
+    "bs": "Trajanje · sekunde",
+    "de": "Dauer · Sekunden"
+  },
+  "Distance · metres": {
+    "bs": "Udaljenost · metri",
+    "de": "Distanz · Meter"
+  },
+  "Speed · km/h": {
+    "bs": "Brzina · km/h",
+    "de": "Geschwindigkeit · km/h"
+  },
+  "Incline · %": {
+    "bs": "Nagib · %",
+    "de": "Steigung · %"
+  },
+  "Enter valid cardio measurements in the labelled units.": {
+    "bs": "Unesite ispravne kardio vrijednosti u označenim jedinicama.",
+    "de": "Gib gültige Cardio-Werte in den angegebenen Einheiten ein."
+  },
+  "Enter an actual duration or distance before completing cardio.": {
+    "bs": "Prije završetka kardio intervala unesite stvarno trajanje ili udaljenost.",
+    "de": "Gib eine tatsächliche Dauer oder Distanz ein, bevor du das Cardio-Intervall abschließt."
+  },
+  "Create a private supplement plan from your own guidance. Review doses before activating schedules.": {
+    "bs": "Napravite privatni plan suplemenata prema svojim uputama. Provjerite doze prije aktiviranja rasporeda.",
+    "de": "Erstelle einen privaten Supplementplan anhand deiner eigenen Vorgaben. Prüfe die Dosierungen, bevor du die Einnahmepläne aktivierst."
+  },
+  "Organize video links into a private plan. Open videos deliberately and record completion yourself.": {
+    "bs": "Organizujte videolinkove u privatni plan. Sami otvarajte videe i bilježite završetak.",
+    "de": "Ordne Videolinks in einem privaten Plan. Öffne Videos gezielt und bestätige den Abschluss selbst."
+  },
+  "New supplement plan": {
+    "bs": "Novi plan suplemenata",
+    "de": "Neuer Supplementplan"
+  },
+  "New video plan": {
+    "bs": "Novi videoplan",
+    "de": "Neuer Videoplan"
+  },
+  "All contexts": {
+    "bs": "Svi konteksti",
+    "de": "Alle Kontexte"
+  },
+  "Review plan": {
+    "bs": "Pregledaj plan",
+    "de": "Plan prüfen"
+  },
+  "Supplement plan": {
+    "bs": "Plan suplemenata",
+    "de": "Supplementplan"
+  },
+  "Video plan": {
+    "bs": "Videoplan",
+    "de": "Videoplan"
+  },
+  "Review the plan fields and add at least one complete item.": {
+    "bs": "Provjerite polja plana i dodajte najmanje jednu potpunu stavku.",
+    "de": "Prüfe die Planfelder und füge mindestens einen vollständigen Eintrag hinzu."
+  },
+  "Private by default. Assigning shares this plan only with the selected connected client.": {
+    "bs": "Plan je privatan. Dodjeljivanjem se dijeli samo s odabranim povezanim klijentom.",
+    "de": "Standardmäßig privat. Durch Zuweisen wird dieser Plan nur mit dem ausgewählten verbundenen Klienten geteilt."
+  },
+  "Assign to client": {
+    "bs": "Dodijeli klijentu",
+    "de": "Klienten zuweisen"
+  },
+  "Only me": {
+    "bs": "Samo ja",
+    "de": "Nur ich"
+  },
+  "Use doses from your own qualified guidance. Kinra does not recommend supplements or calculate doses.": {
+    "bs": "Koristite doze prema stručnim uputama koje ste dobili. Kinra ne preporučuje suplemente niti izračunava doze.",
+    "de": "Verwende Dosierungen aus deiner eigenen fachlichen Beratung. Kinra empfiehlt keine Supplemente und berechnet keine Dosierungen."
+  },
+  "Supplement {count}": {
+    "bs": "Suplement {count}",
+    "de": "Supplement {count}"
+  },
+  "Scheduled times · separate with commas": {
+    "bs": "Vrijeme uzimanja · odvojite zarezima",
+    "de": "Einnahmezeiten · durch Kommas trennen"
+  },
+  "Add supplement": {
+    "bs": "Dodaj suplement",
+    "de": "Supplement hinzufügen"
+  },
+  "Video {count}": {
+    "bs": "Video {count}",
+    "de": "Video {count}"
+  },
+  "Video link · HTTPS": {
+    "bs": "Videolink · HTTPS",
+    "de": "Videolink · HTTPS"
+  },
+  "Add video": {
+    "bs": "Dodaj video",
+    "de": "Video hinzufügen"
+  },
+  "Save private plan": {
+    "bs": "Sačuvaj privatni plan",
+    "de": "Privaten Plan speichern"
+  },
+  "Activity date": {
+    "bs": "Datum aktivnosti",
+    "de": "Aktivitätsdatum"
+  },
+  "Review every dose and time. Activation creates schedules in Supplements; it does not record any dose as taken.": {
+    "bs": "Provjerite svaku dozu i vrijeme. Aktiviranjem se kreiraju rasporedi u Suplementima; nijedna doza se ne označava kao uzeta.",
+    "de": "Prüfe jede Dosierung und Uhrzeit. Die Aktivierung erstellt Einnahmepläne unter Supplemente; keine Dosis wird als eingenommen erfasst."
+  },
+  "Schedules activated": {
+    "bs": "Rasporedi su aktivirani",
+    "de": "Einnahmepläne aktiviert"
+  },
+  "Activate reviewed schedules": {
+    "bs": "Aktiviraj pregledane rasporede",
+    "de": "Geprüfte Einnahmepläne aktivieren"
+  },
+  "Open Supplements to record doses and manage your schedules.": {
+    "bs": "Otvorite Suplemente da zabilježite uzimanje i upravljate rasporedima.",
+    "de": "Öffne Supplemente, um Einnahmen zu erfassen und deine Einnahmepläne zu verwalten."
+  },
+  "Videos open on their original website. Completion is your own record; Kinra does not track playback.": {
+    "bs": "Videi se otvaraju na izvornoj stranici. Završetak bilježite sami; Kinra ne prati reprodukciju.",
+    "de": "Videos öffnen sich auf ihrer ursprünglichen Website. Du erfasst den Abschluss selbst; Kinra verfolgt die Wiedergabe nicht."
+  },
+  "{count} seconds": {
+    "bs": "{count} sekundi",
+    "de": "{count} Sekunden"
+  },
+  "Open video": {
+    "bs": "Otvori video",
+    "de": "Video öffnen"
+  },
+  "Mark skipped": {
+    "bs": "Označi kao preskočeno",
+    "de": "Als übersprungen markieren"
+  },
+  "Tracking": {
+    "bs": "Praćenje",
+    "de": "Erfassung"
+  },
+  "Strength · weight and reps": {
+    "bs": "Snaga · težina i ponavljanja",
+    "de": "Kraft · Gewicht und Wiederholungen"
+  },
+  "Cardio · time and distance": {
+    "bs": "Kardio · vrijeme i udaljenost",
+    "de": "Cardio · Zeit und Distanz"
+  },
+  "Planned cardio targets": {
+    "bs": "Planirani kardio ciljevi",
+    "de": "Geplante Cardio-Ziele"
+  },
+  "Video plans": {
+    "bs": "Videoplanovi",
+    "de": "Videopläne"
+  },
+  "{count} cardio intervals": {
+    "bs": "{count} kardio intervala",
+    "de": "{count} Cardio-Intervalle"
+  },
+  "Record actual time or distance, then complete each interval.": {
+    "bs": "Unesite stvarno vrijeme ili udaljenost, zatim završite svaki interval.",
+    "de": "Erfasse die tatsächliche Zeit oder Distanz und schließe dann jedes Intervall ab."
+  },
+  "Targets are not recorded activity.": {
+    "bs": "Ciljevi nisu zabilježena aktivnost.",
+    "de": "Ziele sind keine erfasste Aktivität."
+  },
+  "Add interval": {
+    "bs": "Dodaj interval",
+    "de": "Intervall hinzufügen"
+  },
+  "Interval {count}": {
+    "bs": "Interval {count}",
+    "de": "Intervall {count}"
+  },
+  "Completed · undo": {
+    "bs": "Završeno · poništi",
+    "de": "Abgeschlossen · rückgängig"
+  },
+  "Complete interval": {
+    "bs": "Završi interval",
+    "de": "Intervall abschließen"
+  },
+  "Remove interval {count}": {
+    "bs": "Ukloni interval {count}",
+    "de": "Intervall {count} entfernen"
+  },
+  "Add cardio": {
+    "bs": "Dodaj kardio",
+    "de": "Cardio hinzufügen"
+  },
+  "Home": {
+    "bs": "Kod kuće",
+    "de": "Zu Hause"
+  },
+  "Outdoors": {
+    "bs": "Na otvorenom",
+    "de": "Im Freien"
+  },
+  "Hotel": {
+    "bs": "Hotel",
+    "de": "Hotel"
+  },
+  "Rehabilitation": {
+    "bs": "Rehabilitacija",
+    "de": "Rehabilitation"
+  },
+  "General": {
+    "bs": "Općenito",
+    "de": "Allgemein"
+  },
+  "Id": {
+    "bs": "Identifikator",
+    "de": "Kennung"
+  },
+  "Videos": {
+    "bs": "Videi",
+    "de": "Videos"
+  },
+  "Duration Seconds": {
+    "bs": "Trajanje u sekundama",
+    "de": "Dauer in Sekunden"
+  },
+  "Video Id": {
+    "bs": "Identifikator videa",
+    "de": "Videokennung"
+  },
+  "Title Snapshot": {
+    "bs": "Sačuvani naslov",
+    "de": "Gespeicherter Titel"
+  },
+  "Training days": {
+    "bs": "Dani treninga",
+    "de": "Trainingstage"
+  },
+  "Rest days": {
+    "bs": "Dani odmora",
+    "de": "Ruhetage"
+  },
+  "As needed": {
+    "bs": "Po potrebi",
+    "de": "Bei Bedarf"
+  },
+  "Activity history": {
+    "bs": "Historija aktivnosti",
+    "de": "Aktivitätsverlauf"
+  },
+  "Video": {
+    "bs": "Video",
+    "de": "Video"
+  },
+  "Video starting points": {
+    "bs": "Početne videoliste",
+    "de": "Video-Einstiegspunkte"
+  },
+  "Media language: {language}": {
+    "bs": "Jezik videa: {language}",
+    "de": "Videosprache: {language}"
+  },
+  "Review source videos": {
+    "bs": "Pregledaj izvorne videe",
+    "de": "Originalvideos ansehen"
+  },
+  "Private copy saved": {
+    "bs": "Privatna kopija je sačuvana",
+    "de": "Private Kopie gespeichert"
+  },
+  "Use distinct program items and dose times.": {
+    "bs": "Stavke plana i vremena uzimanja moraju biti različiti.",
+    "de": "Verwende unterschiedliche Planeinträge und Einnahmezeiten."
+  },
+  "Use distinct video identifiers.": {
+    "bs": "Svaki video mora imati zaseban identifikator.",
+    "de": "Jedes Video benötigt eine eigene Kennung."
+  },
+  "Use an HTTPS video link without credentials or control characters.": {
+    "bs": "Koristite HTTPS videolink bez pristupnih podataka ili kontrolnih znakova.",
+    "de": "Verwende einen HTTPS-Videolink ohne Zugangsdaten oder Steuerzeichen."
+  },
+  "Only the assigned client can activate schedules or record completion for this plan.": {
+    "bs": "Samo klijent kojem je plan dodijeljen može aktivirati rasporede ili bilježiti završetak.",
+    "de": "Nur der zugewiesene Klient kann für diesen Plan Einnahmepläne aktivieren oder Abschlüsse erfassen."
+  },
+  "Activation copies this schedule. Later plan edits do not change activated schedules or past doses. The same start date reuses the original activation; choose a new date for another copy.": {
+    "bs": "Aktiviranjem se kopira ovaj raspored. Kasnije izmjene plana ne mijenjaju aktivirane rasporede ni ranije doze. Isti početni datum koristi prvobitnu aktivaciju; za novu kopiju odaberite drugi datum.",
+    "de": "Die Aktivierung kopiert diesen Einnahmeplan. Spätere Planänderungen ändern weder aktivierte Einnahmepläne noch frühere Einnahmen. Dasselbe Startdatum verwendet die ursprüngliche Aktivierung; wähle für eine weitere Kopie ein neues Datum."
+  },
+  "Recorded cardio": {
+    "bs": "Zabilježeni kardio",
+    "de": "Erfasstes Cardio-Training"
+  },
+  "Somewhat hard": {
+    "bs": "Donekle naporno",
+    "de": "Etwas anstrengend"
+  },
+  "Hard": {
+    "bs": "Naporno",
+    "de": "Anstrengend"
+  },
+  "Very hard": {
+    "bs": "Vrlo naporno",
+    "de": "Sehr anstrengend"
+  },
+  "Extremely hard": {
+    "bs": "Izuzetno naporno",
+    "de": "Äußerst anstrengend"
+  },
+  "This plan changed. Reload and review it before activating.": {
+    "bs": "Plan je izmijenjen. Ponovo ga učitajte i pregledajte prije aktiviranja.",
+    "de": "Dieser Plan wurde geändert. Lade ihn neu und prüfe ihn vor der Aktivierung."
+  },
+  "Reload and review plan": {
+    "bs": "Ponovo učitaj i pregledaj plan",
+    "de": "Plan neu laden und prüfen"
+  },
+  "This plan is no longer available.": {
+    "bs": "Ovaj plan više nije dostupan.",
+    "de": "Dieser Plan ist nicht mehr verfügbar."
   }
 }

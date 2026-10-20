@@ -10,6 +10,10 @@ for (const label of ["Reminders", "Motivation", "Memberships", "Community", "Mar
     missing.add(`Notification category: ${label}`);
 }
 const configMessages = {
+  "src/components/strata/session.tsx": ["rpeAnchors", "cardioEffortAnchors"],
+  "src/lib/session-state.ts": ["DOW"],
+  "src/routes/app.progress.tsx": ["DOW"],
+  "src/components/strata/extra-programs.tsx": ["contextLabels", "frequencyLabels"],
   "src/components/strata/feature-config.ts": ["featureNames", "featureHints"],
   "src/components/strata/directory.tsx": ["labels"],
   "src/lib/workspaces.ts": ["accountRoleLabels"],
@@ -34,7 +38,11 @@ function requireConfig(node, file, allStrings = false) {
   if (ts.isStringLiteral(node) && allStrings) requireMessage(node.text, file);
   else if (ts.isPropertyAssignment(node)) {
     const key = node.name.getText().replaceAll('"', "");
-    requireConfig(node.initializer, file, allStrings || key === "title" || key === "body");
+    requireConfig(
+      node.initializer,
+      file,
+      allStrings || key === "title" || key === "body" || key === "description",
+    );
   } else if (ts.isArrayLiteralExpression(node))
     node.elements.forEach((child) => requireConfig(child, file, allStrings));
   else if (ts.isObjectLiteralExpression(node))
@@ -54,6 +62,72 @@ for (const dir of ["src/routes", "src/components/strata", "src/components/ui", "
       ts.ScriptKind.TSX,
     );
     function visit(node) {
+      if (
+        pathname === "src/components/strata/client-overview.tsx" &&
+        ts.isJsxExpression(node) &&
+        node.expression &&
+        ts.isPropertyAccessExpression(node.expression) &&
+        node.expression.name.text === "weekday"
+      )
+        missing.add(`${pathname}: translate generated weekday before rendering`);
+      if (
+        pathname === "src/components/strata/cardio-fields.tsx" &&
+        ts.isPropertyAssignment(node) &&
+        node.name.getText(source) === "label"
+      )
+        requireExpression(node.initializer, pathname);
+      if (pathname === "src/lib/cardio.ts" && ts.isReturnStatement(node) && node.expression)
+        requireExpression(node.expression, pathname);
+      // Direct/conditional JSX string expressions bypass Message even when a dictionary key exists.
+      if (
+        [
+          "src/components/strata/client-overview.tsx",
+          "src/components/strata/progress-weight.tsx",
+          "src/routes/app.progress.tsx",
+        ].includes(pathname) &&
+        ts.isJsxExpression(node) &&
+        node.expression &&
+        !ts.isJsxAttribute(node.parent)
+      ) {
+        const inspectRendered = (expression) => {
+          if (ts.isStringLiteral(expression) && /[A-Za-z].*\s+[A-Za-z]/.test(expression.text))
+            missing.add(`${pathname}: untranslated rendered literal: ${expression.text}`);
+          else if (ts.isConditionalExpression(expression)) {
+            inspectRendered(expression.whenTrue);
+            inspectRendered(expression.whenFalse);
+          } else if (ts.isParenthesizedExpression(expression))
+            inspectRendered(expression.expression);
+          else if (
+            ts.isBinaryExpression(expression) &&
+            [
+              ts.SyntaxKind.AmpersandAmpersandToken,
+              ts.SyntaxKind.BarBarToken,
+              ts.SyntaxKind.QuestionQuestionToken,
+            ].includes(expression.operatorToken.kind)
+          )
+            inspectRendered(expression.right);
+        };
+        inspectRendered(node.expression);
+      }
+      if (
+        pathname === "src/lib/progress.ts" &&
+        ts.isFunctionDeclaration(node) &&
+        node.name?.text === "progressMilestones"
+      ) {
+        const visitReturns = (child) => {
+          if (ts.isReturnStatement(child) && child.expression)
+            requireConfig(child.expression, pathname, true);
+          else ts.forEachChild(child, visitReturns);
+        };
+        visitReturns(node);
+      }
+      if (
+        pathname === "src/components/strata/feature-config.ts" &&
+        ts.isVariableDeclaration(node) &&
+        node.initializer &&
+        node.name.getText(source) === "featureSections"
+      )
+        requireConfig(node.initializer, pathname);
       if (
         ts.isCallExpression(node) &&
         ["tr", "t"].includes(node.expression.getText(source)) &&
@@ -120,12 +194,13 @@ for (const dir of ["src/routes", "src/components/strata", "src/components/ui", "
     visit(source);
   }
 }
-function schemaMessages(schema) {
+function schemaMessages(schema, field = "") {
   const d = schema._def;
-  if (d.innerType) schemaMessages(d.innerType);
-  if (d.schema) schemaMessages(d.schema);
+  if (d.innerType) schemaMessages(d.innerType, field);
+  if (d.schema) schemaMessages(d.schema, field);
   if (d.typeName === "ZodObject")
     for (const [key, value] of Object.entries(d.shape())) {
+      if (key === "starter_id") continue;
       requireMessage(
         key
           .replace(/([a-z])([A-Z])/g, "$1 $2")
@@ -133,11 +208,23 @@ function schemaMessages(schema) {
           .replace(/\b\w/g, (c) => c.toUpperCase()),
         "schema field",
       );
-      schemaMessages(value);
+      schemaMessages(value, key);
     }
-  if (d.typeName === "ZodArray") schemaMessages(d.type);
+  if (d.typeName === "ZodEnum" && !["language", "currency", "mime"].includes(field))
+    for (const value of d.values)
+      requireMessage(
+        value.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+        "schema choice",
+      );
+  if (d.typeName === "ZodArray") schemaMessages(d.type, field);
 }
-Object.values(featureSchemas).forEach(schemaMessages);
+Object.values(featureSchemas).forEach((schema) => schemaMessages(schema));
+const exerciseRows = JSON.parse(
+  readFileSync(new URL("../src/data/exercises.json", import.meta.url), "utf8"),
+);
+for (const entry of exerciseRows)
+  for (const label of [entry.category, ...(entry.muscles ?? [])])
+    requireMessage(label, "exercise category/muscle");
 const guidance = JSON.parse(
   readFileSync(new URL("../src/data/exercise-guidance.json", import.meta.url), "utf8"),
 );

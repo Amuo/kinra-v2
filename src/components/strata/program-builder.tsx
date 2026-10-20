@@ -1,3 +1,4 @@
+import { CardioFields } from "./cardio-fields";
 import { errorText } from "@/lib/i18n-errors";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { lazy, Suspense, useRef, useState } from "react";
@@ -194,6 +195,43 @@ export function ProgramBuilder({
                 >
                   <Message source="Choose from exercise library" />
                 </Button>
+                <label className="mt-4 block text-label">
+                  <span className="mb-2 block">{tr("Tracking")}</span>
+                  <select
+                    className={inputClass + " w-full border border-input px-2"}
+                    value={exercise.tracking ?? "strength"}
+                    onChange={(event) => {
+                      const { tracking: _tracking, cardio: _cardio, ...base } = exercise;
+                      const next =
+                        event.target.value === "cardio"
+                          ? {
+                              ...base,
+                              tracking: "cardio" as const,
+                              cardio: {},
+                              reps: "",
+                              weight: null,
+                            }
+                          : base;
+                      updateDay(i, {
+                        exercises: day.exercises.map((item, index) => (index === j ? next : item)),
+                      });
+                    }}
+                  >
+                    <option value="strength">{tr("Strength · weight and reps")}</option>
+                    <option value="cardio">{tr("Cardio · time and distance")}</option>
+                  </select>
+                </label>
+                {exercise.tracking === "cardio" && (
+                  <fieldset className="mt-4 space-y-3">
+                    <legend className="mb-2 text-label font-semibold">
+                      {tr("Planned cardio targets")}
+                    </legend>
+                    <CardioFields
+                      value={exercise.cardio}
+                      onChange={(cardio) => updateExercise(i, j, { cardio })}
+                    />
+                  </fieldset>
+                )}
                 <div className="mt-4 grid grid-cols-2 gap-3">
                   <label>
                     <span className="mb-2 block text-label">
@@ -266,31 +304,37 @@ export function ProgramBuilder({
                       className={inputClass}
                     />
                   </label>
-                  <label>
-                    <span className="mb-2 block text-label">
-                      <Message source="Reps" />
-                    </span>
-                    <Input
-                      value={exercise.reps}
-                      placeholder="8–10"
-                      onChange={(e) => updateExercise(i, j, { reps: e.target.value })}
-                      className={inputClass}
-                    />
-                  </label>
-                  <label>
-                    <span className="mb-2 block text-label">
-                      <Message source="Weight · kg" />
-                    </span>
-                    <Input
-                      type="number"
-                      min={0}
-                      step="any"
-                      value={exercise.weight ?? ""}
-                      placeholder={tr("Previous")}
-                      onChange={(e) => updateExercise(i, j, { weight: numeric(e.target.value) })}
-                      className={inputClass}
-                    />
-                  </label>
+                  {exercise.tracking !== "cardio" && (
+                    <>
+                      <label>
+                        <span className="mb-2 block text-label">
+                          <Message source="Reps" />
+                        </span>
+                        <Input
+                          value={exercise.reps}
+                          placeholder="8–10"
+                          onChange={(e) => updateExercise(i, j, { reps: e.target.value })}
+                          className={inputClass}
+                        />
+                      </label>
+                      <label>
+                        <span className="mb-2 block text-label">
+                          <Message source="Weight · kg" />
+                        </span>
+                        <Input
+                          type="number"
+                          min={0}
+                          step="any"
+                          value={exercise.weight ?? ""}
+                          placeholder={tr("Previous")}
+                          onChange={(e) =>
+                            updateExercise(i, j, { weight: numeric(e.target.value) })
+                          }
+                          className={inputClass}
+                        />
+                      </label>
+                    </>
+                  )}
                   <label>
                     <span className="mb-2 block text-label">
                       <Message source="Rest · seconds" />

@@ -33,6 +33,7 @@ export function createLiveAttachments(ownerId: string): AttachmentApi {
         const path = `${ownerId}/${crypto.randomUUID()}.${inspected.extension}`;
         const result = await bucket("message-attachments").upload(path, file, {
           contentType: inspected.mime,
+          cacheControl: "0",
           upsert: false,
         });
         if (result.error) throw result.error;
@@ -55,7 +56,17 @@ export function createLiveAttachments(ownerId: string): AttachmentApi {
     },
     async download(attachment) {
       await auth();
-      const { data, error } = await bucket("message-attachments").download(attachment.storage_path);
+      const readable = await from("message_attachments")
+        .select("id")
+        .eq("id", attachment.id)
+        .maybeSingle();
+      if (readable.error) throw readable.error;
+      if (!readable.data) throw new Error("This attachment is no longer available.");
+      const { data, error } = await bucket("message-attachments").download(
+        attachment.storage_path,
+        { cacheNonce: crypto.randomUUID() },
+        { cache: "no-store" },
+      );
       if (error) throw error;
       return data;
     },

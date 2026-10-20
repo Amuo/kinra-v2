@@ -16,9 +16,15 @@ export function Directory({ kind }: { kind: "expert" | "facility" }) {
   const rows = useQ(["features", kind], (a) => a.features.list(kind));
   const reviews = useQ(["features", "review"], (a) => a.features.list("review"));
   const saved = useQ(["features", "saved"], (a) => a.features.list("saved"));
-  const bookmark = useAct((a, row: Listing) =>
-    a.features.save("saved", { target_type: row.kind, target_id: row.id }),
-  );
+  const bookmark = useAct((a, row: Listing) => {
+    const existing = saved.data?.find(
+      (item) => item.payload.target_type === row.kind && item.payload.target_id === row.id,
+    );
+    return existing
+      ? a.features.remove(existing.id)
+      : a.features.save("saved", { target_type: row.kind, target_id: row.id });
+  });
+  const [view, setView] = useState<"discover" | "saved" | "own">("discover");
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState<Record<string, string>>({});
   const [selected, setSelected] = useState<Listing | null>(null);
@@ -52,6 +58,14 @@ export function Directory({ kind }: { kind: "expert" | "facility" }) {
       ),
     ].sort();
   const matches = entries.filter((row) => {
+    if (view === "own" && row.owner_id !== api.ownerId) return false;
+    if (
+      view === "saved" &&
+      !saved.data?.some(
+        (item) => item.payload.target_type === row.kind && item.payload.target_id === row.id,
+      )
+    )
+      return false;
     if (
       !`${row.payload.name} ${row.payload.city}`
         .toLocaleLowerCase()
@@ -103,6 +117,19 @@ export function Directory({ kind }: { kind: "expert" | "facility" }) {
           {t("Manage my listings")}
         </Button>
       </div>
+      <div className="flex flex-wrap gap-2" role="group" aria-label={t("Listing view")}>
+        {(["discover", "saved", "own"] as const).map((value) => (
+          <Button
+            key={value}
+            wrap
+            variant={view === value ? "volt" : "secondary"}
+            aria-pressed={view === value}
+            onClick={() => setView(value)}
+          >
+            {t(value === "discover" ? "Discover" : value === "saved" ? "Saved" : "My listings")}
+          </Button>
+        ))}
+      </div>
       <label className="block">
         <span className="mb-2 block text-label">{t("Search name or city")}</span>
         <Input value={query} onChange={(e) => setQuery(e.target.value)} className="min-h-11" />
@@ -133,7 +160,7 @@ export function Directory({ kind }: { kind: "expert" | "facility" }) {
               onChange={(e) => select("rating", e.target.value)}
             >
               <option value="">{t("All")}</option>
-              {[3, 4, 5].map((n) => (
+              {[3, 4, 4.5, 5].map((n) => (
                 <option key={n} value={n}>
                   {number(n)} / 5
                 </option>
@@ -294,6 +321,17 @@ export function Directory({ kind }: { kind: "expert" | "facility" }) {
             )}
             {selected.kind === "facility" && (
               <>
+                {selected.payload.address && (
+                  <p className="text-label">{selected.payload.address}</p>
+                )}
+                {selected.payload.opening_hours && (
+                  <section>
+                    <h3 className="font-semibold">{t("Opening hours")}</h3>
+                    <p className="mt-1 whitespace-pre-wrap text-label">
+                      {selected.payload.opening_hours}
+                    </p>
+                  </section>
+                )}
                 <p className="whitespace-pre-wrap text-label">{selected.payload.rules}</p>
                 {[
                   ["Website", selected.payload.website],
@@ -329,13 +367,18 @@ export function Directory({ kind }: { kind: "expert" | "facility" }) {
             <Button
               wrap
               className="w-full"
-              disabled={
-                bookmark.isPending ||
-                saved.data?.some((row) => row.payload.target_id === selected.id)
-              }
+              disabled={bookmark.isPending || saved.isLoading}
               onClick={() => void bookmark.mutate(selected)}
             >
-              {t("Save listing")}
+              {t(
+                saved.data?.some(
+                  (row) =>
+                    row.payload.target_type === selected.kind &&
+                    row.payload.target_id === selected.id,
+                )
+                  ? "Remove bookmark"
+                  : "Save listing",
+              )}
             </Button>
             {selected.owner_id === api.ownerId && (
               <Button

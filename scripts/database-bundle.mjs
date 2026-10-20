@@ -3,6 +3,14 @@ import { fileURLToPath } from "node:url";
 
 const root = new URL("../", import.meta.url);
 const names = [
+  "kinra_valid_tracking",
+  "kinra_valid_cardio_metrics",
+  "kinra_valid_cardio_sets",
+  "kinra_valid_cardio_program",
+  "kinra_guard_program_collection",
+  "kinra_activate_supplement_plan",
+  "supplement_plan_activations",
+  "kinra_template_origins",
   "kinra_safe_external_url",
   "kinra_guard_expert_resource",
   "kinra_expert_published",
@@ -122,7 +130,7 @@ writeFileSync(
   new URL("supabase/migrations/202610140001_kinra_v2.sql", root),
   output.replace(
     "schema version 0003_security_and_integrity",
-    "schema version 0022_notification_test_throttle",
+    "schema version 0028_supplement_revision_validation",
   ),
 );
 const upgradeBody = body.slice(body.indexOf("-- Source: 0004_feature_schemas.sql"));

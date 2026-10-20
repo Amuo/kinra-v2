@@ -26,8 +26,14 @@ import {
   exportDemoOrganizations,
 } from "./organization-api";
 import { clearDemoResources, demoResourceMatches } from "./resource-api";
+import { templateOrigins, demoTemplateSource } from "./template-origins";
 
 export interface FeatureApi {
+  activateSupplementPlan(
+    planId: string,
+    startDate: string,
+    reviewedRevision: string,
+  ): Promise<{ ids: string[]; alreadyActivated: boolean }>;
   eraseData(confirmation: string): Promise<void>;
   list<K extends FeatureKind>(kind: K): Promise<FeatureRecord<K>[]>;
   save<K extends FeatureKind>(
@@ -60,6 +66,7 @@ const singleton = new Set<FeatureKind>(["preferences", "notification_preferences
 function eventKey(kind: FeatureKind, p: Record<string, unknown>): string | null {
   if (singleton.has(kind)) return kind;
   const fields: Partial<Record<FeatureKind, string[]>> = {
+    video_event: ["plan_id", "video_id", "date"],
     meal_event: ["plan_id", "meal_index", "date"],
     dose: ["supplement_id", "date", "time"],
     habit_event: ["habit_id", "date"],
@@ -89,6 +96,18 @@ export function createLiveFeatures(ownerId: string): FeatureApi {
       throw new Error("Your account changed. Reopen this screen before saving.");
   };
   return {
+    async activateSupplementPlan(planId, startDate, reviewedRevision) {
+      await auth();
+      const result = must(
+        await featureRpc("kinra_activate_supplement_plan", {
+          plan_id: planId,
+          start_on: startDate,
+          expected_owner: ownerId,
+          expected_revision: reviewedRevision,
+        }),
+      );
+      return result as unknown as { ids: string[]; alreadyActivated: boolean };
+    },
     async eraseData(confirmation) {
       await auth();
       if (confirmation !== "DELETE KINRA DATA")
@@ -214,7 +233,7 @@ export function createLiveFeatures(ownerId: string): FeatureApi {
           };
         }) as FeatureRecord<typeof kind>[];
       }
-      return allPages(async (offset, size) =>
+      const records = (await allPages(async (offset, size) =>
         must(
           await from("feature_records")
             .select("*")
@@ -223,7 +242,17 @@ export function createLiveFeatures(ownerId: string): FeatureApi {
             .order("id")
             .range(offset, offset + size - 1),
         ),
-      ) as unknown as Promise<FeatureRecord<typeof kind>[]>;
+      )) as unknown as FeatureRecord<typeof kind>[];
+      if (kind !== "nutrition_plan") return records;
+      const origins = await templateOrigins(ownerId);
+      return records.map((record) => {
+        const origin = origins.find(
+          (item) => item.kind === "nutrition" && item.target_id === record.id,
+        );
+        return origin
+          ? { ...record, template_source: { id: origin.id, version: origin.version } }
+          : record;
+      });
     },
     async save(kind, input, options = {}) {
       await auth();
@@ -380,6 +409,16 @@ export function createLiveFeatures(ownerId: string): FeatureApi {
       logs["template_adoptions"] = must(
         await from("template_adoptions").select("*").eq("owner_id", ownerId),
       );
+      logs["supplement_plan_activations"] = await allPages(async (offset, size) =>
+        must(
+          await from("supplement_plan_activations")
+            .select("*")
+            .eq("owner_id", ownerId)
+            .order("plan_id")
+            .order("start_on")
+            .range(offset, offset + size - 1),
+        ),
+      );
       logs["account_workspaces"] = {
         roles: must(await from("account_roles").select("*").eq("owner_id", ownerId)),
         context: must(
@@ -418,6 +457,7 @@ export function createLiveFeatures(ownerId: string): FeatureApi {
 }
 
 const demoRecords: FeatureRecord[] = [];
+const demoActivations = new Map<string, string[]>();
 // Demo storage is process-local and keyed by owner. It never writes live data.
 export function createDemoFeatures(
   ownerId: string,
@@ -522,11 +562,49 @@ export function createDemoFeatures(
       clearDemoResources(ownerId);
       clearDemoCommunity(ownerId);
       clearDemoOrganizations(ownerId);
+      for (const key of demoActivations.keys())
+        if (key.startsWith(ownerId + "|")) demoActivations.delete(key);
       onErase();
     },
+    async activateSupplementPlan(planId, startDate, reviewedRevision) {
+      const plan = demoRecords.find(
+        (r) => r.id === planId && r.kind === "supplement_plan" && visible(r),
+      );
+      if (
+        !plan ||
+        blocked(plan.owner_id) ||
+        !((plan.owner_id === ownerId && !plan.client_id) || plan.client_id === ownerId)
+      )
+        throw new Error("Supplement program unavailable.");
+      if (plan.updated_at !== reviewedRevision)
+        throw new Error("This plan changed. Reload and review it before activating.");
+      const key = `${ownerId}|${planId}|${startDate}`;
+      const previous = demoActivations.get(key);
+      if (previous) return { ids: [...previous], alreadyActivated: true };
+      const p = plan.payload as FeaturePayloads["supplement_plan"];
+      const end = new Date(startDate + "T00:00:00Z");
+      end.setUTCDate(end.getUTCDate() + p.weeks * 7 - 1);
+      const payloads = p.supplements.map(({ id: _id, ...item }) =>
+        parseFeature("supplement", {
+          ...item,
+          start_date: startDate,
+          end_date: end.toISOString().slice(0, 10),
+          protocol: p.title,
+        }),
+      );
+      const ids: string[] = [];
+      for (let i = 0; i < payloads.length; i++)
+        ids.push(
+          await this.save("supplement", payloads[i]!, {
+            id: await stableId(ownerId, `${key}|${p.supplements[i]!.id}`),
+          }),
+        );
+      demoActivations.set(key, ids);
+      return { ids: [...ids], alreadyActivated: false };
+    },
     async list(kind) {
-      return structuredClone(
-        demoRecords.filter((r) => r.kind === kind && visible(r)),
+      return structuredClone(demoRecords.filter((r) => r.kind === kind && visible(r))).map(
+        (record) => ({ ...record, template_source: demoTemplateSource(record.id) }),
       ) as FeatureRecord<typeof kind>[];
     },
     async save(kind, input, options = {}) {
@@ -551,6 +629,36 @@ export function createDemoFeatures(
       )
         throw new Error("This event is already recorded.");
       const p = payload as Record<string, unknown>;
+      if (kind === "video_event") {
+        const event = payload as FeaturePayloads["video_event"];
+        const old = current?.payload as FeaturePayloads["video_event"] | undefined;
+        if (
+          old &&
+          (old.plan_id !== event.plan_id ||
+            old.video_id !== event.video_id ||
+            old.date !== event.date)
+        )
+          throw new Error("Event identity is immutable.");
+        const plan = demoRecords.find((r) => r.id === event.plan_id && r.kind === "video_plan");
+        const video = (plan?.payload as FeaturePayloads["video_plan"] | undefined)?.videos.find(
+          (v) => v.id === event.video_id,
+        );
+        if (
+          !old &&
+          (!plan ||
+            !video ||
+            blocked(plan.owner_id) ||
+            !(
+              (plan.owner_id === ownerId && !plan.client_id) ||
+              (plan.client_id === ownerId && isConnected(plan.owner_id, ownerId))
+            ))
+        )
+          throw new Error("Video program unavailable.");
+        payload = {
+          ...event,
+          title_snapshot: old?.title_snapshot ?? video!.title,
+        } as FeaturePayloads[typeof kind];
+      }
       if (kind === "expert_resource") {
         const resource = payload as FeaturePayloads["expert_resource"];
         const parent = demoRecords.find(
@@ -783,6 +891,13 @@ export function createDemoFeatures(
         demo: true,
         owner_id: ownerId,
         features: structuredClone(demoRecords.filter((r) => r.owner_id === ownerId)),
+        supplement_plan_activations: [...demoActivations]
+          .filter(([key]) => key.startsWith(ownerId + "|"))
+          .map(([key, ids]) => ({
+            plan_id: key.split("|")[1],
+            start_on: key.split("|")[2],
+            supplement_ids: [...ids],
+          })),
         kinds: featureKinds,
         organization_workbench: exportDemoOrganizations(ownerId),
         community_workbench: exportDemoCommunity(ownerId),

@@ -4,7 +4,269 @@ import { readFileSync, readdirSync } from "node:fs";
 import { beforeAll, afterAll, describe, expect, it } from "vitest";
 import type { FeatureKind, FeaturePayloads } from "../lib/feature-types";
 
+it("exposes template display provenance only for owned or actively assigned copies", async () => {
+  const owner = await freshAccount("trainer"),
+    viewer = await freshAccount("client"),
+    other = await freshAccount("solo");
+  await db.query("insert into trainer_clients(trainer_id,client_id) values($1,$2)", [
+    owner,
+    viewer,
+  ]);
+  const adopt = async (key: string) =>
+    (
+      await asUser(owner, () =>
+        db.query<{ result: { id: string } }>("select kinra_adopt_template($1,'en',$2) result", [
+          key,
+          owner,
+        ]),
+      )
+    ).rows[0]!.result.id;
+  const training = await adopt("kinra-gym-foundations"),
+    nutrition = await adopt("kinra-everyday-meals");
+  const origins = async (actor: string) =>
+    (
+      await asUser(actor, () =>
+        db.query<{ result: { target_id: string }[] }>("select kinra_template_origins($1) result", [
+          actor,
+        ]),
+      )
+    ).rows[0]!.result;
+  expect((await origins(owner)).map((x) => x.target_id)).toEqual(
+    expect.arrayContaining([training, nutrition]),
+  );
+  expect(await origins(viewer)).toEqual([]);
+  expect(await origins(other)).toEqual([]);
+  await asUser(owner, () =>
+    db.query(
+      "insert into program_assignments(program_id,trainer_id,client_id,start_date) values($1,$2,$3,current_date)",
+      [training, owner, viewer],
+    ),
+  );
+  await asUser(owner, () =>
+    db.query("update feature_records set client_id=$1 where id=$2", [viewer, nutrition]),
+  );
+  expect((await origins(viewer)).map((x) => x.target_id)).toEqual(
+    expect.arrayContaining([training, nutrition]),
+  );
+  await expect(
+    asUser(other, () => db.query("select kinra_template_origins($1)", [owner])),
+  ).rejects.toMatchObject({ code: "42501" });
+  await expect(
+    asUser(other, () => db.query("select kinra_template_origins($1)", [other]), "anon"),
+  ).rejects.toMatchObject({ code: "42501" });
+  await asUser(viewer, () =>
+    db.query("delete from trainer_clients where trainer_id=$1 and client_id=$2", [owner, viewer]),
+  );
+  expect(await origins(viewer)).toEqual([]);
+});
+
 const db = new PGlite();
+it("validates cardio actuals and targets on direct writes without changing strength records", async () => {
+  const owner = await freshAccount("solo");
+  const actual = {
+    exercise: "Bike",
+    reps: 0,
+    weight: 0,
+    tracking: "cardio",
+    cardio: { duration_seconds: 600, distance_m: 3000, speed_kmh: 0, incline_percent: 0 },
+  };
+  await asUser(owner, () =>
+    db.query("insert into workouts(user_id,title,sets) values($1,'Bike',$2)", [
+      owner,
+      JSON.stringify([actual]),
+    ]),
+  );
+  expect(
+    (
+      await asUser(owner, () =>
+        db.query<{ sets: unknown }>("select sets from workouts where user_id=$1", [owner]),
+      )
+    ).rows[0]!.sets,
+  ).toEqual([actual]);
+  for (const changed of [
+    { ...actual, cardio: {} },
+    { ...actual, weight: 10 },
+    { ...actual, tracking: "strength" },
+    { ...actual, cardio: { duration_seconds: 1, speed_kmh: 201 } },
+    { ...actual, cardio: { duration_seconds: 1, calories: 100 } },
+  ])
+    await expect(
+      asUser(owner, () =>
+        db.query("insert into workouts(user_id,title,sets) values($1,'Invalid',$2)", [
+          owner,
+          JSON.stringify([changed]),
+        ]),
+      ),
+    ).rejects.toMatchObject({ code: "23514" });
+  const days = [
+    {
+      title: "Bike",
+      exercises: [
+        {
+          name: "Bike",
+          sets: 1,
+          reps: "cardio",
+          tracking: "cardio",
+          cardio: { duration_seconds: 600 },
+        },
+      ],
+    },
+  ];
+  await asUser(owner, () =>
+    db.query("insert into programs(trainer_id,name,days) values($1,'Cardio',$2)", [
+      owner,
+      JSON.stringify(days),
+    ]),
+  );
+  days[0]!.exercises[0]!.cardio.duration_seconds = 0;
+  await expect(
+    asUser(owner, () =>
+      db.query("insert into programs(trainer_id,name,days) values($1,'Invalid',$2)", [
+        owner,
+        JSON.stringify(days),
+      ]),
+    ),
+  ).rejects.toMatchObject({ code: "23514" });
+});
+
+it("activates private or assigned supplement programs atomically and records immutable video event snapshots", async () => {
+  const coach = await freshAccount("trainer"),
+    person = await freshAccount("client"),
+    outsider = await freshAccount("solo");
+  await db.query("insert into trainer_clients(trainer_id,client_id) values($1,$2)", [
+    coach,
+    person,
+  ]);
+  const supplement = {
+    title: "Existing schedule",
+    weeks: 2,
+    context: "general",
+    supplements: [
+      {
+        id: crypto.randomUUID(),
+        name: "Previously chosen product",
+        dose: 1,
+        unit: "tabs",
+        times: ["08:00", "20:00"],
+        frequency: "daily",
+      },
+    ],
+  };
+  const videoId = crypto.randomUUID();
+  const videos = {
+    title: "My videos",
+    weeks: 1,
+    context: "home",
+    videos: [
+      { id: videoId, title: "Original video", url: "https://www.nhs.uk/live-well/exercise/" },
+    ],
+  };
+  const save = async (kind: string, payload: unknown) =>
+    (
+      await asUser(coach, () =>
+        db.query<{ id: string }>(
+          "insert into feature_records(owner_id,client_id,kind,payload) values($1,$2,$3,$4) returning id",
+          [coach, person, kind, JSON.stringify(payload)],
+        ),
+      )
+    ).rows[0]!.id;
+  const plan = await save("supplement_plan", supplement),
+    videoPlan = await save("video_plan", videos);
+  const revision = (
+    await db.query<{ updated_at: string }>("select updated_at from feature_records where id=$1", [
+      plan,
+    ])
+  ).rows[0]!.updated_at;
+  const activate = (who: string, expected = who, reviewed = revision) =>
+    asUser(who, () =>
+      db.query<{ r: { ids: string[]; alreadyActivated: boolean } }>(
+        "select kinra_activate_supplement_plan($1,'2026-10-20',$2,$3) r",
+        [plan, expected, reviewed],
+      ),
+    );
+  await expect(activate(person, person, "2000-01-01T00:00:00Z")).rejects.toMatchObject({
+    code: "22023",
+  });
+  const first = (await activate(person)).rows[0]!.r,
+    second = (await activate(person)).rows[0]!.r;
+  expect(first.ids).toHaveLength(1);
+  expect(first.alreadyActivated).toBe(false);
+  expect(second).toEqual({ ...first, alreadyActivated: true });
+  const schedules = await asUser(person, () =>
+    db.query<{ payload: { start_date: string; end_date: string; times: string[] } }>(
+      "select payload from feature_records where owner_id=$1 and kind='supplement'",
+      [person],
+    ),
+  );
+  expect(schedules.rows).toHaveLength(1);
+  expect(schedules.rows[0]!.payload).toMatchObject({
+    start_date: "2026-10-20",
+    end_date: "2026-11-02",
+    times: ["08:00", "20:00"],
+  });
+  await expect(activate(outsider)).rejects.toMatchObject({ code: "42501" });
+  await expect(activate(outsider, person)).rejects.toMatchObject({ code: "42501" });
+  expect(
+    (await asUser(outsider, () => db.query("select * from supplement_plan_activations"))).rows,
+  ).toHaveLength(0);
+  const event = {
+    plan_id: videoPlan,
+    video_id: videoId,
+    date: "2026-10-20",
+    status: "completed",
+    title_snapshot: "forged",
+  };
+  const eventRow = (
+    await asUser(person, () =>
+      db.query<{ id: string; payload: typeof event }>(
+        "insert into feature_records(owner_id,kind,payload) values($1,'video_event',$2) returning id,payload",
+        [person, JSON.stringify(event)],
+      ),
+    )
+  ).rows[0]!;
+  expect(eventRow.payload.title_snapshot).toBe("Original video");
+  await expect(
+    asUser(person, () =>
+      db.query("insert into feature_records(owner_id,kind,payload) values($1,'video_event',$2)", [
+        person,
+        JSON.stringify(event),
+      ]),
+    ),
+  ).rejects.toMatchObject({ code: "23505" });
+  await expect(
+    asUser(outsider, () =>
+      db.query("insert into feature_records(owner_id,kind,payload) values($1,'video_event',$2)", [
+        outsider,
+        JSON.stringify(event),
+      ]),
+    ),
+  ).rejects.toMatchObject({ code: "42501" });
+  await expect(
+    save("video_plan", {
+      ...videos,
+      videos: [{ ...videos.videos[0], url: "https://name:secret@example.com/video" }],
+    }),
+  ).rejects.toMatchObject({ code: "23514" });
+  await asUser(person, () =>
+    db.query("delete from trainer_clients where trainer_id=$1 and client_id=$2", [coach, person]),
+  );
+  await expect(activate(person)).rejects.toMatchObject({ code: "42501" });
+  await asUser(person, () =>
+    db.query(
+      "update feature_records set payload=jsonb_set(payload,'{status}','\"skipped\"') where id=$1",
+      [eventRow.id],
+    ),
+  );
+  expect(
+    (
+      await asUser(person, () =>
+        db.query<{ payload: typeof event }>("select payload from feature_records where id=$1", [
+          eventRow.id,
+        ]),
+      )
+    ).rows[0]!.payload.title_snapshot,
+  ).toBe("Original video");
+});
 const [coachA, coachB, client, outsider] = [1, 2, 3, 4].map(
   (n) => `00000000-0000-4000-8000-${String(n).padStart(12, "0")}`,
 ) as [string, string, string, string];

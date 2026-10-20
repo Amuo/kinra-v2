@@ -1,3 +1,5 @@
+import { CardioReadout } from "./cardio-fields";
+import { localizedProgram } from "@/lib/template-display";
 import { programExerciseName } from "@/lib/exercise-catalogue";
 import { t as tr } from "@/lib/i18n";
 import { useLanguage, Message } from "@/lib/i18n";
@@ -17,12 +19,13 @@ export function ProgramDetails({
   startLabel?: string | undefined;
 }) {
   useLanguage();
+  const display = localizedProgram(program);
   return (
     <>
-      {program.description && (
-        <p className="mt-3 break-words text-label text-muted-foreground">{program.description}</p>
+      {display.description && (
+        <p className="mt-3 break-words text-label text-muted-foreground">{display.description}</p>
       )}
-      {program.days.map((day, i) => (
+      {display.days.map((day, i) => (
         <section key={i} className="mt-5 border-t border-border pt-4">
           <h3 className="text-label font-bold">{day.title}</h3>
           <div className="mt-3 space-y-3">
@@ -33,9 +36,11 @@ export function ProgramDetails({
                 </div>
                 <div className="num mt-1 flex flex-wrap gap-x-3 gap-y-1 text-caption text-muted-foreground">
                   <span>
-                    {exercise.sets} × {exercise.reps}
+                    {exercise.tracking === "cardio"
+                      ? tr("{count} cardio intervals", { count: exercise.sets })
+                      : `${exercise.sets} × ${exercise.reps}`}
                   </span>
-                  {exercise.weight != null && (
+                  {exercise.tracking !== "cardio" && exercise.weight != null && (
                     <span className="text-pulse">
                       <Message source="{p0}kg" values={{ p0: exercise.weight }} />
                     </span>
@@ -56,6 +61,11 @@ export function ProgramDetails({
                     </span>
                   )}
                 </div>
+                {exercise.tracking === "cardio" && (
+                  <div className="mt-2">
+                    <CardioReadout value={exercise.cardio} />
+                  </div>
+                )}
                 {exercise.notes && (
                   <p className="mt-1 break-words text-caption text-muted-foreground">
                     {exercise.notes}
@@ -69,7 +79,7 @@ export function ProgramDetails({
               wrap
               variant="volt"
               className="mt-4 min-h-12 w-full"
-              onClick={() => onStart(day)}
+              onClick={() => onStart(program.days[i]!)}
             >
               <Play className="size-4" aria-hidden="true" />
               {startLabel ?? tr("Start this session")}
@@ -95,6 +105,7 @@ export function ProgramSummary({
   startLabel?: string;
 }) {
   useLanguage();
+  const display = localizedProgram(program);
   const [open, setOpen] = useState(false);
   const id = useId();
   return (
@@ -102,7 +113,7 @@ export function ProgramSummary({
       {eyebrow && <div className="eyebrow mb-2">{eyebrow}</div>}
       <Button
         variant="ghost"
-        aria-label={tr(open ? "Collapse {name}" : "Open {name}", { name: program.name })}
+        aria-label={tr(open ? "Collapse {name}" : "Open {name}", { name: display.name })}
         aria-expanded={open}
         aria-controls={id}
         onClick={() => setOpen(!open)}
@@ -110,7 +121,7 @@ export function ProgramSummary({
       >
         <span className="min-w-0">
           <span className="block break-words font-display text-title font-bold">
-            {program.name}
+            {display.name}
           </span>
           <span className="num mt-2 block text-caption text-muted-foreground">
             <Message

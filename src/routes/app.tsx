@@ -1,3 +1,5 @@
+import { sessionPresentation } from "@/components/strata/session-presentation";
+import type { TemplateSource } from "@/lib/template-origins";
 import { errorText } from "@/lib/i18n-errors";
 import { Onboarding } from "@/components/strata/onboarding";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
@@ -146,9 +148,10 @@ function Shell({ mode }: { mode: Mode }) {
       setKind(k);
       setHub(false);
     },
-    startSession: (t?: ProgramDay) => {
+    startSession: (t?: ProgramDay, displaySource?: TemplateSource) => {
       setHub(false);
       const next = sessionFromTemplate(t, workouts);
+      if (displaySource) next.displaySource = { ...displaySource };
       if (session) return setConflict(next);
       setSession(next);
       setMinimized(false);
@@ -209,7 +212,10 @@ function Shell({ mode }: { mode: Mode }) {
           title={tr("A session is already open")}
           sub={
             session
-              ? tr("{p0} · {p1} sets logged", { p0: session.title, p1: doneCount(session) })
+              ? tr("{p0} · {p1} sets logged", {
+                  p0: sessionPresentation(session).title,
+                  p1: doneCount(session),
+                })
               : ""
           }
         >
@@ -250,7 +256,7 @@ function Shell({ mode }: { mode: Mode }) {
           sub={
             session
               ? tr("{p0} from {p1} · {p2} set{p3}", {
-                  p0: session.title,
+                  p0: sessionPresentation(session).title,
                   p1: format(lastActivity(session), "EEEE HH:mm"),
                   p2: staleSets,
                   p3: staleSets === 1 ? "" : "s",

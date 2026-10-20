@@ -16,6 +16,8 @@ export const bucket = (
   name: "profile-avatars" | "progress-photos" | "message-attachments" | "expert-materials",
 ) => supabase.storage.from(isolated ? `kinra-v2-${name}` : name);
 type FeatureRpcName =
+  | "kinra_activate_supplement_plan"
+  | "kinra_template_origins"
   | "kinra_community_admin"
   | "kinra_community_redeem"
   | "kinra_org_admin"

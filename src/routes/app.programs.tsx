@@ -1,3 +1,4 @@
+import { localizedProgram } from "@/lib/template-display";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useState } from "react";
@@ -44,7 +45,13 @@ function Programs() {
   const [references, setReferences] = useState(false);
   const [query, setQuery] = useState("");
   const programs = useQ(["programs"], (api) => api.programs());
-  const filtered = searchPrograms(programs.data ?? [], query);
+  const matchedIds = new Set(
+    searchPrograms(
+      (programs.data ?? []).map((program) => localizedProgram(program)),
+      query,
+    ).map((program) => program.id),
+  );
+  const filtered = (programs.data ?? []).filter((program) => matchedIds.has(program.id));
   return (
     <div className="min-w-0">
       <PageHeader
@@ -126,14 +133,16 @@ function Programs() {
                 key={program.id}
                 program={program}
                 eyebrow={tr(program.trainer_id === me?.id ? "Own plan" : "Assigned plan")}
-                onStart={(day) => (session ? openSession() : startSession(day))}
+                onStart={(day) =>
+                  session ? openSession() : startSession(day, program.template_source)
+                }
                 startLabel={tr(session ? "Resume current session" : "Start this session")}
                 actions={
                   me && program.trainer_id === me.id ? (
                     <Button
                       variant="glass"
                       className="h-11 text-label"
-                      aria-label={tr("Edit {p0}", { p0: program.name })}
+                      aria-label={tr("Edit {p0}", { p0: localizedProgram(program).name })}
                       onClick={() => setEditing(program)}
                     >
                       <Pencil />

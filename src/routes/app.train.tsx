@@ -1,3 +1,5 @@
+import { CardioReadout } from "@/components/strata/cardio-fields";
+import { localizedProgram } from "@/lib/template-display";
 import { programExerciseName } from "@/lib/exercise-catalogue";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute, Link } from "@tanstack/react-router";
@@ -67,6 +69,7 @@ function Train() {
   const assignments = useQ(["assignments", me?.id], (api) => api.assignments(me?.id ?? ""));
   const programs = useQ(["programs"], (api) => api.programs());
   const program = programs.data?.find((p) => p.id === assignments.data?.[0]?.program_id);
+  const displayProgram = program ? localizedProgram(program) : null;
   const [weeksShown, setWeeksShown] = useState(3);
   const [library, setLibrary] = useState(false);
   const [pr, setPr] = useState<string | null>(null);
@@ -171,7 +174,7 @@ function Train() {
                   <div className="eyebrow mb-1">
                     <Message source="Your program" />
                   </div>
-                  <h2 className="font-display text-title font-bold">{program.name}</h2>
+                  <h2 className="font-display text-title font-bold">{displayProgram!.name}</h2>
                 </div>
                 <span className="num shrink-0 text-caption text-muted-foreground">
                   <Message
@@ -189,7 +192,7 @@ function Train() {
                 }}
                 className="relative -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-5 px-5 pb-2 no-scrollbar"
               >
-                {program.days.map((day, i) => (
+                {displayProgram!.days.map((day, i) => (
                   <article
                     key={`${program.id}-${i}`}
                     className={cn(
@@ -234,10 +237,16 @@ function Train() {
                           <span className="num text-caption text-muted-foreground">
                             {String(n + 1).padStart(2, "0")}
                           </span>
-                          <span className="min-w-0 flex-1 font-semibold">{ex.name}</span>
-                          <span className="num shrink-0 text-caption text-muted-foreground">
-                            {ex.sets} × {ex.reps}
+                          <span className="min-w-0 flex-1 font-semibold">
+                            {programExerciseName(ex)}
                           </span>
+                          <div className="num min-w-0 text-caption text-muted-foreground">
+                            {ex.tracking === "cardio" ? (
+                              <CardioReadout value={ex.cardio} />
+                            ) : (
+                              `${ex.sets} × ${ex.reps}`
+                            )}
+                          </div>
                         </li>
                       ))}
                     </ul>
@@ -245,7 +254,7 @@ function Train() {
                       variant={i === nextIdx ? "volt" : "glass"}
                       size="xl"
                       className="mt-4 w-full text-label"
-                      onClick={() => startSession(day)}
+                      onClick={() => startSession(program.days[i]!, program.template_source)}
                     >
                       <Play />
                       {done[i] ? tr("Train again") : tr("Start session")}

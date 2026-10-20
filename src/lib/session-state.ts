@@ -1,8 +1,10 @@
 /** Pure lifecycle helpers for the live workout session (no React, no storage). */
 import type { Program, Workout } from "./types";
+import { hasCardioActual, type CardioMetrics } from "./cardio";
 
 export type SetType = "warmup" | "working" | "drop" | "failure";
 export type LSet = {
+  cardio?: CardioMetrics;
   kg: number;
   reps: number;
   done: boolean;
@@ -12,6 +14,7 @@ export type LSet = {
   at?: number;
 };
 export type LEx = {
+  tracking?: "cardio" | undefined;
   name: string;
   group?: string | undefined;
   sets: LSet[];
@@ -115,7 +118,14 @@ export function markAllDone<T extends Lifecycle>(s: T, now: number): T {
     exercises: s.exercises.map((e) =>
       e.skipped
         ? e
-        : { ...e, sets: e.sets.map((x) => (x.done ? x : { ...x, done: true, at: now })) },
+        : {
+            ...e,
+            sets: e.sets.map((x) =>
+              x.done || (e.tracking === "cardio" && !hasCardioActual(x.cardio))
+                ? x
+                : { ...x, done: true, at: now },
+            ),
+          },
     ),
   };
 }
@@ -181,7 +191,17 @@ export function shouldRestAfterGroupedSet(
 export function setsForSave(s: Lifecycle) {
   // Saved workouts have no set-type column, so warm-ups stay out of history to keep volume and records clean.
   return live(s).flatMap((e) =>
-    e.sets.filter(countsForStats).map((x) => ({ exercise: e.name, reps: x.reps, weight: x.kg })),
+    e.sets.filter(countsForStats).map((x) =>
+      e.tracking === "cardio"
+        ? {
+            exercise: e.name,
+            reps: 0,
+            weight: 0,
+            tracking: "cardio" as const,
+            cardio: x.cardio ?? {},
+          }
+        : { exercise: e.name, reps: x.reps, weight: x.kg },
+    ),
   );
 }
 
@@ -189,8 +209,14 @@ export function setsForSave(s: Lifecycle) {
 export function sessionFromWorkout(w: Workout) {
   const by = new Map<string, LSet[]>();
   for (const s of w.sets) {
-    if (!by.has(s.exercise)) by.set(s.exercise, []);
-    by.get(s.exercise)!.push({ kg: s.weight, reps: s.reps, done: true });
+    const key = `${s.exercise}\u0000${s.tracking ?? "strength"}`;
+    if (!by.has(key)) by.set(key, []);
+    by.get(key)!.push({
+      kg: s.weight,
+      reps: s.reps,
+      done: true,
+      ...(s.cardio ? { cardio: structuredClone(s.cardio) } : {}),
+    });
   }
   const start = new Date(w.performed_at).getTime();
   return {
@@ -200,7 +226,11 @@ export function sessionFromWorkout(w: Workout) {
     pausedAt: start + (w.duration_min ?? 1) * 60000,
     totalPausedMs: 0,
     pauseIntervals: [],
-    exercises: [...by].map(([name, sets]) => ({ name, sets })),
+    exercises: [...by].map(([key, sets]) => ({
+      name: key.split("\u0000")[0]!,
+      sets,
+      ...(key.endsWith("\u0000cardio") ? { tracking: "cardio" as const } : {}),
+    })),
     editingId: w.id,
     performedAt: w.performed_at,
     rpe: w.rpe ?? 7,

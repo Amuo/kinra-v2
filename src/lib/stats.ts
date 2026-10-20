@@ -95,7 +95,8 @@ export const volumeText = (kg: number) => {
   const v = fmtVolume(kg);
   return `${v.value} ${v.unit}`;
 };
-export const isCardio = (w: Workout) => volume(w) === 0;
+export const isCardio = (w: Workout) =>
+  w.sets.length > 0 && w.sets.every((s) => s.tracking === "cardio");
 
 export function readinessParts(sleep: SleepLog[], workouts: Workout[], moods: number[]) {
   const last = recentSleep(sleep);

@@ -407,7 +407,7 @@ function Progress() {
                 >
                   {badge.earned ? <Trophy className="size-5" /> : <Lock className="size-5" />}
                 </span>
-                <h3 className="text-label font-bold">{badge.name}</h3>
+                <h3 className="text-label font-bold">{tr(badge.name)}</h3>
                 <p className="mt-2 text-caption text-muted-foreground">{tr(badge.detail)}</p>
                 <span className="mt-2 block text-caption text-muted-foreground">
                   {badge.earned ? tr("Earned") : tr("Ahead of you")}

@@ -26,6 +26,15 @@ it("installs the production namespace alongside legacy data and enforces account
     `);
     await db.query("insert into auth.users(id,email) values($1,'alice@example.invalid')", [alice]);
     await db.exec(readFileSync("supabase/migrations/202610140001_kinra_v2.sql", "utf8"));
+    await db.exec(
+      readFileSync("supabase/migrations/20261020205339_cardio_program_collections.sql", "utf8"),
+    );
+    for (const file of [
+      "20261020210217_legacy_tracking_compat.sql",
+      "20261020210811_supplement_plan_review_guard.sql",
+      "20261020211042_supplement_revision_validation.sql",
+    ])
+      await db.exec(readFileSync(`supabase/migrations/${file}`, "utf8"));
     await db.query("insert into auth.users(id,email) values($1,'bob@example.invalid')", [bob]);
     expect((await db.query("select * from profiles")).rows).toEqual([
       { id: "legacy", legacy: "preserve me" },

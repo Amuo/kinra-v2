@@ -1,3 +1,7 @@
+import { CardioReadout } from "./cardio-fields";
+import { sessionPresentation } from "./session-presentation";
+import { localizedProgram } from "@/lib/template-display";
+import { programExerciseName } from "@/lib/exercise-catalogue";
 import { displayNumber, number, t as tr, useLanguage, Message } from "@/lib/i18n";
 import { clock, useNow } from "./session";
 import {
@@ -279,7 +283,9 @@ function SessionInProgress() {
     <Panel index={2} className="mt-3 p-5">
       <div className="eyebrow">{paused ? tr("Session paused") : tr("Session in progress")}</div>
       <div className="mt-1 flex items-baseline justify-between gap-2">
-        <div className="truncate font-display text-title font-bold">{session.title}</div>
+        <div className="truncate font-display text-title font-bold">
+          {sessionPresentation(session).title}
+        </div>
         <div className="num text-title font-bold">
           {clock(Math.floor(elapsedMs(session, now) / 1000) * 1000)}
         </div>
@@ -312,6 +318,7 @@ export function TodaySession({ userId }: { userId: string }) {
     return <Skeleton className="mt-3 h-[176px] w-full !rounded-[20px]" />;
   const a = assignments.data?.[0];
   const p = programs.data?.find((x) => x.id === a?.program_id);
+  const displayProgram = p ? localizedProgram(p) : null;
   const todays = workouts.filter((w) => dayOf(w.performed_at) === today());
 
   if (todays.length) {
@@ -332,13 +339,17 @@ export function TodaySession({ userId }: { userId: string }) {
               nx ? (
                 <>
                   <Message source="Next:" />
-                  <span className="font-bold">{nx.title}</span> · {nx.weekday}
+                  <span className="font-bold">
+                    {displayProgram?.days[p!.days.findIndex((day) => day.title === nx.title)]
+                      ?.title ?? nx.title}
+                  </span>{" "}
+                  · {tr(nx.weekday)}
                 </>
               ) : (
-                "Week complete — recover well."
+                tr("Week complete — recover well.")
               )
             ) : (
-              "Recover well. See you next session."
+              tr("Recover well. See you next session.")
             )}
           </div>
           <button
@@ -381,12 +392,16 @@ export function TodaySession({ userId }: { userId: string }) {
   );
   const { done, nextIdx } = programWeek(p, workouts);
   const day = p.days[nextIdx >= 0 ? nextIdx : 0]!;
+  const displayDay = displayProgram!.days[nextIdx >= 0 ? nextIdx : 0]!;
   const allDone = nextIdx < 0;
   return (
     <Panel index={2} className="mt-3 p-5">
       <div className="flex items-center justify-between gap-2">
         <div className="eyebrow truncate">
-          <Message source="{p0}· Week {p1}/{p2}" values={{ p0: p.name, p1: week, p2: p.weeks }} />
+          <Message
+            source="{p0}· Week {p1}/{p2}"
+            values={{ p0: displayProgram!.name, p1: week, p2: p.weeks }}
+          />
         </div>
         <div
           className="flex gap-1"
@@ -405,14 +420,16 @@ export function TodaySession({ userId }: { userId: string }) {
         </div>
       </div>
       <div className="mt-2 font-display text-title font-bold">
-        {allDone ? tr("Week complete — bonus session?") : day.title}
+        {allDone ? tr("Week complete — bonus session?") : displayDay.title}
       </div>
       <div className="num mt-1 text-label text-muted-foreground">
-        {day.exercises.map((e) => `${e.name} ${e.sets}×${e.reps}`).join(" · ")}
+        {displayDay.exercises
+          .map((e) => `${programExerciseName(e)} ${e.sets}×${e.reps}`)
+          .join(" · ")}
       </div>
       <motion.button
         whileTap={springPress}
-        onClick={() => startSession(day)}
+        onClick={() => startSession(day, p.template_source)}
         className="mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-full bg-volt-gradient font-semibold text-primary-foreground shadow-glow"
       >
         <Play className="size-5" /> <Message source="Start session" />
@@ -517,6 +534,14 @@ export function WorkoutRow({ w, onEdit }: { w: Workout; onEdit?: () => void }) {
       </div>
       <div className="min-w-0 flex-1">
         <div className="truncate font-semibold">{w.title}</div>
+        {w.sets
+          .filter((set) => set.tracking === "cardio")
+          .map((set, index) => (
+            <div key={index} className="mt-2 border-t border-border pt-2">
+              <p className="text-caption font-semibold">{set.exercise}</p>
+              <CardioReadout value={set.cardio} />
+            </div>
+          ))}
         <div className="num text-caption text-muted-foreground">
           <Message
             source="{p0}· {p1}min {p2}"
@@ -682,7 +707,7 @@ export function ClientOverview({ userId, trainerView }: { userId: string; traine
                 </span>
               </>
             ) : (
-              "Weigh in twice to see a trend"
+              tr("Weigh in twice to see a trend")
             )}
           </div>
         </div>

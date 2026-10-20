@@ -1,17 +1,34 @@
 import { z } from "zod";
 import { today } from "./stats";
 import type { LogTable, LogTables } from "./types";
+import { cardioMetricsSchema, hasCardioActual } from "./cardio";
 
 const score = z.number().int().min(1).max(5);
 const amount = z.number().finite().min(0).max(1_000_000);
 const common = { id: z.string().min(1).optional(), user_id: z.string().optional() };
 const date = z.string().date();
 const timestamp = z.string().datetime({ offset: true });
-const set = z.object({
-  exercise: z.string().trim().min(1).max(200),
-  reps: z.number().int().min(0).max(10000),
-  weight: z.number().finite().min(0).max(2000),
-});
+const set = z
+  .object({
+    tracking: z.literal("cardio").optional(),
+    cardio: cardioMetricsSchema.optional(),
+    exercise: z.string().trim().min(1).max(200),
+    reps: z.number().int().min(0).max(10000),
+    weight: z.number().finite().min(0).max(2000),
+  })
+  .superRefine((item, context) => {
+    if (item.tracking === "cardio") {
+      if (item.reps !== 0 || item.weight !== 0 || !hasCardioActual(item.cardio))
+        context.addIssue({
+          code: "custom",
+          message: "Cardio needs duration or distance and no strength load.",
+        });
+    } else if (item.cardio !== undefined)
+      context.addIssue({
+        code: "custom",
+        message: "Choose cardio tracking for these measurements.",
+      });
+  });
 const schemas = {
   workouts: z.object({
     ...common,

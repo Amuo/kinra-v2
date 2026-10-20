@@ -30,6 +30,7 @@ function AuthPage() {
   const [mode, setMode] = useState<"in" | "up">("up");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState(false);
@@ -131,6 +132,7 @@ function AuthPage() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  aria-label={tr("Full name")}
                   placeholder={tr("Full name")}
                   className="h-12 bg-surface"
                 />
@@ -140,19 +142,30 @@ function AuthPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                aria-label={tr("Email")}
                 placeholder={tr("Email")}
                 className="h-12 bg-surface"
               />
               <Input
                 required
-                type="password"
+                type={showPassword ? "text" : "password"}
+                autoComplete={mode === "up" ? "new-password" : "current-password"}
                 minLength={mode === "up" ? 10 : 1}
                 maxLength={72}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                aria-label={tr("Password")}
                 placeholder={tr("Password")}
                 className="h-12 bg-surface"
               />
+              <label className="flex min-h-11 items-center gap-3 text-label">
+                <input
+                  type="checkbox"
+                  checked={showPassword}
+                  onChange={(event) => setShowPassword(event.target.checked)}
+                />
+                {tr("Show password")}
+              </label>
               <Button wrap variant="volt" size="xl" className="w-full" disabled={busy}>
                 {mode === "up" ? tr("Create account") : tr("Sign in")}
               </Button>

@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import type { LiveSessionState } from "@/components/strata/shell";
+import { cardioMetricsSchema } from "./cardio";
 
 // Undefined means the initial auth event has not arrived yet.
 export const AuthIdentityContext = createContext<string | null | undefined>(undefined);
@@ -22,6 +23,18 @@ export function readSession(
       !Number.isFinite(state.startedAt) ||
       typeof state.title !== "string" ||
       !Array.isArray(state.exercises)
+    )
+      return null;
+    if (
+      !state.exercises.every(
+        (exercise: { tracking?: unknown; sets: { cardio?: unknown }[] }) =>
+          exercise.tracking === undefined ||
+          (exercise.tracking === "cardio" &&
+            exercise.sets.every(
+              (set) =>
+                set.cardio === undefined || cardioMetricsSchema.safeParse(set.cardio).success,
+            )),
+      )
     )
       return null;
     if (

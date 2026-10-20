@@ -14,6 +14,12 @@ export type Database = {
   }
   public: {
     Tables: {
+      supplement_plan_activations: {
+        Row: {owner_id:string;plan_id:string;start_on:string;supplement_ids:string[];created_at:string}
+        Insert: never
+        Update: never
+        Relationships: []
+      }
       device_subscriptions: {
         Row:{id:string;owner_id:string;endpoint:string;p256dh:string;auth_key:string;locale:string;created_at:string}
         Insert:{id?:string;owner_id?:string;endpoint:string;p256dh:string;auth_key:string;locale:string;created_at?:string}
@@ -459,6 +465,8 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      kinra_activate_supplement_plan: { Args: { plan_id:string; start_on:string; expected_owner:string;expected_revision:string }; Returns:Json }
+      kinra_template_origins: { Args: { expected_owner: string }; Returns: Json }
       kinra_community_admin: { Args:{action:string;group_id:string|null;data:Json;expected_owner:string};Returns:Json }
       kinra_community_redeem: { Args:{invitation_code:string;accept:boolean;expected_owner:string};Returns:Json }
       kinra_org_admin: { Args: {action:string;org_id:string|null;data:Json;expected_owner:string};Returns:Json }

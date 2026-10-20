@@ -33,10 +33,71 @@ const food = z
   })
   .strict();
 const days = z.array(z.number().int().min(0).max(6)).max(7);
+const programContext = z.enum([
+  "gym",
+  "home",
+  "outdoors",
+  "hotel",
+  "morning",
+  "rehabilitation",
+  "general",
+]);
+const supplementItem = z
+  .object({
+    id,
+    name: text,
+    dose: positive,
+    unit: z.enum(["mg", "g", "ml", "IU", "caps", "tabs", "scoops"]),
+    times: z.array(time).min(1).max(24),
+    frequency: z.enum(["daily", "training", "rest", "as_needed"]),
+    notes: note.optional(),
+  })
+  .strict();
 
 // This is also the source for database JSON validation. Unknown properties are
 // rejected rather than silently storing private fields on a public resource.
 export const featureSchemas = {
+  supplement_plan: z
+    .object({
+      title: text,
+      weeks: z.number().int().min(1).max(104),
+      context: programContext,
+      notes: note.optional(),
+      supplements: z.array(supplementItem).min(1).max(20),
+    })
+    .strict(),
+  video_plan: z
+    .object({
+      starter_id: z.enum(["nhs-home-video", "nhs-strength-flex-video"]).optional(),
+      title: text,
+      weeks: z.number().int().min(1).max(104),
+      context: programContext,
+      notes: note.optional(),
+      videos: z
+        .array(
+          z
+            .object({
+              id,
+              title: text,
+              url: externalUrl,
+              duration_seconds: z.number().int().min(1).max(86400).optional(),
+              notes: note.optional(),
+            })
+            .strict(),
+        )
+        .min(1)
+        .max(50),
+    })
+    .strict(),
+  video_event: z
+    .object({
+      plan_id: id,
+      video_id: id,
+      date,
+      status: z.enum(["completed", "skipped"]),
+      title_snapshot: text.optional(),
+    })
+    .strict(),
   message: z
     .object({ recipient_id: z.string().min(1).max(100), body: z.string().trim().min(1).max(10000) })
     .strict(),
@@ -314,6 +375,7 @@ export const featureSchemas = {
 export type FeatureKind = keyof typeof featureSchemas;
 export type FeaturePayloads = { [K in FeatureKind]: z.infer<(typeof featureSchemas)[K]> };
 export type FeatureRecord<K extends FeatureKind = FeatureKind> = {
+  template_source?: import("./template-origins").TemplateSource;
   id: string;
   owner_id: string;
   kind: K;
@@ -342,11 +404,31 @@ export const publicKinds: FeatureKind[] = [
   "organization_member",
   "membership_plan",
 ];
-export const prescriptionKinds: FeatureKind[] = ["nutrition_plan", "supplement"];
+export const prescriptionKinds: FeatureKind[] = [
+  "nutrition_plan",
+  "supplement",
+  "supplement_plan",
+  "video_plan",
+];
 export const featureKinds = Object.keys(featureSchemas) as FeatureKind[];
 
 export function parseFeature<K extends FeatureKind>(kind: K, payload: unknown): FeaturePayloads[K] {
   const value = featureSchemas[kind].parse(payload) as FeaturePayloads[K];
+  if (kind === "supplement_plan") {
+    const items = (value as FeaturePayloads["supplement_plan"]).supplements;
+    if (
+      new Set(items.map((i) => i.id)).size !== items.length ||
+      items.some((i) => new Set(i.times).size !== i.times.length)
+    )
+      throw new Error("Use distinct program items and dose times.");
+  }
+  if (kind === "video_plan") {
+    const items = (value as FeaturePayloads["video_plan"]).videos;
+    if (new Set(items.map((i) => i.id)).size !== items.length)
+      throw new Error("Use distinct video identifiers.");
+    if (items.some((i) => !safeExternalUrl(i.url) || !i.url.startsWith("https://")))
+      throw new Error("Use an HTTPS video link without credentials or control characters.");
+  }
   const v = value as Record<string, unknown>;
   if (
     typeof v["start_date"] === "string" &&

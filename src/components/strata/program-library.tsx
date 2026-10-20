@@ -1,3 +1,5 @@
+import { ExtraPrograms } from "./extra-programs";
+import { filterLibrary, programFilterOptions } from "./library-display";
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { BookOpen, Dumbbell, ExternalLink, Loader2, Play, Plus, Utensils } from "lucide-react";
@@ -15,7 +17,9 @@ import { useShell } from "./shell";
 
 export function ProgramLibrary() {
   useLanguage();
-  const [tab, setTab] = useState<"training" | "nutrition" | "references">("training");
+  const [tab, setTab] = useState<
+    "training" | "nutrition" | "references" | "supplement_plan" | "video_plan"
+  >("training");
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState({
     goal: "",
@@ -26,23 +30,17 @@ export function ProgramLibrary() {
   });
   const bookmarks = useQ(["features", "saved"], (api) => api.features.list("saved"));
   const [selected, setSelected] = useState<ProgramTemplate | null>(null);
-  const templates = programTemplates
-    .map((template) => localizedTemplate(template))
-    .filter(
-      (p) =>
-        p.type === tab &&
-        (!filters.goal || p.goal === filters.goal) &&
-        (!filters.level || p.level === filters.level) &&
-        (!filters.equipment || p.equipment.includes(filters.equipment)) &&
-        (!filters.weeks || p.weeks <= Number(filters.weeks)) &&
-        (!filters.saved ||
-          bookmarks.data?.some(
-            (row) => row.payload.target_type === "program" && row.payload.target_id === p.id,
-          )) &&
-        `${p.title} ${p.summary} ${t(p.goal)} ${t(p.level)} ${p.equipment.map((item) => t(item)).join(" ")}`
-          .toLocaleLowerCase()
-          .includes(query.toLocaleLowerCase()),
-    );
+  const templates =
+    tab !== "training" && tab !== "nutrition"
+      ? []
+      : filterLibrary(
+          tab,
+          query,
+          filters,
+          (bookmarks.data ?? [])
+            .filter((row) => row.payload.target_type === "program")
+            .map((row) => row.payload.target_id),
+        );
   return (
     <div className="space-y-4">
       <div className="rounded-card border border-volt/20 bg-volt/5 p-5">
@@ -53,138 +51,155 @@ export function ProgramLibrary() {
         </p>
       </div>
       <div className="flex flex-wrap gap-2" role="group" aria-label={t("Program type")}>
-        {(["training", "nutrition", "references"] as const).map((value) => (
-          <Button
-            key={value}
-            wrap
-            variant={tab === value ? "volt" : "secondary"}
-            aria-pressed={tab === value}
-            className="min-h-11 flex-1"
-            onClick={() => setTab(value)}
-          >
-            {t(
-              value === "training"
-                ? "Training"
-                : value === "nutrition"
-                  ? "Nutrition"
-                  : "Archived references",
-            )}
-          </Button>
-        ))}
-      </div>
-      <Input
-        aria-label={t("Search programs")}
-        placeholder={t("Search programs")}
-        className="h-12"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      {tab !== "references" && (
-        <details className="rounded-tile border border-border p-4">
-          <summary className="cursor-pointer py-2 font-semibold">{t("Filter plans")}</summary>
-          <div className="mt-3 grid gap-3 sm:grid-cols-2">
-            {(["goal", "level", "equipment"] as const).map((key) => (
-              <label key={key} className="text-label">
-                {t(key === "goal" ? "Goal" : key === "level" ? "Level" : "Equipment")}
-                <select
-                  className="mt-2 min-h-11 w-full rounded-xl border border-border bg-surface px-3"
-                  value={filters[key]}
-                  onChange={(event) =>
-                    setFilters((value) => ({ ...value, [key]: event.target.value }))
-                  }
-                >
-                  <option value="">{t("All")}</option>
-                  {[
-                    ...new Set(
-                      programTemplates
-                        .filter((plan) => plan.type === tab)
-                        .flatMap((plan) => (key === "equipment" ? plan.equipment : [plan[key]])),
-                    ),
-                  ].map((value) => (
-                    <option key={value} value={value}>
-                      {t(value)}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            ))}
-            <label className="text-label">
-              {t("Maximum weeks")}
-              <Input
-                className="mt-2 min-h-11"
-                type="number"
-                min={1}
-                max={104}
-                value={filters.weeks}
-                onChange={(event) =>
-                  setFilters((value) => ({ ...value, weeks: event.target.value }))
-                }
-              />
-            </label>
-            <label className="flex min-h-11 items-center gap-3">
-              <input
-                type="checkbox"
-                checked={filters.saved}
-                onChange={(event) =>
-                  setFilters((value) => ({ ...value, saved: event.target.checked }))
-                }
-              />
-              {t("Saved bookmarks only")}
-            </label>
+        {(["training", "nutrition", "supplement_plan", "video_plan", "references"] as const).map(
+          (value) => (
             <Button
+              key={value}
               wrap
-              variant="ghost"
-              onClick={() =>
-                setFilters({ goal: "", level: "", equipment: "", weeks: "", saved: false })
-              }
+              variant={tab === value ? "volt" : "secondary"}
+              aria-pressed={tab === value}
+              className="min-h-11 flex-1"
+              onClick={() => {
+                setTab(value);
+                setFilters((previous) => ({
+                  goal: "",
+                  level: "",
+                  equipment: "",
+                  weeks: "",
+                  saved: previous.saved,
+                }));
+              }}
             >
-              {t("Clear filters")}
+              {t(
+                value === "training"
+                  ? "Training"
+                  : value === "nutrition"
+                    ? "Nutrition"
+                    : value === "supplement_plan"
+                      ? "Supplements"
+                      : value === "video_plan"
+                        ? "Video plans"
+                        : "Archived references",
+              )}
             </Button>
-          </div>
-          <p className="mt-3 text-caption text-muted-foreground">
-            {t(
-              "Bookmarks keep plans here. Saved private copies are available in My plans or Meal plans.",
-            )}
-          </p>
-        </details>
-      )}
-      {tab === "references" ? (
-        <ArchivedReferences query={query} />
+          ),
+        )}
+      </div>
+      {tab === "supplement_plan" || tab === "video_plan" ? (
+        <ExtraPrograms key={tab} kind={tab} />
       ) : (
         <>
-          <p className="text-caption text-muted-foreground" role="status">
-            {t("{count} plans found", { count: templates.length })}
-          </p>
-          {templates.map((plan) => (
-            <Panel
-              key={plan.id}
-              onClick={() => setSelected(programTemplates.find((p) => p.id === plan.id)!)}
-              className="space-y-3"
-            >
-              <div className="flex items-start gap-3">
-                <span className="grid size-11 shrink-0 place-items-center rounded-tile bg-volt/10 text-volt">
-                  {plan.type === "training" ? (
-                    <Dumbbell aria-hidden="true" />
-                  ) : (
-                    <Utensils aria-hidden="true" />
-                  )}
-                </span>
-                <div className="min-w-0">
-                  <h3 className="break-words font-display text-title font-bold">{plan.title}</h3>
-                  <p className="mt-1 text-caption text-muted-foreground">
-                    {t(plan.level)} · {t(plan.goal)}
-                  </p>
-                </div>
+          <Input
+            aria-label={t("Search programs")}
+            placeholder={t("Search programs")}
+            className="h-12"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          {tab !== "references" && (
+            <details className="rounded-tile border border-border p-4">
+              <summary className="cursor-pointer py-2 font-semibold">{t("Filter plans")}</summary>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {(["goal", "level", "equipment"] as const).map((key) => (
+                  <label key={key} className="text-label">
+                    {t(key === "goal" ? "Goal" : key === "level" ? "Level" : "Equipment")}
+                    <select
+                      className="mt-2 min-h-11 w-full rounded-xl border border-border bg-surface px-3"
+                      value={filters[key]}
+                      onChange={(event) =>
+                        setFilters((value) => ({ ...value, [key]: event.target.value }))
+                      }
+                    >
+                      <option value="">{t("All")}</option>
+                      {programFilterOptions(tab, key).map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                ))}
+                <label className="text-label">
+                  {t("Maximum weeks")}
+                  <Input
+                    className="mt-2 min-h-11"
+                    type="number"
+                    min={1}
+                    max={104}
+                    value={filters.weeks}
+                    onChange={(event) =>
+                      setFilters((value) => ({ ...value, weeks: event.target.value }))
+                    }
+                  />
+                </label>
+                <label className="flex min-h-11 items-center gap-3">
+                  <input
+                    type="checkbox"
+                    checked={filters.saved}
+                    onChange={(event) =>
+                      setFilters((value) => ({ ...value, saved: event.target.checked }))
+                    }
+                  />
+                  {t("Saved bookmarks only")}
+                </label>
+                <Button
+                  wrap
+                  variant="ghost"
+                  onClick={() =>
+                    setFilters({ goal: "", level: "", equipment: "", weeks: "", saved: false })
+                  }
+                >
+                  {t("Clear filters")}
+                </Button>
               </div>
-              <p className="text-label text-muted-foreground">{plan.summary}</p>
-              <PlanFacts plan={plan} />
-              <p className="text-caption text-muted-foreground">{plan.author}</p>
-            </Panel>
-          ))}
-          {!templates.length && (
-            <p className="py-5 text-label text-muted-foreground">
-              {t("No plans match your search.")}
-            </p>
+              <p className="mt-3 text-caption text-muted-foreground">
+                {t(
+                  "Bookmarks keep plans here. Saved private copies are available in My plans or Meal plans.",
+                )}
+              </p>
+            </details>
+          )}
+          {tab === "references" ? (
+            <ArchivedReferences query={query} />
+          ) : (
+            <>
+              <p className="text-caption text-muted-foreground" role="status">
+                {t("{count} plans found", { count: templates.length })}
+              </p>
+              {templates.map((plan) => (
+                <Panel
+                  key={plan.id}
+                  onClick={() => setSelected(programTemplates.find((p) => p.id === plan.id)!)}
+                  className="space-y-3"
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="grid size-11 shrink-0 place-items-center rounded-tile bg-volt/10 text-volt">
+                      {plan.type === "training" ? (
+                        <Dumbbell aria-hidden="true" />
+                      ) : (
+                        <Utensils aria-hidden="true" />
+                      )}
+                    </span>
+                    <div className="min-w-0">
+                      <h3 className="break-words font-display text-title font-bold">
+                        {plan.title}
+                      </h3>
+                      <p className="mt-1 text-caption text-muted-foreground">
+                        {t(plan.level)} · {t(plan.goal)}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-label text-muted-foreground">{plan.summary}</p>
+                  <PlanFacts plan={plan} />
+                  <p className="text-caption text-muted-foreground">{plan.author}</p>
+                </Panel>
+              ))}
+              {!templates.length && (
+                <p className="py-5 text-label text-muted-foreground">
+                  {t("No plans match your search.")}
+                </p>
+              )}
+            </>
           )}
         </>
       )}
@@ -310,7 +325,7 @@ function ProgramDetail({ template, onClose }: { template: ProgramTemplate; onClo
                 onClick={() => {
                   onClose();
                   if (session) openSession();
-                  else startSession(day);
+                  else startSession(template.days[index]!, { id: template.id, version: 1 });
                 }}
               >
                 <Play className="size-4" aria-hidden="true" />

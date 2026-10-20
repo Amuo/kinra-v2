@@ -1,9 +1,12 @@
+import type { TemplateSource } from "@/lib/template-origins";
+import type { CardioMetrics } from "@/lib/cardio";
 import { createContext, useContext } from "react";
 import type { ProgramDay, Workout } from "@/lib/types";
 import type { RestState, SetType } from "@/lib/session-state";
 import type { LogKind } from "./sheets";
 
 export type SSet = {
+  cardio?: CardioMetrics;
   kg: number;
   reps: number;
   done: boolean;
@@ -13,6 +16,8 @@ export type SSet = {
   at?: number;
 };
 export type SEx = {
+  tracking?: "cardio" | undefined;
+  targetCardio?: CardioMetrics | undefined;
   catalogue_id?: string | undefined;
   section?: "warmup" | "main" | "cooldown" | undefined;
   group?: string | undefined;
@@ -29,6 +34,8 @@ export type SEx = {
   note?: string;
 };
 export type LiveSessionState = {
+  /** Optional UI-only provenance, persisted in the local draft, never in workouts. */
+  displaySource?: TemplateSource;
   workoutId: string;
   title: string;
   startedAt: number;
@@ -49,7 +56,7 @@ export type LiveSessionState = {
 
 export interface ShellApi {
   log: (k: Exclude<LogKind, "workout">, opts?: { meal?: string }) => void;
-  startSession: (template?: ProgramDay) => void;
+  startSession: (template?: ProgramDay, displaySource?: TemplateSource) => void;
   openSession: () => void;
   editWorkout: (w: Workout) => void;
   session: LiveSessionState | null;

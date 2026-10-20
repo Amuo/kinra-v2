@@ -64,6 +64,7 @@ export function createLiveResources(ownerId: string, features: FeatureApi): Reso
       }
       const saved = await bucket("expert-materials").upload(upload.storage_path, file, {
         contentType: "application/pdf",
+        cacheControl: "0",
         upsert: false,
       });
       if (saved.error) {
@@ -106,8 +107,17 @@ export function createLiveResources(ownerId: string, features: FeatureApi): Reso
     },
     async download(resource) {
       await auth();
+      const readable = await from("feature_records")
+        .select("id")
+        .eq("id", resource.id)
+        .eq("kind", "expert_resource")
+        .maybeSingle();
+      if (readable.error) throw readable.error;
+      if (!readable.data) throw new Error("This resource is no longer available.");
       const { data, error } = await bucket("expert-materials").download(
         resource.payload.storage_path,
+        { cacheNonce: crypto.randomUUID() },
+        { cache: "no-store" },
       );
       if (error) throw error;
       return data;

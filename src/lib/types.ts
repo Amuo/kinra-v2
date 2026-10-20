@@ -1,6 +1,8 @@
 export type Role = "solo" | "client" | "trainer";
 
 export interface SetEntry {
+  tracking?: "cardio";
+  cardio?: import("./cardio").CardioMetrics;
   exercise: string;
   reps: number;
   weight: number;
@@ -49,6 +51,8 @@ export interface BodyMetric {
   body_fat: number | null;
 }
 export interface ProgramExercise {
+  tracking?: "cardio";
+  cardio?: import("./cardio").CardioMetrics;
   catalogue_id?: string;
   section?: "warmup" | "main" | "cooldown";
   group?: string;
@@ -68,6 +72,7 @@ export interface ProgramDay {
   exercises: ProgramExercise[];
 }
 export interface Program {
+  template_source?: import("./template-origins").TemplateSource;
   id: string;
   trainer_id: string;
   name: string;

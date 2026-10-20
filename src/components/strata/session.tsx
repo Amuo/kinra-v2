@@ -1,3 +1,6 @@
+import { CardioFields, CardioReadout } from "./cardio-fields";
+import { cardioMetricsError } from "@/lib/cardio";
+import { sessionPresentation } from "./session-presentation";
 import { programExerciseName } from "@/lib/exercise-catalogue";
 import { errorText } from "@/lib/i18n-errors";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
@@ -102,6 +105,7 @@ export function history(workouts: Workout[]) {
   for (const w of workouts) {
     const by = new Map<string, { reps: number; weight: number }[]>();
     for (const s of w.sets) {
+      if (s.tracking === "cardio") continue;
       if (!by.has(s.exercise)) by.set(s.exercise, []);
       by.get(s.exercise)!.push(s);
       if (s.weight > (best.get(s.exercise) ?? 0)) best.set(s.exercise, s.weight);
@@ -150,6 +154,8 @@ export function sessionFromTemplate(
       const n = Math.max(1, Math.min(e.sets, 8));
       const reps = parseInt(e.reps) || prev?.[0]?.reps || 8;
       return {
+        tracking: e.tracking,
+        targetCardio: e.cardio ? structuredClone(e.cardio) : undefined,
         name: e.name,
         catalogue_id: e.catalogue_id,
         section: e.section,
@@ -162,6 +168,7 @@ export function sessionFromTemplate(
         tempo: e.tempo,
         notes: e.notes,
         sets: Array.from({ length: n }, (_, i) => {
+          if (e.tracking === "cardio") return { kg: 0, reps: 0, done: false, cardio: {} };
           const kg = e.weight ?? prev?.[i]?.weight ?? prev?.[0]?.weight ?? 0;
           return { kg: lighter ? roundPlate(kg * 0.9) : kg, reps, done: false };
         }),
@@ -183,6 +190,18 @@ const rpeAnchors: Record<number, string> = {
   10: "Max effort",
 };
 
+const cardioEffortAnchors: Record<number, string> = {
+  1: "Barely moving",
+  2: "Very easy",
+  3: "Easy",
+  4: "Comfortable",
+  5: "Moderate",
+  6: "Somewhat hard",
+  7: "Hard",
+  8: "Very hard",
+  9: "Extremely hard",
+  10: "Max effort",
+};
 /** Number that rolls to its new value. */
 function Rolling({ value, format }: { value: number; format: (n: number) => string }) {
   useLanguage();
@@ -427,16 +446,29 @@ type RowCtx = {
   lighter: boolean;
 };
 
-function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
+function ExerciseCard({
+  ex,
+  display = ex,
+  e,
+  c,
+}: {
+  ex: SEx;
+  display?: SEx;
+  e: number;
+  c: RowCtx;
+}) {
   useLanguage();
   const controls = useDragControls();
   const reduce = useReducedMotion();
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const prev = c.last.get(ex.name);
+  const prev = ex.tracking === "cardio" ? undefined : c.last.get(ex.name);
   const lt = prev
     ? `${prev.length} × ${prev[0]!.reps} @ ${Math.max(...prev.map((p) => p.weight))} kg`
     : null;
-  const prog = ex.targetWeight != null ? null : progression(prev, ex.sets[0]?.reps ?? 8, c.lighter);
+  const prog =
+    ex.tracking === "cardio" || ex.targetWeight != null
+      ? null
+      : progression(prev, ex.sets[0]?.reps ?? 8, c.lighter);
   const applied =
     prog && ex.sets.filter((s) => !s.done).every((s) => s.kg === prog.kg && s.reps === prog.reps);
   return (
@@ -477,7 +509,9 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
               ? tr("Skipped — not saved")
               : lt
                 ? tr("Last time: {p0}", { p0: lt })
-                : tr("First time — set your baseline")}
+                : ex.tracking === "cardio"
+                  ? tr("Record actual time or distance, then complete each interval.")
+                  : tr("First time — set your baseline")}
           </div>
         </div>
         <div className="flex shrink-0 items-center">
@@ -515,7 +549,7 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
         </button>
       ) : (
         <div className="mt-2">
-          {(ex.section || ex.group || ex.equipment) && (
+          {(ex.section || display.group || display.equipment) && (
             <p className="mb-3 text-caption text-volt">
               {[
                 ex.section === "warmup"
@@ -525,10 +559,12 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
                     : ex.section
                       ? tr("Main work")
                       : null,
-                ex.group
-                  ? tr("Group {p0} · alternate exercises, rest between rounds", { p0: ex.group })
+                display.group
+                  ? tr("Group {p0} · alternate exercises, rest between rounds", {
+                      p0: display.group,
+                    })
                   : null,
-                ex.equipment,
+                display.equipment,
               ]
                 .filter(Boolean)
                 .join(" · ")}
@@ -560,12 +596,12 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
           {(ex.targetWeight != null ||
             ex.rest_seconds != null ||
             ex.rpe != null ||
-            ex.tempo ||
-            ex.notes ||
+            display.tempo ||
+            display.notes ||
             ex.note) && (
             <div className="mb-3 border-l-2 border-pulse/40 pl-3 text-label">
               <div className="num flex flex-wrap gap-x-3 gap-y-1 text-caption text-pulse">
-                {ex.targetWeight != null && (
+                {ex.tracking !== "cardio" && ex.targetWeight != null && (
                   <span>
                     <Message
                       source="Planned load {p0}kg{p1}"
@@ -586,13 +622,15 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
                     <Message source="RPE {p0}/10" values={{ p0: ex.rpe }} />
                   </span>
                 )}
-                {ex.tempo && (
+                {display.tempo && (
                   <span>
-                    <Message source="Tempo {p0}" values={{ p0: ex.tempo }} />
+                    <Message source="Tempo {p0}" values={{ p0: display.tempo }} />
                   </span>
                 )}
               </div>
-              {ex.notes && <p className="mt-1 break-words text-muted-foreground">{ex.notes}</p>}
+              {display.notes && (
+                <p className="mt-1 break-words text-muted-foreground">{display.notes}</p>
+              )}
               {ex.note && (
                 <p className="mt-1 break-words text-foreground">
                   <StickyNote className="mr-1 inline size-3.5 text-muted-foreground" />
@@ -627,45 +665,123 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
               </span>
             </motion.button>
           )}
-          <div className="grid grid-cols-[32px_1fr_1fr_1fr_44px] items-center gap-1 px-1 pb-1 text-caption font-semibold uppercase tracking-wide text-muted-foreground">
-            <span>
-              <Message source="Set" />
-            </span>
-            <span>
-              <Message source="Previous" />
-            </span>
-            <span className="text-center">
-              <Message source="kg" />
-            </span>
-            <span className="text-center">
-              <Message source="Reps" />
-            </span>
-            <span className="sr-only">
-              <Message source="Done" />
-            </span>
-          </div>
-          {ex.sets.map((s, i) => (
-            <SetRow
-              key={i}
-              s={s}
-              i={i}
-              e={e}
-              p={prev?.[i]}
-              isCur={c.cur?.e === e && c.cur.s === i}
-              c={c}
-            />
-          ))}
+          {ex.tracking === "cardio" ? (
+            <div className="space-y-3">
+              {ex.targetCardio && (
+                <div className="rounded-tile bg-pulse/10 p-3">
+                  <p className="mb-2 text-label font-semibold">{tr("Planned cardio targets")}</p>
+                  <CardioReadout value={ex.targetCardio} />
+                  <p className="mt-2 text-caption text-muted-foreground">
+                    {tr("Targets are not recorded activity.")}
+                  </p>
+                </div>
+              )}
+              {ex.sets.map((set, index) => (
+                <CardioInterval
+                  key={index}
+                  set={set}
+                  index={index}
+                  onChange={(cardio) =>
+                    c.setVal(e, index, {
+                      cardio,
+                      ...(cardioMetricsError(cardio) ? { done: false } : {}),
+                    })
+                  }
+                  onToggle={() => c.toggle(e, index)}
+                  onRemove={() => c.removeSet(e, index)}
+                />
+              ))}
+            </div>
+          ) : (
+            <>
+              {" "}
+              <div className="grid grid-cols-[32px_1fr_1fr_1fr_44px] items-center gap-1 px-1 pb-1 text-caption font-semibold uppercase tracking-wide text-muted-foreground">
+                <span>
+                  <Message source="Set" />
+                </span>
+                <span>
+                  <Message source="Previous" />
+                </span>
+                <span className="text-center">
+                  <Message source="kg" />
+                </span>
+                <span className="text-center">
+                  <Message source="Reps" />
+                </span>
+                <span className="sr-only">
+                  <Message source="Done" />
+                </span>
+              </div>
+              {ex.sets.map((s, i) => (
+                <SetRow
+                  key={i}
+                  s={s}
+                  i={i}
+                  e={e}
+                  p={prev?.[i]}
+                  isCur={c.cur?.e === e && c.cur.s === i}
+                  c={c}
+                />
+              ))}
+            </>
+          )}
           <motion.button
             type="button"
             whileTap={springPress}
             onClick={() => c.addSet(e)}
             className="mt-1 flex min-h-[44px] w-full items-center justify-center gap-1.5 rounded-full text-label font-semibold text-primary"
           >
-            <Plus className="size-4" /> <Message source="Add set" />
+            <Plus className="size-4" />{" "}
+            {ex.tracking === "cardio" ? tr("Add interval") : tr("Add set")}
           </motion.button>
         </div>
       )}
     </Reorder.Item>
+  );
+}
+
+function CardioInterval({
+  set,
+  index,
+  onChange,
+  onToggle,
+  onRemove,
+}: {
+  set: SSet;
+  index: number;
+  onChange: (value: NonNullable<SSet["cardio"]>) => void;
+  onToggle: () => void;
+  onRemove: () => void;
+}) {
+  useLanguage();
+  const error = cardioMetricsError(set.cardio ?? {});
+  return (
+    <fieldset className="min-w-0 rounded-tile border border-border p-3">
+      <legend className="px-1 text-label font-semibold">
+        {tr("Interval {count}", { count: index + 1 })}
+      </legend>
+      <CardioFields value={set.cardio} onChange={onChange} />
+      {error && <p className="mt-2 text-caption text-muted-foreground">{tr(error)}</p>}
+      <div className="mt-3 flex flex-wrap gap-2">
+        <button
+          type="button"
+          aria-pressed={set.done}
+          disabled={!set.done && !!error}
+          onClick={onToggle}
+          className="min-h-12 flex-1 rounded-full bg-primary px-3 text-label font-semibold text-primary-foreground disabled:opacity-50"
+        >
+          {set.done ? tr("Completed · undo") : tr("Complete interval")}
+        </button>
+        <button
+          type="button"
+          onClick={onRemove}
+          aria-label={tr("Remove interval {count}", { count: index + 1 })}
+          className="min-h-12 rounded-full border border-border px-3 text-label"
+        >
+          {tr("Remove")}
+        </button>
+      </div>
+    </fieldset>
   );
 }
 
@@ -1046,28 +1162,42 @@ const patchEx = (s: LiveSessionState, e: number, fn: (x: SEx) => SEx): LiveSessi
 const patchSet = (s: LiveSessionState, e: number, j: number, p: Partial<SSet>) =>
   patchEx(s, e, (x) => ({ ...x, sets: x.sets.map((y, k) => (k === j ? { ...y, ...p } : y)) }));
 
-export function LiveSession({
-  session,
-  setSession,
-  minimized,
-  setMinimized,
-  onClose,
-}: {
+type LiveSessionProps = {
   session: LiveSessionState;
   setSession: (s: LiveSessionState) => void;
   minimized: boolean;
   setMinimized: (m: boolean) => void;
   onClose: () => void;
-}) {
+};
+
+export function LiveSession(props: LiveSessionProps) {
+  const me = useMe().data;
+  // Auth cache clearing can precede the shell unmount during sign-out.
+  // A separate child preserves hook order and releases timers without changing the draft.
+  if (!me) return null;
+  return <AuthenticatedLiveSession key={me.id} {...props} userId={me.id} />;
+}
+
+function AuthenticatedLiveSession({
+  session,
+  setSession,
+  minimized,
+  setMinimized,
+  onClose,
+  userId,
+}: LiveSessionProps & { userId: string }) {
   useLanguage();
-  const me = useMe().data!;
-  const workouts = useLog("workouts", me.id).data;
+  const workouts = useLog("workouts", userId).data;
   const { last, best } = useMemo(
     () => history((workouts ?? []).filter((w) => w.id !== session.editingId)),
     [workouts, session.editingId],
   );
   const now = useNow();
   const reduce = useReducedMotion();
+  const presentation = sessionPresentation(session);
+  const activeExercises = session.exercises.filter((ex) => !ex.skipped);
+  const cardioOnly =
+    activeExercises.length > 0 && activeExercises.every((ex) => ex.tracking === "cardio");
   const editing = !!session.editingId;
   const paused = isPaused(session) && !editing;
   const [active, setActive] = useState<{ e: number; s: number } | null>(null);
@@ -1080,6 +1210,7 @@ export function LiveSession({
   const [target, setTarget] = useState<Target | null>(null);
   const [exMenu, setExMenu] = useState<number | null>(null);
   const [replacing, setReplacing] = useState<number | null>(null);
+  const [addingCardio, setAddingCardio] = useState(false);
   const [noteFor, setNoteFor] = useState<null | "set" | "ex">(null);
   const [noteDraft, setNoteDraft] = useState("");
   const [away, setAway] = useState(0);
@@ -1204,15 +1335,24 @@ export function LiveSession({
     const st = ex?.sets[s];
     if (!ex || !st) return;
     if (st.done) return setVal(e, s, { done: false, pr: false });
+    if (ex.tracking === "cardio" && cardioMetricsError(st.cardio)) return;
     const warm = st.type === "warmup";
     const prevBest = Math.max(
       best.get(ex.name) ?? 0,
       ...ex.sets.filter((x, j) => j !== s && countsForStats(x)).map((x) => x.kg),
     );
-    const isPr = !warm && st.kg > 0 && st.kg > prevBest && (best.get(ex.name) ?? 0) > 0;
+    const isPr =
+      ex.tracking !== "cardio" &&
+      !warm &&
+      st.kg > 0 &&
+      st.kg > prevBest &&
+      (best.get(ex.name) ?? 0) > 0;
     const next = patchSet(session, e, s, { done: true, pr: isPr, at: Date.now() });
     commit(
-      paused || editing || !shouldRestAfterGroupedSet(next, e, s)
+      paused ||
+        editing ||
+        (ex.tracking === "cardio" && ex.rest_seconds == null) ||
+        !shouldRestAfterGroupedSet(next, e, s)
         ? { ...next, rest: null }
         : startRest(ex.name, ex.rest_seconds ?? restFor(ex.name), next),
     );
@@ -1262,7 +1402,7 @@ export function LiveSession({
   }, [left, paused]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /* ---- exercises ---- */
-  const addExercise = (n: string) => {
+  const addExercise = (n: string, cardio = false) => {
     if (session.exercises.some((x) => x.name.toLowerCase() === n.toLowerCase()))
       return void toast("Already in this session");
     const p = last.get(n);
@@ -1273,9 +1413,11 @@ export function LiveSession({
         ...session.exercises,
         {
           name: n,
-          sets: Array.from({ length: p?.length ?? 3 }, (_, i) => ({
-            kg: roundPlate((p?.[i]?.weight ?? 0) * f),
-            reps: p?.[i]?.reps ?? 8,
+          ...(cardio ? { tracking: "cardio" as const } : {}),
+          sets: Array.from({ length: cardio ? 1 : (p?.length ?? 3) }, (_, i) => ({
+            kg: cardio ? 0 : roundPlate((p?.[i]?.weight ?? 0) * f),
+            reps: cardio ? 0 : (p?.[i]?.reps ?? 8),
+            ...(cardio ? { cardio: {} } : {}),
             done: false,
           })),
         },
@@ -1310,7 +1452,9 @@ export function LiveSession({
           ...x,
           sets: [
             ...x.sets,
-            { kg: x.sets.at(-1)?.kg ?? 0, reps: x.sets.at(-1)?.reps ?? 8, done: false },
+            x.tracking === "cardio"
+              ? { kg: 0, reps: 0, done: false, cardio: {} }
+              : { kg: x.sets.at(-1)?.kg ?? 0, reps: x.sets.at(-1)?.reps ?? 8, done: false },
           ],
         })),
       ),
@@ -1578,7 +1722,9 @@ export function LiveSession({
                   </IconButton>
                   <div className="min-w-0 flex-1 text-center">
                     <div className="truncate text-label font-semibold text-muted-foreground">
-                      {editing ? tr("Editing · {p0}", { p0: session.title }) : session.title}
+                      {editing
+                        ? tr("Editing · {p0}", { p0: presentation.title })
+                        : presentation.title}
                     </div>
                     <div className="relative mx-auto w-max">
                       <motion.div
@@ -1736,7 +1882,13 @@ export function LiveSession({
                 >
                   <AnimatePresence initial={false}>
                     {session.exercises.map((ex, e) => (
-                      <ExerciseCard key={ex.name} ex={ex} e={e} c={ctx} />
+                      <ExerciseCard
+                        key={ex.name}
+                        ex={ex}
+                        display={presentation.exercises[e]!}
+                        e={e}
+                        c={ctx}
+                      />
                     ))}
                   </AnimatePresence>
                 </Reorder.Group>
@@ -1746,11 +1898,19 @@ export function LiveSession({
                   </p>
                 )}
                 <SheetBtn
-                  onClick={() => (setReplacing(null), setSheet("picker"))}
+                  onClick={() => (setAddingCardio(false), setReplacing(null), setSheet("picker"))}
                   icon={<Plus className="size-5 text-volt" />}
                 >
                   <Message source="Add exercise" />
                 </SheetBtn>
+                <div className="mt-2">
+                  <SheetBtn
+                    onClick={() => (setAddingCardio(true), setReplacing(null), setSheet("picker"))}
+                    icon={<Plus className="size-5 text-pulse" />}
+                  >
+                    {tr("Add cardio")}
+                  </SheetBtn>
+                </div>
                 {session.exercises.length === 0 && (
                   <p className="mt-3 px-2 text-center text-label text-muted-foreground">
                     <Message source="Pick your first exercise to start logging sets." />
@@ -2021,7 +2181,7 @@ export function LiveSession({
                       return void toast("Already in this session");
                     commit(patchEx(session, replacing, (x) => ({ ...x, name: n })));
                     pushRecent(n);
-                  } else addExercise(n);
+                  } else addExercise(n, addingCardio);
                   haptic.light();
                   close();
                 }}
@@ -2155,7 +2315,7 @@ export function LiveSession({
                         : tr("Session saved")
                       : tr("Review")}
                   </div>
-                  <h2 className="font-display text-title-l font-extrabold">{session.title}</h2>
+                  <h2 className="font-display text-title-l font-extrabold">{presentation.title}</h2>
                   <div className="mt-5 grid grid-cols-2 gap-2">
                     {[
                       {
@@ -2209,11 +2369,32 @@ export function LiveSession({
                       },
                     ].map((x) => (
                       <div key={x.l} className="tile p-4">
-                        <div className="eyebrow">{x.l}</div>
+                        <div className="eyebrow">{tr(x.l)}</div>
                         <div className="mt-1 text-title-l font-bold">{x.v}</div>
                       </div>
                     ))}
                   </div>
+                  {session.exercises.some(
+                    (ex) => ex.tracking === "cardio" && ex.sets.some((set) => set.done),
+                  ) && (
+                    <section className="mt-4 space-y-3">
+                      <h3 className="font-semibold">{tr("Recorded cardio")}</h3>
+                      {session.exercises
+                        .filter((ex) => !ex.skipped && ex.tracking === "cardio")
+                        .map((ex, index) => (
+                          <div key={index} className="rounded-tile border border-border p-3">
+                            <p className="mb-2 font-semibold">{programExerciseName(ex)}</p>
+                            {ex.sets
+                              .filter((set) => set.done)
+                              .map((set, i) => (
+                                <div key={i} className="mt-2 border-t border-border pt-2">
+                                  <CardioReadout value={set.cardio} />
+                                </div>
+                              ))}
+                          </div>
+                        ))}
+                    </section>
+                  )}
                   {allDone.length > doneSets.length && (
                     <p className="mt-2 text-caption text-muted-foreground">
                       <Message
@@ -2279,7 +2460,7 @@ export function LiveSession({
                         ))}
                       </div>
                       <p className="mt-2 text-center text-label text-muted-foreground">
-                        {tr(rpeAnchors[rpe] ?? "")}
+                        {tr((cardioOnly ? cardioEffortAnchors : rpeAnchors)[rpe] ?? "")}
                       </p>
                     </>
                   )}

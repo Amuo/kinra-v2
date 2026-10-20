@@ -57,16 +57,18 @@ export function SchemaFields({
   const record = (value ?? {}) as Record<string, unknown>;
   return (
     <div className="space-y-4">
-      {Object.entries(base.shape).map(([key, definition]) => (
-        <SchemaField
-          key={key}
-          name={key}
-          schema={definition as z.ZodTypeAny}
-          value={record[key]}
-          path={`${path}.${key}`}
-          onChange={(v) => onChange({ ...record, [key]: v })}
-        />
-      ))}
+      {Object.entries(base.shape)
+        .filter(([key]) => key !== "starter_id")
+        .map(([key, definition]) => (
+          <SchemaField
+            key={key}
+            name={key}
+            schema={definition as z.ZodTypeAny}
+            value={record[key]}
+            path={`${path}.${key}`}
+            onChange={(v) => onChange({ ...record, [key]: v })}
+          />
+        ))}
     </div>
   );
 }
@@ -157,7 +159,7 @@ function SchemaField({
                 onChange(days.includes(i) ? days.filter((d) => d !== i) : [...days, i])
               }
             >
-              {day}
+              {tr(day)}
             </Button>
           ))}
         </div>
@@ -257,9 +259,9 @@ function SchemaField({
       </label>
     );
   const isNumber = base instanceof z.ZodNumber;
-  const isTimestamp = /_at$|_until$/.test(name);
+  const isTimestamp = /_at$/.test(name);
   const isTime = /(^time$|_start$|_end$)/.test(name);
-  const isDate = /(^date$|_date$|_on$|Date$)/.test(name);
+  const isDate = /(^date$|_date$|_on$|Date$|^valid_until$)/.test(name);
   const isLong = /description|notes|body|bio|content|reason/i.test(name);
   const change = (text: string) =>
     onChange(

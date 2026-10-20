@@ -1,7 +1,8 @@
+import { localizedNutritionRecord } from "@/lib/template-display";
 import { Directory } from "./directory";
 import { errorText } from "@/lib/i18n-errors";
 import { setLanguage, isLanguage, number, t as tr, useLanguage, Message } from "@/lib/i18n";
-import { exerciseById, programReferences } from "@/lib/exercise-catalogue";
+import { savedCatalogueItem } from "./library-display";
 import { useFeaturePreferences, moduleVisible } from "./feature-preferences";
 import { useState } from "react";
 import { z } from "zod";
@@ -35,6 +36,11 @@ import { SchemaFields, fieldLabel, initialValue } from "./feature-fields";
 import { featureSections, featureNames, featureHints } from "./feature-config";
 import { ExerciseLibrary, ProgramReferences } from "./exercise-library";
 
+function displayRecord(record: FeatureRecord): FeatureRecord {
+  return record.kind === "nutrition_plan"
+    ? localizedNutritionRecord(record as FeatureRecord<"nutrition_plan">)
+    : record;
+}
 export function FeatureHub() {
   useLanguage();
   const preferences = useFeaturePreferences();
@@ -171,7 +177,7 @@ function GenericFeatureWorkspace({
   const [query, setQuery] = useState("");
   const deletion = useAct((a, id: string) => a.features.remove(id));
   const records = (rows.data ?? []).filter((row) =>
-    JSON.stringify(row.payload).toLowerCase().includes(query.toLowerCase()),
+    JSON.stringify(displayRecord(row).payload).toLowerCase().includes(query.toLowerCase()),
   );
   return (
     <div className="space-y-4">
@@ -257,7 +263,7 @@ function GenericFeatureWorkspace({
             ) : (
               <RecordDetails
                 kind={record.kind}
-                payload={record.payload as Record<string, unknown>}
+                payload={displayRecord(record).payload as Record<string, unknown>}
               />
             )}
             <RecordActions record={record} />
@@ -858,7 +864,7 @@ function RecordActions({ record }: { record: FeatureRecord }) {
     !!eventKind,
   );
   const matching = (events.data ?? []).filter((r) => Object.values(r.payload).includes(record.id));
-  const p = record.payload as Record<string, unknown>;
+  const p = displayRecord(record).payload as Record<string, unknown>;
   const eventDone = (index?: number) =>
     matching.some((r) => {
       const e = r.payload as Record<string, unknown>;
@@ -992,10 +998,7 @@ function SavedDetails({ record }: { record: FeatureRecord }) {
   const directory = useQ(["features", kind], (api) => api.features.list(kind!), !!kind);
   const source = directory.data?.find((r) => r.id === payload.target_id)?.payload as
     Record<string, unknown> | undefined;
-  const catalogue =
-    payload.target_type === "exercise"
-      ? exerciseById(payload.target_id)
-      : programReferences.find((p) => p.id === payload.target_id);
+  const catalogue = savedCatalogueItem(payload.target_type, payload.target_id);
   const name = catalogue?.name ?? source?.["name"] ?? source?.["title"];
   return (
     <div>
@@ -1008,7 +1011,7 @@ function SavedDetails({ record }: { record: FeatureRecord }) {
               : tr("Saved item no longer available")),
         )}
       </h3>
-      {catalogue && (
+      {catalogue?.sourceUrl && (
         <a
           href={catalogue.sourceUrl}
           target="_blank"

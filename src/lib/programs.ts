@@ -1,5 +1,6 @@
 import type { Program, ProgramDay, ProgramExercise } from "./types";
 import { exerciseById } from "./exercise-catalogue";
+import { cardioMetricsError } from "./cardio";
 
 export type ProgramDraft = Omit<Program, "id" | "trainer_id">;
 export const blankExercise = (): ProgramExercise => ({ name: "", sets: 3, reps: "8" });
@@ -43,6 +44,15 @@ export function programError(draft: ProgramDraft): string | null {
     if (!day.title.trim() || !day.exercises.length)
       return "Each day needs a name and at least one exercise.";
     for (const exercise of day.exercises) {
+      if (exercise.tracking !== undefined && exercise.tracking !== "cardio")
+        return "Choose a valid tracking type.";
+      if (exercise.tracking === "cardio") {
+        const invalid = cardioMetricsError(exercise.cardio);
+        if (invalid) return "Enter a valid cardio duration or distance target.";
+        if (exercise.weight != null && exercise.weight !== 0)
+          return "Cardio does not use a strength load.";
+      } else if (exercise.cardio !== undefined)
+        return "Choose cardio tracking for these measurements.";
       if (!exercise.name.trim() || !exercise.reps.trim())
         return "Give every exercise a name and rep target.";
       if (exercise.name.length > 200 || exercise.reps.length > 100)
