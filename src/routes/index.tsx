@@ -49,9 +49,9 @@ const press = { scale: 0.97 };
 
 function useDemo() {
   const navigate = useNavigate();
-  return (as: "client" | "trainer") => {
-    sessionStorage.setItem("strata-demo", as);
-    navigate({ to: "/app" });
+  return (as: "client" | "trainer" | "business") => {
+    sessionStorage.setItem("strata-demo", as === "business" ? "trainer" : as);
+    navigate({ to: as === "business" ? "/business" : "/app" });
   };
 }
 
@@ -251,6 +251,13 @@ function Landing() {
               >
                 <Message source="Demo · Coach" />
               </motion.button>
+              <motion.button
+                whileTap={press}
+                onClick={() => demo("business")}
+                className="col-span-2 min-h-12 rounded-full border border-primary/30 px-4 py-3 font-semibold text-primary"
+              >
+                <Message source="Demo · Business" />
+              </motion.button>
             </div>
           </div>
         </div>
@@ -312,6 +319,12 @@ function Landing() {
               className="mt-4 min-h-[44px] text-label text-muted-foreground underline-offset-4 hover:underline"
             >
               <Message source="Are you a coach? See the coach demo →" />
+            </button>
+            <button
+              onClick={() => demo("business")}
+              className="ml-5 mt-4 min-h-[44px] text-label font-semibold text-primary underline-offset-4 hover:underline"
+            >
+              <Message source="Demo · Business" />
             </button>
           </div>
           <div className="relative">

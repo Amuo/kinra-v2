@@ -65,6 +65,31 @@ it("installs the production namespace alongside legacy data and enforces account
       "kinra-v2-progress-photos",
     ]);
     expect(buckets.every((bucket) => !bucket.public)).toBe(true);
+    await db.exec("set role authenticated");
+    await db.query("select set_config('request.jwt.claim.sub',$1,false)", [alice]);
+    const business = (
+      await db.query<{ value: string }>(
+        "select kinra_v2_kinra_business('setup',null,$1,$2) value",
+        [
+          JSON.stringify({
+            name: "Namespace business",
+            sector: "pool",
+            timezone: "Europe/Sarajevo",
+            currency: "BAM",
+          }),
+          alice,
+        ],
+      )
+    ).rows[0]!.value;
+    const exported = (
+      await db.query<{ value: { business: { id: string }; members: unknown[] } }>(
+        "select kinra_v2_kinra_business('export',$1,'{}',$2) value",
+        [business, alice],
+      )
+    ).rows[0]!.value;
+    expect(exported.business.id).toBe(business);
+    expect(exported.members).toEqual([]);
+    await db.exec("reset role");
   } finally {
     await db.close();
   }

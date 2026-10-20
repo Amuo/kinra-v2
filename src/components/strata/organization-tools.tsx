@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { lazy, Suspense, useState } from "react";
 import { Building2, Check, Copy, Plus } from "lucide-react";
 import { useAct, useQ } from "@/lib/api";
@@ -35,6 +36,12 @@ export function OrganizationTools() {
         <Building2 aria-hidden="true" />
         {t("Organization tools")}
       </Button>
+      <Link
+        to="/business"
+        className="mt-3 flex min-h-12 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 px-4 text-sm font-semibold text-primary"
+      >
+        {t("Open Kinra Business")}
+      </Link>
       {open && (
         <Sheet open onOpenChange={setOpen} title={t("Organization tools")}>
           <OrganizationHome />
@@ -210,7 +217,7 @@ function OrganizationWorkbench({ org }: { org: OrgSummary }) {
     </section>
   );
 }
-function Staff({ org }: { org: OrgSummary }) {
+export function Staff({ org }: { org: OrgSummary }) {
   const staff = useQ(["organization-staff", org.id], (api) => api.organizations.staff(org.id));
   const invites = useQ(
     ["organization-invites", org.id],

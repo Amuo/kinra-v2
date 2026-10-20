@@ -10,6 +10,9 @@ for (const label of ["Reminders", "Motivation", "Memberships", "Community", "Mar
     missing.add(`Notification category: ${label}`);
 }
 const configMessages = {
+  "src/lib/business.ts": ["businessSectorLabels"],
+  "src/components/strata/business-management.tsx": ["resourceLabels"],
+  "src/components/strata/business-panels.tsx": ["entryReasonLabels"],
   "src/components/strata/session.tsx": ["rpeAnchors", "cardioEffortAnchors"],
   "src/lib/session-state.ts": ["DOW"],
   "src/routes/app.progress.tsx": ["DOW"],
@@ -26,6 +29,35 @@ const requireMessage = (source, file) => {
   if (/[A-Za-z]/.test(source) && (!dictionary[source]?.bs || !dictionary[source]?.de))
     missing.add(`${file}: ${source}`);
 };
+for (const state of [
+  "active",
+  "paused",
+  "blocked",
+  "archived",
+  "expired",
+  "ended",
+  "allowed",
+  "denied",
+  "already_inside",
+  "scheduled",
+  "cancelled",
+  "booked",
+  "open",
+  "void",
+  "payment",
+  "refund",
+  "cash",
+  "bank",
+  "external_card",
+  "other",
+])
+  requireMessage(state, "Business dynamic status");
+const businessSql = readFileSync(
+  new URL("../drizzle/migrations/0029_business.sql", import.meta.url),
+  "utf8",
+);
+for (const match of businessSql.matchAll(/RAISE EXCEPTION '([^']+)'/gi))
+  requireMessage(match[1], "Business server error");
 function requireExpression(node, file) {
   if (ts.isStringLiteral(node)) requireMessage(node.text, file);
   else if (ts.isConditionalExpression(node)) {
@@ -62,6 +94,21 @@ for (const dir of ["src/routes", "src/components/strata", "src/components/ui", "
       ts.ScriptKind.TSX,
     );
     function visit(node) {
+      if (
+        pathname.startsWith("src/components/strata/business-") &&
+        ts.isJsxAttribute(node) &&
+        node.name.getText(source) === "label" &&
+        node.initializer &&
+        ts.isStringLiteral(node.initializer)
+      )
+        requireMessage(node.initializer.text, pathname);
+      if (
+        pathname === "src/components/strata/business-workspace.tsx" &&
+        ts.isVariableDeclaration(node) &&
+        node.name.getText(source) === "businessNavigation" &&
+        node.initializer
+      )
+        requireConfig(node.initializer, pathname);
       if (
         pathname === "src/components/strata/client-overview.tsx" &&
         ts.isJsxExpression(node) &&

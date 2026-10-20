@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BusinessRouteImport } from './routes/business'
 import { Route as ApiRemindersRouteImport } from './routes/api.reminders'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppFuelRouteImport } from './routes/app.fuel'
@@ -37,6 +38,11 @@ const AppRoute = AppRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessRoute = BusinessRouteImport.update({
+  id: '/business',
+  path: '/business',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiRemindersRoute = ApiRemindersRouteImport.update({
@@ -99,6 +105,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
+  '/business': typeof BusinessRoute
   '/api/reminders': typeof ApiRemindersRoute
   '/app/fuel': typeof AppFuelRoute
   '/app/me': typeof AppMeRoute
@@ -114,6 +121,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/business': typeof BusinessRoute
   '/api/reminders': typeof ApiRemindersRoute
   '/app/fuel': typeof AppFuelRoute
   '/app/me': typeof AppMeRoute
@@ -131,6 +139,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/auth': typeof AuthRoute
+  '/business': typeof BusinessRoute
   '/api/reminders': typeof ApiRemindersRoute
   '/app/fuel': typeof AppFuelRoute
   '/app/me': typeof AppMeRoute
@@ -149,6 +158,7 @@ export interface FileRouteTypes {
     | '/'
     | '/app'
     | '/auth'
+    | '/business'
     | '/api/reminders'
     | '/app/fuel'
     | '/app/me'
@@ -164,6 +174,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/business'
     | '/api/reminders'
     | '/app/fuel'
     | '/app/me'
@@ -180,6 +191,7 @@ export interface FileRouteTypes {
     | '/'
     | '/app'
     | '/auth'
+    | '/business'
     | '/api/reminders'
     | '/app/fuel'
     | '/app/me'
@@ -197,6 +209,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
   AuthRoute: typeof AuthRoute
+  BusinessRoute: typeof BusinessRoute
   ApiRemindersRoute: typeof ApiRemindersRoute
   AuthConfirmRoute: typeof AuthConfirmRoute
 }
@@ -222,6 +235,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business': {
+      id: '/business'
+      path: '/business'
+      fullPath: '/business'
+      preLoaderRoute: typeof BusinessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/reminders': {
@@ -334,6 +354,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
   AuthRoute: AuthRoute,
+  BusinessRoute: BusinessRoute,
   ApiRemindersRoute: ApiRemindersRoute,
   AuthConfirmRoute: AuthConfirmRoute,
 }

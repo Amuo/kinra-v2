@@ -22,11 +22,14 @@ import {
 } from "./community-api";
 import {
   createLiveOrganizations,
+  createDemoOrganizations,
   clearDemoOrganizations,
   exportDemoOrganizations,
 } from "./organization-api";
 import { clearDemoResources, demoResourceMatches } from "./resource-api";
 import { templateOrigins, demoTemplateSource } from "./template-origins";
+import { createLiveBusiness } from "./business-api";
+import { clearDemoBusiness, exportDemoBusiness } from "./business-demo";
 
 export interface FeatureApi {
   activateSupplementPlan(
@@ -355,6 +358,11 @@ export function createLiveFeatures(ownerId: string): FeatureApi {
         ),
       );
       const organizations = createLiveOrganizations(ownerId);
+      const business = createLiveBusiness(ownerId);
+      logs["business_workbench"] = await Promise.all(
+        (await business.list()).map((item) => business.exportData(item.id)),
+      );
+      logs["business_memberships"] = await business.myMemberships();
       logs["organization_workbench"] = await Promise.all(
         (await organizations.list()).map(async (organization) => ({
           ...organization,
@@ -562,6 +570,7 @@ export function createDemoFeatures(
       clearDemoResources(ownerId);
       clearDemoCommunity(ownerId);
       clearDemoOrganizations(ownerId);
+      clearDemoBusiness(ownerId);
       for (const key of demoActivations.keys())
         if (key.startsWith(ownerId + "|")) demoActivations.delete(key);
       onErase();
@@ -900,6 +909,7 @@ export function createDemoFeatures(
           })),
         kinds: featureKinds,
         organization_workbench: exportDemoOrganizations(ownerId),
+        business: await exportDemoBusiness(ownerId, createDemoOrganizations(ownerId, this)),
         community_workbench: exportDemoCommunity(ownerId),
       };
     },

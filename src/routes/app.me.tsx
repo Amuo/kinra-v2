@@ -1,3 +1,4 @@
+import { MemberPass } from "@/components/strata/business-pass";
 import { CommunityGroups } from "@/components/strata/community-groups";
 import { DeviceReminders } from "@/components/strata/device-reminders";
 import { OrganizationTools } from "@/components/strata/organization-tools";
@@ -136,6 +137,7 @@ function MePage() {
         <PrivateMessages />
       </div>
       <AccountWorkspaces />
+      <MemberPass />
       <OrganizationTools />
       <AvailabilityBooking />
       <DeviceReminders />

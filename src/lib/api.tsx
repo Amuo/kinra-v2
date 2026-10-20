@@ -60,6 +60,9 @@ import { createLiveNotifications, createDemoNotifications } from "./notification
 import type { NotificationApi } from "./notifications";
 import { createLiveCommunity, createDemoCommunity, type CommunityApi } from "./community-api";
 import { createLiveResources, createDemoResources } from "./resource-api";
+import type { BusinessApi } from "./business";
+import { createLiveBusiness } from "./business-api";
+import { createDemoBusiness } from "./business-demo";
 import type { ResourceApi } from "./resources";
 import {
   onboardingAnswers,
@@ -72,6 +75,7 @@ import {
 export type Mode = "live" | "demo-client" | "demo-trainer";
 
 export interface Api {
+  business: BusinessApi;
   resources: ResourceApi;
   community: CommunityApi;
   notifications: NotificationApi;
@@ -152,6 +156,7 @@ export function createLiveApi(ownerId: string): Api {
   const uid = () => authenticatedId(ownerId);
   const features = createLiveFeatures(ownerId);
   return {
+    business: createLiveBusiness(ownerId),
     resources: createLiveResources(ownerId, features),
     community: createLiveCommunity(ownerId),
     notifications: createLiveNotifications(ownerId),
@@ -559,7 +564,11 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
   let organizations: OrganizationApi | undefined;
   let community: CommunityApi | undefined;
   let resources: ResourceApi | undefined;
+  let business: BusinessApi | undefined;
   return {
+    get business() {
+      return (business ??= createDemoBusiness(meId, this.features, this.organizations));
+    },
     get resources() {
       return (resources ??= createDemoResources(meId, this.features));
     },
@@ -622,6 +631,7 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
         organizations = undefined;
         community = undefined;
         resources = undefined;
+        business = undefined;
         demoOnboarding.delete(meId);
         demoWorkspaces.delete(meId);
         for (const key of demoTemplateAdoptions.keys())

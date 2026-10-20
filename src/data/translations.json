@@ -5291,8 +5291,8 @@
     "de": "Verwende HTTP- oder HTTPS-Quellenlinks."
   },
   "Choose a valid timezone.": {
-    "bs": "Odaberi važeću vremensku zonu.",
-    "de": "Wähle eine gültige Zeitzone."
+    "bs": "Odaberite važeću vremensku zonu.",
+    "de": "Wählen Sie eine gültige Zeitzone."
   },
   "Please check the highlighted fields.": {
     "bs": "Provjeri označena polja.",
@@ -8289,5 +8289,923 @@
   "ml": {
     "bs": "ml",
     "de": "ml"
+  },
+  "Business settings": {
+    "bs": "Poslovne postavke",
+    "de": "Betriebseinstellungen"
+  },
+  "Create your business": {
+    "bs": "Kreirajte svoj objekat",
+    "de": "Betrieb erstellen"
+  },
+  "Business access does not grant access to personal health or coaching records.": {
+    "bs": "Poslovni pristup ne daje pristup privatnim zdravstvenim podacima ili treninzima.",
+    "de": "Betriebszugriff gewährt keinen Zugriff auf private Gesundheits- oder Coachingdaten."
+  },
+  "Member roster": {
+    "bs": "Lista članova",
+    "de": "Mitgliederliste"
+  },
+  "Add member": {
+    "bs": "Dodaj člana",
+    "de": "Mitglied hinzufügen"
+  },
+  "Search members": {
+    "bs": "Pretraži članove",
+    "de": "Mitglieder suchen"
+  },
+  "No members yet. Add your first member to get started.": {
+    "bs": "Još nema članova. Dodajte prvog člana.",
+    "de": "Noch keine Mitglieder. Fügen Sie Ihr erstes Mitglied hinzu."
+  },
+  "Choose a member to view their membership and access.": {
+    "bs": "Odaberite člana za pregled članarine i pristupa.",
+    "de": "Wählen Sie ein Mitglied, um Mitgliedschaft und Zugang zu sehen."
+  },
+  "Member details": {
+    "bs": "Podaci člana",
+    "de": "Mitgliedsdaten"
+  },
+  "Membership & app access": {
+    "bs": "Članarina i pristup aplikaciji",
+    "de": "Mitgliedschaft & App-Zugang"
+  },
+  "Visits used": {
+    "bs": "Iskorišteni dolasci",
+    "de": "Genutzte Besuche"
+  },
+  "Unlimited visits": {
+    "bs": "Neograničeni dolasci",
+    "de": "Unbegrenzte Besuche"
+  },
+  "All locations": {
+    "bs": "Sve lokacije",
+    "de": "Alle Standorte"
+  },
+  "Edit membership": {
+    "bs": "Uredi članarinu",
+    "de": "Mitgliedschaft bearbeiten"
+  },
+  "Add membership": {
+    "bs": "Dodaj članarinu",
+    "de": "Mitgliedschaft hinzufügen"
+  },
+  "Connected to a Kinra account": {
+    "bs": "Povezano s Kinra računom",
+    "de": "Mit Kinra-Konto verbunden"
+  },
+  "No Kinra account linked": {
+    "bs": "Kinra račun nije povezan",
+    "de": "Kein Kinra-Konto verknüpft"
+  },
+  "Create app invitation": {
+    "bs": "Kreiraj pozivnicu za aplikaciju",
+    "de": "App-Einladung erstellen"
+  },
+  "Share this private code with this member only.": {
+    "bs": "Podijelite ovaj privatni kod samo s ovim članom.",
+    "de": "Teilen Sie diesen privaten Code nur mit diesem Mitglied."
+  },
+  "Choose a plan": {
+    "bs": "Odaberite paket",
+    "de": "Tarif wählen"
+  },
+  "Plans for every way to train": {
+    "bs": "Paketi za svaki način treniranja",
+    "de": "Tarife für jedes Training"
+  },
+  "Add plan": {
+    "bs": "Dodaj paket",
+    "de": "Tarif hinzufügen"
+  },
+  "visits": {
+    "bs": "dolazaka",
+    "de": "Besuche"
+  },
+  "Membership plan": {
+    "bs": "Paket članarine",
+    "de": "Mitgliedschaftstarif"
+  },
+  "archived": {
+    "bs": "arhivirano",
+    "de": "archiviert"
+  },
+  "blocked": {
+    "bs": "blokirano",
+    "de": "gesperrt"
+  },
+  "expired": {
+    "bs": "isteklo",
+    "de": "abgelaufen"
+  },
+  "allowed": {
+    "bs": "ulaz odobren",
+    "de": "Zutritt erlaubt"
+  },
+  "denied": {
+    "bs": "ulaz odbijen",
+    "de": "Zutritt verweigert"
+  },
+  "already_inside": {
+    "bs": "već u objektu",
+    "de": "bereits eingecheckt",
+    "en": "Already checked in"
+  },
+  "Eligible locations (none selected means all)": {
+    "bs": "Dozvoljene lokacije (bez odabira znači sve)",
+    "de": "Berechtigte Standorte (keine Auswahl bedeutet alle)"
+  },
+  "Existing memberships retain their saved plan entitlements.": {
+    "bs": "Postojeće članarine zadržavaju ranije sačuvana prava paketa.",
+    "de": "Bestehende Mitgliedschaften behalten ihre gespeicherten Tarifberechtigungen."
+  },
+  "Your locations": {
+    "bs": "Vaše lokacije",
+    "de": "Ihre Standorte"
+  },
+  "Add location": {
+    "bs": "Dodaj lokaciju",
+    "de": "Standort hinzufügen"
+  },
+  "Capacity": {
+    "bs": "Kapacitet",
+    "de": "Kapazität"
+  },
+  "Not set": {
+    "bs": "Nije postavljeno",
+    "de": "Nicht festgelegt"
+  },
+  "Edit location": {
+    "bs": "Uredi lokaciju",
+    "de": "Standort bearbeiten"
+  },
+  "Add resource": {
+    "bs": "Dodaj prostor ili resurs",
+    "de": "Ressource hinzufügen"
+  },
+  "Location details": {
+    "bs": "Podaci o lokaciji",
+    "de": "Standortdetails"
+  },
+  "Resource details": {
+    "bs": "Podaci o resursu",
+    "de": "Ressourcendetails"
+  },
+  "Classes, teams & resource sessions": {
+    "bs": "Časovi, ekipe i termini resursa",
+    "de": "Kurse, Teams & Ressourcentermine"
+  },
+  "Add session": {
+    "bs": "Dodaj termin",
+    "de": "Termin hinzufügen"
+  },
+  "Times shown in": {
+    "bs": "Vremena su prikazana u zoni",
+    "de": "Zeiten in"
+  },
+  "Bookings": {
+    "bs": "Rezervacije",
+    "de": "Buchungen"
+  },
+  "Session details": {
+    "bs": "Podaci o terminu",
+    "de": "Termindetails"
+  },
+  "No specific resource": {
+    "bs": "Bez posebnog resursa",
+    "de": "Keine bestimmte Ressource"
+  },
+  "scheduled": {
+    "bs": "zakazano",
+    "de": "geplant"
+  },
+  "cancelled": {
+    "bs": "otkazano",
+    "de": "abgesagt"
+  },
+  "booked": {
+    "bs": "rezervisano",
+    "de": "gebucht"
+  },
+  "Choose a member": {
+    "bs": "Odaberite člana",
+    "de": "Mitglied wählen"
+  },
+  "Cancel booking": {
+    "bs": "Otkaži rezervaciju",
+    "de": "Buchung stornieren"
+  },
+  "Record payments received elsewhere. Kinra does not charge cards or transfer funds.": {
+    "bs": "Evidentirajte uplate primljene drugim putem. Kinra ne naplaćuje kartice niti prenosi novac.",
+    "de": "Erfassen Sie anderweitig erhaltene Zahlungen. Kinra belastet keine Karten und überweist kein Geld."
+  },
+  "Invoices": {
+    "bs": "Računi",
+    "de": "Rechnungen"
+  },
+  "Add invoice": {
+    "bs": "Dodaj račun",
+    "de": "Rechnung hinzufügen"
+  },
+  "Record payment or refund": {
+    "bs": "Evidentiraj uplatu ili povrat",
+    "de": "Zahlung oder Erstattung erfassen"
+  },
+  "Void invoice": {
+    "bs": "Poništi račun",
+    "de": "Rechnung stornieren"
+  },
+  "New invoice": {
+    "bs": "Novi račun",
+    "de": "Neue Rechnung"
+  },
+  "Payment history": {
+    "bs": "Historija uplata",
+    "de": "Zahlungsverlauf"
+  },
+  "payment": {
+    "bs": "uplata",
+    "de": "Zahlung"
+  },
+  "refund": {
+    "bs": "povrat",
+    "de": "Erstattung"
+  },
+  "cash": {
+    "bs": "gotovina",
+    "de": "Bargeld"
+  },
+  "bank": {
+    "bs": "banka",
+    "de": "Überweisung"
+  },
+  "external_card": {
+    "bs": "kartica izvan aplikacije",
+    "de": "Externe Kartenzahlung",
+    "en": "External card"
+  },
+  "other": {
+    "bs": "drugo",
+    "de": "Sonstiges"
+  },
+  "open": {
+    "bs": "otvoreno",
+    "de": "offen"
+  },
+  "void": {
+    "bs": "poništeno",
+    "de": "storniert"
+  },
+  "Your team. Your space. A clearer working day.": {
+    "bs": "Vaš tim. Vaš prostor. Pregledniji radni dan.",
+    "de": "Ihr Team. Ihre Räume. Ein übersichtlicher Arbeitstag."
+  },
+  "Open reception": {
+    "bs": "Otvori recepciju",
+    "de": "Empfang öffnen"
+  },
+  "This view contains a limited recent set of records. Summary counts include all records.": {
+    "bs": "Ovaj prikaz sadrži ograničen skup novijih zapisa. Sažetak uključuje sve zapise.",
+    "de": "Diese Ansicht enthält eine begrenzte Auswahl neuerer Datensätze. Die Kennzahlen umfassen alle Datensätze."
+  },
+  "Active members": {
+    "bs": "Aktivni članovi",
+    "de": "Aktive Mitglieder"
+  },
+  "Inside now": {
+    "bs": "Trenutno u objektu",
+    "de": "Aktuell eingecheckt"
+  },
+  "Visits today": {
+    "bs": "Današnji dolasci",
+    "de": "Heutige Besuche"
+  },
+  "Expiring memberships": {
+    "bs": "Članarine koje uskoro ističu",
+    "de": "Bald ablaufende Mitgliedschaften"
+  },
+  "Reception at a glance": {
+    "bs": "Pregled recepcije",
+    "de": "Empfang im Überblick"
+  },
+  "View reception": {
+    "bs": "Pregledaj recepciju",
+    "de": "Empfang ansehen"
+  },
+  "Occupancy reflects recorded check-ins and check-outs.": {
+    "bs": "Popunjenost se zasniva na evidentiranim ulascima i izlascima.",
+    "de": "Die Belegung basiert auf erfassten Ein- und Auscheckvorgängen."
+  },
+  "Coming up": {
+    "bs": "Uskoro",
+    "de": "Demnächst"
+  },
+  "No sessions scheduled yet.": {
+    "bs": "Još nema zakazanih termina.",
+    "de": "Noch keine Termine geplant."
+  },
+  "Outstanding balance": {
+    "bs": "Neizmireni iznos",
+    "de": "Offener Betrag"
+  },
+  "Recorded invoices, not a connected bank balance.": {
+    "bs": "Evidentirani računi, a ne stanje povezanog bankovnog računa.",
+    "de": "Erfasste Rechnungen, kein verbundener Bankkontostand."
+  },
+  "Recorded today": {
+    "bs": "Danas evidentirano",
+    "de": "Heute erfasst"
+  },
+  "Check a member in": {
+    "bs": "Evidentiraj ulazak člana",
+    "de": "Mitglied einchecken"
+  },
+  "Choose a location": {
+    "bs": "Odaberite lokaciju",
+    "de": "Standort wählen"
+  },
+  "Add an active location before checking members in.": {
+    "bs": "Dodajte aktivnu lokaciju prije evidentiranja ulazaka.",
+    "de": "Fügen Sie vor dem Einchecken einen aktiven Standort hinzu."
+  },
+  "Record manual entry": {
+    "bs": "Ručno evidentiraj ulazak",
+    "de": "Manuellen Zutritt erfassen"
+  },
+  "Entry result": {
+    "bs": "Rezultat provjere ulaza",
+    "de": "Zutrittsergebnis"
+  },
+  "Visits remaining": {
+    "bs": "Preostali dolasci",
+    "de": "Verbleibende Besuche"
+  },
+  "This records attendance. Physical door access requires a separate hardware integration.": {
+    "bs": "Ovo evidentira prisustvo. Otvaranje fizičkih vrata zahtijeva posebnu hardversku integraciju.",
+    "de": "Dies erfasst die Anwesenheit. Physische Türöffnung erfordert eine separate Hardwareintegration."
+  },
+  "Check out": {
+    "bs": "Evidentiraj izlazak",
+    "de": "Auschecken"
+  },
+  "No recorded visits inside right now.": {
+    "bs": "Trenutno nema evidentiranih posjetilaca u objektu.",
+    "de": "Aktuell keine eingecheckten Besucher erfasst."
+  },
+  "My membership & QR pass": {
+    "bs": "Moja članarina i QR propusnica",
+    "de": "Meine Mitgliedschaft & QR-Pass"
+  },
+  "Link a membership": {
+    "bs": "Poveži članarinu",
+    "de": "Mitgliedschaft verknüpfen"
+  },
+  "Ask your reception team for your private app invitation code.": {
+    "bs": "Zatražite svoj privatni kod za aplikaciju na recepciji.",
+    "de": "Fragen Sie am Empfang nach Ihrem privaten App-Einladungscode."
+  },
+  "Link this membership": {
+    "bs": "Poveži ovu članarinu",
+    "de": "Diese Mitgliedschaft verknüpfen"
+  },
+  "Membership entry QR code": {
+    "bs": "QR kod za ulazak člana",
+    "de": "QR-Code für den Mitgliedszutritt"
+  },
+  "Pass expires in {seconds}s": {
+    "bs": "Propusnica ističe za {seconds}s",
+    "de": "Pass läuft in {seconds}s ab"
+  },
+  "Show this code at reception. One entry only.": {
+    "bs": "Pokažite ovaj kod na recepciji. Važi za jedan ulazak.",
+    "de": "Zeigen Sie diesen Code am Empfang. Nur ein Zutritt."
+  },
+  "This pass has expired. Generate a fresh code.": {
+    "bs": "Propusnica je istekla. Generišite novi kod.",
+    "de": "Dieser Pass ist abgelaufen. Erstellen Sie einen neuen Code."
+  },
+  "Generating…": {
+    "bs": "Generisanje…",
+    "de": "Wird erstellt…"
+  },
+  "Generate entry pass": {
+    "bs": "Generiši propusnicu",
+    "de": "Zutrittspass erstellen"
+  },
+  "Reception checks your current membership and location access when scanned.": {
+    "bs": "Pri skeniranju se provjeravaju vaša važeća članarina i pristup lokaciji.",
+    "de": "Beim Scannen werden Ihre aktuelle Mitgliedschaft und Standortberechtigung geprüft."
+  },
+  "Entry camera preview": {
+    "bs": "Pregled kamere za ulaz",
+    "de": "Kameravorschau für Zutritt"
+  },
+  "Scan member QR": {
+    "bs": "Skeniraj QR člana",
+    "de": "Mitglieder-QR scannen"
+  },
+  "USB scanner or manual code also supported.": {
+    "bs": "Podržani su USB skener i ručni unos koda.",
+    "de": "USB-Scanner und manuelle Codeeingabe werden ebenfalls unterstützt."
+  },
+  "Camera unavailable. Use a USB scanner or enter the pass code.": {
+    "bs": "Kamera nije dostupna. Koristite USB skener ili unesite kod propusnice.",
+    "de": "Kamera nicht verfügbar. Nutzen Sie einen USB-Scanner oder geben Sie den Passcode ein."
+  },
+  "Member pass code": {
+    "bs": "Kod članske propusnice",
+    "de": "Mitgliedspasscode"
+  },
+  "Checking…": {
+    "bs": "Provjera…",
+    "de": "Wird geprüft…"
+  },
+  "Check entry": {
+    "bs": "Provjeri ulaz",
+    "de": "Zutritt prüfen"
+  },
+  "Skip to content": {
+    "bs": "Pređi na sadržaj",
+    "de": "Zum Inhalt springen"
+  },
+  "Business navigation": {
+    "bs": "Poslovna navigacija",
+    "de": "Betriebsnavigation"
+  },
+  "One workspace for your people, places and daily operations.": {
+    "bs": "Jedno radno okruženje za ljude, prostore i svakodnevno poslovanje.",
+    "de": "Ein Arbeitsbereich für Menschen, Standorte und den Betriebsalltag."
+  },
+  "Back to my profile": {
+    "bs": "Nazad na moj profil",
+    "de": "Zurück zu meinem Profil"
+  },
+  "Local demo": {
+    "bs": "Lokalni demo",
+    "de": "Lokale Demo"
+  },
+  "Your business starts here": {
+    "bs": "Vaše poslovanje počinje ovdje",
+    "de": "Ihr Betrieb startet hier"
+  },
+  "Create an organization or accept a staff invitation to open your operations workspace.": {
+    "bs": "Kreirajte organizaciju ili prihvatite pozivnicu za osoblje da otvorite radno okruženje.",
+    "de": "Erstellen Sie eine Organisation oder nehmen Sie eine Mitarbeitereinladung an, um den Arbeitsbereich zu öffnen."
+  },
+  "Open Kinra Business": {
+    "bs": "Otvori Kinra Business",
+    "de": "Kinra Business öffnen"
+  },
+  "Reception": {
+    "bs": "Recepcija",
+    "de": "Empfang"
+  },
+  "Membership plans": {
+    "bs": "Paketi članarine",
+    "de": "Mitgliedschaftstarife"
+  },
+  "Locations & resources": {
+    "bs": "Lokacije i resursi",
+    "de": "Standorte & Ressourcen"
+  },
+  "Payment ledger": {
+    "bs": "Evidencija uplata",
+    "de": "Zahlungsbuch"
+  },
+  "Staff & settings": {
+    "bs": "Osoblje i postavke",
+    "de": "Personal & Einstellungen"
+  },
+  "Business name": {
+    "bs": "Naziv objekta",
+    "de": "Betriebsname"
+  },
+  "Facility type": {
+    "bs": "Vrsta objekta",
+    "de": "Einrichtungstyp"
+  },
+  "Member number": {
+    "bs": "Članski broj",
+    "de": "Mitgliedsnummer"
+  },
+  "Team or group": {
+    "bs": "Ekipa ili grupa",
+    "de": "Team oder Gruppe"
+  },
+  "Member status": {
+    "bs": "Status člana",
+    "de": "Mitgliedsstatus"
+  },
+  "Plan name": {
+    "bs": "Naziv paketa",
+    "de": "Tarifname"
+  },
+  "Duration in days": {
+    "bs": "Trajanje u danima",
+    "de": "Dauer in Tagen"
+  },
+  "Visit limit (empty means unlimited)": {
+    "bs": "Broj dolazaka (prazno znači neograničeno)",
+    "de": "Besuchslimit (leer bedeutet unbegrenzt)"
+  },
+  "Resource type": {
+    "bs": "Vrsta resursa",
+    "de": "Ressourcentyp"
+  },
+  "Session title": {
+    "bs": "Naziv termina",
+    "de": "Termintitel"
+  },
+  "Resource": {
+    "bs": "Resurs",
+    "de": "Ressource"
+  },
+  "Starts at": {
+    "bs": "Početak",
+    "de": "Beginn"
+  },
+  "Ends at": {
+    "bs": "Završetak",
+    "de": "Ende"
+  },
+  "Book member": {
+    "bs": "Rezerviši za člana",
+    "de": "Mitglied buchen"
+  },
+  "Due date": {
+    "bs": "Rok plaćanja",
+    "de": "Fälligkeitsdatum"
+  },
+  "Record type": {
+    "bs": "Vrsta evidencije",
+    "de": "Buchungsart"
+  },
+  "Payment method": {
+    "bs": "Način plaćanja",
+    "de": "Zahlungsart"
+  },
+  "Manual member lookup": {
+    "bs": "Ručni odabir člana",
+    "de": "Manuelle Mitgliedersuche"
+  },
+  "This local time does not exist. Choose another time.": {
+    "bs": "Ovo lokalno vrijeme ne postoji. Odaberite drugo vrijeme.",
+    "de": "Diese Ortszeit existiert nicht. Wählen Sie eine andere Zeit."
+  },
+  "Pitch": {
+    "bs": "Teren",
+    "de": "Spielfeld"
+  },
+  "Court": {
+    "bs": "Sportski teren",
+    "de": "Sportplatz"
+  },
+  "Swimming lane": {
+    "bs": "Plivačka staza",
+    "de": "Schwimmbahn"
+  },
+  "Studio": {
+    "bs": "Studio",
+    "de": "Studio"
+  },
+  "Training mat": {
+    "bs": "Strunjača",
+    "de": "Trainingsmatte"
+  },
+  "Running track": {
+    "bs": "Atletska staza",
+    "de": "Laufbahn"
+  },
+  "Room": {
+    "bs": "Prostorija",
+    "de": "Raum"
+  },
+  "Other resource": {
+    "bs": "Drugi resurs",
+    "de": "Andere Ressource"
+  },
+  "Gym & fitness": {
+    "bs": "Teretana i fitnes",
+    "de": "Fitnessstudio"
+  },
+  "Pool & swimming": {
+    "bs": "Bazen i plivanje",
+    "de": "Schwimmbad & Schwimmen"
+  },
+  "Football club": {
+    "bs": "Fudbalski klub",
+    "de": "Fußballverein"
+  },
+  "MMA & combat sports": {
+    "bs": "MMA i borilački sportovi",
+    "de": "MMA & Kampfsport"
+  },
+  "Sports complex": {
+    "bs": "Sportski kompleks",
+    "de": "Sportkomplex"
+  },
+  "Athletics facility": {
+    "bs": "Atletski objekat",
+    "de": "Leichtathletikanlage"
+  },
+  "Basketball club": {
+    "bs": "Košarkaški klub",
+    "de": "Basketballverein"
+  },
+  "Handball club": {
+    "bs": "Rukometni klub",
+    "de": "Handballverein"
+  },
+  "Volleyball club": {
+    "bs": "Odbojkaški klub",
+    "de": "Volleyballverein"
+  },
+  "Tennis club": {
+    "bs": "Teniski klub",
+    "de": "Tennisverein"
+  },
+  "Padel centre": {
+    "bs": "Padel centar",
+    "de": "Padelzentrum"
+  },
+  "Dance studio": {
+    "bs": "Plesni studio",
+    "de": "Tanzstudio"
+  },
+  "Yoga & Pilates": {
+    "bs": "Joga i pilates",
+    "de": "Yoga & Pilates"
+  },
+  "Gymnastics club": {
+    "bs": "Gimnastički klub",
+    "de": "Turnverein"
+  },
+  "Climbing centre": {
+    "bs": "Penjački centar",
+    "de": "Kletterzentrum"
+  },
+  "Water sports club": {
+    "bs": "Klub vodenih sportova",
+    "de": "Wassersportverein"
+  },
+  "Winter sports centre": {
+    "bs": "Centar zimskih sportova",
+    "de": "Wintersportzentrum"
+  },
+  "Wellness centre": {
+    "bs": "Wellness centar",
+    "de": "Wellnesszentrum"
+  },
+  "Other sports facility": {
+    "bs": "Drugi sportski objekat",
+    "de": "Andere Sporteinrichtung"
+  },
+  "Demo · Business": {
+    "bs": "Demo · Poslovanje",
+    "de": "Demo · Betrieb"
+  },
+  "Phone": {
+    "bs": "Telefon",
+    "de": "Telefon"
+  },
+  "End date": {
+    "bs": "Datum završetka",
+    "de": "Enddatum"
+  },
+  "Price": {
+    "bs": "Cijena",
+    "de": "Preis"
+  },
+  "Activity": {
+    "bs": "Aktivnost",
+    "de": "Aktivität"
+  },
+  "Reference": {
+    "bs": "Referenca",
+    "de": "Referenz"
+  },
+  "Schedule": {
+    "bs": "Raspored",
+    "de": "Zeitplan"
+  },
+  "Entry recorded": {
+    "bs": "Ulazak evidentiran",
+    "de": "Zutritt erfasst"
+  },
+  "This member is already checked in.": {
+    "bs": "Član je već prijavljen u objektu.",
+    "de": "Dieses Mitglied ist bereits eingecheckt."
+  },
+  "This pass is invalid for this business.": {
+    "bs": "Propusnica ne važi za ovaj objekat.",
+    "de": "Dieser Pass ist für diesen Betrieb ungültig."
+  },
+  "This pass has already been used. Generate a new pass.": {
+    "bs": "Propusnica je već iskorištena. Generišite novu.",
+    "de": "Dieser Pass wurde bereits verwendet. Erstellen Sie einen neuen Pass."
+  },
+  "This location is unavailable.": {
+    "bs": "Ova lokacija nije dostupna.",
+    "de": "Dieser Standort ist nicht verfügbar."
+  },
+  "This member's access is paused.": {
+    "bs": "Pristup ovog člana je pauziran.",
+    "de": "Der Zugang dieses Mitglieds ist pausiert."
+  },
+  "This member's access is blocked.": {
+    "bs": "Pristup ovog člana je blokiran.",
+    "de": "Der Zugang dieses Mitglieds ist gesperrt."
+  },
+  "This member is archived.": {
+    "bs": "Ovaj član je arhiviran.",
+    "de": "Dieses Mitglied ist archiviert."
+  },
+  "No eligible membership for this location and date, or the visit limit is reached.": {
+    "bs": "Nema važeće članarine za ovu lokaciju i datum ili je iskorišten broj dolazaka.",
+    "de": "Keine berechtigte Mitgliedschaft für diesen Standort und dieses Datum oder das Besuchslimit ist erreicht."
+  },
+  "This location has reached its recorded capacity.": {
+    "bs": "Lokacija je dostigla evidentirani kapacitet.",
+    "de": "Dieser Standort hat seine erfasste Kapazität erreicht."
+  },
+  "Entry could not be verified.": {
+    "bs": "Ulazak nije moguće potvrditi.",
+    "de": "Der Zutritt konnte nicht geprüft werden."
+  },
+  "Business access required.": {
+    "bs": "Potreban je poslovni pristup.",
+    "de": "Betriebszugriff erforderlich."
+  },
+  "Business not found.": {
+    "bs": "Objekat nije pronađen.",
+    "de": "Betrieb nicht gefunden."
+  },
+  "Invalid business request.": {
+    "bs": "Nevažeći poslovni zahtjev.",
+    "de": "Ungültige Betriebsanfrage."
+  },
+  "Business owner access required.": {
+    "bs": "Potreban je pristup vlasnika objekta.",
+    "de": "Zugriff als Betriebsinhaber erforderlich."
+  },
+  "Currency cannot change after plans have been created.": {
+    "bs": "Valuta se ne može mijenjati nakon kreiranja paketa.",
+    "de": "Die Währung kann nach der Tariferstellung nicht geändert werden."
+  },
+  "Enter a business name.": {
+    "bs": "Unesite naziv objekta.",
+    "de": "Geben Sie einen Betriebsnamen ein."
+  },
+  "This member invitation is invalid or expired.": {
+    "bs": "Pozivnica za člana nije važeća ili je istekla.",
+    "de": "Diese Mitgliedseinladung ist ungültig oder abgelaufen."
+  },
+  "This member invitation is already linked.": {
+    "bs": "Ova pozivnica za člana je već povezana.",
+    "de": "Diese Mitgliedseinladung ist bereits verknüpft."
+  },
+  "Member pass access required.": {
+    "bs": "Potreban je pristup članskoj propusnici.",
+    "de": "Zugriff auf den Mitgliedspass erforderlich."
+  },
+  "This member is not active.": {
+    "bs": "Ovaj član nije aktivan.",
+    "de": "Dieses Mitglied ist nicht aktiv."
+  },
+  "Booking access required.": {
+    "bs": "Potreban je pristup rezervacijama.",
+    "de": "Buchungszugriff erforderlich."
+  },
+  "Booking not found.": {
+    "bs": "Rezervacija nije pronađena.",
+    "de": "Buchung nicht gefunden."
+  },
+  "This session is not available.": {
+    "bs": "Ovaj termin nije dostupan.",
+    "de": "Dieser Termin ist nicht verfügbar."
+  },
+  "An active membership is required for this session.": {
+    "bs": "Za ovaj termin potrebna je aktivna članarina.",
+    "de": "Für diesen Termin ist eine aktive Mitgliedschaft erforderlich."
+  },
+  "This session is full.": {
+    "bs": "Ovaj termin je popunjen.",
+    "de": "Dieser Termin ist ausgebucht."
+  },
+  "Visit not found.": {
+    "bs": "Posjeta nije pronađena.",
+    "de": "Besuch nicht gefunden."
+  },
+  "Request identity conflict.": {
+    "bs": "Zahtjev se ne podudara s prethodnim pokušajem.",
+    "de": "Die Anfrage stimmt nicht mit dem vorherigen Versuch überein."
+  },
+  "Business manager access required.": {
+    "bs": "Potreban je pristup menadžera objekta.",
+    "de": "Zugriff als Betriebsleitung erforderlich."
+  },
+  "Choose locations from this business.": {
+    "bs": "Odaberite lokacije ovog objekta.",
+    "de": "Wählen Sie Standorte dieses Betriebs."
+  },
+  "Existing membership identity cannot change.": {
+    "bs": "Član i paket postojeće članarine ne mogu se mijenjati.",
+    "de": "Mitglied und Tarif einer bestehenden Mitgliedschaft können nicht geändert werden."
+  },
+  "Choose an active membership plan.": {
+    "bs": "Odaberite aktivan paket članarine.",
+    "de": "Wählen Sie einen aktiven Mitgliedschaftstarif."
+  },
+  "Choose an unlinked business member.": {
+    "bs": "Odaberite člana koji nije povezan s računom.",
+    "de": "Wählen Sie ein noch nicht verknüpftes Mitglied."
+  },
+  "Choose an active business location.": {
+    "bs": "Odaberite aktivnu poslovnu lokaciju.",
+    "de": "Wählen Sie einen aktiven Betriebsstandort."
+  },
+  "Choose a resource at this location.": {
+    "bs": "Odaberite resurs na ovoj lokaciji.",
+    "de": "Wählen Sie eine Ressource an diesem Standort."
+  },
+  "Session capacity exceeds the resource capacity.": {
+    "bs": "Kapacitet termina prelazi kapacitet resursa.",
+    "de": "Die Terminkapazität überschreitet die Ressourcenkapazität."
+  },
+  "This resource is already booked for that time.": {
+    "bs": "Ovaj resurs je već rezervisan u tom periodu.",
+    "de": "Diese Ressource ist zu dieser Zeit bereits gebucht."
+  },
+  "Capacity cannot be below existing bookings.": {
+    "bs": "Kapacitet ne može biti manji od postojećeg broja rezervacija.",
+    "de": "Die Kapazität darf nicht unter den vorhandenen Buchungen liegen."
+  },
+  "Invoice records are immutable. Void and create a new record.": {
+    "bs": "Sačuvani računi se ne mijenjaju. Poništite račun i kreirajte novi.",
+    "de": "Gespeicherte Rechnungen sind unveränderlich. Stornieren Sie den Beleg und erstellen Sie einen neuen."
+  },
+  "Invoice not found.": {
+    "bs": "Račun nije pronađen.",
+    "de": "Rechnung nicht gefunden."
+  },
+  "Refund recorded payments before voiding this invoice.": {
+    "bs": "Evidentirajte povrat uplata prije poništenja ovog računa.",
+    "de": "Erstatten Sie erfasste Zahlungen vor der Stornierung dieser Rechnung."
+  },
+  "Payment retry does not match the recorded payment.": {
+    "bs": "Ponovljena uplata se ne podudara s evidentiranom.",
+    "de": "Der erneute Zahlungsversuch stimmt nicht mit der erfassten Zahlung überein."
+  },
+  "Choose an open invoice.": {
+    "bs": "Odaberite otvoren račun.",
+    "de": "Wählen Sie eine offene Rechnung."
+  },
+  "Amount exceeds the remaining invoice or recorded payment.": {
+    "bs": "Iznos prelazi preostali iznos računa ili evidentirane uplate.",
+    "de": "Der Betrag überschreitet den offenen Rechnungsbetrag oder die erfasste Zahlung."
+  },
+  "Unknown business action.": {
+    "bs": "Nepoznata poslovna radnja.",
+    "de": "Unbekannte Betriebsaktion."
+  },
+  "Record belongs to another business.": {
+    "bs": "Zapis pripada drugom objektu.",
+    "de": "Der Datensatz gehört zu einem anderen Betrieb."
+  },
+  "Member not found.": {
+    "bs": "Član nije pronađen.",
+    "de": "Mitglied nicht gefunden."
+  },
+  "Member number already exists.": {
+    "bs": "Članski broj već postoji.",
+    "de": "Die Mitgliedsnummer existiert bereits."
+  },
+  "This account already has a member record here.": {
+    "bs": "Ovaj račun ovdje već ima članski zapis.",
+    "de": "Dieses Konto hat hier bereits einen Mitgliedsdatensatz."
+  },
+  "Upcoming sessions": {
+    "bs": "Predstojeći termini",
+    "de": "Anstehende Termine"
+  },
+  "Book session": {
+    "bs": "Rezerviši termin",
+    "de": "Termin buchen"
+  },
+  "Your facility manages its membership and contact records. Linking enables your pass and bookings without sharing your health logs. Deleting your Kinra data unlinks your account; facility-owned records remain with the facility.": {
+    "bs": "Vaš objekat upravlja podacima o članarinama i kontaktima. Povezivanje omogućava propusnicu i rezervacije bez dijeljenja zdravstvenih zapisa. Brisanjem Kinra podataka prekida se veza s računom; zapisi objekta ostaju kod objekta.",
+    "de": "Ihre Einrichtung verwaltet ihre Mitgliedschafts- und Kontaktdaten. Die Verknüpfung ermöglicht Pass und Buchungen, ohne Gesundheitsdaten zu teilen. Beim Löschen Ihrer Kinra-Daten wird Ihr Konto getrennt; einrichtungseigene Datensätze verbleiben bei der Einrichtung."
+  },
+  "Businesses you own, including their members, attendance and financial records, will also be deleted. At other facilities, your Kinra account is unlinked; facility-owned membership and payment records remain with that facility.": {
+    "bs": "Objekti koje posjedujete, uključujući članove, dolaske i finansijske zapise, također će biti obrisani. U drugim objektima vaš Kinra račun se razvezuje; članski i finansijski zapisi objekta ostaju kod tog objekta.",
+    "de": "Betriebe in Ihrem Eigentum werden einschließlich Mitgliedern, Anwesenheit und Finanzdaten ebenfalls gelöscht. Bei anderen Einrichtungen wird Ihr Kinra-Konto getrennt; deren Mitgliedschafts- und Zahlungsdaten verbleiben bei der jeweiligen Einrichtung."
+  },
+  "Export business data": {
+    "bs": "Izvezi poslovne podatke",
+    "de": "Betriebsdaten exportieren"
+  },
+  "Download the business records available to your role as JSON.": {
+    "bs": "Preuzmite poslovne zapise dostupne vašoj ulozi u JSON formatu.",
+    "de": "Laden Sie die für Ihre Rolle verfügbaren Betriebsdaten als JSON herunter."
   }
 }

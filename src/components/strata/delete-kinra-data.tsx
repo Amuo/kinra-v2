@@ -57,6 +57,9 @@ export function DeleteKinraData() {
           <p className="text-body">
             <Message source="This removes your Kinra profile, app records and private uploads. This cannot be undone. Your shared sign-in identity stays; other apps using that identity are not deleted." />
           </p>
+          <p className="text-body">
+            <Message source="Businesses you own, including their members, attendance and financial records, will also be deleted. At other facilities, your Kinra account is unlinked; facility-owned membership and payment records remain with that facility." />
+          </p>
           {api.mode !== "live" && (
             <p className="rounded-tile border border-volt/30 bg-volt/5 p-3 text-label">
               <Message source="Demo mode: this clears only this demo account’s records. No live account is affected." />

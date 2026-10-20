@@ -3,6 +3,25 @@ import { fileURLToPath } from "node:url";
 
 const root = new URL("../", import.meta.url);
 const names = [
+  "business_profiles",
+  "business_locations",
+  "business_resources",
+  "business_plans",
+  "business_members",
+  "business_memberships",
+  "business_visits",
+  "business_passes",
+  "business_claims",
+  "business_invoices",
+  "business_payments",
+  "business_sessions",
+  "business_bookings",
+  "business_entry_attempts",
+  "business_audit",
+  "kinra_business",
+  "kinra_business_snapshot",
+  "kinra_business_hash",
+  "kinra_business_camel",
   "kinra_valid_tracking",
   "kinra_valid_cardio_metrics",
   "kinra_valid_cardio_sets",
@@ -130,7 +149,7 @@ writeFileSync(
   new URL("supabase/migrations/202610140001_kinra_v2.sql", root),
   output.replace(
     "schema version 0003_security_and_integrity",
-    "schema version 0028_supplement_revision_validation",
+    "schema version 0030_business_indexes",
   ),
 );
 const upgradeBody = body.slice(body.indexOf("-- Source: 0004_feature_schemas.sql"));
