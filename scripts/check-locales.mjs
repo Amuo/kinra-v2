@@ -13,7 +13,7 @@ const configMessages = {
   "src/components/strata/session.tsx": ["rpeAnchors", "cardioEffortAnchors"],
   "src/lib/session-state.ts": ["DOW"],
   "src/routes/app.progress.tsx": ["DOW"],
-  "src/components/strata/extra-programs.tsx": ["contextLabels", "frequencyLabels"],
+  "src/components/strata/extra-programs.tsx": ["contextLabels", "frequencyLabels", "units"],
   "src/components/strata/feature-config.ts": ["featureNames", "featureHints"],
   "src/components/strata/directory.tsx": ["labels"],
   "src/lib/workspaces.ts": ["accountRoleLabels"],

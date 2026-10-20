@@ -440,7 +440,7 @@ function RecordDetails({
         <h3 className="text-title font-bold">{String(payload["name"])}</h3>
         <p className="mt-3">
           <span className="num text-title-l font-bold text-volt">{String(payload["dose"])}</span>
-          <span className="ml-2 text-body">{String(payload["unit"])}</span>
+          <span className="ml-2 text-body">{tr(String(payload["unit"]))}</span>
           <span className="ml-2 text-label text-muted-foreground">
             · {fieldLabel(String(payload["frequency"]))}
           </span>

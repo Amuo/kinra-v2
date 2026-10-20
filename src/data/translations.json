@@ -8253,5 +8253,29 @@
   "This plan is no longer available.": {
     "bs": "Ovaj plan više nije dostupan.",
     "de": "Dieser Plan ist nicht mehr verfügbar."
+  },
+  "caps": {
+    "bs": "kapsule",
+    "de": "Kapseln"
+  },
+  "tabs": {
+    "bs": "tablete",
+    "de": "Tabletten"
+  },
+  "scoops": {
+    "bs": "mjerice",
+    "de": "Messlöffel"
+  },
+  "mg": {
+    "bs": "mg",
+    "de": "mg"
+  },
+  "g": {
+    "bs": "g",
+    "de": "g"
+  },
+  "ml": {
+    "bs": "ml",
+    "de": "ml"
   }
 }

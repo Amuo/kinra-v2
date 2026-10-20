@@ -1,7 +1,7 @@
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { ExtraPrograms } from "@/components/strata/extra-programs";
-import { setLanguage } from "@/lib/i18n";
+import { setLanguage, t } from "@/lib/i18n";
 const state = vi.hoisted(() => ({
   plans: [] as unknown[],
   save: vi.fn(),
@@ -187,3 +187,41 @@ it("requires explicit reload and renewed activation after a plan revision change
     expect(state.activate).toHaveBeenLastCalledWith("plan", "2026-10-23", "2026-10-20T11:00:00Z"),
   );
 });
+
+it.each(["bs", "de"] as const)(
+  "renders supplement review units in %s while retaining canonical values",
+  (language) => {
+    setLanguage(language, false);
+    const units = ["caps", "tabs", "scoops", "IU"];
+    const plan = {
+      id: "plan",
+      owner_id: "owner",
+      updated_at: "2026-10-20T10:00:00Z",
+      kind: "supplement_plan",
+      payload: {
+        title: "Personal plan",
+        weeks: 1,
+        context: "general",
+        supplements: units.map((unit, index) => ({
+          id: `item-${index}`,
+          name: `Item ${index}`,
+          dose: 2,
+          unit,
+          times: ["08:00"],
+          frequency: "daily",
+        })),
+      },
+    };
+    state.plans = [plan];
+    const before = JSON.stringify(plan);
+    render(<ExtraPrograms kind="supplement_plan" />);
+    fireEvent.click(screen.getByRole("button", { name: t("Review plan") }));
+    for (const [index, unit] of units.entries()) {
+      expect(screen.getByText(`Item ${index}`).closest("article")?.textContent).toContain(
+        `2 ${t(unit)}`,
+      );
+      expect(t(unit)).not.toBe(unit);
+    }
+    expect(JSON.stringify(plan)).toBe(before);
+  },
+);
