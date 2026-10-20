@@ -1,4 +1,4 @@
-import { Fragment, useSyncExternalStore, type ReactNode } from "react";
+import { Fragment, useMemo, useSyncExternalStore, type ReactNode } from "react";
 import {
   format as dateFormat,
   formatDistanceToNow as distanceToNow,
@@ -94,7 +94,18 @@ const subscribe = (listener: () => void) => {
 };
 export function useLanguage() {
   const selected = useSyncExternalStore(subscribe, currentLanguage, () => "en" as Language);
-  return { language: selected, setLanguage, t };
+  return useMemo(
+    () => ({
+      language: selected,
+      setLanguage,
+      t: (source: string, values: Record<string, unknown> = {}) =>
+        translate(source, values, selected),
+      number: (value: number, options?: Intl.NumberFormatOptions) =>
+        number(value, options, selected),
+      displayNumber: (value: string | number) => displayNumber(value, selected),
+    }),
+    [selected],
+  );
 }
 export function message(source: string, selected: Language = currentLanguage()): string {
   return dictionary[source]?.[selected] ?? source;
@@ -103,10 +114,13 @@ export const hasMessage = (source: string) => Object.hasOwn(dictionary, source);
 export const isTranslatedMessage = (source: string) =>
   Object.values(dictionary).some((entry) => entry[currentLanguage()] === source);
 export function t(source: string, values: Record<string, unknown> = {}): string {
-  return message(source).replace(/\{(\w+)\}/g, (token, key: string) =>
+  return translate(source, values, currentLanguage());
+}
+function translate(source: string, values: Record<string, unknown>, selected: Language): string {
+  return message(source, selected).replace(/\{(\w+)\}/g, (token, key: string) =>
     key in values
       ? typeof values[key] === "number"
-        ? number(values[key])
+        ? number(values[key], undefined, selected)
         : String(values[key] ?? "")
       : token,
   );
@@ -119,15 +133,15 @@ export function Message({
   source: string;
   values?: Record<string, ReactNode>;
 }) {
-  useLanguage();
-  return message(source)
+  const { language: selected } = useLanguage();
+  return message(source, selected)
     .split(/(\{\w+\})/g)
     .map((part, index) => {
       const match = /^\{(\w+)\}$/.exec(part);
       const value = match ? values[match[1]!] : part;
       return (
         <Fragment key={index}>
-          {typeof value === "number" ? number(value) : (value ?? part)}
+          {typeof value === "number" ? number(value, undefined, selected) : (value ?? part)}
         </Fragment>
       );
     });
@@ -138,8 +152,11 @@ export function format(value: Date | number, pattern: string, options?: FormatOp
     locale: { en: enUS, bs, de }[currentLanguage()],
   });
 }
-export function number(value: number, options?: Intl.NumberFormatOptions): string {
-  const selected = currentLanguage();
+export function number(
+  value: number,
+  options?: Intl.NumberFormatOptions,
+  selected: Language = currentLanguage(),
+): string {
   const requested = localeFor[selected];
   // Some browser ICU versions advertise Bosnian but retain legacy dot decimals.
   // German provides the same comma decimal/dot grouping convention for this fallback.
@@ -152,14 +169,21 @@ export function number(value: number, options?: Intl.NumberFormatOptions): strin
   return new Intl.NumberFormat(locale, options).format(value);
 }
 export const dateLocale = () => ({ en: enUS, bs, de })[currentLanguage()];
-export function displayNumber(value: string | number): string {
-  if (typeof value === "number") return number(value);
+export function displayNumber(
+  value: string | number,
+  selected: Language = currentLanguage(),
+): string {
+  if (typeof value === "number") return number(value, undefined, selected);
   if (!/^-?\d+(?:\.\d+)?$/.test(value)) return value;
   const decimals = value.split(".")[1]?.length ?? 0;
-  return number(Number(value), {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
-  });
+  return number(
+    Number(value),
+    {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    },
+    selected,
+  );
 }
 export function dateTime(value: Date): string {
   return new Intl.DateTimeFormat(localeFor[currentLanguage()], {

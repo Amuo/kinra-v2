@@ -1,4 +1,4 @@
-import { useLanguage, initializeLanguage, t, Message } from "@/lib/i18n";
+import { useLanguage, initializeLanguage, Message } from "@/lib/i18n";
 import { clearFieldValidity, invalidField } from "@/lib/i18n-errors";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -135,7 +135,7 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function RootComponent() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   useEffect(() => initializeLanguage(), []);
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   useEffect(() => {
@@ -158,7 +158,7 @@ function RootComponent() {
       titles[pathname] ??
         (pathname.startsWith("/app/clients/") ? "Client progress — Kinra" : "Kinra"),
     );
-  }, [language, pathname]);
+  }, [language, pathname, t]);
   const { queryClient } = Route.useRouteContext();
   const router = useRouter();
 

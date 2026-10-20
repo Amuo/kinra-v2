@@ -1,5 +1,5 @@
 import { LanguageSelector } from "@/components/strata/language-selector";
-import { displayNumber, number, t as tr, useLanguage, Message } from "@/lib/i18n";
+import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "motion/react";
@@ -56,7 +56,7 @@ function useDemo() {
 }
 
 function HeroImage({ className }: { className?: string }) {
-  useLanguage();
+  const { t: tr } = useLanguage();
   const [loaded, setLoaded] = useState(false);
   return (
     <div
@@ -83,7 +83,7 @@ function HeroImage({ className }: { className?: string }) {
 
 /** Static preview of the Today screen for the device frame. */
 function TodayMock() {
-  useLanguage();
+  const { t: tr, number, displayNumber } = useLanguage();
   return (
     <div className="flex h-full flex-col gap-3 bg-background px-4 pt-10 text-left">
       <div>
@@ -199,7 +199,7 @@ const features = [
 ];
 
 function Landing() {
-  useLanguage();
+  const { t: tr } = useLanguage();
   const demo = useDemo();
   return (
     <div className="min-h-dvh overflow-x-hidden">

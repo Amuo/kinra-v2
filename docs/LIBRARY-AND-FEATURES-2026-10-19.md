@@ -15,9 +15,11 @@ This expansion follows the user's authorization to implement the missing FitConn
 
 ## Verification
 
-Final `bun run check` passed: 34 test files, 172 tests, TypeScript, locale checks, lint with zero errors (73 Fast Refresh warnings) and production build. Hosted migrations 0012–0022 exactly match the final generated SQL. [Hosted acceptance](qa/2026-10-19-hosted-rls-acceptance.md) passed all nine workflow areas in a rolled-back synthetic transaction; an independent check found zero residual synthetic rows.
+Final `bun run check` passed: 34 test files, 174 tests, TypeScript, locale checks, lint with zero errors (73 Fast Refresh warnings) and production build. Hosted migrations 0012–0022 exactly match the final generated SQL. [Hosted acceptance](qa/2026-10-19-hosted-rls-acceptance.md) passed all nine workflow areas in a rolled-back synthetic transaction; an independent check found zero residual synthetic rows.
 
 Parent browser checks covered 390px exercise search/photo detail, private training copy/start/resume, EN/BS/DE optional onboarding with actual measurement-wheel scrolling, a visible sheet close action and saved overnight quiet hours. A separate desktop browser check saved a nutrition copy. See [frontend review](FRONTEND-EXPANSION-REVIEW.md) for exact attribution and remaining browser coverage limits.
+
+Production smoke of the feature release verified the exact Git source and canonical domain, a photograph and service-worker hash, authorized reminder dispatch (200 with zero claimed/submitted), unauthorized rejection (401), and the active minute scheduler with successful runs. German production program discovery displayed all 18 translated training plans. This check also found a recoverable saved-language hydration mismatch on the landing page. Snapshot-bound translations and number formatting now preserve server markup until each delayed React subtree hydrates. Added delayed German/Bosnian regression tests reproduce the old failure and pass after the fix; a saved-German localhost reload produced no console errors. Final production follow-up is recorded in the external release evidence.
 
 ## Limits
 

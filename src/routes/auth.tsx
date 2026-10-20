@@ -25,7 +25,7 @@ export const Route = createFileRoute("/auth")({
 });
 
 function AuthPage() {
-  useLanguage();
+  const { t: tr } = useLanguage();
   const navigate = useNavigate();
   const [mode, setMode] = useState<"in" | "up">("up");
   const [email, setEmail] = useState("");

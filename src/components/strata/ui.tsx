@@ -1,4 +1,4 @@
-import { number, t as tr, useLanguage, Message } from "@/lib/i18n";
+import { useLanguage, Message } from "@/lib/i18n";
 import { motion, AnimatePresence } from "motion/react";
 import { useRef, useState, type ReactNode } from "react";
 import { Check, Loader2, RotateCw, type LucideIcon } from "lucide-react";
@@ -117,7 +117,7 @@ export function Stat({
   tone?: "foreground" | "volt" | "pulse" | "ember" | "dream";
   size?: "sm" | "md" | "lg";
 }) {
-  useLanguage();
+  const { t: tr, number } = useLanguage();
   const toneCls = {
     foreground: "text-foreground",
     volt: "text-volt",
@@ -210,7 +210,7 @@ export function Bars({
   tip?: (i: number) => string;
   goal?: { value: number; label: string };
 }) {
-  useLanguage();
+  const { t: tr } = useLanguage();
   const intro = useIntro();
   const [sel, setSel] = useState<number | null>(null);
   const m = max ?? Math.max(1, ...values, goal?.value ?? 0);
@@ -341,7 +341,7 @@ export function Empty({
 }
 
 export function ErrorState({ message, onRetry }: { message?: string; onRetry?: () => void }) {
-  useLanguage();
+  const { t: tr } = useLanguage();
   return (
     <div className="panel flex flex-col items-center px-6 py-8 text-center">
       <div className="font-display text-title font-bold">
@@ -368,7 +368,7 @@ export function Skeleton({ className }: { className?: string }) {
   return <div className={cn("shimmer rounded-[14px]", className)} aria-hidden />;
 }
 export function SkeletonPage() {
-  useLanguage();
+  const { t: tr } = useLanguage();
   return (
     <div aria-busy="true" aria-label={tr("Loading")}>
       <Skeleton className="mb-2 h-3 w-24" />
@@ -427,7 +427,7 @@ export function Segmented<T extends string>({
   options: { value: T; label: string }[];
   className?: string;
 }) {
-  useLanguage();
+  const { t: tr } = useLanguage();
   return (
     <div
       role="tablist"
@@ -480,7 +480,7 @@ export function IconScale({
   tone?: string;
   label: string;
 }) {
-  useLanguage();
+  const { t: tr } = useLanguage();
   return (
     <div>
       <div className="mb-2 flex items-baseline justify-between">
