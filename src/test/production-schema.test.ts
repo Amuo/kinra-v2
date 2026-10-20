@@ -50,6 +50,8 @@ it("installs the production namespace alongside legacy data and enforces account
       await db.query<{ id: string; public: boolean }>("select id,public from storage.buckets")
     ).rows;
     expect(buckets.map((bucket) => bucket.id).sort()).toEqual([
+      "kinra-v2-expert-materials",
+      "kinra-v2-message-attachments",
       "kinra-v2-profile-avatars",
       "kinra-v2-progress-photos",
     ]);

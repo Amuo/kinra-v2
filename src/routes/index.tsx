@@ -400,25 +400,25 @@ function Landing() {
 
       <section className="mx-auto max-w-6xl px-5 pb-16 md:px-8">
         <div className="eyebrow mb-3">
-          <Message source="Coming soon" />
+          <Message source="Explore your wider community" />
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid gap-3 sm:grid-cols-2">
           <div className="panel p-4 md:p-6">
             <Building2 className="mb-2 size-5 text-pulse" />
             <div className="font-semibold">
               <Message source="Gyms & facilities" />
             </div>
             <div className="text-caption text-muted-foreground">
-              <Message source="Member check-ins & tracking" />
+              <Message source="Discover facilities and manage staff and membership records" />
             </div>
           </div>
           <div className="panel p-4 md:p-6">
             <Stethoscope className="mb-2 size-5 text-dream" />
             <div className="font-semibold">
-              <Message source="Doctors & dietitians" />
+              <Message source="Experts & specialists" />
             </div>
             <div className="text-caption text-muted-foreground">
-              <Message source="Labs and care plans" />
+              <Message source="Explore self-reported profiles, materials and coaching tools" />
             </div>
           </div>
         </div>

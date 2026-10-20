@@ -1,13 +1,21 @@
 import { programExerciseName } from "@/lib/exercise-catalogue";
 import { t as tr } from "@/lib/i18n";
 import { useLanguage, Message } from "@/lib/i18n";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Play } from "lucide-react";
 import { useId, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
-import type { Program } from "@/lib/types";
+import type { Program, ProgramDay } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-export function ProgramDetails({ program }: { program: Program }) {
+export function ProgramDetails({
+  program,
+  onStart,
+  startLabel,
+}: {
+  program: Program;
+  onStart?: ((day: ProgramDay) => void) | undefined;
+  startLabel?: string | undefined;
+}) {
   useLanguage();
   return (
     <>
@@ -56,6 +64,17 @@ export function ProgramDetails({ program }: { program: Program }) {
               </div>
             ))}
           </div>
+          {onStart && (
+            <Button
+              wrap
+              variant="volt"
+              className="mt-4 min-h-12 w-full"
+              onClick={() => onStart(day)}
+            >
+              <Play className="size-4" aria-hidden="true" />
+              {startLabel ?? tr("Start this session")}
+            </Button>
+          )}
         </section>
       ))}
     </>
@@ -66,10 +85,14 @@ export function ProgramSummary({
   program,
   actions,
   eyebrow,
+  onStart,
+  startLabel,
 }: {
   program: Program;
   actions?: ReactNode;
   eyebrow?: string;
+  onStart?: (day: ProgramDay) => void;
+  startLabel?: string;
 }) {
   useLanguage();
   const [open, setOpen] = useState(false);
@@ -105,7 +128,7 @@ export function ProgramSummary({
       </Button>
       {open && (
         <div id={id}>
-          <ProgramDetails program={program} />
+          <ProgramDetails program={program} onStart={onStart} startLabel={startLabel} />
           {actions && <div className="mt-5 flex flex-wrap gap-2">{actions}</div>}
         </div>
       )}

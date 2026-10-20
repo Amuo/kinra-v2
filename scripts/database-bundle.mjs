@@ -3,6 +3,51 @@ import { fileURLToPath } from "node:url";
 
 const root = new URL("../", import.meta.url);
 const names = [
+  "kinra_safe_external_url",
+  "kinra_guard_expert_resource",
+  "kinra_expert_published",
+  "community_removals",
+  "community_members",
+  "community_moderators",
+  "community_invites",
+  "kinra_community_role",
+  "kinra_guard_community_post",
+  "kinra_community_name",
+  "kinra_community_redeem",
+  "kinra_community_admin",
+  "device_subscriptions",
+  "push_dispatch_config",
+  "push_deliveries",
+  "kinra_push_authorized",
+  "kinra_push_due",
+  "kinra_push_ack",
+  "kinra_push_clock",
+  "kinra_claim_push_test",
+  "organization_staff",
+  "organization_invites",
+  "organization_memberships",
+  "organization_membership_finance",
+  "kinra_org_role",
+  "kinra_org_name",
+  "kinra_guard_membership",
+  "kinra_org_redeem",
+  "kinra_org_admin",
+  "kinra_valid_availability",
+  "coach_availability",
+  "kinra_availability",
+  "kinra_save_availability",
+  "kinra_schedule_slots",
+  "kinra_available_slots",
+  "kinra_guard_appointment_slot",
+  "message_attachments",
+  "kinra_send_attachment",
+  "template_catalogue",
+  "template_adoptions",
+  "kinra_adopt_template",
+  "account_roles",
+  "account_context",
+  "kinra_account_workspaces",
+  "kinra_set_workspace",
   "onboarding_state",
   "onboarding_state_version_check",
   "onboarding_state_step_check",
@@ -61,6 +106,8 @@ const body = migrations
       .replace(matcher, (name) => `kinra_v2_${name}`)
       .replaceAll("'profile-avatars'", "'kinra-v2-profile-avatars'")
       .replaceAll("'progress-photos'", "'kinra-v2-progress-photos'")
+      .replaceAll("'message-attachments'", "'kinra-v2-message-attachments'")
+      .replaceAll("'expert-materials'", "'kinra-v2-expert-materials'")
       .replace(
         /((?:CREATE|create)(?: UNIQUE| unique)? (?:INDEX|index) )([a-z_]+)/g,
         "$1kinra_v2_$2",
@@ -75,7 +122,7 @@ writeFileSync(
   new URL("supabase/migrations/202610140001_kinra_v2.sql", root),
   output.replace(
     "schema version 0003_security_and_integrity",
-    "schema version 0011_onboarding_measurements",
+    "schema version 0022_notification_test_throttle",
   ),
 );
 const upgradeBody = body.slice(body.indexOf("-- Source: 0004_feature_schemas.sql"));

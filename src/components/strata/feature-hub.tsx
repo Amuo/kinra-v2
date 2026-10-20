@@ -1,3 +1,4 @@
+import { Directory } from "./directory";
 import { errorText } from "@/lib/i18n-errors";
 import { setLanguage, isLanguage, number, t as tr, useLanguage, Message } from "@/lib/i18n";
 import { exerciseById, programReferences } from "@/lib/exercise-catalogue";
@@ -85,10 +86,10 @@ export function FeatureHub() {
             <Message source="Get inspired" />
           </p>
           <h3 className="mt-3 text-title font-bold">
-            <Message source="Program references" />
+            <Message source="Program library" />
           </h3>
           <p className="mt-2 text-caption text-muted-foreground">
-            <Message source="Explore archived listings" />
+            <Message source="Ready-to-use training and meal plans" />
           </p>
           <ChevronRight className="mt-4 size-5" />
         </Panel>
@@ -146,7 +147,16 @@ export function FeatureHub() {
   );
 }
 
-export function FeatureWorkspace({
+export function FeatureWorkspace(props: {
+  kind: FeatureKind;
+  compact?: boolean;
+  manage?: boolean;
+}) {
+  if (!props.manage && (props.kind === "expert" || props.kind === "facility"))
+    return <Directory kind={props.kind} />;
+  return <GenericFeatureWorkspace {...props} />;
+}
+function GenericFeatureWorkspace({
   kind,
   compact = false,
 }: {

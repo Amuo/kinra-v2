@@ -8,13 +8,17 @@ import {
   exerciseCategories,
   exerciseMuscles,
   searchExercises,
-  programReferences,
+  exerciseEquipment,
+  exerciseDifficulties,
+  exerciseMovements,
 } from "@/lib/exercise-catalogue";
 import { useAct, useQ } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Panel, Empty } from "./ui";
 import { Sheet } from "./sheets";
+import { ExerciseGuide } from "./exercise-guide";
+export { ProgramLibrary, ProgramLibrary as ProgramReferences } from "./program-library";
 import { toast } from "sonner";
 
 type Exercise = (typeof exercises)[number];
@@ -23,12 +27,21 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
   const [muscle, setMuscle] = useState("");
+  const [equipment, setEquipment] = useState("");
+  const [difficulty, setDifficulty] = useState("");
+  const [movement, setMovement] = useState("");
   const [limit, setLimit] = useState(30);
   const [selected, setSelected] = useState<Exercise | null>(null);
   const matches = useMemo(
     () =>
-      searchExercises(query, { ...(category ? { category } : {}), ...(muscle ? { muscle } : {}) }),
-    [query, category, muscle],
+      searchExercises(query, {
+        ...(category ? { category } : {}),
+        ...(muscle ? { muscle } : {}),
+        ...(equipment ? { equipment } : {}),
+        ...(difficulty ? { difficulty } : {}),
+        ...(movement ? { movement } : {}),
+      }),
+    [query, category, muscle, equipment, difficulty, movement],
   );
   const saved = useQ(["features", "saved"], (api) => api.features.list("saved"));
   const bookmark = useAct((api, entry: Exercise) =>
@@ -109,6 +122,42 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
           </select>
         </label>
       </div>
+      <details className="rounded-tile border border-border p-3">
+        <summary className="cursor-pointer py-2 text-label font-semibold">
+          {tr("Equipment, difficulty and movement")}
+          {[equipment, difficulty, movement].filter(Boolean).length > 0
+            ? ` (${[equipment, difficulty, movement].filter(Boolean).length})`
+            : ""}
+        </summary>
+        <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {(
+            [
+              ["Equipment", equipment, setEquipment, exerciseEquipment],
+              ["Difficulty", difficulty, setDifficulty, exerciseDifficulties],
+              ["Movement", movement, setMovement, exerciseMovements],
+            ] as const
+          ).map(([label, value, change, options]) => (
+            <label key={label} className="min-w-0 text-caption">
+              {tr(label)}
+              <select
+                className="mt-1 min-h-12 w-full min-w-0 rounded-tile border border-border bg-surface px-2"
+                value={value}
+                onChange={(e) => {
+                  change(e.target.value);
+                  setLimit(30);
+                }}
+              >
+                <option value="">{tr("All")}</option>
+                {options.map((option) => (
+                  <option key={option} value={option}>
+                    {tr(option)}
+                  </option>
+                ))}
+              </select>
+            </label>
+          ))}
+        </div>
+      </details>
       <p className="text-caption text-muted-foreground" role="status">
         <Message source="{p0}exercises found" values={{ p0: matches.length }} />
       </p>
@@ -143,6 +192,9 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
                 setQuery("");
                 setCategory("");
                 setMuscle("");
+                setEquipment("");
+                setDifficulty("");
+                setMovement("");
               }}
             >
               <Message source="Reset filters" />
@@ -151,7 +203,12 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
         />
       )}
       {matches.length > limit && (
-        <Button variant="glass" className="h-12 w-full" onClick={() => setLimit((n) => n + 30)}>
+        <Button
+          variant="glass"
+          wrap
+          className="h-auto min-h-12 w-full py-3"
+          onClick={() => setLimit((n) => n + 30)}
+        >
           <Message source="Show 30 more" />
         </Button>
       )}
@@ -164,7 +221,7 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
         >
           <div className="space-y-5">
             <p className="text-body">
-              {selected.muscles.join(" · ") || tr("Muscle metadata unavailable")}
+              {selected.muscles.map((m) => tr(m)).join(" · ") || tr("Muscle metadata unavailable")}
             </p>
             {selected.aliases.length > 0 && (
               <p className="text-label text-muted-foreground">
@@ -174,9 +231,14 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
                 />
               </p>
             )}
-            <div className="rounded-tile bg-surface p-4 text-label text-muted-foreground">
-              <Message source="This archive contains exercise metadata. Instructions, demonstrations and technique guidance were not included." />
+            <div className="flex flex-wrap gap-2 text-caption">
+              {[...selected.equipment, selected.difficulty, selected.movement].map((tag) => (
+                <span key={tag} className="rounded-full border border-border bg-surface px-3 py-2">
+                  {tr(tag)}
+                </span>
+              ))}
             </div>
+            <ExerciseGuide key={selected.id} entry={selected} onAlternative={setSelected} />
             <a
               className="flex min-h-11 items-center gap-2 text-label text-volt underline"
               href={selected.sourceUrl}
@@ -191,7 +253,8 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
             </p>
             <Button
               variant="glass"
-              className="h-12 w-full"
+              wrap
+              className="h-auto min-h-12 w-full py-3"
               disabled={bookmark.isPending || unsave.isPending || saved.isLoading || !!saved.error}
               onClick={() => {
                 const action = selectedSaved
@@ -210,7 +273,8 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
             {onPick && (
               <Button
                 variant="volt"
-                className="h-12 w-full"
+                wrap
+                className="h-auto min-h-12 w-full py-3"
                 onClick={() => {
                   onPick(selected);
                   setSelected(null);
@@ -225,66 +289,6 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
             </Button>
           </div>
         </Sheet>
-      )}
-    </div>
-  );
-}
-
-export function ProgramReferences() {
-  useLanguage();
-  const [query, setQuery] = useState("");
-  const matches = programReferences.filter((p) =>
-    `${p.name} ${p.classification} ${p.author} ${p.equipment.join(" ")}`
-      .toLowerCase()
-      .includes(query.toLowerCase()),
-  );
-  return (
-    <div className="space-y-3">
-      <div className="rounded-tile bg-surface p-4">
-        <h3 className="text-title font-semibold">
-          <Message source="Program inspiration" />
-        </h3>
-        <p className="mt-2 text-label text-muted-foreground">
-          <Message
-            source="{p0}archived listings. These are references; authored routines are unavailable and cannot be imported."
-            values={{ p0: programReferences.length }}
-          />
-        </p>
-      </div>
-      <Input
-        aria-label={tr("Search reference programs")}
-        className="h-12"
-        placeholder={tr("Search program references")}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      {matches.map((p) => (
-        <Panel key={p.id}>
-          <p className="eyebrow text-volt">
-            <Message source="Reference only" />
-          </p>
-          <h3 className="mt-2 text-title font-semibold">{p.name}</h3>
-          <p className="mt-2 text-label text-muted-foreground">
-            {p.classification} · {p.author}
-          </p>
-          <p className="mt-2 text-caption">
-            {p.equipment.join(" · ") || tr("Equipment not documented")}
-          </p>
-          <a
-            className="mt-3 flex min-h-11 items-center gap-2 text-label text-volt underline"
-            href={p.sourceUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Message source="Original listing" />
-            <ExternalLink className="size-4" />
-          </a>
-        </Panel>
-      ))}
-      {!matches.length && (
-        <p role="status" className="py-6 text-label text-muted-foreground">
-          <Message source="No references match your search." />
-        </p>
       )}
     </div>
   );

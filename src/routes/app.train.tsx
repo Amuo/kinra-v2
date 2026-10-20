@@ -1,6 +1,6 @@
 import { programExerciseName } from "@/lib/exercise-catalogue";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { format } from "@/lib/i18n";
 import {
@@ -116,6 +116,9 @@ function Train() {
     <div className="min-w-0">
       <Button variant="glass" className="mb-4 h-12 w-full" onClick={() => setLibrary(true)}>
         <Message source="Browse exercise library" />
+      </Button>
+      <Button asChild variant="glass" wrap className="mb-4 min-h-12 w-full">
+        <Link to="/app/programs">{tr("My plans and program library")}</Link>
       </Button>
       {library && (
         <Sheet open onOpenChange={setLibrary} title={tr("Exercise library")}>
@@ -285,7 +288,7 @@ function Train() {
             <Empty
               icon={<Dumbbell className="size-7" />}
               title={tr("Your next session starts here")}
-              body="No program assigned yet."
+              body={tr("Browse your own plans or start a freestyle session.")}
               action={
                 <Button variant="volt" size="xl" onClick={() => startSession()}>
                   <Play /> <Message source="Start session" />

@@ -70,12 +70,16 @@ export const featureHints: Partial<Record<FeatureKind, string>> = {
   cycle: "Optional private observations. No fertility or diagnostic predictions are made.",
   expert: "Profiles and credential claims are self-reported, not independently verified.",
   appointment:
-    "Requests remain pending until the other participant confirms. No payment is collected.",
+    "Request an available time from Availability & booking in Profile. Your connected coach confirms requests. No payment is collected.",
   membership_plan:
     "Informational pricing listings. Kinra does not process subscriptions or payments.",
-  reminder: "Save reminder preferences here. Device notification delivery is not connected.",
+  reminder: "Schedule reminders in your timezone, then enable Device reminders in Profile.",
   notification_preferences:
-    "Store quiet hours and categories. Device notification delivery is not connected.",
+    "Set quiet hours and categories, then enable Device reminders in Profile.",
   preferences: "Choose your language, modules and display settings.",
+  organization:
+    "Create your listing here. Open Organization tools in Profile to manage staff access and membership records.",
+  group:
+    "Open Groups in Profile to join conversations, manage members and share private invitation codes.",
   report: "Private reports are recorded for follow-up. No staffed moderation response is promised.",
 };

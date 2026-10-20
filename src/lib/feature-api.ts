@@ -12,6 +12,20 @@ import {
   type FeatureSaveOptions,
 } from "./feature-types";
 import type { Json } from "@/integrations/supabase/types";
+import {
+  demoCommunityRole,
+  demoCommunityRemoved,
+  registerDemoCommunityBlockCheck,
+  createLiveCommunity,
+  clearDemoCommunity,
+  exportDemoCommunity,
+} from "./community-api";
+import {
+  createLiveOrganizations,
+  clearDemoOrganizations,
+  exportDemoOrganizations,
+} from "./organization-api";
+import { clearDemoResources, demoResourceMatches } from "./resource-api";
 
 export interface FeatureApi {
   eraseData(confirmation: string): Promise<void>;
@@ -94,6 +108,68 @@ export function createLiveFeatures(ownerId: string): FeatureApi {
         await from("profiles").select("avatar_path").eq("id", ownerId).maybeSingle(),
       ) as { avatar_path: string | null } | null;
       const paths = photos.map((p) => p.storage_path);
+      const attachments = await allPages(async (offset, size) =>
+        must(
+          await from("message_attachments")
+            .select("storage_path")
+            .eq("owner_id", ownerId)
+            .order("id")
+            .range(offset, offset + size - 1),
+        ),
+      );
+      // Include abandoned uploads so failed sends do not leave personal files.
+      const uploaded = await allPages(async (offset, size) =>
+        must(
+          await bucket("message-attachments").list(ownerId, {
+            limit: size,
+            offset,
+            sortBy: { column: "name", order: "asc" },
+          }),
+        ),
+      );
+      const attachmentPaths = [
+        ...new Set([
+          ...attachments.map((a) => a.storage_path),
+          ...uploaded.map((a) => `${ownerId}/${a.name}`),
+        ]),
+      ];
+      const resourceUploads = await allPages(async (offset, size) =>
+        must(
+          await bucket("expert-materials").list(ownerId, {
+            limit: size,
+            offset,
+            sortBy: { column: "name", order: "asc" },
+          }),
+        ),
+      );
+      const resourceMetadata = (await allPages(async (offset, size) =>
+        must(
+          await from("feature_records")
+            .select("payload")
+            .eq("kind", "expert_resource")
+            .eq("owner_id", ownerId)
+            .order("id")
+            .range(offset, offset + size - 1),
+        ),
+      )) as unknown as { payload: { storage_path: string } }[];
+      const resourcePaths = [
+        ...new Set([
+          ...resourceUploads.map((file) => `${ownerId}/${file.name}`),
+          ...resourceMetadata.map((resource) => resource.payload.storage_path),
+        ]),
+      ];
+      for (let offset = 0; offset < resourcePaths.length; offset += 100) {
+        const result = await bucket("expert-materials").remove(
+          resourcePaths.slice(offset, offset + 100),
+        );
+        if (result.error) throw new Error("Expert resource cleanup failed. Retry deletion.");
+      }
+      for (let offset = 0; offset < attachmentPaths.length; offset += 100) {
+        const result = await bucket("message-attachments").remove(
+          attachmentPaths.slice(offset, offset + 100),
+        );
+        if (result.error) throw new Error("Attachment cleanup failed. Retry deletion.");
+      }
       for (let offset = 0; offset < paths.length; offset += 100) {
         const result = await bucket("progress-photos").remove(paths.slice(offset, offset + 100));
         if (result.error)
@@ -240,9 +316,76 @@ export function createLiveFeatures(ownerId: string): FeatureApi {
           ),
         );
       logs["profile"] = must(await from("profiles").select("*").eq("id", ownerId).maybeSingle());
+      logs["message_attachments"] = await allPages(async (offset, size) =>
+        must(
+          await from("message_attachments")
+            .select("*")
+            .eq("owner_id", ownerId)
+            .order("id")
+            .range(offset, offset + size - 1),
+        ),
+      );
+      const organizations = createLiveOrganizations(ownerId);
+      logs["organization_workbench"] = await Promise.all(
+        (await organizations.list()).map(async (organization) => ({
+          ...organization,
+          staff: await organizations.staff(organization.id),
+          members: await organizations.members(organization.id),
+          invitations:
+            organization.role === "owner" ? await organizations.invites(organization.id) : [],
+        })),
+      );
+      logs["coach_availability"] = await organizations.availability(ownerId);
+      logs["organization_memberships"] = must(
+        await featureRpc("kinra_org_admin", {
+          action: "personalMemberships",
+          org_id: null,
+          data: {},
+          expected_owner: ownerId,
+        }),
+      );
+      const community = createLiveCommunity(ownerId);
+      logs["community_workbench"] = await Promise.all(
+        (await community.list())
+          .filter((group) => group.role)
+          .map(async (group) => ({
+            ...group,
+            members: await community.members(group.id),
+            invitations:
+              group.role === "owner" || group.role === "moderator"
+                ? await community.invites(group.id)
+                : [],
+          })),
+      );
+      logs["community_memberships"] = must(
+        await featureRpc("kinra_community_admin", {
+          action: "personalMemberships",
+          group_id: null,
+          data: {},
+          expected_owner: ownerId,
+        }),
+      );
+      logs["notification_devices"] = await allPages(async (offset, size) =>
+        must(
+          await from("device_subscriptions")
+            .select("id,locale,created_at")
+            .eq("owner_id", ownerId)
+            .order("id")
+            .range(offset, offset + size - 1),
+        ),
+      );
       logs["onboarding"] = must(
         await from("onboarding_state").select("*").eq("owner_id", ownerId).maybeSingle(),
       );
+      logs["template_adoptions"] = must(
+        await from("template_adoptions").select("*").eq("owner_id", ownerId),
+      );
+      logs["account_workspaces"] = {
+        roles: must(await from("account_roles").select("*").eq("owner_id", ownerId)),
+        context: must(
+          await from("account_context").select("*").eq("owner_id", ownerId).maybeSingle(),
+        ),
+      };
       logs["programs"] = must(await from("programs").select("*").eq("trainer_id", ownerId));
       for (const table of [
         "trainer_clients",
@@ -293,8 +436,23 @@ export function createDemoFeatures(
         ((r.owner_id === ownerId && (r.payload as FeaturePayloads["block"]).user_id === other) ||
           (r.owner_id === other && (r.payload as FeaturePayloads["block"]).user_id === ownerId)),
     );
+  registerDemoCommunityBlockCheck(ownerId, blocked);
   const visible = (r: FeatureRecord) => {
     if (r.owner_id === ownerId) return true;
+    if (r.kind === "expert_resource") {
+      const parent = demoRecords.find(
+        (record) =>
+          record.kind === "expert" &&
+          record.id === (r.payload as FeaturePayloads["expert_resource"]).expert_id,
+      );
+      return (
+        r.visibility === "public" &&
+        !!parent &&
+        parent.owner_id === r.owner_id &&
+        parent.visibility === "public" &&
+        !blocked(parent.owner_id)
+      );
+    }
     if (
       r.kind === "message" &&
       (r.payload as FeaturePayloads["message"]).recipient_id === ownerId &&
@@ -307,6 +465,24 @@ export function createDemoFeatures(
     )
       return true;
     if (r.client_id === ownerId && isConnected(r.owner_id, ownerId)) return true;
+    if (r.kind === "group" && demoCommunityRole(ownerId, r.id)) return true;
+    if (
+      (r.kind === "post" || r.kind === "group_member") &&
+      (r.payload as { group_id?: string }).group_id
+    ) {
+      const groupId = (r.payload as { group_id: string }).group_id;
+      const group = demoRecords.find((g) => g.id === groupId && g.kind === "group");
+      const member =
+        demoCommunityRole(ownerId, groupId) ||
+        (!demoCommunityRemoved(ownerId, groupId) &&
+          demoRecords.some(
+            (m) =>
+              m.kind === "group_member" &&
+              m.owner_id === ownerId &&
+              (m.payload as FeaturePayloads["group_member"]).group_id === groupId,
+          ));
+      if (group && member && !blocked(group.owner_id) && !blocked(r.owner_id)) return true;
+    }
     if (r.visibility !== "public" || r.client_id || blocked(r.owner_id)) return false;
     if (r.kind === "post" && (r.payload as FeaturePayloads["post"]).group_id) {
       const group = demoRecords.find(
@@ -317,12 +493,14 @@ export function createDemoFeatures(
         !blocked(group.owner_id) &&
         (group.visibility === "public" ||
           group.owner_id === ownerId ||
-          demoRecords.some(
-            (m) =>
-              m.kind === "group_member" &&
-              m.owner_id === ownerId &&
-              (m.payload as FeaturePayloads["group_member"]).group_id === group.id,
-          ))
+          demoCommunityRole(ownerId, group.id) ||
+          (!demoCommunityRemoved(ownerId, group.id) &&
+            demoRecords.some(
+              (m) =>
+                m.kind === "group_member" &&
+                m.owner_id === ownerId &&
+                (m.payload as FeaturePayloads["group_member"]).group_id === group.id,
+            )))
       );
     }
     return true;
@@ -341,6 +519,9 @@ export function createDemoFeatures(
         )
           demoRecords.splice(i, 1);
       }
+      clearDemoResources(ownerId);
+      clearDemoCommunity(ownerId);
+      clearDemoOrganizations(ownerId);
       onErase();
     },
     async list(kind) {
@@ -370,6 +551,41 @@ export function createDemoFeatures(
       )
         throw new Error("This event is already recorded.");
       const p = payload as Record<string, unknown>;
+      if (kind === "expert_resource") {
+        const resource = payload as FeaturePayloads["expert_resource"];
+        const parent = demoRecords.find(
+          (record) =>
+            record.kind === "expert" &&
+            record.id === resource.expert_id &&
+            record.owner_id === ownerId,
+        );
+        if (!parent || !demoResourceMatches(ownerId, resource))
+          throw new Error("Choose a PDF uploaded for your own expert profile.");
+        if (current) {
+          const old = current.payload as FeaturePayloads["expert_resource"];
+          if (old.expert_id !== resource.expert_id || old.storage_path !== resource.storage_path)
+            throw new Error(
+              "A resource file and its expert identity cannot be replaced. Upload a new resource.",
+            );
+        }
+      }
+      if (kind === "expert") {
+        for (const facilityId of (payload as FeaturePayloads["expert"]).facility_ids ?? [])
+          if (
+            !demoRecords.some(
+              (record) => record.kind === "facility" && record.id === facilityId && visible(record),
+            )
+          )
+            throw new Error("Choose an available facility for a self-reported affiliation.");
+      }
+      if (
+        kind === "post" &&
+        current &&
+        p["group_id"] !== (current.payload as FeaturePayloads["post"]).group_id
+      )
+        throw new Error("A post cannot be moved to another audience.");
+      if (kind === "group_member" && demoCommunityRemoved(ownerId, String(p["group_id"])))
+        throw new Error("A moderator must issue a new invitation before you can rejoin.");
       if (kind === "message") {
         const recipient = String(p["recipient_id"]);
         if (current) throw new Error("Sent messages cannot be edited.");
@@ -440,12 +656,14 @@ export function createDemoFeatures(
             group.owner_id !== ownerId) ||
           (kind === "post" &&
             group.owner_id !== ownerId &&
-            !demoRecords.some(
-              (r) =>
-                r.kind === "group_member" &&
-                r.owner_id === ownerId &&
-                (r.payload as FeaturePayloads["group_member"]).group_id === group.id,
-            )) ||
+            !demoCommunityRole(ownerId, group.id) &&
+            (demoCommunityRemoved(ownerId, group.id) ||
+              !demoRecords.some(
+                (r) =>
+                  r.kind === "group_member" &&
+                  r.owner_id === ownerId &&
+                  (r.payload as FeaturePayloads["group_member"]).group_id === group.id,
+              ))) ||
           (group.visibility === "private" && options.visibility === "public")
         )
           throw new Error("Group membership or audience does not permit this action.");
@@ -566,6 +784,8 @@ export function createDemoFeatures(
         owner_id: ownerId,
         features: structuredClone(demoRecords.filter((r) => r.owner_id === ownerId)),
         kinds: featureKinds,
+        organization_workbench: exportDemoOrganizations(ownerId),
+        community_workbench: exportDemoCommunity(ownerId),
       };
     },
   };

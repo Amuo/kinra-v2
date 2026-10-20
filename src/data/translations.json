@@ -6081,5 +6081,1821 @@
   "Enter a value between {min} and {max} {unit}.": {
     "bs": "Upiši vrijednost između {min} i {max} {unit}.",
     "de": "Gib einen Wert zwischen {min} und {max} {unit} ein."
+  },
+  "Hide program library": {
+    "de": "Programmbibliothek ausblenden",
+    "bs": "Sakrij biblioteku programa"
+  },
+  "Browse ready-to-use plans": {
+    "de": "Startbereite Pläne entdecken",
+    "bs": "Pregledaj gotove planove"
+  },
+  "Loading programs…": {
+    "de": "Programme werden geladen…",
+    "bs": "Učitavanje programa…"
+  },
+  "Own plan": {
+    "de": "Eigener Plan",
+    "bs": "Vlastiti plan"
+  },
+  "Assigned plan": {
+    "de": "Zugewiesener Plan",
+    "bs": "Dodijeljeni plan"
+  },
+  "Resume current session": {
+    "de": "Aktuelles Training fortsetzen",
+    "bs": "Nastavi trenutni trening"
+  },
+  "Start this session": {
+    "de": "Dieses Training starten",
+    "bs": "Započni ovaj trening"
+  },
+  "My plans and program library": {
+    "de": "Meine Pläne und Programmbibliothek",
+    "bs": "Moji planovi i biblioteka programa"
+  },
+  "Browse your own plans or start a freestyle session.": {
+    "de": "Öffne deine eigenen Pläne oder starte ein freies Training.",
+    "bs": "Pregledaj vlastite planove ili započni slobodni trening."
+  },
+  "Could not load your workspaces.": {
+    "de": "Deine Arbeitsbereiche konnten nicht geladen werden.",
+    "bs": "Nije moguće učitati tvoje radne prostore."
+  },
+  "Workspace added and selected.": {
+    "de": "Arbeitsbereich hinzugefügt und ausgewählt.",
+    "bs": "Radni prostor je dodan i odabran."
+  },
+  "Workspace selected.": {
+    "de": "Arbeitsbereich ausgewählt.",
+    "bs": "Radni prostor je odabran."
+  },
+  "Account workspaces": {
+    "de": "Arbeitsbereiche deines Kontos",
+    "bs": "Radni prostori računa"
+  },
+  "Choose the tools you want to use. Your account and existing connections stay together.": {
+    "de": "Wähle die gewünschten Werkzeuge. Dein Konto und bestehende Verbindungen bleiben zusammen.",
+    "bs": "Odaberi alate koje želiš koristiti. Tvoj račun i postojeće veze ostaju povezani."
+  },
+  "Original account type": {
+    "de": "Ursprünglicher Kontotyp",
+    "bs": "Izvorna vrsta računa"
+  },
+  "Active workspace": {
+    "de": "Aktiver Arbeitsbereich",
+    "bs": "Aktivni radni prostor"
+  },
+  "Add a workspace": {
+    "de": "Arbeitsbereich hinzufügen",
+    "bs": "Dodaj radni prostor"
+  },
+  "Workspace to add": {
+    "de": "Neuer Arbeitsbereich",
+    "bs": "Radni prostor za dodavanje"
+  },
+  "Choose a workspace": {
+    "de": "Arbeitsbereich auswählen",
+    "bs": "Odaberi radni prostor"
+  },
+  "Adding a workspace does not connect anyone or share your records. Connections and organization permissions are managed separately.": {
+    "de": "Ein neuer Arbeitsbereich verbindet dich mit niemandem und teilt keine Aufzeichnungen. Verbindungen und Organisationsrechte werden separat verwaltet.",
+    "bs": "Dodavanje radnog prostora ne povezuje te ni s kim i ne dijeli tvoje zapise. Veze i dozvole organizacije uređuju se zasebno."
+  },
+  "Add and switch workspace": {
+    "de": "Hinzufügen und wechseln",
+    "bs": "Dodaj i pređi u radni prostor"
+  },
+  "Availability & booking": {
+    "de": "Verfügbarkeit und Buchung",
+    "bs": "Dostupnost i rezervacije"
+  },
+  "Book with my coach": {
+    "de": "Termin bei meinem Coach buchen",
+    "bs": "Rezerviši termin kod svog trenera"
+  },
+  "My availability": {
+    "de": "Meine Verfügbarkeit",
+    "bs": "Moja dostupnost"
+  },
+  "Set the times connected clients may request. Saving availability does not confirm appointments.": {
+    "de": "Lege fest, welche Zeiten verbundene Klienten anfragen können. Das Speichern der Verfügbarkeit bestätigt keine Termine.",
+    "bs": "Odredi termine koje povezani klijenti mogu zatražiti. Čuvanje dostupnosti ne potvrđuje termine."
+  },
+  "Time zone": {
+    "de": "Zeitzone",
+    "bs": "Vremenska zona"
+  },
+  "Use an IANA time zone, for example Europe/Sarajevo.": {
+    "de": "Verwende eine IANA-Zeitzone, zum Beispiel Europe/Sarajevo.",
+    "bs": "Unesi IANA vremensku zonu, naprimjer Europe/Sarajevo."
+  },
+  "Publish available times to connected clients": {
+    "de": "Verfügbare Zeiten für verbundene Klienten veröffentlichen",
+    "bs": "Objavi dostupne termine povezanim klijentima"
+  },
+  "Weekly hours": {
+    "de": "Wöchentliche Zeiten",
+    "bs": "Sedmični termini"
+  },
+  "Day": {
+    "de": "Tag",
+    "bs": "Dan"
+  },
+  "Start time": {
+    "de": "Beginn",
+    "bs": "Vrijeme početka"
+  },
+  "End time": {
+    "de": "Ende",
+    "bs": "Vrijeme završetka"
+  },
+  "Appointment length (minutes)": {
+    "de": "Termindauer (Minuten)",
+    "bs": "Trajanje termina (minute)"
+  },
+  "Remove hours": {
+    "de": "Zeiten entfernen",
+    "bs": "Ukloni termine"
+  },
+  "Add weekly hours": {
+    "de": "Wöchentliche Zeiten hinzufügen",
+    "bs": "Dodaj sedmične termine"
+  },
+  "Date exceptions": {
+    "de": "Abweichungen an einzelnen Tagen",
+    "bs": "Izuzeci po datumu"
+  },
+  "Unavailable all day": {
+    "de": "Ganztägig nicht verfügbar",
+    "bs": "Nedostupan cijeli dan"
+  },
+  "Remove exception": {
+    "de": "Ausnahme entfernen",
+    "bs": "Ukloni izuzetak"
+  },
+  "Add date exception": {
+    "de": "Datumsausnahme hinzufügen",
+    "bs": "Dodaj izuzetak za datum"
+  },
+  "Availability saved.": {
+    "de": "Verfügbarkeit gespeichert.",
+    "bs": "Dostupnost je sačuvana."
+  },
+  "Save availability": {
+    "de": "Verfügbarkeit speichern",
+    "bs": "Sačuvaj dostupnost"
+  },
+  "Connect with a coach from Profile before requesting an appointment.": {
+    "de": "Verbinde dich im Profil mit einem Coach, bevor du einen Termin anfragst.",
+    "bs": "Poveži se s trenerom putem Profila prije slanja zahtjeva za termin."
+  },
+  "Connected coach": {
+    "de": "Verbundener Coach",
+    "bs": "Povezani trener"
+  },
+  "Choose a coach": {
+    "de": "Coach auswählen",
+    "bs": "Odaberi trenera"
+  },
+  "Show the week starting": {
+    "de": "Woche anzeigen ab",
+    "bs": "Prikaži sedmicu koja počinje"
+  },
+  "Times shown in {timezone}": {
+    "de": "Zeiten in {timezone}",
+    "bs": "Termini su prikazani u zoni {timezone}"
+  },
+  "Available appointment times": {
+    "de": "Verfügbare Termine",
+    "bs": "Dostupni termini"
+  },
+  "No available times in this week. Try another week or contact your coach.": {
+    "de": "Diese Woche sind keine Zeiten verfügbar. Wähle eine andere Woche oder kontaktiere deinen Coach.",
+    "bs": "Nema dostupnih termina ove sedmice. Pokušaj drugu sedmicu ili se javi treneru."
+  },
+  "Review appointment request": {
+    "de": "Terminanfrage prüfen",
+    "bs": "Pregledaj zahtjev za termin"
+  },
+  "Note for your coach (optional)": {
+    "de": "Nachricht an deinen Coach (optional)",
+    "bs": "Napomena za trenera (opcionalno)"
+  },
+  "This sends a request in Kinra. Your coach must confirm; no email or notification delivery is implied.": {
+    "de": "Damit wird eine Anfrage in Kinra erstellt. Dein Coach muss sie bestätigen; eine E-Mail oder Benachrichtigung wird dadurch nicht zugesichert.",
+    "bs": "Ovo šalje zahtjev unutar Kinre. Trener ga mora potvrditi; slanje e-pošte ili obavijesti nije zagarantovano."
+  },
+  "Request saved": {
+    "de": "Anfrage gespeichert",
+    "bs": "Zahtjev je sačuvan"
+  },
+  "Request appointment": {
+    "de": "Termin anfragen",
+    "bs": "Zatraži termin"
+  },
+  "Appointment requested. You can review its status in Appointments.": {
+    "de": "Termin angefragt. Den Status findest du unter Termine.",
+    "bs": "Termin je zatražen. Status možeš provjeriti u odjeljku Termini."
+  },
+  "Groups & community": {
+    "de": "Gruppen und Community",
+    "bs": "Grupe i zajednica"
+  },
+  "Back to groups": {
+    "de": "Zurück zu den Gruppen",
+    "bs": "Nazad na grupe"
+  },
+  "Discover public groups or accept an invitation to a private group. Group posts are shared with members.": {
+    "de": "Entdecke öffentliche Gruppen oder nimm eine Einladung zu einer privaten Gruppe an. Gruppenbeiträge werden mit Mitgliedern geteilt.",
+    "bs": "Otkrij javne grupe ili prihvati poziv u privatnu grupu. Objave u grupi dijele se s članovima."
+  },
+  "Search groups": {
+    "de": "Gruppen suchen",
+    "bs": "Pretraži grupe"
+  },
+  "Private group": {
+    "de": "Private Gruppe",
+    "bs": "Privatna grupa"
+  },
+  "Public group": {
+    "de": "Öffentliche Gruppe",
+    "bs": "Javna grupa"
+  },
+  "No groups available yet.": {
+    "de": "Noch keine Gruppen verfügbar.",
+    "bs": "Još nema dostupnih grupa."
+  },
+  "Join with an invitation": {
+    "de": "Mit Einladung beitreten",
+    "bs": "Pridruži se putem poziva"
+  },
+  "Close group form": {
+    "de": "Gruppenformular schließen",
+    "bs": "Zatvori obrazac grupe"
+  },
+  "Create a group": {
+    "de": "Gruppe erstellen",
+    "bs": "Kreiraj grupu"
+  },
+  "Group name": {
+    "de": "Gruppenname",
+    "bs": "Naziv grupe"
+  },
+  "Group type": {
+    "de": "Gruppenart",
+    "bs": "Vrsta grupe"
+  },
+  "Group visibility": {
+    "de": "Sichtbarkeit der Gruppe",
+    "bs": "Vidljivost grupe"
+  },
+  "Private — invitation required": {
+    "de": "Privat — Einladung erforderlich",
+    "bs": "Privatna — potreban poziv"
+  },
+  "Public — signed-in people can discover and join": {
+    "de": "Öffentlich — angemeldete Personen können sie finden und beitreten",
+    "bs": "Javna — prijavljene osobe je mogu pronaći i pridružiti se"
+  },
+  "Only members can see this group and its posts. Invite codes must be shared manually.": {
+    "de": "Nur Mitglieder können diese Gruppe und ihre Beiträge sehen. Einladungscodes müssen manuell geteilt werden.",
+    "bs": "Samo članovi mogu vidjeti ovu grupu i njene objave. Kodovi poziva dijele se ručno."
+  },
+  "The group name and description are visible to signed-in people. Posts created here are visible to members.": {
+    "de": "Name und Beschreibung der Gruppe sind für angemeldete Personen sichtbar. Hier erstellte Beiträge sehen die Mitglieder.",
+    "bs": "Naziv i opis grupe vidljivi su prijavljenim osobama. Ovdje kreirane objave vidljive su članovima."
+  },
+  "Create group with this visibility": {
+    "de": "Gruppe mit dieser Sichtbarkeit erstellen",
+    "bs": "Kreiraj grupu s ovom vidljivošću"
+  },
+  "Invitation code": {
+    "de": "Einladungscode",
+    "bs": "Kod poziva"
+  },
+  "Review invitation": {
+    "de": "Einladung prüfen",
+    "bs": "Pregledaj poziv"
+  },
+  "Joining makes you a member. Other members can see your name and posts; this grants no moderator permissions.": {
+    "de": "Durch den Beitritt wirst du Mitglied. Andere Mitglieder sehen deinen Namen und deine Beiträge; du erhältst keine Moderationsrechte.",
+    "bs": "Pridruživanjem postaješ član. Ostali članovi vide tvoje ime i objave; time ne dobijaš moderatorske dozvole."
+  },
+  "Expires {date}": {
+    "de": "Läuft am {date} ab",
+    "bs": "Ističe {date}"
+  },
+  "Invitation accepted": {
+    "de": "Einladung angenommen",
+    "bs": "Poziv je prihvaćen"
+  },
+  "Join this group": {
+    "de": "Dieser Gruppe beitreten",
+    "bs": "Pridruži se ovoj grupi"
+  },
+  "Group member": {
+    "de": "Gruppenmitglied",
+    "bs": "Član grupe"
+  },
+  "Join to read member posts and take part. Your name will be visible to members.": {
+    "de": "Tritt bei, um Beiträge zu lesen und mitzumachen. Dein Name wird für Mitglieder sichtbar.",
+    "bs": "Pridruži se da čitaš objave i učestvuješ. Tvoje ime bit će vidljivo članovima."
+  },
+  "Group sections": {
+    "de": "Gruppenbereiche",
+    "bs": "Odjeljci grupe"
+  },
+  "Posts": {
+    "de": "Beiträge",
+    "bs": "Objave"
+  },
+  "Members": {
+    "de": "Mitglieder",
+    "bs": "Članovi"
+  },
+  "Invitations": {
+    "de": "Einladungen",
+    "bs": "Pozivi"
+  },
+  "Post to group members": {
+    "de": "Beitrag für Gruppenmitglieder",
+    "bs": "Objavi članovima grupe"
+  },
+  "Visible to this group's members. Avoid sharing someone else's private information.": {
+    "de": "Für Mitglieder dieser Gruppe sichtbar. Teile keine privaten Informationen anderer Personen.",
+    "bs": "Vidljivo članovima ove grupe. Nemoj dijeliti tuđe privatne podatke."
+  },
+  "Publish to members": {
+    "de": "Für Mitglieder veröffentlichen",
+    "bs": "Objavi članovima"
+  },
+  "Remove post": {
+    "de": "Beitrag entfernen",
+    "bs": "Ukloni objavu"
+  },
+  "Review removal of moderator role": {
+    "de": "Entzug der Moderationsrechte prüfen",
+    "bs": "Pregledaj uklanjanje moderatorske uloge"
+  },
+  "Review moderator role": {
+    "de": "Moderationsrolle prüfen",
+    "bs": "Pregledaj moderatorsku ulogu"
+  },
+  "Remove from group": {
+    "de": "Aus der Gruppe entfernen",
+    "bs": "Ukloni iz grupe"
+  },
+  "Leave group": {
+    "de": "Gruppe verlassen",
+    "bs": "Napusti grupu"
+  },
+  "Moderators can invite members, remove regular members and remove group posts. They cannot appoint other moderators.": {
+    "de": "Moderatoren können Mitglieder einladen, reguläre Mitglieder entfernen und Gruppenbeiträge löschen. Sie können keine weiteren Moderatoren ernennen.",
+    "bs": "Moderatori mogu pozivati članove, uklanjati obične članove i objave grupe. Ne mogu imenovati druge moderatore."
+  },
+  "Remove moderator permissions? This person remains a group member.": {
+    "de": "Moderationsrechte entziehen? Diese Person bleibt Gruppenmitglied.",
+    "bs": "Ukloniti moderatorske dozvole? Ova osoba ostaje član grupe."
+  },
+  "Remove this person's membership? Their personal account is unchanged.": {
+    "de": "Mitgliedschaft dieser Person entfernen? Ihr persönliches Konto bleibt unverändert.",
+    "bs": "Ukloniti članstvo ove osobe? Njen lični račun ostaje nepromijenjen."
+  },
+  "Remove this post from the group? This cannot be undone here.": {
+    "de": "Diesen Beitrag aus der Gruppe entfernen? Das lässt sich hier nicht rückgängig machen.",
+    "bs": "Ukloniti ovu objavu iz grupe? Ovu radnju ovdje nije moguće poništiti."
+  },
+  "Leave this group? Your existing posts remain unless removed separately.": {
+    "de": "Diese Gruppe verlassen? Deine bisherigen Beiträge bleiben bestehen, sofern sie nicht separat entfernt werden.",
+    "bs": "Napustiti ovu grupu? Postojeće objave ostaju ako ih zasebno ne ukloniš."
+  },
+  "Confirm group action": {
+    "de": "Gruppenaktion bestätigen",
+    "bs": "Potvrdi radnju u grupi"
+  },
+  "Expiry date": {
+    "de": "Ablaufdatum",
+    "bs": "Datum isteka"
+  },
+  "Expires at the end of the selected day in {timezone}.": {
+    "de": "Läuft am Ende des ausgewählten Tages in {timezone} ab.",
+    "bs": "Ističe na kraju odabranog dana u zoni {timezone}."
+  },
+  "Create a single-use member invitation. Share the code manually; Kinra does not send it or grant moderator access.": {
+    "de": "Erstelle eine einmalige Mitgliedseinladung. Teile den Code manuell; Kinra versendet ihn nicht und gewährt keine Moderationsrechte.",
+    "bs": "Kreiraj jednokratni poziv za člana. Kod podijeli ručno; Kinra ga ne šalje i ne dodjeljuje moderatorski pristup."
+  },
+  "Create invitation code": {
+    "de": "Einladungscode erstellen",
+    "bs": "Kreiraj kod poziva"
+  },
+  "Revoked": {
+    "de": "Widerrufen",
+    "bs": "Opozvan"
+  },
+  "Accepted": {
+    "de": "Angenommen",
+    "bs": "Prihvaćen"
+  },
+  "Expired": {
+    "de": "Abgelaufen",
+    "bs": "Istekao"
+  },
+  "Available": {
+    "de": "Verfügbar",
+    "bs": "Dostupno"
+  },
+  "Could not copy. Select and copy the code manually.": {
+    "de": "Kopieren fehlgeschlagen. Markiere und kopiere den Code manuell.",
+    "bs": "Kopiranje nije uspjelo. Označi i kopiraj kod ručno."
+  },
+  "Revoke invitation": {
+    "de": "Einladung widerrufen",
+    "bs": "Opozovi poziv"
+  },
+  "Device reminders": {
+    "bs": "Podsjetnici na uređaju",
+    "de": "Geräteerinnerungen"
+  },
+  "Reminders enabled on this device.": {
+    "bs": "Podsjetnici su uključeni na ovom uređaju.",
+    "de": "Erinnerungen sind auf diesem Gerät aktiviert."
+  },
+  "Reminders disabled on this device.": {
+    "bs": "Podsjetnici su isključeni na ovom uređaju.",
+    "de": "Erinnerungen sind auf diesem Gerät deaktiviert."
+  },
+  "Test requested. Delivery may depend on your device settings and connection.": {
+    "bs": "Test je zatražen. Dostava može zavisiti od postavki uređaja i veze.",
+    "de": "Test angefordert. Die Zustellung kann von deinen Geräteeinstellungen und der Verbindung abhängen."
+  },
+  "Choose whether this device may receive reminders. Notifications use generic private text; scheduled reminders respect your quiet hours.": {
+    "bs": "Odaberi smije li ovaj uređaj primati podsjetnike. Obavijesti koriste opći tekst bez privatnih detalja; zakazani podsjetnici poštuju vrijeme tišine.",
+    "de": "Wähle, ob dieses Gerät Erinnerungen empfangen darf. Benachrichtigungen enthalten allgemeinen Text ohne private Details; geplante Erinnerungen beachten deine Ruhezeiten."
+  },
+  "Enabled on this device": {
+    "bs": "Uključeno na ovom uređaju",
+    "de": "Auf diesem Gerät aktiviert"
+  },
+  "Not enabled on this device": {
+    "bs": "Nije uključeno na ovom uređaju",
+    "de": "Auf diesem Gerät nicht aktiviert"
+  },
+  "Device delivery is not configured here. Real push reminders are available only in the live app when the service is configured.": {
+    "bs": "Dostava na uređaj ovdje nije podešena. Stvarni push podsjetnici dostupni su samo u aktivnoj aplikaciji kada je usluga podešena.",
+    "de": "Die Zustellung auf Geräte ist hier nicht eingerichtet. Echte Push-Erinnerungen sind nur in der Live-App mit eingerichtetem Dienst verfügbar."
+  },
+  "This browser does not currently support device notifications.": {
+    "bs": "Ovaj preglednik trenutno ne podržava obavijesti na uređaju.",
+    "de": "Dieser Browser unterstützt derzeit keine Gerätebenachrichtigungen."
+  },
+  "Notifications are blocked in your browser settings. Change that permission there, then refresh this status.": {
+    "bs": "Obavijesti su blokirane u postavkama preglednika. Tamo promijeni dozvolu, pa osvježi ovaj status.",
+    "de": "Benachrichtigungen sind in den Browsereinstellungen blockiert. Ändere dort die Berechtigung und aktualisiere dann diesen Status."
+  },
+  "On iPhone or iPad, you may need to add Kinra to your Home Screen and open it there before enabling notifications.": {
+    "bs": "Na iPhoneu ili iPadu možda trebaš dodati Kinru na početni ekran i otvoriti je odatle prije uključivanja obavijesti.",
+    "de": "Auf dem iPhone oder iPad musst du Kinra möglicherweise zuerst zum Home-Bildschirm hinzufügen und von dort öffnen, bevor du Benachrichtigungen aktivierst."
+  },
+  "Working…": {
+    "bs": "Obrada…",
+    "de": "Wird ausgeführt…"
+  },
+  "Disable on this device": {
+    "bs": "Isključi na ovom uređaju",
+    "de": "Auf diesem Gerät deaktivieren"
+  },
+  "Enable on this device": {
+    "bs": "Uključi na ovom uređaju",
+    "de": "Auf diesem Gerät aktivieren"
+  },
+  "Test notification": {
+    "bs": "Testiraj obavijest",
+    "de": "Testbenachrichtigung"
+  },
+  "Refresh device status": {
+    "bs": "Osvježi status uređaja",
+    "de": "Gerätestatus aktualisieren"
+  },
+  "Delivery is not guaranteed. Device power settings, permissions and connectivity can delay or prevent reminders.": {
+    "bs": "Dostava nije zagarantovana. Postavke napajanja, dozvole i povezanost uređaja mogu odgoditi ili spriječiti podsjetnike.",
+    "de": "Die Zustellung ist nicht garantiert. Energiespareinstellungen, Berechtigungen und Verbindung können Erinnerungen verzögern oder verhindern."
+  },
+  "Reminder schedules": {
+    "bs": "Rasporedi podsjetnika",
+    "de": "Erinnerungspläne"
+  },
+  "Quiet hours and categories": {
+    "bs": "Vrijeme tišine i kategorije",
+    "de": "Ruhezeiten und Kategorien"
+  },
+  "Image unavailable. Follow the written guide below.": {
+    "bs": "Slika nije dostupna. Prati pisane upute ispod.",
+    "de": "Bild nicht verfügbar. Nutze die schriftliche Anleitung unten."
+  },
+  "Movement images": {
+    "bs": "Slike pokreta",
+    "de": "Bewegungsbilder"
+  },
+  "Open demonstration video": {
+    "bs": "Otvori demonstracijski video",
+    "de": "Demonstrationsvideo öffnen"
+  },
+  "Guide source": {
+    "bs": "Izvor uputa",
+    "de": "Quelle der Anleitung"
+  },
+  "View guide source": {
+    "bs": "Pogledaj izvor uputa",
+    "de": "Quelle der Anleitung ansehen"
+  },
+  "Equipment, difficulty and movement": {
+    "bs": "Oprema, težina i pokret",
+    "de": "Ausrüstung, Schwierigkeit und Bewegung"
+  },
+  "More about you (optional)": {
+    "bs": "Više o tebi (opcionalno)",
+    "de": "Mehr über dich (optional)"
+  },
+  "Share only what you want to keep in your private setup. These answers are not automatically shared with a coach.": {
+    "bs": "Podijeli samo ono što želiš sačuvati u privatnim postavkama. Ovi odgovori se ne dijele automatski s trenerom.",
+    "de": "Gib nur an, was du in deiner privaten Einrichtung speichern möchtest. Diese Antworten werden nicht automatisch mit einem Coach geteilt."
+  },
+  "Date of birth (optional)": {
+    "bs": "Datum rođenja (opcionalno)",
+    "de": "Geburtsdatum (optional)"
+  },
+  "Daily activity (optional)": {
+    "bs": "Svakodnevna aktivnost (opcionalno)",
+    "de": "Alltagsaktivität (optional)"
+  },
+  "City (optional)": {
+    "bs": "Grad (opcionalno)",
+    "de": "Stadt (optional)"
+  },
+  "Movement considerations (optional)": {
+    "bs": "Napomene o kretanju (opcionalno)",
+    "de": "Hinweise zur Bewegung (optional)"
+  },
+  "You can note preferred adaptations, access needs or movements you want to avoid. No diagnosis or medical history is needed.": {
+    "bs": "Možeš navesti željene prilagodbe, potrebe za pristupačnošću ili pokrete koje želiš izbjegavati. Dijagnoza ili medicinska historija nisu potrebne.",
+    "de": "Du kannst gewünschte Anpassungen, Anforderungen an Barrierefreiheit oder Bewegungen nennen, die du vermeiden möchtest. Eine Diagnose oder Krankengeschichte ist nicht erforderlich."
+  },
+  "Managers can view the roster and manage memberships and payment records. They cannot appoint staff.": {
+    "bs": "Menadžeri mogu pregledati spisak i upravljati članstvima i evidencijom uplata. Ne mogu imenovati osoblje.",
+    "de": "Manager können die Mitgliederliste einsehen sowie Mitgliedschaften und Zahlungsaufzeichnungen verwalten. Sie können kein Personal ernennen."
+  },
+  "Staff can view the roster and membership status. They cannot change memberships or view financial notes.": {
+    "bs": "Osoblje može pregledati spisak i status članstva. Ne može mijenjati članstva ni pregledati finansijske napomene.",
+    "de": "Mitarbeitende können die Mitgliederliste und den Mitgliedschaftsstatus sehen. Sie können keine Mitgliedschaften ändern oder Finanznotizen einsehen."
+  },
+  "Organization tools": {
+    "bs": "Alati organizacije",
+    "de": "Organisationswerkzeuge"
+  },
+  "Access comes from ownership or an accepted staff invitation. Choosing an organization workspace alone grants no staff permissions.": {
+    "bs": "Pristup se dobija vlasništvom ili prihvaćenim pozivom za osoblje. Sam odabir radnog prostora organizacije ne daje dozvole osoblja.",
+    "de": "Zugriff entsteht durch Eigentümerschaft oder eine angenommene Personaleinladung. Die Auswahl eines Organisationsarbeitsbereichs allein gewährt keine Personalrechte."
+  },
+  "Organization": {
+    "bs": "Organizacija",
+    "de": "Organisation"
+  },
+  "Choose an organization": {
+    "bs": "Odaberi organizaciju",
+    "de": "Organisation auswählen"
+  },
+  "Accept staff invitation": {
+    "bs": "Prihvati poziv za osoblje",
+    "de": "Personaleinladung annehmen"
+  },
+  "Close organization editor": {
+    "bs": "Zatvori uređivanje organizacije",
+    "de": "Organisationseditor schließen"
+  },
+  "Create or edit an organization": {
+    "bs": "Kreiraj ili uredi organizaciju",
+    "de": "Organisation erstellen oder bearbeiten"
+  },
+  "Accept these permissions": {
+    "bs": "Prihvati ove dozvole",
+    "de": "Diese Berechtigungen annehmen"
+  },
+  "Staff & invitations": {
+    "bs": "Osoblje i pozivi",
+    "de": "Personal und Einladungen"
+  },
+  "Staff member": {
+    "bs": "Član osoblja",
+    "de": "Mitarbeitende Person"
+  },
+  "Review manager access": {
+    "bs": "Pregledaj pristup menadžera",
+    "de": "Managerzugriff prüfen"
+  },
+  "Review staff access": {
+    "bs": "Pregledaj pristup osoblja",
+    "de": "Personalzugriff prüfen"
+  },
+  "Remove staff access": {
+    "bs": "Ukloni pristup osoblja",
+    "de": "Personalzugriff entfernen"
+  },
+  "No additional staff yet.": {
+    "bs": "Još nema dodatnog osoblja.",
+    "de": "Noch kein weiteres Personal."
+  },
+  "Remove this person's organization staff access? Their personal account is unchanged.": {
+    "bs": "Ukloniti pristup ove osobe kao osoblja organizacije? Njen lični račun ostaje nepromijenjen.",
+    "de": "Den Personalzugriff dieser Person auf die Organisation entfernen? Ihr persönliches Konto bleibt unverändert."
+  },
+  "Confirm access change": {
+    "bs": "Potvrdi promjenu pristupa",
+    "de": "Zugriffsänderung bestätigen"
+  },
+  "Create staff invitation": {
+    "bs": "Kreiraj poziv za osoblje",
+    "de": "Personaleinladung erstellen"
+  },
+  "Staff role": {
+    "bs": "Uloga osoblja",
+    "de": "Personalrolle"
+  },
+  "staff": {
+    "bs": "Osoblje",
+    "de": "Personal"
+  },
+  "manager": {
+    "bs": "Menadžer",
+    "de": "Manager"
+  },
+  "Review staff permissions": {
+    "bs": "Pregledaj dozvole osoblja",
+    "de": "Personalberechtigungen prüfen"
+  },
+  "A code is created for you to share manually. Kinra does not send this invitation.": {
+    "bs": "Kreirat će se kod koji dijeliš ručno. Kinra ne šalje ovaj poziv.",
+    "de": "Es wird ein Code erstellt, den du manuell teilen kannst. Kinra versendet diese Einladung nicht."
+  },
+  "Membership and payment records are bookkeeping only. Saving a paid amount does not charge a card or transfer money.": {
+    "bs": "Evidencija članstva i uplata služi samo za knjigovodstvo. Čuvanje uplaćenog iznosa ne tereti karticu i ne prenosi novac.",
+    "de": "Mitgliedschafts- und Zahlungsaufzeichnungen dienen nur der Buchführung. Das Speichern eines bezahlten Betrags belastet keine Karte und überweist kein Geld."
+  },
+  "Member": {
+    "bs": "Član",
+    "de": "Mitglied"
+  },
+  "No membership recorded": {
+    "bs": "Članstvo nije evidentirano",
+    "de": "Keine Mitgliedschaft erfasst"
+  },
+  "Edit membership record": {
+    "bs": "Uredi evidenciju članstva",
+    "de": "Mitgliedschaftseintrag bearbeiten"
+  },
+  "No members have joined this organization yet.": {
+    "bs": "Još nema članova u ovoj organizaciji.",
+    "de": "Dieser Organisation sind noch keine Mitglieder beigetreten."
+  },
+  "Membership status": {
+    "bs": "Status članstva",
+    "de": "Mitgliedschaftsstatus"
+  },
+  "Membership plan (optional)": {
+    "bs": "Plan članstva (opcionalno)",
+    "de": "Mitgliedschaftstarif (optional)"
+  },
+  "Start date": {
+    "bs": "Datum početka",
+    "de": "Startdatum"
+  },
+  "End date (optional)": {
+    "bs": "Datum završetka (opcionalno)",
+    "de": "Enddatum (optional)"
+  },
+  "Paid amount to record (optional)": {
+    "bs": "Uplaćeni iznos za evidenciju (opcionalno)",
+    "de": "Bezahlten Betrag erfassen (optional)"
+  },
+  "Choose currency": {
+    "bs": "Odaberi valutu",
+    "de": "Währung auswählen"
+  },
+  "Membership notes (optional)": {
+    "bs": "Napomene o članstvu (opcionalno)",
+    "de": "Mitgliedschaftsnotizen (optional)"
+  },
+  "This saves a record only. No payment is collected.": {
+    "bs": "Ovo samo čuva evidenciju. Uplata se ne naplaćuje.",
+    "de": "Damit wird nur ein Eintrag gespeichert. Es wird keine Zahlung eingezogen."
+  },
+  "Save membership record": {
+    "bs": "Sačuvaj evidenciju članstva",
+    "de": "Mitgliedschaftseintrag speichern"
+  },
+  "Attachments could not load. Your messages are still available.": {
+    "bs": "Prilozi se nisu mogli učitati. Tvoje poruke su i dalje dostupne.",
+    "de": "Anhänge konnten nicht geladen werden. Deine Nachrichten sind weiterhin verfügbar."
+  },
+  "Attach a file (optional)": {
+    "bs": "Priloži datoteku (opcionalno)",
+    "de": "Datei anhängen (optional)"
+  },
+  "Choose a JPG, PNG, WebP or PDF up to 10 MB.": {
+    "bs": "Odaberi JPG, PNG, WebP ili PDF do 10 MB.",
+    "de": "Wähle eine JPG-, PNG-, WebP- oder PDF-Datei bis 10 MB."
+  },
+  "One JPG, PNG, WebP or PDF per message, up to 10 MB.": {
+    "bs": "Jedan JPG, PNG, WebP ili PDF po poruci, do 10 MB.",
+    "de": "Eine JPG-, PNG-, WebP- oder PDF-Datei pro Nachricht, bis 10 MB."
+  },
+  "{size} MB · ready to send": {
+    "bs": "{size} MB · spremno za slanje",
+    "de": "{size} MB · bereit zum Senden"
+  },
+  "Remove attachment": {
+    "bs": "Ukloni prilog",
+    "de": "Anhang entfernen"
+  },
+  "Downloading…": {
+    "bs": "Preuzimanje…",
+    "de": "Wird heruntergeladen…"
+  },
+  "{size} MB": {
+    "bs": "{size} MB",
+    "de": "{size} MB"
+  },
+  "A clear place to start.": {
+    "bs": "Jasan početak.",
+    "de": "Ein klarer Einstieg."
+  },
+  "Review a complete plan, start a session or save a private copy you can edit.": {
+    "bs": "Pregledaj cijeli plan, započni trening ili sačuvaj privatnu kopiju koju možeš uređivati.",
+    "de": "Prüfe einen vollständigen Plan, starte ein Training oder speichere eine private, bearbeitbare Kopie."
+  },
+  "Program type": {
+    "bs": "Vrsta programa",
+    "de": "Programmart"
+  },
+  "Archived references": {
+    "bs": "Arhivirane reference",
+    "de": "Archivierte Referenzen"
+  },
+  "Search programs": {
+    "bs": "Pretraži programe",
+    "de": "Programme suchen"
+  },
+  "{count} plans found": {
+    "bs": "Pronađeno planova: {count}",
+    "de": "{count} Pläne gefunden"
+  },
+  "No plans match your search.": {
+    "bs": "Nijedan plan ne odgovara pretrazi.",
+    "de": "Keine Pläne passen zu deiner Suche."
+  },
+  "{count} weeks": {
+    "bs": "{count} sedmica",
+    "de": "{count} Wochen"
+  },
+  "{count} sessions / week": {
+    "bs": "{count} treninga sedmično",
+    "de": "{count} Einheiten pro Woche"
+  },
+  "About {count} min": {
+    "bs": "Oko {count} min",
+    "de": "Etwa {count} Min."
+  },
+  "Created by {author}": {
+    "bs": "Autor: {author}",
+    "de": "Erstellt von {author}"
+  },
+  "Use this as a starting point. Review the exercises, portions and schedule, then adapt your private copy to your needs.": {
+    "bs": "Koristi ovo kao polazište. Pregledaj vježbe, porcije i raspored, pa prilagodi privatnu kopiju svojim potrebama.",
+    "de": "Nutze dies als Ausgangspunkt. Prüfe Übungen, Portionen und Zeitplan und passe dann deine private Kopie an deine Bedürfnisse an."
+  },
+  "Before you begin": {
+    "bs": "Prije početka",
+    "de": "Bevor du beginnst"
+  },
+  "How to progress": {
+    "bs": "Kako napredovati",
+    "de": "So steigerst du dich"
+  },
+  "{sets} sets · {reps}": {
+    "bs": "{sets} serija · {reps}",
+    "de": "{sets} Sätze · {reps}"
+  },
+  "{seconds}s rest": {
+    "bs": "{seconds} s odmora",
+    "de": "{seconds} s Pause"
+  },
+  "{kcal} kcal · {protein}g protein · {carbs}g carbs · {fat}g fat": {
+    "bs": "{kcal} kcal · {protein} g proteina · {carbs} g ugljikohidrata · {fat} g masti",
+    "de": "{kcal} kcal · {protein} g Protein · {carbs} g Kohlenhydrate · {fat} g Fett"
+  },
+  "Sources and context": {
+    "bs": "Izvori i kontekst",
+    "de": "Quellen und Kontext"
+  },
+  "This plan is already in your library.": {
+    "bs": "Ovaj plan je već u tvojoj biblioteci.",
+    "de": "Dieser Plan ist bereits in deiner Bibliothek."
+  },
+  "Private editable copy saved.": {
+    "bs": "Privatna kopija za uređivanje je sačuvana.",
+    "de": "Private, bearbeitbare Kopie gespeichert."
+  },
+  "Copy saved": {
+    "bs": "Kopija je sačuvana",
+    "de": "Kopie gespeichert"
+  },
+  "Save private copy": {
+    "bs": "Sačuvaj privatnu kopiju",
+    "de": "Private Kopie speichern"
+  },
+  "Open my training": {
+    "bs": "Otvori moje treninge",
+    "de": "Mein Training öffnen"
+  },
+  "Open my meal plans": {
+    "bs": "Otvori moje planove obroka",
+    "de": "Meine Ernährungspläne öffnen"
+  },
+  "Saving a plan does not log a workout or mark a meal as eaten.": {
+    "bs": "Čuvanje plana ne bilježi trening niti označava obrok kao pojeden.",
+    "de": "Das Speichern eines Plans erfasst kein Training und markiert keine Mahlzeit als gegessen."
+  },
+  "These third-party listings are historical references. Their routines are not included; the usable plans above are original Kinra templates.": {
+    "bs": "Ovi zapisi trećih strana su historijske reference. Njihove rutine nisu uključene; upotrebljivi planovi iznad su originalni Kinra predlošci.",
+    "de": "Diese Einträge Dritter sind historische Referenzen. Ihre Abläufe sind nicht enthalten; die nutzbaren Pläne oben sind originale Kinra-Vorlagen."
+  },
+  "Specialist": {
+    "bs": "Stručnjak",
+    "de": "Fachkraft"
+  },
+  "Plan and track your own training, food and recovery.": {
+    "bs": "Planirajte i pratite vlastite treninge, prehranu i oporavak.",
+    "de": "Plane und erfasse dein eigenes Training, deine Ernährung und Erholung."
+  },
+  "Follow plans and communicate with a coach you explicitly choose to connect.": {
+    "bs": "Pratite planove i komunicirajte s trenerom kojeg sami odaberete za povezivanje.",
+    "de": "Folge Plänen und tausche dich mit einem Coach aus, mit dem du dich bewusst verbindest."
+  },
+  "Create programs and support clients who choose to connect with you.": {
+    "bs": "Kreirajte programe i podržite klijente koji se odluče povezati s vama.",
+    "de": "Erstelle Programme und unterstütze Klienten, die sich mit dir verbinden möchten."
+  },
+  "Use coaching tools for client support and a professional profile. This does not provide diagnosis tools or verify credentials.": {
+    "bs": "Koristite alate za podršku klijentima i stručni profil. Ovi alati ne služe za dijagnozu niti potvrđuju kvalifikacije.",
+    "de": "Nutze Coaching-Werkzeuge zur Klientenbetreuung und ein berufliches Profil. Diese bieten keine Diagnostik und bestätigen keine Qualifikationen."
+  },
+  "Organize your organization toolkit. Adding this workspace does not grant staff access or access to member records.": {
+    "bs": "Organizirajte alate svoje organizacije. Dodavanje ovog radnog prostora ne daje pristup osoblju ni podacima članova.",
+    "de": "Organisiere die Werkzeuge deiner Organisation. Dieser Arbeitsbereich gewährt keine Mitarbeitendenrechte und keinen Zugriff auf Mitgliederdaten."
+  },
+  "Sunday": {
+    "bs": "Nedjelja",
+    "de": "Sonntag"
+  },
+  "Monday": {
+    "bs": "Ponedjeljak",
+    "de": "Montag"
+  },
+  "Tuesday": {
+    "bs": "Utorak",
+    "de": "Dienstag"
+  },
+  "Wednesday": {
+    "bs": "Srijeda",
+    "de": "Mittwoch"
+  },
+  "Thursday": {
+    "bs": "Četvrtak",
+    "de": "Donnerstag"
+  },
+  "Friday": {
+    "bs": "Petak",
+    "de": "Freitag"
+  },
+  "Saturday": {
+    "bs": "Subota",
+    "de": "Samstag"
+  },
+  "Setup": {
+    "bs": "Priprema",
+    "de": "Vorbereitung"
+  },
+  "How to move": {
+    "bs": "Izvođenje pokreta",
+    "de": "Bewegungsausführung"
+  },
+  "Coaching cues": {
+    "bs": "Smjernice za izvođenje",
+    "de": "Ausführungshinweise"
+  },
+  "Common mistakes": {
+    "bs": "Česte greške",
+    "de": "Häufige Fehler"
+  },
+  "Difficulty": {
+    "bs": "Težina izvođenja",
+    "de": "Schwierigkeitsgrad"
+  },
+  "Movement": {
+    "bs": "Pokret",
+    "de": "Bewegungsmuster"
+  },
+  "Mostly seated": {
+    "bs": "Uglavnom sjedenje",
+    "de": "Überwiegend sitzend"
+  },
+  "A mix of sitting and moving": {
+    "bs": "Kombinacija sjedenja i kretanja",
+    "de": "Sitzen und Bewegung im Wechsel"
+  },
+  "Moving much of the day": {
+    "bs": "Kretanje veći dio dana",
+    "de": "Den Großteil des Tages in Bewegung"
+  },
+  "Most of your day involves sitting or resting.": {
+    "bs": "Veći dio dana provodite sjedeći ili odmarajući.",
+    "de": "Du verbringst den Großteil des Tages sitzend oder ruhend."
+  },
+  "Your day includes some walking, standing or other movement.": {
+    "bs": "Vaš dan uključuje hodanje, stajanje ili drugo kretanje.",
+    "de": "Dein Tag umfasst Gehen, Stehen oder andere Bewegung."
+  },
+  "Your daily routine involves frequent walking, physical work or movement.": {
+    "bs": "Vaša svakodnevica uključuje često hodanje, fizički rad ili kretanje.",
+    "de": "Dein Alltag umfasst häufiges Gehen, körperliche Arbeit oder Bewegung."
+  },
+  "advanced": {
+    "bs": "napredni nivo",
+    "de": "fortgeschritten"
+  },
+  "intermediate": {
+    "bs": "srednji nivo",
+    "de": "mittleres Niveau"
+  },
+  "beginner": {
+    "bs": "početni nivo",
+    "de": "Einstieg"
+  },
+  "Jump and landing": {
+    "bs": "Skok i doskok",
+    "de": "Springen und Landen"
+  },
+  "Ab wheel": {
+    "bs": "Točak za trbušnjake",
+    "de": "Bauchroller"
+  },
+  "Trunk stability": {
+    "bs": "Stabilnost trupa",
+    "de": "Rumpfstabilität"
+  },
+  "Session structure": {
+    "bs": "Struktura treninga",
+    "de": "Trainingsaufbau"
+  },
+  "Joint mobility": {
+    "bs": "Pokretljivost zglobova",
+    "de": "Gelenkbeweglichkeit"
+  },
+  "Stretching": {
+    "bs": "Istezanje",
+    "de": "Dehnen"
+  },
+  "Agility ladder": {
+    "bs": "Ljestve za agilnost",
+    "de": "Koordinationsleiter"
+  },
+  "Footwork and agility": {
+    "bs": "Rad nogu i agilnost",
+    "de": "Fußarbeit und Agilität"
+  },
+  "Bicycle or exercise bike": {
+    "bs": "Bicikl ili sobni bicikl",
+    "de": "Fahrrad oder Ergometer"
+  },
+  "Cyclic cardio": {
+    "bs": "Ciklični kardio",
+    "de": "Zyklisches Ausdauertraining"
+  },
+  "Individual rehabilitation plan": {
+    "bs": "Individualni plan rehabilitacije",
+    "de": "Individueller Rehabilitationsplan"
+  },
+  "Dumbbells": {
+    "bs": "Bučice",
+    "de": "Kurzhanteln"
+  },
+  "Elbow flexion": {
+    "bs": "Savijanje lakta",
+    "de": "Ellenbogenbeugung"
+  },
+  "Shoulder raise": {
+    "bs": "Podizanje ruku iz ramena",
+    "de": "Armheben"
+  },
+  "Skipping rope": {
+    "bs": "Vijača",
+    "de": "Springseil"
+  },
+  "Rope skipping": {
+    "bs": "Preskakanje vijače",
+    "de": "Seilspringen"
+  },
+  "Weight plate": {
+    "bs": "Ploča utega",
+    "de": "Hantelscheibe"
+  },
+  "Resistance band": {
+    "bs": "Elastična traka",
+    "de": "Widerstandsband"
+  },
+  "Anti rotation": {
+    "bs": "Otpor rotaciji",
+    "de": "Antirotation"
+  },
+  "Pool": {
+    "bs": "Bazen",
+    "de": "Schwimmbecken"
+  },
+  "Push up": {
+    "bs": "Sklek",
+    "de": "Liegestütz"
+  },
+  "Overhead push": {
+    "bs": "Potisak iznad glave",
+    "de": "Überkopfdrücken"
+  },
+  "Knee flexion": {
+    "bs": "Savijanje koljena",
+    "de": "Kniebeugung"
+  },
+  "Loaded carry or hold": {
+    "bs": "Nošenje ili držanje opterećenja",
+    "de": "Tragen oder Halten unter Last"
+  },
+  "Back extension bench": {
+    "bs": "Klupa za leđnu ekstenziju",
+    "de": "Rückenstreckerbank"
+  },
+  "Hip hinge": {
+    "bs": "Pregib u kukovima",
+    "de": "Hüftbeuge"
+  },
+  "Barbell": {
+    "bs": "Šipka s utezima",
+    "de": "Langhantel"
+  },
+  "Rear shoulder opening": {
+    "bs": "Otvaranje za stražnje rame",
+    "de": "Reverse Fly"
+  },
+  "Hip bridge": {
+    "bs": "Podizanje kukova u most",
+    "de": "Beckenheben"
+  },
+  "Technical power lift": {
+    "bs": "Tehničko eksplozivno dizanje",
+    "de": "Technischer Schnellkraftlift"
+  },
+  "Bench": {
+    "bs": "Klupa",
+    "de": "Bank"
+  },
+  "Single leg knee dominant": {
+    "bs": "Pokret dominantan u koljenu na jednoj nozi",
+    "de": "Einbeinige kniedominante Bewegung"
+  },
+  "Shoulder elevation": {
+    "bs": "Podizanje ramena",
+    "de": "Schulterheben"
+  },
+  "Ankle plantar flexion": {
+    "bs": "Opružanje stopala",
+    "de": "Plantarflexion"
+  },
+  "Wrist strength": {
+    "bs": "Snaga ručnog zgloba",
+    "de": "Handgelenkkraft"
+  },
+  "Battle ropes": {
+    "bs": "Trenažna užad",
+    "de": "Battle Ropes"
+  },
+  "Cable machine": {
+    "bs": "Sprava s kablovima",
+    "de": "Kabelzug"
+  },
+  "Ground locomotion": {
+    "bs": "Kretanje po tlu",
+    "de": "Fortbewegung am Boden"
+  },
+  "Chest fly": {
+    "bs": "Razvlačenje za prsa",
+    "de": "Fliegende Bewegung"
+  },
+  "Dip": {
+    "bs": "Propadanje",
+    "de": "Dip"
+  },
+  "Leg raise": {
+    "bs": "Podizanje nogu",
+    "de": "Beinheben"
+  },
+  "Horizontal push": {
+    "bs": "Horizontalni potisak",
+    "de": "Horizontales Drücken"
+  },
+  "Horizontal pull": {
+    "bs": "Horizontalno povlačenje",
+    "de": "Horizontales Ziehen"
+  },
+  "Wall or doorway": {
+    "bs": "Zid ili okvir vrata",
+    "de": "Wand oder Türrahmen"
+  },
+  "Trunk flexion": {
+    "bs": "Savijanje trupa",
+    "de": "Rumpfbeugung"
+  },
+  "Quadruped trunk stability": {
+    "bs": "Stabilnost trupa u četveronožnom položaju",
+    "de": "Rumpfstabilität im Vierfüßlerstand"
+  },
+  "BOSU": {
+    "bs": "BOSU",
+    "de": "BOSU"
+  },
+  "Balance": {
+    "bs": "Ravnoteža",
+    "de": "Gleichgewicht"
+  },
+  "Breathing and relaxation": {
+    "bs": "Disanje i opuštanje",
+    "de": "Atmung und Entspannung"
+  },
+  "Box or step": {
+    "bs": "Kutija ili stepenik",
+    "de": "Box oder Stufe"
+  },
+  "Vertical pull": {
+    "bs": "Vertikalno povlačenje",
+    "de": "Vertikales Ziehen"
+  },
+  "Hip extension": {
+    "bs": "Opružanje kuka",
+    "de": "Hüftstreckung"
+  },
+  "Hip abduction": {
+    "bs": "Odvođenje noge u kuku",
+    "de": "Hüftabduktion"
+  },
+  "Hip adduction": {
+    "bs": "Privođenje noge u kuku",
+    "de": "Hüftadduktion"
+  },
+  "Straight arm shoulder extension": {
+    "bs": "Povlačenje ravne ruke unazad",
+    "de": "Schulterstreckung mit gestrecktem Arm"
+  },
+  "Knee extension": {
+    "bs": "Opružanje koljena",
+    "de": "Kniestreckung"
+  },
+  "Elbow extension": {
+    "bs": "Opružanje lakta",
+    "de": "Ellenbogenstreckung"
+  },
+  "Landmine attachment": {
+    "bs": "Landmine nastavak",
+    "de": "Landmine-Halterung"
+  },
+  "Trunk rotation": {
+    "bs": "Rotacija trupa",
+    "de": "Rumpfrotation"
+  },
+  "Resistance machine": {
+    "bs": "Sprava s otporom",
+    "de": "Kraftgerät"
+  },
+  "Pull-up bar": {
+    "bs": "Šipka za zgibove",
+    "de": "Klimmzugstange"
+  },
+  "Bodyweight vertical pull": {
+    "bs": "Vertikalno povlačenje vlastite težine",
+    "de": "Vertikales Ziehen mit Körpergewicht"
+  },
+  "Side trunk stability": {
+    "bs": "Bočna stabilnost trupa",
+    "de": "Seitliche Rumpfstabilität"
+  },
+  "Elliptical trainer": {
+    "bs": "Eliptični trenažer",
+    "de": "Crosstrainer"
+  },
+  "Supine trunk stability": {
+    "bs": "Stabilnost trupa ležeći na leđima",
+    "de": "Rumpfstabilität in Rückenlage"
+  },
+  "Parallel bars": {
+    "bs": "Paralelne ruče",
+    "de": "Barren"
+  },
+  "EZ bar": {
+    "bs": "EZ šipka",
+    "de": "SZ-Stange"
+  },
+  "Supervised heat facility": {
+    "bs": "Nadzirani prostor za toplotne tretmane",
+    "de": "Betreute Wärmeeinrichtung"
+  },
+  "Thermal recovery": {
+    "bs": "Oporavak toplotom",
+    "de": "Wärmeanwendung zur Erholung"
+  },
+  "Foam roller": {
+    "bs": "Pjenasti valjak",
+    "de": "Faszienrolle"
+  },
+  "Self massage": {
+    "bs": "Samomasaža",
+    "de": "Selbstmassage"
+  },
+  "Suspension trainer": {
+    "bs": "Suspenzijske trake",
+    "de": "Schlingentrainer"
+  },
+  "Kettlebell": {
+    "bs": "Girja",
+    "de": "Kettlebell"
+  },
+  "Arm ergometer": {
+    "bs": "Ručni ergometar",
+    "de": "Armergometer"
+  },
+  "Trap bar": {
+    "bs": "Heksagonalna šipka",
+    "de": "Trap Bar"
+  },
+  "Low hurdles": {
+    "bs": "Niske prepone",
+    "de": "Niedrige Hürden"
+  },
+  "Hip swing": {
+    "bs": "Zamah iz kukova",
+    "de": "Hüftschwung"
+  },
+  "Massage ball": {
+    "bs": "Masažna loptica",
+    "de": "Massageball"
+  },
+  "Supervised water facility": {
+    "bs": "Nadzirani prostor za vodene tretmane",
+    "de": "Betreute Wassereinrichtung"
+  },
+  "Stretching strap": {
+    "bs": "Traka za istezanje",
+    "de": "Dehngurt"
+  },
+  "Medicine ball": {
+    "bs": "Medicinska lopta",
+    "de": "Medizinball"
+  },
+  "Ball throw": {
+    "bs": "Bacanje lopte",
+    "de": "Ballwurf"
+  },
+  "Sled": {
+    "bs": "Trenažne sanke",
+    "de": "Trainingsschlitten"
+  },
+  "Sled push or pull": {
+    "bs": "Guranje ili vučenje sanki",
+    "de": "Schlitten schieben oder ziehen"
+  },
+  "Climbing rope": {
+    "bs": "Uže za penjanje",
+    "de": "Kletterseil"
+  },
+  "Rowing machine": {
+    "bs": "Veslački ergometar",
+    "de": "Ruderergometer"
+  },
+  "Sandbag": {
+    "bs": "Vreća s pijeskom",
+    "de": "Sandsack"
+  },
+  "Ski ergometer": {
+    "bs": "Skijaški ergometar",
+    "de": "Ski-Ergometer"
+  },
+  "Stability ball": {
+    "bs": "Pilates lopta",
+    "de": "Gymnastikball"
+  },
+  "Stair machine": {
+    "bs": "Steper sa stepenicama",
+    "de": "Treppensteiger"
+  },
+  "Training tire": {
+    "bs": "Trenažna guma",
+    "de": "Trainingsreifen"
+  },
+  "Towel": {
+    "bs": "Peškir",
+    "de": "Handtuch"
+  },
+  "Treadmill": {
+    "bs": "Traka za trčanje",
+    "de": "Laufband"
+  },
+  "Climbing machine": {
+    "bs": "Penjački trenažer",
+    "de": "Kletterergometer"
+  },
+  "Balance board": {
+    "bs": "Daska za ravnotežu",
+    "de": "Balanceboard"
+  },
+  "Wrist roller": {
+    "bs": "Valjak za podlaktice",
+    "de": "Unterarmtrainer"
+  },
+  "owner": {
+    "bs": "vlasnik",
+    "de": "Inhaber"
+  },
+  "moderator": {
+    "bs": "moderator",
+    "de": "Moderator"
+  },
+  "member": {
+    "bs": "član",
+    "de": "Mitglied"
+  },
+  "active": {
+    "bs": "aktivno",
+    "de": "aktiv"
+  },
+  "paused": {
+    "bs": "pauzirano",
+    "de": "pausiert"
+  },
+  "ended": {
+    "bs": "završeno",
+    "de": "beendet"
+  },
+  "interest": {
+    "bs": "interes",
+    "de": "Interesse"
+  },
+  "gym": {
+    "bs": "teretana",
+    "de": "Fitnessstudio"
+  },
+  "club": {
+    "bs": "klub",
+    "de": "Verein"
+  },
+  "challenge": {
+    "bs": "izazov",
+    "de": "Challenge"
+  },
+  "education": {
+    "bs": "edukacija",
+    "de": "Bildung"
+  },
+  "warmup": {
+    "bs": "zagrijavanje",
+    "de": "Aufwärmen"
+  },
+  "main": {
+    "bs": "glavni dio",
+    "de": "Hauptteil"
+  },
+  "cooldown": {
+    "bs": "smirivanje",
+    "de": "Ausklang"
+  },
+  "Supporting clients professionally": {
+    "bs": "Stručna podrška klijentima",
+    "de": "Klienten professionell unterstützen"
+  },
+  "Use coaching and planning tools for your practice. These tools do not diagnose or verify credentials.": {
+    "bs": "Koristite alate za coaching i planiranje u svojoj praksi. Ovi alati ne postavljaju dijagnoze niti potvrđuju kvalifikacije.",
+    "de": "Nutze Coaching- und Planungswerkzeuge für deine Praxis. Diese stellen keine Diagnosen und bestätigen keine Qualifikationen."
+  },
+  "Running an organization": {
+    "bs": "Vođenje organizacije",
+    "de": "Eine Organisation führen"
+  },
+  "Organize your community, staff access and membership records.": {
+    "bs": "Organizirajte zajednicu, pristup osoblja i evidenciju članstva.",
+    "de": "Organisiere deine Community, Mitarbeitendenrechte und Mitgliedschaftsdaten."
+  },
+  "Organize my practice": {
+    "bs": "Organizirati svoju praksu",
+    "de": "Meine Praxis organisieren"
+  },
+  "Coordinate my team": {
+    "bs": "Koordinirati svoj tim",
+    "de": "Mein Team koordinieren"
+  },
+  "Introduce your organization.": {
+    "bs": "Predstavite svoju organizaciju.",
+    "de": "Stelle deine Organisation vor."
+  },
+  "Introduce your practice.": {
+    "bs": "Predstavite svoju praksu.",
+    "de": "Stelle deine Praxis vor."
+  },
+  "Your first workspace is set when you finish. You can add other workspaces from Profile.": {
+    "bs": "Vaš prvi radni prostor postavlja se po završetku. Druge radne prostore možete dodati u Profilu.",
+    "de": "Dein erster Arbeitsbereich wird beim Abschluss eingerichtet. Weitere kannst du im Profil hinzufügen."
+  },
+  "Ready-to-use training and meal plans": {
+    "bs": "Spremni planovi treninga i prehrane",
+    "de": "Sofort nutzbare Trainings- und Ernährungspläne"
+  },
+  "Set up my organization": {
+    "bs": "Postaviti svoju organizaciju",
+    "de": "Meine Organisation einrichten"
+  },
+  "Open organization tools to create a listing and review staff access.": {
+    "bs": "Otvorite alate organizacije da kreirate profil i pregledate pristup osoblja.",
+    "de": "Öffne die Organisationswerkzeuge, um einen Eintrag zu erstellen und Mitarbeitendenrechte zu prüfen."
+  },
+  "Organize memberships": {
+    "bs": "Organizirati članstva",
+    "de": "Mitgliedschaften organisieren"
+  },
+  "Open organization tools to review joined members and membership records.": {
+    "bs": "Otvorite alate organizacije za pregled članova i evidencije članstva.",
+    "de": "Öffne die Organisationswerkzeuge, um Mitglieder und Mitgliedschaftsdaten einzusehen."
+  },
+  "Build my community": {
+    "bs": "Izgraditi svoju zajednicu",
+    "de": "Meine Community aufbauen"
+  },
+  "Open groups to create a public community or invite members privately.": {
+    "bs": "Otvorite grupe da kreirate javnu zajednicu ili privatno pozovete članove.",
+    "de": "Öffne Gruppen, um eine öffentliche Community zu erstellen oder Mitglieder privat einzuladen."
+  },
+  "This entry needs an individual plan. General guidance does not replace instructions from your treating professional.": {
+    "de": "Dieser Eintrag erfordert einen individuellen Plan. Allgemeine Hinweise ersetzen keine Anweisungen deiner behandelnden Fachperson.",
+    "bs": "Za ovu stavku potreban je individualni plan. Opće smjernice ne zamjenjuju upute stručnjaka koji vodi vaš tretman."
+  },
+  "Movement schematic": {
+    "de": "Bewegungsschema",
+    "bs": "Shema pokreta"
+  },
+  "Movement photographs": {
+    "de": "Bewegungsfotos",
+    "bs": "Fotografije pokreta"
+  },
+  "A simplified movement illustration, not a photograph of this exact variation.": {
+    "de": "Eine vereinfachte Bewegungsdarstellung, kein Foto dieser genauen Variante.",
+    "bs": "Pojednostavljena ilustracija pokreta, a ne fotografija ove tačne varijante."
+  },
+  "Related alternatives": {
+    "de": "Verwandte Alternativen",
+    "bs": "Srodne alternative"
+  },
+  "Review the movement and equipment before choosing an alternative.": {
+    "de": "Prüfe Bewegung und Ausrüstung, bevor du eine Alternative auswählst.",
+    "bs": "Pregledajte pokret i opremu prije odabira alternative."
+  },
+  "Secure ankle support": {
+    "de": "Sichere Knöchelstütze",
+    "bs": "Siguran oslonac za gležnjeve"
+  },
+  "Back to discovery": {
+    "de": "Zurück zur Suche",
+    "bs": "Nazad na pretragu"
+  },
+  "Find an expert": {
+    "de": "Fachkraft finden",
+    "bs": "Pronađite stručnjaka"
+  },
+  "Find a facility": {
+    "de": "Einrichtung finden",
+    "bs": "Pronađite objekat"
+  },
+  "Listings and credentials are self-reported. Review the details before making contact.": {
+    "de": "Angaben und Qualifikationen stammen von den Anbietenden selbst. Prüfe die Details vor der Kontaktaufnahme.",
+    "bs": "Podatke i kvalifikacije navode sami autori. Pregledajte detalje prije kontaktiranja."
+  },
+  "Manage my listings": {
+    "de": "Meine Einträge verwalten",
+    "bs": "Upravljanje mojim profilima"
+  },
+  "Search name or city": {
+    "de": "Name oder Stadt suchen",
+    "bs": "Pretraži naziv ili grad"
+  },
+  "Filter results": {
+    "de": "Ergebnisse filtern",
+    "bs": "Filtriraj rezultate"
+  },
+  "Minimum review rating": {
+    "de": "Mindestbewertung",
+    "bs": "Minimalna ocjena recenzija"
+  },
+  "Price tier": {
+    "de": "Preiskategorie",
+    "bs": "Cjenovni rang"
+  },
+  "Current promotions only": {
+    "de": "Nur aktuelle Angebote",
+    "bs": "Samo aktuelne ponude"
+  },
+  "Clear filters": {
+    "de": "Filter zurücksetzen",
+    "bs": "Ukloni filtere"
+  },
+  "No matching listings": {
+    "de": "Keine passenden Einträge",
+    "bs": "Nema odgovarajućih profila"
+  },
+  "Try a different city or clear some filters.": {
+    "de": "Versuche eine andere Stadt oder entferne einige Filter.",
+    "bs": "Pokušajte s drugim gradom ili uklonite neke filtere."
+  },
+  "{rating} / 5 · {count} reviews": {
+    "de": "{rating} / 5 · Bewertungen: {count}",
+    "bs": "{rating} / 5 · recenzije: {count}"
+  },
+  "No reviews yet": {
+    "de": "Noch keine Bewertungen",
+    "bs": "Još nema recenzija"
+  },
+  "Private draft": {
+    "de": "Privater Entwurf",
+    "bs": "Privatni nacrt"
+  },
+  "Save listing": {
+    "de": "Eintrag merken",
+    "bs": "Sačuvaj profil"
+  },
+  "Edit my listing": {
+    "de": "Meinen Eintrag bearbeiten",
+    "bs": "Uredi moj profil"
+  },
+  "Your review": {
+    "de": "Deine Bewertung",
+    "bs": "Vaša recenzija"
+  },
+  "Your review will be visible to signed-in Kinra members.": {
+    "de": "Deine Bewertung ist für angemeldete Kinra-Mitglieder sichtbar.",
+    "bs": "Vaša recenzija bit će vidljiva prijavljenim članovima Kinre."
+  },
+  "Publish review": {
+    "de": "Bewertung veröffentlichen",
+    "bs": "Objavi recenziju"
+  },
+  "Experience Years": {
+    "de": "Jahre Erfahrung",
+    "bs": "Godine iskustva"
+  },
+  "Clients Count": {
+    "de": "Anzahl Klienten",
+    "bs": "Broj klijenata"
+  },
+  "Sports": {
+    "de": "Sportarten",
+    "bs": "Sportovi"
+  },
+  "Facility Ids": {
+    "de": "Zugeordnete Einrichtungen",
+    "bs": "Povezani objekti"
+  },
+  "Expert Id": {
+    "de": "Fachkraft",
+    "bs": "Stručnjak"
+  },
+  "Storage Path": {
+    "de": "Dateipfad",
+    "bs": "Putanja datoteke"
+  },
+  "Filename": {
+    "de": "Dateiname",
+    "bs": "Naziv datoteke"
+  },
+  "Mime": {
+    "de": "Dateityp",
+    "bs": "Vrsta datoteke"
+  },
+  "Bytes": {
+    "de": "Bytes",
+    "bs": "Bajtovi"
+  },
+  "Atmosphere": {
+    "de": "Atmosphäre",
+    "bs": "Atmosfera"
+  },
+  "Rules": {
+    "de": "Regeln",
+    "bs": "Pravila"
+  },
+  "Map Url": {
+    "de": "Kartenlink",
+    "bs": "Poveznica karte"
+  },
+  "Tour Url": {
+    "de": "Link zum Rundgang",
+    "bs": "Poveznica obilaska"
+  },
+  "Promotion": {
+    "de": "Angebot",
+    "bs": "Ponuda"
+  },
+  "Url": {
+    "de": "Link",
+    "bs": "Poveznica"
+  },
+  "Valid Until": {
+    "de": "Gültig bis",
+    "bs": "Vrijedi do"
+  },
+  "Specialty": {
+    "de": "Fachgebiet",
+    "bs": "Specijalnost"
+  },
+  "Virtual tour": {
+    "de": "Virtueller Rundgang",
+    "bs": "Virtualni obilazak"
+  },
+  "Map": {
+    "de": "Karte",
+    "bs": "Karta"
+  },
+  "Expert materials": {
+    "bs": "Materijali stručnjaka",
+    "de": "Materialien der Fachkraft"
+  },
+  "PDF materials are provided by the profile owner. Download to review them in your own PDF reader.": {
+    "bs": "PDF materijale objavljuje vlasnik profila. Preuzmite ih i pregledajte u svom PDF čitaču.",
+    "de": "PDF-Materialien werden vom Profilinhaber bereitgestellt. Lade sie herunter und prüfe sie in deinem PDF-Programm."
+  },
+  "Download PDF": {
+    "bs": "Preuzmi PDF",
+    "de": "PDF herunterladen"
+  },
+  "Remove material": {
+    "bs": "Ukloni materijal",
+    "de": "Material entfernen"
+  },
+  "Remove this material and its stored file?": {
+    "bs": "Ukloniti ovaj materijal i pohranjenu datoteku?",
+    "de": "Dieses Material und die gespeicherte Datei entfernen?"
+  },
+  "Add PDF material": {
+    "bs": "Dodaj PDF materijal",
+    "de": "PDF-Material hinzufügen"
+  },
+  "PDF file, up to 10 MB": {
+    "bs": "PDF datoteka, do 10 MB",
+    "de": "PDF-Datei, bis zu 10 MB"
+  },
+  "Upload privately for review": {
+    "bs": "Učitaj privatno za pregled",
+    "de": "Privat zur Prüfung hochladen"
+  },
+  "Public materials are available to signed-in members only while this expert profile is also public. Private materials remain yours.": {
+    "bs": "Javni materijali dostupni su prijavljenim članovima samo dok je i profil stručnjaka javan. Privatni materijali ostaju samo vaši.",
+    "de": "Öffentliche Materialien sind für angemeldete Mitglieder verfügbar, solange auch das Fachprofil öffentlich ist. Private Materialien bleiben nur für dich zugänglich."
+  },
+  "Publish material": {
+    "bs": "Objavi materijal",
+    "de": "Material veröffentlichen"
+  },
+  "Save private material": {
+    "bs": "Sačuvaj privatni materijal",
+    "de": "Material privat speichern"
+  },
+  "Discard uploaded draft": {
+    "bs": "Odbaci učitani nacrt",
+    "de": "Hochgeladenen Entwurf verwerfen"
+  },
+  "Visibility": {
+    "de": "Sichtbarkeit",
+    "bs": "Vidljivost"
+  },
+  "Credential claims": {
+    "de": "Angegebene Qualifikationen",
+    "bs": "Navedene kvalifikacije"
+  },
+  "Filter plans": {
+    "de": "Pläne filtern",
+    "bs": "Filtriraj planove"
+  },
+  "Maximum weeks": {
+    "de": "Maximale Wochenzahl",
+    "bs": "Maksimalno sedmica"
+  },
+  "Saved bookmarks only": {
+    "de": "Nur gemerkte Pläne",
+    "bs": "Samo sačuvane oznake"
+  },
+  "Bookmarks keep plans here. Saved private copies are available in My plans or Meal plans.": {
+    "de": "Lesezeichen behalten Pläne hier. Gespeicherte private Kopien findest du unter Meine Pläne oder Ernährungspläne.",
+    "bs": "Oznake čuvaju planove ovdje. Sačuvane privatne kopije nalaze se u Mojim planovima ili Planovima prehrane."
+  },
+  "Remove bookmark": {
+    "de": "Lesezeichen entfernen",
+    "bs": "Ukloni oznaku"
+  },
+  "Bookmark plan": {
+    "de": "Plan merken",
+    "bs": "Označi plan"
+  },
+  "Level": {
+    "bs": "Nivo",
+    "de": "Niveau"
+  },
+  "Experience and client counts are self-reported.": {
+    "de": "Erfahrung und Klientenzahlen beruhen auf eigenen Angaben.",
+    "bs": "Iskustvo i broj klijenata navodi vlasnik profila."
+  },
+  "{count} years of experience": {
+    "de": "{count} Jahre Erfahrung",
+    "bs": "Godine iskustva: {count}"
+  },
+  "{count} clients reported": {
+    "de": "{count} angegebene Klienten",
+    "bs": "Navedeni broj klijenata: {count}"
+  },
+  "Linked facilities (optional)": {
+    "de": "Zugeordnete Einrichtungen (optional)",
+    "bs": "Povezani objekti (opcionalno)"
+  },
+  "Only reminders are delivered today. Other category choices are saved preferences; they do not enable notifications.": {
+    "de": "Derzeit werden nur Erinnerungen zugestellt. Andere Kategorieauswahlen werden als Einstellungen gespeichert und aktivieren keine Benachrichtigungen.",
+    "bs": "Trenutno se šalju samo podsjetnici. Ostale kategorije čuvaju vaše postavke i ne uključuju slanje obavijesti."
+  },
+  "Motivation": {
+    "de": "Motivation",
+    "bs": "Motivacija"
+  },
+  "Memberships": {
+    "de": "Mitgliedschaften",
+    "bs": "Članstva"
+  },
+  "Marketplace": {
+    "de": "Marktplatz",
+    "bs": "Ponude"
+  },
+  "Explore your wider community": {
+    "de": "Entdecke deine Community",
+    "bs": "Istražite širu zajednicu"
+  },
+  "Discover facilities and manage staff and membership records": {
+    "de": "Entdecke Einrichtungen und verwalte Mitarbeitendenrechte und Mitgliedschaftsdaten",
+    "bs": "Pronađite objekte i upravljajte osobljem i evidencijom članstva"
+  },
+  "Experts & specialists": {
+    "de": "Fachkräfte und Spezialisten",
+    "bs": "Stručnjaci i specijalisti"
+  },
+  "Explore self-reported profiles, materials and coaching tools": {
+    "de": "Entdecke Profile mit eigenen Angaben, Materialien und Coaching-Werkzeuge",
+    "bs": "Istražite profile koje autori sami uređuju, materijale i alate za coaching"
+  },
+  "Planned load {p0}kg{p1}": {
+    "bs": "Planirano opterećenje {p0}kg{p1}",
+    "de": "Geplante Last {p0}kg{p1}"
+  },
+  "Wait one minute between notification tests, then try again.": {
+    "bs": "Sačekajte jednu minutu između testova obavijesti, pa pokušajte ponovo.",
+    "de": "Warte zwischen Benachrichtigungstests eine Minute und versuche es dann erneut."
+  },
+  "Running": {
+    "de": "Läuft",
+    "bs": "U toku"
+  },
+  "Schedule reminders in your timezone, then enable Device reminders in Profile.": {
+    "de": "Plane Erinnerungen in deiner Zeitzone und aktiviere anschließend Geräteerinnerungen im Profil.",
+    "bs": "Zakažite podsjetnike u svojoj vremenskoj zoni, zatim uključite Podsjetnike na uređaju u Profilu."
+  },
+  "Set quiet hours and categories, then enable Device reminders in Profile.": {
+    "de": "Lege Ruhezeiten und Kategorien fest und aktiviere anschließend Geräteerinnerungen im Profil.",
+    "bs": "Postavite vrijeme bez obavijesti i kategorije, zatim uključite Podsjetnike na uređaju u Profilu."
+  },
+  "Request an available time from Availability & booking in Profile. Your connected coach confirms requests. No payment is collected.": {
+    "de": "Frage unter Verfügbarkeit und Buchung im Profil einen freien Termin an. Dein verbundener Coach bestätigt Anfragen. Es wird keine Zahlung eingezogen.",
+    "bs": "Zatražite slobodan termin putem Dostupnosti i rezervacija u Profilu. Povezani trener potvrđuje zahtjeve. Plaćanje se ne naplaćuje."
+  },
+  "Create your listing here. Open Organization tools in Profile to manage staff access and membership records.": {
+    "de": "Erstelle hier deinen Eintrag. Öffne Organisationswerkzeuge im Profil, um Mitarbeitendenrechte und Mitgliedschaftsdaten zu verwalten.",
+    "bs": "Ovdje kreirajte profil organizacije. Otvorite Alate organizacije u Profilu za upravljanje pristupom osoblja i evidencijom članstva."
+  },
+  "Open Groups in Profile to join conversations, manage members and share private invitation codes.": {
+    "de": "Öffne Gruppen im Profil, um an Gesprächen teilzunehmen, Mitglieder zu verwalten und private Einladungscodes zu teilen.",
+    "bs": "Otvorite Grupe u Profilu da učestvujete u razgovorima, upravljate članovima i podijelite privatne pozivne kodove."
   }
 }

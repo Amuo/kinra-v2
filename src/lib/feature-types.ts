@@ -9,6 +9,7 @@ const positive = z.number().finite().gt(0).max(1000000);
 const amount = z.number().finite().min(0).max(1000000);
 const timestamp = z.string().datetime({ offset: true });
 const tags = z.array(text).max(50);
+const externalUrl = z.string().url().max(2000);
 const timezone = z
   .string()
   .min(1)
@@ -187,6 +188,35 @@ export const featureSchemas = {
       specialties: tags,
       website: z.string().url().max(2000).optional(),
       credential_claims: tags.optional(),
+      experience_years: z.number().int().min(0).max(100).optional(),
+      clients_count: z.number().int().min(0).max(1000000).optional(),
+      sports: tags.optional(),
+      education: tags.optional(),
+      facility_ids: z.array(id).max(50).optional(),
+    })
+    .strict(),
+  expert_resource: z
+    .object({
+      expert_id: id,
+      title: text,
+      description: note.optional(),
+      storage_path: z
+        .string()
+        .max(200)
+        .regex(/^[0-9a-f-]{36}\/[0-9a-f-]{36}\.pdf$/),
+      filename: z
+        .string()
+        .trim()
+        .min(1)
+        .max(200)
+        .regex(/^[^/\\]+$/)
+        .refine((value) =>
+          [...value].every(
+            (character) => character.charCodeAt(0) > 31 && character.charCodeAt(0) !== 127,
+          ),
+        ),
+      mime: z.enum(["application/pdf"]),
+      bytes: z.number().int().min(1).max(10485760),
     })
     .strict(),
   facility: z
@@ -201,6 +231,11 @@ export const featureSchemas = {
       website: z.string().url().max(2000).optional(),
       opening_hours: note.optional(),
       price_tier: z.number().int().min(1).max(4).optional(),
+      atmosphere: tags.optional(),
+      rules: note.optional(),
+      map_url: externalUrl.optional(),
+      tour_url: externalUrl.optional(),
+      promotion: z.object({ title: text, url: externalUrl, valid_until: date }).strict().optional(),
     })
     .strict(),
   review: z
@@ -295,6 +330,7 @@ export type FeatureSaveOptions = {
 };
 export const publicKinds: FeatureKind[] = [
   "expert",
+  "expert_resource",
   "facility",
   "review",
   "group",
@@ -336,13 +372,41 @@ export function parseFeature<K extends FeatureKind>(kind: K, payload: unknown): 
     Date.parse(String(v["ends_at"])) <= Date.parse(String(v["starts_at"]))
   )
     throw new Error("Appointment end must follow its start.");
-  for (const key of ["website"])
-    if (typeof v[key] === "string" && !/^https?:\/\//i.test(v[key]))
-      throw new Error("Use an HTTP or HTTPS website.");
+  for (const key of ["website", "map_url", "tour_url"])
+    if (typeof v[key] === "string" && !safeExternalUrl(v[key]))
+      throw new Error("Use an HTTP or HTTPS link without credentials or control characters.");
+  if (kind === "facility") {
+    const promotion = (value as FeaturePayloads["facility"]).promotion;
+    if (promotion && !safeExternalUrl(promotion.url))
+      throw new Error(
+        "Use an HTTP or HTTPS promotion link without credentials or control characters.",
+      );
+  }
   if (
     kind === "article" &&
     (value as FeaturePayloads["article"]).sources.some((url) => !/^https?:\/\//i.test(url))
   )
     throw new Error("Use HTTP or HTTPS source links.");
   return value;
+}
+
+export function safeExternalUrl(value: string): boolean {
+  if (
+    [...value].some(
+      (character) =>
+        character.charCodeAt(0) <= 32 || character.charCodeAt(0) === 127 || character === "\\",
+    )
+  )
+    return false;
+  try {
+    const parsed = new URL(value);
+    return (
+      (parsed.protocol === "http:" || parsed.protocol === "https:") &&
+      !!parsed.hostname &&
+      !parsed.username &&
+      !parsed.password
+    );
+  } catch {
+    return false;
+  }
 }

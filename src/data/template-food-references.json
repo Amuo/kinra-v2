@@ -1,0 +1,210 @@
+[
+  {
+    "fdcId": "169704",
+    "per100g": {
+      "protein": 2.74,
+      "fat": 0.97,
+      "calories": 123.0,
+      "carbs": 25.58
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/169704/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Rice, brown, long-grain, cooked (Includes foods for USDA's Food Distribution Program)"
+  },
+  {
+    "fdcId": "169967",
+    "per100g": {
+      "protein": 2.38,
+      "fat": 0.41,
+      "calories": 35.0,
+      "carbs": 7.18
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/169967/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Broccoli, cooked, boiled, drained, without salt"
+  },
+  {
+    "fdcId": "170093",
+    "per100g": {
+      "protein": 2.5,
+      "fat": 0.13,
+      "calories": 93.0,
+      "carbs": 21.15
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/170093/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Potatoes, baked, flesh and skin, without salt"
+  },
+  {
+    "fdcId": "170567",
+    "per100g": {
+      "protein": 21.15,
+      "fat": 49.93,
+      "calories": 579.0,
+      "carbs": 21.55
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/170567/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Nuts, almonds"
+  },
+  {
+    "fdcId": "170894",
+    "per100g": {
+      "protein": 10.19,
+      "fat": 0.39,
+      "calories": 59.0,
+      "carbs": 3.6
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/170894/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Yogurt, Greek, plain, nonfat (Includes foods for USDA's Food Distribution Program)"
+  },
+  {
+    "fdcId": "171413",
+    "per100g": {
+      "protein": 0.0,
+      "fat": 100.0,
+      "calories": 884.0,
+      "carbs": 0.0
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/171413/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Oil, olive, salad or cooking"
+  },
+  {
+    "fdcId": "171477",
+    "per100g": {
+      "protein": 31.02,
+      "fat": 3.57,
+      "calories": 165.0,
+      "carbs": 0.0
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/171477/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Chicken, broilers or fryers, breast, meat only, cooked, roasted"
+  },
+  {
+    "fdcId": "171688",
+    "per100g": {
+      "protein": 0.26,
+      "fat": 0.17,
+      "calories": 52.0,
+      "carbs": 13.81
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/171688/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Apples, raw, with skin (Includes foods for USDA's Food Distribution Program)"
+  },
+  {
+    "fdcId": "172421",
+    "per100g": {
+      "protein": 9.02,
+      "fat": 0.38,
+      "calories": 116.0,
+      "carbs": 20.13
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/172421/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Lentils, mature seeds, cooked, boiled, without salt"
+  },
+  {
+    "fdcId": "172475",
+    "per100g": {
+      "protein": 17.27,
+      "fat": 8.72,
+      "calories": 144.0,
+      "carbs": 2.78
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/172475/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Tofu, raw, firm, prepared with calcium sulfate"
+  },
+  {
+    "fdcId": "172688",
+    "per100g": {
+      "protein": 12.45,
+      "fat": 3.5,
+      "calories": 252.0,
+      "carbs": 42.71
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/172688/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Bread, whole-wheat, commercially prepared"
+  },
+  {
+    "fdcId": "173424",
+    "per100g": {
+      "protein": 12.58,
+      "fat": 10.61,
+      "calories": 155.0,
+      "carbs": 1.12
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/173424/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Egg, whole, cooked, hard-boiled"
+  },
+  {
+    "fdcId": "173757",
+    "per100g": {
+      "protein": 8.86,
+      "fat": 2.59,
+      "calories": 164.0,
+      "carbs": 27.42
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/173757/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt"
+  },
+  {
+    "fdcId": "173904",
+    "per100g": {
+      "protein": 13.15,
+      "fat": 6.52,
+      "calories": 379.0,
+      "carbs": 67.7
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/173904/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Cereals, oats, regular and quick, not fortified, dry"
+  },
+  {
+    "fdcId": "173944",
+    "per100g": {
+      "protein": 1.09,
+      "fat": 0.33,
+      "calories": 89.0,
+      "carbs": 22.84
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/173944/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Bananas, raw"
+  },
+  {
+    "fdcId": "175168",
+    "per100g": {
+      "protein": 22.1,
+      "fat": 12.35,
+      "calories": 206.0,
+      "carbs": 0.0
+    },
+    "url": "https://fdc.nal.usda.gov/food-details/175168/nutrients",
+    "dataset": "USDA FoodData Central SR Legacy, April 2018",
+    "observedDate": "2026-10-19",
+    "description": "Fish, salmon, Atlantic, farmed, cooked, dry heat"
+  }
+]

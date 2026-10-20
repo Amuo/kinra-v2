@@ -9,6 +9,7 @@ import { ProgramBuilder } from "@/components/strata/program-builder";
 import type { Program } from "@/lib/types";
 import { Input } from "@/components/ui/input";
 import { ProgramSummary } from "@/components/strata/program-summary";
+import { useShell } from "@/components/strata/shell";
 import { searchPrograms } from "@/lib/programs";
 
 const ProgramReferences = lazy(() =>
@@ -38,6 +39,7 @@ export const Route = createFileRoute("/app/programs")({
 function Programs() {
   useLanguage();
   const me = useMe().data;
+  const { startSession, session, openSession } = useShell();
   const [editing, setEditing] = useState<Program | "new" | null>(null);
   const [references, setReferences] = useState(false);
   const [query, setQuery] = useState("");
@@ -49,7 +51,7 @@ function Programs() {
         eyebrow={tr("Training library")}
         title={tr("Programs")}
         action={
-          me?.role === "trainer" ? (
+          me ? (
             <Button variant="volt" className="h-11" onClick={() => setEditing("new")}>
               <Plus />
               <Message source="New" />
@@ -57,15 +59,20 @@ function Programs() {
           ) : undefined
         }
       />
-      <Button variant="glass" className="mb-4 h-12 w-full" onClick={() => setReferences((v) => !v)}>
-        {references ? tr("Hide reference library") : tr("Explore 18 program references")}
+      <Button
+        variant="glass"
+        wrap
+        className="mb-4 h-auto min-h-12 w-full py-3"
+        onClick={() => setReferences((v) => !v)}
+      >
+        {references ? tr("Hide program library") : tr("Browse ready-to-use plans")}
       </Button>
       {references && (
         <div className="mb-6">
           <Suspense
             fallback={
               <p>
-                <Message source="Loading references…" />
+                <Message source="Loading programs…" />
               </p>
             }
           >
@@ -97,7 +104,7 @@ function Programs() {
               icon={<ClipboardList className="size-8" />}
               title={tr("Your next block starts here")}
               action={
-                me?.role === "trainer" ? (
+                me ? (
                   <Button variant="glass" className="h-12" onClick={() => setEditing("new")}>
                     <Message source="Build program" />
                   </Button>
@@ -118,8 +125,11 @@ function Programs() {
               <ProgramSummary
                 key={program.id}
                 program={program}
+                eyebrow={tr(program.trainer_id === me?.id ? "Own plan" : "Assigned plan")}
+                onStart={(day) => (session ? openSession() : startSession(day))}
+                startLabel={tr(session ? "Resume current session" : "Start this session")}
                 actions={
-                  me?.role === "trainer" && program.trainer_id === me.id ? (
+                  me && program.trainer_id === me.id ? (
                     <Button
                       variant="glass"
                       className="h-11 text-label"

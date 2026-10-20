@@ -31,9 +31,30 @@ import { programError } from "./programs";
 import demoBefore from "@/assets/demo-before.jpg";
 import demoAfter from "@/assets/demo-after.jpg";
 import { buildSummary } from "./report";
+import { currentLanguage } from "./i18n";
+import { programTemplates, localizedTemplate } from "./program-templates";
+import {
+  accountRoleSchema,
+  coreRole,
+  workspaceStateSchema,
+  type AccountRole,
+  type WorkspaceState,
+} from "./workspaces";
 import { lookupFoodBarcode } from "./barcode.functions";
 import type { BarcodeFood } from "./barcode";
 import { createLiveFeatures, createDemoFeatures, type FeatureApi } from "./feature-api";
+import { createLiveAttachments, createDemoAttachments } from "./attachment-api";
+import type { AttachmentApi } from "./attachments";
+import {
+  createLiveOrganizations,
+  createDemoOrganizations,
+  type OrganizationApi,
+} from "./organization-api";
+import { createLiveNotifications, createDemoNotifications } from "./notification-api";
+import type { NotificationApi } from "./notifications";
+import { createLiveCommunity, createDemoCommunity, type CommunityApi } from "./community-api";
+import { createLiveResources, createDemoResources } from "./resource-api";
+import type { ResourceApi } from "./resources";
 import {
   onboardingAnswers,
   decodeOnboardingState,
@@ -45,10 +66,17 @@ import {
 export type Mode = "live" | "demo-client" | "demo-trainer";
 
 export interface Api {
+  resources: ResourceApi;
+  community: CommunityApi;
+  notifications: NotificationApi;
+  organizations: OrganizationApi;
+  attachments: AttachmentApi;
   features: FeatureApi;
   mode: Mode;
   ownerId: string;
   me(): Promise<Me>;
+  accountWorkspaces(): Promise<WorkspaceState>;
+  setWorkspace(role: AccountRole, add: boolean): Promise<void>;
   setRole(role: Role): Promise<void>;
   onboarding(): Promise<OnboardingState | null>;
   saveOnboarding(answers: OnboardingAnswers, step: number, finish: boolean): Promise<void>;
@@ -66,6 +94,9 @@ export interface Api {
   disconnectTrainer(id: string): Promise<void>;
   joinTrainer(code: string): Promise<string>;
   programs(): Promise<Program[]>;
+  adoptTemplate(
+    templateId: string,
+  ): Promise<{ id: string; kind: "training" | "nutrition"; alreadySaved: boolean }>;
   saveProgram(p: Omit<Program, "id" | "trainer_id">): Promise<string>;
   updateProgram(id: string, p: Omit<Program, "id" | "trainer_id">): Promise<void>;
   assign(programId: string, clientId: string): Promise<void>;
@@ -113,21 +144,50 @@ async function withAvatar<T extends Person>(person: T): Promise<T> {
 
 export function createLiveApi(ownerId: string): Api {
   const uid = () => authenticatedId(ownerId);
+  const features = createLiveFeatures(ownerId);
   return {
-    features: createLiveFeatures(ownerId),
+    resources: createLiveResources(ownerId, features),
+    community: createLiveCommunity(ownerId),
+    notifications: createLiveNotifications(ownerId),
+    organizations: createLiveOrganizations(ownerId),
+    attachments: createLiveAttachments(ownerId),
+    features,
     mode: "live",
     ownerId,
     async me() {
       const id = await uid();
-      const [p, r] = await Promise.all([
+      const [p, r, workspace] = await Promise.all([
         from("profiles")
           .select("id, display_name, goal, trainer_code, bio, avatar_path")
           .eq("id", id)
           .maybeSingle(),
         from("user_roles").select("role").eq("user_id", id).maybeSingle(),
+        this.accountWorkspaces(),
       ]);
       const prof = must(p) ?? { id, display_name: null, goal: null, trainer_code: null };
-      return withAvatar({ ...prof, role: (must(r)?.role as Role) ?? null });
+      const primary = (must(r)?.role as Role) ?? null;
+      return withAvatar({
+        ...prof,
+        role: workspace.active ? coreRole(workspace.active) : primary,
+        primary_role: primary,
+        ...(workspace.active ? { workspace: workspace.active } : {}),
+      });
+    },
+    async accountWorkspaces() {
+      const owner = await uid();
+      return workspaceStateSchema.parse(
+        must(await featureRpc("kinra_account_workspaces", { expected_owner: owner })),
+      );
+    },
+    async setWorkspace(role, add) {
+      const owner = await uid();
+      must(
+        await featureRpc("kinra_set_workspace", {
+          workspace: accountRoleSchema.parse(role),
+          add_role: add,
+          expected_owner: owner,
+        }),
+      );
     },
     async setRole(role) {
       const id = await uid();
@@ -296,6 +356,16 @@ export function createLiveApi(ownerId: string): Api {
         await from("programs").select("*").order("created_at", { ascending: false }),
       ) as unknown as Program[];
     },
+    async adoptTemplate(templateId) {
+      const owner = await uid();
+      return must(
+        await featureRpc("kinra_adopt_template", {
+          template_key: templateId,
+          locale: currentLanguage(),
+          expected_owner: owner,
+        }),
+      ) as { id: string; kind: "training" | "nutrition"; alreadySaved: boolean };
+    },
     async saveProgram(p) {
       const owner = await uid();
       const error = programError(p);
@@ -456,7 +526,26 @@ const rid = () => Math.random().toString(36).slice(2, 11);
 function demoApi(mode: "demo-client" | "demo-trainer"): Api {
   const isTrainer = mode === "demo-trainer";
   const meId = isTrainer ? DEMO_TRAINER_ID : DEMO_CLIENT_ID;
+  let attachments: AttachmentApi | undefined;
+  let organizations: OrganizationApi | undefined;
+  let community: CommunityApi | undefined;
+  let resources: ResourceApi | undefined;
   return {
+    get resources() {
+      return (resources ??= createDemoResources(meId, this.features));
+    },
+    get community() {
+      return (community ??= createDemoCommunity(meId, this.features));
+    },
+    notifications: createDemoNotifications(),
+    get organizations() {
+      return (organizations ??= createDemoOrganizations(meId, this.features));
+    },
+    get attachments() {
+      return (attachments ??= createDemoAttachments(meId, (recipient_id, body) =>
+        this.features.save("message", { recipient_id, body }),
+      ));
+    },
     features: createDemoFeatures(
       meId,
       (foods, meal, date) => {
@@ -500,7 +589,14 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
         );
         data.programs = data.programs.filter((p) => p.trainer_id !== meId);
         demoProfiles.delete(meId);
+        attachments = undefined;
+        organizations = undefined;
+        community = undefined;
+        resources = undefined;
         demoOnboarding.delete(meId);
+        demoWorkspaces.delete(meId);
+        for (const key of demoTemplateAdoptions.keys())
+          if (key.startsWith(`${meId}:`)) demoTemplateAdoptions.delete(key);
         disconnectedDemo = true;
       },
     ),
@@ -510,11 +606,34 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
       const base = isTrainer ? demoTrainer : demoPeople[0];
       if (!base) throw new Error("Demo profile unavailable");
       const p = demoProfile(base);
+      const workspace = await this.accountWorkspaces();
       return {
         ...p,
         trainer_code: isTrainer ? "RIO42X" : null,
-        role: isTrainer ? "trainer" : "client",
+        role: coreRole(workspace.active!),
+        primary_role: isTrainer ? "trainer" : "client",
+        workspace: workspace.active!,
       };
+    },
+    async accountWorkspaces() {
+      return (
+        demoWorkspaces.get(meId) ?? {
+          active: isTrainer ? "trainer" : "client",
+          roles: [isTrainer ? "trainer" : "client"],
+          primary: isTrainer ? "trainer" : "client",
+        }
+      );
+    },
+    async setWorkspace(role, add) {
+      accountRoleSchema.parse(role);
+      const state = await this.accountWorkspaces();
+      if (!add && !state.roles.includes(role))
+        throw new Error("Add this workspace before switching to it.");
+      demoWorkspaces.set(meId, {
+        ...state,
+        roles: [...new Set([...state.roles, role])],
+        active: role,
+      });
     },
     async setRole() {},
     async onboarding() {
@@ -630,7 +749,36 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
       const ids = db()
         .assignments.filter((a) => a.client_id === meId)
         .map((a) => a.program_id);
-      return db().programs.filter((p) => ids.includes(p.id));
+      return db().programs.filter((p) => ids.includes(p.id) || p.trainer_id === meId);
+    },
+    async adoptTemplate(templateId) {
+      const source = programTemplates.find((p) => p.id === templateId);
+      if (!source) throw new Error("This template is no longer available.");
+      const key = `${meId}:${templateId}`;
+      const existing = demoTemplateAdoptions.get(key);
+      if (existing) {
+        const found =
+          existing.kind === "training"
+            ? db().programs.some((p) => p.id === existing.id && p.trainer_id === meId)
+            : (await this.features.list("nutrition_plan")).some((p) => p.id === existing.id);
+        if (found) return { ...existing, alreadySaved: true };
+      }
+      const template = localizedTemplate(source);
+      let id: string;
+      if (template.type === "training")
+        id = await this.saveProgram({
+          name: template.title,
+          description: template.summary,
+          weeks: template.weeks,
+          days: template.days,
+        });
+      else {
+        if (!template.nutrition) throw new Error("This template is no longer available.");
+        id = await this.features.save("nutrition_plan", template.nutrition);
+      }
+      const result = { id, kind: template.type };
+      demoTemplateAdoptions.set(key, result);
+      return { ...result, alreadySaved: false };
     },
     async saveProgram(p) {
       const id = rid();
@@ -735,6 +883,8 @@ function demoApi(mode: "demo-client" | "demo-trainer"): Api {
 
 let disconnectedDemo = false;
 const demoOnboarding = new Map<string, OnboardingState>();
+const demoTemplateAdoptions = new Map<string, { id: string; kind: "training" | "nutrition" }>();
+const demoWorkspaces = new Map<string, WorkspaceState>();
 const ApiCtx = createContext<Api | null>(null);
 
 export function ApiProvider({

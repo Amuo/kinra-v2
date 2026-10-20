@@ -2,10 +2,12 @@ import { z } from "zod";
 import type { Me, Role } from "./types";
 import type { FeaturePayloads } from "./feature-types";
 import { currentLanguage } from "./i18n";
+import { accountRoleSchema, coreRole, type AccountRole } from "./workspaces";
 
 export const onboardingAnswers = z
   .object({
     role: z.enum(["solo", "client", "trainer"]).nullable(),
+    workspace: accountRoleSchema.nullable().default(null),
     display_name: z.string().max(80),
     goal: z.string().max(160),
     first_action: z
@@ -19,6 +21,9 @@ export const onboardingAnswers = z
         "program",
         "clients",
         "dashboard",
+        "organization",
+        "membership",
+        "community",
       ])
       .nullable(),
     theme: z.enum(["dark", "light", "system"]),
@@ -32,8 +37,33 @@ export const onboardingAnswers = z
     weight_kg: z.number().finite().min(20).max(350).nullable().default(null),
     units: z.enum(["metric", "imperial"]).default("metric"),
     experience: z.enum(["new", "some", "experienced"]).nullable().default(null),
+    birth_date: z
+      .string()
+      .refine((value) => {
+        if (
+          !/^\d{4}-\d{2}-\d{2}$/.test(value) ||
+          value < "1900-01-01" ||
+          value > new Date().toISOString().slice(0, 10)
+        )
+          return false;
+        const parsed = new Date(`${value}T00:00:00Z`);
+        return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+      })
+      .nullable()
+      .default(null),
+    activity_level: z.enum(["low", "moderate", "high"]).nullable().default(null),
+    city: z.string().max(100).default(""),
+    limitations: z.string().max(1000).default(""),
   })
-  .strict();
+  .strict()
+  .superRefine((answers, context) => {
+    if (answers.workspace && answers.role && coreRole(answers.workspace) !== answers.role)
+      context.addIssue({
+        code: "custom",
+        path: ["workspace"],
+        message: "Choose a workspace that matches your setup path.",
+      });
+  });
 export type OnboardingAnswers = z.infer<typeof onboardingAnswers>;
 export const genderLabels = {
   woman: "Woman",
@@ -135,11 +165,13 @@ export function initialOnboarding(
   me: Me,
   preferences?: FeaturePayloads["preferences"],
 ): OnboardingAnswers {
+  const workspace = me.workspace && coreRole(me.workspace) === me.role ? me.workspace : me.role;
   return {
     role: me.role,
+    workspace,
     display_name: me.display_name ?? "",
     goal: me.goal ?? "",
-    first_action: me.role ? startingActions[me.role][0].id : null,
+    first_action: workspaceStartingActions({ role: me.role, workspace })[0]?.id ?? null,
     theme: preferences?.theme ?? "system",
     language: currentLanguage(),
     timezone: preferences?.timezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone ?? "UTC",
@@ -148,20 +180,68 @@ export function initialOnboarding(
     weight_kg: null,
     units: preferences?.units ?? "metric",
     experience: null,
+    birth_date: null,
+    activity_level: null,
+    city: "",
+    limitations: "",
   };
 }
 export function chooseOnboardingRole(answers: OnboardingAnswers, role: Role): OnboardingAnswers {
   return {
     ...answers,
     role,
+    workspace: role,
     first_action: answers.role === role ? answers.first_action : startingActions[role][0].id,
+  };
+}
+export const organizationStartingActions = [
+  {
+    id: "organization",
+    title: "Set up my organization",
+    body: "Open organization tools to create a listing and review staff access.",
+    to: "/app/me",
+  },
+  {
+    id: "membership",
+    title: "Organize memberships",
+    body: "Open organization tools to review joined members and membership records.",
+    to: "/app/me",
+  },
+  {
+    id: "community",
+    title: "Build my community",
+    body: "Open groups to create a public community or invite members privately.",
+    to: "/app/me",
+  },
+] as const;
+export function workspaceStartingActions(answers: Pick<OnboardingAnswers, "role" | "workspace">) {
+  return answers.workspace === "organization"
+    ? organizationStartingActions
+    : answers.role
+      ? startingActions[answers.role]
+      : [];
+}
+export function chooseOnboardingWorkspace(
+  answers: OnboardingAnswers,
+  workspace: AccountRole,
+): OnboardingAnswers {
+  const next = { ...answers, role: coreRole(workspace), workspace };
+  return {
+    ...next,
+    first_action:
+      workspace === answers.workspace
+        ? answers.first_action
+        : workspaceStartingActions(next)[0]!.id,
   };
 }
 export function onboardingDestination(answers: OnboardingAnswers) {
   if (!answers.role) return null;
-  return startingActions[answers.role].find((action) => action.id === answers.first_action) ?? null;
+  return (
+    workspaceStartingActions(answers).find((action) => action.id === answers.first_action) ?? null
+  );
 }
 export function validateOnboarding(answers: OnboardingAnswers, step: number): string | null {
+  if (!onboardingAnswers.safeParse(answers).success) return "Enter valid setup details.";
   if (!answers.role) return "Choose how you will use Kinra.";
   if (step >= 1 && !answers.display_name.trim()) return "Enter a name for your profile.";
   if (step >= 3 && !onboardingDestination(answers)) return "Choose your first step.";

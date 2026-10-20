@@ -1,0 +1,45 @@
+{
+  "project": "ztbwycesqodjvseqhygh",
+  "namespace": "kinra_v2_",
+  "observedAt": "2026-10-19T23:57:24.982669Z",
+  "source": "docs/qa/2026-10-19-hosted-rls-acceptance.sql",
+  "sourceFileSha256": "159b1b598caf58eeb2ba64effba2bb990f829e16c370704235f4fee1fdc5be9d",
+  "transaction": "One BEGIN ... ROLLBACK; no commit",
+  "result": {
+    "modules": [
+      "22 templates and private editable/idempotent adoption",
+      "initial specialist/organization onboarding",
+      "solo-to-coach code lookup and explicit connection",
+      "organization invitations and private finance",
+      "private group membership and kick",
+      "published exact slots and private free/busy",
+      "attachment participant metadata/path RLS",
+      "resource parent publication RLS",
+      "notification throttle and forged-dispatch denial"
+    ],
+    "assertions": "All acceptance DO assertions completed before ROLLBACK",
+    "residual_profiles": 0,
+    "residual_auth_users": 0,
+    "residual_storage_objects": 0
+  },
+  "independentPostRollbackResiduals": {
+    "auth_users": 0,
+    "profiles": 0,
+    "feature_records": 0,
+    "programs": 0,
+    "template_adoptions": 0,
+    "connections": 0,
+    "organization_staff": 0,
+    "organization_memberships": 0,
+    "community_members": 0,
+    "availability": 0,
+    "message_attachments": 0,
+    "devices": 0,
+    "storage_objects": 0
+  },
+  "limits": [
+    "SQL authorization and Storage metadata checks; no HTTP delivery or binary upload was attempted.",
+    "No SMTP or push notification was sent.",
+    "Only seven fresh synthetic actors and their rows were created inside the rolled-back transaction; real account records were not targeted."
+  ]
+}

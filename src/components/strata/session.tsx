@@ -568,7 +568,7 @@ function ExerciseCard({ ex, e, c }: { ex: SEx; e: number; c: RowCtx }) {
                 {ex.targetWeight != null && (
                   <span>
                     <Message
-                      source="Coach target {p0}kg{p1}"
+                      source="Planned load {p0}kg{p1}"
                       values={{
                         p0: ex.targetWeight,
                         p1: c.lighter ? tr(" · lighter day applied") : "",
@@ -1379,7 +1379,7 @@ export function LiveSession({
           aria-live="polite"
           aria-label={tr("Rest {p0} left{p1}. Tap to {p2}", {
             p0: clock(left),
-            p1: paused ? ", paused" : "",
+            p1: paused ? `, ${tr("Paused")}` : "",
             p2: islandOpen ? "collapse" : "expand",
           })}
           className={cn("flex items-center gap-2", !islandOpen && "h-10 px-4")}
@@ -1495,7 +1495,7 @@ export function LiveSession({
                 {...pillPress.handlers}
                 onClick={() => !pillPress.fired.current && setMinimized(false)}
                 aria-label={tr("Open live session, {p0} {p1}. Hold for quick actions", {
-                  p0: paused ? "paused" : "running",
+                  p0: tr(paused ? "Paused" : "Running"),
                   p1: elapsed,
                 })}
                 className="flex h-11 select-none items-center gap-2.5 pl-4 pr-2 text-label font-bold"

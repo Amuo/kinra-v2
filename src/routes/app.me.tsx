@@ -1,3 +1,9 @@
+import { CommunityGroups } from "@/components/strata/community-groups";
+import { DeviceReminders } from "@/components/strata/device-reminders";
+import { OrganizationTools } from "@/components/strata/organization-tools";
+import { AvailabilityBooking } from "@/components/strata/availability-booking";
+import { AccountWorkspaces } from "@/components/strata/account-workspaces";
+import { accountRoleLabels } from "@/lib/workspaces";
 import { errorText } from "@/lib/i18n-errors";
 import { LanguageSelector } from "@/components/strata/language-selector";
 import { roleLabel, t as tr, useLanguage, Message } from "@/lib/i18n";
@@ -74,7 +80,10 @@ function MePage() {
   if (!me) return null;
   return (
     <div>
-      <PageHeader eyebrow={roleLabel(me.role)} title={tr("Profile")} />
+      <PageHeader
+        eyebrow={me.workspace ? tr(accountRoleLabels[me.workspace]) : roleLabel(me.role)}
+        title={tr("Profile")}
+      />
       <Button
         wrap
         variant="outline"
@@ -117,13 +126,7 @@ function MePage() {
         <div className="min-w-0">
           <div className="break-words font-display text-title font-bold">{me.display_name}</div>
           <div className="text-label capitalize text-muted-foreground">
-            {tr(
-              me.role === "trainer"
-                ? "Coach account"
-                : me.role === "client"
-                  ? "Client account"
-                  : "Solo account",
-            )}
+            {me.workspace ? tr(accountRoleLabels[me.workspace]) : roleLabel(me.role)}
           </div>
           {me.bio && <p className="mt-2 break-words text-body text-muted-foreground">{me.bio}</p>}
         </div>
@@ -132,6 +135,11 @@ function MePage() {
       <div className="mt-4">
         <PrivateMessages />
       </div>
+      <AccountWorkspaces />
+      <OrganizationTools />
+      <AvailabilityBooking />
+      <DeviceReminders />
+      <CommunityGroups />
       <DeleteKinraData />
       {me.role === "trainer" && (
         <>

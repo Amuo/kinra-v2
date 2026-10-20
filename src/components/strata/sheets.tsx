@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { MEALS, type FoodDraft } from "@/lib/fuel";
 import { FoodBarcode } from "./food-barcode";
 import {
+  X,
   Dumbbell,
   Utensils,
   Moon,
@@ -72,7 +73,20 @@ export function Sheet({
     <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerContent className="mx-auto max-h-[92dvh] max-w-md border-border bg-popover">
         <div className="pb-safe overflow-y-auto px-5 pt-2">
-          <DrawerTitle className="font-display text-title-l font-extrabold">{title}</DrawerTitle>
+          <div className="flex items-start justify-between gap-3">
+            <DrawerTitle className="min-w-0 flex-1 break-words font-display text-title-l font-extrabold">
+              {title}
+            </DrawerTitle>
+            <Button
+              type="button"
+              variant="ghost"
+              className="size-11 shrink-0 rounded-full p-0"
+              aria-label={tr("Close")}
+              onClick={() => onOpenChange(false)}
+            >
+              <X className="size-5" aria-hidden="true" />
+            </Button>
+          </div>
           <DrawerDescription className="mb-5 mt-1 text-label text-muted-foreground">
             {sub ?? " "}
           </DrawerDescription>

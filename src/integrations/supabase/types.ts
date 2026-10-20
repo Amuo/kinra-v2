@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      device_subscriptions: {
+        Row:{id:string;owner_id:string;endpoint:string;p256dh:string;auth_key:string;locale:string;created_at:string}
+        Insert:{id?:string;owner_id?:string;endpoint:string;p256dh:string;auth_key:string;locale:string;created_at?:string}
+        Update:never
+        Relationships:[]
+      }
+      message_attachments: {
+        Row: { id:string; message_id:string; owner_id:string; recipient_id:string; storage_path:string; filename:string; mime:string; bytes:number; created_at:string }
+        Insert: never
+        Update: never
+        Relationships: []
+      }
+      account_roles: {
+        Row: {owner_id:string;role:string;created_at:string}
+        Insert: {owner_id?:string;role:string;created_at?:string}
+        Update: {owner_id?:string;role?:string;created_at?:string}
+        Relationships: []
+      }
+      account_context: {
+        Row: {owner_id:string;active_role:string}
+        Insert: {owner_id?:string;active_role:string}
+        Update: {owner_id?:string;active_role?:string}
+        Relationships: []
+      }
+      template_catalogue: {
+        Row: { id: string; kind: string; content_version: number; payload: Json; updated_at: string }
+        Insert: { id: string; kind: string; content_version?: number; payload: Json; updated_at?: string }
+        Update: { id?: string; kind?: string; content_version?: number; payload?: Json; updated_at?: string }
+        Relationships: []
+      }
+      template_adoptions: {
+        Row: { owner_id: string; template_id: string; kind: string; content_version: number; program_id: string | null; feature_id: string | null; created_at: string }
+        Insert: { owner_id?: string; template_id: string; kind: string; content_version: number; program_id?: string | null; feature_id?: string | null; created_at?: string }
+        Update: { owner_id?: string; template_id?: string; kind?: string; content_version?: number; program_id?: string | null; feature_id?: string | null; created_at?: string }
+        Relationships: []
+      }
       onboarding_state: {
         Row: { owner_id: string; version: number; step: number; answers: Json; completed_at: string | null; updated_at: string }
         Insert: { owner_id?: string; version?: number; step?: number; answers: Json; completed_at?: string | null; updated_at?: string }
@@ -423,7 +459,18 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      kinra_community_admin: { Args:{action:string;group_id:string|null;data:Json;expected_owner:string};Returns:Json }
+      kinra_community_redeem: { Args:{invitation_code:string;accept:boolean;expected_owner:string};Returns:Json }
+      kinra_org_admin: { Args: {action:string;org_id:string|null;data:Json;expected_owner:string};Returns:Json }
+      kinra_org_redeem: {Args:{invitation_code:string;accept:boolean;expected_owner:string};Returns:Json}
+      kinra_availability: {Args:{coach:string;expected_owner:string};Returns:Json}
+      kinra_save_availability: {Args:{data:Json;expected_owner:string};Returns:undefined}
+      kinra_available_slots: {Args:{coach:string;from_day:string;to_day:string;expected_owner:string};Returns:Json}
+      kinra_send_attachment: { Args: { recipient:string; body:string; path:string; filename:string; mime:string; bytes:number; expected_owner:string }; Returns:string }
       kinra_save_onboarding: { Args: { data: Json; stage: number; finish: boolean; expected_owner: string }; Returns: undefined }
+      kinra_adopt_template: { Args: { template_key: string; locale: string; expected_owner: string }; Returns: Json }
+      kinra_account_workspaces: { Args: { expected_owner: string }; Returns: Json }
+      kinra_set_workspace: { Args: { workspace: string;add_role:boolean;expected_owner:string };Returns:undefined }
       kinra_erase_data: { Args: { confirmation: string; expected_owner: string }; Returns: undefined }
       kinra_send_message: { Args: { recipient_id: string; body: string; expected_owner: string }; Returns: string }
       kinra_consume_meal: { Args: { plan_id: string; meal_index: number; log_date: string }; Returns: undefined }

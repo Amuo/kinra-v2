@@ -1,6 +1,8 @@
+import { attachmentLimit, type MessageAttachment } from "@/lib/attachments";
+import { errorText } from "@/lib/i18n-errors";
 import { dateTime, t as tr, useLanguage, Message } from "@/lib/i18n";
 import { useState } from "react";
-import { MessageCircle, Send, Lock } from "lucide-react";
+import { MessageCircle, Send, Lock, Download, Paperclip, X } from "lucide-react";
 import { useAct, useApi, useMe, useQ } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -14,6 +16,7 @@ export function PrivateMessages({ recipientId }: { recipientId?: string }) {
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState(recipientId ?? "");
   const [drafts, setDrafts] = useState<Record<string, string>>({});
+  const [files, setFiles] = useState<Record<string, File | undefined>>({});
   const [error, setError] = useState("");
   const contacts = useQ(
     ["message-contacts", me?.role],
@@ -21,11 +24,15 @@ export function PrivateMessages({ recipientId }: { recipientId?: string }) {
     open && !!me,
   );
   const messages = useQ(["features", "message"], (a) => a.features.list("message"), open);
+  const attachments = useQ(["message-attachments"], (a) => a.attachments.list(), open);
   const target = selected || contacts.data?.[0]?.id || "";
   const contact = contacts.data?.find((person) => person.id === target);
   const draft = drafts[target] ?? "";
-  const send = useAct((a, value: { recipient_id: string; body: string }) =>
-    a.features.save("message", value),
+  const file = files[target];
+  const send = useAct((a, value: { recipient_id: string; body: string; file?: File }) =>
+    value.file
+      ? a.attachments.send(value.recipient_id, value.body || value.file.name, value.file)
+      : a.features.save("message", { recipient_id: value.recipient_id, body: value.body }),
   );
   const conversation = (messages.data ?? [])
     .filter(
@@ -50,10 +57,7 @@ export function PrivateMessages({ recipientId }: { recipientId?: string }) {
           {contacts.isLoading ? (
             <Skeleton className="h-12" />
           ) : contacts.error ? (
-            <ErrorState
-              message={(contacts.error as Error).message}
-              onRetry={() => contacts.refetch()}
-            />
+            <ErrorState message={errorText(contacts.error)} onRetry={() => contacts.refetch()} />
           ) : !contacts.data?.length ? (
             <Empty
               icon={<MessageCircle />}
@@ -88,15 +92,24 @@ export function PrivateMessages({ recipientId }: { recipientId?: string }) {
                 variant="ghost"
                 className="h-11 w-full"
                 disabled={messages.isFetching}
-                onClick={() => messages.refetch()}
+                onClick={() => {
+                  void messages.refetch();
+                  void attachments.refetch();
+                }}
               >
                 {messages.isFetching ? tr("Refreshing…") : tr("Refresh conversation")}
               </Button>
+              {attachments.error && (
+                <ErrorState
+                  message={tr("Attachments could not load. Your messages are still available.")}
+                  onRetry={() => attachments.refetch()}
+                />
+              )}
               {messages.isLoading ? (
                 <Skeleton className="h-32" />
               ) : messages.error ? (
                 <ErrorState
-                  message={(messages.error as Error).message}
+                  message={errorText(messages.error)}
                   onRetry={() => messages.refetch()}
                 />
               ) : (
@@ -128,6 +141,11 @@ export function PrivateMessages({ recipientId }: { recipientId?: string }) {
                         <p className="mt-2 whitespace-pre-wrap break-words text-body">
                           {message.payload.body}
                         </p>
+                        {attachments.data
+                          ?.filter((attachment) => attachment.message_id === message.id)
+                          .map((attachment) => (
+                            <AttachmentDownload key={attachment.id} attachment={attachment} />
+                          ))}
                         <time
                           dateTime={message.created_at}
                           className="mt-2 block text-caption text-muted-foreground"
@@ -149,14 +167,17 @@ export function PrivateMessages({ recipientId }: { recipientId?: string }) {
               <form
                 onSubmit={(event) => {
                   event.preventDefault();
-                  if (!contact || !draft.trim()) return;
+                  if (!contact || (!draft.trim() && !file)) return;
                   setError("");
                   const recipient = target;
                   send.mutate(
-                    { recipient_id: recipient, body: draft.trim() },
+                    { recipient_id: recipient, body: draft.trim(), ...(file ? { file } : {}) },
                     {
-                      onSuccess: () => setDrafts((previous) => ({ ...previous, [recipient]: "" })),
-                      onError: (e) => setError(e.message),
+                      onSuccess: () => {
+                        setDrafts((previous) => ({ ...previous, [recipient]: "" }));
+                        setFiles((previous) => ({ ...previous, [recipient]: undefined }));
+                      },
+                      onError: (e) => setError(errorText(e)),
                     },
                   );
                 }}
@@ -175,6 +196,61 @@ export function PrivateMessages({ recipientId }: { recipientId?: string }) {
                     placeholder={tr("Share a question or an update")}
                   />
                 </label>
+                <label className="mt-3 block rounded-tile border border-dashed border-border p-3 text-label">
+                  <span className="mb-2 flex items-center gap-2 font-semibold">
+                    <Paperclip className="size-4" aria-hidden="true" />
+                    {tr("Attach a file (optional)")}
+                  </span>
+                  <input
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp,application/pdf"
+                    disabled={send.isPending || !contact}
+                    className="block min-h-11 w-full min-w-0 text-caption file:mr-2 file:min-h-11 file:rounded-lg file:border-0 file:bg-secondary file:px-3 file:text-secondary-foreground"
+                    onChange={(event) => {
+                      const next = event.target.files?.[0];
+                      event.target.value = "";
+                      if (!next) return;
+                      if (
+                        !next.size ||
+                        next.size > attachmentLimit ||
+                        !["image/jpeg", "image/png", "image/webp", "application/pdf"].includes(
+                          next.type,
+                        )
+                      ) {
+                        setError(tr("Choose a JPG, PNG, WebP or PDF up to 10 MB."));
+                        return;
+                      }
+                      setFiles((previous) => ({ ...previous, [target]: next }));
+                      setError("");
+                    }}
+                  />
+                  <span className="mt-2 block text-caption text-muted-foreground">
+                    {tr("One JPG, PNG, WebP or PDF per message, up to 10 MB.")}
+                  </span>
+                </label>
+                {file && (
+                  <div className="mt-3 flex items-start gap-3 rounded-tile border border-border bg-surface p-3">
+                    <div className="min-w-0 flex-1">
+                      <p className="break-all text-label font-semibold">{file.name}</p>
+                      <p className="mt-1 text-caption text-muted-foreground">
+                        {tr("{size} MB · ready to send", {
+                          size: (file.size / 1024 / 1024).toFixed(2),
+                        })}
+                      </p>
+                    </div>
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="icon"
+                      className="size-11 shrink-0"
+                      aria-label={tr("Remove attachment")}
+                      disabled={send.isPending}
+                      onClick={() => setFiles((previous) => ({ ...previous, [target]: undefined }))}
+                    >
+                      <X aria-hidden="true" />
+                    </Button>
+                  </div>
+                )}
                 <p className="my-3 flex gap-2 text-caption text-muted-foreground">
                   <Lock className="size-4 shrink-0" />
                   <Message source="Sent messages cannot be edited. No delivery notification is promised." />
@@ -191,7 +267,7 @@ export function PrivateMessages({ recipientId }: { recipientId?: string }) {
                   type="submit"
                   variant="volt"
                   className="h-12 w-full"
-                  disabled={!contact || !draft.trim() || send.isPending}
+                  disabled={!contact || (!draft.trim() && !file) || send.isPending}
                 >
                   <Send />
                   {send.isPending
@@ -214,5 +290,54 @@ export function PrivateMessages({ recipientId }: { recipientId?: string }) {
         </div>
       </Sheet>
     </>
+  );
+}
+
+function AttachmentDownload({ attachment }: { attachment: MessageAttachment }) {
+  const api = useApi();
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  return (
+    <div className="mt-3">
+      <Button
+        type="button"
+        wrap
+        variant="glass"
+        disabled={busy}
+        className="min-h-12 w-full justify-start text-left"
+        onClick={async () => {
+          setBusy(true);
+          setError("");
+          try {
+            const blob = await api.attachments.download(attachment);
+            const url = URL.createObjectURL(blob);
+            const anchor = document.createElement("a");
+            anchor.href = url;
+            anchor.download = attachment.filename;
+            document.body.appendChild(anchor);
+            anchor.click();
+            anchor.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+          } catch (cause) {
+            setError(errorText(cause));
+          } finally {
+            setBusy(false);
+          }
+        }}
+      >
+        <Download className="size-4 shrink-0" aria-hidden="true" />
+        <span className="min-w-0 break-all">
+          {busy ? tr("Downloading…") : attachment.filename}
+          <span className="mt-1 block text-caption text-muted-foreground">
+            {tr("{size} MB", { size: (attachment.bytes / 1024 / 1024).toFixed(2) })}
+          </span>
+        </span>
+      </Button>
+      {error && (
+        <p role="alert" className="mt-2 text-caption text-destructive">
+          {error}
+        </p>
+      )}
+    </div>
   );
 }

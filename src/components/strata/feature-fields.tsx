@@ -1,3 +1,4 @@
+import { useQ } from "@/lib/api";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { z } from "zod";
 import { Plus, Trash2 } from "lucide-react";
@@ -101,24 +102,33 @@ function SchemaField({
             "cycle",
             "community",
           ]
-        : ["training", "nutrition", "supplements", "appointments", "community"];
+        : ["reminders", "motivation", "memberships", "community", "marketplace"];
     const flags = (value ?? {}) as Record<string, boolean>;
     return (
       <fieldset className="space-y-2">
         <legend className="mb-2 text-label font-semibold">{title}</legend>
+        {name === "categories" && (
+          <p className="text-caption text-muted-foreground">
+            {tr(
+              "Only reminders are delivered today. Other category choices are saved preferences; they do not enable notifications.",
+            )}
+          </p>
+        )}
         {choices.map((key) => (
           <label
             key={key}
             className="flex min-h-11 items-center justify-between rounded-tile bg-surface px-3"
           >
-            <span>{fieldLabel(key)}</span>
+            <span className="min-w-0 py-2 pr-3">{fieldLabel(key)}</span>
             <input
               type="checkbox"
               className="size-5"
-              checked={flags[key] ?? true}
+              checked={flags[key] ?? (name === "modules" || key === "reminders")}
               onChange={(e) =>
                 onChange({
-                  ...Object.fromEntries(choices.map((c) => [c, flags[c] ?? true])),
+                  ...Object.fromEntries(
+                    choices.map((c) => [c, flags[c] ?? (name === "modules" || c === "reminders")]),
+                  ),
                   [key]: e.target.checked,
                 })
               }
@@ -128,6 +138,7 @@ function SchemaField({
       </fieldset>
     );
   }
+  if (name === "facility_ids") return <FacilityChoices value={value} onChange={onChange} />;
   if (name === "weekdays") {
     const days = Array.isArray(value) ? (value as number[]) : [];
     return (
@@ -293,5 +304,52 @@ function SchemaField({
         />
       )}
     </label>
+  );
+}
+
+function FacilityChoices({
+  value,
+  onChange,
+}: {
+  value: unknown;
+  onChange: (value: unknown) => void;
+}) {
+  const rows = useQ(["features", "facility"], (api) => api.features.list("facility"));
+  const selected = Array.isArray(value) ? (value as string[]) : [];
+  return (
+    <fieldset className="space-y-2">
+      <legend className="mb-2 text-label font-semibold">
+        {tr("Linked facilities (optional)")}
+      </legend>
+      {rows.isLoading ? (
+        <p role="status">{tr("Loading…")}</p>
+      ) : rows.error ? (
+        <Button type="button" wrap variant="secondary" onClick={() => void rows.refetch()}>
+          {tr("Retry")}
+        </Button>
+      ) : (
+        (rows.data ?? []).map((row) => (
+          <label
+            key={row.id}
+            className="flex min-h-11 items-center gap-3 rounded-xl bg-surface p-3"
+          >
+            <input
+              type="checkbox"
+              checked={selected.includes(row.id)}
+              onChange={(event) =>
+                onChange(
+                  event.target.checked
+                    ? [...selected, row.id]
+                    : selected.filter((id) => id !== row.id),
+                )
+              }
+            />
+            <span className="min-w-0 break-words text-label">
+              {row.payload.name} · {row.payload.city}
+            </span>
+          </label>
+        ))
+      )}
+    </fieldset>
   );
 }

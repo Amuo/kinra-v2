@@ -1,3 +1,4 @@
+import { OnboardingMore } from "./onboarding-more";
 import { t } from "@/lib/i18n";
 import { genderLabels, experienceLabels, type OnboardingAnswers } from "@/lib/onboarding";
 import { Button } from "@/components/ui/button";
@@ -97,6 +98,7 @@ export function StartingPoint({
           ))}
         </select>
       </label>
+      <OnboardingMore answers={answers} update={update} />
       <p className="text-caption text-muted-foreground">
         {t("Leave any field blank and continue. You can change these details later.")}
       </p>

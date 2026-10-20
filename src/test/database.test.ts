@@ -25,6 +25,13 @@ async function count(table: string) {
   );
 }
 
+async function freshAccount(role: "solo" | "client" | "trainer") {
+  const id = crypto.randomUUID();
+  await db.query("insert into auth.users(id,email) values($1,$2)", [id, `${id}@example.invalid`]);
+  await db.query("insert into user_roles(user_id,role) values($1,$2)", [id, role]);
+  return id;
+}
+
 beforeAll(async () => {
   await db.exec(`
     create role authenticated; create role anon; create role service_role;
@@ -33,7 +40,7 @@ beforeAll(async () => {
     create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub', true),'')::uuid $$;
     grant usage on schema public,auth,storage to authenticated,anon,service_role;
     create table storage.buckets(id text primary key,name text,public boolean default false,file_size_limit bigint,allowed_mime_types text[]);
-    create table storage.objects(id uuid primary key default gen_random_uuid(),bucket_id text,name text);
+    create table storage.objects(id uuid primary key default gen_random_uuid(),bucket_id text,name text,metadata jsonb default '{}');
     alter table storage.objects enable row level security;
     grant select,insert,update,delete on storage.objects to authenticated;
     create function storage.foldername(name text) returns text[] language sql immutable as $$ select (string_to_array(name,'/'))[1:array_length(string_to_array(name,'/'),1)-1] $$;
@@ -407,7 +414,7 @@ describe("feature records security and workflows", () => {
     );
     await expect(
       feature(outsider, "post", { body: "Test", category: "Training", group_id: group }, "public"),
-    ).rejects.toMatchObject({ code: "23514" });
+    ).rejects.toMatchObject({ code: "42501" });
     await feature(outsider, "group_member", { group_id: group }, "public");
     await feature(
       outsider,
@@ -672,13 +679,20 @@ describe("migrated data integrity", () => {
       asUser(coachB, () => db.exec("insert into programs(name,days) values('Bad','[]')")),
     ).rejects.toMatchObject({ code: "23514" });
     const buckets = (
-      await db.query<{ public: boolean; allowed_mime_types: string[] }>(
+      await db.query<{ id: string; public: boolean; allowed_mime_types: string[] }>(
         "select * from storage.buckets",
       )
     ).rows;
-    expect(buckets).toHaveLength(2);
+    expect(buckets).toHaveLength(4);
     expect(
-      buckets.every((bucket) => !bucket.public && bucket.allowed_mime_types.includes("image/jpeg")),
+      buckets.every(
+        (bucket) =>
+          !bucket.public &&
+          (bucket.id === "expert-materials"
+            ? bucket.allowed_mime_types.length === 1 &&
+              bucket.allowed_mime_types[0] === "application/pdf"
+            : bucket.allowed_mime_types.includes("image/jpeg")),
+      ),
     ).toBe(true);
   });
   it("atomically edits a workout and keeps stable-ID retries at one row", async () => {
@@ -982,5 +996,465 @@ describe("private role-specific onboarding", () => {
     expect(
       (await db.query("select answers from onboarding_state where owner_id=$1", [id])).rows,
     ).toMatchObject([{ answers: { height_cm: null, weight_kg: null, gender: null } }]);
+  });
+});
+
+describe("usable templates and account workspaces", () => {
+  const member = async (n: number, role = "solo") => {
+    const id = `60000000-0000-4000-8000-${String(n).padStart(12, "0")}`;
+    await db.query("insert into auth.users(id,email) values($1,$2)", [
+      id,
+      `templates-${n}@example.invalid`,
+    ]);
+    await db.query("insert into user_roles(user_id,role) values($1,$2)", [id, role]);
+    return id;
+  };
+  async function adopt(owner: string, key: string, language = "en") {
+    return (
+      await asUser(owner, () =>
+        db.query<{ result: { id: string; kind: string; alreadySaved: boolean } }>(
+          "select kinra_adopt_template($1,$2,$3) as result",
+          [key, language, owner],
+        ),
+      )
+    ).rows[0]!.result;
+  }
+  it.each(["solo", "client", "trainer"])(
+    "makes an editable private training copy for %s without creating assignments",
+    async (role) => {
+      const id = await member({ solo: 1, client: 2, trainer: 3 }[role]!, role);
+      const key = (
+        await db.query<{ id: string }>(
+          "select id from template_catalogue where kind='training' order by id limit 1",
+        )
+      ).rows[0]!.id;
+      const first = await adopt(id, key, "de");
+      expect(first.alreadySaved).toBe(false);
+      await asUser(id, () =>
+        db.query("update programs set name='My edited copy' where id=$1", [first.id]),
+      );
+      expect(await adopt(id, key, "bs")).toEqual({ ...first, alreadySaved: true });
+      expect(
+        (await asUser(id, () => db.query("select name from programs where id=$1", [first.id])))
+          .rows,
+      ).toEqual([{ name: "My edited copy" }]);
+      expect(
+        (await db.query("select * from program_assignments where program_id=$1", [first.id])).rows,
+      ).toHaveLength(0);
+      expect(
+        (await asUser(outsider, () => db.query("select * from programs where id=$1", [first.id])))
+          .rows,
+      ).toHaveLength(0);
+      await asUser(id, () => db.query("delete from programs where id=$1", [first.id]));
+      expect((await adopt(id, key)).id).not.toBe(first.id);
+    },
+  );
+  it("keeps nutrition copies private and rejects forged adoption receipts or template edits", async () => {
+    const id = await member(4, "client");
+    await db.query("insert into trainer_clients(trainer_id,client_id) values($1,$2)", [coachA, id]);
+    const key = (
+      await db.query<{ id: string }>(
+        "select id from template_catalogue where kind='nutrition' order by id limit 1",
+      )
+    ).rows[0]!.id;
+    const first = await adopt(id, key, "bs");
+    expect((await adopt(id, key)).alreadySaved).toBe(true);
+    expect(
+      (
+        await asUser(coachA, () =>
+          db.query("select * from feature_records where id=$1", [first.id]),
+        )
+      ).rows,
+    ).toHaveLength(0);
+    await expect(
+      asUser(id, () => db.query("update template_catalogue set payload='{}'")),
+    ).rejects.toMatchObject({ code: "42501" });
+    await expect(
+      asUser(outsider, () => db.query("select kinra_adopt_template($1,'en',$2)", [key, id])),
+    ).rejects.toMatchObject({ code: "42501" });
+    await expect(
+      asUser(outsider, () =>
+        db.query(
+          "insert into template_adoptions(owner_id,template_id,kind,content_version,feature_id) values($1,$2,'nutrition',1,$3)",
+          [outsider, key, first.id],
+        ),
+      ),
+    ).rejects.toMatchObject({ code: "42501" });
+  });
+  it("switches and adds workspaces without overwriting primary role or creating connections", async () => {
+    const id = await member(5, "client");
+    await expect(
+      asUser(id, () => db.query("select kinra_set_workspace('trainer',false,$1)", [id])),
+    ).rejects.toMatchObject({ code: "42501" });
+    await asUser(id, () => db.query("select kinra_set_workspace('specialist',true,$1)", [id]));
+    expect(
+      (
+        await asUser(id, () =>
+          db.query<{ v: { active: string; primary: string; roles: string[] } }>(
+            "select kinra_account_workspaces($1) as v",
+            [id],
+          ),
+        )
+      ).rows[0]!.v,
+    ).toEqual({ active: "specialist", primary: "client", roles: ["client", "specialist"] });
+    expect(
+      (await asUser(id, () => db.query("select has_role($1,'trainer') as can_coach", [id]))).rows,
+    ).toEqual([{ can_coach: true }]);
+    expect(
+      (await asUser(id, () => db.query("select * from workouts where user_id=$1", [client]))).rows,
+    ).toHaveLength(0);
+    expect(
+      (await db.query("select * from trainer_clients where trainer_id=$1 or client_id=$1", [id]))
+        .rows,
+    ).toHaveLength(0);
+    await asUser(id, () => db.query("select kinra_set_workspace('client',false,$1)", [id]));
+    expect((await db.query("select role from user_roles where user_id=$1", [id])).rows).toEqual([
+      { role: "client" },
+    ]);
+    expect(
+      (
+        await asUser(outsider, () =>
+          db.query("select * from account_roles where owner_id=$1", [id]),
+        )
+      ).rows,
+    ).toHaveLength(0);
+    await expect(
+      asUser(outsider, () => db.query("select kinra_set_workspace('trainer',true,$1)", [id])),
+    ).rejects.toMatchObject({ code: "42501" });
+  });
+  it("does not turn an organization workspace into coaching or staff privileges", async () => {
+    const id = await member(6);
+    await asUser(id, () => db.query("select kinra_set_workspace('organization',true,$1)", [id]));
+    expect(
+      (await asUser(id, () => db.query("select has_role($1,'trainer') as can_coach", [id]))).rows,
+    ).toEqual([{ can_coach: false }]);
+    await expect(
+      asUser(null, () => db.query("select kinra_account_workspaces($1)", [id]), "anon"),
+    ).rejects.toMatchObject({ code: "42501" });
+  });
+  it("validates the optional questionnaire without exposing its private answers", async () => {
+    const id = await member(7);
+    const data = {
+      role: "solo",
+      display_name: "Synthetic",
+      goal: "",
+      first_action: "workout",
+      theme: "dark",
+      language: "en",
+      timezone: "UTC",
+      gender: null,
+      height_cm: null,
+      weight_kg: null,
+      units: "metric",
+      experience: null,
+      birth_date: "1990-04-12",
+      activity_level: "moderate",
+      city: "Synthetic city",
+      limitations: "Prefer seated alternatives",
+    };
+    for (const patch of [
+      { birth_date: "2026-02-31" },
+      { birth_date: "2999-01-01" },
+      { city: "a".repeat(101) },
+      { limitations: "a".repeat(1001) },
+      { activity_level: "unknown" },
+    ])
+      await expect(
+        asUser(id, () =>
+          db.query("select kinra_save_onboarding($1,4,true,$2)", [
+            JSON.stringify({ ...data, ...patch }),
+            id,
+          ]),
+        ),
+      ).rejects.toMatchObject({ code: "22023" });
+    await asUser(id, () =>
+      db.query("select kinra_save_onboarding($1,4,true,$2)", [JSON.stringify(data), id]),
+    );
+    expect(
+      (
+        await asUser(outsider, () =>
+          db.query("select * from onboarding_state where owner_id=$1", [id]),
+        )
+      ).rows,
+    ).toHaveLength(0);
+  });
+});
+
+describe("private attachments and real reminder dispatcher", () => {
+  it("commits an attachment with its message, deduplicates retries and revokes recipient file access on disconnect", async () => {
+    const sender = await freshAccount("trainer");
+    const recipient = await freshAccount("client");
+    const other = await freshAccount("solo");
+    await db.query("insert into trainer_clients(trainer_id,client_id) values($1,$2)", [
+      sender,
+      recipient,
+    ]);
+    const path = `${sender}/${crypto.randomUUID()}.pdf`;
+    await asUser(sender, () =>
+      db.query(
+        "insert into storage.objects(bucket_id,name,metadata) values('message-attachments',$1,$2)",
+        [path, JSON.stringify({ mimetype: "application/pdf", size: 32 })],
+      ),
+    );
+    const send = (actor: string, filePath = path) =>
+      asUser(actor, () =>
+        db.query<{ id: string }>(
+          "select kinra_send_attachment($1,'Shared PDF',$2,'plan.pdf','application/pdf',32,$3) id",
+          [recipient, filePath, actor],
+        ),
+      );
+    const message = (await send(sender)).rows[0]!.id;
+    expect((await send(sender)).rows[0]!.id).toBe(message);
+    expect(
+      (
+        await asUser(recipient, () =>
+          db.query("select * from message_attachments where message_id=$1", [message]),
+        )
+      ).rows,
+    ).toHaveLength(1);
+    expect(
+      (
+        await asUser(recipient, () =>
+          db.query("select * from storage.objects where name=$1", [path]),
+        )
+      ).rows,
+    ).toHaveLength(1);
+    expect(
+      (
+        await asUser(other, () =>
+          db.query("select * from message_attachments where message_id=$1", [message]),
+        )
+      ).rows,
+    ).toHaveLength(0);
+    await expect(send(other)).rejects.toMatchObject({ code: "42501" });
+    await expect(send(sender, `${recipient}/${crypto.randomUUID()}.pdf`)).rejects.toMatchObject({
+      code: "42501",
+    });
+    await db.query("delete from trainer_clients where trainer_id=$1 and client_id=$2", [
+      sender,
+      recipient,
+    ]);
+    expect(
+      (
+        await asUser(recipient, () =>
+          db.query("select * from storage.objects where name=$1", [path]),
+        )
+      ).rows,
+    ).toHaveLength(0);
+    expect(
+      (
+        await asUser(recipient, () =>
+          db.query("select * from message_attachments where message_id=$1", [message]),
+        )
+      ).rows,
+    ).toHaveLength(0);
+    await expect(send(sender)).rejects.toMatchObject({ code: "42501" });
+  });
+  it("enforces owner-only devices, dispatcher capability, daily deduplication, quiet hours and expired-device cleanup", async () => {
+    const owner = await freshAccount("solo");
+    const other = await freshAccount("solo");
+    const token = "synthetic-dispatch-test-".repeat(3);
+    await db.query(
+      "insert into push_dispatch_config(token_hash) values(sha256(convert_to($1,'UTF8'))) on conflict(singleton) do update set token_hash=excluded.token_hash",
+      [token],
+    );
+    const device = (
+      await asUser(owner, () =>
+        db.query<{ id: string }>(
+          "insert into device_subscriptions(endpoint,p256dh,auth_key,locale) values($1,$2,$3,'bs') returning id",
+          [
+            `https://fcm.googleapis.com/fcm/send/${crypto.randomUUID()}`,
+            "a".repeat(87),
+            "b".repeat(22),
+          ],
+        ),
+      )
+    ).rows[0]!.id;
+    expect(
+      (
+        await asUser(other, () =>
+          db.query("select * from device_subscriptions where id=$1", [device]),
+        )
+      ).rows,
+    ).toHaveLength(0);
+    await expect(
+      asUser(other, () =>
+        db.query(
+          "insert into device_subscriptions(owner_id,endpoint,p256dh,auth_key,locale) values($1,'https://fcm.googleapis.com/forged',$2,$3,'de')",
+          [owner, "a".repeat(87), "b".repeat(22)],
+        ),
+      ),
+    ).rejects.toMatchObject({ code: "42501" });
+    const clock = (
+      await db.query<{ time: string; day: number }>(
+        "select to_char(now() at time zone 'UTC','HH24:MI') time,extract(dow from now() at time zone 'UTC')::int as \"day\"",
+      )
+    ).rows[0]!;
+    await feature(owner, "reminder", {
+      title: "PRIVATE MEDICATION TITLE",
+      time: clock.time,
+      timezone: "UTC",
+      weekdays: [clock.day],
+      enabled: true,
+    });
+    await expect(
+      asUser(null, () => db.query("select kinra_push_due('forged')"), "anon"),
+    ).rejects.toMatchObject({ code: "42501" });
+    const due = () =>
+      asUser(
+        null,
+        () =>
+          db.query<{ jobs: { deliveryId: string; locale: string }[] }>(
+            "select kinra_push_due($1) jobs",
+            [token],
+          ),
+        "anon",
+      );
+    const jobs = (await due()).rows[0]!.jobs;
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]!.locale).toBe("bs");
+    expect(JSON.stringify(jobs)).not.toContain("MEDICATION");
+    expect((await due()).rows[0]!.jobs).toHaveLength(0);
+    await asUser(
+      null,
+      () => db.query("select kinra_push_ack($1,$2,201)", [token, jobs[0]!.deliveryId]),
+      "anon",
+    );
+    expect((await due()).rows[0]!.jobs).toHaveLength(0);
+    await feature(owner, "notification_preferences", {
+      categories: { reminders: true },
+      quiet_start: clock.time,
+      quiet_end: clock.time === "23:59" ? "00:00" : "23:59",
+      timezone: "UTC",
+    });
+    await feature(owner, "reminder", {
+      title: "Quiet reminder",
+      time: clock.time,
+      timezone: "UTC",
+      weekdays: [clock.day],
+      enabled: true,
+    });
+    expect((await due()).rows[0]!.jobs).toHaveLength(0);
+    await asUser(owner, () =>
+      db.query("delete from feature_records where kind='notification_preferences'"),
+    );
+    const next = (await due()).rows[0]!.jobs;
+    expect(next).toHaveLength(1);
+    await asUser(
+      null,
+      () => db.query("select kinra_push_ack($1,$2,410)", [token, next[0]!.deliveryId]),
+      "anon",
+    );
+    expect(
+      (await db.query("select * from device_subscriptions where id=$1", [device])).rows,
+    ).toHaveLength(0);
+    await expect(
+      asUser(owner, () => db.query("select * from push_dispatch_config")),
+    ).rejects.toMatchObject({ code: "42501" });
+  });
+});
+
+describe("initial specialist and organization onboarding", () => {
+  it.each([
+    ["specialist", "trainer", "program"],
+    ["organization", "solo", "organization"],
+  ] as const)(
+    "atomically completes the %s path without creating connections or staff access",
+    async (workspace, role, first_action) => {
+      const id = crypto.randomUUID();
+      await db.query("insert into auth.users(id,email) values($1,$2)", [
+        id,
+        `${id}@example.invalid`,
+      ]);
+      const answers = {
+        role,
+        workspace,
+        first_action,
+        display_name: "Synthetic setup",
+        goal: "",
+        theme: "system",
+        language: "de",
+        timezone: "Europe/Sarajevo",
+        height_cm: null,
+      };
+      await asUser(id, () =>
+        db.query("select kinra_save_onboarding($1,4,true,$2)", [JSON.stringify(answers), id]),
+      );
+      const result = (
+        await asUser(id, () =>
+          db.query<{ state: { active: string; primary: string } }>(
+            "select kinra_account_workspaces($1) state",
+            [id],
+          ),
+        )
+      ).rows[0]!.state;
+      expect(result.active).toBe(workspace);
+      expect(result.primary).toBe(role);
+      expect(
+        (await asUser(id, () => db.query("select * from organization_staff"))).rows,
+      ).toHaveLength(0);
+      expect((await asUser(id, () => db.query("select * from trainer_clients"))).rows).toHaveLength(
+        0,
+      );
+      await asUser(id, () => db.query("select kinra_set_workspace('client',true,$1)", [id]));
+      await asUser(id, () =>
+        db.query("select kinra_save_onboarding($1,4,true,$2)", [JSON.stringify(answers), id]),
+      );
+      expect(
+        (
+          await asUser(id, () =>
+            db.query<{ state: { active: string } }>("select kinra_account_workspaces($1) state", [
+              id,
+            ]),
+          )
+        ).rows[0]!.state.active,
+      ).toBe("client");
+      await expect(
+        asUser(id, () =>
+          db.query("select kinra_save_onboarding($1,4,true,$2)", [
+            JSON.stringify({ ...answers, role: "client" }),
+            id,
+          ]),
+        ),
+      ).rejects.toMatchObject({ code: "22023" });
+    },
+  );
+});
+
+describe("notification test permission boundary", () => {
+  it("cannot reset a claimed test timestamp or inspect another account's device through the claim function", async () => {
+    const owner = await freshAccount("solo");
+    const other = await freshAccount("solo");
+    const endpoint = `https://fcm.googleapis.com/fcm/send/${crypto.randomUUID()}`;
+    await asUser(owner, () =>
+      db.query(
+        "insert into device_subscriptions(endpoint,p256dh,auth_key,locale) values($1,$2,$3,'en')",
+        [endpoint, "a".repeat(87), "b".repeat(22)],
+      ),
+    );
+    expect(
+      (
+        await asUser(owner, () =>
+          db.query<{ device: { endpoint: string } }>("select kinra_claim_push_test($1,$2) device", [
+            endpoint,
+            owner,
+          ]),
+        )
+      ).rows[0]!.device.endpoint,
+    ).toBe(endpoint);
+    await expect(
+      asUser(owner, () => db.query("select kinra_claim_push_test($1,$2)", [endpoint, owner])),
+    ).rejects.toMatchObject({ code: "23514" });
+    await expect(
+      asUser(owner, () =>
+        db.query("update device_subscriptions set last_test_at=null where endpoint=$1", [endpoint]),
+      ),
+    ).rejects.toMatchObject({ code: "42501" });
+    await expect(
+      asUser(other, () => db.query("select kinra_claim_push_test($1,$2)", [endpoint, owner])),
+    ).rejects.toMatchObject({ code: "42501" });
+    await expect(
+      asUser(other, () => db.query("select kinra_claim_push_test($1,$2)", [endpoint, other])),
+    ).rejects.toMatchObject({ code: "23514" });
   });
 });

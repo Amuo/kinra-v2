@@ -102,6 +102,8 @@ export interface Person {
 export interface Me extends Person {
   trainer_code: string | null;
   role: Role | null;
+  primary_role?: Role | null;
+  workspace?: import("./workspaces").AccountRole;
 }
 
 export interface LogTables {

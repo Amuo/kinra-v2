@@ -1,3 +1,4 @@
+import { activityLabels } from "./onboarding-more";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
@@ -14,17 +15,18 @@ import {
 import { useApi, useMe, useQ } from "@/lib/api";
 import { accountKey } from "@/lib/account-state";
 import {
-  chooseOnboardingRole,
+  chooseOnboardingWorkspace,
   initialOnboarding,
   onboardingDestination,
-  startingActions,
+  workspaceStartingActions,
   validateOnboarding,
   resumedOnboardingStep,
   type OnboardingAnswers,
 } from "@/lib/onboarding";
-import { currentLanguage, roleLabel, t, useLanguage } from "@/lib/i18n";
+import { currentLanguage, t, useLanguage } from "@/lib/i18n";
 import { errorText } from "@/lib/i18n-errors";
 import { cn } from "@/lib/utils";
+import { accountRoleLabels, coreRole } from "@/lib/workspaces";
 import type { Me } from "@/lib/types";
 import { StartingPoint } from "./starting-point";
 import { genderLabels, experienceLabels } from "@/lib/onboarding";
@@ -53,12 +55,26 @@ const roles = [
     title: "Coaching others",
     body: "Create programs, connect clients and follow their progress.",
   },
+  {
+    role: "specialist",
+    icon: ShieldCheck,
+    title: "Supporting clients professionally",
+    body: "Use coaching and planning tools for your practice. These tools do not diagnose or verify credentials.",
+  },
+  {
+    role: "organization",
+    icon: Users,
+    title: "Running an organization",
+    body: "Organize your community, staff access and membership records.",
+  },
 ] as const;
 const steps = ["Your path", "About you", "Your starting point", "First step", "Review"];
 const goalOptions = {
   solo: ["Build strength", "Improve fitness", "Build consistency"],
   client: ["Build strength", "Follow my plan", "Build consistency"],
   trainer: ["Build reusable programs", "Support client consistency", "Organize my coaching"],
+  specialist: ["Support client consistency", "Build reusable programs", "Organize my practice"],
+  organization: ["Organize memberships", "Build my community", "Coordinate my team"],
 };
 
 export function Onboarding({
@@ -86,7 +102,11 @@ export function Onboarding({
       />
     );
   if (draft.isLoading || preferences.isLoading || !me.data) return <SkeletonPage />;
-  const fresh = initialOnboarding(me.data, preferences.data?.[0]?.payload);
+  const setupMe = { ...me.data, role: me.data.primary_role ?? me.data.role };
+  const fresh = initialOnboarding(setupMe, preferences.data?.[0]?.payload);
+  // Setup edits preserve the original core role; workspace switching lives in Profile.
+  if (setupMe.role && fresh.workspace && coreRole(fresh.workspace) !== setupMe.role)
+    fresh.workspace = setupMe.role;
   const saved = draft.data;
   const answers =
     saved && !saved.completed_at
@@ -94,7 +114,7 @@ export function Onboarding({
           ...fresh,
           ...saved.answers,
           units: saved.units_set === false ? fresh.units : saved.answers.units,
-          role: me.data.role ?? saved.answers.role,
+          role: setupMe.role ?? saved.answers.role,
           language: currentLanguage(),
         }
       : {
@@ -105,14 +125,18 @@ export function Onboarding({
                 height_cm: saved.answers.height_cm,
                 weight_kg: saved.answers.weight_kg,
                 experience: saved.answers.experience,
+                birth_date: saved.answers.birth_date,
+                activity_level: saved.answers.activity_level,
+                city: saved.answers.city,
+                limitations: saved.answers.limitations,
               }
             : {}),
         };
   return (
     <OnboardingForm
-      me={me.data}
+      me={setupMe}
       initial={answers}
-      initialStep={saved && !saved.completed_at ? saved.step : me.data.role ? 1 : 0}
+      initialStep={saved && !saved.completed_at ? saved.step : setupMe.role ? 1 : 0}
       embedded={embedded}
       hasSavedDraft={!!saved && !saved.completed_at}
       {...(onClose ? { onClose } : {})}
@@ -152,6 +176,7 @@ function OnboardingForm({
     heading.current?.focus();
   }, [step]);
   const role = answers.role;
+  const workspace = answers.workspace ?? role;
   const destination = onboardingDestination(answers);
   const update = (patch: Partial<OnboardingAnswers>) => {
     setAnswers((value) => ({ ...value, ...patch }));
@@ -188,11 +213,15 @@ function OnboardingForm({
     step === 0
       ? "What brings you to Kinra?"
       : step === 1
-        ? role === "trainer"
-          ? "Introduce your coaching."
-          : role === "client"
-            ? "Make coaching personal."
-            : "Start with what matters to you."
+        ? workspace === "organization"
+          ? "Introduce your organization."
+          : workspace === "specialist"
+            ? "Introduce your practice."
+            : role === "trainer"
+              ? "Introduce your coaching."
+              : role === "client"
+                ? "Make coaching personal."
+                : "Start with what matters to you."
         : step === 2
           ? "Your starting point"
           : step === 3
@@ -258,8 +287,8 @@ function OnboardingForm({
                     key={option.role}
                     className={cn(
                       "panel flex cursor-pointer items-start gap-3 p-4",
-                      role === option.role && "ring-2 ring-primary",
-                      me.role && me.role !== option.role && "opacity-45",
+                      workspace === option.role && "ring-2 ring-primary",
+                      me.role && workspace !== option.role && "opacity-45",
                     )}
                   >
                     <input
@@ -267,10 +296,10 @@ function OnboardingForm({
                       type="radio"
                       name="account-role"
                       value={option.role}
-                      checked={role === option.role}
-                      disabled={!!me.role && me.role !== option.role}
+                      checked={workspace === option.role}
+                      disabled={!!me.role && workspace !== option.role}
                       onChange={() => {
-                        setAnswers(chooseOnboardingRole(answers, option.role));
+                        setAnswers(chooseOnboardingWorkspace(answers, option.role));
                         setSaved(false);
                         setError("");
                       }}
@@ -294,7 +323,7 @@ function OnboardingForm({
                 {t(
                   me.role
                     ? "Your account type is already set. You can update the rest of your setup."
-                    : "Your account type is set when you finish. Coaches also have personal tracking.",
+                    : "Your first workspace is set when you finish. You can add other workspaces from Profile.",
                 )}
               </p>
             </>
@@ -331,7 +360,7 @@ function OnboardingForm({
                 />
               </label>
               <div className="flex flex-wrap gap-2" aria-label={t("Goal ideas")}>
-                {goalOptions[role].map((label) => (
+                {goalOptions[workspace ?? role].map((label) => (
                   <Button
                     key={label}
                     type="button"
@@ -362,7 +391,7 @@ function OnboardingForm({
                 )}
               </p>
               <div role="radiogroup" aria-label={t("First step")} className="space-y-3">
-                {startingActions[role].map((action) => (
+                {workspaceStartingActions(answers).map((action) => (
                   <label
                     key={action.id}
                     className={cn(
@@ -424,7 +453,7 @@ function OnboardingForm({
             <>
               <dl className="panel divide-y divide-border px-4">
                 {[
-                  ["Account type", roleLabel(role)],
+                  ["Account type", t(accountRoleLabels[workspace ?? role])],
                   ["Display name", answers.display_name.trim()],
                   [
                     role === "trainer" ? "Coaching priority" : "Goal",
@@ -449,6 +478,18 @@ function OnboardingForm({
                   [
                     "Training experience (optional)",
                     answers.experience ? t(experienceLabels[answers.experience]) : t("Not added"),
+                  ],
+                  ["Date of birth (optional)", answers.birth_date || t("Not added")],
+                  [
+                    "Daily activity (optional)",
+                    answers.activity_level
+                      ? t(activityLabels[answers.activity_level])
+                      : t("Not added"),
+                  ],
+                  ["City (optional)", answers.city.trim() || t("Not added")],
+                  [
+                    "Movement considerations (optional)",
+                    answers.limitations.trim() || t("Not added"),
                   ],
                   ["First step", t(destination.title)],
                   [
