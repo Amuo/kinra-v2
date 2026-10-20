@@ -46,7 +46,7 @@ export function ExtraPrograms({ kind }: { kind: Kind }) {
       (!context || row.payload.context === context) &&
       `${displayPlan(row).payload.title} ${displayPlan(row).payload.notes ?? ""}`
         .toLocaleLowerCase()
-        .includes(query.toLocaleLowerCase()),
+        .includes(query.trim().toLocaleLowerCase()),
   );
   return (
     <div className="space-y-4">
@@ -106,7 +106,17 @@ export function ExtraPrograms({ kind }: { kind: Kind }) {
               </div>
             </article>
           ))}
-          {!rows.length && <p className="py-4 text-label">{t("No plans match your search.")}</p>}
+          {!rows.length && (
+            <p className="py-4 text-label">
+              {t(
+                query.trim() || context
+                  ? "No plans match your search."
+                  : kind === "supplement_plan"
+                    ? "No supplement plans yet. Create a private plan to get started."
+                    : "No private video plans yet. Save a starting point or create your own.",
+              )}
+            </p>
+          )}
         </div>
       )}
       {editing && (

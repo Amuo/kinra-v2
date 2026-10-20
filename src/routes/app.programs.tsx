@@ -54,18 +54,24 @@ function Programs() {
   const filtered = (programs.data ?? []).filter((program) => matchedIds.has(program.id));
   return (
     <div className="min-w-0">
-      <PageHeader
-        eyebrow={tr("Training library")}
-        title={tr("Programs")}
-        action={
-          me ? (
-            <Button variant="volt" className="h-11" onClick={() => setEditing("new")}>
-              <Plus />
-              <Message source="New" />
-            </Button>
-          ) : undefined
-        }
-      />
+      <div className="[&>header]:grid-cols-1 sm:[&>header]:grid-cols-[minmax(0,1fr)_auto]">
+        <PageHeader
+          eyebrow={tr("Training library")}
+          title={tr("Programs")}
+          action={
+            me ? (
+              <Button
+                variant="volt"
+                className="h-11 justify-self-start sm:justify-self-end"
+                onClick={() => setEditing("new")}
+              >
+                <Plus />
+                <Message source="New" />
+              </Button>
+            ) : undefined
+          }
+        />
+      </div>
       <Button
         variant="glass"
         wrap

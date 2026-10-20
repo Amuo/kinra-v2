@@ -1,4 +1,16 @@
 {
+  "English": {
+    "bs": "Engleski",
+    "de": "Englisch"
+  },
+  "No supplement plans yet. Create a private plan to get started.": {
+    "bs": "Još nema planova suplemenata. Za početak napravite privatni plan.",
+    "de": "Noch keine Nahrungsergänzungspläne. Erstelle zunächst einen privaten Plan."
+  },
+  "No private video plans yet. Save a starting point or create your own.": {
+    "bs": "Još nema privatnih videoplanova. Sačuvajte početni plan ili napravite vlastiti.",
+    "de": "Noch keine privaten Videopläne. Speichere eine Vorlage oder erstelle einen eigenen Plan."
+  },
   "This resource is no longer available.": {
     "bs": "Ovaj materijal više nije dostupan.",
     "de": "Dieses Material ist nicht mehr verfügbar."

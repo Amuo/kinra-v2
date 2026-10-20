@@ -35,6 +35,27 @@ afterEach(() => {
   vi.clearAllMocks();
   setLanguage("en", false);
 });
+it.each(["en", "bs", "de"] as const)(
+  "distinguishes an empty collection from filtered results in %s",
+  (language) => {
+    setLanguage(language, false);
+    const view = render(<ExtraPrograms kind="supplement_plan" />);
+    expect(
+      screen.getByText(t("No supplement plans yet. Create a private plan to get started.")),
+    ).toBeVisible();
+    fireEvent.change(screen.getByLabelText(t("Search programs")), { target: { value: "missing" } });
+    expect(screen.getByText(t("No plans match your search."))).toBeVisible();
+    fireEvent.change(screen.getByLabelText(t("Search programs")), { target: { value: "  " } });
+    expect(
+      screen.getByText(t("No supplement plans yet. Create a private plan to get started.")),
+    ).toBeVisible();
+    view.unmount();
+    render(<ExtraPrograms kind="video_plan" />);
+    expect(
+      screen.getByText(t("No private video plans yet. Save a starting point or create your own.")),
+    ).toBeVisible();
+  },
+);
 it("preserves a failed video draft and retries the same private assigned record", async () => {
   state.save.mockRejectedValueOnce(new Error("Temporary failure")).mockResolvedValueOnce("saved");
   render(<ExtraPrograms kind="video_plan" />);

@@ -50,15 +50,18 @@ export function ProgramLibrary() {
           {t("Review a complete plan, start a session or save a private copy you can edit.")}
         </p>
       </div>
-      <div className="flex flex-wrap gap-2" role="group" aria-label={t("Program type")}>
+      <div
+        className="flex flex-wrap justify-center gap-2"
+        role="group"
+        aria-label={t("Program type")}
+      >
         {(["training", "nutrition", "supplement_plan", "video_plan", "references"] as const).map(
           (value) => (
             <Button
               key={value}
-              wrap
               variant={tab === value ? "volt" : "secondary"}
               aria-pressed={tab === value}
-              className="min-h-11 flex-1"
+              className="h-auto min-h-11 max-w-full flex-none whitespace-normal break-normal hyphens-none px-4 py-3"
               onClick={() => {
                 setTab(value);
                 setFilters((previous) => ({
