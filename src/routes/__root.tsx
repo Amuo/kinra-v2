@@ -144,6 +144,8 @@ function RootComponent() {
     const titles: Record<string, string> = {
       "/": "Kinra — Training, recovery & coaching in one app",
       "/auth": "Sign in — Kinra",
+      "/business": "Kinra Business — Memberships, reception & scheduling",
+      "/business/dashboard": "Business dashboard — Kinra",
       "/auth/confirm": "Kinra account",
       "/app": "Today — Kinra",
       "/app/train": "Train — Programs & personal records | Kinra",

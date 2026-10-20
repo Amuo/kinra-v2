@@ -37,7 +37,7 @@ export function OrganizationTools() {
         {t("Organization tools")}
       </Button>
       <Link
-        to="/business"
+        to="/business/dashboard"
         className="mt-3 flex min-h-12 items-center justify-center rounded-xl border border-primary/30 bg-primary/10 px-4 text-sm font-semibold text-primary"
       >
         {t("Open Kinra Business")}

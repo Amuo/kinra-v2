@@ -13,6 +13,13 @@ const configMessages = {
   "src/lib/business.ts": ["businessSectorLabels"],
   "src/components/strata/business-management.tsx": ["resourceLabels"],
   "src/components/strata/business-panels.tsx": ["entryReasonLabels"],
+  "src/components/strata/business-landing.tsx": [
+    "facilities",
+    "workflow",
+    "previewSessions",
+    "facilityStrip",
+    "homeBenefits",
+  ],
   "src/components/strata/session.tsx": ["rpeAnchors", "cardioEffortAnchors"],
   "src/lib/session-state.ts": ["DOW"],
   "src/routes/app.progress.tsx": ["DOW"],

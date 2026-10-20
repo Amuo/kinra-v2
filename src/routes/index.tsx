@@ -22,6 +22,7 @@ import hero from "@/assets/hero.jpg";
 import { Ring } from "@/components/strata/ui";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/brand/logo";
+import { BusinessHomeSection } from "@/components/strata/business-landing";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,8 +51,8 @@ const press = { scale: 0.97 };
 function useDemo() {
   const navigate = useNavigate();
   return (as: "client" | "trainer" | "business") => {
-    sessionStorage.setItem("strata-demo", as === "business" ? "trainer" : as);
-    navigate({ to: as === "business" ? "/business" : "/app" });
+    sessionStorage.setItem("strata-demo", as === "business" ? "client" : as);
+    navigate({ to: as === "business" ? "/business/dashboard" : "/app" });
   };
 }
 
@@ -209,6 +210,12 @@ function Landing() {
         <div className="bg-fade absolute inset-0" />
         <header className="relative z-10 flex flex-wrap items-center justify-between gap-2 px-5 pt-4">
           <Logo />
+          <Link
+            to="/business"
+            className="flex min-h-11 items-center px-2 text-sm font-semibold text-primary"
+          >
+            Kinra Business
+          </Link>
           <LanguageSelector compact />
           <Link to="/auth" className="flex min-h-[44px] items-center px-2 text-label font-semibold">
             <Message source="Sign in" />
@@ -268,6 +275,12 @@ function Landing() {
         <header className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-8 py-6">
           <Logo />
           <nav className="flex min-w-0 flex-wrap items-center gap-2">
+            <Link
+              to="/business"
+              className="flex min-h-11 items-center px-3 text-sm font-semibold text-primary"
+            >
+              Kinra Business
+            </Link>
             <LanguageSelector compact />
             <Link
               to="/auth"
@@ -411,7 +424,8 @@ function Landing() {
         </section>
       </div>
 
-      <section className="mx-auto max-w-6xl px-5 pb-16 md:px-8">
+      <BusinessHomeSection />
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
         <div className="eyebrow mb-3">
           <Message source="Explore your wider community" />
         </div>

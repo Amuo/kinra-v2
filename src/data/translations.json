@@ -9207,5 +9207,301 @@
   "Download the business records available to your role as JSON.": {
     "bs": "Preuzmite poslovne zapise dostupne vašoj ulozi u JSON formatu.",
     "de": "Laden Sie die für Ihre Rolle verfügbaren Betriebsdaten als JSON herunter."
+  },
+  "Kinra Business — Memberships, reception & scheduling": {
+    "bs": "Kinra Business — Članarine, recepcija i raspored",
+    "de": "Kinra Business — Mitgliedschaften, Empfang & Planung"
+  },
+  "Run memberships, QR attendance, staff and facility bookings in one workspace. For gyms, pools, clubs and sports complexes.": {
+    "bs": "Upravljajte članarinama, QR dolascima, osobljem i rezervacijama u jednom radnom okruženju. Za teretane, bazene, klubove i sportske komplekse.",
+    "de": "Verwalten Sie Mitgliedschaften, QR-Anwesenheit, Personal und Buchungen in einem Arbeitsbereich. Für Fitnessstudios, Schwimmbäder, Vereine und Sportanlagen."
+  },
+  "Business dashboard — Kinra": {
+    "bs": "Poslovna kontrolna ploča — Kinra",
+    "de": "Betriebsübersicht — Kinra"
+  },
+  "Gyms & fitness clubs": {
+    "bs": "Teretane i fitnes klubovi",
+    "de": "Fitnessstudios & Fitnessclubs"
+  },
+  "Memberships, visits and the daily reception queue.": {
+    "bs": "Članarine, dolasci i svakodnevni rad recepcije.",
+    "de": "Mitgliedschaften, Besuche und der Empfangsalltag."
+  },
+  "Pools & swimming clubs": {
+    "bs": "Bazeni i plivački klubovi",
+    "de": "Schwimmbäder & Schwimmvereine"
+  },
+  "Pool access, swimming lanes and group sessions.": {
+    "bs": "Pristup bazenu, plivačke staze i grupni termini.",
+    "de": "Schwimmbadzugang, Schwimmbahnen und Gruppentermine."
+  },
+  "Football & team sports": {
+    "bs": "Fudbal i ekipni sportovi",
+    "de": "Fußball & Mannschaftssport"
+  },
+  "Teams, pitches and a shared training schedule.": {
+    "bs": "Ekipe, tereni i zajednički raspored treninga.",
+    "de": "Teams, Spielfelder und ein gemeinsamer Trainingsplan."
+  },
+  "MMA & martial arts": {
+    "bs": "MMA i borilačke vještine",
+    "de": "MMA & Kampfsport"
+  },
+  "Training groups, mats and class capacities.": {
+    "bs": "Grupe za trening, strunjače i kapaciteti časova.",
+    "de": "Trainingsgruppen, Matten und Kurskapazitäten."
+  },
+  "Athletics & sports complexes": {
+    "bs": "Atletika i sportski kompleksi",
+    "de": "Leichtathletik & Sportanlagen"
+  },
+  "Multiple locations and resources in one workspace.": {
+    "bs": "Više lokacija i resursa u jednom radnom okruženju.",
+    "de": "Mehrere Standorte und Ressourcen in einem Arbeitsbereich."
+  },
+  "Your kind of facility": {
+    "bs": "Objekat po vašoj mjeri",
+    "de": "Ihre Art von Einrichtung"
+  },
+  "Tennis, padel, dance, yoga and more. Configure the resources you use.": {
+    "bs": "Tenis, padel, ples, joga i više. Podesite resurse koje koristite.",
+    "de": "Tennis, Padel, Tanz, Yoga und mehr. Konfigurieren Sie die Ressourcen, die Sie nutzen."
+  },
+  "Welcome the member": {
+    "bs": "Dočekajte člana",
+    "de": "Mitglieder willkommen heißen"
+  },
+  "Create a member record at reception. A Kinra account is optional until they want their own pass and bookings.": {
+    "bs": "Kreirajte članski zapis na recepciji. Kinra račun nije potreban dok član ne poželi vlastitu propusnicu i rezervacije.",
+    "de": "Legen Sie am Empfang einen Mitgliedsdatensatz an. Ein Kinra-Konto ist erst für den eigenen Pass und eigene Buchungen nötig."
+  },
+  "Give the right access": {
+    "bs": "Dodijelite odgovarajući pristup",
+    "de": "Passenden Zugang zuweisen"
+  },
+  "Choose a plan, dates, visit allowance and eligible locations. Pause or update access when things change.": {
+    "bs": "Odaberite paket, datume, broj dolazaka i dozvoljene lokacije. Pauzirajte ili ažurirajte pristup prema potrebi.",
+    "de": "Wählen Sie Tarif, Zeitraum, Besuchskontingent und berechtigte Standorte. Pausieren oder ändern Sie den Zugang bei Bedarf."
+  },
+  "Make entry clear": {
+    "bs": "Olakšajte provjeru ulaza",
+    "de": "Zutritt klar regeln"
+  },
+  "Scan a short-lived QR pass or look up the member. See the access decision, record the visit and check them out.": {
+    "bs": "Skenirajte kratkotrajnu QR propusnicu ili pronađite člana. Pregledajte odluku o pristupu, evidentirajte dolazak i izlazak.",
+    "de": "Scannen Sie einen kurz gültigen QR-Pass oder suchen Sie das Mitglied. Sehen Sie die Zutrittsentscheidung und erfassen Sie Ein- und Auschecken."
+  },
+  "Keep the week organized": {
+    "bs": "Organizujte sedmicu",
+    "de": "Die Woche organisieren"
+  },
+  "Schedule classes and team sessions, allocate resources and manage bookings within capacity.": {
+    "bs": "Zakažite časove i ekipne treninge, rasporedite resurse i upravljajte rezervacijama u okviru kapaciteta.",
+    "de": "Planen Sie Kurse und Teamtermine, weisen Sie Ressourcen zu und verwalten Sie Buchungen innerhalb der Kapazität."
+  },
+  "Try the business demo": {
+    "bs": "Isprobajte poslovni demo",
+    "de": "Betriebsdemo ausprobieren"
+  },
+  "Product preview": {
+    "bs": "Pregled proizvoda",
+    "de": "Produktvorschau"
+  },
+  "Illustrative demo data": {
+    "bs": "Ilustrativni demo podaci",
+    "de": "Beispielhafte Demodaten"
+  },
+  "Demo Sports Centre": {
+    "bs": "Demo sportski centar",
+    "de": "Demo-Sportzentrum"
+  },
+  "Main location": {
+    "bs": "Glavna lokacija",
+    "de": "Hauptstandort"
+  },
+  "Reception team": {
+    "bs": "Tim recepcije",
+    "de": "Empfangsteam"
+  },
+  "Ready for the next arrival.": {
+    "bs": "Spremni za sljedeći dolazak.",
+    "de": "Bereit für den nächsten Besuch."
+  },
+  "Preview view": {
+    "bs": "Prikaz pregleda",
+    "de": "Vorschauansicht"
+  },
+  "Demo member 024": {
+    "bs": "Demo član 024",
+    "de": "Demo-Mitglied 024"
+  },
+  "Monthly membership": {
+    "bs": "Mjesečna članarina",
+    "de": "Monatsmitgliedschaft"
+  },
+  "Membership checked. Visit recorded.": {
+    "bs": "Članarina provjerena. Dolazak evidentiran.",
+    "de": "Mitgliedschaft geprüft. Besuch erfasst."
+  },
+  "Role-based access": {
+    "bs": "Pristup prema ulozi",
+    "de": "Rollenbasierter Zugriff"
+  },
+  "Location-specific access": {
+    "bs": "Pristup prema lokaciji",
+    "de": "Standortbezogener Zugang"
+  },
+  "Personal Kinra": {
+    "bs": "Lična Kinra",
+    "de": "Kinra für dich"
+  },
+  "Open workspace": {
+    "bs": "Otvori radno okruženje",
+    "de": "Arbeitsbereich öffnen"
+  },
+  "Built for the people who run the place": {
+    "bs": "Za ljude koji vode objekat",
+    "de": "Für die Menschen hinter dem Betrieb"
+  },
+  "Keep your club moving.": {
+    "bs": "Neka vaš klub bude u pokretu.",
+    "de": "Bringen Sie Ihren Verein voran."
+  },
+  "Members, reception, spaces and schedules. One business workspace for the work behind every training session.": {
+    "bs": "Članovi, recepcija, prostori i raspored. Jedno poslovno radno okruženje za sve što stoji iza svakog treninga.",
+    "de": "Mitglieder, Empfang, Räume und Termine. Ein Arbeitsbereich für alles, was hinter jedem Training steckt."
+  },
+  "Open your business workspace": {
+    "bs": "Otvori svoje poslovno okruženje",
+    "de": "Eigenen Arbeitsbereich öffnen"
+  },
+  "Explore the demo with sample records. No account required.": {
+    "bs": "Istražite demo s oglednim zapisima. Račun nije potreban.",
+    "de": "Erkunden Sie die Demo mit Beispieldaten. Kein Konto erforderlich."
+  },
+  "Made for your facility": {
+    "bs": "Za vaš objekat",
+    "de": "Für Ihre Einrichtung"
+  },
+  "More than a gym desk": {
+    "bs": "Više od recepcije teretane",
+    "de": "Mehr als ein Studioempfang"
+  },
+  "A connected working day": {
+    "bs": "Povezan radni dan",
+    "de": "Ein vernetzter Arbeitsalltag"
+  },
+  "From first hello to the next session.": {
+    "bs": "Od prvog pozdrava do sljedećeg treninga.",
+    "de": "Vom ersten Hallo bis zum nächsten Training."
+  },
+  "Give each daily task a clear place, while keeping the member and their access in view.": {
+    "bs": "Dajte svakom dnevnom zadatku jasno mjesto, uz pregled člana i njegovog pristupa.",
+    "de": "Geben Sie jeder täglichen Aufgabe einen festen Platz und behalten Sie Mitglied und Zugang im Blick."
+  },
+  "A pass in their pocket. A clear answer at reception.": {
+    "bs": "Propusnica u džepu. Jasan odgovor na recepciji.",
+    "de": "Der Pass in der Tasche. Klarheit am Empfang."
+  },
+  "Members generate a short-lived QR pass in Kinra. Your team checks current membership and location access, with manual lookup when needed.": {
+    "bs": "Članovi u Kinri generišu kratkotrajnu QR propusnicu. Vaš tim provjerava važeću članarinu i pristup lokaciji, uz ručnu pretragu po potrebi.",
+    "de": "Mitglieder erstellen in Kinra einen kurz gültigen QR-Pass. Ihr Team prüft Mitgliedschaft und Standortzugang, bei Bedarf per manueller Suche."
+  },
+  "Attendance is recorded in Kinra. Door and turnstile control needs a separate hardware integration.": {
+    "bs": "Prisustvo se evidentira u Kinri. Upravljanje vratima i okretnicama zahtijeva posebnu hardversku integraciju.",
+    "de": "Kinra erfasst die Anwesenheit. Die Steuerung von Türen und Drehkreuzen erfordert eine separate Hardwareintegration."
+  },
+  "Know what is recorded.": {
+    "bs": "Imajte pregled evidencije.",
+    "de": "Erfasste Zahlungen im Blick."
+  },
+  "Keep invoices, payments and refunds together, with financial records available to owners and managers.": {
+    "bs": "Držite račune, uplate i povrate zajedno, uz pristup finansijskim zapisima za vlasnike i menadžere.",
+    "de": "Halten Sie Rechnungen, Zahlungen und Erstattungen zusammen. Finanzdaten sind für Inhaber und Leitung zugänglich."
+  },
+  "Payments are recorded manually. Kinra does not charge cards or move money.": {
+    "bs": "Uplate se evidentiraju ručno. Kinra ne naplaćuje kartice niti prenosi novac.",
+    "de": "Zahlungen werden manuell erfasst. Kinra belastet keine Karten und bewegt kein Geld."
+  },
+  "Different sports. The same daily essentials.": {
+    "bs": "Različiti sportovi. Iste svakodnevne potrebe.",
+    "de": "Verschiedene Sportarten. Dieselben täglichen Aufgaben."
+  },
+  "From a neighborhood club to a multi-sport complex. Choose your facility type, locations, spaces and membership rules.": {
+    "bs": "Od lokalnog kluba do višesportskog kompleksa. Odaberite vrstu objekta, lokacije, prostore i pravila članarine.",
+    "de": "Vom Verein im Viertel bis zur Mehrsportanlage. Wählen Sie Einrichtungstyp, Standorte, Räume und Mitgliedschaftsregeln."
+  },
+  "One Kinra. Two kinds of work.": {
+    "bs": "Jedna Kinra. Dvije vrste rada.",
+    "de": "Eine Kinra. Zwei Arbeitsbereiche."
+  },
+  "Their training stays personal. Your operations stay organized.": {
+    "bs": "Njihov trening ostaje ličan. Vaše poslovanje organizovano.",
+    "de": "Ihr Training bleibt persönlich. Ihr Betrieb bleibt organisiert."
+  },
+  "Personal Kinra is for training, nutrition, recovery and coaching. Kinra Business is for the team running the facility.": {
+    "bs": "Lična Kinra služi za trening, ishranu, oporavak i coaching. Kinra Business je za tim koji vodi objekat.",
+    "de": "Die persönliche Kinra ist für Training, Ernährung, Erholung und Coaching. Kinra Business ist für das Team, das die Einrichtung betreibt."
+  },
+  "A membership link enables passes and bookings. It does not give the facility access to private health or coaching logs.": {
+    "bs": "Povezivanje članarine omogućava propusnice i rezervacije. Ono ne daje objektu pristup privatnim zdravstvenim ili coaching zapisima.",
+    "de": "Die Mitgliedschaftsverknüpfung ermöglicht Pässe und Buchungen. Sie gewährt der Einrichtung keinen Zugriff auf private Gesundheits- oder Coachingdaten."
+  },
+  "See your next working day, together.": {
+    "bs": "Pregledajte svoj sljedeći radni dan.",
+    "de": "Den nächsten Arbeitstag gemeinsam im Blick."
+  },
+  "Back to personal Kinra": {
+    "bs": "Nazad na ličnu Kinru",
+    "de": "Zurück zur persönlichen Kinra"
+  },
+  "For the people behind the training.": {
+    "bs": "Za ljude koji stoje iza treninga.",
+    "de": "Für die Menschen hinter dem Training."
+  },
+  "Run your gym, pool, sports club or complex with a dedicated workspace for members, reception and the weekly schedule.": {
+    "bs": "Vodite teretanu, bazen, sportski klub ili kompleks uz namjensko radno okruženje za članove, recepciju i sedmični raspored.",
+    "de": "Führen Sie Ihr Studio, Schwimmbad, Ihren Sportverein oder Ihre Anlage mit einem eigenen Arbeitsbereich für Mitglieder, Empfang und Wochenplanung."
+  },
+  "Explore Kinra Business": {
+    "bs": "Istražite Kinra Business",
+    "de": "Kinra Business entdecken"
+  },
+  "A business workspace alongside your personal Kinra account.": {
+    "bs": "Poslovno radno okruženje uz vaš lični Kinra račun.",
+    "de": "Ein Betriebsarbeitsbereich neben Ihrem persönlichen Kinra-Konto."
+  },
+  "Swimming group": {
+    "bs": "Plivačka grupa",
+    "de": "Schwimmgruppe"
+  },
+  "Pool · Lane 2": {
+    "bs": "Bazen · Staza 2",
+    "de": "Schwimmbad · Bahn 2"
+  },
+  "Team training": {
+    "bs": "Ekipni trening",
+    "de": "Mannschaftstraining"
+  },
+  "Football pitch": {
+    "bs": "Fudbalski teren",
+    "de": "Fußballplatz"
+  },
+  "Memberships and location access": {
+    "bs": "Članarine i pristup lokacijama",
+    "de": "Mitgliedschaften und Standortzugang"
+  },
+  "QR entry and recorded attendance": {
+    "bs": "QR ulazak i evidencija prisustva",
+    "de": "QR-Zutritt und Anwesenheitserfassung"
+  },
+  "Classes, teams and resource bookings": {
+    "bs": "Časovi, ekipe i rezervacije resursa",
+    "de": "Kurse, Teams und Ressourcenbuchungen"
+  },
+  "Gyms & fitness": {
+    "bs": "Teretane i fitnes",
+    "de": "Fitnessstudios"
   }
 }

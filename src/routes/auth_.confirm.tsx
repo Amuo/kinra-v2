@@ -1,3 +1,4 @@
+import { readAuthDestination, clearAuthDestination } from "@/lib/auth-destination";
 import { LanguageSelector } from "@/components/strata/language-selector";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
@@ -36,7 +37,11 @@ function ConfirmEmail() {
       if (recoveryFlow) {
         setRecovery(true);
         setStatus("Choose your new password.");
-      } else await navigate({ to: "/app", replace: true });
+      } else {
+        const destination = readAuthDestination(sessionStorage);
+        clearAuthDestination(sessionStorage);
+        await navigate({ to: destination, replace: true });
+      }
     };
     void confirm().catch((error) =>
       setStatus(error instanceof Error ? error.message : tr("Couldn't confirm this link.")),
@@ -64,7 +69,11 @@ function ConfirmEmail() {
             const result = await supabase.auth.updateUser({ password });
             setBusy(false);
             if (result.error) setStatus(result.error.message);
-            else await navigate({ to: "/app", replace: true });
+            else {
+              const destination = readAuthDestination(sessionStorage);
+              clearAuthDestination(sessionStorage);
+              await navigate({ to: destination, replace: true });
+            }
           }}
         >
           <label>

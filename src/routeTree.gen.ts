@@ -22,6 +22,7 @@ import { Route as AppProgressRouteImport } from './routes/app.progress'
 import { Route as AppRecoverRouteImport } from './routes/app.recover'
 import { Route as AppTrainRouteImport } from './routes/app.train'
 import { Route as AuthConfirmRouteImport } from './routes/auth_.confirm'
+import { Route as BusinessDashboardRouteImport } from './routes/business_.dashboard'
 import { Route as AppClientsIndexRouteImport } from './routes/app.clients.index'
 import { Route as AppClientsClientIdRouteImport } from './routes/app.clients.$clientId'
 
@@ -90,6 +91,11 @@ const AuthConfirmRoute = AuthConfirmRouteImport.update({
   path: '/auth/confirm',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BusinessDashboardRoute = BusinessDashboardRouteImport.update({
+  id: '/business_/dashboard',
+  path: '/business/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AppClientsIndexRoute = AppClientsIndexRouteImport.update({
   id: '/clients/',
   path: '/clients/',
@@ -114,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/app/recover': typeof AppRecoverRoute
   '/app/train': typeof AppTrainRoute
   '/auth/confirm': typeof AuthConfirmRoute
+  '/business/dashboard': typeof BusinessDashboardRoute
   '/app/': typeof AppIndexRoute
   '/app/clients/$clientId': typeof AppClientsClientIdRoute
   '/app/clients/': typeof AppClientsIndexRoute
@@ -130,6 +137,7 @@ export interface FileRoutesByTo {
   '/app/recover': typeof AppRecoverRoute
   '/app/train': typeof AppTrainRoute
   '/auth/confirm': typeof AuthConfirmRoute
+  '/business/dashboard': typeof BusinessDashboardRoute
   '/app': typeof AppIndexRoute
   '/app/clients/$clientId': typeof AppClientsClientIdRoute
   '/app/clients': typeof AppClientsIndexRoute
@@ -148,6 +156,7 @@ export interface FileRoutesById {
   '/app/recover': typeof AppRecoverRoute
   '/app/train': typeof AppTrainRoute
   '/auth_/confirm': typeof AuthConfirmRoute
+  '/business_/dashboard': typeof BusinessDashboardRoute
   '/app/': typeof AppIndexRoute
   '/app/clients/$clientId': typeof AppClientsClientIdRoute
   '/app/clients/': typeof AppClientsIndexRoute
@@ -167,6 +176,7 @@ export interface FileRouteTypes {
     | '/app/recover'
     | '/app/train'
     | '/auth/confirm'
+    | '/business/dashboard'
     | '/app/'
     | '/app/clients/$clientId'
     | '/app/clients/'
@@ -183,6 +193,7 @@ export interface FileRouteTypes {
     | '/app/recover'
     | '/app/train'
     | '/auth/confirm'
+    | '/business/dashboard'
     | '/app'
     | '/app/clients/$clientId'
     | '/app/clients'
@@ -200,6 +211,7 @@ export interface FileRouteTypes {
     | '/app/recover'
     | '/app/train'
     | '/auth_/confirm'
+    | '/business_/dashboard'
     | '/app/'
     | '/app/clients/$clientId'
     | '/app/clients/'
@@ -212,6 +224,7 @@ export interface RootRouteChildren {
   BusinessRoute: typeof BusinessRoute
   ApiRemindersRoute: typeof ApiRemindersRoute
   AuthConfirmRoute: typeof AuthConfirmRoute
+  BusinessDashboardRoute: typeof BusinessDashboardRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -307,6 +320,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthConfirmRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/business_/dashboard': {
+      id: '/business_/dashboard'
+      path: '/business/dashboard'
+      fullPath: '/business/dashboard'
+      preLoaderRoute: typeof BusinessDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/app/clients/': {
       id: '/app/clients/'
       path: '/clients'
@@ -357,6 +377,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessRoute: BusinessRoute,
   ApiRemindersRoute: ApiRemindersRoute,
   AuthConfirmRoute: AuthConfirmRoute,
+  BusinessDashboardRoute: BusinessDashboardRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

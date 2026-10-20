@@ -1,3 +1,8 @@
+import {
+  authDestination,
+  rememberAuthDestination,
+  clearAuthDestination,
+} from "@/lib/auth-destination";
 import { errorText } from "@/lib/i18n-errors";
 import { currentLanguage } from "@/lib/i18n";
 import { LanguageSelector } from "@/components/strata/language-selector";
@@ -11,6 +16,11 @@ import { Input } from "@/components/ui/input";
 import { Logo } from "@/components/brand/logo";
 
 export const Route = createFileRoute("/auth")({
+  validateSearch: (
+    search: Record<string, unknown>,
+  ): { next?: "/business/dashboard" | undefined } => ({
+    next: search["next"] === "/business/dashboard" ? ("/business/dashboard" as const) : undefined,
+  }),
   head: () => ({
     meta: [
       { property: "og:type", content: "website" },
@@ -27,6 +37,7 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const { t: tr } = useLanguage();
   const navigate = useNavigate();
+  const destination = authDestination(Route.useSearch().next);
   const [mode, setMode] = useState<"in" | "up">("up");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,12 +49,17 @@ function AuthPage() {
 
   useEffect(() => {
     sessionStorage.removeItem("strata-demo");
-    supabase.auth.getUser().then(({ data }) => data.user && navigate({ to: "/app" }));
+    rememberAuthDestination(sessionStorage, destination);
+    const finish = () => {
+      clearAuthDestination(sessionStorage);
+      void navigate({ to: destination, replace: true });
+    };
+    supabase.auth.getUser().then(({ data }) => data.user && finish());
     const { data } = supabase.auth.onAuthStateChange((e, s) => {
-      if (e === "SIGNED_IN" && s) navigate({ to: "/app" });
+      if (e === "SIGNED_IN" && s) finish();
     });
     return () => data.subscription.unsubscribe();
-  }, [navigate]);
+  }, [navigate, destination]);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
