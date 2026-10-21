@@ -20,6 +20,8 @@ import {
   searchExercises,
 } from "@/lib/exercise-catalogue";
 import names from "@/data/exercise-display-names.json";
+import capturedExercises from "@/data/exercises.json";
+import addedExercises from "@/data/exercise-additions.json";
 import { featureSchemas } from "@/lib/feature-types";
 
 beforeEach(() => {
@@ -120,10 +122,17 @@ describe("language changes", () => {
     ).toBe(false);
   });
   it("provides complete exercise display coverage and keeps source/custom names intact", () => {
-    expect(Object.keys(names).sort()).toEqual(exercises.map((e) => e.id).sort());
+    expect(Object.keys(names).sort()).toEqual(capturedExercises.map((e) => e.id).sort());
+    const allNames = {
+      ...names,
+      ...Object.fromEntries(addedExercises.map((entry) => [entry.id, entry.displayNames])),
+    } as Record<string, Record<"en" | "bs" | "de", string>>;
+    expect(Object.keys(allNames).sort()).toEqual(exercises.map((e) => e.id).sort());
     for (const e of exercises)
-      for (const language of ["en", "bs", "de"] as const)
+      for (const language of ["en", "bs", "de"] as const) {
         expect(exerciseDisplayName(e, language).trim().length).toBeGreaterThan(0);
+        expect(exerciseDisplayName(e, language)).toBe(allNames[e.id]![language]);
+      }
     const e = exercises[0]!;
     const original = e.name;
     setLanguage("de", false);

@@ -38,6 +38,30 @@ export function ExerciseGuide({
 }) {
   useLanguage();
   const guide = exerciseGuide(entry);
+  const mechanicsLabels = {
+    compound: "Compound movement",
+    isolation: "Isolation movement",
+    mobility: "Mobility",
+    conditioning: "Conditioning",
+    clinical: "Individual plan required",
+  };
+  const lateralityLabels = {
+    bilateral: "Both sides together",
+    unilateral: "One side at a time",
+    alternating: "Alternating sides",
+    "not-applicable": "",
+  };
+  const purposeLabels: Record<string, string> = {
+    "individual-plan": "Individual plan required",
+    mobility: "Mobility",
+    "cool-down": "Cool-down",
+    "warm-up": "Warm-up",
+    conditioning: "Conditioning",
+    strength: "Strength",
+    recovery: "Recovery",
+    power: "Power",
+    stability: "Stability",
+  };
   return (
     <div className="space-y-4">
       {(guide.isClinical || guide.contentStatus === "individual plan required") && (
@@ -47,6 +71,61 @@ export function ExerciseGuide({
           )}
         </p>
       )}
+      <section className="rounded-tile border border-volt/20 bg-volt/5 p-4">
+        <h3 className="text-label font-semibold">{t("Muscle roles")}</h3>
+        {entry.primaryMuscles.length +
+          entry.secondaryMuscles.length +
+          entry.stabilizerMuscles.length >
+        0 ? (
+          <dl className="mt-3 space-y-4">
+            {(
+              [
+                ["Primary muscles", entry.primaryMuscles],
+                ["Secondary muscles", entry.secondaryMuscles],
+                ["Stabilizers", entry.stabilizerMuscles],
+              ] as const
+            ).map(([label, muscles]) =>
+              muscles.length > 0 ? (
+                <div key={label}>
+                  <dt className="text-caption text-muted-foreground">{t(label)}</dt>
+                  <dd className="mt-1 text-label leading-relaxed">
+                    {muscles.map((muscle) => t(muscle)).join(" · ")}
+                  </dd>
+                </div>
+              ) : null,
+            )}
+          </dl>
+        ) : (
+          <p className="mt-2 text-label text-muted-foreground">
+            {t("Muscle metadata unavailable")}
+          </p>
+        )}
+      </section>
+      <details className="rounded-tile border border-border p-4">
+        <summary className="cursor-pointer py-2 text-label font-semibold">
+          {t("Movement details")}
+        </summary>
+        <dl className="mt-3 space-y-4">
+          <div>
+            <dt className="text-caption text-muted-foreground">{t("Movement type")}</dt>
+            <dd className="mt-1 text-label">{t(mechanicsLabels[entry.mechanics])}</dd>
+          </div>
+          {entry.laterality !== "not-applicable" && (
+            <div>
+              <dt className="text-caption text-muted-foreground">{t("Sides")}</dt>
+              <dd className="mt-1 text-label">{t(lateralityLabels[entry.laterality])}</dd>
+            </div>
+          )}
+          {entry.purpose.length > 0 && (
+            <div>
+              <dt className="text-caption text-muted-foreground">{t("Training purpose")}</dt>
+              <dd className="mt-1 text-label">
+                {entry.purpose.map((purpose) => t(purposeLabels[purpose] ?? purpose)).join(" · ")}
+              </dd>
+            </div>
+          )}
+        </dl>
+      </details>
       {guide.images.length > 0 && (
         <details className="rounded-tile border border-border bg-surface p-4" open>
           <summary className="cursor-pointer py-2 text-label font-semibold">

@@ -11,6 +11,9 @@ import {
   exerciseEquipment,
   exerciseDifficulties,
   exerciseMovements,
+  exerciseMechanics,
+  exerciseLateralities,
+  exercisePurposes,
 } from "@/lib/exercise-catalogue";
 import { useAct, useQ } from "@/lib/api";
 import { Button } from "@/components/ui/button";
@@ -22,6 +25,24 @@ export { ProgramLibrary, ProgramLibrary as ProgramReferences } from "./program-l
 import { toast } from "sonner";
 
 type Exercise = (typeof exercises)[number];
+const filterLabels: Record<string, string> = {
+  compound: "Compound movement",
+  isolation: "Isolation movement",
+  mobility: "Mobility",
+  conditioning: "Conditioning",
+  clinical: "Individual plan required",
+  bilateral: "Both sides together",
+  unilateral: "One side at a time",
+  alternating: "Alternating sides",
+  "not-applicable": "Not applicable",
+  "individual-plan": "Individual plan required",
+  "cool-down": "Cool-down",
+  "warm-up": "Warm-up",
+  strength: "Strength",
+  recovery: "Recovery",
+  power: "Power",
+  stability: "Stability",
+};
 export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => void }) {
   useLanguage();
   const [query, setQuery] = useState("");
@@ -30,7 +51,26 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
   const [equipment, setEquipment] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [movement, setMovement] = useState("");
+  const [mechanics, setMechanics] = useState("");
+  const [laterality, setLaterality] = useState("");
+  const [purpose, setPurpose] = useState("");
   const [limit, setLimit] = useState(30);
+  const advancedFilters = [equipment, difficulty, movement, mechanics, laterality, purpose].filter(
+    Boolean,
+  );
+  const activeFilters = [category, muscle, ...advancedFilters].filter(Boolean);
+  const resetFilters = () => {
+    setQuery("");
+    setCategory("");
+    setMuscle("");
+    setEquipment("");
+    setDifficulty("");
+    setMovement("");
+    setMechanics("");
+    setLaterality("");
+    setPurpose("");
+    setLimit(30);
+  };
   const [selected, setSelected] = useState<Exercise | null>(null);
   const matches = useMemo(
     () =>
@@ -40,8 +80,11 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
         ...(equipment ? { equipment } : {}),
         ...(difficulty ? { difficulty } : {}),
         ...(movement ? { movement } : {}),
+        ...(mechanics ? { mechanics } : {}),
+        ...(laterality ? { laterality } : {}),
+        ...(purpose ? { purpose } : {}),
       }),
-    [query, category, muscle, equipment, difficulty, movement],
+    [query, category, muscle, equipment, difficulty, movement, mechanics, laterality, purpose],
   );
   const saved = useQ(["features", "saved"], (api) => api.features.list("saved"));
   const bookmark = useAct((api, entry: Exercise) =>
@@ -62,7 +105,7 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
         </h2>
         <p className="mt-3 text-label text-muted-foreground">
           <Message
-            source="{p0}exercise references. Explore by movement, muscle or name."
+            source="{p0} exercise references. Explore by movement, muscle or name."
             values={{ p0: exercises.length }}
           />
         </p>
@@ -80,7 +123,7 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
           }}
         />
       </div>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <label className="text-caption">
           <Message source="Category" />
           <select
@@ -102,7 +145,7 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
           </select>
         </label>
         <label className="text-caption">
-          <Message source="Muscle" />
+          <Message source="Target muscle" />
           <select
             className="mt-1 h-12 w-full rounded-tile border border-border bg-surface px-2"
             value={muscle}
@@ -122,19 +165,23 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
           </select>
         </label>
       </div>
+      <p className="text-caption text-muted-foreground">
+        {tr("Muscle filters include primary and secondary muscles.")}
+      </p>
       <details className="rounded-tile border border-border p-3">
         <summary className="cursor-pointer py-2 text-label font-semibold">
-          {tr("Equipment, difficulty and movement")}
-          {[equipment, difficulty, movement].filter(Boolean).length > 0
-            ? ` (${[equipment, difficulty, movement].filter(Boolean).length})`
-            : ""}
+          {tr("More filters")}
+          {advancedFilters.length > 0 ? ` (${advancedFilters.length})` : ""}
         </summary>
-        <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {(
             [
               ["Equipment", equipment, setEquipment, exerciseEquipment],
               ["Difficulty", difficulty, setDifficulty, exerciseDifficulties],
               ["Movement", movement, setMovement, exerciseMovements],
+              ["Movement type", mechanics, setMechanics, exerciseMechanics],
+              ["Sides", laterality, setLaterality, exerciseLateralities],
+              ["Training purpose", purpose, setPurpose, exercisePurposes],
             ] as const
           ).map(([label, value, change, options]) => (
             <label key={label} className="min-w-0 text-caption">
@@ -150,7 +197,7 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
                 <option value="">{tr("All")}</option>
                 {options.map((option) => (
                   <option key={option} value={option}>
-                    {tr(option)}
+                    {tr(filterLabels[option] ?? option)}
                   </option>
                 ))}
               </select>
@@ -158,9 +205,21 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
           ))}
         </div>
       </details>
-      <p className="text-caption text-muted-foreground" role="status">
-        <Message source="{p0}exercises found" values={{ p0: matches.length }} />
-      </p>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-caption text-muted-foreground" role="status">
+          <Message source="{p0} exercises found" values={{ p0: matches.length }} />
+        </p>
+        {(query || activeFilters.length > 0) && (
+          <Button variant="ghost" wrap className="min-h-11" onClick={resetFilters}>
+            <Message source="Reset filters" />
+          </Button>
+        )}
+      </div>
+      {activeFilters.length > 0 && (
+        <p className="rounded-tile bg-surface px-3 py-2 text-caption text-muted-foreground">
+          {activeFilters.map((filter) => tr(filterLabels[filter] ?? filter)).join(" · ")}
+        </p>
+      )}
       <div className="space-y-2">
         {matches.slice(0, limit).map((exercise) => (
           <Panel
@@ -174,8 +233,14 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
             <div className="min-w-0">
               <h3 className="text-label font-semibold">{exerciseDisplayName(exercise)}</h3>
               <p className="mt-1 text-caption text-muted-foreground">
-                {tr(exercise.category)} ·{" "}
-                {exercise.muscles.map((m) => tr(m)).join(", ") || tr("Muscle not documented")}
+                {tr(exercise.category)} · {exercise.equipment.map((item) => tr(item)).join(", ")}
+              </p>
+              <p className="mt-2 text-caption">
+                {exercise.primaryMuscles.length > 0
+                  ? tr("Main target: {muscles}", {
+                      muscles: exercise.primaryMuscles.map((m) => tr(m)).join(", "),
+                    })
+                  : tr("Muscle not documented")}
               </p>
             </div>
           </Panel>
@@ -186,17 +251,7 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
           icon={<Search />}
           title={tr("No matching movements")}
           action={
-            <Button
-              variant="glass"
-              onClick={() => {
-                setQuery("");
-                setCategory("");
-                setMuscle("");
-                setEquipment("");
-                setDifficulty("");
-                setMovement("");
-              }}
-            >
+            <Button variant="glass" onClick={resetFilters}>
               <Message source="Reset filters" />
             </Button>
           }
@@ -220,9 +275,6 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
           sub={tr(selected.category)}
         >
           <div className="space-y-5">
-            <p className="text-body">
-              {selected.muscles.map((m) => tr(m)).join(" · ") || tr("Muscle metadata unavailable")}
-            </p>
             {selected.aliases.length > 0 && (
               <p className="text-label text-muted-foreground">
                 <Message

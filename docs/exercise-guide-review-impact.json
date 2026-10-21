@@ -1,0 +1,338 @@
+[
+  {
+    "id": "exercise-0013-alternating-hammer-curl",
+    "name": "Alternating Hammer Curl"
+  },
+  {
+    "id": "exercise-0035-back-squat-cucanj-sa-sipkom",
+    "name": "Back Squat (Čučanj sa šipkom)"
+  },
+  {
+    "id": "exercise-0040-barbell-curl",
+    "name": "Barbell Curl"
+  },
+  {
+    "id": "exercise-0044-barbell-hip-thrust",
+    "name": "Barbell Hip Thrust"
+  },
+  {
+    "id": "exercise-0053-bayesian-cable-curl",
+    "name": "Bayesian Cable Curl"
+  },
+  {
+    "id": "exercise-0057-bench-cable-fly",
+    "name": "Bench Cable Fly"
+  },
+  {
+    "id": "exercise-0060-bench-press-potisak-s-ravne-klupe",
+    "name": "Bench Press (Potisak s ravne klupe)"
+  },
+  {
+    "id": "exercise-0062-bent-over-barbell-row-veslanje-sipkom-u-pregibu",
+    "name": "Bent-Over Barbell Row (Veslanje šipkom u pregibu)"
+  },
+  {
+    "id": "exercise-0063-biceps-curl-oblikovanje-oblikovanje-bicepsa",
+    "name": "Biceps Curl — Oblikovanje (Oblikovanje bicepsa)"
+  },
+  {
+    "id": "exercise-0094-bulgarian-split-squat",
+    "name": "Bulgarian Split Squat"
+  },
+  {
+    "id": "exercise-0100-cable-biceps-curl",
+    "name": "Cable Biceps Curl"
+  },
+  {
+    "id": "exercise-0101-cable-chest-fly",
+    "name": "Cable Chest Fly"
+  },
+  {
+    "id": "exercise-0107-cable-fly-hold",
+    "name": "Cable Fly Hold"
+  },
+  {
+    "id": "exercise-0108-cable-fly-partials",
+    "name": "Cable Fly Partials"
+  },
+  {
+    "id": "exercise-0109-cable-fly-pulsing",
+    "name": "Cable Fly Pulsing"
+  },
+  {
+    "id": "exercise-0118-cable-leg-curl",
+    "name": "Cable Leg Curl"
+  },
+  {
+    "id": "exercise-0119-cable-leg-extension",
+    "name": "Cable Leg Extension"
+  },
+  {
+    "id": "exercise-0124-cable-overhead-triceps-extension",
+    "name": "Cable Overhead Triceps Extension"
+  },
+  {
+    "id": "exercise-0125-cable-preacher-curl",
+    "name": "Cable Preacher Curl"
+  },
+  {
+    "id": "exercise-0127-cable-pullover-straight-bar",
+    "name": "Cable Pullover (Straight Bar)"
+  },
+  {
+    "id": "exercise-0130-cable-single-arm-low-fly",
+    "name": "Cable Single Arm Low Fly"
+  },
+  {
+    "id": "exercise-0131-cable-straight-arm-lat-pulldown",
+    "name": "Cable Straight Arm Lat Pulldown"
+  },
+  {
+    "id": "exercise-0135-cable-underhand-lat-pulldown",
+    "name": "Cable Underhand Lat Pulldown"
+  },
+  {
+    "id": "exercise-0169-conventional-deadlift-mrtvo-dizanje",
+    "name": "Conventional Deadlift (Mrtvo dizanje)"
+  },
+  {
+    "id": "exercise-0176-cross-body-cable-triceps-extension",
+    "name": "Cross Body Cable Triceps Extension"
+  },
+  {
+    "id": "exercise-0177-cross-body-hammer-curl",
+    "name": "Cross Body Hammer Curl"
+  },
+  {
+    "id": "exercise-0188-deadlift",
+    "name": "Deadlift"
+  },
+  {
+    "id": "exercise-0189-decline-bench-press-spusteni-potisak-donji-dio-prsa",
+    "name": "Decline Bench Press (Spušteni potisak — donji dio prsa)"
+  },
+  {
+    "id": "exercise-0191-decline-cable-fly",
+    "name": "Decline Cable Fly"
+  },
+  {
+    "id": "exercise-0193-decline-dumbbell-fly",
+    "name": "Decline Dumbbell Fly"
+  },
+  {
+    "id": "exercise-0194-decline-dumbbell-triceps-extension",
+    "name": "Decline Dumbbell Triceps Extension"
+  },
+  {
+    "id": "exercise-0218-dumbbell-biceps-curl",
+    "name": "Dumbbell Biceps Curl"
+  },
+  {
+    "id": "exercise-0219-dumbbell-chest-fly",
+    "name": "Dumbbell Chest Fly"
+  },
+  {
+    "id": "exercise-0222-dumbbell-fly-hold",
+    "name": "Dumbbell Fly Hold"
+  },
+  {
+    "id": "exercise-0229-dumbbell-pullover",
+    "name": "Dumbbell Pullover"
+  },
+  {
+    "id": "exercise-0230-dumbbell-pullover-on-bench",
+    "name": "Dumbbell Pullover on Bench"
+  },
+  {
+    "id": "exercise-0252-ez-bar-curl",
+    "name": "EZ Bar Curl"
+  },
+  {
+    "id": "exercise-0253-ez-bar-reverse-curl",
+    "name": "EZ Bar Reverse Curl"
+  },
+  {
+    "id": "exercise-0255-face-pull-kabelsko-povlacenje-prema-licu",
+    "name": "Face Pull (Kabelsko povlačenje prema licu)"
+  },
+  {
+    "id": "exercise-0256-face-pull-s-elasticnom-trakom",
+    "name": "Face Pull S Elastičnom Trakom"
+  },
+  {
+    "id": "exercise-0288-hammer-curl",
+    "name": "Hammer Curl"
+  },
+  {
+    "id": "exercise-0303-high-to-low-cable-fly",
+    "name": "High To Low Cable Fly"
+  },
+  {
+    "id": "exercise-0305-hip-90-90-devedeset-devedeset-pozicija-kuka",
+    "name": "Hip 90/90 (Devedeset-devedeset pozicija kuka)"
+  },
+  {
+    "id": "exercise-0330-incline-bench-press-kosi-potisak-gornji-dio-prsa",
+    "name": "Incline Bench Press (Kosi potisak — gornji dio prsa)"
+  },
+  {
+    "id": "exercise-0333-incline-cable-fly",
+    "name": "Incline Cable Fly"
+  },
+  {
+    "id": "exercise-0334-incline-dumbbell-curl",
+    "name": "Incline Dumbbell Curl"
+  },
+  {
+    "id": "exercise-0338-incline-dumbbell-triceps-extension",
+    "name": "Incline Dumbbell Triceps Extension"
+  },
+  {
+    "id": "exercise-0339-incline-hammer-curl",
+    "name": "Incline Hammer Curl"
+  },
+  {
+    "id": "exercise-0346-isometric-cable-fly",
+    "name": "Isometric Cable Fly"
+  },
+  {
+    "id": "exercise-0377-lat-pulldown-povlacenje-na-lat-masini",
+    "name": "Lat Pulldown (Povlačenje na lat mašini)"
+  },
+  {
+    "id": "exercise-0392-leg-extension-machine",
+    "name": "Leg Extension (Machine)"
+  },
+  {
+    "id": "exercise-0400-low-to-high-cable-fly",
+    "name": "Low To High Cable Fly"
+  },
+  {
+    "id": "exercise-0405-lying-leg-curl-machine",
+    "name": "Lying Leg Curl (Machine)"
+  },
+  {
+    "id": "exercise-0413-machine-neutral-grip-lat-pulldown",
+    "name": "Machine Neutral Grip Lat Pulldown"
+  },
+  {
+    "id": "exercise-0415-machine-pec-deck-squeeze-focus",
+    "name": "Machine Pec Deck (Squeeze Focus)"
+  },
+  {
+    "id": "exercise-0444-overhead-cable-triceps-extension-rope",
+    "name": "Overhead Cable Triceps Extension (Rope)"
+  },
+  {
+    "id": "exercise-0448-overhead-triceps-extension-dumbbell",
+    "name": "Overhead Triceps Extension (Dumbbell)"
+  },
+  {
+    "id": "exercise-0454-pec-deck-fly",
+    "name": "Pec Deck Fly"
+  },
+  {
+    "id": "exercise-0456-pendlay-row",
+    "name": "Pendlay Row"
+  },
+  {
+    "id": "exercise-0493-preacher-curl",
+    "name": "Preacher Curl"
+  },
+  {
+    "id": "exercise-0518-resistance-band-curl",
+    "name": "Resistance Band Curl"
+  },
+  {
+    "id": "exercise-0525-resistance-band-lat-pulldown",
+    "name": "Resistance Band Lat Pulldown"
+  },
+  {
+    "id": "exercise-0528-resistance-band-leg-curl",
+    "name": "Resistance Band Leg Curl"
+  },
+  {
+    "id": "exercise-0529-resistance-band-leg-extension",
+    "name": "Resistance Band Leg Extension"
+  },
+  {
+    "id": "exercise-0538-reverse-curl-barbell",
+    "name": "Reverse Curl (Barbell)"
+  },
+  {
+    "id": "exercise-0549-romanian-deadlift",
+    "name": "Romanian Deadlift"
+  },
+  {
+    "id": "exercise-0550-romanian-deadlift-rdl",
+    "name": "Romanian Deadlift — Rdl"
+  },
+  {
+    "id": "exercise-0553-rope-hammer-curl",
+    "name": "Rope Hammer Curl"
+  },
+  {
+    "id": "exercise-0568-scott-curl",
+    "name": "Scott Curl"
+  },
+  {
+    "id": "exercise-0576-seated-dumbbell-curl",
+    "name": "Seated Dumbbell Curl"
+  },
+  {
+    "id": "exercise-0582-seated-leg-curl-machine",
+    "name": "Seated Leg Curl (Machine)"
+  },
+  {
+    "id": "exercise-0603-single-arm-cable-fly",
+    "name": "Single Arm Cable Fly"
+  },
+  {
+    "id": "exercise-0605-single-arm-cable-lat-pulldown",
+    "name": "Single Arm Cable Lat Pulldown"
+  },
+  {
+    "id": "exercise-0606-single-arm-cable-lat-pullover",
+    "name": "Single Arm Cable Lat Pullover"
+  },
+  {
+    "id": "exercise-0612-single-arm-dumbbell-pullover",
+    "name": "Single Arm Dumbbell Pullover"
+  },
+  {
+    "id": "exercise-0614-single-arm-machine-lat-pulldown",
+    "name": "Single Arm Machine Lat Pulldown"
+  },
+  {
+    "id": "exercise-0616-single-arm-pec-deck",
+    "name": "Single Arm Pec Deck"
+  },
+  {
+    "id": "exercise-0617-single-arm-preacher-curl",
+    "name": "Single Arm Preacher Curl"
+  },
+  {
+    "id": "exercise-0620-single-leg-extension",
+    "name": "Single Leg Extension"
+  },
+  {
+    "id": "exercise-0623-single-leg-lying-leg-curl",
+    "name": "Single Leg Lying Leg Curl"
+  },
+  {
+    "id": "exercise-0625-single-leg-seated-leg-curl",
+    "name": "Single Leg Seated Leg Curl"
+  },
+  {
+    "id": "exercise-0684-standing-leg-curl-machine",
+    "name": "Standing Leg Curl (Machine)"
+  },
+  {
+    "id": "exercise-0719-t-bar-row-veslanje-t-sipkom",
+    "name": "T-Bar Row (Veslanje T šipkom)"
+  },
+  {
+    "id": "exercise-0778-zottman-curl",
+    "name": "Zottman Curl"
+  }
+]

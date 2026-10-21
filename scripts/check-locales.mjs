@@ -10,6 +10,12 @@ for (const label of ["Reminders", "Motivation", "Memberships", "Community", "Mar
     missing.add(`Notification category: ${label}`);
 }
 const configMessages = {
+  "src/components/strata/exercise-guide.tsx": [
+    "mechanicsLabels",
+    "lateralityLabels",
+    "purposeLabels",
+  ],
+  "src/components/strata/exercise-library.tsx": ["filterLabels"],
   "src/lib/business.ts": ["businessSectorLabels"],
   "src/components/strata/business-management.tsx": ["resourceLabels"],
   "src/components/strata/business-panels.tsx": ["entryReasonLabels"],
@@ -282,7 +288,20 @@ for (const entry of exerciseRows)
 const guidance = JSON.parse(
   readFileSync(new URL("../src/data/exercise-guidance.json", import.meta.url), "utf8"),
 );
-for (const entry of Object.values(guidance)) {
+const addedExercises = JSON.parse(
+  readFileSync(new URL("../src/data/exercise-additions.json", import.meta.url), "utf8"),
+);
+for (const entry of addedExercises) requireMessage(entry.category, "added exercise category");
+const reviewedMuscles = JSON.parse(
+  readFileSync(new URL("../src/data/exercise-reviewed-metadata.json", import.meta.url), "utf8"),
+);
+for (const entry of Object.values(reviewedMuscles))
+  for (const label of [...entry.primary, ...entry.secondary, ...entry.stabilizers])
+    requireMessage(label, "reviewed exercise muscle role");
+for (const entry of [
+  ...Object.values(guidance),
+  ...addedExercises.map((entry) => entry.guidance),
+]) {
   for (const label of [...(entry.equipment ?? []), entry.difficulty, entry.movement].filter(
     Boolean,
   ))

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { BookOpen, Dumbbell, ExternalLink, Loader2, Play, Plus, Utensils } from "lucide-react";
 import { toast } from "sonner";
-import { t, useLanguage } from "@/lib/i18n";
+import { t, useLanguage, countMessage } from "@/lib/i18n";
 import { errorText } from "@/lib/i18n-errors";
 import { useAct, useQ } from "@/lib/api";
 import { programTemplates, localizedTemplate, type ProgramTemplate } from "@/lib/program-templates";
@@ -167,7 +167,9 @@ export function ProgramLibrary() {
           ) : (
             <>
               <p className="text-caption text-muted-foreground" role="status">
-                {t("{count} plans found", { count: templates.length })}
+                {t(templates.length === 1 ? "{count} plan found" : "{count} plans found", {
+                  count: templates.length,
+                })}
               </p>
               {templates.map((plan) => (
                 <Panel
@@ -218,10 +220,12 @@ function PlanFacts({ plan }: { plan: ProgramTemplate }) {
       {plan.type === "training" && (
         <>
           <span className="rounded-full bg-surface-2 px-3 py-2">
-            {t("{count} weeks", { count: plan.weeks })}
+            {t(plan.weeks === 1 ? "{count} week" : "{count} weeks", { count: plan.weeks })}
           </span>
           <span className="rounded-full bg-surface-2 px-3 py-2">
-            {t("{count} sessions / week", { count: plan.sessionsPerWeek })}
+            {t(plan.sessionsPerWeek === 1 ? "{count} session / week" : "{count} sessions / week", {
+              count: plan.sessionsPerWeek,
+            })}
           </span>
           <span className="rounded-full bg-surface-2 px-3 py-2">
             {t("About {count} min", { count: plan.minutes })}
@@ -305,7 +309,7 @@ function ProgramDetail({ template, onClose }: { template: ProgramTemplate; onClo
                     )}
                     <h4 className="text-label font-semibold">{programExerciseName(exercise)}</h4>
                     <p className="num mt-1 text-label">
-                      {t("{sets} sets · {reps}", { sets: exercise.sets, reps: exercise.reps })}
+                      {countMessage(exercise.sets, "sets")} · {exercise.reps}
                       {exercise.rest_seconds != null
                         ? ` · ${t("{seconds}s rest", { seconds: exercise.rest_seconds })}`
                         : ""}

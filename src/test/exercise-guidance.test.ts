@@ -4,6 +4,8 @@ import path from "node:path";
 import crypto from "node:crypto";
 import source from "../data/exercises.json";
 import metadata from "../data/exercise-guidance.json";
+import additions from "../data/exercise-additions.json";
+import reviewedMetadata from "../data/exercise-reviewed-metadata.json";
 import {
   exercises,
   exerciseById,
@@ -19,13 +21,20 @@ const root = process.cwd();
 const entry = (number: number) => exercises.find((e) => Number(e.id.slice(9, 13)) === number)!;
 describe("authored exercise guidance", () => {
   it("preserves every captured ID, name, provenance and original source bytes", () => {
-    expect(exercises).toHaveLength(778);
-    expect(new Set(exercises.map((e) => e.id)).size).toBe(778);
+    expect(exercises).toHaveLength(778 + additions.length);
+    expect(new Set(exercises.map((e) => e.id)).size).toBe(778 + additions.length);
     expect(Object.keys(metadata).sort()).toEqual(source.map((e) => e.id).sort());
     for (const captured of source) {
       const enriched = exerciseById(captured.id)!;
       for (const key of Object.keys(captured) as Array<keyof typeof captured>)
-        expect(enriched[key]).toEqual(captured[key]);
+        if (key === "category")
+          expect(enriched.category).toBe(
+            (reviewedMetadata as Record<string, { category?: string }>)[captured.id]?.category ??
+              captured.category,
+          );
+        else if (key !== "muscles" && key !== "aliases")
+          expect(enriched[key]).toEqual(captured[key]);
+      expect(enriched.aliases).toEqual(expect.arrayContaining(captured.aliases));
     }
     expect(
       crypto
@@ -179,7 +188,7 @@ describe("authored exercise guidance", () => {
       }
     }
     expect(photographs).toBe(267);
-    expect(illustrations).toBe(478);
+    expect(illustrations).toBe(478 + additions.length);
     expect(none).toBe(33);
     const manifest = JSON.parse(
       fs.readFileSync(path.join(root, "public/exercise-media/manifest.json"), "utf8"),

@@ -1,0 +1,1722 @@
+[
+  {
+    "en": {
+      "id": "kinra-post-leg-mobility",
+      "type": "training",
+      "title": "After legs · gentle mobility",
+      "summary": "A short optional movement break with four easy exercises. Copy it to your programs, review the notes and adjust before starting.",
+      "goal": "Gentle mobility and recovery movement",
+      "level": "Beginner",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Repeat this short session when it fits your schedule. Keep the movements easy and the range comfortable; this is not a load-progression program. Skip any movement that does not suit you rather than pushing through symptoms.",
+      "considerations": "Original general adult movement example. Adapt or skip after a hard workout; stop for pain, dizziness or feeling unwell. It does not prevent soreness, treat injury or replace an individual rehabilitation plan. Counts are movements, breaths or roller passes, not seconds; no duration is logged automatically.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "After legs · gentle mobility",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid",
+              "name": "Wall Ankle Mobilization (Mobilizacija gležnja uz zid)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0005-adductor-rock-back-ljuljanje-u-adduktor-stretch",
+              "name": "Adductor Rock Back (Ljuljanje u adduktor stretch)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0305-hip-90-90-devedeset-devedeset-pozicija-kuka",
+              "name": "Hip 90/90 (Devedeset-devedeset pozicija kuka)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Count one relaxed inhale and exhale as one rep. Breathe normally without breath holding or forcing a depth or rhythm; stop if light-headed. This records breaths, not a timed breathing session."
+            }
+          ]
+        }
+      ]
+    },
+    "bs": {
+      "id": "kinra-post-leg-mobility",
+      "type": "training",
+      "title": "Nakon nogu · lagana mobilnost",
+      "summary": "Kratka opcionalna pauza za kretanje s četiri lagane vježbe. Kopirajte u programe, pregledajte napomene i prilagodite prije početka.",
+      "goal": "Lagana mobilnost i pokreti za oporavak",
+      "level": "Početni",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Ponovite kratku sesiju kada vam odgovara. Pokreti ostaju lagani i u udobnom rasponu; ovo nije program povećanja tereta. Preskočite pokret koji vam ne odgovara umjesto rada kroz simptome.",
+      "considerations": "Originalni opšti primjer kretanja za odrasle. Prilagodite ili preskočite nakon teškog treninga; stanite pri bolu, vrtoglavici ili slabosti. Ne sprečava upalu mišića, ne liječi povredu i ne zamjenjuje individualni rehabilitacijski plan. Brojevi su pokreti, udasi ili prolazi valjkom, ne sekunde; trajanje se ne bilježi automatski.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Nakon nogu · lagana mobilnost",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid",
+              "name": "Wall Ankle Mobilization (Mobilizacija gležnja uz zid)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0005-adductor-rock-back-ljuljanje-u-adduktor-stretch",
+              "name": "Adductor Rock Back (Ljuljanje u adduktor stretch)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0305-hip-90-90-devedeset-devedeset-pozicija-kuka",
+              "name": "Hip 90/90 (Devedeset-devedeset pozicija kuka)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedan opušten udah i izdah računajte kao ponavljanje. Dišite normalno bez zadržavanja ili forsiranja dubine i ritma; stanite pri omaglici. Bilježite udahe, ne vremensku sesiju disanja."
+            }
+          ]
+        }
+      ]
+    },
+    "de": {
+      "id": "kinra-post-leg-mobility",
+      "type": "training",
+      "title": "Nach dem Beintraining · sanfte Mobilität",
+      "summary": "Eine kurze optionale Bewegungspause mit vier leichten Übungen. Kopiere sie in deine Programme, prüfe die Hinweise und passe sie vor dem Start an.",
+      "goal": "Sanfte Mobilität und erholsame Bewegung",
+      "level": "Anfänger",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Wiederhole die kurze Einheit passend zu deinem Alltag. Halte die Bewegungen leicht und angenehm; dies ist kein Programm zur Laststeigerung. Lasse unpassende Bewegungen aus, statt durch Beschwerden zu trainieren.",
+      "considerations": "Eigenes allgemeines Bewegungsbeispiel für Erwachsene. Passe es nach hartem Training an oder lasse es aus; stoppe bei Schmerz, Schwindel oder Unwohlsein. Es verhindert keinen Muskelkater, behandelt keine Verletzung und ersetzt keinen individuellen Rehaplan. Gezählt werden Bewegungen, Atemzüge oder Rollpassagen, keine Sekunden; Dauer wird nicht automatisch protokolliert.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Nach dem Beintraining · sanfte Mobilität",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid",
+              "name": "Wall Ankle Mobilization (Mobilizacija gležnja uz zid)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0005-adductor-rock-back-ljuljanje-u-adduktor-stretch",
+              "name": "Adductor Rock Back (Ljuljanje u adduktor stretch)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0305-hip-90-90-devedeset-devedeset-pozicija-kuka",
+              "name": "Hip 90/90 (Devedeset-devedeset pozicija kuka)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Zähle einmal entspanntes Ein- und Ausatmen als Wiederholung. Atme normal ohne Halten oder erzwungene Tiefe und Rhythmus; stoppe bei Benommenheit. Erfasst werden Atemzüge, keine Zeiteinheit."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "en": {
+      "id": "kinra-post-upper-mobility",
+      "type": "training",
+      "title": "After upper body · easy movement",
+      "summary": "A short optional movement break with four easy exercises. Copy it to your programs, review the notes and adjust before starting.",
+      "goal": "Gentle mobility and recovery movement",
+      "level": "Beginner",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Repeat this short session when it fits your schedule. Keep the movements easy and the range comfortable; this is not a load-progression program. Skip any movement that does not suit you rather than pushing through symptoms.",
+      "considerations": "Original general adult movement example. Adapt or skip after a hard workout; stop for pain, dizziness or feeling unwell. It does not prevent soreness, treat injury or replace an individual rehabilitation plan. Counts are movements, breaths or roller passes, not seconds; no duration is logged automatically.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "After upper body · easy movement",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0027-arm-circles-kruzenje-rukama",
+              "name": "Arm Circles (Kruženje rukama)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0072-book-opening-otvaranje-knjige",
+              "name": "Book Opening (Otvaranje knjige)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0587-shoulder-flexion-mobilization-aktivan-aktivna-fleksijska-mobilizacija-ramena",
+              "name": "Shoulder Flexion Mobilization — Aktivan (Aktivna fleksijska mobilizacija ramena)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Count one relaxed inhale and exhale as one rep. Breathe normally without breath holding or forcing a depth or rhythm; stop if light-headed. This records breaths, not a timed breathing session."
+            }
+          ]
+        }
+      ]
+    },
+    "bs": {
+      "id": "kinra-post-upper-mobility",
+      "type": "training",
+      "title": "Nakon gornjeg dijela · lagani pokreti",
+      "summary": "Kratka opcionalna pauza za kretanje s četiri lagane vježbe. Kopirajte u programe, pregledajte napomene i prilagodite prije početka.",
+      "goal": "Lagana mobilnost i pokreti za oporavak",
+      "level": "Početni",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Ponovite kratku sesiju kada vam odgovara. Pokreti ostaju lagani i u udobnom rasponu; ovo nije program povećanja tereta. Preskočite pokret koji vam ne odgovara umjesto rada kroz simptome.",
+      "considerations": "Originalni opšti primjer kretanja za odrasle. Prilagodite ili preskočite nakon teškog treninga; stanite pri bolu, vrtoglavici ili slabosti. Ne sprečava upalu mišića, ne liječi povredu i ne zamjenjuje individualni rehabilitacijski plan. Brojevi su pokreti, udasi ili prolazi valjkom, ne sekunde; trajanje se ne bilježi automatski.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Nakon gornjeg dijela · lagani pokreti",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0027-arm-circles-kruzenje-rukama",
+              "name": "Arm Circles (Kruženje rukama)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0072-book-opening-otvaranje-knjige",
+              "name": "Book Opening (Otvaranje knjige)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0587-shoulder-flexion-mobilization-aktivan-aktivna-fleksijska-mobilizacija-ramena",
+              "name": "Shoulder Flexion Mobilization — Aktivan (Aktivna fleksijska mobilizacija ramena)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedan opušten udah i izdah računajte kao ponavljanje. Dišite normalno bez zadržavanja ili forsiranja dubine i ritma; stanite pri omaglici. Bilježite udahe, ne vremensku sesiju disanja."
+            }
+          ]
+        }
+      ]
+    },
+    "de": {
+      "id": "kinra-post-upper-mobility",
+      "type": "training",
+      "title": "Nach dem Oberkörpertraining · lockere Bewegung",
+      "summary": "Eine kurze optionale Bewegungspause mit vier leichten Übungen. Kopiere sie in deine Programme, prüfe die Hinweise und passe sie vor dem Start an.",
+      "goal": "Sanfte Mobilität und erholsame Bewegung",
+      "level": "Anfänger",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Wiederhole die kurze Einheit passend zu deinem Alltag. Halte die Bewegungen leicht und angenehm; dies ist kein Programm zur Laststeigerung. Lasse unpassende Bewegungen aus, statt durch Beschwerden zu trainieren.",
+      "considerations": "Eigenes allgemeines Bewegungsbeispiel für Erwachsene. Passe es nach hartem Training an oder lasse es aus; stoppe bei Schmerz, Schwindel oder Unwohlsein. Es verhindert keinen Muskelkater, behandelt keine Verletzung und ersetzt keinen individuellen Rehaplan. Gezählt werden Bewegungen, Atemzüge oder Rollpassagen, keine Sekunden; Dauer wird nicht automatisch protokolliert.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Nach dem Oberkörpertraining · lockere Bewegung",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0027-arm-circles-kruzenje-rukama",
+              "name": "Arm Circles (Kruženje rukama)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0072-book-opening-otvaranje-knjige",
+              "name": "Book Opening (Otvaranje knjige)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0587-shoulder-flexion-mobilization-aktivan-aktivna-fleksijska-mobilizacija-ramena",
+              "name": "Shoulder Flexion Mobilization — Aktivan (Aktivna fleksijska mobilizacija ramena)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Zähle einmal entspanntes Ein- und Ausatmen als Wiederholung. Atme normal ohne Halten oder erzwungene Tiefe und Rhythmus; stoppe bei Benommenheit. Erfasst werden Atemzüge, keine Zeiteinheit."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "en": {
+      "id": "kinra-post-cardio-mobility",
+      "type": "training",
+      "title": "After cardio · easy mobility",
+      "summary": "A short optional movement break with four easy exercises. Copy it to your programs, review the notes and adjust before starting.",
+      "goal": "Gentle mobility and recovery movement",
+      "level": "Beginner",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Repeat this short session when it fits your schedule. Keep the movements easy and the range comfortable; this is not a load-progression program. Skip any movement that does not suit you rather than pushing through symptoms.",
+      "considerations": "Original general adult movement example. Adapt or skip after a hard workout; stop for pain, dizziness or feeling unwell. It does not prevent soreness, treat injury or replace an individual rehabilitation plan. Counts are movements, breaths or roller passes, not seconds; no duration is logged automatically.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "After cardio · easy mobility",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0023-ankle-rotations-kruzenje-gleznjevima",
+              "name": "Ankle Rotations (Kruženje gležnjevima)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0753-walking-knee-hugs-hod-s-povlacenjem-koljena",
+              "name": "Walking Knee Hugs (Hod s povlačenjem koljena)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0312-hip-circles-kruzenje-kukovima",
+              "name": "Hip Circles (Kruženje kukovima)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Count one relaxed inhale and exhale as one rep. Breathe normally without breath holding or forcing a depth or rhythm; stop if light-headed. This records breaths, not a timed breathing session."
+            }
+          ]
+        }
+      ]
+    },
+    "bs": {
+      "id": "kinra-post-cardio-mobility",
+      "type": "training",
+      "title": "Nakon kardija · lagana mobilnost",
+      "summary": "Kratka opcionalna pauza za kretanje s četiri lagane vježbe. Kopirajte u programe, pregledajte napomene i prilagodite prije početka.",
+      "goal": "Lagana mobilnost i pokreti za oporavak",
+      "level": "Početni",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Ponovite kratku sesiju kada vam odgovara. Pokreti ostaju lagani i u udobnom rasponu; ovo nije program povećanja tereta. Preskočite pokret koji vam ne odgovara umjesto rada kroz simptome.",
+      "considerations": "Originalni opšti primjer kretanja za odrasle. Prilagodite ili preskočite nakon teškog treninga; stanite pri bolu, vrtoglavici ili slabosti. Ne sprečava upalu mišića, ne liječi povredu i ne zamjenjuje individualni rehabilitacijski plan. Brojevi su pokreti, udasi ili prolazi valjkom, ne sekunde; trajanje se ne bilježi automatski.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Nakon kardija · lagana mobilnost",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0023-ankle-rotations-kruzenje-gleznjevima",
+              "name": "Ankle Rotations (Kruženje gležnjevima)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0753-walking-knee-hugs-hod-s-povlacenjem-koljena",
+              "name": "Walking Knee Hugs (Hod s povlačenjem koljena)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0312-hip-circles-kruzenje-kukovima",
+              "name": "Hip Circles (Kruženje kukovima)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedan opušten udah i izdah računajte kao ponavljanje. Dišite normalno bez zadržavanja ili forsiranja dubine i ritma; stanite pri omaglici. Bilježite udahe, ne vremensku sesiju disanja."
+            }
+          ]
+        }
+      ]
+    },
+    "de": {
+      "id": "kinra-post-cardio-mobility",
+      "type": "training",
+      "title": "Nach Ausdauertraining · lockere Mobilität",
+      "summary": "Eine kurze optionale Bewegungspause mit vier leichten Übungen. Kopiere sie in deine Programme, prüfe die Hinweise und passe sie vor dem Start an.",
+      "goal": "Sanfte Mobilität und erholsame Bewegung",
+      "level": "Anfänger",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Wiederhole die kurze Einheit passend zu deinem Alltag. Halte die Bewegungen leicht und angenehm; dies ist kein Programm zur Laststeigerung. Lasse unpassende Bewegungen aus, statt durch Beschwerden zu trainieren.",
+      "considerations": "Eigenes allgemeines Bewegungsbeispiel für Erwachsene. Passe es nach hartem Training an oder lasse es aus; stoppe bei Schmerz, Schwindel oder Unwohlsein. Es verhindert keinen Muskelkater, behandelt keine Verletzung und ersetzt keinen individuellen Rehaplan. Gezählt werden Bewegungen, Atemzüge oder Rollpassagen, keine Sekunden; Dauer wird nicht automatisch protokolliert.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Nach Ausdauertraining · lockere Mobilität",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0023-ankle-rotations-kruzenje-gleznjevima",
+              "name": "Ankle Rotations (Kruženje gležnjevima)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0753-walking-knee-hugs-hod-s-povlacenjem-koljena",
+              "name": "Walking Knee Hugs (Hod s povlačenjem koljena)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0312-hip-circles-kruzenje-kukovima",
+              "name": "Hip Circles (Kruženje kukovima)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Zähle einmal entspanntes Ein- und Ausatmen als Wiederholung. Atme normal ohne Halten oder erzwungene Tiefe und Rhythmus; stoppe bei Benommenheit. Erfasst werden Atemzüge, keine Zeiteinheit."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "en": {
+      "id": "kinra-morning-mobility",
+      "type": "training",
+      "title": "Morning · move gently",
+      "summary": "A short optional movement break with four easy exercises. Copy it to your programs, review the notes and adjust before starting.",
+      "goal": "Gentle mobility and recovery movement",
+      "level": "Beginner",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Repeat this short session when it fits your schedule. Keep the movements easy and the range comfortable; this is not a load-progression program. Skip any movement that does not suit you rather than pushing through symptoms.",
+      "considerations": "Original general adult movement example. Adapt or skip after a hard workout; stop for pain, dizziness or feeling unwell. It does not prevent soreness, treat injury or replace an individual rehabilitation plan. Counts are movements, breaths or roller passes, not seconds; no duration is logged automatically.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Morning · move gently",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme",
+              "name": "Cat-Cow (Mačka-krava — aktivna fleksija/ekstenzija kičme)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0027-arm-circles-kruzenje-rukama",
+              "name": "Arm Circles (Kruženje rukama)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0312-hip-circles-kruzenje-kukovima",
+              "name": "Hip Circles (Kruženje kukovima)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid",
+              "name": "Wall Ankle Mobilization (Mobilizacija gležnja uz zid)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            }
+          ]
+        }
+      ]
+    },
+    "bs": {
+      "id": "kinra-morning-mobility",
+      "type": "training",
+      "title": "Jutro · nježno razgibavanje",
+      "summary": "Kratka opcionalna pauza za kretanje s četiri lagane vježbe. Kopirajte u programe, pregledajte napomene i prilagodite prije početka.",
+      "goal": "Lagana mobilnost i pokreti za oporavak",
+      "level": "Početni",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Ponovite kratku sesiju kada vam odgovara. Pokreti ostaju lagani i u udobnom rasponu; ovo nije program povećanja tereta. Preskočite pokret koji vam ne odgovara umjesto rada kroz simptome.",
+      "considerations": "Originalni opšti primjer kretanja za odrasle. Prilagodite ili preskočite nakon teškog treninga; stanite pri bolu, vrtoglavici ili slabosti. Ne sprečava upalu mišića, ne liječi povredu i ne zamjenjuje individualni rehabilitacijski plan. Brojevi su pokreti, udasi ili prolazi valjkom, ne sekunde; trajanje se ne bilježi automatski.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Jutro · nježno razgibavanje",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme",
+              "name": "Cat-Cow (Mačka-krava — aktivna fleksija/ekstenzija kičme)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0027-arm-circles-kruzenje-rukama",
+              "name": "Arm Circles (Kruženje rukama)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0312-hip-circles-kruzenje-kukovima",
+              "name": "Hip Circles (Kruženje kukovima)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid",
+              "name": "Wall Ankle Mobilization (Mobilizacija gležnja uz zid)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            }
+          ]
+        }
+      ]
+    },
+    "de": {
+      "id": "kinra-morning-mobility",
+      "type": "training",
+      "title": "Morgens · sanft bewegen",
+      "summary": "Eine kurze optionale Bewegungspause mit vier leichten Übungen. Kopiere sie in deine Programme, prüfe die Hinweise und passe sie vor dem Start an.",
+      "goal": "Sanfte Mobilität und erholsame Bewegung",
+      "level": "Anfänger",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Wiederhole die kurze Einheit passend zu deinem Alltag. Halte die Bewegungen leicht und angenehm; dies ist kein Programm zur Laststeigerung. Lasse unpassende Bewegungen aus, statt durch Beschwerden zu trainieren.",
+      "considerations": "Eigenes allgemeines Bewegungsbeispiel für Erwachsene. Passe es nach hartem Training an oder lasse es aus; stoppe bei Schmerz, Schwindel oder Unwohlsein. Es verhindert keinen Muskelkater, behandelt keine Verletzung und ersetzt keinen individuellen Rehaplan. Gezählt werden Bewegungen, Atemzüge oder Rollpassagen, keine Sekunden; Dauer wird nicht automatisch protokolliert.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Morgens · sanft bewegen",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme",
+              "name": "Cat-Cow (Mačka-krava — aktivna fleksija/ekstenzija kičme)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0027-arm-circles-kruzenje-rukama",
+              "name": "Arm Circles (Kruženje rukama)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0312-hip-circles-kruzenje-kukovima",
+              "name": "Hip Circles (Kruženje kukovima)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid",
+              "name": "Wall Ankle Mobilization (Mobilizacija gležnja uz zid)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "en": {
+      "id": "kinra-floor-mobility-flow",
+      "type": "training",
+      "title": "Floor mobility · gentle flow",
+      "summary": "A short optional movement break with four easy exercises. Copy it to your programs, review the notes and adjust before starting.",
+      "goal": "Gentle mobility and recovery movement",
+      "level": "Beginner",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Repeat this short session when it fits your schedule. Keep the movements easy and the range comfortable; this is not a load-progression program. Skip any movement that does not suit you rather than pushing through symptoms.",
+      "considerations": "Original general adult movement example. Adapt or skip after a hard workout; stop for pain, dizziness or feeling unwell. It does not prevent soreness, treat injury or replace an individual rehabilitation plan. Counts are movements, breaths or roller passes, not seconds; no duration is logged automatically.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Floor mobility · gentle flow",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme",
+              "name": "Cat-Cow (Mačka-krava — aktivna fleksija/ekstenzija kičme)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0728-thread-the-needle-provlacenje-igle",
+              "name": "Thread The Needle (Provlačenje igle)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0005-adductor-rock-back-ljuljanje-u-adduktor-stretch",
+              "name": "Adductor Rock Back (Ljuljanje u adduktor stretch)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0305-hip-90-90-devedeset-devedeset-pozicija-kuka",
+              "name": "Hip 90/90 (Devedeset-devedeset pozicija kuka)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            }
+          ]
+        }
+      ]
+    },
+    "bs": {
+      "id": "kinra-floor-mobility-flow",
+      "type": "training",
+      "title": "Mobilnost na podu · lagani slijed",
+      "summary": "Kratka opcionalna pauza za kretanje s četiri lagane vježbe. Kopirajte u programe, pregledajte napomene i prilagodite prije početka.",
+      "goal": "Lagana mobilnost i pokreti za oporavak",
+      "level": "Početni",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Ponovite kratku sesiju kada vam odgovara. Pokreti ostaju lagani i u udobnom rasponu; ovo nije program povećanja tereta. Preskočite pokret koji vam ne odgovara umjesto rada kroz simptome.",
+      "considerations": "Originalni opšti primjer kretanja za odrasle. Prilagodite ili preskočite nakon teškog treninga; stanite pri bolu, vrtoglavici ili slabosti. Ne sprečava upalu mišića, ne liječi povredu i ne zamjenjuje individualni rehabilitacijski plan. Brojevi su pokreti, udasi ili prolazi valjkom, ne sekunde; trajanje se ne bilježi automatski.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Mobilnost na podu · lagani slijed",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme",
+              "name": "Cat-Cow (Mačka-krava — aktivna fleksija/ekstenzija kičme)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0728-thread-the-needle-provlacenje-igle",
+              "name": "Thread The Needle (Provlačenje igle)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0005-adductor-rock-back-ljuljanje-u-adduktor-stretch",
+              "name": "Adductor Rock Back (Ljuljanje u adduktor stretch)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0305-hip-90-90-devedeset-devedeset-pozicija-kuka",
+              "name": "Hip 90/90 (Devedeset-devedeset pozicija kuka)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            }
+          ]
+        }
+      ]
+    },
+    "de": {
+      "id": "kinra-floor-mobility-flow",
+      "type": "training",
+      "title": "Bodenmobilität · sanfter Ablauf",
+      "summary": "Eine kurze optionale Bewegungspause mit vier leichten Übungen. Kopiere sie in deine Programme, prüfe die Hinweise und passe sie vor dem Start an.",
+      "goal": "Sanfte Mobilität und erholsame Bewegung",
+      "level": "Anfänger",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Wiederhole die kurze Einheit passend zu deinem Alltag. Halte die Bewegungen leicht und angenehm; dies ist kein Programm zur Laststeigerung. Lasse unpassende Bewegungen aus, statt durch Beschwerden zu trainieren.",
+      "considerations": "Eigenes allgemeines Bewegungsbeispiel für Erwachsene. Passe es nach hartem Training an oder lasse es aus; stoppe bei Schmerz, Schwindel oder Unwohlsein. Es verhindert keinen Muskelkater, behandelt keine Verletzung und ersetzt keinen individuellen Rehaplan. Gezählt werden Bewegungen, Atemzüge oder Rollpassagen, keine Sekunden; Dauer wird nicht automatisch protokolliert.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Bodenmobilität · sanfter Ablauf",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme",
+              "name": "Cat-Cow (Mačka-krava — aktivna fleksija/ekstenzija kičme)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0728-thread-the-needle-provlacenje-igle",
+              "name": "Thread The Needle (Provlačenje igle)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0005-adductor-rock-back-ljuljanje-u-adduktor-stretch",
+              "name": "Adductor Rock Back (Ljuljanje u adduktor stretch)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0305-hip-90-90-devedeset-devedeset-pozicija-kuka",
+              "name": "Hip 90/90 (Devedeset-devedeset pozicija kuka)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "en": {
+      "id": "kinra-rolling-practice",
+      "type": "training",
+      "title": "Foam roller · light-pressure practice",
+      "summary": "A short optional movement break with four easy exercises. Copy it to your programs, review the notes and adjust before starting.",
+      "goal": "Gentle mobility and recovery movement",
+      "level": "Beginner",
+      "equipment": [
+        "Foam roller"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Repeat this short session when it fits your schedule. Keep the movements easy and the range comfortable; this is not a load-progression program. Skip any movement that does not suit you rather than pushing through symptoms.",
+      "considerations": "Original general adult movement example. Adapt or skip after a hard workout; stop for pain, dizziness or feeling unwell. It does not prevent soreness, treat injury or replace an individual rehabilitation plan. Counts are movements, breaths or roller passes, not seconds; no duration is logged automatically.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Foam roller · light-pressure practice",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0270-foam-rolling-calves-foam-rolling-listova",
+              "name": "Foam Rolling — Calves (Foam rolling listova)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one short gentle pass out and back over the muscle. Support your weight, avoid joints and sensitive areas, and stop if pressure is painful or causes tingling. Pass count is not seconds or a treatment dose."
+            },
+            {
+              "catalogue_id": "exercise-0271-foam-rolling-hamstrings-foam-rolling-hamstringa",
+              "name": "Foam Rolling — Hamstrings (Foam rolling hamstringa)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one short gentle pass out and back over the muscle. Support your weight, avoid joints and sensitive areas, and stop if pressure is painful or causes tingling. Pass count is not seconds or a treatment dose."
+            },
+            {
+              "catalogue_id": "exercise-0272-foam-rolling-quadriceps-foam-rolling-kvadricepsa",
+              "name": "Foam Rolling — Quadriceps (Foam rolling kvadricepsa)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one short gentle pass out and back over the muscle. Support your weight, avoid joints and sensitive areas, and stop if pressure is painful or causes tingling. Pass count is not seconds or a treatment dose."
+            },
+            {
+              "catalogue_id": "exercise-0273-foam-rolling-upper-back-foam-rolling-gornje-le-a",
+              "name": "Foam Rolling — Upper Back (Foam rolling gornje leđa)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one short gentle pass out and back over the muscle. Support your weight, avoid joints and sensitive areas, and stop if pressure is painful or causes tingling. Pass count is not seconds or a treatment dose."
+            }
+          ]
+        }
+      ]
+    },
+    "bs": {
+      "id": "kinra-rolling-practice",
+      "type": "training",
+      "title": "Valjak · vježbanje uz lagan pritisak",
+      "summary": "Kratka opcionalna pauza za kretanje s četiri lagane vježbe. Kopirajte u programe, pregledajte napomene i prilagodite prije početka.",
+      "goal": "Lagana mobilnost i pokreti za oporavak",
+      "level": "Početni",
+      "equipment": [
+        "Foam roller"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Ponovite kratku sesiju kada vam odgovara. Pokreti ostaju lagani i u udobnom rasponu; ovo nije program povećanja tereta. Preskočite pokret koji vam ne odgovara umjesto rada kroz simptome.",
+      "considerations": "Originalni opšti primjer kretanja za odrasle. Prilagodite ili preskočite nakon teškog treninga; stanite pri bolu, vrtoglavici ili slabosti. Ne sprečava upalu mišića, ne liječi povredu i ne zamjenjuje individualni rehabilitacijski plan. Brojevi su pokreti, udasi ili prolazi valjkom, ne sekunde; trajanje se ne bilježi automatski.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Valjak · vježbanje uz lagan pritisak",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0270-foam-rolling-calves-foam-rolling-listova",
+              "name": "Foam Rolling — Calves (Foam rolling listova)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan kratak blag prolaz preko mišića i nazad. Podržite svoju težinu, izbjegavajte zglobove i osjetljiva mjesta i stanite pri bolu ili trncima. Broj prolaza nije broj sekundi niti terapijska doza."
+            },
+            {
+              "catalogue_id": "exercise-0271-foam-rolling-hamstrings-foam-rolling-hamstringa",
+              "name": "Foam Rolling — Hamstrings (Foam rolling hamstringa)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan kratak blag prolaz preko mišića i nazad. Podržite svoju težinu, izbjegavajte zglobove i osjetljiva mjesta i stanite pri bolu ili trncima. Broj prolaza nije broj sekundi niti terapijska doza."
+            },
+            {
+              "catalogue_id": "exercise-0272-foam-rolling-quadriceps-foam-rolling-kvadricepsa",
+              "name": "Foam Rolling — Quadriceps (Foam rolling kvadricepsa)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan kratak blag prolaz preko mišića i nazad. Podržite svoju težinu, izbjegavajte zglobove i osjetljiva mjesta i stanite pri bolu ili trncima. Broj prolaza nije broj sekundi niti terapijska doza."
+            },
+            {
+              "catalogue_id": "exercise-0273-foam-rolling-upper-back-foam-rolling-gornje-le-a",
+              "name": "Foam Rolling — Upper Back (Foam rolling gornje leđa)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan kratak blag prolaz preko mišića i nazad. Podržite svoju težinu, izbjegavajte zglobove i osjetljiva mjesta i stanite pri bolu ili trncima. Broj prolaza nije broj sekundi niti terapijska doza."
+            }
+          ]
+        }
+      ]
+    },
+    "de": {
+      "id": "kinra-rolling-practice",
+      "type": "training",
+      "title": "Faszienrolle · Üben mit leichtem Druck",
+      "summary": "Eine kurze optionale Bewegungspause mit vier leichten Übungen. Kopiere sie in deine Programme, prüfe die Hinweise und passe sie vor dem Start an.",
+      "goal": "Sanfte Mobilität und erholsame Bewegung",
+      "level": "Anfänger",
+      "equipment": [
+        "Foam roller"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Wiederhole die kurze Einheit passend zu deinem Alltag. Halte die Bewegungen leicht und angenehm; dies ist kein Programm zur Laststeigerung. Lasse unpassende Bewegungen aus, statt durch Beschwerden zu trainieren.",
+      "considerations": "Eigenes allgemeines Bewegungsbeispiel für Erwachsene. Passe es nach hartem Training an oder lasse es aus; stoppe bei Schmerz, Schwindel oder Unwohlsein. Es verhindert keinen Muskelkater, behandelt keine Verletzung und ersetzt keinen individuellen Rehaplan. Gezählt werden Bewegungen, Atemzüge oder Rollpassagen, keine Sekunden; Dauer wird nicht automatisch protokolliert.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Faszienrolle · Üben mit leichtem Druck",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0270-foam-rolling-calves-foam-rolling-listova",
+              "name": "Foam Rolling — Calves (Foam rolling listova)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine kurze sanfte Rollpassage hin und zurück über den Muskel. Stütze dein Gewicht, meide Gelenke und empfindliche Stellen und stoppe bei Schmerz oder Kribbeln. Passagen sind keine Sekunden oder Behandlungsdosis."
+            },
+            {
+              "catalogue_id": "exercise-0271-foam-rolling-hamstrings-foam-rolling-hamstringa",
+              "name": "Foam Rolling — Hamstrings (Foam rolling hamstringa)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine kurze sanfte Rollpassage hin und zurück über den Muskel. Stütze dein Gewicht, meide Gelenke und empfindliche Stellen und stoppe bei Schmerz oder Kribbeln. Passagen sind keine Sekunden oder Behandlungsdosis."
+            },
+            {
+              "catalogue_id": "exercise-0272-foam-rolling-quadriceps-foam-rolling-kvadricepsa",
+              "name": "Foam Rolling — Quadriceps (Foam rolling kvadricepsa)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine kurze sanfte Rollpassage hin und zurück über den Muskel. Stütze dein Gewicht, meide Gelenke und empfindliche Stellen und stoppe bei Schmerz oder Kribbeln. Passagen sind keine Sekunden oder Behandlungsdosis."
+            },
+            {
+              "catalogue_id": "exercise-0273-foam-rolling-upper-back-foam-rolling-gornje-le-a",
+              "name": "Foam Rolling — Upper Back (Foam rolling gornje leđa)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine kurze sanfte Rollpassage hin und zurück über den Muskel. Stütze dein Gewicht, meide Gelenke und empfindliche Stellen und stoppe bei Schmerz oder Kribbeln. Passagen sind keine Sekunden oder Behandlungsdosis."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "en": {
+      "id": "kinra-evening-mobility",
+      "type": "training",
+      "title": "Evening · unwind with movement",
+      "summary": "A short optional movement break with four easy exercises. Copy it to your programs, review the notes and adjust before starting.",
+      "goal": "Gentle mobility and recovery movement",
+      "level": "Beginner",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Repeat this short session when it fits your schedule. Keep the movements easy and the range comfortable; this is not a load-progression program. Skip any movement that does not suit you rather than pushing through symptoms.",
+      "considerations": "Original general adult movement example. Adapt or skip after a hard workout; stop for pain, dizziness or feeling unwell. It does not prevent soreness, treat injury or replace an individual rehabilitation plan. Counts are movements, breaths or roller passes, not seconds; no duration is logged automatically.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Evening · unwind with movement",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0455-pelvic-tilt-neutralna-pozicija-pelvicki-nagib-neutralizacija",
+              "name": "Pelvic Tilt — Neutralna Pozicija (Pelvički nagib — neutralizacija)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0072-book-opening-otvaranje-knjige",
+              "name": "Book Opening (Otvaranje knjige)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0583-seated-thoracic-rotation-sjedeca-torakalna-rotacija",
+              "name": "Seated Thoracic Rotation (Sjedeća torakalna rotacija)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Count one relaxed inhale and exhale as one rep. Breathe normally without breath holding or forcing a depth or rhythm; stop if light-headed. This records breaths, not a timed breathing session."
+            }
+          ]
+        }
+      ]
+    },
+    "bs": {
+      "id": "kinra-evening-mobility",
+      "type": "training",
+      "title": "Večer · opuštanje kroz pokret",
+      "summary": "Kratka opcionalna pauza za kretanje s četiri lagane vježbe. Kopirajte u programe, pregledajte napomene i prilagodite prije početka.",
+      "goal": "Lagana mobilnost i pokreti za oporavak",
+      "level": "Početni",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Ponovite kratku sesiju kada vam odgovara. Pokreti ostaju lagani i u udobnom rasponu; ovo nije program povećanja tereta. Preskočite pokret koji vam ne odgovara umjesto rada kroz simptome.",
+      "considerations": "Originalni opšti primjer kretanja za odrasle. Prilagodite ili preskočite nakon teškog treninga; stanite pri bolu, vrtoglavici ili slabosti. Ne sprečava upalu mišića, ne liječi povredu i ne zamjenjuje individualni rehabilitacijski plan. Brojevi su pokreti, udasi ili prolazi valjkom, ne sekunde; trajanje se ne bilježi automatski.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Večer · opuštanje kroz pokret",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0455-pelvic-tilt-neutralna-pozicija-pelvicki-nagib-neutralizacija",
+              "name": "Pelvic Tilt — Neutralna Pozicija (Pelvički nagib — neutralizacija)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0072-book-opening-otvaranje-knjige",
+              "name": "Book Opening (Otvaranje knjige)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0583-seated-thoracic-rotation-sjedeca-torakalna-rotacija",
+              "name": "Seated Thoracic Rotation (Sjedeća torakalna rotacija)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedan opušten udah i izdah računajte kao ponavljanje. Dišite normalno bez zadržavanja ili forsiranja dubine i ritma; stanite pri omaglici. Bilježite udahe, ne vremensku sesiju disanja."
+            }
+          ]
+        }
+      ]
+    },
+    "de": {
+      "id": "kinra-evening-mobility",
+      "type": "training",
+      "title": "Abends · mit Bewegung entspannen",
+      "summary": "Eine kurze optionale Bewegungspause mit vier leichten Übungen. Kopiere sie in deine Programme, prüfe die Hinweise und passe sie vor dem Start an.",
+      "goal": "Sanfte Mobilität und erholsame Bewegung",
+      "level": "Anfänger",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Wiederhole die kurze Einheit passend zu deinem Alltag. Halte die Bewegungen leicht und angenehm; dies ist kein Programm zur Laststeigerung. Lasse unpassende Bewegungen aus, statt durch Beschwerden zu trainieren.",
+      "considerations": "Eigenes allgemeines Bewegungsbeispiel für Erwachsene. Passe es nach hartem Training an oder lasse es aus; stoppe bei Schmerz, Schwindel oder Unwohlsein. Es verhindert keinen Muskelkater, behandelt keine Verletzung und ersetzt keinen individuellen Rehaplan. Gezählt werden Bewegungen, Atemzüge oder Rollpassagen, keine Sekunden; Dauer wird nicht automatisch protokolliert.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Abends · mit Bewegung entspannen",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0455-pelvic-tilt-neutralna-pozicija-pelvicki-nagib-neutralizacija",
+              "name": "Pelvic Tilt — Neutralna Pozicija (Pelvički nagib — neutralizacija)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0072-book-opening-otvaranje-knjige",
+              "name": "Book Opening (Otvaranje knjige)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0583-seated-thoracic-rotation-sjedeca-torakalna-rotacija",
+              "name": "Seated Thoracic Rotation (Sjedeća torakalna rotacija)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0205-diaphragmatic-breathing-dijafragmalno-disanje",
+              "name": "Diaphragmatic Breathing (Dijafragmalno disanje)",
+              "sets": 1,
+              "reps": "6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Zähle einmal entspanntes Ein- und Ausatmen als Wiederholung. Atme normal ohne Halten oder erzwungene Tiefe und Rhythmus; stoppe bei Benommenheit. Erfasst werden Atemzüge, keine Zeiteinheit."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "en": {
+      "id": "kinra-easy-recovery-mobility",
+      "type": "training",
+      "title": "Easy day · recovery movement",
+      "summary": "A short optional movement break with four easy exercises. Copy it to your programs, review the notes and adjust before starting.",
+      "goal": "Gentle mobility and recovery movement",
+      "level": "Beginner",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Repeat this short session when it fits your schedule. Keep the movements easy and the range comfortable; this is not a load-progression program. Skip any movement that does not suit you rather than pushing through symptoms.",
+      "considerations": "Original general adult movement example. Adapt or skip after a hard workout; stop for pain, dizziness or feeling unwell. It does not prevent soreness, treat injury or replace an individual rehabilitation plan. Counts are movements, breaths or roller passes, not seconds; no duration is logged automatically.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Easy day · recovery movement",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0753-walking-knee-hugs-hod-s-povlacenjem-koljena",
+              "name": "Walking Knee Hugs (Hod s povlačenjem koljena)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0027-arm-circles-kruzenje-rukama",
+              "name": "Arm Circles (Kruženje rukama)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid",
+              "name": "Wall Ankle Mobilization (Mobilizacija gležnja uz zid)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            },
+            {
+              "catalogue_id": "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme",
+              "name": "Cat-Cow (Mačka-krava — aktivna fleksija/ekstenzija kičme)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "One rep means one slow out-and-back movement, on each side where relevant. Use a small comfortable range, pause as needed and keep breathing; do not turn this into a forced stretch or timed hold."
+            }
+          ]
+        }
+      ]
+    },
+    "bs": {
+      "id": "kinra-easy-recovery-mobility",
+      "type": "training",
+      "title": "Lagani dan · pokreti za oporavak",
+      "summary": "Kratka opcionalna pauza za kretanje s četiri lagane vježbe. Kopirajte u programe, pregledajte napomene i prilagodite prije početka.",
+      "goal": "Lagana mobilnost i pokreti za oporavak",
+      "level": "Početni",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Ponovite kratku sesiju kada vam odgovara. Pokreti ostaju lagani i u udobnom rasponu; ovo nije program povećanja tereta. Preskočite pokret koji vam ne odgovara umjesto rada kroz simptome.",
+      "considerations": "Originalni opšti primjer kretanja za odrasle. Prilagodite ili preskočite nakon teškog treninga; stanite pri bolu, vrtoglavici ili slabosti. Ne sprečava upalu mišića, ne liječi povredu i ne zamjenjuje individualni rehabilitacijski plan. Brojevi su pokreti, udasi ili prolazi valjkom, ne sekunde; trajanje se ne bilježi automatski.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Lagani dan · pokreti za oporavak",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0753-walking-knee-hugs-hod-s-povlacenjem-koljena",
+              "name": "Walking Knee Hugs (Hod s povlačenjem koljena)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0027-arm-circles-kruzenje-rukama",
+              "name": "Arm Circles (Kruženje rukama)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid",
+              "name": "Wall Ankle Mobilization (Mobilizacija gležnja uz zid)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            },
+            {
+              "catalogue_id": "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme",
+              "name": "Cat-Cow (Mačka-krava — aktivna fleksija/ekstenzija kičme)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Jedno ponavljanje znači jedan spor pokret i povratak, na svakoj strani gdje je primjenjivo. Koristite mali udoban raspon, odmarajte po potrebi i dišite; ne pretvarajte pokret u forsirano istezanje ili zadržavanje na vrijeme."
+            }
+          ]
+        }
+      ]
+    },
+    "de": {
+      "id": "kinra-easy-recovery-mobility",
+      "type": "training",
+      "title": "Leichter Tag · erholsame Bewegung",
+      "summary": "Eine kurze optionale Bewegungspause mit vier leichten Übungen. Kopiere sie in deine Programme, prüfe die Hinweise und passe sie vor dem Start an.",
+      "goal": "Sanfte Mobilität und erholsame Bewegung",
+      "level": "Anfänger",
+      "equipment": [
+        "Bodyweight"
+      ],
+      "weeks": 1,
+      "sessionsPerWeek": 1,
+      "minutes": 8,
+      "author": "Kinra",
+      "progression": "Wiederhole die kurze Einheit passend zu deinem Alltag. Halte die Bewegungen leicht und angenehm; dies ist kein Programm zur Laststeigerung. Lasse unpassende Bewegungen aus, statt durch Beschwerden zu trainieren.",
+      "considerations": "Eigenes allgemeines Bewegungsbeispiel für Erwachsene. Passe es nach hartem Training an oder lasse es aus; stoppe bei Schmerz, Schwindel oder Unwohlsein. Es verhindert keinen Muskelkater, behandelt keine Verletzung und ersetzt keinen individuellen Rehaplan. Gezählt werden Bewegungen, Atemzüge oder Rollpassagen, keine Sekunden; Dauer wird nicht automatisch protokolliert.",
+      "sources": [
+        {
+          "title": "Kinra original movement guidance · reviewed 21 October 2026",
+          "url": "https://kinra.fit/exercise-guidance.html",
+          "observedDate": "2026-10-21"
+        }
+      ],
+      "days": [
+        {
+          "title": "Leichter Tag · erholsame Bewegung",
+          "exercises": [
+            {
+              "catalogue_id": "exercise-0753-walking-knee-hugs-hod-s-povlacenjem-koljena",
+              "name": "Walking Knee Hugs (Hod s povlačenjem koljena)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0027-arm-circles-kruzenje-rukama",
+              "name": "Arm Circles (Kruženje rukama)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0757-wall-ankle-mobilization-mobilizacija-gleznja-uz-zid",
+              "name": "Wall Ankle Mobilization (Mobilizacija gležnja uz zid)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            },
+            {
+              "catalogue_id": "exercise-0143-cat-cow-macka-krava-aktivna-fleksija-ekstenzija-kicme",
+              "name": "Cat-Cow (Mačka-krava — aktivna fleksija/ekstenzija kičme)",
+              "sets": 1,
+              "reps": "4–6",
+              "rest_seconds": 30,
+              "rpe": 2,
+              "section": "cooldown",
+              "notes": "Eine Wiederholung ist eine langsame Hin-und-zurück-Bewegung, gegebenenfalls je Seite. Nutze einen kleinen angenehmen Weg, pausiere nach Bedarf und atme weiter; kein erzwungenes Dehnen oder Halten auf Zeit."
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

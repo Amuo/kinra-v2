@@ -124,10 +124,13 @@ export function ProgramSummary({
             {display.name}
           </span>
           <span className="num mt-2 block text-caption text-muted-foreground">
-            <Message
-              source="{p0}weeks · {p1}training days"
-              values={{ p0: program.weeks, p1: program.days.length }}
-            />
+            {tr(program.weeks === 1 ? "{count} week" : "{count} weeks", {
+              count: program.weeks,
+            })}
+            {" · "}
+            {tr(program.days.length === 1 ? "{count} training day" : "{count} training days", {
+              count: program.days.length,
+            })}
           </span>
         </span>
         <ChevronDown

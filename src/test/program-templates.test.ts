@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { exerciseById } from "../lib/exercise-catalogue";
 import { featureSchemas } from "../lib/feature-types";
 import { languages, setLanguage } from "../lib/i18n";
+import recoveryTemplates from "../data/recovery-program-templates.json";
 import { programError } from "../lib/programs";
 import {
   localizedTemplate,
@@ -11,15 +12,17 @@ import {
 } from "../lib/program-templates";
 
 describe("original Kinra program examples", () => {
-  it("ships 18 distinct executable training routines and four nutrition examples", () => {
-    expect(programTemplates.filter((p) => p.type === "training")).toHaveLength(18);
+  it("retains 18 training routines and adds eight gentle movement examples beside four nutrition examples", () => {
+    expect(programTemplates.filter((p) => p.type === "training")).toHaveLength(26);
     expect(programTemplates.filter((p) => p.type === "nutrition")).toHaveLength(4);
     expect(new Set(programTemplates.map((p) => p.id)).size).toBe(programTemplates.length);
     const training = programTemplates.filter((p) => p.type === "training");
     expect(new Set(training.map((p) => JSON.stringify(p.days))).size).toBe(training.length);
     for (const template of training) {
       expect(template.sessionsPerWeek).toBe(template.days.length);
-      expect(template.days.length).toBeGreaterThanOrEqual(2);
+      expect(template.days.length).toBeGreaterThanOrEqual(
+        recoveryTemplates.some((p) => p.en.id === template.id) ? 1 : 2,
+      );
       expect(template.progression.length).toBeGreaterThan(80);
       for (const day of template.days) {
         expect(day.exercises.length).toBeGreaterThanOrEqual(4);

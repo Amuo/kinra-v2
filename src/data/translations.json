@@ -9503,5 +9503,162 @@
   "Gyms & fitness": {
     "bs": "Teretane i fitnes",
     "de": "Fitnessstudios"
+  },
+  "Target muscle": {
+    "bs": "Ciljani mišić",
+    "de": "Zielmuskel"
+  },
+  "Primary muscles": {
+    "bs": "Primarni mišići",
+    "de": "Hauptmuskeln"
+  },
+  "Secondary muscles": {
+    "bs": "Sekundarni mišići",
+    "de": "Unterstützende Muskeln"
+  },
+  "Stabilizers": {
+    "bs": "Stabilizatori",
+    "de": "Stabilisatoren"
+  },
+  "Muscle roles": {
+    "bs": "Uloge mišića",
+    "de": "Muskelrollen"
+  },
+  "Muscle filters include primary and secondary muscles.": {
+    "bs": "Filteri mišića obuhvataju primarne i sekundarne mišiće.",
+    "de": "Muskelfilter berücksichtigen Hauptmuskeln und unterstützende Muskeln."
+  },
+  "Main target: {muscles}": {
+    "bs": "Glavni cilj: {muscles}",
+    "de": "Hauptziel: {muscles}"
+  },
+  "Movement details": {
+    "bs": "Detalji pokreta",
+    "de": "Bewegungsdetails"
+  },
+  "Compound movement": {
+    "bs": "Složeni pokret",
+    "de": "Mehrgelenkige Bewegung"
+  },
+  "Isolation movement": {
+    "bs": "Izolacijski pokret",
+    "de": "Isolationsbewegung"
+  },
+  "Both sides together": {
+    "bs": "Obje strane istovremeno",
+    "de": "Beide Seiten gleichzeitig"
+  },
+  "One side at a time": {
+    "bs": "Jedna strana zasebno",
+    "de": "Eine Seite nach der anderen"
+  },
+  "Alternating sides": {
+    "bs": "Naizmjenične strane",
+    "de": "Seiten im Wechsel"
+  },
+  "Movement type": {
+    "bs": "Vrsta pokreta",
+    "de": "Bewegungsart"
+  },
+  "Sides": {
+    "bs": "Strane",
+    "de": "Seiten"
+  },
+  "Training purpose": {
+    "bs": "Namjena u treningu",
+    "de": "Trainingszweck"
+  },
+  "Mobility": {
+    "bs": "Mobilnost",
+    "de": "Beweglichkeit"
+  },
+  "Conditioning": {
+    "bs": "Kondicija",
+    "de": "Kondition"
+  },
+  "Individual plan required": {
+    "bs": "Potreban individualni plan",
+    "de": "Individueller Plan erforderlich"
+  },
+  "Strength": {
+    "bs": "Snaga",
+    "de": "Kraft"
+  },
+  "Recovery": {
+    "bs": "Oporavak",
+    "de": "Erholung"
+  },
+  "Power": {
+    "bs": "Eksplozivna snaga",
+    "de": "Explosivkraft"
+  },
+  "Stability": {
+    "bs": "Stabilnost",
+    "de": "Stabilität"
+  },
+  "Not applicable": {
+    "bs": "Nije primjenjivo",
+    "de": "Nicht zutreffend"
+  },
+  "More filters": {
+    "bs": "Dodatni filteri",
+    "de": "Weitere Filter"
+  },
+  "{p0} exercise references. Explore by movement, muscle or name.": {
+    "bs": "{p0} referenci vježbi. Pretražite po pokretu, mišiću ili nazivu.",
+    "de": "{p0} Übungsreferenzen. Nach Bewegung, Muskel oder Namen suchen."
+  },
+  "{p0} exercises found": {
+    "bs": "Pronađeno vježbi: {p0}",
+    "de": "{p0} Übungen gefunden"
+  },
+  "Machine": {
+    "bs": "Sprava",
+    "de": "Maschine"
+  },
+  "Push-up handles": {
+    "bs": "Ručke za sklekove",
+    "de": "Liegestützgriffe"
+  },
+  "Gymnastic rings": {
+    "bs": "Gimnastičke karike",
+    "de": "Turnringe"
+  },
+  "Smith machine": {
+    "bs": "Smith sprava",
+    "de": "Multipresse"
+  },
+  "Weighted vest": {
+    "bs": "Prsluk s opterećenjem",
+    "de": "Gewichtsweste"
+  },
+  "Platform": {
+    "bs": "Platforma",
+    "de": "Plattform"
+  },
+  "Prednji tibijalis": {
+    "bs": "Prednji tibijalni mišić",
+    "de": "Vorderer Schienbeinmuskel",
+    "en": "Tibialis anterior"
+  },
+  "{count} week": {
+    "bs": "{count} sedmica",
+    "de": "{count} Woche"
+  },
+  "{count} session / week": {
+    "bs": "{count} trening sedmično",
+    "de": "{count} Einheit / Woche"
+  },
+  "{count} plan found": {
+    "bs": "Pronađen {count} plan",
+    "de": "{count} Plan gefunden"
+  },
+  "{count} training day": {
+    "bs": "{count} dan treninga",
+    "de": "{count} Trainingstag"
+  },
+  "{count} training days": {
+    "bs": "{count} dana treninga",
+    "de": "{count} Trainingstage"
   }
 }

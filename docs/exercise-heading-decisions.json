@@ -1,0 +1,418 @@
+[
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 2,
+    "heading": "Barbell Bench Press",
+    "decision": "alias",
+    "targetId": "exercise-0060-bench-press-potisak-s-ravne-klupe",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 3,
+    "heading": "Dumbbell Bench Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-flat-dumbbell-bench-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 4,
+    "heading": "Incline Barbell Bench Press",
+    "decision": "alias",
+    "targetId": "exercise-0330-incline-bench-press-kosi-potisak-gornji-dio-prsa",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 6,
+    "heading": "Decline Barbell Bench Press",
+    "decision": "alias",
+    "targetId": "exercise-0189-decline-bench-press-spusteni-potisak-donji-dio-prsa",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 7,
+    "heading": "Decline Dumbbell Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-decline-dumbbell-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 11,
+    "heading": "Machine Chest Press",
+    "decision": "excluded",
+    "targetId": null,
+    "reason": "Umbrella label: existing narrow- and wide-grip machine presses already cover this movement; no unique implementation described."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 12,
+    "heading": "Hammer Strength Chest Press",
+    "decision": "excluded",
+    "targetId": null,
+    "reason": "Brand label without a distinct machine configuration; existing machine presses cover the described movement."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 13,
+    "heading": "Incline Machine Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-incline-machine-chest-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 14,
+    "heading": "Decline Machine Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-decline-machine-chest-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 15,
+    "heading": "Dumbbell Fly",
+    "decision": "alias",
+    "targetId": "exercise-0219-dumbbell-chest-fly",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 20,
+    "heading": "Chest Dip",
+    "decision": "alias",
+    "targetId": "exercise-0206-dip-parallel-bars-dip-na-paralelnim-rukohvatima",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 21,
+    "heading": "Assisted Chest Dip",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-machine-assisted-chest-dip",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 23,
+    "heading": "Reverse Grip Bench Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-reverse-grip-bench-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 24,
+    "heading": "Guillotine Press",
+    "decision": "excluded",
+    "targetId": null,
+    "reason": "Neck-directed loaded press excluded from general self-guided additions; source lacks an appropriate reviewed teaching progression."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 25,
+    "heading": "Landmine Chest Press",
+    "decision": "alias",
+    "targetId": "exercise-0375-landmine-press",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 26,
+    "heading": "Single Arm Cable Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-single-arm-cable-chest-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 27,
+    "heading": "Svend Press",
+    "decision": "alias",
+    "targetId": "exercise-0686-standing-plate-press",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 28,
+    "heading": "Plate Press",
+    "decision": "alias",
+    "targetId": "exercise-0476-plate-squeeze-press",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 29,
+    "heading": "Around The World",
+    "decision": "alias",
+    "targetId": "exercise-0217-dumbbell-around-the-world",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 30,
+    "heading": "Deficit Push Up",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-deficit-push-up",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 31,
+    "heading": "Ring Push Up",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-ring-push-up",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 32,
+    "heading": "Suspension Chest Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-suspension-chest-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 34,
+    "heading": "Smith Machine Bench Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-smith-machine-flat-bench-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 37,
+    "heading": "Barbell Floor Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-barbell-floor-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 38,
+    "heading": "Dumbbell Floor Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-dumbbell-floor-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 39,
+    "heading": "Hex Press",
+    "decision": "alias",
+    "targetId": "exercise-0237-dumbbell-squeeze-press",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 43,
+    "heading": "Single Arm Dumbbell Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-single-arm-dumbbell-bench-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 44,
+    "heading": "Arched Back Bench Press",
+    "decision": "alias",
+    "targetId": "exercise-0060-bench-press-potisak-s-ravne-klupe",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 45,
+    "heading": "Explosive Push Up",
+    "decision": "alias",
+    "targetId": "exercise-0478-plyometric-push-up-pliometrijski-sklekovi",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 48,
+    "heading": "Weighted Push Up",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-weighted-push-up",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "50_vjezbi_prsa_fitconnect_full.txt",
+    "number": 49,
+    "heading": "Resistance Band Chest Press",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-standing-resistance-band-chest-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 4,
+    "heading": "OVERHEAD PRESS",
+    "decision": "alias",
+    "targetId": "exercise-0446-overhead-press-military-press-potisak-iznad-glave",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 5,
+    "heading": "BARBELL ROW",
+    "decision": "alias",
+    "targetId": "exercise-0062-bent-over-barbell-row-veslanje-sipkom-u-pregibu",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 7,
+    "heading": "HIP THRUST",
+    "decision": "alias",
+    "targetId": "exercise-0044-barbell-hip-thrust",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 8,
+    "heading": "LUNGES",
+    "decision": "alias",
+    "targetId": "exercise-0045-barbell-lunge-iskorak-sa-sipkom",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 9,
+    "heading": "BULLGARIAN SPLIT SQUAT",
+    "decision": "alias",
+    "targetId": "exercise-0094-bulgarian-split-squat",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 18,
+    "heading": "CLEAN",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-squat-clean",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 22,
+    "heading": "LANDMINE SQUAT",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-landmine-squat",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 24,
+    "heading": "CLEAN AND JERK (NABAČAJ I IZBAČAJ)",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-clean-and-jerk",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 25,
+    "heading": "SNATCH (TRZAJ)",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-barbell-snatch",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 26,
+    "heading": "WALKING LUNGES (Dumbbell / Kettlebell)",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-loaded-walking-lunge",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 29,
+    "heading": "DUMBBELL CLEAN AND JERK",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-dumbbell-clean-and-jerk",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 31,
+    "heading": "FLAT DUMBBELL PRESS",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-flat-dumbbell-bench-press",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 35,
+    "heading": "LANDMINE ROW",
+    "decision": "alias",
+    "targetId": "exercise-0719-t-bar-row-veslanje-t-sipkom",
+    "reason": "Same apparatus and movement already represented; retain the existing identity."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 38,
+    "heading": "DEFICIT DEADLIFT",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-deficit-deadlift",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 39,
+    "heading": "PAUSE SQUAT",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-pause-back-squat",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 41,
+    "heading": "PUSH JERK",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-push-jerk",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 42,
+    "heading": "SPLIT JERK",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-split-jerk",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 45,
+    "heading": "HANG SNATCH",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-hang-snatch",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 47,
+    "heading": "SUITCASE DEADLIFT",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-suitcase-deadlift",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 48,
+    "heading": "BARBELL THRUSTER",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-barbell-thruster",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  },
+  {
+    "file": "SLOZENE-radna verzija_1,moja.txt",
+    "number": 50,
+    "heading": "JEFFERSON DEADLIFT",
+    "decision": "new variation",
+    "targetId": "kinra-exercise-jefferson-deadlift",
+    "reason": "Distinct apparatus, support, range, catch or loading pattern; independently authored guide."
+  }
+]

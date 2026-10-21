@@ -14,8 +14,9 @@ const alice = "11000000-0000-4000-8000-000000000001";
 const bob = "11000000-0000-4000-8000-000000000002";
 describe("research catalogue provenance", () => {
   it("retains every research row with stable distinct identities and honest content coverage", () => {
-    expect(exercises).toHaveLength(778);
-    expect(new Set(exercises.map((e) => e.id)).size).toBe(778);
+    expect(exercises.filter((e) => e.id.startsWith("exercise-"))).toHaveLength(778);
+    expect(exercises.filter((e) => e.id.startsWith("kinra-exercise-"))).toHaveLength(30);
+    expect(new Set(exercises.map((e) => e.id)).size).toBe(808);
     expect(programReferences).toHaveLength(18);
     expect(
       exercises.every(

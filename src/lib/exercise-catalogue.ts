@@ -2,7 +2,11 @@ import exerciseData from "../data/exercises.json";
 import programData from "../data/program-references.json";
 import displayNames from "../data/exercise-display-names.json";
 import guidanceData from "../data/exercise-guidance.json";
-import { currentLanguage, type Language } from "./i18n";
+import additionData from "../data/exercise-additions.json";
+import reviewedData from "../data/exercise-reviewed-metadata.json";
+import aliasData from "../data/exercise-reviewed-aliases.json";
+import { reviewedGuide, reviewedTechnique } from "./exercise-reviewed-guides";
+import { currentLanguage, message, type Language } from "./i18n";
 import { guideFamilies, guideLines, type GuideFamily } from "./exercise-guide-content";
 import { variantNote, type VariantNote } from "./exercise-variant-notes";
 import { specificTechnique } from "./exercise-specific-guidance";
@@ -15,6 +19,12 @@ export interface ExerciseCatalogueEntry {
   aliases: string[];
   category: string;
   muscles: string[];
+  primaryMuscles: string[];
+  secondaryMuscles: string[];
+  stabilizerMuscles: string[];
+  mechanics: "compound" | "isolation" | "mobility" | "conditioning" | "clinical";
+  laterality: "bilateral" | "unilateral" | "alternating" | "not-applicable";
+  purpose: string[];
   sourceUrl: string;
   observedDate: string;
   coverage: "metadata";
@@ -48,30 +58,64 @@ interface GuidanceMetadata {
   alternatives: string[];
   media?: { upstreamId: string; sourceName: string; images: string[]; match: string };
 }
-const guidance = guidanceData as Record<string, GuidanceMetadata>;
-export const exercises: ExerciseCatalogueEntry[] = exerciseData.map((entry) => {
-  const meta = guidance[entry.id];
-  if (!meta) throw new Error(`Missing exercise guidance: ${entry.id}`);
-  return {
-    ...entry,
-    coverage: "metadata",
-    instructions: null,
-    media: null,
-    equipment: meta.equipment,
-    difficulty: meta.difficulty,
-    movement: meta.movement,
-    guideFamily: meta.family,
-    isClinical: meta.clinical,
-    alternativeIds: meta.alternatives,
-  };
-});
+const guidance = {
+  ...guidanceData,
+  ...Object.fromEntries(additionData.map((entry) => [entry.id, entry.guidance])),
+} as Record<string, GuidanceMetadata>;
+interface ReviewedMetadata {
+  category?: string;
+  equipment?: string[];
+  primary: string[];
+  secondary: string[];
+  stabilizers: string[];
+  mechanics: ExerciseCatalogueEntry["mechanics"];
+  laterality: ExerciseCatalogueEntry["laterality"];
+  purpose: string[];
+}
+const reviewed = reviewedData as Record<string, ReviewedMetadata>;
+const reviewedAliases = (id: string) => (aliasData as Record<string, string[]>)[id] ?? [];
+export const exercises: ExerciseCatalogueEntry[] = [...exerciseData, ...additionData].map(
+  (entry) => {
+    const meta = guidance[entry.id];
+    if (!meta) throw new Error(`Missing exercise guidance: ${entry.id}`);
+    const annotation = reviewed[entry.id];
+    if (!annotation) throw new Error(`Missing reviewed exercise metadata: ${entry.id}`);
+    return {
+      ...entry,
+      category: annotation.category ?? entry.category,
+      aliases: [...new Set([...entry.aliases, ...reviewedAliases(entry.id)])],
+      muscles: [...new Set([...annotation.primary, ...annotation.secondary])],
+      primaryMuscles: [...annotation.primary],
+      secondaryMuscles: [...annotation.secondary],
+      stabilizerMuscles: [...annotation.stabilizers],
+      mechanics: annotation.mechanics,
+      laterality: annotation.laterality,
+      purpose: annotation.purpose,
+      coverage: "metadata",
+      instructions: null,
+      media: null,
+      equipment: annotation.equipment ?? meta.equipment,
+      difficulty: meta.difficulty,
+      movement: meta.movement,
+      guideFamily: meta.family,
+      isClinical: meta.clinical,
+      alternativeIds: meta.alternatives,
+    };
+  },
+);
 export const programReferences = programData as ProgramReference[];
 export const exerciseCategories = [...new Set(exercises.map((e) => e.category))].sort();
 export const exerciseMuscles = [...new Set(exercises.flatMap((e) => e.muscles))].sort();
 export const exerciseEquipment = [...new Set(exercises.flatMap((e) => e.equipment))].sort();
 export const exerciseDifficulties = ["beginner", "intermediate", "advanced"] as const;
 export const exerciseMovements = [...new Set(exercises.map((e) => e.movement))].sort();
-const localizedNames = displayNames as Record<string, Record<Language, string>>;
+export const exerciseMechanics = [...new Set(exercises.map((e) => e.mechanics))].sort();
+export const exerciseLateralities = [...new Set(exercises.map((e) => e.laterality))].sort();
+export const exercisePurposes = [...new Set(exercises.flatMap((e) => e.purpose))].sort();
+const localizedNames = {
+  ...displayNames,
+  ...Object.fromEntries(additionData.map((entry) => [entry.id, entry.displayNames])),
+} as Record<string, Record<Language, string>>;
 export const exerciseDisplayName = (entry: ExerciseCatalogueEntry, language = currentLanguage()) =>
   localizedNames[entry.id]?.[language] ?? entry.name;
 /** Authored/custom program labels keep their exact text. Only recognized catalogue labels follow the UI locale. */
@@ -102,6 +146,18 @@ const index = exercises.map((exercise) => ({
       ...exercise.equipment,
       exercise.difficulty,
       exercise.movement,
+      ...[
+        exercise.category,
+        ...exercise.muscles,
+        ...exercise.equipment,
+        exercise.difficulty,
+        exercise.movement,
+      ].flatMap((label) =>
+        (["en", "bs", "de"] as const).map((language) => message(label, language)),
+      ),
+      exercise.mechanics,
+      exercise.laterality,
+      ...exercise.purpose,
     ].join(" "),
   ),
 }));
@@ -113,6 +169,9 @@ export function searchExercises(
     equipment?: string;
     difficulty?: string;
     movement?: string;
+    mechanics?: string;
+    laterality?: string;
+    purpose?: string;
   } = {},
 ): ExerciseCatalogueEntry[] {
   const terms = normalize(query).split(/\s+/).filter(Boolean);
@@ -124,6 +183,9 @@ export function searchExercises(
         (!filters.equipment || e.equipment.includes(filters.equipment)) &&
         (!filters.difficulty || e.difficulty === filters.difficulty) &&
         (!filters.movement || e.movement === filters.movement) &&
+        (!filters.mechanics || e.mechanics === filters.mechanics) &&
+        (!filters.laterality || e.laterality === filters.laterality) &&
+        (!filters.purpose || e.purpose.includes(filters.purpose)) &&
         terms.every((term) => text.includes(term)),
     )
     .map(({ exercise }) => exercise);
@@ -153,7 +215,11 @@ export function exerciseGuide(
 ): ExerciseGuideContent {
   const meta = guidance[entry.id];
   if (!meta) throw new Error(`Missing exercise guidance: ${entry.id}`);
-  const content = correctedGuide(entry.id) ?? specialGuide(entry.id) ?? guideFamilies[meta.family];
+  const content =
+    reviewedGuide(entry.id) ??
+    correctedGuide(entry.id) ??
+    specialGuide(entry.id) ??
+    guideFamilies[meta.family];
   const technique = specificTechnique(entry.id, language);
   const variants = meta.variants.map((key) => variantNote(key, language));
   const illustration = !["clinical", "thermal", "protocol"].includes(meta.family);
@@ -176,7 +242,12 @@ export function exerciseGuide(
     },
   }[language];
   return {
-    setup: [...(technique ? [technique] : []), ...guideLines(content.setup, language), ...variants],
+    setup: [
+      ...(reviewedTechnique(entry.id, language) ? [reviewedTechnique(entry.id, language)!] : []),
+      ...(technique ? [technique] : []),
+      ...guideLines(content.setup, language),
+      ...variants,
+    ],
     steps: guideLines(content.steps, language),
     mistakes: guideLines(content.mistakes, language),
     cues: guideLines(content.cues, language),

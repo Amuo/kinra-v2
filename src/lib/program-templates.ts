@@ -1,4 +1,5 @@
 import templateData from "../data/program-templates.json";
+import recoveryData from "../data/recovery-program-templates.json";
 import foodData from "../data/template-food-references.json";
 import type { FeaturePayloads } from "./feature-types";
 import { currentLanguage, type Language } from "./i18n";
@@ -35,7 +36,10 @@ export interface TemplateFoodReference {
 }
 
 /** Original Kinra examples. Archived competitor references remain reference-only. */
-export const templateLocales = templateData as Record<Language, ProgramTemplate>[];
+export const templateLocales = [...templateData, ...recoveryData] as Record<
+  Language,
+  ProgramTemplate
+>[];
 export const programTemplates: ProgramTemplate[] = templateLocales.map((item) => item.en);
 export const templateFoodReferences = foodData as TemplateFoodReference[];
 

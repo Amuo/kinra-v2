@@ -1,0 +1,11 @@
+{
+  "reviewDate": "2026-10-21",
+  "sourceSectionsSha256": "914e1a554b1ab1fb2b5b0298cd75856cb77bfc5913b50e3c814f22efde6c29db",
+  "originalCatalogueSha256": "a992243931b62348cb3f56281a1bfb49840bc97273bcf7f3d9886bf8286090ba",
+  "originalCount": 778,
+  "addedCount": 30,
+  "unmatchedDecisions": 52,
+  "sourceMuscleRoleAnnotations": 749,
+  "reviewedCategoryCorrections": 46,
+  "excludedSource": "50_vjezbi_prsa_fitconnect_full.txt anatomy and repetitive technique ignored; clinical protocols, claims about hormones, DOMS prevention, diagnosis and mandatory ranges/doses not imported."
+}
