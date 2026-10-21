@@ -1,5 +1,5 @@
 import { errorText } from "@/lib/i18n-errors";
-import { t as tr, useLanguage, Message } from "@/lib/i18n";
+import { t as tr, useLanguage, Message, countMessage } from "@/lib/i18n";
 import { useMemo, useState } from "react";
 import { Bookmark, ChevronLeft, Dumbbell, Search, ExternalLink } from "lucide-react";
 import {
@@ -207,7 +207,10 @@ export function ExerciseLibrary({ onPick }: { onPick?: (exercise: Exercise) => v
       </details>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-caption text-muted-foreground" role="status">
-          <Message source="{p0} exercises found" values={{ p0: matches.length }} />
+          <Message
+            source="{count} found"
+            values={{ count: countMessage(matches.length, "exercises") }}
+          />
         </p>
         {(query || activeFilters.length > 0) && (
           <Button variant="ghost" wrap className="min-h-11" onClick={resetFilters}>

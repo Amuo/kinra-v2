@@ -5,6 +5,7 @@ import { LanguageSelector } from "@/components/strata/language-selector";
 import {
   Message,
   countMessage,
+  countNoun,
   format,
   message,
   number,
@@ -79,6 +80,30 @@ describe("language changes", () => {
     setLanguage("de", false);
     expect(countMessage(1, "sets")).toBe("1 Satz");
     expect(countMessage(2, "sets")).toBe("2 Sätze");
+  });
+  it("uses the correct localized exercise count for filtered result status", () => {
+    for (const [language, expected] of [
+      ["en", ["1 exercise found", "2 exercises found", "5 exercises found"]],
+      ["bs", ["Pronađeno: 1 vježba", "Pronađeno: 2 vježbe", "Pronađeno: 5 vježbi"]],
+      ["de", ["1 Übung gefunden", "2 Übungen gefunden", "5 Übungen gefunden"]],
+    ] as const) {
+      setLanguage(language, false);
+      [1, 2, 5].forEach((count, index) => {
+        expect(t("{count} found", { count: countMessage(count, "exercises") })).toBe(
+          expected[index],
+        );
+      });
+    }
+  });
+  it("pluralizes a set label independently from its animated number", () => {
+    for (const [language, expected] of [
+      ["en", ["set", "sets", "sets"]],
+      ["bs", ["serija", "serije", "serija"]],
+      ["de", ["Satz", "Sätze", "Sätze"]],
+    ] as const) {
+      setLanguage(language, false);
+      [1, 2, 5].forEach((count, index) => expect(countNoun(count, "sets")).toBe(expected[index]));
+    }
   });
   it("keeps Bosnian comma decimals when a browser advertises legacy dot formatting", () => {
     setLanguage("bs", false);

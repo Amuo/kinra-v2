@@ -95,6 +95,9 @@ const result = rows.map(([slug, title, numbers]) =>
               catalogue_id: get(n).id,
               name: get(n).name,
               sets: 1,
+              // These examples prescribe unloaded movement, not the last load
+              // logged for an exercise or automatic strength progression.
+              weight: 0,
               reps: n === 205 ? "6" : "4–6",
               rest_seconds: 30,
               rpe: 2,

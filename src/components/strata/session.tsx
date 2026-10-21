@@ -3,7 +3,7 @@ import { cardioMetricsError } from "@/lib/cardio";
 import { sessionPresentation } from "./session-presentation";
 import { programExerciseName } from "@/lib/exercise-catalogue";
 import { errorText } from "@/lib/i18n-errors";
-import { t as tr, useLanguage, Message } from "@/lib/i18n";
+import { t as tr, useLanguage, Message, displayNumber, countNoun } from "@/lib/i18n";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
   AnimatePresence,
@@ -298,7 +298,7 @@ function Stepper({
   const dec = useRepeat(() => press(-step));
   const inc = useRepeat(() => press(step));
   return (
-    <div className="flex-1">
+    <div className="min-w-0 flex-1">
       <div className="eyebrow mb-1.5 text-center">{label}</div>
       <div className="flex items-center gap-1.5">
         <motion.button
@@ -306,7 +306,7 @@ function Stepper({
           whileTap={springPress}
           aria-label={tr("Decrease {p0}", { p0: label })}
           {...dec}
-          className="grid size-11 touch-none select-none place-items-center rounded-full bg-surface-2"
+          className="grid size-11 shrink-0 touch-none select-none place-items-center rounded-full bg-surface-2"
         >
           <Minus className="size-5" strokeWidth={1.75} />
         </motion.button>
@@ -323,7 +323,7 @@ function Stepper({
               "rounded-[14px] underline decoration-dotted decoration-muted-foreground underline-offset-4",
           )}
         >
-          {value}
+          {displayNumber(value)}
           {unit && (
             <span className="ml-0.5 text-caption font-medium text-muted-foreground">{unit}</span>
           )}
@@ -333,7 +333,7 @@ function Stepper({
           whileTap={springPress}
           aria-label={tr("Increase {p0}", { p0: label })}
           {...inc}
-          className="grid size-11 touch-none select-none place-items-center rounded-full bg-surface-2"
+          className="grid size-11 shrink-0 touch-none select-none place-items-center rounded-full bg-surface-2"
         >
           <Plus className="size-5" strokeWidth={1.75} />
         </motion.button>
@@ -486,7 +486,7 @@ function ExerciseCard({
       }
     >
       <div
-        className="flex select-none items-start justify-between gap-2 px-1"
+        className="flex select-none flex-col items-stretch gap-2 px-1 sm:flex-row sm:items-start sm:justify-between"
         onPointerDown={(ev) => {
           const pe = ev.nativeEvent;
           timer.current = setTimeout(() => (haptic.medium(), controls.start(pe)), 380);
@@ -495,7 +495,7 @@ function ExerciseCard({
         onPointerLeave={() => timer.current && clearTimeout(timer.current)}
         onPointerCancel={() => timer.current && clearTimeout(timer.current)}
       >
-        <div className="min-w-0">
+        <div className="min-w-0 w-full sm:flex-1">
           <div
             className={cn(
               "whitespace-normal break-words font-display text-title font-bold hyphens-auto [overflow-wrap:anywhere]",
@@ -514,7 +514,7 @@ function ExerciseCard({
                   : tr("First time — set your baseline")}
           </div>
         </div>
-        <div className="flex shrink-0 items-center">
+        <div className="flex shrink-0 items-center self-end sm:self-auto">
           {ex.sets.some((s) => s.pr) && (
             <Tag tone="volt">
               <Trophy className="size-3" /> <Message source="PR" />
@@ -695,7 +695,7 @@ function ExerciseCard({
           ) : (
             <>
               {" "}
-              <div className="grid grid-cols-[32px_1fr_1fr_1fr_44px] items-center gap-1 px-1 pb-1 text-caption font-semibold uppercase tracking-wide text-muted-foreground">
+              <div className="hidden grid-cols-[32px_1fr_1fr_1fr_44px] items-center gap-1 px-1 pb-1 text-caption font-semibold text-muted-foreground sm:grid">
                 <span>
                   <Message source="Set" />
                 </span>
@@ -822,7 +822,7 @@ function SetRow({
       >
         <div
           className={cn(
-            "relative grid min-h-[48px] grid-cols-[32px_1fr_1fr_1fr_44px] items-center gap-1 rounded-[14px] px-1 transition-opacity",
+            "relative grid min-h-[48px] grid-cols-[minmax(0,1fr)_44px] items-center gap-1 rounded-[14px] px-1 transition-opacity sm:grid-cols-[32px_1fr_1fr_1fr_44px]",
             isCur && !s.done && "bg-surface-2",
             s.done && !isCur && "opacity-60",
           )}
@@ -846,7 +846,7 @@ function SetRow({
             type="button"
             {...lp.handlers}
             onClick={() => !lp.fired.current && c.setActive({ e, s: i })}
-            className="num relative col-span-4 grid min-h-[48px] select-none grid-cols-[32px_1fr_1fr_1fr] items-center gap-1 text-left [-webkit-touch-callout:none]"
+            className="num relative grid min-h-[48px] min-w-0 select-none grid-cols-[44px_minmax(0,1fr)_minmax(0,1fr)] items-center gap-1 py-2 text-left [-webkit-touch-callout:none] sm:col-span-4 sm:grid-cols-[32px_1fr_1fr_1fr] sm:py-0"
             aria-label={tr("Set {p0}{p1}: {p2} kg × {p3}. Hold for options", {
               p0: i + 1,
               p1: s.type && s.type !== "working" ? ` (${s.type})` : "",
@@ -854,7 +854,10 @@ function SetRow({
               p3: s.reps,
             })}
           >
-            <span className="flex items-center">
+            <span className="flex flex-col items-start sm:flex-row sm:items-center">
+              <span className="text-caption font-normal text-muted-foreground sm:hidden">
+                {tr("Set")}
+              </span>
               <AnimatePresence mode="popLayout" initial={false}>
                 {tag ? (
                   <motion.span
@@ -889,11 +892,18 @@ function SetRow({
                 )}
               </AnimatePresence>
             </span>
-            <span className="text-label text-muted-foreground">
-              {p ? `${p.weight}×${p.reps}` : "—"}
+            <span className="order-last col-span-2 col-start-2 break-words text-caption text-muted-foreground sm:order-none sm:col-span-1 sm:col-start-auto sm:text-label">
+              <span className="sm:hidden">{tr("Previous")}: </span>
+              {p ? `${displayNumber(p.weight)} × ${displayNumber(p.reps)}` : "—"}
             </span>
-            <span className="text-center text-body font-bold">{s.kg}</span>
-            <span className="text-center text-body font-bold">{s.reps}</span>
+            <span className="text-center text-body font-bold">
+              {displayNumber(s.kg)}
+              <span className="text-caption font-normal sm:hidden"> kg</span>
+            </span>
+            <span className="text-center text-body font-bold">
+              <span className="font-normal sm:hidden">× </span>
+              {displayNumber(s.reps)}
+            </span>
           </button>
           <motion.button
             type="button"
@@ -942,7 +952,7 @@ function SetRow({
               exit={{ height: 0, opacity: 0 }}
               className="overflow-hidden"
             >
-              <div className="flex gap-3 px-1 pt-3">
+              <div className="flex flex-col gap-4 px-1 pt-3 sm:flex-row sm:gap-3">
                 <Stepper
                   label={tr("Weight")}
                   unit="kg"
@@ -1818,7 +1828,7 @@ function AuthenticatedLiveSession({
                     <span className="block text-label font-bold text-foreground">
                       <Rolling value={doneSets.length} format={(n) => String(Math.round(n))} />
                     </span>
-                    <Message source="sets" />
+                    {countNoun(doneSets.length, "sets")}
                   </div>
                   <div>
                     <span className="block text-label font-bold text-foreground">

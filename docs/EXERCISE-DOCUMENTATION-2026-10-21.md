@@ -28,4 +28,6 @@ The source-section export hash, preserved catalogue hash, source pointers and de
 
 ## Validation
 
+The subsequent mobile audit explicitly prescribes zero additional load in all eight gentle examples. New session starts and new editable copies therefore retain unloaded movement even when the same exercise has weighted history, and do not offer automatic strength progression. Existing saved copies and actual workout records are not rewritten. Regression coverage starts every example against weighted history with both normal and lighter-day preferences, checks localized notes and genuine rep counts, and verifies zero-load save payloads.
+
 Targeted guidance, reviewed-content and template tests passed: 17 tests across three files. Coverage includes the original byte hash and identities, explicit 52-heading decisions, deduplication, target-versus-stabilizer filters, intersecting tags, distinct localized new guides, correct Hip 90/90 direction, preserved clinical boundaries, numeric routine counts, validation and isolated editable copies. Locale validation covers dynamic UI label maps, every reviewed muscle role and added equipment metadata. Final repository checks and browser evidence belong to the release record for the exact candidate; qualified clinical/native-language review and launch acceptance are not claimed.

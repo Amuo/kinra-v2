@@ -9657,6 +9657,10 @@
     "bs": "{count} dan treninga",
     "de": "{count} Trainingstag"
   },
+  "{count} found": {
+    "bs": "Pronađeno: {count}",
+    "de": "{count} gefunden"
+  },
   "{count} training days": {
     "bs": "{count} dana treninga",
     "de": "{count} Trainingstage"

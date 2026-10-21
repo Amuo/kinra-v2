@@ -197,7 +197,8 @@ export function formatDistanceToNow(
 ): string {
   return distanceToNow(value, { ...options, locale: { en: enUS, bs, de }[currentLanguage()] });
 }
-export function countMessage(
+/** Localized noun for counters whose numeric value is rendered separately. */
+export function countNoun(
   count: number,
   noun: "sessions" | "exercises" | "sets" | "days" | "entries" | "programs",
 ): string {
@@ -232,7 +233,10 @@ export function countMessage(
   const selected = currentLanguage();
   const category = new Intl.PluralRules(localeFor[selected]).select(count);
   const index = category === "one" ? 0 : category === "few" ? 1 : 2;
-  return `${number(count)} ${forms[noun][selected][index]}`;
+  return forms[noun][selected][index]!;
+}
+export function countMessage(count: number, noun: Parameters<typeof countNoun>[1]): string {
+  return `${number(count)} ${countNoun(count, noun)}`;
 }
 export const roleLabel = (role: string | null) =>
   t(role === "trainer" ? "Coach" : role === "client" ? "Client" : "Solo");
