@@ -1,4 +1,14 @@
-import { expect, it } from "vitest";
+import { expect, it, vi } from "vitest";
+import type { ReactNode } from "react";
+vi.mock("@tanstack/react-router", () => ({
+  useNavigate: () => () => {},
+  Link: ({ children, to, className }: { children: ReactNode; to: string; className?: string }) => (
+    <a href={to} className={className}>
+      {children}
+    </a>
+  ),
+}));
+import { BusinessHomeSection, BusinessLanding } from "@/components/strata/business-landing";
 import { act, useEffect, Suspense } from "react";
 import { renderToString } from "react-dom/server";
 import { hydrateRoot } from "react-dom/client";
@@ -91,5 +101,55 @@ it.each(["de", "bs"] as const)(
     );
     await act(async () => root!.unmount());
     container.remove();
+  },
+);
+
+it.each([BusinessHomeSection, BusinessLanding])(
+  "hydrates public business content before applying the saved language (%#)",
+  async (Component) => {
+    setLanguage("en", false);
+    let delayed = false;
+    let ready = false;
+    let release!: () => void;
+    const pending = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+    function Content() {
+      if (delayed && !ready) throw pending;
+      return <Component />;
+    }
+    function Shell() {
+      useEffect(() => {
+        setLanguage("de", false);
+      }, []);
+      return (
+        <Suspense fallback={<p>Loading</p>}>
+          <Content />
+        </Suspense>
+      );
+    }
+    const container = document.createElement("div");
+    container.innerHTML = renderToString(<Shell />);
+    const serverText = container.textContent;
+    document.body.append(container);
+    delayed = true;
+    const errors: unknown[] = [];
+    let root: ReturnType<typeof hydrateRoot>;
+    await act(async () => {
+      root = hydrateRoot(container, <Shell />, {
+        onRecoverableError: (error) => errors.push(error),
+      });
+    });
+    expect(currentLanguage()).toBe("de");
+    expect(container.textContent).toBe(serverText);
+    await act(async () => {
+      ready = true;
+      release();
+      await pending;
+    });
+    expect(container.textContent).not.toBe(serverText);
+    await act(async () => root!.unmount());
+    container.remove();
+    expect(errors).toEqual([]);
   },
 );

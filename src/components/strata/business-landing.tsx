@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { LanguageSelector } from "./language-selector";
-import { t, useLanguage } from "@/lib/i18n";
+import { useLanguage } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 const actionClass =
@@ -101,6 +101,7 @@ const workflow = [
 ] as const;
 
 function DemoButton({ className }: { className?: string }) {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   return (
     <button
@@ -122,6 +123,7 @@ function DemoButton({ className }: { className?: string }) {
 
 /** An illustrative product view, with no account data or inert mock controls. */
 function OperationsPreview({ compact = false }: { compact?: boolean }) {
+  const { t } = useLanguage();
   const [view, setView] = useState<"reception" | "schedule">("reception");
   const label = useId();
   return (
@@ -261,7 +263,7 @@ function OperationsPreview({ compact = false }: { compact?: boolean }) {
 }
 
 export function BusinessLanding() {
-  useLanguage();
+  const { t } = useLanguage();
   return (
     <div className="min-h-dvh bg-background text-foreground [overflow-wrap:anywhere]">
       <a
@@ -521,7 +523,7 @@ export function BusinessLanding() {
 }
 
 export function BusinessHomeSection() {
-  useLanguage();
+  const { t } = useLanguage();
   return (
     <section
       id="kinra-business"
