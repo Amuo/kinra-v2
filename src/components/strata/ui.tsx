@@ -128,7 +128,9 @@ export function Stat({
   const sz = { sm: "text-title", md: "text-[1.5rem]", lg: "text-title-l" }[size];
   return (
     <div className="min-w-0">
-      <div className="text-label font-semibold text-muted-foreground">{tr(label)}</div>
+      <div className="min-w-0 break-words text-label font-semibold text-muted-foreground hyphens-auto [overflow-wrap:anywhere]">
+        {tr(label)}
+      </div>
       <div
         className={cn(
           "num mt-1 flex flex-wrap items-baseline gap-x-1 gap-y-1 font-bold leading-tight",

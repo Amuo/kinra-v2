@@ -1596,7 +1596,7 @@ function AuthenticatedLiveSession({
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 30, opacity: 0 }}
             transition={{ type: "spring", stiffness: 380, damping: 38 }}
-            className="fixed inset-x-0 bottom-[92px] z-40 mx-auto w-max"
+            className="fixed inset-x-0 bottom-[calc(164px+env(safe-area-inset-bottom))] z-40 mx-auto w-max max-w-[min(424px,calc(100%_-_24px))]"
           >
             <AnimatePresence>
               {sheet === "quick" && (
@@ -1652,12 +1652,12 @@ function AuthenticatedLiveSession({
                   p0: tr(paused ? "Paused" : "Running"),
                   p1: elapsed,
                 })}
-                className="flex h-11 select-none items-center gap-2.5 pl-4 pr-2 text-label font-bold"
+                className="flex min-h-11 min-w-0 flex-1 select-none flex-wrap items-center gap-x-2.5 gap-y-1 py-2 pl-4 pr-2 text-label font-bold"
               >
                 {paused ? (
-                  <Pause className="size-4" />
+                  <Pause className="size-4 shrink-0" />
                 ) : (
-                  <span className="relative flex size-2.5">
+                  <span className="relative flex size-2.5 shrink-0">
                     <span className="absolute inline-flex size-full animate-ping rounded-full bg-primary-foreground/60" />
                     <span className="relative inline-flex size-2.5 rounded-full bg-primary-foreground" />
                   </span>
@@ -1680,7 +1680,7 @@ function AuthenticatedLiveSession({
                   onClick={paused ? doResume : doPause}
                   aria-label={paused ? tr("Resume session") : tr("Pause session")}
                   className={cn(
-                    "grid size-11 place-items-center rounded-full",
+                    "grid size-11 shrink-0 place-items-center rounded-full",
                     paused ? "bg-primary text-primary-foreground" : "bg-primary-foreground/15",
                   )}
                 >

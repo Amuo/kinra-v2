@@ -1,4 +1,5 @@
 import { MemberPass } from "@/components/strata/business-pass";
+import { CoachCode } from "@/components/strata/coach-code";
 import { CommunityGroups } from "@/components/strata/community-groups";
 import { DeviceReminders } from "@/components/strata/device-reminders";
 import { OrganizationTools } from "@/components/strata/organization-tools";
@@ -14,17 +15,7 @@ import { DeleteKinraData } from "@/components/strata/delete-kinra-data";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { lazy, Suspense, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import {
-  Copy,
-  LogOut,
-  UserPlus,
-  Dumbbell,
-  Users,
-  Camera,
-  Trash2,
-  Save,
-  Loader2,
-} from "lucide-react";
+import { LogOut, UserPlus, Dumbbell, Users, Camera, Trash2, Save, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { useAct, useApi, useMe, useQ } from "@/lib/api";
 import { Avatar, PageHeader, Panel, SectionTitle } from "@/components/strata/ui";
@@ -178,22 +169,7 @@ function MePage() {
           <SectionTitle>
             <Message source="Your coach code" />
           </SectionTitle>
-          <Panel className="grid-lines flex items-center justify-between">
-            <div className="num break-all text-title-l font-bold text-volt">{me.trainer_code}</div>
-            <Button
-              variant="glass"
-              size="icon"
-              aria-label={tr("Copy code")}
-              onClick={() => {
-                if (me.trainer_code) {
-                  navigator.clipboard.writeText(me.trainer_code);
-                  toast.success(tr("Copied"));
-                }
-              }}
-            >
-              <Copy />
-            </Button>
-          </Panel>
+          <CoachCode code={me.trainer_code} />
           <p className="mt-2 text-caption text-muted-foreground">
             <Message source="Clients enter this code in their profile to connect with you." />
           </p>

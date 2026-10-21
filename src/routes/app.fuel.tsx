@@ -1,4 +1,4 @@
-import { t as tr, useLanguage, Message } from "@/lib/i18n";
+import { t as tr, useLanguage, Message, countMessage } from "@/lib/i18n";
 import { createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useRef, useState } from "react";
 import { addDays } from "date-fns";
@@ -106,7 +106,7 @@ function FoodRow({ f }: { f: FoodLog }) {
           <div className="break-words text-body font-semibold">{f.name}</div>
           <div className="num mt-1 text-caption text-muted-foreground">
             <Message
-              source="{p0}g P · {p1}g C · {p2}g F"
+              source="{p0} g P · {p1} g C · {p2} g F"
               values={{ p0: f.protein, p1: f.carbs, p2: f.fat }}
             />
           </div>
@@ -299,7 +299,7 @@ function Fuel() {
             </div>
             <div className="num mt-5 text-center text-caption text-muted-foreground">
               <Message
-                source="{p0}/ {p1}kcal · daily target"
+                source="{p0} / {p1} kcal · daily target"
                 values={{ p0: m.calories, p1: TARGET.calories }}
               />
             </div>
@@ -347,11 +347,10 @@ function Fuel() {
                     </h2>
                     <div className="num mt-1 text-caption text-muted-foreground">
                       <Message
-                        source="{p0}kcal · {p1}{p2}"
+                        source="{calories} kcal · {entries}"
                         values={{
-                          p0: kcal,
-                          p1: list.length,
-                          p2: list.length === 1 ? tr("entry") : tr("entries"),
+                          calories: kcal,
+                          entries: countMessage(list.length, "entries"),
                         }}
                       />
                     </div>
@@ -407,7 +406,7 @@ function Fuel() {
                       <div className="text-label font-semibold">{f.name}</div>
                       <div className="num mt-1 text-caption text-muted-foreground">
                         <Message
-                          source="{p0}kcal · {p1}g protein"
+                          source="{p0} kcal · {p1} g protein"
                           values={{ p0: f.calories, p1: f.protein }}
                         />
                       </div>

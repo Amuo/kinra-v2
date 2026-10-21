@@ -74,12 +74,15 @@ export function FeatureHub() {
           <Message source="Build a routine that fits your life. Start with what matters to you." />
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-3">
-        <Panel onClick={() => setSelected("exercises")} className="border-volt/20 bg-volt/5">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <Panel
+          onClick={() => setSelected("exercises")}
+          className="min-w-0 border-volt/20 bg-volt/5"
+        >
           <p className="eyebrow text-volt">
             <Message source="Explore" />
           </p>
-          <h3 className="mt-3 text-title font-bold">
+          <h3 className="mt-3 break-words text-title font-bold">
             <Message source="Exercise library" />
           </h3>
           <p className="mt-2 text-caption text-muted-foreground">
@@ -87,11 +90,11 @@ export function FeatureHub() {
           </p>
           <ChevronRight className="mt-4 size-5 text-volt" />
         </Panel>
-        <Panel onClick={() => setSelected("references")}>
+        <Panel onClick={() => setSelected("references")} className="min-w-0">
           <p className="eyebrow">
             <Message source="Get inspired" />
           </p>
-          <h3 className="mt-3 text-title font-bold">
+          <h3 className="mt-3 break-words text-title font-bold">
             <Message source="Program library" />
           </h3>
           <p className="mt-2 text-caption text-muted-foreground">

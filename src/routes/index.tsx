@@ -217,7 +217,11 @@ function Landing() {
             Kinra Business
           </Link>
           <LanguageSelector compact />
-          <Link to="/auth" className="flex min-h-[44px] items-center px-2 text-label font-semibold">
+          <Link
+            to="/auth"
+            search={{ mode: "in" }}
+            className="flex min-h-[44px] items-center px-2 text-label font-semibold"
+          >
             <Message source="Sign in" />
           </Link>
         </header>
@@ -237,6 +241,7 @@ function Landing() {
             <motion.div whileTap={press}>
               <Link
                 to="/auth"
+                search={{ mode: "up" }}
                 className="flex min-h-14 min-w-0 items-center justify-center gap-2 rounded-full px-4 py-3 text-center bg-volt-gradient font-semibold text-primary-foreground shadow-glow"
               >
                 <Message source="Start free" />
@@ -284,12 +289,14 @@ function Landing() {
             <LanguageSelector compact />
             <Link
               to="/auth"
+              search={{ mode: "in" }}
               className="flex min-h-[44px] items-center px-4 text-label font-semibold text-muted-foreground hover:text-foreground"
             >
               <Message source="Sign in" />
             </Link>
             <Link
               to="/auth"
+              search={{ mode: "up" }}
               className="flex min-h-[44px] items-center rounded-full bg-primary px-5 text-label font-bold text-primary-foreground"
             >
               <Message source="Start free" />
@@ -313,6 +320,7 @@ function Landing() {
               <motion.div whileTap={press}>
                 <Link
                   to="/auth"
+                  search={{ mode: "up" }}
                   className="flex h-14 items-center gap-2 rounded-full bg-volt-gradient px-8 font-semibold text-primary-foreground shadow-glow"
                 >
                   <Message source="Start free" />
@@ -452,6 +460,7 @@ function Landing() {
         <div className="mt-8 flex flex-col gap-2 md:flex-row md:justify-center">
           <Link
             to="/auth"
+            search={{ mode: "up" }}
             className="flex h-14 items-center justify-center rounded-full bg-volt-gradient px-8 font-semibold text-primary-foreground"
           >
             <Message source="Start free" />

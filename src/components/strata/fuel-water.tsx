@@ -8,7 +8,7 @@ import { clampWater } from "@/lib/fuel";
 import { cn } from "@/lib/utils";
 
 export function FuelWater({ date, owner }: { date: string; owner: string }) {
-  useLanguage();
+  const { number } = useLanguage();
   const key = `strata:water:${owner}:${date}`;
   const [water, setWater] = useState(0);
   useEffect(() => {
@@ -35,7 +35,7 @@ export function FuelWater({ date, owner }: { date: string; owner: string }) {
       <SectionTitle
         action={
           <span className="num text-label text-pulse">
-            {(water * 0.25).toFixed(2).replace(/0$/, "")}{" "}
+            {number(water * 0.25, { minimumFractionDigits: 1, maximumFractionDigits: 2 })}{" "}
             <span className="text-caption text-muted-foreground">
               <Message source="/ 2.0 L" />
             </span>

@@ -10,6 +10,7 @@ for (const label of ["Reminders", "Motivation", "Memberships", "Community", "Mar
     missing.add(`Notification category: ${label}`);
 }
 const configMessages = {
+  "src/routes/app.tsx": ["navigationLabels"],
   "src/components/strata/exercise-guide.tsx": [
     "mechanicsLabels",
     "lateralityLabels",

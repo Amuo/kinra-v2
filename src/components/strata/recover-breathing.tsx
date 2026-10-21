@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { Check, Pause, Play, RotateCcw, Wind, X } from "lucide-react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
-import { breathFrame, BREATH_SECONDS } from "@/lib/recover";
+import { breathFrame, BREATH_SECONDS, BREATH_PHASES } from "@/lib/recover";
 
 export function RecoverBreathing({ onClose }: { onClose: () => void }) {
   useLanguage();
@@ -108,7 +108,7 @@ export function RecoverBreathing({ onClose }: { onClose: () => void }) {
               />
             </div>
             <div className="mt-5 grid grid-cols-4 gap-1 text-center text-caption">
-              {["Inhale", "Hold", "Exhale", "Hold"].map((name, i) => (
+              {BREATH_PHASES.map((name, i) => (
                 <span
                   key={i}
                   className={
@@ -117,7 +117,7 @@ export function RecoverBreathing({ onClose }: { onClose: () => void }) {
                       : "text-muted-foreground"
                   }
                 >
-                  {name}
+                  {tr(name)}
                 </span>
               ))}
             </div>

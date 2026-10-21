@@ -3,7 +3,7 @@ import { errorText } from "@/lib/i18n-errors";
 import { t as tr, useLanguage, Message } from "@/lib/i18n";
 import { lazy, Suspense, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { Plus, Trash2, Save, X, Loader2 } from "lucide-react";
+import { Plus, Trash2, Save, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { useAct, useApi } from "@/lib/api";
 import { blankDay, blankExercise, programDraft, programError } from "@/lib/programs";
@@ -78,16 +78,6 @@ export function ProgramBuilder({
             : tr("Build your next training block.")
       }
     >
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute right-4 top-4 size-11 rounded-full"
-        aria-label={tr("Close program editor")}
-        disabled={save.isPending}
-        onClick={onClose}
-      >
-        <X />
-      </Button>
       <fieldset disabled={save.isPending || !!savedId.current} className="min-w-0 space-y-4">
         <label className="block">
           <span className="mb-2 block text-label font-semibold">

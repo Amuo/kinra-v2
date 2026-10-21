@@ -18,8 +18,9 @@ import { Logo } from "@/components/brand/logo";
 export const Route = createFileRoute("/auth")({
   validateSearch: (
     search: Record<string, unknown>,
-  ): { next?: "/business/dashboard" | undefined } => ({
+  ): { next?: "/business/dashboard" | undefined; mode?: "in" | "up" | undefined } => ({
     next: search["next"] === "/business/dashboard" ? ("/business/dashboard" as const) : undefined,
+    mode: search["mode"] === "in" || search["mode"] === "up" ? search["mode"] : undefined,
   }),
   head: () => ({
     meta: [
@@ -35,10 +36,26 @@ export const Route = createFileRoute("/auth")({
 });
 
 function AuthPage() {
+  const search = Route.useSearch();
+  return (
+    <AuthForm
+      key={search.mode ?? "up"}
+      initialMode={search.mode ?? "up"}
+      destination={authDestination(search.next)}
+    />
+  );
+}
+
+function AuthForm({
+  initialMode,
+  destination,
+}: {
+  initialMode: "in" | "up";
+  destination: ReturnType<typeof authDestination>;
+}) {
   const { t: tr } = useLanguage();
   const navigate = useNavigate();
-  const destination = authDestination(Route.useSearch().next);
-  const [mode, setMode] = useState<"in" | "up">("up");
+  const [mode, setMode] = useState(initialMode);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);

@@ -186,7 +186,12 @@ function Shell({ mode }: { mode: Mode }) {
       <FeaturePreferences />
       <div className="relative mx-auto min-h-dvh max-w-md bg-background md:border-x md:border-border">
         {mode !== "live" && <DemoPill role={role} />}
-        <main className="px-5 pb-36 pt-4">
+        <main
+          className={cn(
+            "px-5 pt-4",
+            session && minimized ? "pb-[calc(15rem+env(safe-area-inset-bottom))]" : "pb-36",
+          )}
+        >
           <motion.div
             key={path}
             initial={{ opacity: 0, y: 8 }}
@@ -370,6 +375,14 @@ const coachTabs: Tab[] = [
   { to: "/app/programs", label: "Programs", icon: ClipboardList },
   { to: "/app/me", label: "Profile", icon: User },
 ];
+const navigationLabels: Record<string, string> = {
+  Today: "Navigation: Today",
+  Train: "Navigation: Train",
+  Fuel: "Navigation: Fuel",
+  Recover: "Navigation: Recover",
+  Progress: "Navigation: Progress",
+  Programs: "Navigation: Programs",
+};
 
 function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
   useLanguage();
@@ -382,6 +395,7 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
       key={t.to}
       to={t.to}
       aria-label={tr(t.label)}
+      aria-current={isActive(t) ? "page" : undefined}
       className="relative flex min-h-[56px] min-w-0 flex-1 basis-0 flex-col items-center justify-center gap-1 px-0.5 py-2"
     >
       {isActive(t) && (
@@ -402,7 +416,7 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
           isActive(t) ? "text-foreground" : "text-muted-foreground",
         )}
       >
-        {tr(t.label)}
+        {tr(navigationLabels[t.label] ?? t.label)}
       </span>
     </Link>
   );
@@ -411,24 +425,18 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
       aria-label={tr("Main")}
       className="pb-safe fixed inset-x-0 bottom-0 z-30 mx-auto max-w-md border-t border-border bg-background/90 px-1 backdrop-blur-xl md:border-x"
     >
-      <div className="flex items-center">
-        {role === "trainer" ? (
-          tabs.map(Item)
-        ) : (
-          <>
-            {tabs.slice(0, 2).map(Item)}
-            <motion.button
-              whileTap={springPress}
-              onClick={onPlus}
-              aria-label={tr("Log something")}
-              className="mx-1 -mt-6 grid size-14 shrink-0 place-items-center rounded-full bg-volt-gradient text-primary-foreground shadow-glow"
-            >
-              <Plus className="size-7" strokeWidth={2.5} />
-            </motion.button>
-            {tabs.slice(2).map(Item)}
-          </>
-        )}
-      </div>
+      <div className="flex items-stretch">{tabs.map(Item)}</div>
+      {role !== "trainer" && (
+        <motion.button
+          type="button"
+          whileTap={springPress}
+          onClick={onPlus}
+          aria-label={tr("Log something")}
+          className="absolute bottom-full right-3 mb-2 grid size-14 place-items-center rounded-full bg-volt-gradient text-primary-foreground shadow-glow"
+        >
+          <Plus className="size-7" strokeWidth={2.5} />
+        </motion.button>
+      )}
     </nav>
   );
 }
@@ -479,7 +487,7 @@ function LogHub({ onClose, onPick }: { onClose: () => void; onPick: (k: LogKind)
             <l.icon className={cn("size-6", l.tone)} />
             <div>
               <div className="font-display text-title font-bold">
-                {i === 0 ? tr("Start workout") : l.label}
+                {i === 0 ? tr("Start workout") : tr(l.label)}
               </div>
               {i === 0 && (
                 <div className="text-caption text-muted-foreground">

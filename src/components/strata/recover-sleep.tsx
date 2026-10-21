@@ -54,7 +54,7 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
               }}
               className={`h-11 rounded-full px-4 text-label ${days === value ? "bg-dream/15 text-dream" : "text-muted-foreground"}`}
             >
-              <Message source="{p0}nights" values={{ p0: value }} />
+              <Message source="{p0} nights" values={{ p0: value }} />
             </Button>
           ))}
         </div>
@@ -91,7 +91,7 @@ export function RecoverSleep({ sleep, onLog }: { sleep: SleepLog[]; onLog: () =>
           </div>
           <div className="mt-2 text-caption text-muted-foreground">
             <Message
-              source="{p0}nights logged · last {p1}"
+              source="Nights logged: {p0} · last {p1}"
               values={{ p0: recorded.length, p1: days }}
             />
           </div>

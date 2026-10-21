@@ -1,4 +1,4 @@
-import { t as tr, useLanguage, Message } from "@/lib/i18n";
+import { t as tr, useLanguage, Message, displayNumber } from "@/lib/i18n";
 import { Sheet } from "@/components/strata/sheets";
 import { createFileRoute } from "@tanstack/react-router";
 import { format } from "@/lib/i18n";
@@ -223,7 +223,7 @@ function Progress() {
               onClick={() => setRange(value)}
               className={`h-11 flex-1 rounded-full text-label ${range === value ? "bg-pulse/15 text-pulse" : "text-muted-foreground"}`}
             >
-              {value}
+              {tr(value)}
             </Button>
           ))}
         </div>
@@ -257,7 +257,7 @@ function Progress() {
                           <Message source="{p0}kg" values={{ p0: m.weight ?? "—" }} />
                           {m.body_fat != null && (
                             <span className="ml-2 font-normal text-muted-foreground">
-                              {m.body_fat}%
+                              {displayNumber(m.body_fat)}%
                             </span>
                           )}
                         </span>

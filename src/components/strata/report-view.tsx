@@ -1,4 +1,4 @@
-import { t as tr, useLanguage, Message } from "@/lib/i18n";
+import { t as tr, useLanguage, Message, displayNumber } from "@/lib/i18n";
 import { format } from "@/lib/i18n";
 import {
   ArrowDownRight,
@@ -59,7 +59,7 @@ export function ReportView({
           <div className="grid min-w-40 flex-1 grid-cols-2 gap-3">
             <div>
               <Stat label={tr("Sessions")} value={s.sessions} tone="volt" />
-              <Delta v={sessDelta} suffix=" vs prev" />
+              <Delta v={sessDelta} suffix={` ${tr("vs previous period")}`} />
             </div>
             <div>
               <Stat
@@ -69,7 +69,7 @@ export function ReportView({
               />
               {s.volumeDeltaPct != null && <Delta v={s.volumeDeltaPct} suffix="%" />}
             </div>
-            <Stat label={tr("Hours")} value={(s.minutes / 60).toFixed(1)} />
+            <Stat label={tr("Hours")} value={displayNumber((s.minutes / 60).toFixed(1))} />
             <Stat label={tr("Avg RPE")} value={s.avgRpe || "—"} />
           </div>
         </div>
@@ -135,7 +135,7 @@ export function ReportView({
             >
               <span className="text-label">{p.exercise}</span>
               <span className="num text-label">
-                <span className="text-muted-foreground">{p.prev || "—"} →</span>{" "}
+                <span className="text-muted-foreground">{displayNumber(p.prev || "—")} →</span>{" "}
                 <b className="text-volt">
                   <Message source="{p0}kg" values={{ p0: p.weight }} />
                 </b>
@@ -176,15 +176,17 @@ function Delta({ v, suffix, neutral }: { v: number; suffix: string; neutral?: bo
         ? "text-ember"
         : "text-muted-foreground";
   return (
-    <div className={`num mt-0.5 flex items-center text-caption ${cls}`}>
+    <div className={`num mt-0.5 flex items-start gap-1 text-caption ${cls}`}>
       {up ? (
-        <ArrowUpRight className="size-3" />
+        <ArrowUpRight className="mt-0.5 size-3 shrink-0" />
       ) : v < 0 ? (
-        <ArrowDownRight className="size-3" />
+        <ArrowDownRight className="mt-0.5 size-3 shrink-0" />
       ) : null}
-      {up ? "+" : ""}
-      {v}
-      {suffix}
+      <span className="min-w-0 break-words">
+        {up ? "+" : ""}
+        {displayNumber(v)}
+        {suffix}
+      </span>
     </div>
   );
 }

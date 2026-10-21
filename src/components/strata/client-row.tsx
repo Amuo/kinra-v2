@@ -44,6 +44,9 @@ export function ClientRow({
   const last = r.workouts[0];
   const t = trend((r.journal ?? []).map((j) => j.mood));
   const TrendIcon = t === "up" ? TrendingUp : t === "down" ? TrendingDown : Minus;
+  const moodTrend = tr(
+    t === "up" ? "Mood improving" : t === "down" ? "Mood declining" : "Mood steady",
+  );
   return (
     <div className="relative min-w-0">
       <div
@@ -136,10 +139,10 @@ export function ClientRow({
                   "mt-1 flex items-center gap-1",
                   t === "up" ? "text-volt" : t === "down" ? "text-ember" : "",
                 )}
-                aria-label={tr("Mood trend {p0}", { p0: t })}
+                aria-label={moodTrend}
               >
                 <TrendIcon className="size-3.5" />
-                <Message source="Mood {p0}" values={{ p0: t === "flat" ? "steady" : t }} />
+                {moodTrend}
               </span>
             )}
           </div>

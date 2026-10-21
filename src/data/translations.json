@@ -9664,5 +9664,91 @@
   "{count} training days": {
     "bs": "{count} dana treninga",
     "de": "{count} Trainingstage"
+  },
+  "Navigation: Today": {
+    "en": "Today",
+    "bs": "Danas",
+    "de": "Heute"
+  },
+  "Navigation: Train": {
+    "en": "Train",
+    "bs": "Trening",
+    "de": "Training"
+  },
+  "Navigation: Fuel": {
+    "en": "Fuel",
+    "bs": "Hrana",
+    "de": "Essen"
+  },
+  "Navigation: Recover": {
+    "en": "Recover",
+    "bs": "Odmor",
+    "de": "Erholen"
+  },
+  "Navigation: Progress": {
+    "en": "Progress",
+    "bs": "Napredak",
+    "de": "Verlauf"
+  },
+  "{p0} nights": {
+    "bs": "Noći: {p0}",
+    "de": "Nächte: {p0}"
+  },
+  "Nights logged: {p0} · last {p1}": {
+    "bs": "Zabilježene noći: {p0} · posljednjih {p1}",
+    "de": "Erfasste Nächte: {p0} · letzte {p1}"
+  },
+  "{p0} g P · {p1} g C · {p2} g F": {
+    "bs": "{p0} g B · {p1} g UH · {p2} g M",
+    "de": "{p0} g E · {p1} g KH · {p2} g F"
+  },
+  "{p0} / {p1} kcal · daily target": {
+    "bs": "{p0} / {p1} kcal · dnevni cilj",
+    "de": "{p0} / {p1} kcal · Tagesziel"
+  },
+  "{p0} kcal · {p1} g protein": {
+    "bs": "{p0} kcal · {p1} g proteina",
+    "de": "{p0} kcal · {p1} g Eiweiß"
+  },
+  "{calories} kcal · {entries}": {
+    "bs": "{calories} kcal · {entries}",
+    "de": "{calories} kcal · {entries}"
+  },
+  "{mode} · {pose} photos: {count}": {
+    "bs": "{mode} · Fotografije ({pose}): {count}",
+    "de": "{mode} · Fotos ({pose}): {count}"
+  },
+  "No photos yet: {pose}": {
+    "bs": "Još nema fotografija: {pose}",
+    "de": "Noch keine Fotos: {pose}"
+  },
+  "Add photo: {pose}": {
+    "bs": "Dodaj fotografiju: {pose}",
+    "de": "Foto hinzufügen: {pose}"
+  },
+  "vs previous period": {
+    "bs": "u odnosu na prethodni period",
+    "de": "zum vorherigen Zeitraum"
+  },
+  "Mood improving": {
+    "bs": "Raspoloženje se poboljšava",
+    "de": "Stimmung verbessert sich"
+  },
+  "Mood declining": {
+    "bs": "Raspoloženje opada",
+    "de": "Stimmung sinkt"
+  },
+  "Mood steady": {
+    "bs": "Stabilno raspoloženje",
+    "de": "Stimmung stabil"
+  },
+  "Couldn't copy the code. Select and copy it manually.": {
+    "bs": "Kopiranje koda nije uspjelo. Označite i kopirajte ga ručno.",
+    "de": "Der Code konnte nicht kopiert werden. Markiere und kopiere ihn manuell."
+  },
+  "Navigation: Programs": {
+    "en": "Programs",
+    "bs": "Planovi",
+    "de": "Pläne"
   }
 }

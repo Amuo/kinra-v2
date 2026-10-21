@@ -134,11 +134,11 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
           )}
           <div className="num px-2 py-2 text-center text-caption text-muted-foreground">
             <Message
-              source="{p0}· {p1} {p2}photos"
+              source="{mode} · {pose} photos: {count}"
               values={{
-                p0: sideBySide ? "Side-by-side comparison" : "Drag to compare",
-                p1: posed.length,
-                p2: poseLabel(pose),
+                mode: tr(sideBySide ? "Side-by-side comparison" : "Drag to compare"),
+                count: posed.length,
+                pose: poseLabel(pose),
               }}
             />
           </div>
@@ -146,7 +146,7 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
       ) : !photos.isLoading && !posed.length ? (
         <Empty
           icon={<Camera className="size-8" />}
-          title={tr("No {p0} photos yet", { p0: pose.toLowerCase() })}
+          title={tr("No photos yet: {pose}", { pose: poseLabel(pose) })}
           body={
             canEdit
               ? tr("Same light, same spot, every 2–4 weeks. Only you and your coach can see them.")
@@ -205,7 +205,9 @@ export function PhotoSection({ userId, canEdit }: { userId: string; canEdit: boo
             onClick={() => input.current?.click()}
           >
             <Camera />{" "}
-            {upload.isPending ? tr("Uploading…") : tr("Add {p0} photo", { p0: pose.toLowerCase() })}
+            {upload.isPending
+              ? tr("Uploading…")
+              : tr("Add photo: {pose}", { pose: poseLabel(pose) })}
           </Button>
         </>
       )}
