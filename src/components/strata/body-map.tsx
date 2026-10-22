@@ -2,6 +2,22 @@ import { useId } from "react";
 import { useLanguage } from "@/lib/i18n";
 import { bodyMuscleLabels, sessionMuscles, type BodyMuscle } from "@/lib/body-map";
 
+// All authored paths use absolute x/y coordinate pairs. Keep contours aligned while
+// broadening the figure and shortening the legs without flattening the head/torso.
+const proportionPath = (path: string) => {
+  let coordinate = 0;
+  return path.replace(/-?\d*\.?\d+/g, (value) => {
+    const original = Number(value);
+    const adjusted =
+      coordinate++ % 2 === 0
+        ? 80 + (original - 70) * 1.15
+        : original <= 150
+          ? original
+          : 150 + (original - 150) * 0.8;
+    return String(Math.round(adjusted * 100) / 100);
+  });
+};
+
 // Original schematic anatomy. Each side is mirrored around the centre line; no external artwork.
 const silhouette =
   "M64 38 C59 36 57 29 57 20 C57 4 83 4 83 20 C83 29 81 36 76 38 L77 44 C84 47 94 47 101 54 C108 62 108 76 112 91 L119 123 L123 149 C125 156 128 164 125 169 C122 172 118 164 116 161 C116 169 112 169 111 164 L111 151 L105 127 L99 111 L94 86 C90 102 88 114 89 127 C89 139 96 149 96 162 C97 182 92 204 89 225 C88 233 92 246 88 264 L82 293 L83 303 C87 308 86 313 80 314 L73 313 L72 298 L75 273 C72 258 72 248 74 233 L71 205 L70 178 L69 205 L66 233 C68 248 68 258 65 273 L68 298 L67 313 L60 314 C54 313 53 308 57 303 L58 293 L52 264 C48 246 52 233 51 225 C48 204 43 182 44 162 C44 149 51 139 51 127 C52 114 50 102 46 86 L41 111 L35 127 L29 151 L29 164 C28 169 24 169 24 161 C22 164 18 172 15 169 C12 164 15 156 17 149 L21 123 L28 91 C32 76 32 62 39 54 C46 47 56 47 63 44 Z";
@@ -105,9 +121,9 @@ export function BodyMap({ exercises }: { exercises: string[] }) {
       <div className="grid grid-cols-2 gap-3">
         {([front, back] as const).map((regions, index) => (
           <div key={index} className="min-w-0 text-center">
-            <svg viewBox="0 0 140 320" className="mx-auto max-h-64 w-full" aria-hidden="true">
+            <svg viewBox="0 0 160 290" className="mx-auto max-h-60 w-full" aria-hidden="true">
               <path
-                d={silhouette}
+                d={proportionPath(silhouette)}
                 fill="var(--surface-2)"
                 stroke="var(--muted-foreground)"
                 strokeOpacity=".55"
@@ -122,8 +138,8 @@ export function BodyMap({ exercises }: { exercises: string[] }) {
                 return [false, ...(mirror ? [true] : [])].map((mirrored) => (
                   <path
                     key={`${region}-${mirrored}`}
-                    d={d}
-                    transform={mirrored ? "translate(140 0) scale(-1 1)" : undefined}
+                    d={proportionPath(d)}
+                    transform={mirrored ? "translate(160 0) scale(-1 1)" : undefined}
                     data-muscle={muscle}
                     data-role={role}
                     fill={role === "inactive" ? "var(--muted-foreground)" : "var(--volt)"}
@@ -135,11 +151,11 @@ export function BodyMap({ exercises }: { exercises: string[] }) {
                 ));
               })}
               <path
-                d={
+                d={proportionPath(
                   index === 0
                     ? "M70 52 L70 79 M70 83 L70 143 M54 233 Q59 238 64 233 M76 233 Q81 238 86 233"
-                    : "M70 47 L70 171 M56 284 L60 299 M84 284 L80 299"
-                }
+                    : "M70 47 L70 171 M56 284 L60 299 M84 284 L80 299",
+                )}
                 fill="none"
                 stroke="var(--muted-foreground)"
                 strokeOpacity=".3"
