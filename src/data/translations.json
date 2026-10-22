@@ -9750,5 +9750,25 @@
     "en": "Programs",
     "bs": "Planovi",
     "de": "Pläne"
+  },
+  "Primary targets": {
+    "bs": "Primarno ciljani mišići",
+    "de": "Primäre Zielmuskeln"
+  },
+  "Supporting muscles": {
+    "bs": "Pomoćni mišići",
+    "de": "Unterstützende Muskeln"
+  },
+  "Estimated from the exercises in this session.": {
+    "bs": "Procjena na osnovu vježbi u ovom treningu.",
+    "de": "Geschätzt anhand der Übungen in dieser Trainingseinheit."
+  },
+  "Some exercises could not be matched to the catalogue.": {
+    "bs": "Neke vježbe nije bilo moguće povezati s katalogom.",
+    "de": "Einige Übungen konnten dem Katalog nicht zugeordnet werden."
+  },
+  "No muscle groups identified.": {
+    "bs": "Nisu utvrđene mišićne grupe.",
+    "de": "Keine Muskelgruppen erkannt."
   }
 }
