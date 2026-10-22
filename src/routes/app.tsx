@@ -189,7 +189,7 @@ function Shell({ mode }: { mode: Mode }) {
         <main
           className={cn(
             "px-5 pt-4",
-            session && minimized ? "pb-[calc(15rem+env(safe-area-inset-bottom))]" : "pb-36",
+            session && minimized ? "pb-[calc(11rem+env(safe-area-inset-bottom))]" : "pb-36",
           )}
         >
           <motion.div
@@ -396,7 +396,10 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
       to={t.to}
       aria-label={tr(t.label)}
       aria-current={isActive(t) ? "page" : undefined}
-      className="relative flex min-h-[56px] min-w-0 flex-1 basis-0 flex-col items-center justify-center gap-1 px-0.5 py-2"
+      className={cn(
+        "relative flex min-h-[56px] min-w-0 flex-1 basis-0 flex-col items-center justify-center gap-1 py-2",
+        role === "trainer" ? "px-0.5" : "min-[384px]:px-0.5",
+      )}
     >
       {isActive(t) && (
         <motion.div
@@ -412,7 +415,10 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
       />
       <span
         className={cn(
-          "max-w-full whitespace-normal break-words hyphens-auto text-center text-caption font-semibold [overflow-wrap:anywhere]",
+          "max-w-full whitespace-normal break-words hyphens-auto text-center font-semibold [overflow-wrap:anywhere]",
+          role === "trainer"
+            ? "text-caption"
+            : "text-[12px] tracking-[-0.025em] min-[384px]:text-caption min-[384px]:tracking-normal",
           isActive(t) ? "text-foreground" : "text-muted-foreground",
         )}
       >
@@ -425,18 +431,25 @@ function TabBar({ role, onPlus }: { role: Role; onPlus: () => void }) {
       aria-label={tr("Main")}
       className="pb-safe fixed inset-x-0 bottom-0 z-30 mx-auto max-w-md border-t border-border bg-background/90 px-1 backdrop-blur-xl md:border-x"
     >
-      <div className="flex items-stretch">{tabs.map(Item)}</div>
-      {role !== "trainer" && (
-        <motion.button
-          type="button"
-          whileTap={springPress}
-          onClick={onPlus}
-          aria-label={tr("Log something")}
-          className="absolute bottom-full right-3 mb-2 grid size-14 place-items-center rounded-full bg-volt-gradient text-primary-foreground shadow-glow"
-        >
-          <Plus className="size-7" strokeWidth={2.5} />
-        </motion.button>
-      )}
+      <div className="flex items-center">
+        {role === "trainer" ? (
+          tabs.map(Item)
+        ) : (
+          <>
+            {tabs.slice(0, 2).map(Item)}
+            <motion.button
+              type="button"
+              whileTap={springPress}
+              onClick={onPlus}
+              aria-label={tr("Log something")}
+              className="mx-1 -mt-6 grid size-14 shrink-0 place-items-center rounded-full bg-volt-gradient text-primary-foreground shadow-glow"
+            >
+              <Plus className="size-7" strokeWidth={2.5} />
+            </motion.button>
+            {tabs.slice(2).map(Item)}
+          </>
+        )}
+      </div>
     </nav>
   );
 }

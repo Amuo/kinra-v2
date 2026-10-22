@@ -1596,7 +1596,7 @@ function AuthenticatedLiveSession({
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 30, opacity: 0 }}
             transition={{ type: "spring", stiffness: 380, damping: 38 }}
-            className="fixed inset-x-0 bottom-[calc(164px+env(safe-area-inset-bottom))] z-40 mx-auto w-max max-w-[min(424px,calc(100%_-_24px))]"
+            className="fixed inset-x-0 bottom-[calc(92px+env(safe-area-inset-bottom))] z-40 mx-auto w-max max-w-[min(424px,calc(100%_-_24px))]"
           >
             <AnimatePresence>
               {sheet === "quick" && (
